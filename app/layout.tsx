@@ -28,7 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <ToastProvider>
                 <LayoutWrapper>
                   <Navbar />
-                  <main className="flex-1 pt-16">{children}</main>
+                  <main className="flex-1 relative z-0">{children}</main>
                   <Footer />
                   <GlobalFullscreenButton />
                 </LayoutWrapper>

@@ -1,208 +1,196 @@
-'use client'
+'use client';
 
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { useEffect, useState } from 'react'
-import { useTheme } from 'next-themes'
-import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
-import { motion, AnimatePresence } from 'framer-motion'
-import InstallPrompt from '@/components/pwa/InstallPrompt'
-import NavContinuePill from './NavContinuePill'
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { Menu, X } from 'lucide-react';
+import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
+
+import InstallPrompt from '@/components/pwa/InstallPrompt';
+import NavContinuePill from './NavContinuePill';
+import { NavbarDropdown } from './NavbarDropdown';
+import { NavbarMobileMenu } from './NavbarMobileMenu';
 
 export default function Navbar() {
-  const pathname = usePathname()
-  const { theme, setTheme, systemTheme } = useTheme()
-  const [open, setOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const pathname = usePathname();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+  // Track scroll for background styling
+  const [scrolled, setScrolled] = useState(false);
+  // Track visibility for "hide on scroll down"
+  const [hidden, setHidden] = useState(false);
+  
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() ?? 0;
+    
+    if (latest > 20) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+
+    // Hide on scroll down, show on scroll up
+    if (latest > 150 && latest > previous) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+  });
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [isMobileMenuOpen]);
 
-  const current = (theme === 'system' ? systemTheme : theme) || 'light'
-  
-  const link = (href: string, label: string) => {
-    const active = pathname === href
-    return (
-      <Link
-        key={href}
-        href={href}
-        onClick={() => setOpen(false)}
-      >
-        <motion.div
-          className={`px-4 py-2 rounded-xl text-sm font-bold transition-all relative ${
-            active ? 'text-white' : 'text-gray-700 dark:text-gray-300'
-          }`}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          {active && (
-            <motion.div
-              layoutId="navbar-active"
-              className="absolute inset-0 bg-linear-to-r from-violet-600 to-fuchsia-600 rounded-xl shadow-lg"
-              transition={{ type: "spring", stiffness: 380, damping: 30 }}
-            />
-          )}
-          <span className="relative z-10">{label}</span>
-        </motion.div>
-      </Link>
-    )
-  }
+  const subjectsMenuItems = [
+    { label: 'Polity', href: '/subjects/polity' },
+    { label: 'History', href: '/subjects/history' },
+    { label: 'Static GK', href: '/subjects/static-gk' },
+    { label: 'Law/BNS', href: '/subjects/law-bns' },
+    { label: 'Hindi', href: '/subjects/hindi' },
+  ];
 
   return (
-    <motion.header 
-      className={`fixed top-0 w-full z-50 transition-all ${
-        scrolled 
-          ? 'backdrop-blur-xl bg-white/80 dark:bg-gray-900/80 border-b border-gray-200/50 dark:border-gray-800/50 shadow-xl' 
-          : 'bg-transparent'
-      }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ type: "spring", stiffness: 100 }}
-    >
-      <nav className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3 group">
-          <motion.div 
-            className="w-11 h-11 rounded-2xl bg-linear-to-br from-violet-600 via-fuchsia-600 to-pink-600 flex items-center justify-center shadow-lg"
-            whileHover={{ scale: 1.1, rotate: 5 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span className="text-white font-black text-xl">N</span>
-          </motion.div>
-          <div className="flex flex-col">
-            <span className="bg-linear-to-r from-violet-600 via-fuchsia-600 to-pink-600 bg-clip-text text-transparent font-black text-xl">
-              Notty
-            </span>
-            <span className="hidden sm:inline text-[10px] font-semibold text-gray-500 dark:text-gray-400 -mt-1">
-              notes that stick
-            </span>
-          </div>
-        </Link>
-
-        <div className="hidden md:flex items-center gap-2">
-          {link('/', 'Home')}
-          <a href="/#subjects">
-            <motion.div
-              className="px-4 py-2 rounded-xl text-sm font-bold text-gray-700 dark:text-gray-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Explore
-            </motion.div>
-          </a>
-          <a href="/#features">
-            <motion.div
-              className="px-4 py-2 rounded-xl text-sm font-bold text-gray-700 dark:text-gray-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Features
-            </motion.div>
-          </a>
-
-          <motion.button
-            type="button"
-            onClick={() => window.dispatchEvent(new Event('notty:openCommand'))}
-            className="px-4 py-2 rounded-xl text-sm font-bold text-gray-700 dark:text-gray-300 flex items-center gap-2"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            aria-label="Open command palette"
-          >
-            <span className="text-xs opacity-60">⌘K</span>
-          </motion.button>
-
-          <NavContinuePill />
-          <InstallPrompt />
-
-          <motion.button
-            type="button"
-            aria-label="Toggle dark mode"
-            onClick={() => setTheme(current === 'dark' ? 'light' : 'dark')}
-            className="ml-2 w-10 h-10 rounded-xl bg-linear-to-br from-violet-600 to-fuchsia-600 text-white flex items-center justify-center shadow-lg"
-            whileHover={{ scale: 1.1, rotate: 180 }}
-            whileTap={{ scale: 0.9 }}
-            suppressHydrationWarning
-          >
-            {current === 'dark' ? '☀️' : '🌙'}
-          </motion.button>
-
-          <SignedOut>
-            <Link href="/sign-in">
-              <motion.div
-                className="ml-2 px-6 py-2 rounded-xl text-sm font-bold bg-linear-to-r from-violet-600 to-fuchsia-600 text-white shadow-lg"
-                whileHover={{ scale: 1.05, boxShadow: '0 10px 30px rgba(139, 92, 246, 0.4)' }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Sign In
-              </motion.div>
-            </Link>
-          </SignedOut>
-          <SignedIn>
-            <UserButton afterSignOutUrl="/" />
-          </SignedIn>
-        </div>
-
-        <motion.button
-          type="button"
-          className="md:hidden p-2 rounded-xl bg-linear-to-br from-violet-600 to-fuchsia-600 text-white"
-          onClick={() => setOpen(!open)}
-          whileTap={{ scale: 0.9 }}
-          aria-label="Toggle menu"
+    <>
+      <motion.header
+        variants={{
+          visible: { y: 0, opacity: 1 },
+          hidden: { y: "-100%", opacity: 0 }
+        }}
+        initial="visible"
+        animate={hidden && !isMobileMenuOpen ? "hidden" : "visible"}
+        transition={{ duration: 0.35, ease: "easeInOut" }}
+        className={`fixed left-0 right-0 top-0 z-50 flex justify-center transition-[padding] duration-500 ${
+          isMobileMenuOpen ? "h-screen px-0" : "top-4 px-4 sm:top-6"
+        }`}
+      >
+        <div
+          className={`relative w-full transition-all duration-500 ${
+            isMobileMenuOpen
+              ? "flex flex-col h-full max-w-none rounded-none px-0 pt-0 bg-black/95 backdrop-blur-3xl border-transparent"
+              : `mx-auto max-w-5xl rounded-full ${
+                  scrolled
+                    ? "bg-black/40 backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]"
+                    : "bg-black/10 backdrop-blur-md border border-white/5 shadow-none"
+                }`
+          }`}
         >
-          {open ? '✖️' : '☰'}
-        </motion.button>
-      </nav>
+          {/* Top Bar - Always Visible */}
+          <div className={`flex w-full items-center justify-between z-50 ${isMobileMenuOpen ? "px-6 py-4" : "px-6 py-3"}`}>
+            {/* Logo */}
+            <Link href="/" className="flex items-center gap-3 group z-50" onClick={() => setIsMobileMenuOpen(false)}>
+              {/* LOGO IMAGE ADDED HERE */}
+              <img src="/logo.jpg" alt="TrickFunda Logo" className="w-12 h-12 object-contain drop-shadow-[0_0_15px_rgba(255,215,0,0.4)]" />
+              <span className="font-black text-2xl tracking-tight text-white drop-shadow-sm">
+                TrickFunda
+              </span>
+            </Link>
 
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-gray-200/50 dark:border-gray-800/50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl overflow-hidden"
-          >
-            <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-2">
-              {link('/', 'Home')}
-              <a href="/#subjects" className="px-4 py-2 rounded-xl text-sm font-bold text-gray-700 dark:text-gray-300">
-                Explore
-              </a>
-              <a href="/#features" className="px-4 py-2 rounded-xl text-sm font-bold text-gray-700 dark:text-gray-300">
-                Features
-              </a>
-              <button
-                type="button"
-                onClick={() => window.dispatchEvent(new Event('notty:openCommand'))}
-                className="px-4 py-2 rounded-xl text-sm font-bold text-gray-700 dark:text-gray-300 text-left"
-                aria-label="Open command palette"
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center gap-2 absolute left-1/2 -translate-x-1/2">
+              <Link
+                href="/kd-method"
+                className="px-4 py-2 rounded-xl text-sm font-bold text-gray-300 transition-colors hover:text-white relative group flex items-center gap-1"
               >
-                ⌘K Search
-              </button>
-              <button
-                type="button"
-                aria-label="Toggle dark mode"
-                onClick={() => setTheme(current === 'dark' ? 'light' : 'dark')}
-                className="mt-2 px-4 py-2 rounded-xl text-sm font-bold bg-linear-to-r from-violet-600 to-fuchsia-600 text-white"
-                suppressHydrationWarning
-              >
-                {current === 'dark' ? '☀️ Light' : '🌙 Dark'}
-              </button>
-              <div className="mt-3 pt-3 border-t border-gray-200 dark:border-gray-700">
-                <SignedOut>
-                  <a href="/sign-in" className="block w-full px-4 py-2 rounded-xl text-sm font-bold bg-linear-to-r from-violet-600 to-fuchsia-600 text-white text-center">
-                    Sign In
-                  </a>
-                </SignedOut>
-                <SignedIn>
-                  <UserButton afterSignOutUrl="/" />
-                </SignedIn>
+                <span className="relative z-10">KD Method</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-violet-500 absolute -top-0 -right-1 opacity-80 shadow-[0_0_10px_rgba(139,92,246,0.8)]" />
+              </Link>
+              
+              <div className="text-gray-300 hover:text-white">
+                <NavbarDropdown label="Subjects" items={subjectsMenuItems} />
               </div>
+              
+              <Link
+                href="/success-stories"
+                className="px-4 py-2 rounded-xl text-sm font-bold text-gray-300 transition-colors hover:text-white"
+              >
+                Success Stories
+              </Link>
+              <Link
+                href="/pricing"
+                className="px-4 py-2 rounded-xl text-sm font-bold text-gray-300 transition-colors hover:text-white"
+              >
+                Pro/Pricing
+              </Link>
+            </nav>
+
+            {/* Actions (Desktop) */}
+            <div className="flex items-center gap-3 z-50">
+              <div className="hidden md:flex items-center gap-3">
+                <div className="text-white hidden lg:block">
+                  <NavContinuePill />
+                </div>
+                <div className="text-white hidden lg:block">
+                  <InstallPrompt />
+                </div>
+
+                {/* Authentication */}
+                <div className="pl-2 border-l border-white/10">
+                  <SignedOut>
+                    <Link href="/sign-in">
+                      <motion.div
+                        className="px-5 py-2 rounded-full text-sm font-bold bg-white text-black hover:bg-gray-200 transition-colors shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        Login
+                      </motion.div>
+                    </Link>
+                  </SignedOut>
+                  <SignedIn>
+                    <UserButton afterSignOutUrl="/" />
+                  </SignedIn>
+                </div>
+              </div>
+
+              {/* Mobile Toggle Button */}
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="md:hidden p-2 text-white transition-transform active:scale-90 z-50 rounded-full bg-white/10 border border-white/10"
+                aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+              >
+                <AnimatePresence mode="wait">
+                  {isMobileMenuOpen ? (
+                    <motion.div
+                      key="close"
+                      initial={{ rotate: -90, opacity: 0 }}
+                      animate={{ rotate: 0, opacity: 1 }}
+                      exit={{ rotate: 90, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <X className="h-5 w-5" />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="menu"
+                      initial={{ rotate: 90, opacity: 0 }}
+                      animate={{ rotate: 0, opacity: 1 }}
+                      exit={{ rotate: -90, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Menu className="h-5 w-5" />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </button>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.header>
-  )
+          </div>
+
+          {/* The Veil - Mobile Menu Overlay */}
+          <AnimatePresence>
+            {isMobileMenuOpen && (
+              <NavbarMobileMenu closeMenu={() => setIsMobileMenuOpen(false)} />
+            )}
+          </AnimatePresence>
+
+        </div>
+      </motion.header>
+    </>
+  );
 }

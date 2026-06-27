@@ -60,7 +60,7 @@ export default function HeroSection() {
         }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 text-center text-white">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 text-center text-white pt-32 flex flex-col items-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -103,6 +103,16 @@ export default function HeroSection() {
           </motion.span>
         </motion.h1>
 
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="w-full max-w-3xl mx-auto mb-8 rounded-3xl overflow-hidden shadow-2xl border border-white/20"
+        >
+          {/* BANNER IMAGE ADDED HERE */}
+          <img src="/banner.jpg" alt="TrickFunda Banner" className="w-full h-auto object-contain bg-black/40 backdrop-blur-sm" />
+        </motion.div>
+
         <motion.p 
           className="text-xl md:text-2xl mb-12 opacity-95 max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
@@ -119,7 +129,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <motion.a 
-            href="#subjects" 
+            href="/kd-method" 
             className="group px-12 py-6 bg-white text-violet-600 rounded-2xl font-black text-xl shadow-2xl relative overflow-hidden"
             whileHover={{ scale: 1.05, boxShadow: '0 20px 60px rgba(236, 72, 153, 0.5)' }}
             whileTap={{ scale: 0.95 }}
