@@ -23,10 +23,8 @@ export default function Footer() {
     })), 
   [])
   const socialLinks = [
-    { icon: '𝕏', label: 'Twitter', href: '#' },
-    { icon: '💼', label: 'LinkedIn', href: '#' },
-    { icon: '📷', label: 'Instagram', href: '#' },
-    { icon: '▶️', label: 'YouTube', href: '#' },
+    { icon: '▶️', label: 'YouTube', href: 'https://www.youtube.com/@TrickFunda' },
+    { icon: '✈️', label: 'Telegram', href: 'https://t.me/trickfunda' },
   ]
 
   const footerSections = [

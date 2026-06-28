@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useAuth, UserButton } from '@clerk/nextjs';
+import { Youtube, Send } from 'lucide-react';
 
 interface NavbarMobileMenuProps {
   closeMenu: () => void;
@@ -58,7 +59,16 @@ export function NavbarMobileMenu({ closeMenu }: NavbarMobileMenuProps) {
         transition={{ delay: 0.6 }}
         className="flex flex-col w-full gap-4 max-w-sm"
       >
-        <div className="flex justify-center w-full mt-4">
+        <div className="flex items-center justify-center gap-8 py-4">
+          <a href="https://www.youtube.com/@TrickFunda" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-red-500 transition-colors">
+            <Youtube className="w-8 h-8" />
+          </a>
+          <a href="https://t.me/trickfunda" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-400 transition-colors">
+            <Send className="w-8 h-8" />
+          </a>
+        </div>
+        
+        <div className="flex justify-center w-full mt-2">
           {!isSignedIn ? (
             <Link 
               href="/sign-in" 

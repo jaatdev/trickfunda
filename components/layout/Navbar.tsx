@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Youtube, Send } from 'lucide-react';
 import { useAuth, UserButton } from '@clerk/nextjs';
 
 import InstallPrompt from '@/components/pwa/InstallPrompt';
@@ -122,9 +122,19 @@ export default function Navbar() {
                 <div className="text-white hidden lg:block">
                   <InstallPrompt />
                 </div>
+                
+                {/* Social Links */}
+                <div className="flex items-center gap-3 pl-2 border-l border-white/10">
+                  <a href="https://www.youtube.com/@TrickFunda" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-red-500 transition-colors">
+                    <Youtube className="w-5 h-5" />
+                  </a>
+                  <a href="https://t.me/trickfunda" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-400 transition-colors">
+                    <Send className="w-5 h-5" />
+                  </a>
+                </div>
 
                 {/* Authentication */}
-                <div className="pl-2 border-l border-white/10">
+                <div className="pl-3 border-l border-white/10">
                   {!isSignedIn ? (
                     <Link
                       href="/sign-in"
