@@ -108,7 +108,11 @@ export function QuizPanel({ questions, topicId, onComplete }: QuizPanelProps) {
           const optionIndex = parseInt(e.key) - 1;
           const option = quiz.currentQuestion?.question.options[optionIndex];
           if (option) {
-            quiz.selectOption(option);
+            const isAdmin = user?.primaryEmailAddress?.emailAddress === 'kc90040@gmail.com';
+            const showAdminFeedback = isAdmin && quiz.currentQuestion?.selectedOptionId;
+            if (!showAdminFeedback) {
+              quiz.selectOption(option);
+            }
           }
           break;
       }
@@ -405,11 +409,15 @@ export function QuizPanel({ questions, topicId, onComplete }: QuizPanelProps) {
                     return (
                       <motion.button
                         key={index}
-                        onClick={() => quiz.selectOption(originalOption)}
+                        onClick={() => {
+                          if (showAdminFeedback) return;
+                          quiz.selectOption(originalOption);
+                        }}
                         className={`
                           w-full p-3 md:p-4 rounded-xl border-2 text-left transition-all
                           flex items-start gap-3 md:gap-4
                           ${buttonStyle}
+                          ${showAdminFeedback ? 'cursor-default' : ''}
                         `}
                       >
                         <span className={`
@@ -430,7 +438,7 @@ export function QuizPanel({ questions, topicId, onComplete }: QuizPanelProps) {
                 <div className="p-4 md:p-6 bg-neutral-50 dark:bg-neutral-800/50 border-t border-neutral-200 dark:border-neutral-800">
                   <div className="flex flex-wrap items-center justify-between gap-3">
                     <div className="flex gap-2 flex-wrap">
-                      {currentAttempt.selectedOptionId && (
+                      {currentAttempt.selectedOptionId && !isAdmin && (
                         <button
                           onClick={quiz.clearAnswer}
                           className="px-3 py-1.5 md:px-4 md:py-2 text-sm md:text-base bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors"
