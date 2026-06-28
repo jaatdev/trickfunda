@@ -161,7 +161,9 @@ export function ConceptInteractiveViewer({ title, notesMarkdown, noteBoxes, pdfU
             <div className="flex-1 w-full h-full relative" onContextMenu={(e) => e.preventDefault()}>
               {isFullscreenPdf && userEmail === 'kc90040@gmail.com' ? (
                 <iframe 
-                  src={`https://trickfunda-canvas.vercel.app/?pdfUrl=${encodeURIComponent(pdfUrl)}`}
+                  src={`https://trickfunda-canvas.vercel.app/?pdfUrl=${encodeURIComponent(
+                    pdfUrl.startsWith('http') ? pdfUrl : (typeof window !== 'undefined' ? window.location.origin + pdfUrl : pdfUrl)
+                  )}`}
                   className="absolute inset-0 w-full h-full border-none" 
                   title={`Trickfunda Canvas for ${title}`}
                   allow="fullscreen"

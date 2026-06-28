@@ -33,6 +33,8 @@ export async function GET(
         // Inline disposition tells the browser to display it rather than downloading
         'Content-Disposition': isDownload ? 'attachment' : 'inline',
         'Cache-Control': 'public, max-age=31536000, immutable',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, OPTIONS',
       },
     });
   } catch (error) {
