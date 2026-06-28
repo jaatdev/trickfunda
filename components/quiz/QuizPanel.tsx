@@ -378,10 +378,29 @@ export function QuizPanel({ questions, topicId, onComplete }: QuizPanelProps) {
                 <div className="p-6 space-y-3">
                   {currentQuestion.options.map((originalOption, index) => {
                     const isSelected = currentAttempt.selectedOptionId === originalOption;
+                    const isCorrect = index === currentQuestion.answerIndex;
+                    const showAdminFeedback = isAdmin && currentAttempt.selectedOptionId;
                     const optionLetter = String.fromCharCode(65 + index); // A, B, C, D
                     
                     const displayOptions = language === 'hi' && currentQuestion.options_hi ? currentQuestion.options_hi : currentQuestion.options;
                     const displayOption = displayOptions[index] || originalOption;
+
+                    let buttonStyle = 'border-neutral-200 dark:border-neutral-700 hover:border-neutral-300 dark:hover:border-neutral-600 bg-white dark:bg-neutral-800';
+                    let letterStyle = 'bg-neutral-100 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-300';
+                    let textStyle = '';
+
+                    if (showAdminFeedback) {
+                      if (isCorrect) {
+                        buttonStyle = 'border-transparent bg-linear-to-r from-green-500 to-emerald-600 text-white shadow-lg';
+                        letterStyle = 'bg-white/20 text-white';
+                      } else if (isSelected) {
+                        buttonStyle = 'border-transparent bg-linear-to-r from-red-500 to-rose-600 text-white shadow-lg';
+                        letterStyle = 'bg-white/20 text-white';
+                      }
+                    } else if (isSelected) {
+                      buttonStyle = `border-transparent bg-linear-to-r ${theme.gradient} text-white shadow-lg`;
+                      letterStyle = 'bg-white/20 text-white';
+                    }
 
                     return (
                       <motion.button
@@ -390,22 +409,16 @@ export function QuizPanel({ questions, topicId, onComplete }: QuizPanelProps) {
                         className={`
                           w-full p-3 md:p-4 rounded-xl border-2 text-left transition-all
                           flex items-start gap-3 md:gap-4
-                          ${isSelected 
-                            ? `border-transparent bg-linear-to-r ${theme.gradient} text-white shadow-lg` 
-                            : 'border-neutral-200 dark:border-neutral-700 hover:border-neutral-300 dark:hover:border-neutral-600 bg-white dark:bg-neutral-800'
-                          }
+                          ${buttonStyle}
                         `}
                       >
                         <span className={`
                           shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm
-                          ${isSelected 
-                            ? 'bg-white/20 text-white' 
-                            : 'bg-neutral-100 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-300'
-                          }
+                          ${letterStyle}
                         `}>
                           {optionLetter}
                         </span>
-                        <span className="flex-1 pt-1 break-words min-w-0 text-sm md:text-base leading-relaxed pointer-events-none">
+                        <span className={`flex-1 pt-1 break-words min-w-0 text-sm md:text-base leading-relaxed pointer-events-none ${textStyle}`}>
                           <MathJax>{displayOption}</MathJax>
                         </span>
                       </motion.button>
