@@ -94,7 +94,7 @@ export function QuizReview({ attempts, score, topicId, onClose }: QuizReviewProp
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-2">
+                  <div className="flex flex-wrap items-center gap-2 mb-2">
                     <span className="px-3 py-1 bg-neutral-100 dark:bg-neutral-800 rounded-full text-sm font-medium">
                       Question {index + 1}
                     </span>
@@ -109,6 +109,11 @@ export function QuizReview({ attempts, score, topicId, onClose }: QuizReviewProp
                     ) : (
                       <span className="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 rounded-full text-sm font-medium">
                         ✗ Incorrect
+                      </span>
+                    )}
+                    {attempt.timeSpent !== undefined && (
+                      <span className="px-3 py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium flex items-center gap-1">
+                        <span>⏱️</span> {formatTime(attempt.timeSpent)}
                       </span>
                     )}
                   </div>
@@ -164,4 +169,11 @@ export function QuizReview({ attempts, score, topicId, onClose }: QuizReviewProp
       </div>
     </div>
   );
+}
+
+// Utility Functions
+function formatTime(seconds: number): string {
+  const mins = Math.floor(seconds / 60);
+  const secs = Math.round(seconds % 60);
+  return `${mins}:${secs.toString().padStart(2, '0')}`;
 }

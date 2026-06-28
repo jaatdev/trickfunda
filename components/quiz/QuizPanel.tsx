@@ -567,8 +567,13 @@ function QuizSidebar({ questions, currentIndex, onQuestionClick, theme }: any) {
 
 // Results Component
 function QuizResults({ score, theme, onRestart, onReview }: any) {
+  const times = score.breakdown.map((b: any) => b.timeSpent || 0);
+  const fastestAnswer = times.length > 0 ? Math.min(...times) : 0;
+  const slowestAnswer = times.length > 0 ? Math.max(...times) : 0;
+  const averageTime = score.averageTimePerQuestion || 0;
+
   return (
-    <div className="min-h-screen bg-linear-to-br from-neutral-50 to-neutral-100 dark:from-neutral-950 dark:to-neutral-900 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-linear-to-br from-neutral-50 to-neutral-100 dark:from-neutral-950 dark:to-neutral-900 flex items-center justify-center p-4 py-12">
       <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
@@ -603,7 +608,7 @@ function QuizResults({ score, theme, onRestart, onReview }: any) {
           </div>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
             <div className="text-center p-4 bg-green-50 dark:bg-green-900/20 rounded-xl">
               <div className="text-2xl font-bold text-green-600 dark:text-green-400">{score.correct}</div>
               <div className="text-sm text-neutral-600 dark:text-neutral-400">Correct</div>
@@ -618,7 +623,28 @@ function QuizResults({ score, theme, onRestart, onReview }: any) {
             </div>
             <div className="text-center p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
               <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">{formatTime(score.totalTimeSpent)}</div>
-              <div className="text-sm text-neutral-600 dark:text-neutral-400">Time</div>
+              <div className="text-sm text-neutral-600 dark:text-neutral-400">Total Time</div>
+            </div>
+          </div>
+
+          {/* Time Analytics */}
+          <div className="bg-neutral-50 dark:bg-neutral-800/50 rounded-xl p-6 mb-8 border border-neutral-200 dark:border-neutral-700">
+            <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+              <span>⏱️</span> Time Analytics
+            </h3>
+            <div className="grid grid-cols-3 gap-4">
+              <div className="text-center">
+                <div className="text-xl font-bold text-emerald-600 dark:text-emerald-400">{formatTime(fastestAnswer)}</div>
+                <div className="text-xs text-neutral-500 uppercase tracking-wider font-semibold mt-1">Fastest</div>
+              </div>
+              <div className="text-center border-l border-r border-neutral-200 dark:border-neutral-700">
+                <div className="text-xl font-bold text-blue-600 dark:text-blue-400">{formatTime(Math.round(averageTime))}</div>
+                <div className="text-xs text-neutral-500 uppercase tracking-wider font-semibold mt-1">Average</div>
+              </div>
+              <div className="text-center">
+                <div className="text-xl font-bold text-rose-600 dark:text-rose-400">{formatTime(slowestAnswer)}</div>
+                <div className="text-xs text-neutral-500 uppercase tracking-wider font-semibold mt-1">Slowest</div>
+              </div>
             </div>
           </div>
 

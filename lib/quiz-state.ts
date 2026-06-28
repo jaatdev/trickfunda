@@ -600,13 +600,16 @@ function quizReducer(state: QuizReducerState, action: QuizAction): QuizReducerSt
       if (!state.session) return state;
 
       const { elapsed, remaining } = action.payload;
+      
+      const previousElapsed = state.timer.timeElapsed || 0;
+      const timeDiff = Math.max(0, elapsed - previousElapsed);
 
       // Update time spent on current question
       const updatedQuestions = [...state.session.questions];
       const currentIndex = state.session.currentQuestionIndex;
       updatedQuestions[currentIndex] = {
         ...updatedQuestions[currentIndex],
-        timeSpent: elapsed,
+        timeSpent: (updatedQuestions[currentIndex].timeSpent || 0) + timeDiff,
       };
 
       return {
