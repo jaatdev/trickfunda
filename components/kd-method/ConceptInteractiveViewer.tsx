@@ -12,6 +12,7 @@ import { NoteBox } from '@/lib/admin-types';
 import NoteBoxRenderer from '@/components/NoteBoxRenderer';
 import { useUser } from '@clerk/nextjs';
 import { KDQuiz } from '@/types/kdMethod';
+import { MathJaxContext } from 'better-react-mathjax';
 
 interface Props {
   title: string;
@@ -62,9 +63,16 @@ export function ConceptInteractiveViewer({ title, notesMarkdown, noteBoxes, pdfU
 
   const activeQuiz = quizzes?.find(q => q.id === activeQuizId);
 
+  const mathJaxConfig = {
+    options: {
+      enableMenu: false,
+    }
+  };
+
   return (
-    <div className="space-y-6">
-      {/* Notes View */}
+    <MathJaxContext config={mathJaxConfig}>
+      <div className="space-y-6">
+        {/* Notes View */}
       <div className={activeQuizId ? 'hidden' : 'block'}>
         
         {/* Render YouTube Videos if present */}
@@ -188,7 +196,12 @@ export function ConceptInteractiveViewer({ title, notesMarkdown, noteBoxes, pdfU
                 onClick={() => setActiveQuizId(q.id)}
                 className="px-10 py-4 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl font-bold text-xl transition-all duration-300 shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_30px_rgba(16,185,129,0.5)] hover:-translate-y-1 active:translate-y-0"
               >
-                Join {q.title}
+                <div className="flex flex-col items-center">
+                  <span>Join {q.title}</span>
+                  <span className="text-xs font-normal opacity-90 mt-1 bg-black/20 px-2 py-0.5 rounded-full">
+                    {q.questions.length} Question{q.questions.length !== 1 ? 's' : ''}
+                  </span>
+                </div>
               </button>
             ))}
           </section>
@@ -220,5 +233,6 @@ export function ConceptInteractiveViewer({ title, notesMarkdown, noteBoxes, pdfU
         </div>
       )}
     </div>
+    </MathJaxContext>
   );
 }

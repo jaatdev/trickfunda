@@ -27,6 +27,7 @@
     "@tiptap/extension-underline": "^3.10.2",
     "@tiptap/react": "^3.10.2",
     "@tiptap/starter-kit": "^3.10.2",
+    "better-react-mathjax": "^3.0.1",
     "canvas-confetti": "^1.9.4",
     "cloudinary": "^2.8.0",
     "clsx": "^2.1.1",

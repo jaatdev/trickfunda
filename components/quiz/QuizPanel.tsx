@@ -11,6 +11,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useQuiz } from '@/lib/quiz-state';
 import { EnhancedQuizQuestion, QuestionStatus } from '@/lib/quiz-types';
 import { QuizQuestion } from '@/lib/types';
+import { MathJax } from 'better-react-mathjax';
 import { getThemeById } from '@/lib/theme-variants';
 import { QuizReview } from './QuizReview';
 
@@ -260,19 +261,40 @@ export function QuizPanel({ questions, topicId, onComplete }: QuizPanelProps) {
           {/* Question Sidebar */}
           <AnimatePresence>
             {showSidebar && (
-              <motion.aside
-                initial={{ x: -300, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                exit={{ x: -300, opacity: 0 }}
-                className="w-64 shrink-0 hidden lg:block"
-              >
-                <QuizSidebar
-                  questions={quiz.session.questions}
-                  currentIndex={quiz.navigation.currentIndex}
-                  onQuestionClick={quiz.goToQuestion}
-                  theme={theme}
+              <>
+                {/* Mobile Backdrop */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  onClick={() => setShowSidebar(false)}
+                  className="fixed inset-0 bg-black/50 z-40 lg:hidden"
                 />
-              </motion.aside>
+                
+                {/* Sidebar Container */}
+                <motion.aside
+                  initial={{ x: -300, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  exit={{ x: -300, opacity: 0 }}
+                  className="fixed lg:static top-0 left-0 h-full lg:h-auto w-72 lg:w-64 bg-white dark:bg-neutral-900 lg:bg-transparent z-50 lg:z-auto p-4 lg:p-0 overflow-y-auto lg:overflow-visible shadow-2xl lg:shadow-none shrink-0"
+                >
+                  <div className="flex justify-between items-center mb-6 lg:hidden pb-4 border-b border-neutral-200 dark:border-neutral-800">
+                    <h3 className="font-bold text-lg">Questions</h3>
+                    <button onClick={() => setShowSidebar(false)} className="p-2 bg-neutral-100 dark:bg-neutral-800 rounded-full hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors">
+                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+                    </button>
+                  </div>
+                  <QuizSidebar
+                    questions={quiz.session.questions}
+                    currentIndex={quiz.navigation.currentIndex}
+                    onQuestionClick={(index) => {
+                      quiz.goToQuestion(index);
+                      if (typeof window !== 'undefined' && window.innerWidth < 1024) setShowSidebar(false);
+                    }}
+                    theme={theme}
+                  />
+                </motion.aside>
+              </>
             )}
           </AnimatePresence>
 
@@ -313,8 +335,8 @@ export function QuizPanel({ questions, topicId, onComplete }: QuizPanelProps) {
                           </button>
                         )}
                       </div>
-                      <h3 className="text-xl font-bold leading-relaxed whitespace-pre-wrap">
-                        {language === 'hi' && currentQuestion.prompt_hi ? currentQuestion.prompt_hi : currentQuestion.prompt}
+                      <h3 className="text-base md:text-xl font-bold leading-relaxed whitespace-pre-wrap break-words min-w-0">
+                        <MathJax>{language === 'hi' && currentQuestion.prompt_hi ? currentQuestion.prompt_hi : currentQuestion.prompt}</MathJax>
                       </h3>
                     </div>
                     
@@ -347,11 +369,9 @@ export function QuizPanel({ questions, topicId, onComplete }: QuizPanelProps) {
                       <motion.button
                         key={index}
                         onClick={() => quiz.selectOption(originalOption)}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
                         className={`
-                          w-full p-4 rounded-xl border-2 text-left transition-all
-                          flex items-start gap-4
+                          w-full p-3 md:p-4 rounded-xl border-2 text-left transition-all
+                          flex items-start gap-3 md:gap-4
                           ${isSelected 
                             ? `border-transparent bg-linear-to-r ${theme.gradient} text-white shadow-lg` 
                             : 'border-neutral-200 dark:border-neutral-700 hover:border-neutral-300 dark:hover:border-neutral-600 bg-white dark:bg-neutral-800'
@@ -367,39 +387,41 @@ export function QuizPanel({ questions, topicId, onComplete }: QuizPanelProps) {
                         `}>
                           {optionLetter}
                         </span>
-                        <span className="flex-1 pt-1">{displayOption}</span>
+                        <span className="flex-1 pt-1 break-words min-w-0 text-sm md:text-base leading-relaxed pointer-events-none">
+                          <MathJax>{displayOption}</MathJax>
+                        </span>
                       </motion.button>
                     );
                   })}
                 </div>
 
                 {/* Actions */}
-                <div className="p-6 bg-neutral-50 dark:bg-neutral-800/50 border-t border-neutral-200 dark:border-neutral-800">
-                  <div className="flex items-center justify-between">
-                    <div className="flex gap-2">
+                <div className="p-4 md:p-6 bg-neutral-50 dark:bg-neutral-800/50 border-t border-neutral-200 dark:border-neutral-800">
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <div className="flex gap-2 flex-wrap">
                       {currentAttempt.selectedOptionId && (
                         <button
                           onClick={quiz.clearAnswer}
-                          className="px-4 py-2 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors"
+                          className="px-3 py-1.5 md:px-4 md:py-2 text-sm md:text-base bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors"
                         >
                           Clear
                         </button>
                       )}
                       <button
                         onClick={quiz.skipQuestion}
-                        className="px-4 py-2 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors"
+                        className="px-3 py-1.5 md:px-4 md:py-2 text-sm md:text-base bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors"
                       >
                         Skip
                       </button>
                     </div>
 
-                    <div className="flex gap-2">
+                    <div className="flex gap-2 flex-wrap">
                       {quiz.navigation.canGoPrevious && (
                         <button
                           onClick={quiz.previousQuestion}
-                          className="px-6 py-2 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors font-medium"
+                          className="px-4 py-1.5 md:px-6 md:py-2 text-sm md:text-base bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors font-medium"
                         >
-                          ← Previous
+                          ← Prev
                         </button>
                       )}
                       
@@ -407,7 +429,7 @@ export function QuizPanel({ questions, topicId, onComplete }: QuizPanelProps) {
                         <button
                           onClick={quiz.nextQuestion}
                           disabled={!currentAttempt.selectedOptionId}
-                          className="px-6 py-2 rounded-lg font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                          className="px-4 py-1.5 md:px-6 md:py-2 text-sm md:text-base rounded-lg font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                           style={{
                             background: currentAttempt.selectedOptionId ? theme.gradient : undefined,
                             color: currentAttempt.selectedOptionId ? 'white' : undefined,
@@ -419,9 +441,9 @@ export function QuizPanel({ questions, topicId, onComplete }: QuizPanelProps) {
                         <button
                           onClick={quiz.submitQuiz}
                           disabled={quiz.navigation.answeredCount === 0}
-                          className="px-6 py-2 rounded-lg font-medium bg-linear-to-r from-green-500 to-emerald-600 text-white hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                          className="px-4 py-1.5 md:px-6 md:py-2 text-sm md:text-base rounded-lg font-medium bg-linear-to-r from-green-500 to-emerald-600 text-white hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                         >
-                          Submit Quiz
+                          Submit
                         </button>
                       )}
                     </div>

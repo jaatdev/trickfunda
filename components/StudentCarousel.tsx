@@ -49,7 +49,7 @@ export default function StudentCarousel() {
   }
 
   return (
-    <div className="relative py-16 overflow-hidden bg-gradient-to-b from-white via-violet-50/30 to-white dark:from-gray-900 dark:via-violet-950/10 dark:to-gray-900">
+    <div id="success-stories" className="relative py-16 overflow-hidden bg-gradient-to-b from-white via-violet-50/30 to-white dark:from-gray-900 dark:via-violet-950/10 dark:to-gray-900">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-12">
           <div className="inline-block px-4 py-2 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white rounded-full text-sm font-bold mb-4">

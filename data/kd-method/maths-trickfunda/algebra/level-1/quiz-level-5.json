@@ -1,0 +1,101 @@
+[
+  {
+    "id": "tf-alg-05-98",
+    "prompt": "If \\( x^{4}+\\frac{1}{x^{4}}=47 \\), find \\( x^{2}-3x+110 \\).",
+    "prompt_hi": "यदि \\( x^{4}+\\frac{1}{x^{4}}=47 \\) है, तो \\( x^{2}-3x+110 \\) का मान ज्ञात करें।",
+    "options": ["109", "107", "108", "111"],
+    "options_hi": ["109", "107", "108", "111"],
+    "answerIndex": 0,
+    "reason": "KD Method: Reverse power twice to find \\( x+\\frac{1}{x} \\). \\( \\sqrt{47+2} = 7 \\), then \\( \\sqrt{7+2} = 3 \\). From \\( x+\\frac{1}{x}=3 \\), we get \\( x^2+1=3x \\Rightarrow x^2-3x=-1 \\). Target is \\( -1 + 110 = 109 \\).",
+    "reason_hi": "KD Method: \\( x+\\frac{1}{x} \\) ज्ञात करने के लिए घात को दो बार उलटें। \\( \\sqrt{47+2} = 7 \\), फिर \\( \\sqrt{7+2} = 3 \\)। \\( x+\\frac{1}{x}=3 \\) से, हमें \\( x^2+1=3x \\Rightarrow x^2-3x=-1 \\) प्राप्त होता है। लक्ष्य \\( -1 + 110 = 109 \\) है।",
+    "meta": { "difficulty": "hard", "tags": ["algebra", "identities", "equation manipulation"] }
+  },
+  {
+    "id": "tf-alg-05-99",
+    "prompt": "If \\( x^{4}+\\frac{1}{x^{4}}=194 \\), find \\( x^{2}-4x+19 \\).",
+    "prompt_hi": "यदि \\( x^{4}+\\frac{1}{x^{4}}=194 \\) है, तो \\( x^{2}-4x+19 \\) का मान ज्ञात करें।",
+    "options": ["16", "18", "17", "20"],
+    "options_hi": ["16", "18", "17", "20"],
+    "answerIndex": 1,
+    "reason": "KD Method: Reverse power twice. \\( \\sqrt{194+2} = 14 \\). \\( \\sqrt{14+2} = 4 \\). From \\( x+\\frac{1}{x}=4 \\), we get \\( x^2-4x=-1 \\). Target is \\( -1 + 19 = 18 \\).",
+    "reason_hi": "KD Method: घात को दो बार उलटें। \\( \\sqrt{194+2} = 14 \\)। \\( \\sqrt{14+2} = 4 \\)। \\( x+\\frac{1}{x}=4 \\) से, हमें \\( x^2-4x=-1 \\) प्राप्त होता है। लक्ष्य \\( -1 + 19 = 18 \\) है।",
+    "meta": { "difficulty": "hard", "tags": ["algebra", "identities", "equation manipulation"] }
+  },
+  {
+    "id": "tf-alg-05-100",
+    "prompt": "If \\( x^{4}+\\frac{1}{x^{4}}=527 \\), find \\( x^{2}-5x+51 \\).",
+    "prompt_hi": "यदि \\( x^{4}+\\frac{1}{x^{4}}=527 \\) है, तो \\( x^{2}-5x+51 \\) का मान ज्ञात करें।",
+    "options": ["48", "49", "50", "52"],
+    "options_hi": ["48", "49", "50", "52"],
+    "answerIndex": 2,
+    "reason": "KD Method: Reverse power twice. \\( \\sqrt{527+2} = 23 \\). \\( \\sqrt{23+2} = 5 \\). From \\( x+\\frac{1}{x}=5 \\), we get \\( x^2-5x=-1 \\). Target is \\( -1 + 51 = 50 \\).",
+    "reason_hi": "KD Method: घात को दो बार उलटें। \\( \\sqrt{527+2} = 23 \\)। \\( \\sqrt{23+2} = 5 \\)। \\( x+\\frac{1}{x}=5 \\) से, हमें \\( x^2-5x=-1 \\) प्राप्त होता है। लक्ष्य \\( -1 + 51 = 50 \\) है।",
+    "meta": { "difficulty": "hard", "tags": ["algebra", "identities", "equation manipulation"] }
+  },
+  {
+    "id": "tf-alg-05-101",
+    "prompt": "If \\( x+\\frac{1}{x}=3 \\text{ and } x^{2}+\\frac{1}{x}=5 \\), find \\( x+\\frac{1}{x^{2}} \\).",
+    "prompt_hi": "यदि \\( x+\\frac{1}{x}=3 \\text{ and } x^{2}+\\frac{1}{x}=5 \\) है, तो \\( x+\\frac{1}{x^{2}} \\) का मान ज्ञात करें।",
+    "options": ["3", "4", "6", "5"],
+    "options_hi": ["3", "4", "6", "5"],
+    "answerIndex": 3,
+    "reason": "KD Method: Add given and target. \\( (x^2+\\frac{1}{x}) + (x+\\frac{1}{x^2}) = (x^2+\\frac{1}{x^2}) + (x+\\frac{1}{x}) \\). Since \\( x+\\frac{1}{x}=3 \\), \\( x^2+\\frac{1}{x^2} = 3^2-2 = 7 \\). Sum is \\( 7+3 = 10 \\). Target is \\( 10 - 5 = 5 \\).",
+    "reason_hi": "KD Method: दिए गए और लक्ष्य को जोड़ें। \\( (x^2+\\frac{1}{x}) + (x+\\frac{1}{x^2}) = (x^2+\\frac{1}{x^2}) + (x+\\frac{1}{x}) \\)। चूँकि \\( x+\\frac{1}{x}=3 \\), \\( x^2+\\frac{1}{x^2} = 3^2-2 = 7 \\)। योग \\( 7+3 = 10 \\) है। लक्ष्य \\( 10 - 5 = 5 \\) है।",
+    "meta": { "difficulty": "hard", "tags": ["algebra", "identities", "symmetry"] }
+  },
+  {
+    "id": "tf-alg-05-102",
+    "prompt": "If \\( x+\\frac{1}{x}=3 \\text{ and } x^{2}+\\frac{1}{x}=6 \\), find \\( x+\\frac{1}{x^{2}} \\).",
+    "prompt_hi": "यदि \\( x+\\frac{1}{x}=3 \\text{ and } x^{2}+\\frac{1}{x}=6 \\) है, तो \\( x+\\frac{1}{x^{2}} \\) का मान ज्ञात करें।",
+    "options": ["4", "2", "3", "5"],
+    "options_hi": ["4", "2", "3", "5"],
+    "answerIndex": 0,
+    "reason": "KD Method: Sum of expressions is \\( (x^2+\\frac{1}{x^2}) + (x+\\frac{1}{x}) \\). From \\( x+\\frac{1}{x}=3 \\), we have \\( 7+3 = 10 \\). Given part is 6, so target is \\( 10 - 6 = 4 \\).",
+    "reason_hi": "KD Method: व्यंजकों का योग \\( (x^2+\\frac{1}{x^2}) + (x+\\frac{1}{x}) \\) है। \\( x+\\frac{1}{x}=3 \\) से, हमारे पास \\( 7+3 = 10 \\) है। दिया गया भाग 6 है, इसलिए लक्ष्य \\( 10 - 6 = 4 \\) है।",
+    "meta": { "difficulty": "hard", "tags": ["algebra", "identities", "symmetry"] }
+  },
+  {
+    "id": "tf-alg-05-103",
+    "prompt": "If \\( x+\\frac{1}{x}=4 \\text{ and } x^{2}+\\frac{1}{x}=12 \\), find \\( x+\\frac{1}{x^{2}} \\).",
+    "prompt_hi": "यदि \\( x+\\frac{1}{x}=4 \\text{ and } x^{2}+\\frac{1}{x}=12 \\) है, तो \\( x+\\frac{1}{x^{2}} \\) का मान ज्ञात करें।",
+    "options": ["4", "6", "5", "8"],
+    "options_hi": ["4", "6", "5", "8"],
+    "answerIndex": 1,
+    "reason": "KD Method: Sum is \\( (x^2+\\frac{1}{x^2}) + (x+\\frac{1}{x}) \\). From \\( k=4 \\), \\( x^2+\\frac{1}{x^2} = 4^2-2 = 14 \\). Sum = \\( 14+4 = 18 \\). Target is \\( 18 - 12 = 6 \\).",
+    "reason_hi": "KD Method: योग \\( (x^2+\\frac{1}{x^2}) + (x+\\frac{1}{x}) \\) है। \\( k=4 \\) से, \\( x^2+\\frac{1}{x^2} = 4^2-2 = 14 \\)। योग = \\( 14+4 = 18 \\)। लक्ष्य \\( 18 - 12 = 6 \\) है।",
+    "meta": { "difficulty": "hard", "tags": ["algebra", "identities", "symmetry"] }
+  },
+  {
+    "id": "tf-alg-05-104",
+    "prompt": "If \\( x+\\frac{1}{x}=3 \\text{ and } x^{4}+\\frac{1}{x^{2}}=40 \\), find \\( x^{2}+\\frac{1}{x^{4}} \\).",
+    "prompt_hi": "यदि \\( x+\\frac{1}{x}=3 \\text{ and } x^{4}+\\frac{1}{x^{2}}=40 \\) है, तो \\( x^{2}+\\frac{1}{x^{4}} \\) का मान ज्ञात करें।",
+    "options": ["12", "13", "14", "16"],
+    "options_hi": ["12", "13", "14", "16"],
+    "answerIndex": 2,
+    "reason": "KD Method: Add expressions: \\( (x^4+\\frac{1}{x^4}) + (x^2+\\frac{1}{x^2}) \\). For \\( k=3 \\), \\( x^2+\\frac{1}{x^2}=7 \\) and \\( x^4+\\frac{1}{x^4}=47 \\). Sum = \\( 47+7 = 54 \\). Target is \\( 54 - 40 = 14 \\).",
+    "reason_hi": "KD Method: व्यंजकों को जोड़ें: \\( (x^4+\\frac{1}{x^4}) + (x^2+\\frac{1}{x^2}) \\)। \\( k=3 \\) के लिए, \\( x^2+\\frac{1}{x^2}=7 \\) और \\( x^4+\\frac{1}{x^4}=47 \\)। योग = \\( 47+7 = 54 \\)। लक्ष्य \\( 54 - 40 = 14 \\) है।",
+    "meta": { "difficulty": "hard", "tags": ["algebra", "identities", "symmetry"] }
+  },
+  {
+    "id": "tf-alg-05-105",
+    "prompt": "If \\( x+\\frac{1}{x}=5 \\text{ and } x^{4}+\\frac{1}{x^{2}}=500 \\), find \\( x^{2}+\\frac{1}{x^{4}} \\).",
+    "prompt_hi": "यदि \\( x+\\frac{1}{x}=5 \\text{ and } x^{4}+\\frac{1}{x^{2}}=500 \\) है, तो \\( x^{2}+\\frac{1}{x^{4}} \\) का मान ज्ञात करें।",
+    "options": ["45", "48", "55", "50"],
+    "options_hi": ["45", "48", "55", "50"],
+    "answerIndex": 3,
+    "reason": "KD Method: Sum is \\( (x^4+\\frac{1}{x^4}) + (x^2+\\frac{1}{x^2}) \\). For \\( k=5 \\), \\( x^2+\\frac{1}{x^2}=23 \\) and \\( x^4+\\frac{1}{x^4}=527 \\). Sum = \\( 527+23 = 550 \\). Target is \\( 550 - 500 = 50 \\).",
+    "reason_hi": "KD Method: योग \\( (x^4+\\frac{1}{x^4}) + (x^2+\\frac{1}{x^2}) \\) है। \\( k=5 \\) के लिए, \\( x^2+\\frac{1}{x^2}=23 \\) और \\( x^4+\\frac{1}{x^4}=527 \\)। योग = \\( 527+23 = 550 \\)। लक्ष्य \\( 550 - 500 = 50 \\) है।",
+    "meta": { "difficulty": "hard", "tags": ["algebra", "identities", "symmetry"] }
+  },
+  {
+    "id": "tf-alg-05-106",
+    "prompt": "If \\( x+\\frac{1}{x}=4 \\text{ and } x+\\frac{1}{x^{4}}=50 \\), find \\( x^{4}+\\frac{1}{x} \\).",
+    "prompt_hi": "यदि \\( x+\\frac{1}{x}=4 \\text{ and } x+\\frac{1}{x^{4}}=50 \\) है, तो \\( x^{4}+\\frac{1}{x} \\) का मान ज्ञात करें।",
+    "options": ["148", "144", "146", "150"],
+    "options_hi": ["148", "144", "146", "150"],
+    "answerIndex": 0,
+    "reason": "KD Method: Sum is \\( (x^4+\\frac{1}{x^4}) + (x+\\frac{1}{x}) \\). For \\( k=4 \\), \\( x^2+\\frac{1}{x^2}=14 \\) and \\( x^4+\\frac{1}{x^4}=194 \\). Sum = \\( 194+4 = 198 \\). Target is \\( 198 - 50 = 148 \\).",
+    "reason_hi": "KD Method: योग \\( (x^4+\\frac{1}{x^4}) + (x+\\frac{1}{x}) \\) है। \\( k=4 \\) के लिए, \\( x^2+\\frac{1}{x^2}=14 \\) और \\( x^4+\\frac{1}{x^4}=194 \\)। योग = \\( 194+4 = 198 \\)। लक्ष्य \\( 198 - 50 = 148 \\) है।",
+    "meta": { "difficulty": "hard", "tags": ["algebra", "identities", "symmetry"] }
+  }
+]

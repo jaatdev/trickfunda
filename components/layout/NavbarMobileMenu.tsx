@@ -12,17 +12,11 @@ export function NavbarMobileMenu({ closeMenu }: NavbarMobileMenuProps) {
   const { isSignedIn } = useAuth();
   const menuItems = [
     { label: 'KD Method', href: '/kd-method' },
-    { label: 'Success Stories', href: '/success-stories' },
+    { label: 'Success Stories', href: '/#success-stories' },
     { label: 'Pro/Pricing', href: '/pricing' },
   ];
 
-  const subjects = [
-    { label: 'Polity', href: '/subjects/polity' },
-    { label: 'History', href: '/subjects/history' },
-    { label: 'Static GK', href: '/subjects/static-gk' },
-    { label: 'Law/BNS', href: '/subjects/law-bns' },
-    { label: 'Hindi', href: '/subjects/hindi' },
-  ];
+
 
   return (
     <motion.div
@@ -43,34 +37,12 @@ export function NavbarMobileMenu({ closeMenu }: NavbarMobileMenuProps) {
             <Link
               href={item.href}
               onClick={closeMenu}
-              className="text-3xl font-semibold text-gray-900 dark:text-white transition-colors"
+              className="text-3xl font-semibold text-white transition-colors"
             >
               {item.label}
             </Link>
           </motion.div>
         ))}
-
-        {/* Subjects Header for Mobile */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="w-full text-center mt-4"
-        >
-          <h3 className="text-sm uppercase tracking-widest text-gray-500 font-bold mb-4">Subjects</h3>
-          <div className="flex flex-col gap-4">
-            {subjects.map((sub) => (
-              <Link
-                key={sub.href}
-                href={sub.href}
-                onClick={closeMenu}
-                className="text-xl font-medium text-gray-700 dark:text-gray-300"
-              >
-                {sub.label}
-              </Link>
-            ))}
-          </div>
-        </motion.div>
       </div>
 
       <motion.div

@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { getThemeById } from '@/lib/theme-variants';
+import { MathJax } from 'better-react-mathjax';
 
 interface QuizAttempt {
   questionId: string;
@@ -111,7 +112,7 @@ export function QuizReview({ attempts, score, topicId, onClose }: QuizReviewProp
                       </span>
                     )}
                   </div>
-                  <h3 className="text-lg font-semibold">{attempt.prompt}</h3>
+                  <h3 className="text-lg font-semibold"><MathJax>{attempt.prompt}</MathJax></h3>
                 </div>
               </div>
 
@@ -136,7 +137,7 @@ export function QuizReview({ attempts, score, topicId, onClose }: QuizReviewProp
                         <span className="shrink-0 w-6 h-6 rounded-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-sm font-bold">
                           {optionLetter}
                         </span>
-                        <span className="flex-1">{option}</span>
+                        <span className="flex-1"><MathJax>{option}</MathJax></span>
                         {isCorrect && (
                           <span className="text-green-600 dark:text-green-400 font-bold">✓</span>
                         )}
@@ -154,7 +155,7 @@ export function QuizReview({ attempts, score, topicId, onClose }: QuizReviewProp
                   <div className="text-sm font-medium text-blue-900 dark:text-blue-300 mb-1">
                     Explanation:
                   </div>
-                  <div className="text-sm text-blue-800 dark:text-blue-400">{attempt.reason}</div>
+                  <div className="text-sm text-blue-800 dark:text-blue-400"><MathJax>{attempt.reason}</MathJax></div>
                 </div>
               )}
             </motion.div>

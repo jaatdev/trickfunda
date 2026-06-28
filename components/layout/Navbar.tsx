@@ -49,13 +49,7 @@ export default function Navbar() {
     }
   }, [isMobileMenuOpen]);
 
-  const subjectsMenuItems = [
-    { label: 'Polity', href: '/subjects/polity' },
-    { label: 'History', href: '/subjects/history' },
-    { label: 'Static GK', href: '/subjects/static-gk' },
-    { label: 'Law/BNS', href: '/subjects/law-bns' },
-    { label: 'Hindi', href: '/subjects/hindi' },
-  ];
+
 
   return (
     <>
@@ -103,12 +97,10 @@ export default function Navbar() {
                 <span className="w-1.5 h-1.5 rounded-full bg-violet-500 absolute -top-0 -right-1 opacity-80 shadow-[0_0_10px_rgba(139,92,246,0.8)]" />
               </Link>
               
-              <div className="text-gray-300 hover:text-white">
-                <NavbarDropdown label="Subjects" items={subjectsMenuItems} />
-              </div>
+
               
               <Link
-                href="/success-stories"
+                href="/#success-stories"
                 className="px-4 py-2 rounded-xl text-sm font-bold text-gray-300 transition-colors hover:text-white"
               >
                 Success Stories

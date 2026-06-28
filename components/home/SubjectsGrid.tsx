@@ -46,7 +46,7 @@ export default function SubjectsGrid({ subjects }: SubjectsGridProps) {
                   stiffness: 100
                 }}
               >
-                <Link href={`/subjects/${subject.slug}`}>
+                <Link href={`/kd-method/${subject.slug}`}>
                   <motion.div
                     className="group relative bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl p-10 rounded-3xl border border-white/20 shadow-xl overflow-hidden min-w-[350px] snap-center"
                     whileHover={{ 
@@ -153,7 +153,7 @@ export default function SubjectsGrid({ subjects }: SubjectsGridProps) {
           viewport={{ once: true }}
           className="text-center"
         >
-          <Link href="/subjects">
+          <Link href="/kd-method">
             <motion.button
               className="px-12 py-6 bg-gradient-to-r from-violet-600 via-fuchsia-500 to-pink-500 text-white rounded-2xl font-black text-xl shadow-2xl relative overflow-hidden"
               whileHover={{ 
