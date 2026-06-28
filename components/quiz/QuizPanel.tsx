@@ -567,9 +567,9 @@ function QuizSidebar({ questions, currentIndex, onQuestionClick, theme }: any) {
 
 // Results Component
 function QuizResults({ score, theme, onRestart, onReview }: any) {
-  const times = score.breakdown.map((b: any) => b.timeSpent || 0);
-  const fastestAnswer = times.length > 0 ? Math.min(...times) : 0;
-  const slowestAnswer = times.length > 0 ? Math.max(...times) : 0;
+  const validBreakdowns = score.breakdown.map((b: any, index: number) => ({ ...b, qIndex: index + 1 }));
+  const fastest = validBreakdowns.length > 0 ? validBreakdowns.reduce((prev: any, curr: any) => (curr.timeSpent || 0) < (prev.timeSpent || 0) ? curr : prev) : null;
+  const slowest = validBreakdowns.length > 0 ? validBreakdowns.reduce((prev: any, curr: any) => (curr.timeSpent || 0) > (prev.timeSpent || 0) ? curr : prev) : null;
   const averageTime = score.averageTimePerQuestion || 0;
 
   return (
@@ -634,15 +634,18 @@ function QuizResults({ score, theme, onRestart, onReview }: any) {
             </h3>
             <div className="grid grid-cols-3 gap-4">
               <div className="text-center">
-                <div className="text-xl font-bold text-emerald-600 dark:text-emerald-400">{formatTime(fastestAnswer)}</div>
+                <div className="text-xl font-bold text-emerald-600 dark:text-emerald-400">{formatTime(fastest?.timeSpent || 0)}</div>
+                {fastest && <div className="text-sm text-emerald-700 dark:text-emerald-300 font-medium">Q{fastest.qIndex}</div>}
                 <div className="text-xs text-neutral-500 uppercase tracking-wider font-semibold mt-1">Fastest</div>
               </div>
               <div className="text-center border-l border-r border-neutral-200 dark:border-neutral-700">
                 <div className="text-xl font-bold text-blue-600 dark:text-blue-400">{formatTime(Math.round(averageTime))}</div>
+                <div className="text-sm text-transparent select-none">-</div>
                 <div className="text-xs text-neutral-500 uppercase tracking-wider font-semibold mt-1">Average</div>
               </div>
               <div className="text-center">
-                <div className="text-xl font-bold text-rose-600 dark:text-rose-400">{formatTime(slowestAnswer)}</div>
+                <div className="text-xl font-bold text-rose-600 dark:text-rose-400">{formatTime(slowest?.timeSpent || 0)}</div>
+                {slowest && <div className="text-sm text-rose-700 dark:text-rose-300 font-medium">Q{slowest.qIndex}</div>}
                 <div className="text-xs text-neutral-500 uppercase tracking-wider font-semibold mt-1">Slowest</div>
               </div>
             </div>
