@@ -8,6 +8,10 @@ export async function GET(
 ) {
   const { path: routePath } = await params;
   
+  if (routePath.length > 0 && routePath[routePath.length - 1].toLowerCase().endsWith('.pdf')) {
+    routePath[routePath.length - 1] = 'notes.pdf';
+  }
+  
   // Ensure the path is joined safely without directory traversal
   const safePath = routePath.join('/').replace(/\.\./g, '');
   const filePath = path.join(process.cwd(), 'data', 'kd-method', safePath);

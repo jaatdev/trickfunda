@@ -73,7 +73,8 @@ export async function getKDConceptBySlug(categorySlug: string, slug: string): Pr
   let pdfUrl: string | null = null;
   if (fs.existsSync(pdfPath)) {
     // URL path matches the structure defined in the new API route
-    pdfUrl = `/api/kd-method/files/${categorySlug}/${slug}/notes.pdf`;
+    const uniqueFilename = `${categorySlug}-${slug}.pdf`;
+    pdfUrl = `/api/kd-method/files/${categorySlug}/${slug}/${uniqueFilename}`;
   }
 
   const youtubePath = path.join(conceptDir, 'youtube.txt');
@@ -203,7 +204,8 @@ export async function getKDChapterTypeData(subjectSlug: string, chapterSlug: str
   const pdfPath = path.join(conceptDir, 'notes.pdf');
   let pdfUrl: string | null = null;
   if (fs.existsSync(pdfPath)) {
-    pdfUrl = `/api/kd-method/files/${subjectSlug}/${chapterSlug}/${typeSlug}/notes.pdf`;
+    const uniqueFilename = `${subjectSlug}-${chapterSlug}-${typeSlug}.pdf`;
+    pdfUrl = `/api/kd-method/files/${subjectSlug}/${chapterSlug}/${typeSlug}/${uniqueFilename}`;
   }
 
   const youtubePath = path.join(conceptDir, 'youtube.txt');
