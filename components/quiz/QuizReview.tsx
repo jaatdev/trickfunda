@@ -90,33 +90,39 @@ export function QuizReview({ attempts, score, topicId, onClose }: QuizReviewProp
           </div>
 
           {/* Score Summary */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
             <button 
               onClick={() => setFilter(filter === 'correct' ? 'all' : 'correct')}
-              className={`text-center p-4 bg-green-50 dark:bg-green-900/20 rounded-xl transition-all hover:scale-105 ${filter === 'correct' ? 'ring-2 ring-green-500 ring-offset-2 dark:ring-offset-neutral-900' : ''}`}
+              className={`text-center p-3 bg-green-50 dark:bg-green-900/20 rounded-xl transition-all hover:scale-105 ${filter === 'correct' ? 'ring-2 ring-green-500 ring-offset-2 dark:ring-offset-neutral-900' : ''}`}
             >
-              <div className="text-2xl font-bold text-green-600 dark:text-green-400">{score.correct}</div>
-              <div className="text-sm text-neutral-600 dark:text-neutral-400">Correct</div>
+              <div className="text-xl font-bold text-green-600 dark:text-green-400">{score.correct}</div>
+              <div className="text-xs text-neutral-600 dark:text-neutral-400">Correct</div>
             </button>
             <button 
               onClick={() => setFilter(filter === 'incorrect' ? 'all' : 'incorrect')}
-              className={`text-center p-4 bg-red-50 dark:bg-red-900/20 rounded-xl transition-all hover:scale-105 ${filter === 'incorrect' ? 'ring-2 ring-red-500 ring-offset-2 dark:ring-offset-neutral-900' : ''}`}
+              className={`text-center p-3 bg-red-50 dark:bg-red-900/20 rounded-xl transition-all hover:scale-105 ${filter === 'incorrect' ? 'ring-2 ring-red-500 ring-offset-2 dark:ring-offset-neutral-900' : ''}`}
             >
-              <div className="text-2xl font-bold text-red-600 dark:text-red-400">{score.incorrect}</div>
-              <div className="text-sm text-neutral-600 dark:text-neutral-400">Incorrect</div>
+              <div className="text-xl font-bold text-red-600 dark:text-red-400">{score.incorrect}</div>
+              <div className="text-xs text-neutral-600 dark:text-neutral-400">Incorrect</div>
             </button>
             <button 
               onClick={() => setFilter(filter === 'skipped' ? 'all' : 'skipped')}
-              className={`text-center p-4 bg-neutral-50 dark:bg-neutral-800 rounded-xl transition-all hover:scale-105 ${filter === 'skipped' ? 'ring-2 ring-neutral-400 ring-offset-2 dark:ring-offset-neutral-900' : ''}`}
+              className={`text-center p-3 bg-neutral-50 dark:bg-neutral-800 rounded-xl transition-all hover:scale-105 ${filter === 'skipped' ? 'ring-2 ring-neutral-400 ring-offset-2 dark:ring-offset-neutral-900' : ''}`}
             >
-              <div className="text-2xl font-bold">{score.unanswered}</div>
-              <div className="text-sm text-neutral-600 dark:text-neutral-400">Skipped</div>
+              <div className="text-xl font-bold">{score.unanswered}</div>
+              <div className="text-xs text-neutral-600 dark:text-neutral-400">Skipped</div>
             </button>
-            <div className="text-center p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
-              <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+            <div className="text-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
+              <div className="text-xl font-bold text-blue-600 dark:text-blue-400">
                 {Math.round(score.percentage)}%
               </div>
-              <div className="text-sm text-neutral-600 dark:text-neutral-400">Score</div>
+              <div className="text-xs text-neutral-600 dark:text-neutral-400">Score</div>
+            </div>
+            <div className="text-center p-3 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
+              <div className="text-xl font-bold text-purple-600 dark:text-purple-400">
+                {formatTime(score.totalTimeSpent)}
+              </div>
+              <div className="text-xs text-neutral-600 dark:text-neutral-400">Total Time</div>
             </div>
           </div>
 

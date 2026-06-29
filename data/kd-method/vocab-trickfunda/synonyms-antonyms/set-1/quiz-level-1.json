@@ -1,22 +1,1002 @@
 [
   {
-    "id": "q1",
-    "prompt": "Sample question for this topic?",
-    "prompt_hi": "इस विषय के लिए नमूना प्रश्न?",
+    "id": "v-d1-syn-01",
+    "prompt": "Find the synonym of: ASSIDUOUS",
+    "prompt_hi": "ASSIDUOUS का पर्यायवाची ज्ञात कीजिए:",
     "options": [
-      "Option A",
-      "Option B",
-      "Option C",
-      "Option D"
+      "Diligent",
+      "Lethargic",
+      "Hindrance",
+      "Giant"
     ],
     "options_hi": [
-      "विकल्प ए",
-      "विकल्प बी",
-      "विकल्प सी",
-      "विकल्प डी"
+      "मेहनती",
+      "सुस्त",
+      "बाधा",
+      "विशाल"
     ],
     "answerIndex": 0,
-    "reason": "Option A is correct because it applies the primary concept.",
-    "reason_hi": "विकल्प ए सही है क्योंकि यह प्राथमिक अवधारणा को लागू करता है।"
+    "reason": "Assiduous means hardworking. Its synonym is Diligent.",
+    "reason_hi": "Assiduous का अर्थ 'मेहनती' होता है। इसका पर्यायवाची Diligent है।"
+  },
+  {
+    "id": "v-d1-ant-02",
+    "prompt": "Find the antonym of: SNAG",
+    "prompt_hi": "SNAG का विलोम ज्ञात कीजिए:",
+    "options": [
+      "Obstruct",
+      "Impediment",
+      "Boon",
+      "Dwarf"
+    ],
+    "options_hi": [
+      "बाधा डालना",
+      "अवरोध",
+      "वरदान",
+      "बौना"
+    ],
+    "answerIndex": 2,
+    "reason": "Snag means to obstruct or hinder. Its antonym is Boon (help/advantage).",
+    "reason_hi": "Snag का अर्थ 'बाधा डालना' होता है। इसका विलोम Boon (वरदान/सहायता) है।"
+  },
+  {
+    "id": "v-d1-syn-03",
+    "prompt": "Find the synonym of: PUDGY",
+    "prompt_hi": "PUDGY का पर्यायवाची ज्ञात कीजिए:",
+    "options": [
+      "Slim",
+      "Corpulent",
+      "Lanky",
+      "Gaunt"
+    ],
+    "options_hi": [
+      "पतला",
+      "मोटा",
+      "दुबला-पतला",
+      "कमजोर"
+    ],
+    "answerIndex": 1,
+    "reason": "Pudgy means very fat. Its synonym is Corpulent.",
+    "reason_hi": "Pudgy का अर्थ 'मोटा' होता है। इसका पर्यायवाची Corpulent है।"
+  },
+  {
+    "id": "v-d1-ant-04",
+    "prompt": "Find the antonym of: ELF",
+    "prompt_hi": "ELF का विलोम ज्ञात कीजिए:",
+    "options": [
+      "Gnome",
+      "Dwarf",
+      "Miserly",
+      "Giant"
+    ],
+    "options_hi": [
+      "बौना",
+      "बौना",
+      "कंजूस",
+      "विशाल"
+    ],
+    "answerIndex": 3,
+    "reason": "Elf means dwarf or small. Its antonym is Giant.",
+    "reason_hi": "Elf का अर्थ 'बौना' होता है। इसका विलोम Giant (विशाल) है।"
+  },
+  {
+    "id": "v-d1-syn-05",
+    "prompt": "Find the synonym of: STOUT",
+    "prompt_hi": "STOUT का पर्यायवाची ज्ञात कीजिए:",
+    "options": [
+      "Portly",
+      "Emaciated",
+      "Slender",
+      "Thin"
+    ],
+    "options_hi": [
+      "मोटा",
+      "दुर्बल",
+      "पतला",
+      "कमजोर"
+    ],
+    "answerIndex": 0,
+    "reason": "Stout means fat or heavy. Its synonym is Portly.",
+    "reason_hi": "Stout का अर्थ 'मोटा' होता है। इसका पर्यायवाची Portly है।"
+  },
+  {
+    "id": "v-d1-ant-06",
+    "prompt": "Find the antonym of: MINGY",
+    "prompt_hi": "MINGY का विलोम ज्ञात कीजिए:",
+    "options": [
+      "Miserly",
+      "Extravagant",
+      "Stout",
+      "Lanky"
+    ],
+    "options_hi": [
+      "कंजूस",
+      "खर्चीला/फिजूलखर्च",
+      "मोटा",
+      "दुबला-पतला"
+    ],
+    "answerIndex": 1,
+    "reason": "Mingy means miserly. Its antonym is Extravagant.",
+    "reason_hi": "Mingy का अर्थ 'कंजूस' होता है। इसका विलोम Extravagant है।"
+  },
+  {
+    "id": "v-d1-syn-07",
+    "prompt": "Find the synonym of: SWERVE",
+    "prompt_hi": "SWERVE का पर्यायवाची ज्ञात कीजिए:",
+    "options": [
+      "Straighten",
+      "Abruptly",
+      "Careen",
+      "Grave"
+    ],
+    "options_hi": [
+      "सीधा करना",
+      "अचानक",
+      "झुकना",
+      "गंभीर"
+    ],
+    "answerIndex": 2,
+    "reason": "Swerve means to bend or turn aside. Its synonym is Careen.",
+    "reason_hi": "Swerve का अर्थ 'झुकना' होता है। इसका पर्यायवाची Careen है।"
+  },
+  {
+    "id": "v-d1-ant-08",
+    "prompt": "Find the antonym of: ADIPOSE",
+    "prompt_hi": "ADIPOSE का विलोम ज्ञात कीजिए:",
+    "options": [
+      "Fat",
+      "Obese",
+      "Stout",
+      "Thin"
+    ],
+    "options_hi": [
+      "मोटा",
+      "मोटा",
+      "मोटा",
+      "पतला"
+    ],
+    "answerIndex": 3,
+    "reason": "Adipose means corpulent or fat. Its antonym is Thin.",
+    "reason_hi": "Adipose का अर्थ 'मोटा' होता है। इसका विलोम Thin (पतला) है।"
+  },
+  {
+    "id": "v-d1-syn-09",
+    "prompt": "Find the synonym of: FEROCIOUS",
+    "prompt_hi": "FEROCIOUS का पर्यायवाची ज्ञात कीजिए:",
+    "options": [
+      "Fierce",
+      "Gentle",
+      "Slowly",
+      "Agitated"
+    ],
+    "options_hi": [
+      "उग्र/भयंकर",
+      "सज्जन",
+      "धीरे-धीरे",
+      "उत्तेजित"
+    ],
+    "answerIndex": 0,
+    "reason": "Ferocious means savage or fierce. Its synonym is Fierce.",
+    "reason_hi": "Ferocious का अर्थ 'उग्र' होता है। इसका पर्यायवाची Fierce है।"
+  },
+  {
+    "id": "v-d1-ant-10",
+    "prompt": "Find the antonym of: GRADUALLY",
+    "prompt_hi": "GRADUALLY का विलोम ज्ञात कीजिए:",
+    "options": [
+      "Slowly",
+      "Abruptly",
+      "Careen",
+      "Straighten"
+    ],
+    "options_hi": [
+      "धीरे-धीरे",
+      "अचानक",
+      "झुकना",
+      "सीधा करना"
+    ],
+    "answerIndex": 1,
+    "reason": "Gradually means slowly. Its antonym is Abruptly.",
+    "reason_hi": "Gradually का अर्थ 'धीरे-धीरे' होता है। इसका विलोम Abruptly है।"
+  },
+  {
+    "id": "v-d1-syn-11",
+    "prompt": "Find the synonym of: SOBER",
+    "prompt_hi": "SOBER का पर्यायवाची ज्ञात कीजिए:",
+    "options": [
+      "Agitated",
+      "Grave",
+      "Plebiscite",
+      "Halo"
+    ],
+    "options_hi": [
+      "उत्तेजित",
+      "गंभीर",
+      "जनमत संग्रह",
+      "प्रभामंडल"
+    ],
+    "answerIndex": 1,
+    "reason": "Sober means serious or solemn. Its synonym is Grave.",
+    "reason_hi": "Sober का अर्थ 'गंभीर' होता है। इसका पर्यायवाची Grave है।"
+  },
+  {
+    "id": "v-d1-ant-12",
+    "prompt": "Find the antonym of: CAREEN",
+    "prompt_hi": "CAREEN का विलोम ज्ञात कीजिए:",
+    "options": [
+      "Swerve",
+      "Straighten",
+      "Bend",
+      "Bold"
+    ],
+    "options_hi": [
+      "झुकना",
+      "सीधा करना",
+      "झुकना",
+      "बहादुर"
+    ],
+    "answerIndex": 1,
+    "reason": "Careen means to swerve or bend. Its antonym is Straighten.",
+    "reason_hi": "Careen का अर्थ 'झुकना' होता है। इसका विलोम Straighten (सीधा करना) है।"
+  },
+  {
+    "id": "v-d1-syn-13",
+    "prompt": "Find the synonym of: SUFFRAGE",
+    "prompt_hi": "SUFFRAGE का पर्यायवाची ज्ञात कीजिए:",
+    "options": [
+      "Vote",
+      "Haste",
+      "Laziness",
+      "Merriment"
+    ],
+    "options_hi": [
+      "मताधिकार",
+      "जल्दबाज़ी",
+      "आलस्य",
+      "खुशी"
+    ],
+    "answerIndex": 0,
+    "reason": "Suffrage refers to the right to vote in political elections.",
+    "reason_hi": "Suffrage का अर्थ 'मताधिकार' होता है। इसका पर्यायवाची Vote है।"
+  },
+  {
+    "id": "v-d1-ant-14",
+    "prompt": "Find the antonym of: GLUM",
+    "prompt_hi": "GLUM का विलोम ज्ञात कीजिए:",
+    "options": [
+      "Dismal",
+      "Sad",
+      "Cheerful",
+      "Criticize"
+    ],
+    "options_hi": [
+      "निराशाजनक",
+      "उदास",
+      "खुश/प्रसन्न",
+      "निन्दा करना"
+    ],
+    "answerIndex": 2,
+    "reason": "Glum means dismal or sad. Its antonym is Cheerful.",
+    "reason_hi": "Glum का अर्थ 'उदास' होता है। इसका विलोम Cheerful (प्रसन्न) है।"
+  },
+  {
+    "id": "v-d1-syn-15",
+    "prompt": "Find the synonym of: CRAVEN",
+    "prompt_hi": "CRAVEN का पर्यायवाची ज्ञात कीजिए:",
+    "options": [
+      "Brave",
+      "Bold",
+      "Cowardly",
+      "Melancholy"
+    ],
+    "options_hi": [
+      "बहादुर",
+      "साहसी",
+      "डरपोक",
+      "उदास"
+    ],
+    "answerIndex": 2,
+    "reason": "Craven means lacking in courage. Its synonym is Cowardly.",
+    "reason_hi": "Craven का अर्थ 'डरपोक' होता है। इसका पर्यायवाची Cowardly है।"
+  },
+  {
+    "id": "v-d1-ant-16",
+    "prompt": "Find the antonym of: BUSTLE",
+    "prompt_hi": "BUSTLE का विलोम ज्ञात कीजिए:",
+    "options": [
+      "Haste",
+      "Hurry",
+      "Laziness",
+      "Lucid"
+    ],
+    "options_hi": [
+      "हडबड़ी",
+      "जल्दी",
+      "आलस्य",
+      "स्पष्ट"
+    ],
+    "answerIndex": 2,
+    "reason": "Bustle means haste or hurry. Its antonym is Laziness.",
+    "reason_hi": "Bustle का अर्थ 'हडबड़ी' होता है। इसका विलोम Laziness (आलस्य) है।"
+  },
+  {
+    "id": "v-d1-syn-17",
+    "prompt": "Find the synonym of: GLEE",
+    "prompt_hi": "GLEE का पर्यायवाची ज्ञात कीजिए:",
+    "options": [
+      "Unhappiness",
+      "Woe",
+      "Happiness",
+      "Obscure"
+    ],
+    "options_hi": [
+      "दुख",
+      "शोक",
+      "खुशी",
+      "अस्पष्ट"
+    ],
+    "answerIndex": 2,
+    "reason": "Glee means great delight or happiness.",
+    "reason_hi": "Glee का अर्थ 'खुशी' होता है। इसका पर्यायवाची Happiness है।"
+  },
+  {
+    "id": "v-d1-ant-18",
+    "prompt": "Find the antonym of: VANISH",
+    "prompt_hi": "VANISH का विलोम ज्ञात कीजिए:",
+    "options": [
+      "Disappear",
+      "Emerge",
+      "Dwarf",
+      "Giant"
+    ],
+    "options_hi": [
+      "गायब होना",
+      "प्रकट होना",
+      "बौना",
+      "विशाल"
+    ],
+    "answerIndex": 1,
+    "reason": "Vanish means to disappear. Its antonym is Emerge (appear).",
+    "reason_hi": "Vanish का अर्थ 'गायब होना' होता है। इसका विलोम Emerge (प्रकट होना) है।"
+  },
+  {
+    "id": "v-d1-syn-19",
+    "prompt": "Find the synonym of: BONDAGE",
+    "prompt_hi": "BONDAGE का पर्यायवाची ज्ञात कीजिए:",
+    "options": [
+      "Liberty",
+      "Slavery",
+      "Sparkle",
+      "Dullness"
+    ],
+    "options_hi": [
+      "स्वतंत्रता",
+      "गुलामी",
+      "चमक",
+      "नीरसता"
+    ],
+    "answerIndex": 1,
+    "reason": "Bondage means slavery or captivity.",
+    "reason_hi": "Bondage का अर्थ 'गुलामी' होता है। इसका पर्यायवाची Slavery है।"
+  },
+  {
+    "id": "v-d1-ant-20",
+    "prompt": "Find the antonym of: DENIGRATE",
+    "prompt_hi": "DENIGRATE का विलोम ज्ञात कीजिए:",
+    "options": [
+      "Criticize",
+      "Praise",
+      "Magnificent",
+      "Ordinary"
+    ],
+    "options_hi": [
+      "आलोचना करना",
+      "प्रशंसा करना",
+      "शानदार",
+      "साधारण"
+    ],
+    "answerIndex": 1,
+    "reason": "Denigrate means to criticize. Its antonym is Praise or Commend.",
+    "reason_hi": "Denigrate का अर्थ 'निन्दा करना' होता है। इसका विलोम Praise (प्रशंसा करना) है।"
+  },
+  {
+    "id": "v-d1-syn-21",
+    "prompt": "Find the synonym of: SATURNINE",
+    "prompt_hi": "SATURNINE का पर्यायवाची ज्ञात कीजिए:",
+    "options": [
+      "Cheerful",
+      "Melancholy",
+      "Pleasure",
+      "Disappointment"
+    ],
+    "options_hi": [
+      "प्रसन्न",
+      "उदास/दुखी",
+      "आनंद",
+      "निराशा"
+    ],
+    "answerIndex": 1,
+    "reason": "Saturnine means slow and gloomy (melancholy).",
+    "reason_hi": "Saturnine का अर्थ 'उदास' होता है। इसका पर्यायवाची Melancholy है।"
+  },
+  {
+    "id": "v-d1-ant-22",
+    "prompt": "Find the antonym of: DISAVOWAL",
+    "prompt_hi": "DISAVOWAL का विलोम ज्ञात कीजिए:",
+    "options": [
+      "Denial",
+      "Reject",
+      "Approval",
+      "Censure"
+    ],
+    "options_hi": [
+      "इनकार",
+      "अस्वीकार",
+      "सहमति/स्वीकृति",
+      "निन्दा"
+    ],
+    "answerIndex": 2,
+    "reason": "Disavowal means denial. Its antonym is Approval.",
+    "reason_hi": "Disavowal का अर्थ 'मना करना' होता है। इसका विलोम Approval (स्वीकृति) है।"
+  },
+  {
+    "id": "v-d1-syn-23",
+    "prompt": "Find the synonym of: BIZARRE",
+    "prompt_hi": "BIZARRE का पर्यायवाची ज्ञात कीजिए:",
+    "options": [
+      "Unusual",
+      "Ordinary",
+      "Joyful",
+      "Reprimand"
+    ],
+    "options_hi": [
+      "असामान्य",
+      "साधारण",
+      "आनंदित",
+      "फटकार"
+    ],
+    "answerIndex": 0,
+    "reason": "Bizarre means very strange or unusual.",
+    "reason_hi": "Bizarre का अर्थ 'असामान्य' होता है। इसका पर्यायवाची Unusual है।"
+  },
+  {
+    "id": "v-d1-ant-24",
+    "prompt": "Find the antonym of: ARTICULATE",
+    "prompt_hi": "ARTICULATE का विलोम ज्ञात कीजिए:",
+    "options": [
+      "Clear",
+      "Lucid",
+      "Inarticulate",
+      "Distinct"
+    ],
+    "options_hi": [
+      "स्पष्ट",
+      "सुस्पष्ट",
+      "अस्पष्ट",
+      "विशिष्ट"
+    ],
+    "answerIndex": 2,
+    "reason": "Articulate means clear and distinct. Its antonym is Inarticulate or Obscure.",
+    "reason_hi": "Articulate का अर्थ 'सुस्पष्ट' होता है। इसका विलोम Inarticulate (अस्पष्ट) है।"
+  },
+  {
+    "id": "v-d1-syn-25",
+    "prompt": "Find the synonym of: SCRUMPTIOUS",
+    "prompt_hi": "SCRUMPTIOUS का पर्यायवाची ज्ञात कीजिए:",
+    "options": [
+      "Vanish",
+      "Catastrophe",
+      "Delicious",
+      "Blessing"
+    ],
+    "options_hi": [
+      "गायब होना",
+      "तबाही",
+      "स्वादिष्ट",
+      "वरदान"
+    ],
+    "answerIndex": 2,
+    "reason": "Scrumptious means extremely tasty or delicious.",
+    "reason_hi": "Scrumptious का अर्थ 'स्वादिष्ट' होता है। इसका पर्यायवाची Delicious है।"
+  },
+  {
+    "id": "v-d1-ant-26",
+    "prompt": "Find the antonym of: SHIMMER",
+    "prompt_hi": "SHIMMER का विलोम ज्ञात कीजिए:",
+    "options": [
+      "Twinkle",
+      "Shine",
+      "Rotund",
+      "Dullness"
+    ],
+    "options_hi": [
+      "टिमटिमाना",
+      "चमकना",
+      "गोल-मटोल",
+      "नीरसता/अंधकार"
+    ],
+    "answerIndex": 3,
+    "reason": "Shimmer means to twinkle or shine. Its antonym is Dullness or Darkness.",
+    "reason_hi": "Shimmer का अर्थ 'टिमटिमाना' होता है। इसका विलोम Dullness (अंधकार/नीरसता) है।"
+  },
+  {
+    "id": "v-d1-syn-27",
+    "prompt": "Find the synonym of: ZENITH",
+    "prompt_hi": "ZENITH का पर्यायवाची ज्ञात कीजिए:",
+    "options": [
+      "Nadir",
+      "Highest Point",
+      "Vigour",
+      "Hostile"
+    ],
+    "options_hi": [
+      "निम्नतम बिंदु",
+      "चरम बिन्दु",
+      "ऊर्जा",
+      "शत्रुतापूर्ण"
+    ],
+    "answerIndex": 1,
+    "reason": "Zenith refers to the highest point or peak.",
+    "reason_hi": "Zenith का अर्थ 'चरम बिन्दु' होता है। इसका पर्यायवाची Highest Point है।"
+  },
+  {
+    "id": "v-d1-ant-28",
+    "prompt": "Find the antonym of: SPLENDID",
+    "prompt_hi": "SPLENDID का विलोम ज्ञात कीजिए:",
+    "options": [
+      "Marvellous",
+      "Wonderful",
+      "Ordinary",
+      "Professional"
+    ],
+    "options_hi": [
+      "अद्भुत",
+      "आश्चर्यजनक",
+      "साधारण",
+      "पेशेवर"
+    ],
+    "answerIndex": 2,
+    "reason": "Splendid means magnificent. Its antonym is Ordinary.",
+    "reason_hi": "Splendid का अर्थ 'शानदार' होता है। इसका विलोम Ordinary (साधारण) है।"
+  },
+  {
+    "id": "v-d1-syn-29",
+    "prompt": "Find the synonym of: DAUNTLESS",
+    "prompt_hi": "DAUNTLESS का पर्यायवाची ज्ञात कीजिए:",
+    "options": [
+      "Cowardly",
+      "Fearless",
+      "Morose",
+      "Rest"
+    ],
+    "options_hi": [
+      "डरपोक",
+      "निडर",
+      "उदास",
+      "विश्राम"
+    ],
+    "answerIndex": 1,
+    "reason": "Dauntless means showing fearlessness and determination.",
+    "reason_hi": "Dauntless का अर्थ 'निडर' होता है। इसका पर्यायवाची Fearless है।"
+  },
+  {
+    "id": "v-d1-ant-30",
+    "prompt": "Find the antonym of: PAEAN",
+    "prompt_hi": "PAEAN का विलोम ज्ञात कीजिए:",
+    "options": [
+      "Praise",
+      "Encomium",
+      "Bumpkin",
+      "Censure"
+    ],
+    "options_hi": [
+      "प्रशंसा",
+      "गुणगान",
+      "गंवार",
+      "आलोचना/निन्दा"
+    ],
+    "answerIndex": 3,
+    "reason": "Paean is a song of praise. Its antonym is Censure or Rebuke.",
+    "reason_hi": "Paean का अर्थ 'प्रशंसा करना' होता है। इसका विलोम Censure (आलोचना करना) है।"
+  },
+  {
+    "id": "v-d1-syn-31",
+    "prompt": "Find the synonym of: CALAMITY",
+    "prompt_hi": "CALAMITY का पर्यायवाची ज्ञात कीजिए:",
+    "options": [
+      "Blessing",
+      "Sedulous",
+      "Catastrophe",
+      "Sluggish"
+    ],
+    "options_hi": [
+      "वरदान",
+      "परिश्रमी",
+      "विपति/संकट",
+      "सुस्त"
+    ],
+    "answerIndex": 2,
+    "reason": "Calamity means disaster or misfortune. Its synonym is Catastrophe.",
+    "reason_hi": "Calamity का अर्थ 'विपति/संकट' होता है। इसका पर्यायवाची Catastrophe है।"
+  },
+  {
+    "id": "v-d1-ant-32",
+    "prompt": "Find the antonym of: ABSCOND",
+    "prompt_hi": "ABSCOND का विलोम ज्ञात कीजिए:",
+    "options": [
+      "Flee",
+      "Decamp",
+      "Remain",
+      "Agreeable"
+    ],
+    "options_hi": [
+      "फरार होना",
+      "भाग जाना",
+      "रुकना/बने रहना",
+      "सहमत"
+    ],
+    "answerIndex": 2,
+    "reason": "Abscond means to run away. Its antonym is Appear or Remain.",
+    "reason_hi": "Abscond का अर्थ 'भाग जाना' होता है। इसका विलोम Remain (रुकना) है।"
+  },
+  {
+    "id": "v-d1-syn-33",
+    "prompt": "Find the synonym of: AGILE",
+    "prompt_hi": "AGILE का पर्यायवाची ज्ञात कीजिए:",
+    "options": [
+      "Slow",
+      "Injurious",
+      "Nimble",
+      "Beneficial"
+    ],
+    "options_hi": [
+      "धीमा",
+      "हानिकारक",
+      "फुर्तीला",
+      "लाभदायक"
+    ],
+    "answerIndex": 2,
+    "reason": "Agile means able to move quickly. Its synonym is Nimble or Quick.",
+    "reason_hi": "Agile का अर्थ 'फुर्तीला' होता है। इसका पर्यायवाची Nimble है।"
+  },
+  {
+    "id": "v-d1-ant-34",
+    "prompt": "Find the antonym of: DILIGENT",
+    "prompt_hi": "DILIGENT का विलोम ज्ञात कीजिए:",
+    "options": [
+      "Assiduous",
+      "Hardworking",
+      "Inactive",
+      "Combined"
+    ],
+    "options_hi": [
+      "परिश्रमी",
+      "मेहनती",
+      "आलसी/निष्क्रिय",
+      "संयुक्त"
+    ],
+    "answerIndex": 2,
+    "reason": "Diligent means hardworking. Its antonym is Inactive or Lazy.",
+    "reason_hi": "Diligent का अर्थ 'मेहनती' होता है। इसका विलोम Inactive (आलसी) है।"
+  },
+  {
+    "id": "v-d1-syn-35",
+    "prompt": "Find the synonym of: FRAZZLE",
+    "prompt_hi": "FRAZZLE का पर्यायवाची ज्ञात कीजिए:",
+    "options": [
+      "Vigour",
+      "Obstinate",
+      "Exhaustion",
+      "Submissive"
+    ],
+    "options_hi": [
+      "ऊर्जा/बल",
+      "जिद्दी",
+      "थकावट",
+      "विनम्र"
+    ],
+    "answerIndex": 2,
+    "reason": "Frazzle means the state of being completely exhausted.",
+    "reason_hi": "Frazzle का अर्थ 'थका हुआ' होता है। इसका पर्यायवाची Exhaustion है।"
+  },
+  {
+    "id": "v-d1-ant-36",
+    "prompt": "Find the antonym of: INIMICAL",
+    "prompt_hi": "INIMICAL का विलोम ज्ञात कीजिए:",
+    "options": [
+      "Adverse",
+      "Antagonistic",
+      "Friendly",
+      "Chaste"
+    ],
+    "options_hi": [
+      "विपरीत",
+      "विरोधी",
+      "मित्रतापूर्ण",
+      "पवित्र"
+    ],
+    "answerIndex": 2,
+    "reason": "Inimical means unfriendly or hostile. Its antonym is Friendly.",
+    "reason_hi": "Inimical का अर्थ 'दुश्मनी/शत्रुता' होता है। इसका विलोम Friendly (मित्रतापूर्ण) है।"
+  },
+  {
+    "id": "v-d1-syn-37",
+    "prompt": "Find the synonym of: RAPTURE",
+    "prompt_hi": "RAPTURE का पर्यायवाची ज्ञात कीजिए:",
+    "options": [
+      "Agony",
+      "Gale",
+      "Ecstasy",
+      "Tempest"
+    ],
+    "options_hi": [
+      "व्यथा",
+      "तूफान",
+      "परमानंद/खुशी",
+      "आंधी"
+    ],
+    "answerIndex": 2,
+    "reason": "Rapture means a feeling of intense pleasure or joy.",
+    "reason_hi": "Rapture का अर्थ 'खुशी' होता है। इसका पर्यायवाची Ecstasy है।"
+  },
+  {
+    "id": "v-d1-ant-38",
+    "prompt": "Find the antonym of: BLITHE",
+    "prompt_hi": "BLITHE का विलोम ज्ञात कीजिए:",
+    "options": [
+      "Merry",
+      "Cheerful",
+      "Robust",
+      "Morose"
+    ],
+    "options_hi": [
+      "आनंदित",
+      "हंसमुख",
+      "मजबूत",
+      "उदास/निराश"
+    ],
+    "answerIndex": 3,
+    "reason": "Blithe means happy or joyous. Its antonym is Morose or Sad.",
+    "reason_hi": "Blithe का अर्थ 'खुश' होता है। इसका विलोम Morose (उदास) है।"
+  },
+  {
+    "id": "v-d1-syn-39",
+    "prompt": "Find the synonym of: CURMUDGEON",
+    "prompt_hi": "CURMUDGEON का पर्यायवाची ज्ञात कीजिए:",
+    "options": [
+      "Good fellow",
+      "Assemble",
+      "Grumpy",
+      "Separate"
+    ],
+    "options_hi": [
+      "अच्छा इंसान",
+      "इकट्ठा होना",
+      "चिड़चिड़ा",
+      "अलग"
+    ],
+    "answerIndex": 2,
+    "reason": "Curmudgeon refers to a bad-tempered or grumpy person.",
+    "reason_hi": "Curmudgeon का अर्थ 'चिड़चिड़ा' होता है। इसका पर्यायवाची Grumpy है।"
+  },
+  {
+    "id": "v-d1-ant-40",
+    "prompt": "Find the antonym of: ABRIDGE",
+    "prompt_hi": "ABRIDGE का विलोम ज्ञात कीजिए:",
+    "options": [
+      "Shorten",
+      "Adroit",
+      "Stretch",
+      "Skilful"
+    ],
+    "options_hi": [
+      "छोटा करना",
+      "निपुण",
+      "बढ़ाना/फैलाना",
+      "दक्ष"
+    ],
+    "answerIndex": 2,
+    "reason": "Abridge means to shorten. Its antonym is Stretch.",
+    "reason_hi": "Abridge का अर्थ 'छोटा करना' होता है। इसका विलोम Stretch (बढ़ाना) है।"
+  },
+  {
+    "id": "v-d1-syn-41",
+    "prompt": "Find the synonym of: ADAMANT",
+    "prompt_hi": "ADAMANT का पर्यायवाची ज्ञात कीजिए:",
+    "options": [
+      "Flexible",
+      "Yielding",
+      "Stubborn",
+      "Apart"
+    ],
+    "options_hi": [
+      "लचीला",
+      "झुकने वाला",
+      "जिद्दी",
+      "अलग"
+    ],
+    "answerIndex": 2,
+    "reason": "Adamant means refusing to be persuaded or to change one's mind.",
+    "reason_hi": "Adamant का अर्थ 'जिद्दी' होता है। इसका पर्यायवाची Stubborn है।"
+  },
+  {
+    "id": "v-d1-ant-42",
+    "prompt": "Find the antonym of: SLOPPY",
+    "prompt_hi": "SLOPPY का विलोम ज्ञात कीजिए:",
+    "options": [
+      "Dirty",
+      "Messy",
+      "Neat",
+      "Obscure"
+    ],
+    "options_hi": [
+      "गंदा",
+      "अव्यवस्थित",
+      "साफ-सुथरा",
+      "अस्पष्ट"
+    ],
+    "answerIndex": 2,
+    "reason": "Sloppy means careless or dirty. Its antonym is Neat.",
+    "reason_hi": "Sloppy का अर्थ 'मैला' होता है। इसका विलोम Neat (साफ-सुथरा) है।"
+  },
+  {
+    "id": "v-d1-syn-43",
+    "prompt": "Find the synonym of: RECALCITRANT",
+    "prompt_hi": "RECALCITRANT का पर्यायवाची ज्ञात कीजिए:",
+    "options": [
+      "Obedient",
+      "Compliant",
+      "Obstinate",
+      "Soothe"
+    ],
+    "options_hi": [
+      "आज्ञाकारी",
+      "अनुपालक",
+      "जिद्दी/अवज्ञाकारी",
+      "शांत करना"
+    ],
+    "answerIndex": 2,
+    "reason": "Recalcitrant means having an obstinately uncooperative attitude.",
+    "reason_hi": "Recalcitrant का अर्थ 'अवज्ञाकारी' होता है। इसका पर्यायवाची Obstinate है।"
+  },
+  {
+    "id": "v-d1-ant-44",
+    "prompt": "Find the antonym of: DAWDLE",
+    "prompt_hi": "DAWDLE का विलोम ज्ञात कीजिए:",
+    "options": [
+      "Loiter",
+      "Delay",
+      "Hurry",
+      "Linger"
+    ],
+    "options_hi": [
+      "आवारागर्दी करना",
+      "देरी",
+      "जल्दी करना",
+      "ठहरना"
+    ],
+    "answerIndex": 2,
+    "reason": "Dawdle means to waste time or loiter. Its antonym is Hurry or Hasten.",
+    "reason_hi": "Dawdle का अर्थ 'समय गँवाना' होता है। इसका विलोम Hurry (जल्दी करना) है।"
+  },
+  {
+    "id": "v-d1-syn-45",
+    "prompt": "Find the synonym of: EPHEMERAL",
+    "prompt_hi": "EPHEMERAL का पर्यायवाची ज्ञात कीजिए:",
+    "options": [
+      "Permanent",
+      "Eternal",
+      "Transitory",
+      "Lasting"
+    ],
+    "options_hi": [
+      "स्थायी",
+      "शाश्वत",
+      "क्षणिक/अस्थायी",
+      "टिकाऊ"
+    ],
+    "answerIndex": 2,
+    "reason": "Ephemeral means lasting for a very short time.",
+    "reason_hi": "Ephemeral का अर्थ 'क्षणिक' होता है। इसका पर्यायवाची Transitory है।"
+  },
+  {
+    "id": "v-d1-ant-46",
+    "prompt": "Find the antonym of: MUSTER",
+    "prompt_hi": "MUSTER का विलोम ज्ञात कीजिए:",
+    "options": [
+      "Assemble",
+      "Collect",
+      "Separate",
+      "Gather"
+    ],
+    "options_hi": [
+      "इकट्ठा करना",
+      "संग्रह करना",
+      "अलग करना",
+      "बटोरना"
+    ],
+    "answerIndex": 2,
+    "reason": "Muster means to collect or gather. Its antonym is Separate.",
+    "reason_hi": "Muster का अर्थ 'इकट्ठा होना' होता है। इसका विलोम Separate (अलग करना) है।"
+  },
+  {
+    "id": "v-d1-syn-47",
+    "prompt": "Find the synonym of: EFFACE",
+    "prompt_hi": "EFFACE का पर्यायवाची ज्ञात कीजिए:",
+    "options": [
+      "Construct",
+      "Create",
+      "Abolish",
+      "Build"
+    ],
+    "options_hi": [
+      "निर्माण करना",
+      "बनाना",
+      "मिटाना/समाप्त करना",
+      "बनाना"
+    ],
+    "answerIndex": 2,
+    "reason": "Efface means to erase or make oneself appear insignificant.",
+    "reason_hi": "Efface का अर्थ 'मिटाना' होता है। इसका पर्यायवाची Abolish/Erase है।"
+  },
+  {
+    "id": "v-d1-ant-48",
+    "prompt": "Find the antonym of: PUBLIC",
+    "prompt_hi": "PUBLIC का विलोम ज्ञात कीजिए:",
+    "options": [
+      "Open",
+      "Common",
+      "Private",
+      "Shared"
+    ],
+    "options_hi": [
+      "खुला",
+      "सामान्य",
+      "निजी",
+      "साझा"
+    ],
+    "answerIndex": 2,
+    "reason": "Public refers to all people or something open to all. Its antonym is Private.",
+    "reason_hi": "Public का अर्थ 'सार्वजनिक' होता है। इसका विलोम Private (निजी) है।"
+  },
+  {
+    "id": "v-d1-syn-49",
+    "prompt": "Find the synonym of: ATHEIST",
+    "prompt_hi": "ATHEIST का पर्यायवाची ज्ञात कीजिए:",
+    "options": [
+      "Theist",
+      "Believer",
+      "Skeptic",
+      "Follower"
+    ],
+    "options_hi": [
+      "आस्तिक",
+      "विश्वासी",
+      "नास्तिक/संदेहवादी",
+      "अनुयायी"
+    ],
+    "answerIndex": 2,
+    "reason": "Atheist refers to a person who disbelieves or lacks belief in the existence of God or gods.",
+    "reason_hi": "Atheist का अर्थ 'नास्तिक' होता है। इसका पर्यायवाची Skeptic (संदेहवादी/नास्तिक) है।"
+  },
+  {
+    "id": "v-d1-ant-50",
+    "prompt": "Find the antonym of: SOLID",
+    "prompt_hi": "SOLID का विलोम ज्ञात कीजिए:",
+    "options": [
+      "Firm",
+      "Hard",
+      "Hollow",
+      "Dense"
+    ],
+    "options_hi": [
+      "दृढ़",
+      "कठोर",
+      "खोखला",
+      "सघन"
+    ],
+    "answerIndex": 2,
+    "reason": "Solid means firm and stable in shape. Its antonym is Hollow.",
+    "reason_hi": "Solid का अर्थ 'ठोस' होता है। इसका विलोम Hollow (खोखला) है।"
   }
 ]
