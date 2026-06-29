@@ -182,6 +182,7 @@ export function QuizPanel({ questions, topicId, onComplete }: QuizPanelProps) {
           reason: language === 'hi' && q.question.reason_hi ? q.question.reason_hi : q.question.reason,
           status: q.status,
           timeSpent: q.timeSpent,
+          examTag: q.question.examTag,
         }))}
         score={quiz.session.score!}
         topicId={topicId}
@@ -343,6 +344,11 @@ export function QuizPanel({ questions, topicId, onComplete }: QuizPanelProps) {
                         <span className="px-3 py-1 bg-neutral-100 dark:bg-neutral-800 rounded-full text-sm font-medium">
                           Question {quiz.navigation.currentIndex + 1}
                         </span>
+                        {currentQuestion.examTag && (
+                          <span className="px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 rounded-full text-sm font-bold flex items-center gap-1 border border-yellow-200 dark:border-yellow-700/50">
+                            🎓 {currentQuestion.examTag}
+                          </span>
+                        )}
                         {currentAttempt.question.meta?.difficulty && (
                           <span className={`px-3 py-1 rounded-full text-sm font-medium ${getDifficultyClass(currentAttempt.question.meta.difficulty)}`}>
                             {currentAttempt.question.meta.difficulty}

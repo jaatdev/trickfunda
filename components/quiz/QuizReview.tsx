@@ -14,6 +14,7 @@ interface QuizAttempt {
   reason?: string;
   status: string;
   timeSpent?: number;
+  examTag?: string;
 }
 
 interface QuizScore {
@@ -175,6 +176,11 @@ export function QuizReview({ attempts, score, topicId, onClose }: QuizReviewProp
                     <span className="px-3 py-1 bg-neutral-100 dark:bg-neutral-800 rounded-full text-sm font-medium">
                       Question {(attempt as any).originalIndex}
                     </span>
+                    {attempt.examTag && (
+                      <span className="px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 rounded-full text-sm font-bold flex items-center gap-1 border border-yellow-200 dark:border-yellow-700/50">
+                        🎓 {attempt.examTag}
+                      </span>
+                    )}
                     {attempt.isCorrect ? (
                       <span className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm font-medium">
                         ✓ Correct

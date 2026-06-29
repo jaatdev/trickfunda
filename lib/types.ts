@@ -67,6 +67,7 @@ export type QuizQuestion = {
   answerIndex: number
   reason?: string
   reason_hi?: string
+  examTag?: string
   meta?: NodeMeta
 }
 
