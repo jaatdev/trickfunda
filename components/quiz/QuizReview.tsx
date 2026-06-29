@@ -23,6 +23,7 @@ interface QuizScore {
   percentage: number;
   passed: boolean;
   totalTimeSpent: number;
+  averageTimePerQuestion?: number;
 }
 
 interface QuizReviewProps {
