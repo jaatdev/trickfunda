@@ -32,13 +32,13 @@ export default function StatsBanner({ stats, subjectSlug = 'default', label = 'T
       transition={{ duration: 0.5, delay: 0.2 }}
       className={`w-full py-4 px-6 rounded-2xl bg-white/60 dark:bg-gray-900/60 backdrop-blur-md border border-gray-200/50 dark:border-gray-800/50 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4 mb-8`}
     >
-      <div className={`text-sm font-bold uppercase tracking-wider ${theme.text}`}>
+      <div className={`text-sm font-bold uppercase tracking-wider ${theme.primary}`}>
         {label}
       </div>
       <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8">
         {statItems.map((stat, i) => (
           <div key={stat.label} className="flex items-center space-x-2">
-            <div className={`p-2 rounded-lg bg-gray-50 dark:bg-gray-800 ${theme.text}`}>
+            <div className={`p-2 rounded-lg bg-gray-50 dark:bg-gray-800 ${theme.primary}`}>
               {stat.icon}
             </div>
             <div>
