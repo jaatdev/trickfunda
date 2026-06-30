@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { QuizQuestion } from '@/lib/types';
-import { KDConcept, KDQuiz } from '@/types/kdMethod';
+import { KDConcept, KDQuiz, KDStats } from '@/types/kdMethod';
 import { NoteBox } from '@/lib/admin-types';
 
 const KD_METHOD_DIR = path.join(process.cwd(), 'data', 'kd-method');
@@ -146,19 +146,74 @@ export async function getKDChapters(subjectSlug: string): Promise<{slug: string;
   const entries = await fs.promises.readdir(subjectDir, { withFileTypes: true });
   const chapters = entries.filter((entry) => entry.isDirectory());
 
-  const result = [];
+  const results = [];
   for (const chapter of chapters) {
     const chapterPath = path.join(subjectDir, chapter.name);
     const typeEntries = await fs.promises.readdir(chapterPath, { withFileTypes: true });
     const typesCount = typeEntries.filter((t) => t.isDirectory()).length;
     
-    result.push({
+    results.push({
       slug: chapter.name,
       title: formatTitle(chapter.name),
       typesCount
     });
   }
-  return result;
+  return results;
+}
+
+export function aggregateKDStats(concepts: KDConcept[]): KDStats {
+  return concepts.reduce((acc, c) => ({
+    concepts: acc.concepts + 1,
+    videos: acc.videos + (c.youtubeUrls?.length || 0),
+    pdfs: acc.pdfs + (c.pdfUrl ? 1 : 0),
+    quizzes: acc.quizzes + (c.quizzes?.length || 0),
+    questions: acc.questions + (c.quizzes?.reduce((qAcc, q) => qAcc + (q.questions?.length || 0), 0) || 0)
+  }), { concepts: 0, videos: 0, pdfs: 0, quizzes: 0, questions: 0 });
+}
+
+export async function getKDChapterStats(subjectSlug: string, chapterSlug: string): Promise<KDStats> {
+  const concepts = await getKDChapterTypes(subjectSlug, chapterSlug);
+  return aggregateKDStats(concepts);
+}
+
+export async function getKDSubjectStats(subjectSlug: string): Promise<KDStats> {
+  if (subjectSlug === 'english-100-concepts') {
+    const concepts = await getKDConcepts(subjectSlug);
+    return aggregateKDStats(concepts);
+  }
+
+  const chapters = await getKDChapters(subjectSlug);
+  const subjectStats: KDStats = { concepts: 0, videos: 0, pdfs: 0, quizzes: 0, questions: 0 };
+  
+  for (const chapter of chapters) {
+    const chapterStats = await getKDChapterStats(subjectSlug, chapter.slug);
+    subjectStats.concepts += chapterStats.concepts;
+    subjectStats.videos += chapterStats.videos;
+    subjectStats.pdfs += chapterStats.pdfs;
+    subjectStats.quizzes += chapterStats.quizzes;
+    subjectStats.questions += chapterStats.questions;
+  }
+  
+  return subjectStats;
+}
+
+export async function getAllKDStats(): Promise<KDStats & { subjects: number }> {
+  const subjects = await getKDChapterSubjects();
+  // English is special because it's at the top level
+  subjects.push('english-100-concepts');
+  
+  const allStats = { subjects: subjects.length, concepts: 0, videos: 0, pdfs: 0, quizzes: 0, questions: 0 };
+  
+  for (const subject of subjects) {
+    const stats = await getKDSubjectStats(subject);
+    allStats.concepts += stats.concepts;
+    allStats.videos += stats.videos;
+    allStats.pdfs += stats.pdfs;
+    allStats.quizzes += stats.quizzes;
+    allStats.questions += stats.questions;
+  }
+  
+  return allStats;
 }
 
 export async function getKDChapterTypes(subjectSlug: string, chapterSlug: string): Promise<KDConcept[]> {

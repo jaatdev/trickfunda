@@ -5,16 +5,18 @@ import AnimatedCounter from '@/components/shared/AnimatedCounter'
 
 interface StatsSectionProps {
   subjects: number
-  topics: number
+  concepts: number
+  videos: number
   quizzes: number
+  questions: number
 }
 
-export default function StatsSection({ subjects, topics, quizzes }: StatsSectionProps) {
+export default function StatsSection({ subjects, concepts, videos, quizzes, questions }: StatsSectionProps) {
   const stats = [
     { value: subjects, label: 'Subjects', gradient: 'from-indigo-600 to-indigo-400', icon: '📚' },
-    { value: topics, label: 'Topics', gradient: 'from-emerald-600 to-emerald-400', icon: '📖' },
-    { value: quizzes, label: 'Quiz Questions', gradient: 'from-amber-600 to-amber-400', icon: '❓' },
-    { value: 10000, label: 'Active Learners', gradient: 'from-pink-600 to-pink-400', icon: '👥' },
+    { value: concepts, label: 'Concepts & Types', gradient: 'from-emerald-600 to-emerald-400', icon: '📖' },
+    { value: questions, label: 'Quiz Questions', gradient: 'from-amber-600 to-amber-400', icon: '❓' },
+    { value: videos, label: 'Video Lessons', gradient: 'from-pink-600 to-pink-400', icon: '🎥' },
   ]
 
   return (

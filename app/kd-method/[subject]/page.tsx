@@ -1,6 +1,7 @@
-import { getKDChapters, getKDChapterSubjects } from '@/utils/kdMethodParser';
+import { getKDChapters, getKDChapterSubjects, getKDSubjectStats } from '@/utils/kdMethodParser';
 import Link from 'next/link';
 import SubjectListClient from '@/components/kd-method/SubjectListClient';
+import StatsBanner from '@/components/kd-method/StatsBanner';
 
 export async function generateStaticParams() {
   const subjects = await getKDChapterSubjects();
@@ -10,6 +11,7 @@ export async function generateStaticParams() {
 export default async function TrickFundaIndex({ params }: { params: Promise<{ subject: string }> }) {
   const { subject } = await params;
   const chapters = await getKDChapters(subject);
+  const stats = await getKDSubjectStats(subject);
 
   // Format title from slug
   const subjectTitle = subject.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
@@ -25,6 +27,8 @@ export default async function TrickFundaIndex({ params }: { params: Promise<{ su
           <span>/</span>
           <span className="text-gray-900 dark:text-gray-100 truncate max-w-[200px] sm:max-w-none">{displayTitle}</span>
         </div>
+
+        <StatsBanner stats={stats} subjectSlug={subject} label={`${displayTitle} Totals`} />
 
         <header className="mb-12">
           <h1 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-4 tracking-tight">

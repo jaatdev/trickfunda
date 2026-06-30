@@ -1,7 +1,8 @@
-import { getKDChapterTypes, getKDChapters, getKDChapterSubjects } from '@/utils/kdMethodParser';
+import { getKDChapterTypes, getKDChapters, getKDChapterSubjects, aggregateKDStats } from '@/utils/kdMethodParser';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import ChapterTypesClient from '@/components/kd-method/ChapterTypesClient';
+import StatsBanner from '@/components/kd-method/StatsBanner';
 
 export type Props = {
   params: Promise<{ subject: string; chapter: string }>;
@@ -38,6 +39,7 @@ export async function generateStaticParams() {
 export default async function TrickFundaChapter(props: Props) {
   const params = await props.params;
   const types = await getKDChapterTypes(params.subject, params.chapter);
+  const stats = aggregateKDStats(types);
   
   // Format title from slug
   const chapterTitle = params.chapter.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
@@ -54,6 +56,8 @@ export default async function TrickFundaChapter(props: Props) {
           <span>/</span>
           <span className="text-gray-900 dark:text-gray-100 truncate max-w-[200px] sm:max-w-none">{chapterTitle}</span>
         </div>
+
+        <StatsBanner stats={stats} subjectSlug={params.subject} label={`${chapterTitle} Totals`} />
 
         <header className="mb-12">
           <h1 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-4 tracking-tight">

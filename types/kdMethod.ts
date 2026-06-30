@@ -17,6 +17,14 @@ export interface KDConcept {
   quizzes: KDQuiz[];
 }
 
+export interface KDStats {
+  concepts: number;
+  videos: number;
+  quizzes: number;
+  questions: number;
+  pdfs: number;
+}
+
 export interface KDCategory {
   title: string;
   slug: string;

@@ -11,7 +11,7 @@ import SubjectsGrid from '@/components/home/SubjectsGrid'
 import TestimonialsSection from '@/components/home/TestimonialsSection'
 import CTASection from '@/components/home/CTASection'
 import FloatingElements from '@/components/home/FloatingElements'
-import { getKDChapters } from '@/utils/kdMethodParser'
+import { getKDChapters, getAllKDStats } from '@/utils/kdMethodParser'
 
 export default async function HomePage() {
   const kdMethodDir = path.join(process.cwd(), 'data', 'kd-method')
@@ -65,8 +65,7 @@ export default async function HomePage() {
     return a.title.localeCompare(b.title);
   });
 
-  const totalTopics = subjects.reduce((sum, s) => sum + s.topics.length, 0)
-  const totalQuizzes = totalTopics * 5; // Approximation for stats
+  const kdStats = await getAllKDStats();
 
   return (
     <div className="relative overflow-hidden">
@@ -75,9 +74,11 @@ export default async function HomePage() {
       <HeroSection />
       
       <StatsSection 
-        subjects={subjects.length}
-        topics={totalTopics}
-        quizzes={totalQuizzes}
+        subjects={kdStats.subjects}
+        concepts={kdStats.concepts}
+        videos={kdStats.videos}
+        quizzes={kdStats.quizzes}
+        questions={kdStats.questions}
       />
       
       <FeaturesShowcase />
