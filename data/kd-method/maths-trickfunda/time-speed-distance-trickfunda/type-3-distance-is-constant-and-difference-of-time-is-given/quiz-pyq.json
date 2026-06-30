@@ -1,0 +1,338 @@
+[
+  {
+    "id": "tsd-type-3-pyq-44",
+    "prompt": "A boy covers a certain distance between his house and school on a cycle. Riding on an average speed of 15 km/h, he is late by 10 min. However, with an average speed of 20 km/h, he reaches the school 5 min earlier. Find the distance between his house and school.",
+    "prompt_hi": "एक लड़का अपनी साइकिल पर अपने घर और स्कूल के बीच एक निश्चित दूरी तय करता है। 15 किमी/घंटा की औसत गति से साइकिल चलाने पर, वह 10 मिनट लेट हो जाता है। हालांकि, 20 किमी/घंटा की औसत गति के साथ, वह 5 मिनट पहले स्कूल पहुंच जाता है। उसके घर और स्कूल के बीच की दूरी ज्ञात कीजिए।",
+    "options": [
+      "25 km",
+      "20 km",
+      "15 km",
+      "30 km"
+    ],
+    "options_hi": [
+      "25 km",
+      "20 km",
+      "15 km",
+      "30 km"
+    ],
+    "answerIndex": 2,
+    "examTag": "SSC CHSL 02/08/2023 Shift-04",
+    "reason": "",
+    "reason_hi": "",
+    "meta": {
+      "difficulty": "Basic"
+    }
+  },
+  {
+    "id": "tsd-type-3-pyq-45",
+    "prompt": "If Tanya walks at the speed of 6km/h, she misses a train by 2 minutes. However, if she walks at the speed of 8 km/h, she reaches the station 3 minutes before the arrival of the train. The distance covered by Tanya to reach the station is:",
+    "prompt_hi": "यदि तान्या 6 किमी/घंटा की गति से चलती है, तो उसकी ट्रेन 2 मिनट से छूट जाती है। हालांकि, यदि वह 8 किमी/घंटा की गति से चलती है, तो वह ट्रेन के आने से 3 मिनट पहले स्टेशन पहुंच जाती है। तान्या द्वारा स्टेशन तक पहुँचने के लिए तय की गई दूरी है:",
+    "options": [
+      "3 km",
+      "2.5 km",
+      "2.75 km",
+      "2 km"
+    ],
+    "options_hi": [
+      "3 km",
+      "2.5 km",
+      "2.75 km",
+      "2 km"
+    ],
+    "answerIndex": 3,
+    "examTag": "SSC CHSL 09/07/2024 (Shift-03)",
+    "reason": "",
+    "reason_hi": "",
+    "meta": {
+      "difficulty": "Basic"
+    }
+  },
+  {
+    "id": "tsd-type-3-pyq-46",
+    "prompt": "A person reaches his destination 30 minutes late, if his speed is 3 km/h, and reaches 30 minutes before time if his speed is 4 km/h. Find the distance of his destination from his starting point.",
+    "prompt_hi": "एक व्यक्ति अपने गंतव्य पर 30 मिनट देरी से पहुँचता है, यदि उसकी गति 3 किमी/घंटा है, और 30 मिनट पहले पहुँचता है यदि उसकी गति 4 किमी/घंटा है। उसके प्रारंभिक बिंदु से उसके गंतव्य की दूरी ज्ञात कीजिए।",
+    "options": [
+      "14 km",
+      "11 km",
+      "12 km",
+      "13 km"
+    ],
+    "options_hi": [
+      "14 km",
+      "11 km",
+      "12 km",
+      "13 km"
+    ],
+    "answerIndex": 2,
+    "examTag": "SSC CHSL 10/07/2024 (Shift-01)",
+    "reason": "",
+    "reason_hi": "",
+    "meta": {
+      "difficulty": "Basic"
+    }
+  },
+  {
+    "id": "tsd-type-3-pyq-47",
+    "prompt": "Ram walks at the speed of 12 km/hr and reaches his school 12 minutes late. If he walks at 16 km/hr, then he reaches 8 minutes before the scheduled time. What is the distance of his school from his house?",
+    "prompt_hi": "राम 12 किमी/घंटा की गति से चलता है और 12 मिनट देरी से अपने स्कूल पहुंचता है। यदि वह 16 किमी/घंटा की गति से चलता है, तो वह निर्धारित समय से 8 मिनट पहले पहुंच जाता है। उसके स्कूल से उसके घर की दूरी क्या है?",
+    "options": [
+      "16 km",
+      "30 km",
+      "20 km",
+      "24 km"
+    ],
+    "options_hi": [
+      "16 km",
+      "30 km",
+      "20 km",
+      "24 km"
+    ],
+    "answerIndex": 0,
+    "examTag": "SSC MTS 11/05/2023 (Shift-01)",
+    "reason": "",
+    "reason_hi": "",
+    "meta": {
+      "difficulty": "Basic"
+    }
+  },
+  {
+    "id": "tsd-type-3-pyq-48",
+    "prompt": "A person goes to his office by scooter at the speed of 80 km/hr and reaches 60 minutes earlier. If he goes at the speed of 50 km/hr then he reaches 48 minutes late. What will be the speed of the scooter to reach on the usual time?",
+    "prompt_hi": "एक व्यक्ति 80 किमी/घंटा की गति से स्कूटर द्वारा अपने कार्यालय जाता है और 60 मिनट पहले पहुंचता है। यदि वह 50 किमी/घंटा की गति से जाता है तो वह 48 मिनट देरी से पहुंचता है। सामान्य समय पर पहुंचने के लिए स्कूटर की गति क्या होगी?",
+    "options": [
+      "64 km/hr",
+      "66 km/hr",
+      "60 km/hr",
+      "62 km/hr"
+    ],
+    "options_hi": [
+      "64 km/hr",
+      "66 km/hr",
+      "60 km/hr",
+      "62 km/hr"
+    ],
+    "answerIndex": 0,
+    "examTag": "SSC CHSL 21/03/2023 (Shift-02)",
+    "reason": "",
+    "reason_hi": "",
+    "meta": {
+      "difficulty": "Basic"
+    }
+  },
+  {
+    "id": "tsd-type-3-pyq-49",
+    "prompt": "Ramesh drives from his home at a speed of 40 km/h and reaches his college 25 minutes late. The next day he increases his speed by 10 km/h, yet he is late by 10 minutes. How far is his college from his home?",
+    "prompt_hi": "रमेश अपने घर से 40 किमी/घंटा की गति से गाड़ी चलाता है और 25 मिनट की देरी से अपने कॉलेज पहुंचता है। अगले दिन वह अपनी गति 10 किमी/घंटा बढ़ा देता है, फिर भी उसे 10 मिनट की देरी होती है। उसके घर से उसका कॉलेज कितनी दूर है?",
+    "options": [
+      "50 km",
+      "55 km",
+      "45 km",
+      "60 km"
+    ],
+    "options_hi": [
+      "50 km",
+      "55 km",
+      "45 km",
+      "60 km"
+    ],
+    "answerIndex": 0,
+    "examTag": "SSC CHSL 24/05/2022 (Shift- 01)",
+    "reason": "",
+    "reason_hi": "",
+    "meta": {
+      "difficulty": "Basic"
+    }
+  },
+  {
+    "id": "tsd-type-3-pyq-50",
+    "prompt": "A student walks from his home to school at a speed of 4 km/h and reaches 15 minutes late. If he increases his speed to 6 km/h, he reaches 5 minutes early. What is the distance (in km) from his home to school?",
+    "prompt_hi": "एक छात्र अपने घर से स्कूल तक 4 किमी/घंटा की गति से चलता है और 15 मिनट देरी से पहुंचता है। यदि वह अपनी गति 6 किमी/घंटा तक बढ़ाता है, तो वह 5 मिनट पहले पहुंच जाता है। उसके घर से स्कूल तक की दूरी (किमी में) क्या है?",
+    "options": [
+      "4 km",
+      "6 km",
+      "8 km",
+      "10 km"
+    ],
+    "options_hi": [
+      "4 km",
+      "6 km",
+      "8 km",
+      "10 km"
+    ],
+    "answerIndex": 0,
+    "examTag": "SSC CGL 15/09/2023 (SHIFT-03)",
+    "reason": "",
+    "reason_hi": "",
+    "meta": {
+      "difficulty": "Basic"
+    }
+  },
+  {
+    "id": "tsd-type-3-pyq-51",
+    "prompt": "Punit goes from his home to his relative's place at a speed of 45 km/h. While returning from the relative's place, due to traffic, it takes him an hour longer as he can only drive at the speed of 40 km/h. Find the distance (in km) of his relative's place from his home.",
+    "prompt_hi": "पुनीत 45 किमी/घंटा की गति से अपने घर से अपने रिश्तेदार के यहाँ जाता है। रिश्तेदार के यहाँ से लौटते समय, ट्रैफिक के कारण, उसे एक घंटा अधिक लगता है क्योंकि वह केवल 40 किमी/घंटा की गति से गाड़ी चला सकता है। उसके घर से रिश्तेदार के स्थान की दूरी (किमी में) ज्ञात कीजिए।",
+    "options": [
+      "400",
+      "720",
+      "180",
+      "360"
+    ],
+    "options_hi": [
+      "400",
+      "720",
+      "180",
+      "360"
+    ],
+    "answerIndex": 3,
+    "examTag": "SSC MTS 12/07/2022 (Shift-02)",
+    "reason": "",
+    "reason_hi": "",
+    "meta": {
+      "difficulty": "Basic"
+    }
+  },
+  {
+    "id": "tsd-type-3-pyq-52",
+    "prompt": "A person travels from city A to city B. If he travels at a speed of 50 km/h, he arrives 1 hour early, if he travels at a speed of 30 km/hr he arrives 1 hour late. What is the distance (in km) between city A and city B?",
+    "prompt_hi": "एक व्यक्ति शहर A से शहर B की यात्रा करता है। यदि वह 50 किमी/घंटा की गति से यात्रा करता है, तो वह 1 घंटे पहले पहुँचता है, यदि वह 30 किमी/घंटा की गति से यात्रा करता है तो वह 1 घंटे देरी से पहुँचता है। शहर A और शहर B के बीच की दूरी (किमी में) क्या है?",
+    "options": [
+      "150 km",
+      "120 km",
+      "200 km",
+      "180 km"
+    ],
+    "options_hi": [
+      "150 km",
+      "120 km",
+      "200 km",
+      "180 km"
+    ],
+    "answerIndex": 0,
+    "examTag": "SSC CGL 13/09/2023 (Shift-02)",
+    "reason": "",
+    "reason_hi": "",
+    "meta": {
+      "difficulty": "Basic"
+    }
+  },
+  {
+    "id": "tsd-type-3-pyq-53",
+    "prompt": "P and Q start from point A to point B, at the same time at speeds of 32 km/h and 40 km/h, respectively. If in covering the journey P takes 15 minutes longer than Q, the total distance AB of the journey is:",
+    "prompt_hi": "P और Q एक ही समय पर बिंदु A से बिंदु B के लिए क्रमशः 32 किमी/घंटा और 40 किमी/घंटा की गति से चलना शुरू करते हैं। यदि यात्रा तय करने में P को Q से 15 मिनट अधिक समय लगता है, तो यात्रा की कुल दूरी AB है:",
+    "options": [
+      "36 km",
+      "32 km",
+      "40 km",
+      "44 km"
+    ],
+    "options_hi": [
+      "36 km",
+      "32 km",
+      "40 km",
+      "44 km"
+    ],
+    "answerIndex": 2,
+    "examTag": "SSC MTS 04/09/2023 (Shift- 01)",
+    "reason": "",
+    "reason_hi": "",
+    "meta": {
+      "difficulty": "Basic"
+    }
+  },
+  {
+    "id": "tsd-type-3-pyq-54",
+    "prompt": "Two cyclist X and Y start at the same time from place A and go towards place B at a speed of 6 km/h and 8 km/h, respectively. Despite stopping for 15 minutes during the journey, Y reaches 10 minutes earlier than X. The distance between the places A and B is:",
+    "prompt_hi": "दो साइकिल चालक X और Y एक ही समय पर स्थान A से शुरू होते हैं और क्रमशः 6 किमी/घंटा और 8 किमी/घंटा की गति से स्थान B की ओर जाते हैं। यात्रा के दौरान 15 मिनट रुकने के बावजूद, Y, X से 10 मिनट पहले पहुंच जाता है। स्थान A और B के बीच की दूरी है:",
+    "options": [
+      "6 km",
+      "16.5 km",
+      "10 km",
+      "8 km"
+    ],
+    "options_hi": [
+      "6 km",
+      "16.5 km",
+      "10 km",
+      "8 km"
+    ],
+    "answerIndex": 2,
+    "examTag": "SSC CGL 06/03/2020 (Shift-01)",
+    "reason": "",
+    "reason_hi": "",
+    "meta": {
+      "difficulty": "Basic"
+    }
+  },
+  {
+    "id": "tsd-type-3-pyq-55",
+    "prompt": "Aman drove from home to a town at the speed of 60 km/hr and on his return journey, he drove at the speed of 30 km/hr and took an hour longer to reach home. What distance did he cover each way?",
+    "prompt_hi": "अमन अपने घर से 60 किमी/घंटा की गति से एक शहर के लिए रवाना हुआ और अपनी वापसी की यात्रा पर, उसने 30 किमी/घंटा की गति से गाड़ी चलाई और घर पहुँचने में एक घंटा अधिक समय लिया। उसने प्रत्येक तरफ कितनी दूरी तय की?",
+    "options": [
+      "75 km",
+      "55 km",
+      "60 km",
+      "80 km"
+    ],
+    "options_hi": [
+      "75 km",
+      "55 km",
+      "60 km",
+      "80 km"
+    ],
+    "answerIndex": 2,
+    "examTag": "SSC CHSL 17/03/2023 (Shift-02)",
+    "reason": "",
+    "reason_hi": "",
+    "meta": {
+      "difficulty": "Basic"
+    }
+  },
+  {
+    "id": "tsd-type-3-pyq-56",
+    "prompt": "In covering a distance of 50 km. Somya takes 1 hour more than Sunny. If Somya doubles his speed, then he would take 1 hour less than Sunny. Somya's speed is:",
+    "prompt_hi": "50 किमी की दूरी तय करने में सोम्या को सनी से 1 घंटा अधिक लगता है। यदि सोम्या अपनी गति को दोगुना कर दे, तो उसे सनी से 1 घंटा कम समय लगेगा। सोम्या की गति है:",
+    "options": [
+      "18.4 km/hr",
+      "12.5 km/hr",
+      "14.8 km/hr",
+      "15.6 km/hr"
+    ],
+    "options_hi": [
+      "18.4 km/hr",
+      "12.5 km/hr",
+      "14.8 km/hr",
+      "15.6 km/hr"
+    ],
+    "answerIndex": 1,
+    "examTag": "SSC MTS 17/05/2023 (Shift 03)",
+    "reason": "",
+    "reason_hi": "",
+    "meta": {
+      "difficulty": "Basic"
+    }
+  },
+  {
+    "id": "tsd-type-3-pyq-57",
+    "prompt": "Amita travels from her house at 3 1/2 km/h and reaches her school 6 minutes late. The next day she travels at 4 1/2 km/h and reaches her school 10 minutes early. What is the distance between her house and the school?",
+    "prompt_hi": "अमिता अपने घर से 3 1/2 किमी/घंटा की गति से यात्रा करती है और 6 मिनट देरी से अपने स्कूल पहुँचती है। अगले दिन वह 4 1/2 किमी/घंटा की गति से यात्रा करती है और 10 मिनट पहले अपने स्कूल पहुँच जाती है। उसके घर और स्कूल के बीच की दूरी क्या है?",
+    "options": [
+      "5.4 km",
+      "5.6 km",
+      "4.8 km",
+      "4.2 km"
+    ],
+    "options_hi": [
+      "5.4 km",
+      "5.6 km",
+      "4.8 km",
+      "4.2 km"
+    ],
+    "answerIndex": 3,
+    "examTag": "SSC CGL TIER-II 16/11/2020 (Shift-01)",
+    "reason": "",
+    "reason_hi": "",
+    "meta": {
+      "difficulty": "Basic"
+    }
+  }
+]
