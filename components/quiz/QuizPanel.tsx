@@ -14,6 +14,7 @@ import { QuizQuestion } from '@/lib/types';
 import { MathJax } from 'better-react-mathjax';
 import { getThemeById } from '@/lib/theme-variants';
 import { QuizReview } from './QuizReview';
+import { DiceLayoutRenderer } from './DiceLayoutRenderer';
 import { useUser } from '@clerk/nextjs';
 import CanvasOverlay from '../canvas/CanvasOverlay';
 
@@ -156,6 +157,7 @@ export function QuizPanel({ questions, topicId, onComplete }: QuizPanelProps) {
         reason: q.question.reason,
         status: q.status,
         timeSpent: q.timeSpent,
+        dice_layout: q.question.dice_layout,
       };
     });
 
@@ -183,6 +185,7 @@ export function QuizPanel({ questions, topicId, onComplete }: QuizPanelProps) {
           status: q.status,
           timeSpent: q.timeSpent,
           examTag: q.question.examTag,
+          dice_layout: q.question.dice_layout,
         }))}
         score={quiz.session.score!}
         topicId={topicId}
@@ -367,6 +370,9 @@ export function QuizPanel({ questions, topicId, onComplete }: QuizPanelProps) {
                       <h3 className="text-base md:text-xl font-bold leading-relaxed whitespace-pre-wrap break-words min-w-0">
                         <MathJax>{language === 'hi' && currentQuestion.prompt_hi ? currentQuestion.prompt_hi : currentQuestion.prompt}</MathJax>
                       </h3>
+                      {currentQuestion.dice_layout && (
+                        <DiceLayoutRenderer layout={currentQuestion.dice_layout} />
+                      )}
                     </div>
                     
                     <button

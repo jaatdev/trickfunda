@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion';
 import { getThemeById } from '@/lib/theme-variants';
 import { MathJax } from 'better-react-mathjax';
+import { DiceLayout } from '@/lib/types';
+import { DiceLayoutRenderer } from './DiceLayoutRenderer';
 
 interface QuizAttempt {
   questionId: string;
@@ -15,6 +17,7 @@ interface QuizAttempt {
   status: string;
   timeSpent?: number;
   examTag?: string;
+  dice_layout?: DiceLayout;
 }
 
 interface QuizScore {
@@ -200,7 +203,12 @@ export function QuizReview({ attempts, score, topicId, onClose }: QuizReviewProp
                       </span>
                     )}
                   </div>
-                  <h3 className="text-lg font-semibold"><MathJax>{attempt.prompt}</MathJax></h3>
+                  <h3 className="text-lg font-semibold whitespace-pre-wrap break-words min-w-0">
+                    <MathJax>{attempt.prompt}</MathJax>
+                  </h3>
+                  {attempt.dice_layout && (
+                    <DiceLayoutRenderer layout={attempt.dice_layout} />
+                  )}
                 </div>
               </div>
 

@@ -58,6 +58,18 @@ export type ContentNode = MarkdownNode | FlashcardsNode
 // QUIZ QUESTIONS (Reusable across all levels)
 // ============================================================================
 
+export type DiceInstance = {
+  top?: string | null;
+  front?: string | null;
+  right?: string | null;
+};
+
+export type DiceLayout = {
+  layout_type: '3d_isometric' | 'unfolded_net';
+  dice_instances?: DiceInstance[];
+  grid_matrix?: (string | null)[][];
+};
+
 export type QuizQuestion = {
   id: string
   prompt: string
@@ -69,6 +81,7 @@ export type QuizQuestion = {
   reason_hi?: string
   examTag?: string
   meta?: NodeMeta
+  dice_layout?: DiceLayout
 }
 
 // ============================================================================
