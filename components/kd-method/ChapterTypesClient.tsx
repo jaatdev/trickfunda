@@ -23,11 +23,11 @@ const itemVariants: Variants = {
 type Type = {
   title: string;
   slug: string;
-  youtubeUrls?: string[];
-  pdfUrl?: string;
-  noteBoxes?: any[];
-  notesMarkdown?: string;
-  quizzes?: any[];
+  youtubeUrls?: string[] | null;
+  pdfUrl?: string | null;
+  noteBoxes?: any[] | null;
+  notesMarkdown?: string | null;
+  quizzes?: any[] | null;
 };
 
 type Props = {
