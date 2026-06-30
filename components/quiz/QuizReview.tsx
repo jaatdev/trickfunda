@@ -18,6 +18,7 @@ interface QuizAttempt {
   timeSpent?: number;
   examTag?: string;
   dice_layout?: DiceLayout;
+  options_dice_layout?: DiceLayout[];
 }
 
 interface QuizScore {
@@ -233,7 +234,14 @@ export function QuizReview({ attempts, score, topicId, onClose }: QuizReviewProp
                         <span className="shrink-0 w-6 h-6 rounded-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-sm font-bold">
                           {optionLetter}
                         </span>
-                        <span className="flex-1"><MathJax>{option}</MathJax></span>
+                        <span className="flex-1">
+                          <MathJax>{option}</MathJax>
+                          {attempt.options_dice_layout?.[optionIndex] && (
+                            <div className="mt-2">
+                              <DiceLayoutRenderer layout={attempt.options_dice_layout[optionIndex]} />
+                            </div>
+                          )}
+                        </span>
                         {isCorrect && (
                           <span className="text-green-600 dark:text-green-400 font-bold">✓</span>
                         )}

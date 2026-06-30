@@ -82,6 +82,7 @@ export type QuizQuestion = {
   examTag?: string
   meta?: NodeMeta
   dice_layout?: DiceLayout
+  options_dice_layout?: DiceLayout[]
 }
 
 // ============================================================================

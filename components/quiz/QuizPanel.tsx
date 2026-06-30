@@ -158,6 +158,7 @@ export function QuizPanel({ questions, topicId, onComplete }: QuizPanelProps) {
         status: q.status,
         timeSpent: q.timeSpent,
         dice_layout: q.question.dice_layout,
+        options_dice_layout: q.question.options_dice_layout,
       };
     });
 
@@ -186,6 +187,7 @@ export function QuizPanel({ questions, topicId, onComplete }: QuizPanelProps) {
           timeSpent: q.timeSpent,
           examTag: q.question.examTag,
           dice_layout: q.question.dice_layout,
+          options_dice_layout: q.question.options_dice_layout,
         }))}
         score={quiz.session.score!}
         topicId={topicId}
@@ -441,6 +443,11 @@ export function QuizPanel({ questions, topicId, onComplete }: QuizPanelProps) {
                         </span>
                         <span className={`flex-1 pt-1 break-words min-w-0 text-sm md:text-base leading-relaxed pointer-events-none ${textStyle}`}>
                           <MathJax>{displayOption}</MathJax>
+                          {currentQuestion.options_dice_layout?.[index] && (
+                            <div className="mt-2 pointer-events-none">
+                              <DiceLayoutRenderer layout={currentQuestion.options_dice_layout[index]} />
+                            </div>
+                          )}
                         </span>
                       </motion.button>
                     );
