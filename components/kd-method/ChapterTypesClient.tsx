@@ -32,17 +32,18 @@ type Type = {
 
 type Props = {
   subjectSlug: string;
-  chapterSlug: string;
+  chapterSlug?: string;
+  baseRoute?: string;
   types: Type[];
 };
 
-export default function ChapterTypesClient({ subjectSlug, chapterSlug, types }: Props) {
+export default function ChapterTypesClient({ subjectSlug, chapterSlug, baseRoute, types }: Props) {
   const theme = getSubjectTheme(subjectSlug);
 
   if (types.length === 0) {
     return (
       <div className="py-12 text-center text-gray-500">
-        No types found for this chapter yet. Add folders inside data/kd-method/{subjectSlug}/{chapterSlug}/
+        No types found. Add folders for this topic.
       </div>
     );
   }
@@ -54,10 +55,12 @@ export default function ChapterTypesClient({ subjectSlug, chapterSlug, types }: 
       animate="show"
       className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
     >
-      {types.map((type, i) => (
+      {types.map((type, i) => {
+        const href = baseRoute ? `${baseRoute}/${type.slug}` : `/kd-method/${subjectSlug}/${chapterSlug}/${type.slug}`;
+        return (
         <motion.div key={type.slug} variants={itemVariants}>
           <Link 
-            href={`/kd-method/${subjectSlug}/${chapterSlug}/${type.slug}`}
+            href={href}
             className={`group relative flex flex-col h-full p-8 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-gray-800/50 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${theme.hoverBorder}`}
           >
             {/* Subtle hover gradient background */}
@@ -90,7 +93,8 @@ export default function ChapterTypesClient({ subjectSlug, chapterSlug, types }: 
             </div>
           </Link>
         </motion.div>
-      ))}
+        );
+      })}
     </motion.div>
   );
 }
