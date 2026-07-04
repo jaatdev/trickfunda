@@ -1,0 +1,496 @@
+[
+  {
+    "id": "eng-concept-5-spotting-error-1",
+    "prompt": "Spot the error: (a) Either James or I (b) are the topper (c) of the class (d) No error.",
+    "options": [
+      "Either James or I",
+      "are the topper",
+      "of the class",
+      "No error"
+    ],
+    "answerIndex": 1,
+    "examTag": "[Previous Year]",
+    "reason": "Option (b) is correct. यहां 'I' के अनुसार verb 'am' आयेगी क्योंकि जब दो Subject, Either ........or, से जुड़े हो तो Verb नजदीक वाले Subject के अनुसार आती है।"
+  },
+  {
+    "id": "eng-concept-5-spotting-error-2",
+    "prompt": "Spot the error: (a) Either an officer (b) or an assistant (c) are required (d) No error.",
+    "options": [
+      "Either an officer",
+      "or an assistant",
+      "are required",
+      "No error"
+    ],
+    "answerIndex": 2,
+    "examTag": "[Previous Year]",
+    "reason": "Option (c) is correct. यहां assistant के अनुसार singular verb 'is' आयेगी क्योंकि जब दो Subject, Either ........or, से जुड़े हो तो Verb नजदीक वाले Subject के अनुसार आती है।"
+  },
+  {
+    "id": "eng-concept-5-spotting-error-3",
+    "prompt": "Spot the error: (a) Either Sohan or his friends (b) is to be blamed (c) for this mischief (d) No error.",
+    "options": [
+      "Either Sohan or his friends",
+      "is to be blamed",
+      "for this mischief",
+      "No error"
+    ],
+    "answerIndex": 1,
+    "examTag": "[Previous Year]",
+    "reason": "Option (b) is correct. यहां friends के अनुसार plural verb 'are' आयेगी क्योंकि जब दो Subject, Either ........or, से जुड़े हो तो Verb नजदीक वाले Subject के अनुसार आती है।"
+  },
+  {
+    "id": "eng-concept-5-spotting-error-4",
+    "prompt": "Spot the error: (a) Our happiness or sorrow (b) are largely due to (c) our own actions (d) No error.",
+    "options": [
+      "Our happiness or sorrow",
+      "are largely due to",
+      "our own actions",
+      "No error"
+    ],
+    "answerIndex": 1,
+    "examTag": "[Previous Year]",
+    "reason": "Option (b) is correct. यहां sorrow के अनुसार singular verb 'is' आयेगी क्योंकि जब दो Subject, 'or' से जुड़े हो तो Verb नजदीक वाले Subject के अनुसार आती है।"
+  },
+  {
+    "id": "eng-concept-5-spotting-error-5",
+    "prompt": "Spot the error: (a) Neither Anu nor Ram (b) were (c) at the party (d) No error.",
+    "options": [
+      "Neither Anu nor Ram",
+      "were",
+      "at the party",
+      "No error"
+    ],
+    "answerIndex": 1,
+    "examTag": "[Previous Year]",
+    "reason": "Option (b) is correct. यहां Ram के अनुसार singular verb 'was' आयेगी क्योंकि जब दो Subject, Neither ........nor, से जुड़े हो तो Verb नजदीक वाले Subject के अनुसार आती है।"
+  },
+  {
+    "id": "eng-concept-5-spotting-error-6",
+    "prompt": "Spot the error: (a) Either Parmeet or Jyoti (b) have done (c) this crime (d) No error.",
+    "options": [
+      "Either Parmeet or Jyoti",
+      "have done",
+      "this crime",
+      "No error"
+    ],
+    "answerIndex": 1,
+    "examTag": "[Previous Year]",
+    "reason": "Option (b) is correct. यहां Jyoti के अनुसार singular verb 'has' आयेगी क्योंकि जब दो Subject, Either ........or, से जुड़े हो तो Verb नजदीक वाले Subject के अनुसार आती है।"
+  },
+  {
+    "id": "eng-concept-5-spotting-error-7",
+    "prompt": "Spot the error: (a) Either you or your friend (b) have stolen (c) my wrist watch (d) No Error.",
+    "options": [
+      "Either you or your friend",
+      "have stolen",
+      "my wrist watch",
+      "No Error"
+    ],
+    "answerIndex": 1,
+    "examTag": "[Previous Year]",
+    "reason": "Option (b) is correct. यहां friend के अनुसार singular verb 'has' आयेगी क्योंकि जब दो Subject, Either ........or, से जुड़े हो तो Verb नजदीक वाले Subject के अनुसार आती है।"
+  },
+  {
+    "id": "eng-concept-5-spotting-error-8",
+    "prompt": "Spot the error: (a) Neither the principal nor the students (b) takes interest (c) in the general welfare of the students (d) No error.",
+    "options": [
+      "Neither the principal nor the students",
+      "takes interest",
+      "in the general welfare of the students",
+      "No error"
+    ],
+    "answerIndex": 1,
+    "examTag": "[Previous Year]",
+    "reason": "Option (b) is correct. यहां students के अनुसार plural verb 'take' आयेगी क्योंकि जब दो Subject, Neither ........nor, से जुड़े हो तो Verb नजदीक वाले Subject के अनुसार आती है।"
+  },
+  {
+    "id": "eng-concept-5-spotting-error-9",
+    "prompt": "Spot the error: (a) Either my colleague (b) or a peon are coming (c) with the material (d) No error.",
+    "options": [
+      "Either my colleague",
+      "or a peon are coming",
+      "with the material",
+      "No error"
+    ],
+    "answerIndex": 1,
+    "examTag": "[Previous Year]",
+    "reason": "Option (b) is correct. यहां a peon के अनुसार singular verb 'is' आयेगी क्योंकि जब दो Subject, Either ........or, से जुड़े हो तो Verb नजदीक वाले Subject के अनुसार आती है।"
+  },
+  {
+    "id": "eng-concept-5-spotting-error-10",
+    "prompt": "Spot the error: (a) Neither the coach (b) nor the students (c) wants to do another color (d) No error.",
+    "options": [
+      "Neither the coach",
+      "nor the students",
+      "wants to do another color",
+      "No error"
+    ],
+    "answerIndex": 2,
+    "examTag": "[Previous Year]",
+    "reason": "Option (c) is correct. यहां students के अनुसार plural verb 'want' आयेगी क्योंकि जब दो Subject, Neither ........nor, से जुड़े हो तो Verb नजदीक वाले Subject के अनुसार आती है।"
+  },
+  {
+    "id": "eng-concept-5-spotting-error-11",
+    "prompt": "Spot the error: (a) Not only the students (b) but also the teacher (c) have been unhappy (d) No error.",
+    "options": [
+      "Not only the students",
+      "but also the teacher",
+      "have been unhappy",
+      "No error"
+    ],
+    "answerIndex": 2,
+    "examTag": "[Previous Year]",
+    "reason": "Option (c) is correct. यहां teacher के अनुसार singular verb 'has' आयेगी क्योंकि जब दो Subject, Not only ........but also, से जुड़े हो तो Verb नजदीक वाले Subject के अनुसार आती है।"
+  },
+  {
+    "id": "eng-concept-5-spotting-error-12",
+    "prompt": "Spot the error: (a) Either the workers or the (b) manager are coming (c) to the conference (d) No error.",
+    "options": [
+      "Either the workers or the",
+      "manager are coming",
+      "to the conference",
+      "No error"
+    ],
+    "answerIndex": 1,
+    "examTag": "[Previous Year]",
+    "reason": "Option (b) is correct. यहां manager के अनुसार singular verb 'is' आयेगी क्योंकि जब दो Subject, Either ........or, से जुड़े हो तो Verb नजदीक वाले Subject के अनुसार आती है।"
+  },
+  {
+    "id": "eng-concept-5-spotting-error-13",
+    "prompt": "Spot the error: (a) Neither his father (b) nor his mother (c) are alive (d) No error.",
+    "options": [
+      "Neither his father",
+      "nor his mother",
+      "are alive",
+      "No error"
+    ],
+    "answerIndex": 2,
+    "examTag": "[Previous Year]",
+    "reason": "Option (c) is correct. यहां mother के अनुसार singular verb 'is' आयेगी क्योंकि जब दो Subject, Neither ........nor, से जुड़े हो तो Verb नजदीक वाले Subject के अनुसार आती है।"
+  },
+  {
+    "id": "eng-concept-5-spotting-error-14",
+    "prompt": "Spot the error: (a) Neither praise (b) nor blame (c) seems to affect him (d) No error.",
+    "options": [
+      "Neither praise",
+      "nor blame",
+      "seems to affect him",
+      "No error"
+    ],
+    "answerIndex": 3,
+    "examTag": "[Previous Year]",
+    "reason": "Option (d) is correct. There is no error. The singular verb 'seems' correctly agrees with the nearest subject 'blame'."
+  },
+  {
+    "id": "eng-concept-5-spotting-error-15",
+    "prompt": "Spot the error: (a) Either he (b) or I is (c) responsible for the loss (d) No error.",
+    "options": [
+      "Either he",
+      "or I is",
+      "responsible for the loss",
+      "No error"
+    ],
+    "answerIndex": 1,
+    "examTag": "[Previous Year]",
+    "reason": "Option (b) is correct. यहां 'I' के अनुसार verb 'am' आयेगी क्योंकि जब दो Subject, Either ........or, से जुड़े हो तो Verb नजदीक वाले Subject के अनुसार आती है।"
+  },
+  {
+    "id": "eng-concept-5-spotting-error-16",
+    "prompt": "Spot the error: (a) I am sure that neither the house (b) nor its contents (c) is for sale (d) No error.",
+    "options": [
+      "I am sure that neither the house",
+      "nor its contents",
+      "is for sale",
+      "No error"
+    ],
+    "answerIndex": 2,
+    "examTag": "[Previous Year]",
+    "reason": "Option (c) is correct. यहां contents के अनुसार plural verb 'are' आयेगी क्योंकि जब दो Subject, Neither ........nor, से जुड़े हो तो Verb नजदीक वाले Subject के अनुसार आती है।"
+  },
+  {
+    "id": "eng-concept-5-spotting-error-17",
+    "prompt": "Spot the error: (a) Neither the earthquake (b) nor the subsequent fire (c) were able to dampen the spirit of the residents (d) No error.",
+    "options": [
+      "Neither the earthquake",
+      "nor the subsequent fire",
+      "were able to dampen the spirit of the residents",
+      "No error"
+    ],
+    "answerIndex": 2,
+    "examTag": "[Previous Year]",
+    "reason": "Option (c) is correct. यहां the subsequent fire के अनुसार singular verb 'was' आयेगी क्योंकि जब दो Subject, Neither ........nor, से जुड़े हो तो Verb नजदीक वाले Subject के अनुसार आती है।"
+  },
+  {
+    "id": "eng-concept-5-spotting-error-18",
+    "prompt": "Spot the error: (a) I can (b) neither read (c) or speak Hindi (d) No error.",
+    "options": [
+      "I can",
+      "neither read",
+      "or speak Hindi",
+      "No error"
+    ],
+    "answerIndex": 2,
+    "examTag": "[Previous Year]",
+    "reason": "Option (c) is correct. यहां 'or' की जगह 'nor' आएगा क्योंकि Neither के साथ nor का use किया जाता है।"
+  },
+  {
+    "id": "eng-concept-5-spotting-error-19",
+    "prompt": "Spot the error: (a) Neither Rakesh (b) nor I are leaving (c) for Hyderabad (d) No error.",
+    "options": [
+      "Neither Rakesh",
+      "nor I are leaving",
+      "for Hyderabad",
+      "No error"
+    ],
+    "answerIndex": 1,
+    "examTag": "[Previous Year]",
+    "reason": "Option (b) is correct. यहां 'I' के अनुसार verb 'am' आयेगी क्योंकि जब दो Subject, Neither ........nor, से जुड़े हो तो Verb नजदीक वाले Subject के अनुसार आती है।"
+  },
+  {
+    "id": "eng-concept-5-spotting-error-20",
+    "prompt": "Spot the error: (a) Neither Ram nor his father (b) were ready to accept (c) that it was a great mistake because of negligence (d) No error.",
+    "options": [
+      "Neither Ram nor his father",
+      "were ready to accept",
+      "that it was a great mistake because of negligence",
+      "No error"
+    ],
+    "answerIndex": 1,
+    "examTag": "[Previous Year]",
+    "reason": "Option (b) is correct. यहां father के अनुसार singular verb 'was' आयेगी क्योंकि जब दो Subject, Neither ........nor, से जुड़े हो तो Verb नजदीक वाले Subject के अनुसार आती है।"
+  },
+  {
+    "id": "eng-concept-5-spotting-error-21",
+    "prompt": "Spot the error: (a) Neither Rakesh nor Rajiv (b) has done (c) their work properly. (d) No error.",
+    "options": [
+      "Neither Rakesh nor Rajiv",
+      "has done",
+      "their work properly.",
+      "No error"
+    ],
+    "answerIndex": 2,
+    "examTag": "[Previous Year]",
+    "reason": "Option (c) is correct. According to the nearest singular subject 'Rajiv', here 'their' will be replaced with 'his'."
+  },
+  {
+    "id": "eng-concept-5-spotting-error-22",
+    "prompt": "Spot the error: (a) Neither the girl nor her parents (b) was present (c) to receive the award. (d) No error.",
+    "options": [
+      "Neither the girl nor her parents",
+      "was present",
+      "to receive the award.",
+      "No error"
+    ],
+    "answerIndex": 1,
+    "examTag": "[Previous Year]",
+    "reason": "Option (b) is correct. यहां parents के अनुसार plural verb 'were' आयेगी क्योंकि जब दो Subject, Neither ........nor, से जुड़े हो तो Verb नजदीक वाले Subject के अनुसार आती है।"
+  },
+  {
+    "id": "eng-concept-5-spotting-error-23",
+    "prompt": "Spot the error: (a) He is known either (b) for his kindness (c) and for his charity. (d) No error.",
+    "options": [
+      "He is known either",
+      "for his kindness",
+      "and for his charity.",
+      "No error"
+    ],
+    "answerIndex": 2,
+    "examTag": "[Previous Year]",
+    "reason": "Option (c) is correct. यहां and की जगह or आएगा क्योंकि either के साथ or का use किया जाता है।"
+  },
+  {
+    "id": "eng-concept-5-spotting-error-24",
+    "prompt": "Spot the error: (a) Either Ramesh or his friends (b) has committed (c) this mistake. (d) No error.",
+    "options": [
+      "Either Ramesh or his friends",
+      "has committed",
+      "this mistake.",
+      "No error"
+    ],
+    "answerIndex": 1,
+    "examTag": "[Previous Year]",
+    "reason": "Option (b) is correct. यहां Friends के अनुसार plural verb 'have' आयेगी क्योंकि जब दो Subject, Either ........or, से जुड़े हो तो Verb नजदीक वाले Subject के अनुसार आती है।"
+  },
+  {
+    "id": "eng-concept-5-spotting-error-25",
+    "prompt": "Spot the error: (a) The university has neither sent the Roll (b) numbers or informed the (c) date of exams (d) No error.",
+    "options": [
+      "The university has neither sent the Roll",
+      "numbers or informed the",
+      "date of exams",
+      "No error"
+    ],
+    "answerIndex": 1,
+    "examTag": "[Previous Year]",
+    "reason": "Option (b) is correct. यहां or की जगह nor आएगा क्योंकि Neither के साथ nor का use किया जाता है।"
+  },
+  {
+    "id": "eng-concept-5-spotting-error-26",
+    "prompt": "Spot the error: (a) Neither Ravi nor his brother (b) is willing to shoulder the responsibility (c) of caring for their old parents (d) No error.",
+    "options": [
+      "Neither Ravi nor his brother",
+      "is willing to shoulder the responsibility",
+      "of caring for their old parents",
+      "No error"
+    ],
+    "answerIndex": 2,
+    "examTag": "[Previous Year]",
+    "reason": "Option (c) is correct. According to the nearest singular subject 'his brother', here 'their' will be replaced with 'his'."
+  },
+  {
+    "id": "eng-concept-5-spotting-error-27",
+    "prompt": "Spot the error: (a) Either the president or the (b) the secretary have an option (c) to donate funds (d) No error.",
+    "options": [
+      "Either the president or the",
+      "the secretary have an option",
+      "to donate funds",
+      "No error"
+    ],
+    "answerIndex": 1,
+    "examTag": "[Previous Year]",
+    "reason": "Option (b) is correct. यहां Secretary के अनुसार singular verb 'has' आयेगी क्योंकि जब दो Subject, Either ........or, से जुड़े हो तो Verb नजदीक वाले Subject के अनुसार आती है।"
+  },
+  {
+    "id": "eng-concept-5-spotting-error-28",
+    "prompt": "Spot the error: (a) Neither Ramesh nor Rajendra (b) has done (c) their work properly. (d) No error.",
+    "options": [
+      "Neither Ramesh nor Rajendra",
+      "has done",
+      "their work properly.",
+      "No error"
+    ],
+    "answerIndex": 2,
+    "examTag": "[Previous Year]",
+    "reason": "Option (c) is correct. According to the nearest singular subject 'Rajendra', here 'their' will be replaced with 'his'."
+  },
+  {
+    "id": "eng-concept-5-spotting-error-29",
+    "prompt": "Spot the error: (a) Neither the mouse (b) nor the lion (c) are caught. (d) No error.",
+    "options": [
+      "Neither the mouse",
+      "nor the lion",
+      "are caught.",
+      "No error"
+    ],
+    "answerIndex": 2,
+    "examTag": "[Previous Year]",
+    "reason": "Option (c) is correct. यहां lion के अनुसार singular verb 'is' आयेगी क्योंकि जब दो Subject, Neither ........nor, से जुड़े हो तो Verb नजदीक वाले Subject के अनुसार आती है।"
+  },
+  {
+    "id": "eng-concept-5-spotting-error-30",
+    "prompt": "Spot the error: (a) She opted either (b) Science and Commerce (c) group for higher studies. (d) No error.",
+    "options": [
+      "She opted either",
+      "Science and Commerce",
+      "group for higher studies.",
+      "No error"
+    ],
+    "answerIndex": 1,
+    "examTag": "[Previous Year]",
+    "reason": "Option (b) is correct. Here 'or' will come in place of 'and'."
+  },
+  {
+    "id": "eng-concept-5-spotting-error-31",
+    "prompt": "Spot the error: (a) Either Sohan or his friends (b) is to be blamed (c) printed. (d) No error.",
+    "options": [
+      "Either Sohan or his friends",
+      "is to be blamed",
+      "printed.",
+      "No error"
+    ],
+    "answerIndex": 1,
+    "examTag": "[Previous Year]",
+    "reason": "Option (b) is correct. यहां Friends के अनुसार plural verb 'are' आयेगी क्योंकि जब दो Subject, Either ........or, से जुड़े हो तो Verb नजदीक वाले Subject के अनुसार आती है।"
+  },
+  {
+    "id": "eng-concept-5-spotting-error-32",
+    "prompt": "Spot the error: (a) Either Ramesh (b) or I (c) are wrong (d) No error.",
+    "options": [
+      "Either Ramesh",
+      "or I",
+      "are wrong",
+      "No error"
+    ],
+    "answerIndex": 2,
+    "examTag": "[Previous Year]",
+    "reason": "Option (c) is correct. यहां 'I' के अनुसार verb 'am' आयेगी क्योंकि जब दो Subject, Either ........or, से जुड़े हो तो Verb नजदीक वाले Subject के अनुसार आती है।"
+  },
+  {
+    "id": "eng-concept-5-spotting-error-33",
+    "prompt": "Spot the error: (a) Neither my sister nor my brothers (b) are interested (c) in moving to another House (d) No error.",
+    "options": [
+      "Neither my sister nor my brothers",
+      "are interested",
+      "in moving to another House",
+      "No error"
+    ],
+    "answerIndex": 3,
+    "examTag": "[Previous Year]",
+    "reason": "Option (d) is correct. There is no error."
+  },
+  {
+    "id": "eng-concept-5-spotting-error-34",
+    "prompt": "Spot the error: (a) Neither the engineer (b) nor the site in charge (c) have reported for duty (d) No error.",
+    "options": [
+      "Neither the engineer",
+      "nor the site in charge",
+      "have reported for duty",
+      "No error"
+    ],
+    "answerIndex": 2,
+    "examTag": "[Previous Year]",
+    "reason": "Option (c) is correct. यहां site in charge के अनुसार singular verb 'has' आयेगी क्योंकि जब दो Subject, Neither ........nor, से जुड़े हो तो Verb नजदीक वाले Subject के अनुसार आती है।"
+  },
+  {
+    "id": "eng-concept-5-spotting-error-35",
+    "prompt": "Spot the error: (a) Not only the Principal but also (b) the Secretary of the college (c) were invited to the meeting (d) No error.",
+    "options": [
+      "Not only the Principal but also",
+      "the Secretary of the college",
+      "were invited to the meeting",
+      "No error"
+    ],
+    "answerIndex": 2,
+    "examTag": "[Previous Year]",
+    "reason": "Option (c) is correct. यहां Secretary के अनुसार singular verb 'was' आयेगी क्योंकि जब दो Subject, Not only ........but also, से जुड़े हो तो Verb नजदीक वाले Subject के अनुसार आती है।"
+  },
+  {
+    "id": "eng-concept-5-spotting-error-36",
+    "prompt": "Spot the error: (a) Not only the principal (b) but also the students (c) was playing. (d) No error.",
+    "options": [
+      "Not only the principal",
+      "but also the students",
+      "was playing.",
+      "No error"
+    ],
+    "answerIndex": 2,
+    "examTag": "[Previous Year]",
+    "reason": "Option (c) is correct. यहां students के अनुसार plural verb 'were' आयेगी क्योंकि जब दो Subject, Not only ........but also, से जुड़े हो तो Verb नजदीक वाले Subject के अनुसार आती है।"
+  },
+  {
+    "id": "eng-concept-5-spotting-error-37",
+    "prompt": "Spot the error: (a) Neither Sanjay nor Gopal (b) has submitted (c) their homework in time (d) No error.",
+    "options": [
+      "Neither Sanjay nor Gopal",
+      "has submitted",
+      "their homework in time",
+      "No error"
+    ],
+    "answerIndex": 2,
+    "examTag": "[Previous Year]",
+    "reason": "Option (c) is correct. According to the nearest singular subject 'Gopal', here 'their' will be replaced with 'his'."
+  },
+  {
+    "id": "eng-concept-5-spotting-error-38",
+    "prompt": "Spot the error: (a) Either Vijay or (b) Vimal are going to (c) be selected for the match. (d) No error.",
+    "options": [
+      "Either Vijay or",
+      "Vimal are going to",
+      "be selected for the match.",
+      "No error"
+    ],
+    "answerIndex": 1,
+    "examTag": "[Previous Year]",
+    "reason": "Option (b) is correct. यहां Vimal के अनुसार singular verb 'is' आयेगी क्योंकि जब दो Subject, Either ........or, से जुड़े हो तो Verb नजदीक वाले Subject के अनुसार आती है।"
+  }
+]

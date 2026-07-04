@@ -1,0 +1,858 @@
+
+[
+  {
+    "id": "classical-dance-pyq-101",
+    "prompt": "Kathakali, one of the classical dances of India, is predominantly performed in which of the following states of India?",
+    "prompt_hi": "कथकली, भारत के शास्त्रीय नृत्यों में से एक, मुख्य रूप से भारत के किस राज्य में किया जाता है?",
+    "options": [
+      "Uttar Pradesh",
+      "Assam",
+      "Kerala",
+      "Manipur"
+    ],
+    "options_hi": [
+      "उत्तर प्रदेश",
+      "असम",
+      "केरल",
+      "मणिपुर"
+    ],
+    "answerIndex": 2,
+    "examTag": "[CGL 2024]"
+  },
+  {
+    "id": "classical-dance-pyq-102",
+    "prompt": "Who among the following was the first recipient of the State annual award Nishagandhi Puraskaram from the Government of Kerala in 2013?",
+    "prompt_hi": "निम्नलिखित में से कौन 2013 में केरल सरकार के राज्य वार्षिक पुरस्कार निशागांधी पुरस्कारम के पहले प्राप्तकर्ता थे?",
+    "options": [
+      "Madhavi Mudgal",
+      "Shobana C Pillai",
+      "Uday Shankar",
+      "Mrinalini Sarabhai"
+    ],
+    "options_hi": [
+      "माधवी मुदगल",
+      "शोभना सी पिल्लई",
+      "उदय शंकर",
+      "मृणालिनी साराभाई"
+    ],
+    "answerIndex": 3,
+    "examTag": "[CGL 2022]"
+  },
+  {
+    "id": "classical-dance-pyq-103",
+    "prompt": "Mallika Sarabhai was honoured by the _ government with Chevalier des Palmes Academiques in 2005.",
+    "prompt_hi": "मल्लिका साराभाई को 2005 में _ सरकार द्वारा शेवेलियर डेस पाल्मेस अकादमी से सम्मानित किया गया।",
+    "options": [
+      "French",
+      "Canadian",
+      "Swiss",
+      "Belgian"
+    ],
+    "options_hi": [
+      "फ्रांसीसी",
+      "कनाडाई",
+      "स्विस",
+      "बेल्जियम"
+    ],
+    "answerIndex": 0,
+    "examTag": "[CPO 2022]"
+  },
+  {
+    "id": "classical-dance-pyq-104",
+    "prompt": "Mallika Sarabhai is famous for which of the following dances?",
+    "prompt_hi": "मल्लिका साराभाई निम्नलिखित में से किस नृत्य के लिए प्रसिद्ध हैं?",
+    "options": [
+      "Kathak",
+      "Odissi",
+      "Sattriya",
+      "Kuchipudi"
+    ],
+    "options_hi": [
+      "कथक",
+      "ओडिसी",
+      "सत्त्रिया",
+      "कुचिपुड़ी"
+    ],
+    "answerIndex": 3,
+    "examTag": "[CPO 2024]"
+  },
+  {
+    "id": "classical-dance-pyq-105",
+    "prompt": "Mrinalini Sarabhai was associated with which of the following art forms?",
+    "prompt_hi": "मृणालिनी साराभाई निम्नलिखित में से किस कला रूप से जुड़ी थीं?",
+    "options": [
+      "Pattachitra",
+      "Bharatanatyam",
+      "Thanjavur painting",
+      "Madhubani art"
+    ],
+    "options_hi": [
+      "पट्टचित्र",
+      "भरतनाट्यम",
+      "तंजौर चित्रकारी",
+      "मधुबनी कला"
+    ],
+    "answerIndex": 1,
+    "examTag": "[RRB NTPC 2016]"
+  },
+  {
+    "id": "classical-dance-pyq-106",
+    "prompt": "Who among the following has the credit to invent and create a new style of 'Bharatanatyam'?",
+    "prompt_hi": "निम्नलिखित में से किसे 'भरतनाट्यम' की नई शैली का आविष्कार और निर्माण करने का श्रेय है?",
+    "options": [
+      "Yamini Krishnamurthy",
+      "Dr Padma Subrahmanyam",
+      "Rukmini Devi Arundale",
+      "Chinta Ravi Bala Krishna"
+    ],
+    "options_hi": [
+      "यामिनी कृष्णमूर्ति",
+      "डॉ. पद्मा सुब्रह्मण्यम",
+      "रुक्मिणी देवी अरुंडेल",
+      "चिंता रवि बाला कृष्ण"
+    ],
+    "answerIndex": 1,
+    "examTag": "None"
+  },
+  {
+    "id": "classical-dance-pyq-107",
+    "prompt": "In 2015, the eminent danseuse and exponent, Padma Subrahmanyam, was selected for Kerala's prestigious choreography award 'Nishagandhi Puraskaram' instituted by the state tourism department.",
+    "prompt_hi": "2015 में, प्रसिद्ध नर्तकी और _ विशेषज्ञ, पद्मा सुब्रह्मण्यम को केरल के प्रतिष्ठित कोरियोग्राफी पुरस्कार 'निशागांधी पुरस्कारम' के लिए चुना गया।",
+    "options": [
+      "Kuchipudi",
+      "Bharatanatyam",
+      "Sattriya",
+      "Kathakali"
+    ],
+    "options_hi": [
+      "कुचिपुड़ी",
+      "भरतनाट्यम",
+      "सत्त्रिया",
+      "कथकली"
+    ],
+    "answerIndex": 1,
+    "examTag": "[CPO 2023]"
+  },
+  {
+    "id": "classical-dance-pyq-108",
+    "prompt": "Bharatanatyam dance style is associated with which of the following states?",
+    "prompt_hi": "भरतनाट्यम नृत्य शैली निम्नलिखित में से किस राज्य से संबंधित है?",
+    "options": [
+      "Karnataka",
+      "Tamil Nadu",
+      "Bihar",
+      "Manipur"
+    ],
+    "options_hi": [
+      "कर्नाटक",
+      "तमिलनाडु",
+      "बिहार",
+      "मणिपुर"
+    ],
+    "answerIndex": 1,
+    "examTag": "[CGL 2024], [RRB JE-2019]"
+  },
+  {
+    "id": "classical-dance-pyq-109",
+    "prompt": "_ was an Indian dancer and choreographer best known for creating a fusion style of dance adapting European theatrical techniques to Indian classical and folk dance forms.",
+    "prompt_hi": "_ एक भारतीय नर्तक और कोरियोग्राफर थे, जो भारतीय शास्त्रीय और लोक नृत्य रूपों के लिए यूरोपीय नाटकीय तकनीकों को अपनाने के लिए एक फ्यूजन शैली बनाने के लिए जाने जाते हैं।",
+    "options": [
+      "Smita Nagdev",
+      "Ravi Shankar",
+      "Shovana Narayan",
+      "Uday Shankar"
+    ],
+    "options_hi": [
+      "स्मिता नागदेव",
+      "रवि शंकर",
+      "शोवना नारायण",
+      "उदय शंकर"
+    ],
+    "answerIndex": 3,
+    "examTag": "[CHSL-2024] [MTS 2023, 24]"
+  },
+  {
+    "id": "classical-dance-pyq-110",
+    "prompt": "Who among the following famous danseuses is not an exponent of the Odissi style of dance?",
+    "prompt_hi": "निम्नलिखित प्रसिद्ध नर्तकियों में से कौन ओडिसी नृत्य शैली की विशेषज्ञ नहीं है?",
+    "options": [
+      "Sanjukta Panigrahi",
+      "Padma Subrahmanyam",
+      "Sonal Mansingh",
+      "Madhavi Mudgal"
+    ],
+    "options_hi": [
+      "संजुक्ता पाणिग्रही",
+      "पद्मा सुब्रह्मण्यम",
+      "सोनल मानसिंह",
+      "माधवी मुदगल"
+    ],
+    "answerIndex": 1,
+    "examTag": "[SSC SO- 2005]"
+  },
+  {
+    "id": "classical-dance-pyq-111",
+    "prompt": "Bharatanatyam and Kuchipudi dancer Yamini Krishnamurthy was awarded which of the following awards in 2016?",
+    "prompt_hi": "भरतनाट्यम और कुचिपुड़ी नर्तकी यामिनी कृष्णमूर्ति को 2016 में निम्नलिखित में से कौन सा पुरस्कार प्रदान किया गया?",
+    "options": [
+      "Padma Bhushan",
+      "Padma Shri",
+      "Tagore Puraskar",
+      "Padma Vibhushan"
+    ],
+    "options_hi": [
+      "पद्म भूषण",
+      "पद्म श्री",
+      "टैगोर पुरस्कार",
+      "पद्म विभूषण"
+    ],
+    "answerIndex": 3,
+    "examTag": "[CGL 2022]"
+  },
+  {
+    "id": "classical-dance-pyq-112",
+    "prompt": "Select the INCORRECT combination of dance and its respective state of origin.",
+    "prompt_hi": "नृत्य और उसके संबंधित राज्य के मूल स्थान का गलत संयोजन चुनें।",
+    "options": [
+      "Sattriya - Himachal Pradesh",
+      "Bharatanatyam - Tamil Nadu",
+      "Kuchipudi - Andhra Pradesh",
+      "Kathakali - Kerala"
+    ],
+    "options_hi": [
+      "सत्त्रिया - हिमाचल प्रदेश",
+      "भरतनाट्यम - तमिलनाडु",
+      "कुचिपुड़ी - आंध्र प्रदेश",
+      "कथकली - केरल"
+    ],
+    "answerIndex": 0,
+    "examTag": "[SSC SP-2024]"
+  },
+  {
+    "id": "classical-dance-pyq-113",
+    "prompt": "Yamini Krishnamurthy is famous for which style of dancing?",
+    "prompt_hi": "यामिनी कृष्णमूर्ति किस नृत्य शैली के लिए प्रसिद्ध हैं?",
+    "options": [
+      "Manipuri",
+      "Garba",
+      "Bharatanatyam",
+      "Kathak"
+    ],
+    "options_hi": [
+      "मणिपुरी",
+      "गरबा",
+      "भरतनाट्यम",
+      "कथक"
+    ],
+    "answerIndex": 2,
+    "examTag": "[CPO 2005]"
+  },
+  {
+    "id": "classical-dance-pyq-114",
+    "prompt": "T Balasaraswati, a _ was also an actress.",
+    "prompt_hi": "टी. बालासरस्वती, एक _ नर्तकी, एक अभिनेत्री भी थीं।",
+    "options": [
+      "Bharatanatyam",
+      "Kuchipudi",
+      "Manipuri",
+      "Kathakali"
+    ],
+    "options_hi": [
+      "भरतनाट्यम",
+      "कुचिपुड़ी",
+      "मणिपुरी",
+      "कथकली"
+    ],
+    "answerIndex": 0,
+    "examTag": "[CGL 2022]"
+  },
+  {
+    "id": "classical-dance-pyq-115",
+    "prompt": "Who among the following founded the 'Kalakshetra' in 1936, an Indian arts academy that was especially dedicated to the cultivation of the Bharatanatyam tradition?",
+    "prompt_hi": "निम्नलिखित में से किसने 1936 में 'कलाक्षेत्र' की स्थापना की, जो विशेष रूप से भरतनाट्यम परंपरा के संवर्धन के लिए समर्पित थी?",
+    "options": [
+      "Rukmini Devi Arundale",
+      "Vidyagauri Adkar",
+      "Kumari Kamala",
+      "Damayanti Joshi"
+    ],
+    "options_hi": [
+      "रुक्मिणी देवी अरुंडेल",
+      "विद्यागौरी अडकर",
+      "कुमारी कमला",
+      "दमयंती जोशी"
+    ],
+    "answerIndex": 0,
+    "examTag": "[CHSL 2021]"
+  },
+  {
+    "id": "classical-dance-pyq-116",
+    "prompt": "Who was the first woman to be nominated as the member of Rajya Sabha?",
+    "prompt_hi": "राज्यसभा के सदस्य के रूप में नामांकित होने वाली पहली महिला कौन थीं?",
+    "options": [
+      "Sushma Swaraj",
+      "Sucheta Kriplani",
+      "Rukmini Devi Arundale",
+      "Kamaladevi Chattopadhyay"
+    ],
+    "options_hi": [
+      "सुषमा स्वराज",
+      "सुचेता कृपलानी",
+      "रुक्मिणी देवी अरुंडेल",
+      "कमलादेवी चट्टोपाध्याय"
+    ],
+    "answerIndex": 2,
+    "examTag": "[SSC JE - 2018], [GD-2021]"
+  },
+  {
+    "id": "classical-dance-pyq-117",
+    "prompt": "Who among the following founded the Kalakshetra Foundation in Chennai, an important center for the study and performance of fine arts?",
+    "prompt_hi": "निम्नलिखित में से किसने चेन्नई में कलाक्षेत्र फाउंडेशन की स्थापना की, जो ललित कला अध्ययन और प्रदर्शन के लिए एक महत्वपूर्ण केंद्र है?",
+    "options": [
+      "Alarmel Valli",
+      "Mrinalini Sarabhai",
+      "Yamini Krishnamurthy",
+      "Rukmini Devi Arundale"
+    ],
+    "options_hi": [
+      "अलार्मेल वल्ली",
+      "मृणालिनी साराभाई",
+      "यामिनी कृष्णमूर्ति",
+      "रुक्मिणी देवी अरुंडेल"
+    ],
+    "answerIndex": 3,
+    "examTag": "[CPO 2023]"
+  },
+  {
+    "id": "classical-dance-pyq-118",
+    "prompt": "Who among the following dancers was awarded the Queen Victoria Silver Medal of the Royal Society for the Prevention of Cruelty to Animals, London in 1958?",
+    "prompt_hi": "निम्नलिखित में से किस नर्तकी को 1958 में लंदन की रॉयल सोसाइटी फॉर द प्रिवेंशन ऑफ क्रुएल्टी टू एनिमल्स का क्वीन विक्टोरिया सिल्वर मेडल प्रदान किया गया था?",
+    "options": [
+      "Sitara Devi",
+      "Sonal Mansingh",
+      "Sanjukta Panigrahi",
+      "Rukmini Devi Arundale"
+    ],
+    "options_hi": [
+      "सितारा देवी",
+      "सोनल मानसिंह",
+      "संजुक्ता पाणिग्रही",
+      "रुक्मिणी देवी अरुंडेल"
+    ],
+    "answerIndex": 3,
+    "examTag": "[SSC GL 2022]"
+  },
+  {
+    "id": "classical-dance-pyq-119",
+    "prompt": "The four Nattuvanars, namely Ponaiyah, Vadivelu, Sivanandam, and Chinnaiya, who are renowned as Tanjore Bandhu, shaped up the modern-day _",
+    "prompt_hi": "चार नट्टुवनार, पोनैया, वाडिवेलु, शिवानंदम और चिन्नैया, जिन्हें तंजौर बंधु के रूप में जाना जाता है, ने आधुनिक _ को आकार दिया।",
+    "options": [
+      "Bharatanatyam",
+      "Kuchipudi",
+      "Kodiattam",
+      "Kathakali"
+    ],
+    "options_hi": [
+      "भरतनाट्यम",
+      "कुचिपुड़ी",
+      "कोडियाट्टम",
+      "कथकली"
+    ],
+    "answerIndex": 0,
+    "examTag": "[MTS 2023]"
+  },
+  {
+    "id": "classical-dance-pyq-120",
+    "prompt": "Alarippu, Jatiswaram, Shabdam, Varnam, and Tillana are regular patterns of which of the following classical dance forms of India?",
+    "prompt_hi": "अलारिप्पु, जतिस्वरम, शब्दम, वर्णम और तिल्लाना भारत के निम्नलिखित में से किस शास्त्रीय नृत्य रूप के नियमित पैटर्न हैं?",
+    "options": [
+      "Sattriya",
+      "Bharatanatyam",
+      "Manipuri",
+      "Kathak"
+    ],
+    "options_hi": [
+      "सत्त्रिया",
+      "भरतनाट्यम",
+      "मणिपुरी",
+      "कथक"
+    ],
+    "answerIndex": 1,
+    "examTag": "[SSC SP-2024] [CGL 2023]"
+  },
+  {
+    "id": "classical-dance-pyq-121",
+    "prompt": "Who among the following won a Padma Vibhushan award in the year 1971?",
+    "prompt_hi": "निम्नलिखित में से किसने 1971 में पद्म विभूषण पुरस्कार जीता?",
+    "options": [
+      "Rajee Narayan",
+      "S Swaminathan",
+      "Devjani Chaliha",
+      "Uday Shankar"
+    ],
+    "options_hi": [
+      "राजी नारायण",
+      "एस. स्वामिनाथन",
+      "देवजनी चालिहा",
+      "उदय शंकर"
+    ],
+    "answerIndex": 3,
+    "examTag": "[CGL 2022] [MTS 2024]"
+  },
+  {
+    "id": "classical-dance-pyq-122",
+    "prompt": "Which of the following dance forms traces its origins to the ancient dance Sadir Attam?",
+    "prompt_hi": "निम्नलिखित में से कौन सा नृत्य प्राचीन नृत्य सदिर अट्टम से अपनी उत्पत्ति का पता लगाता है?",
+    "options": [
+      "Mohiniyattam",
+      "Bharatanatyam",
+      "Kuchipudi",
+      "Kathakali"
+    ],
+    "options_hi": [
+      "मोहिनीअट्टम",
+      "भरतनाट्यम",
+      "कुचिपुड़ी",
+      "कथकली"
+    ],
+    "answerIndex": 1,
+    "examTag": "[CPO 2023]"
+  },
+  {
+    "id": "classical-dance-pyq-123",
+    "prompt": "Which of the following classical dance forms originated from the temple dancers of Tamil Nadu?",
+    "prompt_hi": "निम्नलिखित में से कौन सा शास्त्रीय नृत्य तमिलनाडु के मंदिर नर्तकों से उत्पन्न हुआ?",
+    "options": [
+      "Kathakali",
+      "Kuchipudi",
+      "Kathak",
+      "Bharatanatyam"
+    ],
+    "options_hi": [
+      "कथकली",
+      "कुचिपुड़ी",
+      "कथक",
+      "भरतनाट्यम"
+    ],
+    "answerIndex": 3,
+    "examTag": "[UPPCL AE 2022]"
+  },
+  {
+    "id": "classical-dance-pyq-124",
+    "prompt": "Which of the following is NOT a classical dance form of South India?",
+    "prompt_hi": "निम्नलिखित में से कौन दक्षिण भारत का शास्त्रीय नृत्य रूप नहीं है?",
+    "options": [
+      "Mohiniyattam",
+      "Bharatanatyam",
+      "Kathakali",
+      "Sattriya"
+    ],
+    "options_hi": [
+      "मोहिनीअट्टम",
+      "भरतनाट्यम",
+      "कथकली",
+      "सत्त्रिया"
+    ],
+    "answerIndex": 3,
+    "examTag": "[RRB NTPC 2022]"
+  },
+  {
+    "id": "classical-dance-pyq-125",
+    "prompt": "In which of the following is the reference to Indian dance forms found?",
+    "prompt_hi": "भारतीय नृत्य रूपों का संदर्भ निम्नलिखित में से किसमें पाया जाता है?",
+    "options": [
+      "Abhang",
+      "Natya Shastra",
+      "Kama Sutra",
+      "Brahma Sutra"
+    ],
+    "options_hi": [
+      "अभंग",
+      "नाट्य शास्त्र",
+      "कामसूत्र",
+      "ब्रह्मसूत्र"
+    ],
+    "answerIndex": 1,
+    "examTag": "[MTS 2019]"
+  },
+  {
+    "id": "classical-dance-pyq-126",
+    "prompt": "The Sadir dancer R Muthukannammal is the recipient of which of the following awards in the year 2022?",
+    "prompt_hi": "सदिर नर्तकी आर. मुथुकन्नम्माल को 2022 में निम्नलिखित में से कौन सा पुरस्कार प्रदान किया गया?",
+    "options": [
+      "Padma Bhushan Award",
+      "Padma Shri Award",
+      "Bharat Ratna Award",
+      "Padma Vibhushan Award"
+    ],
+    "options_hi": [
+      "पद्म भूषण पुरस्कार",
+      "पद्म श्री पुरस्कार",
+      "भारत रत्न पुरस्कार",
+      "पद्म विभूषण पुरस्कार"
+    ],
+    "answerIndex": 1,
+    "examTag": "[CPO 2024]"
+  },
+  {
+    "id": "classical-dance-pyq-127",
+    "prompt": "Who among the following Indian singers has written 'Raag Sarita'?",
+    "prompt_hi": "निम्नलिखित में से किस भारतीय गायक ने 'राग सरिता' लिखी है?",
+    "options": [
+      "Pandit Kumar Gandharva",
+      "Balasaheb Poonchwale",
+      "Chintaman Raghunath Vyas",
+      "Vishnu Narayan Bhatkhande"
+    ],
+    "options_hi": [
+      "पंडित कुमार गंधर्व",
+      "बालासाहेब पूंछवाले",
+      "चिंतामन रघुनाथ व्यास",
+      "विष्णु नारायण भातखंडे"
+    ],
+    "answerIndex": 2,
+    "examTag": "[CHSL 2021]"
+  },
+  {
+    "id": "classical-dance-pyq-128",
+    "prompt": "Natyanjali Dance Festival pays tribute to which deity?",
+    "prompt_hi": "नृत्यांजलि नृत्य उत्सव किस देवता को श्रद्धांजलि अर्पित करता है?",
+    "options": [
+      "Lord Brahma",
+      "Lord Vishnu",
+      "Lord Ganesh",
+      "Lord Shiva"
+    ],
+    "options_hi": [
+      "भगवान ब्रह्मा",
+      "भगवान विष्णु",
+      "भगवान गणेश",
+      "भगवान शिव"
+    ],
+    "answerIndex": 3,
+    "examTag": "[MTS 2019]"
+  },
+  {
+    "id": "classical-dance-pyq-129",
+    "prompt": "Ramali Bin Ibrahim, a Malaysian choreographer of Bharatanatyam and Odissi dance forms of India, received the Padma Shri in which of the following years?",
+    "prompt_hi": "रामली बिन इब्राहिम, जो भारत के भरतनाट्यम और ओडिसी नृत्य रूपों के मलेशियाई कोरियोग्राफर हैं, को निम्नलिखित में से किस वर्ष में पद्म श्री से सम्मानित किया गया?",
+    "options": [
+      "2018",
+      "2020",
+      "2008",
+      "2014"
+    ],
+    "options_hi": [
+      "2018",
+      "2020",
+      "2008",
+      "2014"
+    ],
+    "answerIndex": 0,
+    "examTag": "[CHSL 2021]"
+  },
+  {
+    "id": "classical-dance-pyq-130",
+    "prompt": "Which Bharatanatyam dancer is the recipient of one of India's top civilian award, the Padma Vibhushan 1977?",
+    "prompt_hi": "कौन सा भरतनाट्यम नर्तक 1977 में भारत के शीर्ष नागरिक पुरस्कार, पद्म विभूषण का प्राप्तकर्ता है?",
+    "options": [
+      "Yamini Krishnamurthy",
+      "Mallika Sarabhai",
+      "Kelucharan Mohapatra",
+      "D. T. Balasaraswati"
+    ],
+    "options_hi": [
+      "यामिनी कृष्णमूर्ति",
+      "मल्लिका साराभाई",
+      "केलुचरण महापात्र",
+      "डी. टी. बालासरस्वती"
+    ],
+    "answerIndex": 3,
+    "examTag": "[MTS 2024]"
+  },
+  {
+    "id": "classical-dance-pyq-131",
+    "prompt": "Former Indian actress Vyjayanthimala was trained in which classical dance form?",
+    "prompt_hi": "पूर्व भारतीय अभिनेत्री वैजयंतीमाला ने किस शास्त्रीय नृत्य रूप में प्रशिक्षण लिया था?",
+    "options": [
+      "Bharatanatyam",
+      "Sattriya",
+      "Odissi",
+      "Manipuri"
+    ],
+    "options_hi": [
+      "भरतनाट्यम",
+      "सत्त्रिया",
+      "ओडिसी",
+      "मणिपुरी"
+    ],
+    "answerIndex": 0,
+    "examTag": "[MTS 2024]"
+  },
+  {
+    "id": "classical-dance-pyq-132",
+    "prompt": "Who is known to have revived Bharatnatyam dance form in its modern version today?",
+    "prompt_hi": "भरतनाट्यम नृत्य शैली को इसके आधुनिक संस्करण में पुनर्जीवित करने के लिए कौन जाना जाता है?",
+    "options": [
+      "Mallika Sarabhai",
+      "Yamini Krishnamurthy",
+      "T Balasaraswati",
+      "Rukmini Devi"
+    ],
+    "options_hi": [
+      "मल्लिका साराभाई",
+      "यामिनी कृष्णमूर्ति",
+      "टी बालासरस्वती",
+      "रुक्मिणी देवी"
+    ],
+    "answerIndex": 3,
+    "examTag": "[MTS 2024]"
+  },
+  {
+    "id": "classical-dance-pyq-133",
+    "prompt": "Padma Subrahmanyam is associated with which dance form?",
+    "prompt_hi": "पद्मा सुब्रह्मण्यम किस नृत्य रूप से जुड़ी हुई हैं?",
+    "options": [
+      "Bharatanatyam",
+      "Manipur",
+      "Chhau",
+      "Kathak"
+    ],
+    "options_hi": [
+      "भरतनाट्यम",
+      "मणिपुर",
+      "छऊ",
+      "कथक"
+    ],
+    "answerIndex": 0,
+    "examTag": "[MTS 2024]"
+  },
+  {
+    "id": "classical-dance-pyq-134",
+    "prompt": "Mallika Sarabhai was honoured with the Padma Bhushan in 2010 for her contribution to which of the following fields?",
+    "prompt_hi": "मल्लिका साराभाई को 2010 में निम्नलिखित क्षेत्रों में उनके योगदान के लिए पद्म भूषण से सम्मानित किया गया था?",
+    "options": [
+      "Singing",
+      "Dance",
+      "Literature",
+      "Painting"
+    ],
+    "options_hi": [
+      "गायन",
+      "नृत्य",
+      "साहित्य",
+      "चित्रकला"
+    ],
+    "answerIndex": 1,
+    "examTag": "[MTS 2024] [RRB 2018]"
+  },
+  {
+    "id": "classical-dance-pyq-135",
+    "prompt": "Geeta Chandran received the Padma Shri in 2007 who is an acclaimed _ dancer.",
+    "prompt_hi": "गीता चंद्रन को 2007 में पद्म श्री से सम्मानित किया गया, जो एक प्रशंसित _ नर्तकी हैं।",
+    "options": [
+      "Odissi",
+      "Sattriya",
+      "Mohiniyattam",
+      "Bharatanatyam"
+    ],
+    "options_hi": [
+      "ओडिसी",
+      "सत्त्रिया",
+      "मोहिनीअट्टम",
+      "भरतनाट्यम"
+    ],
+    "answerIndex": 3,
+    "examTag": "[MTS 2024]"
+  },
+  {
+    "id": "classical-dance-pyq-136",
+    "prompt": "Padma Subramanyam, Alarmel Valli, Yamini Krishnamurthy and Anita Ratnam are distinguished practitioners of _.",
+    "prompt_hi": "पद्मा सुब्रमण्यम, अलार्मेल वल्ली, यामिनी कृष्णमूर्ति और अनीता रत्नम _ के प्रतिष्ठित विशेषज्ञ हैं।",
+    "options": [
+      "Odissi",
+      "Kuchipudi",
+      "Kathak",
+      "Bharatanatyam"
+    ],
+    "options_hi": [
+      "ओडिसी",
+      "कुचिपुड़ी",
+      "कथक",
+      "भरतनाट्यम"
+    ],
+    "answerIndex": 3,
+    "examTag": "[MTS 2024][SSC ML 2001][MTS-2022]"
+  },
+  {
+    "id": "classical-dance-pyq-137",
+    "prompt": "'Alarippu' is the first dance item of which of the following Indian classical dance forms?",
+    "prompt_hi": "'अलारिप्पु' निम्नलिखित में से किस भारतीय शास्त्रीय नृत्य शैली की पहली नृत्य प्रस्तुति है?",
+    "options": [
+      "Bharatanatyam",
+      "Kathakali",
+      "Odissi",
+      "Kuchipudi"
+    ],
+    "options_hi": [
+      "भरतनाट्यम",
+      "कथकली",
+      "ओडिसी",
+      "कुचिपुड़ी"
+    ],
+    "answerIndex": 0,
+    "examTag": "[MTS 2024]"
+  },
+  {
+    "id": "classical-dance-pyq-138",
+    "prompt": "Bharatanatyam dancer _ received the Natya Kala Sarathy award from Sri Parthasarathy Swami Sabha in 2023 at Chennai.",
+    "prompt_hi": "भरतनाट्यम नृत्यांगना _ ने 2023 में चेन्नई में श्री पार्थसारथी स्वामी सभा से नाट्य कला सारथी पुरस्कार प्राप्त किया।",
+    "options": [
+      "Srekala Bharath",
+      "Sreedevi Unni",
+      "Hema Rajagopalan",
+      "Vidhya Subramanian"
+    ],
+    "options_hi": [
+      "श्रीकला भारत",
+      "श्रीदेवी उन्नी",
+      "हेमा राजगोपालन",
+      "विद्या सुब्रमण्यम"
+    ],
+    "answerIndex": 0,
+    "examTag": "[MTS 2024]"
+  },
+  {
+    "id": "classical-dance-pyq-139",
+    "prompt": "Identify the personality on the basis of the given clues:\ni) She is an acclaimed Bharatanatyam dancer.\nii) She is the recipient of Padma Shri 2016 award.",
+    "prompt_hi": "दिए गए संकेतों के आधार पर व्यक्तित्व की पहचान करें:\ni) वह एक प्रशंसित भरतनाट्यम नृत्यांगना हैं।\nii) वह 2016 के पद्म श्री पुरस्कार की प्राप्तकर्ता हैं।",
+    "options": [
+      "Aruna Mohanty",
+      "Padma Sharma",
+      "Pratibha Prahlad",
+      "Padmaja Reddy"
+    ],
+    "options_hi": [
+      "अरुणा मोहंती",
+      "पद्मा शर्मा",
+      "प्रतिभा प्रह्लाद",
+      "पद्मजा रेड्डी"
+    ],
+    "answerIndex": 2,
+    "examTag": "[MTS 2024]"
+  },
+  {
+    "id": "classical-dance-pyq-140",
+    "prompt": "Which of the following dance forms is inspired by the sculptures of the ancient temple of Chidambaram?",
+    "prompt_hi": "किस नृत्य रूप को चिदंबरम के प्राचीन मंदिर की मूर्तियों से प्रेरित किया गया है?",
+    "options": [
+      "Manipuri",
+      "Kuchipudi",
+      "Bharatanatyam",
+      "Sattriya"
+    ],
+    "options_hi": [
+      "मणिपुरी",
+      "कुचिपुड़ी",
+      "भरतनाट्यम",
+      "सत्त्रिया"
+    ],
+    "answerIndex": 2,
+    "examTag": "[MTS 2024]"
+  },
+  {
+    "id": "classical-dance-pyq-141",
+    "prompt": "Which of the following statements with reference to Padma Subrahmanyam is/are correct?\n1. Padma Subrahmanyam is a famous Bharatanatyam dancer.\n2. She received the Padma Shri and Padma Bhushan awards.\n3. She was also honoured with the Sangeet Natak Akademi Award for Dance.",
+    "prompt_hi": "पद्मा सुब्रह्मण्यम के संदर्भ में निम्नलिखित में से कौन सा/से कथन सही है/हैं?\n1. पद्मा सुब्रह्मण्यम एक प्रसिद्ध भरतनाट्यम नृत्यांगना हैं।\n2. उन्हें पद्म श्री और पद्म भूषण पुरस्कार मिले।\n3. उन्हें नृत्य के लिए संगीत नाटक अकादमी पुरस्कार से भी सम्मानित किया गया।",
+    "options": [
+      "Only 2 and 3",
+      "Only 1 and 3",
+      "1, 2, and 3",
+      "Only 1 and 2"
+    ],
+    "options_hi": [
+      "केवल 2 और 3",
+      "केवल 1 और 3",
+      "1, 2, और 3",
+      "केवल 1 और 2"
+    ],
+    "answerIndex": 2,
+    "examTag": "[MTS 2024]"
+  },
+  {
+    "id": "classical-dance-pyq-142",
+    "prompt": "VP Dhananjayan and Shanta Dhananjayan were honoured with Rukminidevi Memorial Award in 2009 for which of the following Indian classical dance forms?",
+    "prompt_hi": "वीपी धनंजयन और शांता धनंजयन को 2009 में किस भारतीय शास्त्रीय नृत्य रूप के लिए रुक्मिणीदेवी स्मारक पुरस्कार से सम्मानित किया गया था?",
+    "options": [
+      "Odissi",
+      "Sattriya",
+      "Bharatanatyam",
+      "Mohiniyattam"
+    ],
+    "options_hi": [
+      "ओडिसी",
+      "सत्त्रिया",
+      "भरतनाट्यम",
+      "मोहिनीअट्टम"
+    ],
+    "answerIndex": 2,
+    "examTag": "[MTS 2024]"
+  },
+  {
+    "id": "classical-dance-pyq-143",
+    "prompt": "The modern-day _ was molded by the renowned Tanjore Bandhu, consisting of the four Nattuvanars: Ponnayya, Vadivelu, Sivanandam and Chinnayya.",
+    "prompt_hi": "आधुनिक _ को प्रसिद्ध तंजौर बंधु ने आकार दिया, जिसमें चार नट्टुवनार: पोनैया, वाडिवेलु, शिवानंदम और चिन्नैया शामिल थे।",
+    "options": [
+      "Mohiniyattam",
+      "Bharatanatyam",
+      "Kathakali",
+      "Kuchipudi"
+    ],
+    "options_hi": [
+      "मोहिनीअट्टम",
+      "भरतनाट्यम",
+      "कथकली",
+      "कुचिपुड़ी"
+    ],
+    "answerIndex": 1,
+    "examTag": "[MTS 2024]"
+  },
+  {
+    "id": "classical-dance-pyq-144",
+    "prompt": "K Kalyanasundaram Pillai was honoured with the Sangeet Natak Akademi Award, 1999, for his contribution to which of the following dance forms?",
+    "prompt_hi": "के कल्याणसुंदरम पिल्लई को 1999 में संगीत नाटक अकादमी पुरस्कार से सम्मानित किया गया था, वह किस नृत्य रूप में उनके योगदान के लिए था?",
+    "options": [
+      "Manipuri",
+      "Bharatanatyam",
+      "Kuchipudi",
+      "Mohiniyattam"
+    ],
+    "options_hi": [
+      "मणिपुरी",
+      "भरतनाट्यम",
+      "कुचिपुड़ी",
+      "मोहिनीअट्टम"
+    ],
+    "answerIndex": 1,
+    "examTag": "[MTS 2024]"
+  },
+  {
+    "id": "classical-dance-pyq-145",
+    "prompt": "Padma Shri awardee (2023) Guru K Kalyanasundaram Pillai is an exponent of which of the following classical dance genres?",
+    "prompt_hi": "पद्म श्री पुरस्कार प्राप्तकर्ता (2023) गुरु के कल्याणसुंदरम पिल्लई निम्नलिखित में से किस शास्त्रीय नृत्य शैली के विशेषज्ञ हैं?",
+    "options": [
+      "Bharatanatyam",
+      "Sattriya",
+      "Kathakali",
+      "Kathak"
+    ],
+    "options_hi": [
+      "भरतनाट्यम",
+      "सत्त्रिया",
+      "कथकली",
+      "कथक"
+    ],
+    "answerIndex": 0,
+    "examTag": "[MTS 2024]"
+  }
+]

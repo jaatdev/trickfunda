@@ -132,6 +132,7 @@ export async function getKDConceptBySlug(categorySlug: string, slug: string): Pr
 
 export async function getKDChapterSubjects(): Promise<string[]> {
   return [
+    'english-chapterwise',
     'maths-trickfunda',
     'gs-trickfunda',
     'reasoning-trickfunda',

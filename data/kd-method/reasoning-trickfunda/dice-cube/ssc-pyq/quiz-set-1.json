@@ -2,6 +2,7 @@
   {
     "id": "reas-dice-ssc-pyq-set-1-1",
     "prompt": "Six letters P, Q, S, T, U and V are written on different faces of a dice. Two positions of this dice are shown in the figure. Find the letter on the face opposite to T.",
+    "prompt_hi": "एक पासे के विभिन्न फलकों पर छह अक्षर P, Q, S, T, U और V अंकित हैं। चित्र में इस पासे की दो स्थितियाँ दिखाई गई हैं। T अक्षर वाले फलक के विपरीत फलक पर अंकित अक्षर ज्ञात कीजिए।",
     "dice_layout": {
       "layout_type": "3d_isometric",
       "dice_instances": [
@@ -9,22 +10,35 @@
         { "top": "S", "front": "U", "right": "T" }
       ]
     },
-    "options": [
-      "V",
-      "U",
-      "S",
-      "P"
-    ],
+    "options": ["V", "U", "S", "P"],
+    "options_hi": ["V", "U", "S", "P"],
     "answerIndex": 3,
     "examTag": "CGL Tier II - 18 Jan 2025",
     "reason": "Here, in both the dice, V, Q, S, and U are adjacent to T. So, the remaining letter P will be opposite of T.",
-    "meta": {
-      "difficulty": "easy"
-    }
+    "meta": { "difficulty": "Basic" }
+  },
+  {
+    "id": "reas-dice-ssc-pyq-set-1-2",
+    "prompt": "Six letters O, Z, F, T, R, and M are written on different faces of a dice. Two positions of this dice are shown in the figures below. Find the letter on the face opposite to Z.",
+    "prompt_hi": "एक पासे के अलग-अलग फलकों पर छह अक्षर O, Z, F, T, R और M लिखे हैं। इस पासे की दो स्थितियाँ नीचे दी गई आकृतियों में दर्शाई गई हैं। Z के विपरीत फलक पर अक्षर ज्ञात कीजिए।",
+    "dice_layout": {
+      "layout_type": "3d_isometric",
+      "dice_instances": [
+        { "top": "O", "front": "Z", "right": "F" },
+        { "top": "T", "front": "Z", "right": "R" }
+      ]
+    },
+    "options": ["T", "F", "R", "M"],
+    "options_hi": ["T", "F", "R", "M"],
+    "answerIndex": 3,
+    "examTag": "CGL - 23 Sep 2024 - Shift 3",
+    "reason": "When we compare both dice, we see that Z is common on both dice. So, the remaining letters are opposite each other. Hence, the opposite of Z is M.",
+    "meta": { "difficulty": "Basic" }
   },
   {
     "id": "reas-dice-ssc-pyq-set-1-3",
     "prompt": "Select the dice which cannot be formed on folding the given sheet.",
+    "prompt_hi": "उस पासे का चयन कीजिए जो दी गई शीट को मोड़ने पर नहीं बन सकता है।",
     "dice_layout": {
       "layout_type": "unfolded_net",
       "grid_matrix": [
@@ -32,7 +46,8 @@
         [null, "d", "f", "g"]
       ]
     },
-    "options": ["", "", "", ""],
+    "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
+    "options_hi": ["विकल्प 1", "विकल्प 2", "विकल्प 3", "विकल्प 4"],
     "options_dice_layout": [
       {
         "layout_type": "3d_isometric",
@@ -44,18 +59,443 @@
       },
       {
         "layout_type": "3d_isometric",
-        "dice_instances": [{ "top": "a", "front": "f", "right": "g" }]
+        "dice_instances": [{ "top": "f", "front": "a", "right": "g" }]
       },
       {
         "layout_type": "3d_isometric",
         "dice_instances": [{ "top": "x", "front": "a", "right": "d" }]
       }
     ],
+    "answerIndex": 2,
+    "examTag": "GD Constable - 22 Feb 2024 - Shift 4",
+    "reason": "In the net, 'x' and 'c' are opposite sides. 'a' and 'f' are opposite sides. 'd' and 'g' are opposite sides. Opposite sides cannot be adjacent surfaces on a folded dice. In Option 3, 'a' and 'f' are adjacent, so this dice cannot be formed.",
+    "meta": { "difficulty": "Basic" }
+  },
+  {
+    "id": "reas-dice-ssc-pyq-set-1-4",
+    "prompt": "Six letters I, O, A, Y, Z and X are written on different faces of a dice. Two positions of this dice are shown in the figures below. Find the letter on the face opposite to O.",
+    "prompt_hi": "एक पासे के अलग-अलग फलकों पर छह अक्षर I, O, A, Y, Z और X लिखे हैं। नीचे दिए गए चित्र में इस पासे की दो स्थितियाँ दर्शाई गई हैं। O के विपरीत फलक पर अक्षर ज्ञात कीजिए।",
+    "dice_layout": {
+      "layout_type": "3d_isometric",
+      "dice_instances": [
+        { "top": "I", "front": "A", "right": "O" },
+        { "top": "I", "front": "Z", "right": "Y" }
+      ]
+    },
+    "options": ["A", "Z", "X", "Y"],
+    "options_hi": ["A", "Z", "X", "Y"],
+    "answerIndex": 3,
+    "examTag": "CGL - 26 Sep 2024 - Shift 3",
+    "reason": "In both dice, I is common and on the same top surface. Therefore, the remaining corresponding surfaces will be opposite to each other. Front 'A' is opposite to front 'Z', and right 'O' is opposite to right 'Y'.",
+    "meta": { "difficulty": "Basic" }
+  },
+  {
+    "id": "reas-dice-ssc-pyq-set-1-5",
+    "prompt": "Select the cube that cannot be formed by folding the given sheet.",
+    "prompt_hi": "उस घन का चयन कीजिए जो दी गई शीट को मोड़ने पर नहीं बन सकता है।",
+    "dice_layout": {
+      "layout_type": "unfolded_net",
+      "grid_matrix": [
+        ["0", "+", null],
+        [null, "-", null],
+        [null, "%", null],
+        [null, "!", "@"]
+      ]
+    },
+    "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
+    "options_hi": ["विकल्प 1", "विकल्प 2", "विकल्प 3", "विकल्प 4"],
+    "options_dice_layout": [
+      {
+        "layout_type": "3d_isometric",
+        "dice_instances": [{ "top": "!", "front": "%", "right": "0" }]
+      },
+      {
+        "layout_type": "3d_isometric",
+        "dice_instances": [{ "top": "%", "front": "0", "right": "-" }]
+      },
+      {
+        "layout_type": "3d_isometric",
+        "dice_instances": [{ "top": "+", "front": "@", "right": "!" }]
+      },
+      {
+        "layout_type": "3d_isometric",
+        "dice_instances": [{ "top": "+", "front": "%", "right": "@" }]
+      }
+    ],
+    "answerIndex": 3,
+    "examTag": "GD Constable - 20 Feb 2024 - Shift 1",
+    "reason": "Based on the unfolded net, the alternate surfaces are opposite: + is opposite to %, - is opposite to !, and 0 is opposite to @. Since + and % are opposite pairs, they cannot be adjacent. Therefore, Option 4 cannot be formed.",
+    "meta": { "difficulty": "Basic" }
+  },
+  {
+    "id": "reas-dice-ssc-pyq-set-1-6",
+    "prompt": "Six letters P, Q, R, S, T, and U are written on different faces of a dice. Two positions of this dice are shown in the figure below. Find the letter on the face opposite to R.",
+    "prompt_hi": "एक पासे के अलग-अलग फलकों पर छह अक्षर P, Q, R, S, T और U लिखे हैं। नीचे दिए गए चित्र में इस पासे की दो स्थितियाँ दर्शाई गई हैं। R के विपरीत फलक पर अक्षर ज्ञात कीजिए।",
+    "dice_layout": {
+      "layout_type": "3d_isometric",
+      "dice_instances": [
+        { "top": "P", "front": "R", "right": "T" },
+        { "top": "Q", "front": "R", "right": "U" }
+      ]
+    },
+    "options": ["T", "Q", "U", "S"],
+    "options_hi": ["T", "Q", "U", "S"],
+    "answerIndex": 3,
+    "examTag": "CGL - 09 Sep 2024 - Shift 3",
+    "reason": "The common letter is R, which is on the same front surface. Therefore, the top surface P is opposite to Q, and the right surface T is opposite to U. The remaining side S is opposite to R.",
+    "meta": { "difficulty": "Basic" }
+  },
+  {
+    "id": "reas-dice-ssc-pyq-set-1-7",
+    "prompt": "Three different positions of the same dice are shown. Find the number on the face opposite the face showing '2'.",
+    "prompt_hi": "एक ही पासे की तीन अलग-अलग स्थितियाँ दर्शाई गई हैं। '2' दर्शाने वाले फलक के विपरीत फलक पर संख्या ज्ञात कीजिए।",
+    "dice_layout": {
+      "layout_type": "3d_isometric",
+      "dice_instances": [
+        { "top": "1", "front": "2", "right": "3" },
+        { "top": "1", "front": "3", "right": "4" },
+        { "top": "1", "front": "4", "right": "5" }
+      ]
+    },
+    "options": ["6", "1", "5", "4"],
+    "options_hi": ["6", "1", "5", "4"],
+    "answerIndex": 3,
+    "examTag": "CPO - 27 June 2024 - Shift 3",
+    "reason": "On comparing the first and second dice, we get 1 and 3 common in both dice. So the remaining number 2 is opposite to 4.",
+    "meta": { "difficulty": "Basic" }
+  },
+  {
+    "id": "reas-dice-ssc-pyq-set-1-8",
+    "prompt": "A dice has its faces marked by numbers 4, 8, 12, 16, 20 and 24. Two positions of the same dice are given below. Which face is opposite to face 16?",
+    "prompt_hi": "एक पासे के फलकों पर संख्याएँ 4, 8, 12, 16, 20 और 24 अंकित हैं। नीचे एक ही पासे की दो स्थितियाँ दी गई हैं। कौन सा फलक 16 के विपरीत है?",
+    "dice_layout": {
+      "layout_type": "3d_isometric",
+      "dice_instances": [
+        { "top": "8", "front": "24", "right": "20" },
+        { "top": "24", "front": "4", "right": "12" }
+      ]
+    },
+    "options": ["8", "12", "24", "4"],
+    "options_hi": ["8", "12", "24", "4"],
+    "answerIndex": 2,
+    "examTag": "CPO - 27 June 2024 - Shift 2",
+    "reason": "On comparing both dice, we get 24 as the common number. Moving clockwise from 24 on Dice 1 gives 20 and 8. Moving clockwise from 24 on Dice 2 gives 12 and 4. The remaining number is 16, so 24 is opposite to 16.",
+    "meta": { "difficulty": "Basic" }
+  },
+  {
+    "id": "reas-dice-ssc-pyq-set-1-9",
+    "prompt": "Three position of Dice are given below. What will come on the face opposite to the face conatainnig 'X' on it ?",
+    "prompt_hi": "नीचे पासे की तीन स्थितियाँ दी गई हैं। 'X' वाले फलक के विपरीत फलक पर क्या आएगा?",
+    "dice_layout": {
+      "layout_type": "3d_isometric",
+      "dice_instances": [
+        { "top": "U", "front": "A", "right": "X" },
+        { "top": "X", "front": "A", "right": "T" },
+        { "top": "X", "front": "T", "right": "C" }
+      ]
+    },
+    "options": ["U", "Y", "C", "A"],
+    "options_hi": ["U", "Y", "C", "A"],
     "answerIndex": 1,
-    "examTag": "CGL Tier I - 2024",
-    "reason": "x is opposite to c, a is opposite to f, and d is opposite to g. Option B has a, x, g which are adjacent, but wait. That means they can be formed. It's just a placeholder question to show UnfoldedNet.",
-    "meta": {
-      "difficulty": "medium"
-    }
+    "examTag": "GD Constable - 29 Feb 2024 - Shift 4",
+    "reason": "From Dice 1 and Dice 3, X is adjacent to U, A, T, and C. The only remaining letter from the options is Y. Therefore, Y is opposite to X.",
+    "meta": { "difficulty": "Basic" }
+  },
+  {
+    "id": "reas-dice-ssc-pyq-set-1-10",
+    "prompt": "Two positions of a dice are given below. What will come on the face opposite to the face containing '5' on it?",
+    "prompt_hi": "नीचे एक पासे की दो स्थितियाँ दी गई हैं। '5' दर्शाने वाले फलक के विपरीत फलक पर क्या आएगा?",
+    "dice_layout": {
+      "layout_type": "3d_isometric",
+      "dice_instances": [
+        { "top": "2", "front": "3", "right": "6" },
+        { "top": "6", "front": "1", "right": "5" }
+      ]
+    },
+    "options": ["2", "3", "4", "1"],
+    "options_hi": ["2", "3", "4", "1"],
+    "answerIndex": 1,
+    "examTag": "GD Constable - 29 Feb 2024 - Shift 2",
+    "reason": "In dice 1 and 2, moving clockwise from the common number 6 gives: 6 -> 3 -> 2 and 6 -> 5 -> 1. So, 3 is opposite to 5.",
+    "meta": { "difficulty": "Basic" }
+  },
+  {
+    "id": "reas-dice-ssc-pyq-set-1-11",
+    "prompt": "Two different positions of the same dice are given below. Find the letter opposite of y.",
+    "prompt_hi": "नीचे एक ही पासे की दो अलग-अलग स्थितियाँ दी गई हैं। y के विपरीत अक्षर ज्ञात कीजिए।",
+    "dice_layout": {
+      "layout_type": "3d_isometric",
+      "dice_instances": [
+        { "top": "y", "front": "x", "right": "z" },
+        { "top": "m", "front": "x", "right": "n" }
+      ]
+    },
+    "options": ["z", "p", "m", "x"],
+    "options_hi": ["z", "p", "m", "x"],
+    "answerIndex": 2,
+    "examTag": "GD Constable - 29 Feb 2024 - Shift 2",
+    "reason": "In dice 1 and 2, moving clockwise from the common letter x gives: x -> y -> z and x -> m -> n. So, m is opposite to y.",
+    "meta": { "difficulty": "Basic" }
+  },
+  {
+    "id": "reas-dice-ssc-pyq-set-1-12",
+    "prompt": "Three different positions of the same dice are given below. Find the number opposite of 2.",
+    "prompt_hi": "नीचे एक ही पासे की तीन अलग-अलग स्थितियाँ दी गई हैं। 2 के विपरीत संख्या ज्ञात कीजिए।",
+    "dice_layout": {
+      "layout_type": "3d_isometric",
+      "dice_instances": [
+        { "top": "8", "front": "12", "right": "6" },
+        { "top": "6", "front": "2", "right": "8" },
+        { "top": "8", "front": "10", "right": "12" }
+      ]
+    },
+    "options": ["12", "6", "10", "8"],
+    "options_hi": ["12", "6", "10", "8"],
+    "answerIndex": 0,
+    "examTag": "GD Constable - 29 Feb 2024 - Shift 3",
+    "reason": "In the first and second cubes, 6 and 8 are common. So, the remaining faces are opposite to each other. Hence, 2 is opposite to 12.",
+    "meta": { "difficulty": "Basic" }
+  },
+  {
+    "id": "reas-dice-ssc-pyq-set-1-13",
+    "prompt": "A dice has its faces marked by numbers 5, 6, 7, 8, 9 and 10. Two positions of the same dice are given below. Which face is opposite to face 6?",
+    "prompt_hi": "एक पासे के फलकों पर संख्याएँ 5, 6, 7, 8, 9 और 10 अंकित हैं। नीचे एक ही पासे की दो स्थितियाँ दी गई हैं। कौन सा फलक 6 के विपरीत है?",
+    "dice_layout": {
+      "layout_type": "3d_isometric",
+      "dice_instances": [
+        { "top": "9", "front": "5", "right": "7" },
+        { "top": "10", "front": "8", "right": "9" }
+      ]
+    },
+    "options": ["10", "9", "8", "5"],
+    "options_hi": ["10", "9", "8", "5"],
+    "answerIndex": 1,
+    "examTag": "CPO - 27 June 2024 - Shift 2",
+    "reason": "On comparing both dice we get 9 as the common number. It is adjacent to 5, 7, 8, and 10. Thus, the only remaining number is 6, making it opposite to 9.",
+    "meta": { "difficulty": "Basic" }
+  },
+  {
+    "id": "reas-dice-ssc-pyq-set-1-14",
+    "prompt": "On folding the given die, which letter will be opposite to the letter 'n'?",
+    "prompt_hi": "दिए गए पासे को मोड़ने पर कौन सा अक्षर अक्षर 'n' के विपरीत होगा?",
+    "dice_layout": {
+      "layout_type": "unfolded_net",
+      "grid_matrix": [
+        [null, "h", null],
+        [null, "j", "r"],
+        ["p", "l", null],
+        [null, "n", null]
+      ]
+    },
+    "options": ["j", "h", "r", "p"],
+    "options_hi": ["j", "h", "r", "p"],
+    "answerIndex": 0,
+    "examTag": "GD Constable - 20 Feb 2024 - Shift 2",
+    "reason": "By following the alternate faces rule in an unfolded net: h is opposite to l, p is opposite to r, and j is opposite to n.",
+    "meta": { "difficulty": "Basic" }
+  },
+  {
+    "id": "reas-dice-ssc-pyq-set-1-15",
+    "prompt": "Two different positions of the same dice are given below. Which is the number on the face opposite the face containing 1?",
+    "prompt_hi": "नीचे एक ही पासे की दो अलग-अलग स्थितियाँ दी गई हैं। 1 दर्शाने वाले फलक के विपरीत फलक पर कौन सी संख्या है?",
+    "dice_layout": {
+      "layout_type": "3d_isometric",
+      "dice_instances": [
+        { "top": "6", "front": "2", "right": "3" },
+        { "top": "6", "front": "4", "right": "5" }
+      ]
+    },
+    "options": ["3", "4", "2", "6"],
+    "options_hi": ["3", "4", "2", "6"],
+    "answerIndex": 3,
+    "examTag": "CPO - 27 June 2024 - Shift 1",
+    "reason": "6 is common in both dice. It is adjacent to 2, 3, 4, and 5. The only remaining number that is not adjacent is 1. Hence, 1 is opposite to 6.",
+    "meta": { "difficulty": "Basic" }
+  },
+  {
+    "id": "reas-dice-ssc-pyq-set-1-16",
+    "prompt": "A dice has its faces marked by numbers 2, 4, 6, 8, 10 and 12. Two positions of the same dice are given below. Which face is opposite to face 4?",
+    "prompt_hi": "एक पासे के फलकों पर संख्याएँ 2, 4, 6, 8, 10 और 12 अंकित हैं। नीचे एक ही पासे की दो स्थितियाँ दी गई हैं। कौन-सा फलक 4 के विपरीत है?",
+    "dice_layout": {
+      "layout_type": "3d_isometric",
+      "dice_instances": [
+        { "top": "2", "front": "10", "right": "12" },
+        { "top": "2", "front": "8", "right": "6" }
+      ]
+    },
+    "options": ["10", "6", "12", "2"],
+    "options_hi": ["10", "6", "12", "2"],
+    "answerIndex": 3,
+    "examTag": "CPO - 27 June 2024 - Shift 3",
+    "reason": "Number 2 is common in both dice. The adjacent faces are 10, 12, 8, and 6. Therefore, the only remaining number is 4, which must be opposite to 2.",
+    "meta": { "difficulty": "Basic" }
+  },
+  {
+    "id": "reas-dice-ssc-pyq-set-1-17",
+    "prompt": "A dice has its faces marked by numbers 10, 20, 30, 40, 50 and 60. Two positions of the same dice are given below. Which face is opposite to face 50?",
+    "prompt_hi": "एक पासे के फलकों पर संख्याएँ 10, 20, 30, 40, 50 और 60 अंकित हैं। नीचे एक ही पासे की दो स्थितियाँ दी गई हैं। कौन सा फलक 50 के विपरीत है?",
+    "dice_layout": {
+      "layout_type": "3d_isometric",
+      "dice_instances": [
+        { "top": "40", "front": "60", "right": "30" },
+        { "top": "20", "front": "10", "right": "60" }
+      ]
+    },
+    "options": ["30", "40", "60", "10"],
+    "options_hi": ["30", "40", "60", "10"],
+    "answerIndex": 2,
+    "examTag": "CPO - 27 June 2024 - Shift 1",
+    "reason": "60 is the common number in both dice. Its adjacent faces are 40, 30, 20, and 10. The only missing face is 50. Therefore, the opposite of 50 is 60.",
+    "meta": { "difficulty": "Basic" }
+  },
+  {
+    "id": "reas-dice-ssc-pyq-set-1-18",
+    "prompt": "A dice has numbers 2, 3, 5, 6, 7 and 8 on its sides. Two different positions of the same dice are shown below. Select the number that will be on the face opposite to the one having 8.",
+    "prompt_hi": "एक पासे की भुजाओं पर 2, 3, 5, 6, 7 और 8 संख्याएं अंकित हैं। नीचे एक ही पासे की दो अलग-अलग स्थितियां दर्शाई गई हैं। वह संख्या चुनिए जो 8 दर्शाने वाले फलक के विपरीत फलक पर होगी।",
+    "dice_layout": {
+      "layout_type": "3d_isometric",
+      "dice_instances": [
+        { "top": "5", "front": "3", "right": "7" },
+        { "top": "6", "front": "2", "right": "7" }
+      ]
+    },
+    "options": ["6", "2", "3", "7"],
+    "options_hi": ["6", "2", "3", "7"],
+    "answerIndex": 3,
+    "examTag": "CPO - 27 June 2024 - Shift 1",
+    "reason": "7 is common in both dice and is adjacent to 5, 3, 6, and 2. Therefore, it is opposite to the remaining number, 8.",
+    "meta": { "difficulty": "Basic" }
+  },
+  {
+    "id": "reas-dice-ssc-pyq-set-1-19",
+    "prompt": "Three different positions of the same dice are given. Find the number on the face opposite to the face showing '6'.",
+    "prompt_hi": "एक ही पासे की तीन अलग-अलग स्थितियाँ दी गई हैं। 6 दर्शाने वाले फलक के विपरीत फलक पर आने वाली संख्या ज्ञात कीजिए।",
+    "dice_layout": {
+      "layout_type": "3d_isometric",
+      "dice_instances": [
+        { "top": "4", "front": "3", "right": "2" },
+        { "top": "4", "front": "2", "right": "5" },
+        { "top": "4", "front": "5", "right": "6" }
+      ]
+    },
+    "options": ["3", "4", "2", "1"],
+    "options_hi": ["3", "4", "2", "1"],
+    "answerIndex": 2,
+    "examTag": "CPO - 28 June 2024 - Shift 1",
+    "reason": "Comparing dice 1 and 3, we get 4 as the common face. Moving clockwise from 4 gives: 4 -> 2 -> 3 and 4 -> 6 -> 5. So, 2 is opposite to 6.",
+    "meta": { "difficulty": "Basic" }
+  },
+  {
+    "id": "reas-dice-ssc-pyq-set-1-20",
+    "prompt": "A dice has its faces named by alphabets H, I, J, X, Y and Z. Two positions of the same dice are given below. Which face is opposite to face Y?",
+    "prompt_hi": "एक पासे के फलकों को H, I, J, X, Y और Z अक्षरों से चिह्नित किया गया है। नीचे एक ही पासे की दो स्थितियाँ दी गई हैं। कौन-सा फलक, फलक Y के विपरीत है?",
+    "dice_layout": {
+      "layout_type": "3d_isometric",
+      "dice_instances": [
+        { "top": "H", "front": "Z", "right": "X" },
+        { "top": "J", "front": "X", "right": "I" }
+      ]
+    },
+    "options": ["X", "J", "H", "Z"],
+    "options_hi": ["X", "J", "H", "Z"],
+    "answerIndex": 0,
+    "examTag": "CPO - 28 June 2024 - Shift 1",
+    "reason": "X is common in both dice. The faces adjacent to X are H, Z, J, and I. The remaining alphabet is Y. Hence, Y is opposite to X.",
+    "meta": { "difficulty": "Basic" }
+  },
+  {
+    "id": "reas-dice-ssc-pyq-set-1-21",
+    "prompt": "A dice has its faces named by letters L, M, N, V, W and X. Two positions of the same dice are given below. Which face is opposite to face X?",
+    "prompt_hi": "एक पासे के फलकों को L, M, N, V, W और X अक्षरों से चिह्नित किया गया है। नीचे एक ही पासे की दो स्थितियाँ दी गई हैं। कौन सा फलक X के विपरीत है?",
+    "dice_layout": {
+      "layout_type": "3d_isometric",
+      "dice_instances": [
+        { "top": "M", "front": "N", "right": "V" },
+        { "top": "N", "front": "W", "right": "L" }
+      ]
+    },
+    "options": ["N", "L", "M", "W"],
+    "options_hi": ["N", "L", "M", "W"],
+    "answerIndex": 0,
+    "examTag": "CPO - 28 June 2024 - Shift 1",
+    "reason": "N is the common alphabet in both dice. Its adjacent faces are M, V, W, and L. Therefore, X is opposite to N.",
+    "meta": { "difficulty": "Basic" }
+  },
+  {
+    "id": "reas-dice-ssc-pyq-set-1-22",
+    "prompt": "What would be the letter on the opposite side of 'Y' if the given sheet is folded to form a cube?",
+    "prompt_hi": "यदि दी गई शीट को मोड़कर घन बनाया जाए तो 'Y' के विपरीत ओर कौन सा अक्षर होगा?",
+    "dice_layout": {
+      "layout_type": "unfolded_net",
+      "grid_matrix": [
+        ["Z", null],
+        ["U", null],
+        ["Y", "V"],
+        ["X", null],
+        ["W", null]
+      ]
+    },
+    "options": ["Z", "V", "W", "X"],
+    "options_hi": ["Z", "V", "W", "X"],
+    "answerIndex": 0,
+    "examTag": "CHSL - 01 July 2024 - Shift 1",
+    "reason": "When the sheet is folded along the lines, the alternate surfaces are opposite: Z is opposite to Y, U is opposite to X, and V is opposite to W. Thus, Y is opposite to Z.",
+    "meta": { "difficulty": "Basic" }
+  },
+  {
+    "id": "reas-dice-ssc-pyq-set-1-23",
+    "prompt": "Six numbers 1, 3, 5, 6, 7, and 8 are written on different faces of a dice. Two positions of this dice are shown in the figure, which is the number on the face opposite to the face containing 6.",
+    "prompt_hi": "एक पासे के अलग-अलग फलकों पर छह संख्याएँ 1, 3, 5, 6, 7 और 8 लिखी हैं। चित्र में इस पासे की दो स्थितियाँ दर्शाई गई हैं, तो 6 वाले फलक के विपरीत फलक पर क्या संख्या है।",
+    "dice_layout": {
+      "layout_type": "3d_isometric",
+      "dice_instances": [
+        { "top": "1", "front": "3", "right": "8" },
+        { "top": "7", "front": "3", "right": "5" }
+      ]
+    },
+    "options": ["5", "7", "3", "8"],
+    "options_hi": ["5", "7", "3", "8"],
+    "answerIndex": 2,
+    "examTag": "CHSL - 01 July 2024 - Shift 1",
+    "reason": "In both dice, 3 is the common number. It is adjacent to 1, 8, 7, and 5. The only remaining number is 6, which makes it opposite to 3.",
+    "meta": { "difficulty": "Basic" }
+  },
+  {
+    "id": "reas-dice-ssc-pyq-set-1-24",
+    "prompt": "What would be the symbol on the opposite side of '≠' if the given sheet is folded to form a cube?",
+    "prompt_hi": "यदि दी गई शीट को मोड़कर घन बनाया जाए तो '≠' के विपरीत भुजा पर क्या प्रतीक होगा?",
+    "dice_layout": {
+      "layout_type": "unfolded_net",
+      "grid_matrix": [
+        ["%", "μ"],
+        [null, "∞"],
+        [null, "¥"],
+        ["π", "≠"]
+      ]
+    },
+    "options": ["¥", "∞", "%", "μ"],
+    "options_hi": ["¥", "∞", "%", "μ"],
+    "answerIndex": 2,
+    "examTag": "CHSL - 01 July 2024 - Shift 1",
+    "reason": "When the sheet is folded, the opposite pairs follow the alternate faces rule. % is opposite to ≠, μ is opposite to ¥, and ∞ is opposite to π. So, % is opposite to ≠.",
+    "meta": { "difficulty": "Basic" }
+  },
+  {
+    "id": "reas-dice-ssc-pyq-set-1-25",
+    "prompt": "A dice has numbers 2, 3, 4, 5, 8 and 9 on its sides. Two different positions of the same dice are shown below. Select the number that will be on the face opposite to the one having 3.",
+    "prompt_hi": "एक पासे की भुजाओं पर 2, 3, 4, 5, 8 और 9 संख्याएं हैं। नीचे एक ही पासे की दो अलग-अलग स्थितियां दर्शाई गई हैं। वह संख्या चुनिए जो 3 वाले फलक के विपरीत फलक पर होगी।",
+    "dice_layout": {
+      "layout_type": "3d_isometric",
+      "dice_instances": [
+        { "top": "9", "front": "5", "right": "3" },
+        { "top": "9", "front": "2", "right": "4" }
+      ]
+    },
+    "options": ["4", "8", "2", "5"],
+    "options_hi": ["4", "8", "2", "5"],
+    "answerIndex": 0,
+    "examTag": "CPO - 28 June 2024 - Shift 2",
+    "reason": "On comparing both dice we get 9 is common on the same top face. This means the corresponding faces are opposite to each other. Hence, the right face 3 is opposite to the right face 4.",
+    "meta": { "difficulty": "Basic" }
   }
 ]

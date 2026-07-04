@@ -1,0 +1,668 @@
+
+[
+  {
+    "id": "day-25-pyq-1",
+    "prompt": "Which of the following classical dance forms is related to the worship of Lord Jagannath?",
+    "prompt_hi": "निम्नलिखित में से कौन सा शास्त्रीय नृत्य रूप भगवान जगन्नाथ की पूजा से संबंधित है?",
+    "options": [
+      "Odissi",
+      "Kathak",
+      "Sattriya",
+      "Bharatanatyam"
+    ],
+    "options_hi": [
+      "ओडिसी",
+      "कथक",
+      "सत्त्रिया",
+      "भरतनाट्यम"
+    ],
+    "answerIndex": 0,
+    "examTag": "[SSC ML 2023]"
+  },
+  {
+    "id": "day-25-pyq-2",
+    "prompt": "Which Odissi dancer was the first dancer of foreign origin to be conferred the Padma Shri in 2006?",
+    "prompt_hi": "कौन सी ओडिसी नर्तकी विदेशी मूल की पहली नर्तकी थीं जिन्हें 2006 में पद्म श्री से सम्मानित किया गया?",
+    "options": [
+      "Ileana Citaristi",
+      "Mrinalini Sarabhai",
+      "Sofia Boutella",
+      "Eri Nakamura"
+    ],
+    "options_hi": [
+      "इलियाना सितारिस्ती",
+      "मृणालिनी साराभाई",
+      "सोफिया बुटेला",
+      "एरी नाकामुरा"
+    ],
+    "answerIndex": 0,
+    "examTag": "[MTS 2022]"
+  },
+  {
+    "id": "day-25-pyq-3",
+    "prompt": "The Pakhawaj syllables are primarily used to conclude which of the following Indian classical dances?",
+    "prompt_hi": "पखावज के अक्षर मुख्य रूप से निम्नलिखित भारतीय शास्त्रीय नृत्यों को समाप्त करने के लिए उपयोग किए जाते हैं?",
+    "options": [
+      "Manipuri",
+      "Kathak",
+      "Odissi",
+      "Kathakali"
+    ],
+    "options_hi": [
+      "मणिपुरी",
+      "कथक",
+      "ओडिसी",
+      "कथकली"
+    ],
+    "answerIndex": 2,
+    "examTag": "[CHSL 2023]"
+  },
+  {
+    "id": "day-25-pyq-4",
+    "prompt": "'Tabal Chongli' is a form of folk dance associated with the state of:",
+    "prompt_hi": "'तबल चोंगली' किस राज्य से संबंधित एक लोक नृत्य रूप है?",
+    "options": [
+      "West Bengal",
+      "Assam",
+      "Andhra Pradesh",
+      "Maharashtra"
+    ],
+    "options_hi": [
+      "पश्चिम बंगाल",
+      "असम",
+      "आंध्र प्रदेश",
+      "महाराष्ट्र"
+    ],
+    "answerIndex": 1,
+    "examTag": "[FCI 2012]"
+  },
+  {
+    "id": "day-25-pyq-5",
+    "prompt": "Ojapali is a famous dance form of which state?",
+    "prompt_hi": "ओजापाली किस राज्य का प्रसिद्ध नृत्य रूप है?",
+    "options": [
+      "Bihar",
+      "Maharashtra",
+      "Odisha",
+      "Assam"
+    ],
+    "options_hi": [
+      "बिहार",
+      "महाराष्ट्र",
+      "ओडिशा",
+      "असम"
+    ],
+    "answerIndex": 3,
+    "examTag": "[JSSC 2019]"
+  },
+  {
+    "id": "day-25-pyq-6",
+    "prompt": "Which among the following is a folk dance of India?",
+    "prompt_hi": "निम्नलिखित में से कौन भारत का एक लोक नृत्य है?",
+    "options": [
+      "Mohiniattam",
+      "Kathakali",
+      "Manipuri",
+      "Garba"
+    ],
+    "options_hi": [
+      "मोहिनीअट्टम",
+      "कथकली",
+      "मणिपुरी",
+      "गरबा"
+    ],
+    "answerIndex": 3,
+    "examTag": "[CGL 2015]"
+  },
+  {
+    "id": "day-25-pyq-7",
+    "prompt": "Archaeological evidence of which of the following dance forms dating back to the 2nd Century BC was found in the caves of Udayagiri and Khandagiri?",
+    "prompt_hi": "निम्नलिखित में से किस नृत्य रूप के पुरातात्विक प्रमाण उदयगिरि और खंडगिरि की गुफाओं में दूसरी शताब्दी ईसा पूर्व के पाए गए हैं?",
+    "options": [
+      "Kathak",
+      "Kuchipudi",
+      "Manipuri",
+      "Odissi"
+    ],
+    "options_hi": [
+      "कथक",
+      "कुचिपुड़ी",
+      "मणिपुरी",
+      "ओडिसी"
+    ],
+    "answerIndex": 3,
+    "examTag": "[SSC-2024]"
+  },
+  {
+    "id": "day-25-pyq-8",
+    "prompt": "Lila Rakhal is a folk dance of which state?",
+    "prompt_hi": "लीला राखल किस राज्य का लोक नृत्य है?",
+    "options": [
+      "Haryana",
+      "Kerala",
+      "Assam",
+      "Madhya Pradesh"
+    ],
+    "options_hi": [
+      "हरियाणा",
+      "केरल",
+      "असम",
+      "मध्य प्रदेश"
+    ],
+    "answerIndex": 2,
+    "examTag": "[RRB NTPC 2016]"
+  },
+  {
+    "id": "day-25-pyq-9",
+    "prompt": "Bihu dance is the folk dance of which of the following Indian states?",
+    "prompt_hi": "बिहू नृत्य निम्नलिखित में से किस भारतीय राज्य का लोक नृत्य है?",
+    "options": [
+      "Assam",
+      "Arunachal Pradesh",
+      "Odisha",
+      "Haryana"
+    ],
+    "options_hi": [
+      "असम",
+      "अरुणाचल प्रदेश",
+      "ओडिशा",
+      "हरियाणा"
+    ],
+    "answerIndex": 0,
+    "examTag": "[RRB NTPC 2016], [CHSL 2011]"
+  },
+  {
+    "id": "day-25-pyq-10",
+    "prompt": "Madhavi Mudgal is associated with which classical dance of India?",
+    "prompt_hi": "माधवी मुद्गल भारत के किस शास्त्रीय नृत्य से जुड़ी हैं?",
+    "options": [
+      "Manipuri",
+      "Kathak",
+      "Odissi",
+      "Sattriya"
+    ],
+    "options_hi": [
+      "मणिपुरी",
+      "कथक",
+      "ओडिसी",
+      "सत्त्रिया"
+    ],
+    "answerIndex": 2,
+    "examTag": "[MTS 2022]"
+  },
+  {
+    "id": "day-25-pyq-11",
+    "prompt": "Sujata Mahapatra has won the Sangeet Natak Akademi Award for .....",
+    "prompt_hi": "सुजाता महापात्रा को ..... के लिए संगीत नाटक अकादमी पुरस्कार मिला है।",
+    "options": [
+      "Odissi",
+      "Kathak",
+      "Fusion dance",
+      "Modern dance"
+    ],
+    "options_hi": [
+      "ओडिसी",
+      "कथक",
+      "फ्यूजन नृत्य",
+      "आधुनिक नृत्य"
+    ],
+    "answerIndex": 0,
+    "examTag": "[GD 2022]"
+  },
+  {
+    "id": "day-25-pyq-12",
+    "prompt": "Jat-Jatin is one of the most popular folk dance forms of which among the following states?",
+    "prompt_hi": "जाट-जतिन निम्नलिखित में से किस राज्य का सबसे लोकप्रिय लोक नृत्य रूप है?",
+    "options": [
+      "Assam",
+      "Chhattisgarh",
+      "Madhya Pradesh",
+      "Bihar"
+    ],
+    "options_hi": [
+      "असम",
+      "छत्तीसगढ़",
+      "मध्य प्रदेश",
+      "बिहार"
+    ],
+    "answerIndex": 3,
+    "examTag": "[NTPC 2022]"
+  },
+  {
+    "id": "day-25-pyq-13",
+    "prompt": ".....was the only Indian dance form present in Michael Jackson's 1991 music video for the hit single 'Black or White'.",
+    "prompt_hi": ".....माइकल जैक्सन के 1991 के म्यूज़िक वीडियो 'ब्लैक और व्हाइट' में एकमात्र भारतीय नृत्य रूप था।",
+    "options": [
+      "Kathakali",
+      "Kathak",
+      "Bharatanatyam",
+      "Odissi"
+    ],
+    "options_hi": [
+      "कथकली",
+      "कथक",
+      "भरतनाट्यम",
+      "ओडिसी"
+    ],
+    "answerIndex": 3,
+    "examTag": "[RRB 2021]"
+  },
+  {
+    "id": "day-25-pyq-14",
+    "prompt": "Garba dance is related to which of the following states?",
+    "prompt_hi": "गरबा नृत्य निम्नलिखित में से किस राज्य से संबंधित है?",
+    "options": [
+      "Rajasthan",
+      "Maharashtra",
+      "Kashmir",
+      "Gujarat"
+    ],
+    "options_hi": [
+      "राजस्थान",
+      "महाराष्ट्र",
+      "कश्मीर",
+      "गुजरात"
+    ],
+    "answerIndex": 3,
+    "examTag": "[RRB J.E.-2014]"
+  },
+  {
+    "id": "day-25-pyq-15",
+    "prompt": "'Bagurumba' is a ....of the Bodo Community in Assam.",
+    "prompt_hi": "'बागुरुम्बा' असम के बोडो समुदाय का ..... है।",
+    "options": [
+      "Local sport",
+      "Folk dance",
+      "Painting style",
+      "Ceremonial procession"
+    ],
+    "options_hi": [
+      "स्थानीय खेल",
+      "लोक नृत्य",
+      "चित्रकला शैली",
+      "धार्मिक जुलूस"
+    ],
+    "answerIndex": 1,
+    "examTag": "[MTS 2020]"
+  },
+  {
+    "id": "day-25-pyq-16",
+    "prompt": "Match the dances in Column A with their states in Column B:\nColumn A (Dances):\n1. Bharatanatyam\n2. Mohiniattam\n3. Garba\n4. Sattriya\nColumn B (States):\na. Gujarat\nb. Tamil Nadu\nc. Kerala\nd. Assam",
+    "prompt_hi": "कॉलम A में नृत्यों का कॉलम B में राज्यों से मिलान करें:\nकॉलम A (नृत्य):\n1. भरतनाट्यम\n2. मोहिनीअट्टम\n3. गरबा\n4. सत्त्रिया\nकॉलम B (राज्य):\na. गुजरात\nb. तमिलनाडु\nc. केरल\nd. असम",
+    "options": [
+      "1-b, 2-c, 3-d, 4-a",
+      "1-a, 2-c, 3-b, 4-d",
+      "1-c, 2-b, 3-a, 4-d",
+      "1-b, 2-c, 3-a, 4-d"
+    ],
+    "options_hi": [
+      "1-b, 2-c, 3-d, 4-a",
+      "1-a, 2-c, 3-b, 4-d",
+      "1-c, 2-b, 3-a, 4-d",
+      "1-b, 2-c, 3-a, 4-d"
+    ],
+    "answerIndex": 3,
+    "examTag": "[CHSL-2024]"
+  },
+  {
+    "id": "day-25-pyq-17",
+    "prompt": "Which is a post-harvest folk dance in Assam?",
+    "prompt_hi": "असम में कौन सा फसल के बाद का लोक नृत्य है?",
+    "options": [
+      "Ankia Nat",
+      "Bihu",
+      "Raut Nacha",
+      "Namgen"
+    ],
+    "options_hi": [
+      "अंकिया नाट",
+      "बिहू",
+      "राउत नाचा",
+      "नामगेन"
+    ],
+    "answerIndex": 1,
+    "examTag": "[CGL 2016]"
+  },
+  {
+    "id": "day-25-pyq-18",
+    "prompt": "Sonal Mansingh, Padma Bhushan and Padma Vibhushan awardee, is an accomplished dancer of which of the following dances in addition to Bharatanatyam?",
+    "prompt_hi": "सोनल मानसिंह, पद्म भूषण और पद्म विभूषण पुरस्कार विजेता, भरतनाट्यम के अतिरिक्त निम्नलिखित में से किस नृत्य रूप की कुशल नर्तकी हैं?",
+    "options": [
+      "Kathakali",
+      "Kathak",
+      "Sattriya",
+      "Odissi"
+    ],
+    "options_hi": [
+      "कथकली",
+      "कथक",
+      "सत्त्रिया",
+      "ओडिसी"
+    ],
+    "answerIndex": 3,
+    "examTag": "[CGL 2023]"
+  },
+  {
+    "id": "day-25-pyq-19",
+    "prompt": "Bagurumba is a group dance performed by the......community.",
+    "prompt_hi": "बागुरुम्बा ......समुदाय द्वारा किया जाने वाला एक समूह नृत्य है।",
+    "options": [
+      "Majhi",
+      "Bodo",
+      "Rathawa",
+      "Varli"
+    ],
+    "options_hi": [
+      "माझी",
+      "बोडो",
+      "राठवा",
+      "वरली"
+    ],
+    "answerIndex": 1,
+    "examTag": "[DP 2020]"
+  },
+  {
+    "id": "day-25-pyq-20",
+    "prompt": "Which of the following traditional dances is mainly performed during Navratri?",
+    "prompt_hi": "निम्नलिखित में से कौन सा पारंपरिक नृत्य मुख्य रूप से नवरात्रि के दौरान किया जाता है?",
+    "options": [
+      "Ras leela",
+      "Nati",
+      "Dumhal",
+      "Garba"
+    ],
+    "options_hi": [
+      "रास लीला",
+      "नाटी",
+      "दुम्हल",
+      "गरबा"
+    ],
+    "answerIndex": 3,
+    "examTag": "[SSC HS 2023]"
+  },
+  {
+    "id": "day-25-pyq-21",
+    "prompt": "Jhijhiya dance originated in the Indian state of ......",
+    "prompt_hi": "झिझिया नृत्य भारत के .... राज्य में उत्पन्न हुआ।",
+    "options": [
+      "Bihar",
+      "West Bengal",
+      "Rajasthan",
+      "Gujarat"
+    ],
+    "options_hi": [
+      "बिहार",
+      "पश्चिम बंगाल",
+      "राजस्थान",
+      "गुजरात"
+    ],
+    "answerIndex": 0,
+    "examTag": "[CHSL 2019]"
+  },
+  {
+    "id": "day-25-pyq-22",
+    "prompt": "Sonal Mansingh is a prominent Indian classical dancer who specializes in .....",
+    "prompt_hi": "सोनल मानसिंह एक प्रमुख भारतीय शास्त्रीय नर्तकी हैं, जो... में विशेषज्ञता रखती हैं।",
+    "options": [
+      "Bharatanatyam and Kuchipudi",
+      "Bharatanatyam and Odissi",
+      "Bharatanatyam and Kathak",
+      "Manipuri and Odissi"
+    ],
+    "options_hi": [
+      "भरतनाट्यम और कुचिपुड़ी",
+      "भरतनाट्यम और ओडिसी",
+      "भरतनाट्यम और कथक",
+      "मणिपुरी और ओडिसी"
+    ],
+    "answerIndex": 1,
+    "examTag": "[CHSL 2021]"
+  },
+  {
+    "id": "day-25-pyq-23",
+    "prompt": "Dandiya is a traditional folk dance of which Indian State?",
+    "prompt_hi": "डांडिया किस भारतीय राज्य का पारंपरिक लोक नृत्य है?",
+    "options": [
+      "West Bengal",
+      "Bihar",
+      "Gujarat",
+      "Assam"
+    ],
+    "options_hi": [
+      "पश्चिम बंगाल",
+      "बिहार",
+      "गुजरात",
+      "असम"
+    ],
+    "answerIndex": 2,
+    "examTag": "[RPF 2019]"
+  },
+  {
+    "id": "day-25-pyq-24",
+    "prompt": "Which state gives the annual award Guru Kelucharan Mohapatra?",
+    "prompt_hi": "गुरु केलुचरण महापात्र वार्षिक पुरस्कार किस राज्य द्वारा दिया जाता है?",
+    "options": [
+      "Karnataka",
+      "Odisha",
+      "Tamil Nadu",
+      "Manipur"
+    ],
+    "options_hi": [
+      "कर्नाटक",
+      "ओडिशा",
+      "तमिलनाडु",
+      "मणिपुर"
+    ],
+    "answerIndex": 1,
+    "examTag": "[SSC Steno 2023]"
+  },
+  {
+    "id": "day-25-pyq-25",
+    "prompt": "Jhijhiya is a famous folk dance of Bihar and is performed in the mythological town of Mithila. This dance is performed by women only. The whole Navaratri \"nine nights\" festival is celebrated to worship the three forms of Lord....",
+    "prompt_hi": "झिझिया बिहार का एक प्रसिद्ध लोक नृत्य है और इसे मिथिला के पौराणिक शहर में महिलाओं द्वारा किया जाता है। पूरा नवरात्रि 'नौ रातों' का उत्सव भगवान... के तीन रूपों की पूजा के लिए मनाया जाता है।",
+    "options": [
+      "Kali, Lakshmi, Durga",
+      "Sita, Durga, Lakshmi",
+      "Lakshmi, Parvati, Saraswati",
+      "Sita, Kali, Parvati"
+    ],
+    "options_hi": [
+      "काली, लक्ष्मी, दुर्गा",
+      "सीता, दुर्गा, लक्ष्मी",
+      "लक्ष्मी, पार्वती, सरस्वती",
+      "सीता, काली, पार्वती"
+    ],
+    "answerIndex": 2,
+    "examTag": "[MTS 2023]"
+  },
+  {
+    "id": "day-25-pyq-26",
+    "prompt": "Minati Mishra is associated with-",
+    "prompt_hi": "मिनाती मिश्रा किससे संबंधित हैं?",
+    "options": [
+      "Manipuri",
+      "Bharatanatyam",
+      "Kathakali",
+      "Odissi"
+    ],
+    "options_hi": [
+      "मणिपुरी",
+      "भरतनाट्यम",
+      "कथकली",
+      "ओडिसी"
+    ],
+    "answerIndex": 3,
+    "examTag": "[MTS 2022]"
+  },
+  {
+    "id": "day-25-pyq-27",
+    "prompt": "In which of the following dances from Assam do the movements by the dancers resemble butterflies and birds?",
+    "prompt_hi": "असम के निम्नलिखित नृत्यों में से किसमें नर्तकों की हरकतें तितलियों और पक्षियों जैसी होती हैं?",
+    "options": [
+      "Bihu",
+      "Bagurumba",
+      "Jhumar",
+      "Deodhani"
+    ],
+    "options_hi": [
+      "बिहू",
+      "बागुरुम्बा",
+      "झूमर",
+      "देवधनी"
+    ],
+    "answerIndex": 1,
+    "examTag": "[CGL-2022]"
+  },
+  {
+    "id": "day-25-pyq-28",
+    "prompt": "Which of the following performance categories belongs to Guru Kelucharan Mohapatra and Guru Kelucharan Mohapatra Yuva Prativa Summan?",
+    "prompt_hi": "निम्नलिखित में से कौन सा प्रदर्शन श्रेणी गुरु केलुचरण महापात्र और गुरु केलुचरण महापात्र युवा प्रतिभा सम्मान से संबंधित है?",
+    "options": [
+      "Manipuri dance and music",
+      "Odissi dance and music",
+      "Maharashtra dance and music",
+      "Karnataka dance and music"
+    ],
+    "options_hi": [
+      "मणिपुरी नृत्य और संगीत",
+      "ओडिसी नृत्य और संगीत",
+      "महाराष्ट्र नृत्य और संगीत",
+      "कर्नाटक नृत्य और संगीत"
+    ],
+    "answerIndex": 1,
+    "examTag": "[SSC Steno 2023]"
+  },
+  {
+    "id": "day-25-pyq-29",
+    "prompt": "What is a one-act play of Sattriya called?",
+    "prompt_hi": "सत्त्रिया के एक-अंकी नाटक को क्या कहा जाता है?",
+    "options": [
+      "Ekam Nat",
+      "Vishesham Nat",
+      "Anant Nat",
+      "Ankiya Nat"
+    ],
+    "options_hi": [
+      "एकम नाट",
+      "विशेषम नाट",
+      "अनंत नाट",
+      "अंकीया नाट"
+    ],
+    "answerIndex": 3,
+    "examTag": "[SSC Steno 2023]"
+  },
+  {
+    "id": "day-25-pyq-30",
+    "prompt": "Ramkheliya is a folk dance of which state?",
+    "prompt_hi": "रामखैलिया किस राज्य का लोक नृत्य है?",
+    "options": [
+      "Haryana",
+      "Kerala",
+      "Bihar",
+      "Madhya Pradesh"
+    ],
+    "options_hi": [
+      "हरियाणा",
+      "केरल",
+      "बिहार",
+      "मध्य प्रदेश"
+    ],
+    "answerIndex": 2,
+    "examTag": "[RRB NTPC 2016]"
+  },
+  {
+    "id": "day-25-pyq-31",
+    "prompt": "Identify the famous Indian classical dancer. She is a Guru of both Bharatanatyam and Odissi dancing styles. She received Sangeet Natak Akademi Award in 1987.",
+    "prompt_hi": "प्रसिद्ध भारतीय शास्त्रीय नर्तकी की पहचान करें। वह भरतनाट्यम और ओडिसी नृत्य शैली दोनों की गुरु हैं। उन्हें 1987 में संगीत नाटक अकादमी पुरस्कार मिला।",
+    "options": [
+      "Shovana Narayana",
+      "Sonal Mansingh",
+      "Padma Subrahmanyam",
+      "Mrinalini Sarabhai"
+    ],
+    "options_hi": [
+      "शोवना नारायण",
+      "सोनल मानसिंह",
+      "पद्मा सुब्रह्मण्यम",
+      "मृणालिनी साराभाई"
+    ],
+    "answerIndex": 1,
+    "examTag": "[MTS 2022]"
+  },
+  {
+    "id": "day-25-pyq-32",
+    "prompt": "The dance form 'Dandia' is synonymous with....",
+    "prompt_hi": "नृत्य रूप 'डांडिया' किससे संबंधित है?",
+    "options": [
+      "Bihu",
+      "Navratri",
+      "Onam",
+      "Ganesh Chaturthi"
+    ],
+    "options_hi": [
+      "बिहू",
+      "नवरात्रि",
+      "ओणम",
+      "गणेश चतुर्थी"
+    ],
+    "answerIndex": 1,
+    "examTag": "[CPO-19]"
+  },
+  {
+    "id": "day-25-pyq-33",
+    "prompt": "The Guru Kelucharan Mohapatra Yuva Pratibha Samman 2021 was presented to Arushi Mudgal for .....dance.",
+    "prompt_hi": "गुरु केलुचरण महापात्र युवा प्रतिभा सम्मान 2021 अरुषि मुद्गल को ...नृत्य के लिए प्रदान किया गया।",
+    "options": [
+      "Mohiniyattam",
+      "Kuchipudi",
+      "Kathak",
+      "Odissi"
+    ],
+    "options_hi": [
+      "मोहिनीअट्टम",
+      "कुचिपुड़ी",
+      "कथक",
+      "ओडिसी"
+    ],
+    "answerIndex": 3,
+    "examTag": "[CPO 04, 23, 24]"
+  },
+  {
+    "id": "day-25-pyq-34",
+    "prompt": "'Ankiya Nats' are one-act plays distinct to the culture of......",
+    "prompt_hi": "'अंकीया नाट' एक-अंकी नाटक ....की संस्कृति के लिए विशिष्ट हैं।",
+    "options": [
+      "Bihar",
+      "Tamil Nadu",
+      "Odisha",
+      "Assam"
+    ],
+    "options_hi": [
+      "बिहार",
+      "तमिलनाडु",
+      "ओडिशा",
+      "असम"
+    ],
+    "answerIndex": 3,
+    "examTag": "[GD 2021]"
+  },
+  {
+    "id": "day-25-pyq-35",
+    "prompt": "Who among the following classical dancers was rewarded with the Padma Vibhushan Award in 2003?",
+    "prompt_hi": "निम्नलिखित शास्त्रीय नर्तकों में से किसे 2003 में पद्म विभूषण पुरस्कार से सम्मानित किया गया?",
+    "options": [
+      "Sonal Mansingh",
+      "Kumudini Lakhia",
+      "Shovana Narayan",
+      "Sunayana Hazarilal"
+    ],
+    "options_hi": [
+      "सोनल मानसिंह",
+      "कुमुदिनी लाखिया",
+      "शोवना नारायण",
+      "सुनयना हज़ारीलाल"
+    ],
+    "answerIndex": 0,
+    "examTag": "[CGL 2022]"
+  }
+]

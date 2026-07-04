@@ -31,6 +31,16 @@ const categories = [
     hoverText: 'group-hover:text-blue-500 dark:group-hover:text-blue-400',
   },
   {
+    href: '/kd-method/english-chapterwise',
+    title: 'English Chapterwise',
+    description: 'Master English grammar chapter by chapter with comprehensive notes and bilingual practice quizzes.',
+    icon: BookOpen,
+    color: 'from-indigo-500/20 to-blue-500/20',
+    iconColor: 'text-indigo-500 dark:text-indigo-400',
+    hoverBorder: 'hover:border-indigo-500/50 dark:hover:border-indigo-500/50',
+    hoverText: 'group-hover:text-indigo-500 dark:group-hover:text-indigo-400',
+  },
+  {
     href: '/kd-method/maths-trickfunda',
     title: 'Maths TrickFunda',
     description: 'Master essential mathematics concepts, chapter by chapter, with bilingual quizzes and interactive notes.',

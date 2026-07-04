@@ -1,0 +1,743 @@
+[
+  {
+    "id": "day-24-pyq-71",
+    "prompt": "Guru Gopinath National Award 2021 was honoured to whom among the following Kathak dancers?",
+    "prompt_hi": "गुरु गोपीनाथ राष्ट्रीय पुरस्कार 2021 निम्नलिखित कथक नर्तकों में से किसे दिया गया?",
+    "options": [
+      "Durga Lal",
+      "Roshan Kumari",
+      "Kumudini Lakhia",
+      "Shambhu Maharaj"
+    ],
+    "options_hi": [
+      "दुर्गा लाल",
+      "रोशन कुमारी",
+      "कुमुदिनी लाखिया",
+      "शंभू महाराज"
+    ],
+    "answerIndex": 2,
+    "examTag": "[CGL 2022]"
+  },
+  {
+    "id": "day-24-pyq-72",
+    "prompt": "Who among the following Padma Vibhushan awardees belongs to Kalka-Bindadin Gharana of Kathak?",
+    "prompt_hi": "निम्नलिखित पद्म विभूषण प्राप्तकर्ताओं में से कौन कथक के कालका-बिंदादीन घराने से संबंधित है?",
+    "options": [
+      "Damyanti Devi",
+      "Kelucharan Mohapatra",
+      "Birju Maharaj",
+      "Sitara Devi"
+    ],
+    "options_hi": [
+      "दमयंती देवी",
+      "केलुचरण महापात्र",
+      "बिरजू महाराज",
+      "सितारा देवी"
+    ],
+    "answerIndex": 2,
+    "examTag": "[CPO 2024]"
+  },
+  {
+    "id": "day-24-pyq-73",
+    "prompt": "Which of the following dances is a folk dance of the Indian states of Bihar and Jharkhand?",
+    "prompt_hi": "निम्नलिखित में से कौन सा नृत्य बिहार और झारखंड के भारतीय राज्यों का लोक नृत्य है?",
+    "options": [
+      "Lavani",
+      "Ghoomar",
+      "Domkach",
+      "Dollu Kunitha"
+    ],
+    "options_hi": [
+      "लावणी",
+      "घूमर",
+      "डोमकच",
+      "डोलू कुनिथा"
+    ],
+    "answerIndex": 2,
+    "examTag": "[JSSC JE-2022]"
+  },
+  {
+    "id": "day-24-pyq-74",
+    "prompt": "Pandit Birju Maharaj received which of the following awards in 1986?",
+    "prompt_hi": "पंडित बिरजू महाराज को 1986 में निम्नलिखित में से कौन सा पुरस्कार मिला?",
+    "options": [
+      "Padma Bhushan",
+      "Padma Shri",
+      "Padma Vibhushan",
+      "Kalidas Samman"
+    ],
+    "options_hi": [
+      "पद्म भूषण",
+      "पद्म श्री",
+      "पद्म विभूषण",
+      "कालिदास सम्मान"
+    ],
+    "answerIndex": 2,
+    "examTag": "[CPO 2022]"
+  },
+  {
+    "id": "day-24-pyq-75",
+    "prompt": "'Bhavai' is the traditional theatre form of which Indian state?",
+    "prompt_hi": "'भवई' किस भारतीय राज्य का पारंपरिक नाट्य रूप है?",
+    "options": [
+      "Gujarat",
+      "Nagaland",
+      "Tamil Nadu",
+      "Karnataka"
+    ],
+    "options_hi": [
+      "गुजरात",
+      "नागालैंड",
+      "तमिलनाडु",
+      "कर्नाटक"
+    ],
+    "answerIndex": 0,
+    "examTag": "[MTS 2022]"
+  },
+  {
+    "id": "day-24-pyq-76",
+    "prompt": "Sangeet Majumdar was felicitated by Casa De La, Spain, for her contribution to which of the following Indian Classical Dances?",
+    "prompt_hi": "संगीत मजूमदार को भारत के निम्नलिखित शास्त्रीय नृत्य में उनके योगदान के लिए कासा डी ला, स्पेन द्वारा सम्मानित किया गया।",
+    "options": [
+      "Kathak",
+      "Mohiniyattam",
+      "Bharatanatyam",
+      "Kuchipudi"
+    ],
+    "options_hi": [
+      "कथक",
+      "मोहिनीअट्टम",
+      "भरतनाट्यम",
+      "कुचिपुड़ी"
+    ],
+    "answerIndex": 0,
+    "examTag": "[CPO 2024]"
+  },
+  {
+    "id": "day-24-pyq-77",
+    "prompt": "Which of the following erstwhile Princely states was primarily associated with Kathak?",
+    "prompt_hi": "निम्नलिखित पूर्व रियासतों में से कौन कथक से मुख्य रूप से जुड़ी हुई थी?",
+    "options": [
+      "Tripura",
+      "Avadh",
+      "Baroda",
+      "Vijaynagar"
+    ],
+    "options_hi": [
+      "त्रिपुरा",
+      "अवध",
+      "बड़ौदा",
+      "विजयनगर"
+    ],
+    "answerIndex": 1,
+    "examTag": "[CHSL 2023]"
+  },
+  {
+    "id": "day-24-pyq-78",
+    "prompt": "Paika dance of Jharkhand is usually performed by _ tribe to welcome special honoured guests or during religious processions (shobha yatra).",
+    "prompt_hi": "झारखंड का पैका नृत्य आमतौर पर _ जनजाति द्वारा विशेष सम्मानित मेहमानों के स्वागत के लिए या धार्मिक जुलूसों (शोभा यात्रा) के दौरान किया जाता है।",
+    "options": [
+      "Santhal",
+      "Munda",
+      "Oraon",
+      "Bhumij"
+    ],
+    "options_hi": [
+      "संथाल",
+      "मुंडा",
+      "उरांव",
+      "भूमिज"
+    ],
+    "answerIndex": 1,
+    "examTag": "[MTS 2023]"
+  },
+  {
+    "id": "day-24-pyq-79",
+    "prompt": "Achchhan Maharaj is associated with which of the following fields?",
+    "prompt_hi": "अच्छन महाराज निम्नलिखित में से किस क्षेत्र से जुड़े हुए हैं?",
+    "options": [
+      "Instrumental music",
+      "Dance",
+      "Painting",
+      "Writing"
+    ],
+    "options_hi": [
+      "वाद्य संगीत",
+      "नृत्य",
+      "चित्रकला",
+      "लेखन"
+    ],
+    "answerIndex": 1,
+    "examTag": "[CHSL - 2018]"
+  },
+  {
+    "id": "day-24-pyq-80",
+    "prompt": "Which folk dance of Rajasthan is also known as 'Sapera dance'?",
+    "prompt_hi": "राजस्थान का कौन सा लोक नृत्य 'सपेरा नृत्य' के नाम से भी जाना जाता है?",
+    "options": [
+      "Gair",
+      "Kalbelia",
+      "Chari",
+      "Ghoomar"
+    ],
+    "options_hi": [
+      "गैर",
+      "कालबेलिया",
+      "चारी",
+      "घूमर"
+    ],
+    "answerIndex": 1,
+    "examTag": "[MTS 2023]"
+  },
+  {
+    "id": "day-24-pyq-81",
+    "prompt": "Birju Maharaj was awarded which of the following awards in 2012?",
+    "prompt_hi": "बिरजू महाराज को 2012 में निम्नलिखित में से कौन सा पुरस्कार दिया गया?",
+    "options": [
+      "Sangam Kala Award",
+      "Filmfare Award",
+      "National Film Award",
+      "Sangeet Natak Akademi Award"
+    ],
+    "options_hi": [
+      "संगम कला पुरस्कार",
+      "फिल्मफेयर पुरस्कार",
+      "राष्ट्रीय फिल्म पुरस्कार",
+      "संगीत नाटक अकादमी पुरस्कार"
+    ],
+    "answerIndex": 2,
+    "examTag": "[CGL 2022]"
+  },
+  {
+    "id": "day-24-pyq-82",
+    "prompt": "Shambhu Maharaj was awarded the Padma Shri for his contribution to which of the following dances in India?",
+    "prompt_hi": "शंभू महाराज को भारत में किस नृत्य में उनके योगदान के लिए पद्म श्री से सम्मानित किया गया था?",
+    "options": [
+      "Kathak",
+      "Bharatanatyam",
+      "Kuchipudi",
+      "Manipuri"
+    ],
+    "options_hi": [
+      "कथक",
+      "भरतनाट्यम",
+      "कुचिपुड़ी",
+      "मणिपुरी"
+    ],
+    "answerIndex": 0,
+    "examTag": "[CHSL 2021]"
+  },
+  {
+    "id": "day-24-pyq-83",
+    "prompt": "Which of the following dances is listed in the UNESCO List of Intangible Cultural Heritage of India since 2010?",
+    "prompt_hi": "निम्नलिखित में से कौन सा नृत्य 2010 से भारत की यूनेस्को अमूर्त सांस्कृतिक विरासत सूची में सूचीबद्ध है?",
+    "options": [
+      "Garba",
+      "Kalbelia",
+      "Ghoomar",
+      "Matki"
+    ],
+    "options_hi": [
+      "गरबा",
+      "कालबेलिया",
+      "घूमर",
+      "मटकी"
+    ],
+    "answerIndex": 1,
+    "examTag": "[CHSL-2024]"
+  },
+  {
+    "id": "day-24-pyq-84",
+    "prompt": "Mundari dance is associated with the tribal community of which Indian state?",
+    "prompt_hi": "मुंडारी नृत्य किस भारतीय राज्य की जनजातीय समुदाय से संबंधित है?",
+    "options": [
+      "Mizoram",
+      "Karnataka",
+      "Arunachal Pradesh",
+      "Jharkhand"
+    ],
+    "options_hi": [
+      "मिजोरम",
+      "कर्नाटक",
+      "अरुणाचल प्रदेश",
+      "झारखंड"
+    ],
+    "answerIndex": 3,
+    "examTag": "[CHSL 2023]"
+  },
+  {
+    "id": "day-24-pyq-85",
+    "prompt": "Who is the renowned Kathak dancer, a student of 'Pandit Birju Maharaj', and also served as an officer with Indian Audit and Accounts Services?",
+    "prompt_hi": "प्रसिद्ध कथक नर्तकी, 'पंडित बिरजू महाराज' की शिष्या और भारतीय लेखा परीक्षा एवं सेवा अधिकारी के रूप में भी सेवा देने वाली कौन हैं?",
+    "options": [
+      "Sonal Mansingh",
+      "Guru Bipin Singh",
+      "Shovana Narayan",
+      "Padma Subrahmanyam"
+    ],
+    "options_hi": [
+      "सोनल मानसिंह",
+      "गुरु बिपिन सिंह",
+      "शोवना नारायण",
+      "पद्मा सुब्रह्मण्यम"
+    ],
+    "answerIndex": 2,
+    "examTag": "[MTS 2023]"
+  },
+  {
+    "id": "day-24-pyq-86",
+    "prompt": "Pandit Shambhu Maharaj, a classical _ dancer, was awarded the Sangeet Natak Akademi Award in 1967.",
+    "prompt_hi": "पंडित शंभू महाराज, एक शास्त्रीय _ नर्तक, को 1967 में संगीत नाटक अकादमी पुरस्कार से सम्मानित किया गया।",
+    "options": [
+      "Kuchipudi",
+      "Kathak",
+      "Odissi",
+      "Kathakali"
+    ],
+    "options_hi": [
+      "कुचिपुड़ी",
+      "कथक",
+      "ओडिसी",
+      "कथकली"
+    ],
+    "answerIndex": 1,
+    "examTag": "[CHSL 2021]"
+  },
+  {
+    "id": "day-24-pyq-87",
+    "prompt": "Which of the following traditional dances is NOT a martial art form?",
+    "prompt_hi": "निम्नलिखित पारंपरिक नृत्यों में से कौन सा एक मार्शल आर्ट रूप नहीं है?",
+    "options": [
+      "Bhavai",
+      "Lazim",
+      "Kalaripayattu",
+      "Chhau"
+    ],
+    "options_hi": [
+      "भावई",
+      "लज़िम",
+      "कलारीपयट्टू",
+      "छऊ"
+    ],
+    "answerIndex": 0,
+    "examTag": "[CPO 2019]"
+  },
+  {
+    "id": "day-24-pyq-88",
+    "prompt": "Match the artists and their art form:\nArtists:\n(a) Ustad Allaudin Khan\n(b) Hema Malini\n(c) Birju Maharaj\n(d) Pt. Shiv Kumar Sharma\n\nArtform:\n1. Bharat-Natyam\n2. Sarod\n3. Santoor\n4. Kathak dance",
+    "prompt_hi": "कलाकारों और उनके कला रूप का मिलान करें:\nकलाकार:\n(a) उस्ताद अलाउद्दीन खान\n(b) हेमा मालिनी\n(c) बिरजू महाराज\n(d) पं. शिव कुमार शर्मा\n\nकला रूप:\n1. भरतनाट्यम\n2. सरोद\n3. संतूर\n4. कथक नृत्य",
+    "options": [
+      "a-1, b-3, c-2, d-4",
+      "a-2, b-4, c-3, d-1",
+      "a-3, b-2, c-4, d-1",
+      "a-2, b-1, c-4, d-3"
+    ],
+    "options_hi": [
+      "a-1, b-3, c-2, d-4",
+      "a-2, b-4, c-3, d-1",
+      "a-3, b-2, c-4, d-1",
+      "a-2, b-1, c-4, d-3"
+    ],
+    "answerIndex": 3,
+    "examTag": "[CPO 2003]"
+  },
+  {
+    "id": "day-24-pyq-89",
+    "prompt": "This is a folk dance performed in the family of the bridegroom during the marriage.",
+    "prompt_hi": "यह एक लोक नृत्य है जो शादी के दौरान दूल्हे के परिवार में किया जाता है।",
+    "options": [
+      "Paika",
+      "Chhau",
+      "Domkach",
+      "Lahasua"
+    ],
+    "options_hi": [
+      "पाइका",
+      "छऊ",
+      "डोमकच",
+      "लहसुआ"
+    ],
+    "answerIndex": 2,
+    "examTag": "[JSSC 2019]"
+  },
+  {
+    "id": "day-24-pyq-90",
+    "prompt": "'Khyal' is the Hindustani folk-dance drama or theatre of _",
+    "prompt_hi": "'ख्याल' _ का हिंदुस्तानी लोक-नृत्य नाटक या रंगमंच है।",
+    "options": [
+      "Andhra Pradesh",
+      "Madhya Pradesh",
+      "Uttar Pradesh",
+      "Rajasthan"
+    ],
+    "options_hi": [
+      "आंध्र प्रदेश",
+      "मध्य प्रदेश",
+      "उत्तर प्रदेश",
+      "राजस्थान"
+    ],
+    "answerIndex": 3,
+    "examTag": "[DSSSB 2018]"
+  },
+  {
+    "id": "day-24-pyq-91",
+    "prompt": "Which of the following dances is performed by the Santhal tribe of Jharkhand?",
+    "prompt_hi": "निम्नलिखित में से कौन सा नृत्य झारखंड की संथाल जनजाति द्वारा किया जाता है?",
+    "options": [
+      "Jhika Dasain",
+      "Ghumar",
+      "Kolkali",
+      "Koli"
+    ],
+    "options_hi": [
+      "झीका दसैन",
+      "घूमर",
+      "कोलकली",
+      "कोली"
+    ],
+    "answerIndex": 0,
+    "examTag": "[CGL 2023]"
+  },
+  {
+    "id": "day-24-pyq-92",
+    "prompt": "Shovana Narayan was awarded which of the following awards in 2013?",
+    "prompt_hi": "शोवना नारायण को 2013 में निम्नलिखित में से कौन सा पुरस्कार दिया गया था?",
+    "options": [
+      "Guru Deba Prasad Award",
+      "Sangam Kala Award",
+      "Kalidas Samman",
+      "Bharat Muni Samman"
+    ],
+    "options_hi": [
+      "गुरु देब प्रसाद पुरस्कार",
+      "संगम कला पुरस्कार",
+      "कालिदास सम्मान",
+      "भरत मुनि सम्मान"
+    ],
+    "answerIndex": 0,
+    "examTag": "[CGL 2022]"
+  },
+  {
+    "id": "day-24-pyq-93",
+    "prompt": "Terah taali dance belongs to which of the following states?",
+    "prompt_hi": "तेरह ताली लोक नृत्य निम्नलिखित में से किस राज्य से संबंधित है?",
+    "options": [
+      "Kerala",
+      "Uttar Pradesh",
+      "Rajasthan",
+      "Uttaranchal"
+    ],
+    "options_hi": [
+      "केरल",
+      "उत्तर प्रदेश",
+      "राजस्थान",
+      "उत्तरांचल"
+    ],
+    "answerIndex": 2,
+    "examTag": "[CHSL-2024]"
+  },
+  {
+    "id": "day-24-pyq-94",
+    "prompt": "Kathak dancer, Sitara Devi was awarded which of the following awards in 1973?",
+    "prompt_hi": "कथक नर्तकी, सितारा देवी को 1973 में निम्नलिखित में से कौन सा पुरस्कार दिया गया था?",
+    "options": [
+      "Padma Vibhushan",
+      "Padma Bhushan",
+      "Sangam Kala",
+      "Padma Shri"
+    ],
+    "options_hi": [
+      "पद्म विभूषण",
+      "पद्म भूषण",
+      "संगम कला",
+      "पद्म श्री"
+    ],
+    "answerIndex": 3,
+    "examTag": "[CGL 2022]"
+  },
+  {
+    "id": "day-24-pyq-95",
+    "prompt": "Shovana Narayan has been honoured with the Padma Shri for her contribution to which Indian dance form?",
+    "prompt_hi": "शोवना नारायण को किस भारतीय नृत्य रूप में उनके योगदान के लिए पद्म श्री से सम्मानित किया गया है?",
+    "options": [
+      "Kathakali",
+      "Kathak",
+      "Kuchipudi",
+      "Odissi"
+    ],
+    "options_hi": [
+      "कथकली",
+      "कथक",
+      "कुचिपुड़ी",
+      "ओडिसी"
+    ],
+    "answerIndex": 1,
+    "examTag": "[CPO 2024]"
+  },
+  {
+    "id": "day-24-pyq-96",
+    "prompt": "Birhor dance is a tribal folk dance from _",
+    "prompt_hi": "_ बिरहोर नृत्य _ का एक जनजातीय लोक नृत्य है।",
+    "options": [
+      "Himachal Pradesh",
+      "Punjab",
+      "Jharkhand",
+      "Karnataka"
+    ],
+    "options_hi": [
+      "हिमाचल प्रदेश",
+      "पंजाब",
+      "झारखंड",
+      "कर्नाटक"
+    ],
+    "answerIndex": 2,
+    "examTag": "[CPO 2020]"
+  },
+  {
+    "id": "day-24-pyq-97",
+    "prompt": "Tera Tali folk dance is primarily associated with which of the following states?",
+    "prompt_hi": "तेरह ताली लोक नृत्य मुख्य रूप से निम्नलिखित में से किस राज्य से संबंधित है?",
+    "options": [
+      "Rajasthan",
+      "Haryana",
+      "Madhya Pradesh",
+      "Assam"
+    ],
+    "options_hi": [
+      "राजस्थान",
+      "हरियाणा",
+      "मध्य प्रदेश",
+      "असम"
+    ],
+    "answerIndex": 0,
+    "examTag": "[CGL 2024]"
+  },
+  {
+    "id": "day-24-pyq-98",
+    "prompt": "Chang dance is popular in the state of:",
+    "prompt_hi": "चांग नृत्य _ राज्य में लोकप्रिय है।",
+    "options": [
+      "Goa",
+      "Bihar",
+      "Rajasthan",
+      "Tripura"
+    ],
+    "options_hi": [
+      "गोवा",
+      "बिहार",
+      "राजस्थान",
+      "त्रिपुरा"
+    ],
+    "answerIndex": 2,
+    "examTag": "[CHSL-2024]"
+  },
+  {
+    "id": "day-24-pyq-99",
+    "prompt": "Padma Bhushan Kumari Kamala is associated with which Indian dance?",
+    "prompt_hi": "पद्म भूषण कुमारी कमला किस भारतीय नृत्य से संबंधित हैं?",
+    "options": [
+      "Kathakali",
+      "Kathak",
+      "Odissi",
+      "Kuchipudi"
+    ],
+    "options_hi": [
+      "कथकली",
+      "कथक",
+      "ओडिसी",
+      "कुचिपुड़ी"
+    ],
+    "answerIndex": 1,
+    "examTag": "[CHSL 2023]"
+  },
+  {
+    "id": "day-24-pyq-100",
+    "prompt": "Jamda folk dance is associated with which Indian state?",
+    "prompt_hi": "जमदा लोक नृत्य किस भारतीय राज्य से संबंधित है?",
+    "options": [
+      "Assam",
+      "Maharashtra",
+      "Manipur",
+      "Jharkhand"
+    ],
+    "options_hi": [
+      "असम",
+      "महाराष्ट्र",
+      "मणिपुर",
+      "झारखंड"
+    ],
+    "answerIndex": 3,
+    "examTag": "[CGL 2023]"
+  },
+  {
+    "id": "day-24-pyq-101",
+    "prompt": "Sitara Devi, a doyen of _ dance, was hailed as the Queen of Kathak by Rabindranath Tagore.",
+    "prompt_hi": "सितारा देवी, _ नृत्य की अग्रणी, को रवींद्रनाथ टैगोर द्वारा कथक की रानी के रूप में सम्मानित किया गया था।",
+    "options": [
+      "Manipuri",
+      "Odissi",
+      "Sattriya",
+      "Kathak"
+    ],
+    "options_hi": [
+      "मणिपुरी",
+      "ओडिसी",
+      "सत्त्रिया",
+      "कथक"
+    ],
+    "answerIndex": 3,
+    "examTag": "[CPO 2024]"
+  },
+  {
+    "id": "day-24-pyq-102",
+    "prompt": "Famous classical dancer Shobhana Narayan is related to which dance form?",
+    "prompt_hi": "प्रसिद्ध शास्त्रीय नर्तकी शोभना नारायण किस नृत्य रूप से संबंधित हैं?",
+    "options": [
+      "Bharatanatyam",
+      "Kuchipudi",
+      "Kathak",
+      "Kathakali"
+    ],
+    "options_hi": [
+      "भरतनाट्यम",
+      "कुचिपुड़ी",
+      "कथक",
+      "कथकली"
+    ],
+    "answerIndex": 2,
+    "examTag": "[RRB NTPC 2021]"
+  },
+  {
+    "id": "day-24-pyq-103",
+    "prompt": "Dr. Purushottam Dadheech, who was awarded the prestigious Padma Shri award in 2020, is associated with which of the following dance forms?",
+    "prompt_hi": "डॉ. पुरुषोत्तम दाधीच, जिन्हें 2020 में प्रतिष्ठित पद्म श्री पुरस्कार से सम्मानित किया गया, निम्नलिखित में से किस नृत्य रूप से संबंधित हैं?",
+    "options": [
+      "Mohiniyattam",
+      "Kuchipudi",
+      "Kathak",
+      "Odissi"
+    ],
+    "options_hi": [
+      "मोहिनीअट्टम",
+      "कुचिपुड़ी",
+      "कथक",
+      "ओडिसी"
+    ],
+    "answerIndex": 2,
+    "examTag": "[CHSL 2021]"
+  },
+  {
+    "id": "day-24-pyq-104",
+    "prompt": "Which danseuse among the following was called to perform for Queen Elizabeth-II's coronation festivities in 1953?",
+    "prompt_hi": "निम्नलिखित में से किस नर्तकी को 1953 में क्वीन एलिज़ाबेथ-II के राज्याभिषेक उत्सव के लिए प्रदर्शन के लिए बुलाया गया था?",
+    "options": [
+      "Mrinalini Sarabhai",
+      "Sitara Devi",
+      "Rukmini Devi Arundale",
+      "Kamala Lakshmi Narayan"
+    ],
+    "options_hi": [
+      "मृणालिनी साराभाई",
+      "सितारा देवी",
+      "रुक्मिणी देवी अरुंडेल",
+      "कमला लक्ष्मी नारायण"
+    ],
+    "answerIndex": 3,
+    "examTag": "[SSC GL 2023]"
+  },
+  {
+    "id": "day-24-pyq-105",
+    "prompt": "Veteran Kathak Dancer Aditi Mangaldas bagged the _",
+    "prompt_hi": "वरिष्ठ कथक नर्तकी अदिति मंगलदास ने _ जीता।",
+    "options": [
+      "Mahari Award 2022",
+      "Padma Vibhushan Award 2022",
+      "Bharat Ratna Award 2022",
+      "Padma Bhushan Award 2022"
+    ],
+    "options_hi": [
+      "महारी पुरस्कार 2022",
+      "पद्म विभूषण पुरस्कार 2022",
+      "भारत रत्न पुरस्कार 2022",
+      "पद्म भूषण पुरस्कार 2022"
+    ],
+    "answerIndex": 0,
+    "examTag": "[CPO 2024]"
+  },
+  {
+    "id": "day-24-pyq-106",
+    "prompt": "Anindita Neogy Anaam has been awarded with _",
+    "prompt_hi": "अनिंदिता नियोगी अनाम को _ से सम्मानित किया गया।",
+    "options": [
+      "Padma Vibhushan",
+      "National Nritya Shiromani",
+      "Abhinandan Saroja National Award",
+      "Padma Bhushan"
+    ],
+    "options_hi": [
+      "पद्म विभूषण",
+      "राष्ट्रीय नृत्य शिरोमणि",
+      "अभिनंदन सरोजा राष्ट्रीय पुरस्कार",
+      "पद्म भूषण"
+    ],
+    "answerIndex": 1,
+    "examTag": "[GD 2022]"
+  },
+  {
+    "id": "day-24-pyq-107",
+    "prompt": "The nineteenth century saw the golden age of Kathak under the patronage of Wajid Ali Shah, the last Nawab of _.",
+    "prompt_hi": "उन्नीसवीं सदी ने कथक का स्वर्ण युग देखा, जो _ के अंतिम नवाब वाजिद अली शाह के संरक्षण में हुआ।",
+    "options": [
+      "Hyderabad",
+      "Rampur",
+      "Awadh",
+      "Jaunpur"
+    ],
+    "options_hi": [
+      "हैदराबाद",
+      "रामपुर",
+      "अवध",
+      "जौनपुर"
+    ],
+    "answerIndex": 2,
+    "examTag": "[CHSL 2021]"
+  },
+  {
+    "id": "day-24-pyq-108",
+    "prompt": "Rajashree Shirke was given which of the following prestigious dance awards of 2013 for her excellence in Kathak?",
+    "prompt_hi": "राजश्री शिर्के को कथक में उनकी उत्कृष्टता के लिए 2013 का कौन सा प्रतिष्ठित नृत्य पुरस्कार दिया गया था?",
+    "options": [
+      "Sangeet Natak Academy Award",
+      "Padma Shri",
+      "Kalidas Samman",
+      "National Film Award"
+    ],
+    "options_hi": [
+      "संगीत नाटक अकादमी पुरस्कार",
+      "पद्म श्री",
+      "कालिदास सम्मान",
+      "राष्ट्रीय फिल्म पुरस्कार"
+    ],
+    "answerIndex": 0,
+    "examTag": "[CGL 2022]"
+  },
+  {
+    "id": "day-24-pyq-109",
+    "prompt": "Identify the WRONG pair of dancers and the related dance form from the following.",
+    "prompt_hi": "निम्नलिखित में से नर्तकों और संबंधित नृत्य रूप की गलत जोड़ी की पहचान करें।",
+    "options": [
+      "Meenakshi Chithranjan – Bharatanatyam",
+      "Kumkum Dhar – Kuchipudi",
+      "Sruti Bandopadhay – Manipuri",
+      "Trilchan Mohanta – Chhau"
+    ],
+    "options_hi": [
+      "मीनाक्षी चितरंजन - भरतनाट्यम",
+      "कुमकुम धर - कुचिपुड़ी",
+      "श्रुति बंदोपाध्याय - मणिपुरी",
+      "त्रिलोचन मोहंता - छाऊ"
+    ],
+    "answerIndex": 1,
+    "examTag": "[MTS 2023]"
+  }
+]
