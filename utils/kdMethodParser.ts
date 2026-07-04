@@ -140,7 +140,7 @@ export async function getKDChapterSubjects(): Promise<string[]> {
   ];
 }
 
-export async function getKDChapters(subjectSlug: string): Promise<{slug: string; title: string; typesCount: number}[]> {
+export async function getKDChapters(subjectSlug: string): Promise<{slug: string; title: string; typesCount: number; stats: KDStats}[]> {
   const subjectDir = path.join(KD_METHOD_DIR, subjectSlug);
   if (!fs.existsSync(subjectDir)) return [];
 
@@ -153,10 +153,13 @@ export async function getKDChapters(subjectSlug: string): Promise<{slug: string;
     const typeEntries = await fs.promises.readdir(chapterPath, { withFileTypes: true });
     const typesCount = typeEntries.filter((t) => t.isDirectory()).length;
     
+    const stats = await getKDChapterStats(subjectSlug, chapter.name);
+    
     results.push({
       slug: chapter.name,
       title: formatTitle(chapter.name),
-      typesCount
+      typesCount,
+      stats
     });
   }
   return results;

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { getKDChapterTypeData, getKDChapterTypes, getKDChapters, getKDChapterSubjects } from '@/utils/kdMethodParser';
 import { ConceptInteractiveViewer } from '@/components/kd-method/ConceptInteractiveViewer';
 import { Metadata } from 'next';
+import StatsBanner from '@/components/kd-method/StatsBanner';
 
 type Props = {
   params: Promise<{ subject: string; chapter: string; type: string }>;
@@ -76,6 +77,18 @@ export default async function TrickFundaTypeViewer(props: Props) {
             {typeData.title}
           </h1>
         </header>
+
+        <StatsBanner 
+          stats={{
+            concepts: 1,
+            videos: typeData.youtubeUrls?.length || 0,
+            pdfs: typeData.pdfUrl ? 1 : 0,
+            quizzes: typeData.quizzes?.length || 0,
+            questions: typeData.quizzes?.reduce((acc, q) => acc + (q.questions?.length || 0), 0) || 0
+          }} 
+          subjectSlug={params.subject} 
+          label={`${typeData.title} Totals`} 
+        />
 
         {/* Content Viewer (Reused from English Concepts) */}
         <ConceptInteractiveViewer 

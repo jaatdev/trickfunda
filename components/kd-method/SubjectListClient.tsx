@@ -5,6 +5,8 @@ import { motion, Variants } from 'framer-motion';
 import { getSubjectTheme } from '@/utils/themeMapping';
 import { ChevronRight } from 'lucide-react';
 
+import { KDStats } from '@/types/kdMethod';
+
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   show: {
@@ -24,6 +26,7 @@ type Chapter = {
   title: string;
   slug: string;
   typesCount: number;
+  stats: KDStats;
 };
 
 type Props = {
@@ -78,6 +81,21 @@ export default function SubjectListClient({ subjectSlug, chapters }: Props) {
               <span className={`px-3 py-1 rounded-full ${theme.bgLight} ${theme.iconColor}`}>
                 {chapter.typesCount} Type{chapter.typesCount !== 1 ? 's' : ''}
               </span>
+              {chapter.stats.videos > 0 && (
+                <span className="px-3 py-1 rounded-full bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400">
+                  {chapter.stats.videos} Videos
+                </span>
+              )}
+              {chapter.stats.quizzes > 0 && (
+                <span className="px-3 py-1 rounded-full bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400">
+                  {chapter.stats.quizzes} Quizzes
+                </span>
+              )}
+              {chapter.stats.questions > 0 && (
+                <span className="px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400">
+                  {chapter.stats.questions} Q's
+                </span>
+              )}
             </div>
           </Link>
         </motion.div>

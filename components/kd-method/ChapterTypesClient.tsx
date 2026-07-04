@@ -83,12 +83,18 @@ export default function ChapterTypesClient({ subjectSlug, chapterSlug, baseRoute
             </h2>
             
             <div className="flex flex-wrap gap-2 text-sm text-gray-500 dark:text-gray-400 font-medium relative z-10 mt-auto pt-4">
-              {type.youtubeUrls && type.youtubeUrls.length > 0 && <span className={`px-2 py-1 rounded-md ${theme.bgLight} ${theme.iconColor}`}>📺 {type.youtubeUrls.length} Video{type.youtubeUrls.length !== 1 ? 's' : ''}</span>}
-              {type.pdfUrl && <span className={`px-2 py-1 rounded-md ${theme.bgLight} ${theme.iconColor}`}>📄 PDF Notes</span>}
-              {!type.pdfUrl && type.noteBoxes && type.noteBoxes.length > 0 && <span className={`px-2 py-1 rounded-md ${theme.bgLight} ${theme.iconColor}`}>📦 Noteboxes</span>}
-              {!type.pdfUrl && (!type.noteBoxes || type.noteBoxes.length === 0) && type.notesMarkdown && <span className={`px-2 py-1 rounded-md ${theme.bgLight} ${theme.iconColor}`}>📝 Notes</span>}
+              {type.youtubeUrls && type.youtubeUrls.length > 0 && (
+                <span className="px-3 py-1 rounded-full bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 flex items-center gap-1">
+                  📺 {type.youtubeUrls.length} Video{type.youtubeUrls.length !== 1 ? 's' : ''}
+                </span>
+              )}
+              {type.pdfUrl && <span className={`px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400`}>📄 PDF Notes</span>}
+              {!type.pdfUrl && type.noteBoxes && type.noteBoxes.length > 0 && <span className={`px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400`}>📦 Noteboxes</span>}
+              {!type.pdfUrl && (!type.noteBoxes || type.noteBoxes.length === 0) && type.notesMarkdown && <span className={`px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400`}>📝 Notes</span>}
               {type.quizzes && type.quizzes.length > 0 && (
-                <span className={`px-2 py-1 rounded-md ${theme.bgLight} ${theme.iconColor}`}>🎯 {type.quizzes.reduce((acc, q) => acc + q.questions.length, 0)} Question{type.quizzes.reduce((acc, q) => acc + q.questions.length, 0) !== 1 ? 's' : ''} {type.quizzes.length > 1 ? `(${type.quizzes.length} Quizzes)` : ''}</span>
+                <span className="px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 flex items-center gap-1">
+                  🎯 {type.quizzes.reduce((acc, q) => acc + q.questions.length, 0)} Question{type.quizzes.reduce((acc, q) => acc + q.questions.length, 0) !== 1 ? 's' : ''} {type.quizzes.length > 1 ? `(${type.quizzes.length} Quizzes)` : ''}
+                </span>
               )}
             </div>
           </Link>
