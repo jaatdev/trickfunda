@@ -20,9 +20,13 @@ const itemVariants: Variants = {
   show: { opacity: 1, y: 0, transition: { type: 'spring' as const, stiffness: 300, damping: 24 } },
 };
 
+import { KDStats } from '@/types/kdMethod';
+
 type Type = {
   title: string;
   slug: string;
+  stats?: KDStats; // Recursive stats from KDNode
+  // Legacy fields for backward compatibility during transition if needed
   youtubeUrls?: string[] | null;
   pdfUrl?: string | null;
   noteBoxes?: any[] | null;
@@ -83,19 +87,25 @@ export default function ChapterTypesClient({ subjectSlug, chapterSlug, baseRoute
             </h2>
             
             <div className="flex flex-wrap gap-2 text-sm text-gray-500 dark:text-gray-400 font-medium relative z-10 mt-auto pt-4">
-              {type.youtubeUrls && type.youtubeUrls.length > 0 && (
+              {/* Videos */}
+              {(type.stats?.videos ?? type.youtubeUrls?.length ?? 0) > 0 && (
                 <span className="px-3 py-1 rounded-full bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 flex items-center gap-1">
-                  📺 {type.youtubeUrls.length} Video{type.youtubeUrls.length !== 1 ? 's' : ''}
+                  📺 {type.stats?.videos ?? type.youtubeUrls?.length} Video{(type.stats?.videos ?? type.youtubeUrls?.length) !== 1 ? 's' : ''}
                 </span>
               )}
-              {type.pdfUrl && <span className={`px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400`}>📄 PDF Notes</span>}
-              {!type.pdfUrl && type.noteBoxes && type.noteBoxes.length > 0 && <span className={`px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400`}>📦 Noteboxes</span>}
-              {!type.pdfUrl && (!type.noteBoxes || type.noteBoxes.length === 0) && type.notesMarkdown && <span className={`px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400`}>📝 Notes</span>}
-              {type.quizzes && type.quizzes.length > 0 && (
+              {/* PDFs / Notes */}
+              {((type.stats?.pdfs ?? (type.pdfUrl ? 1 : 0)) > 0) && (
+                <span className={`px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400`}>📄 PDF Notes</span>
+              )}
+              {/* Quizzes / Questions */}
+              {((type.stats?.quizzes ?? type.quizzes?.length ?? 0) > 0) && (
                 <span className="px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 flex items-center gap-1">
-                  🎯 {type.quizzes.reduce((acc, q) => acc + q.questions.length, 0)} Question{type.quizzes.reduce((acc, q) => acc + q.questions.length, 0) !== 1 ? 's' : ''} {type.quizzes.length > 1 ? `(${type.quizzes.length} Quizzes)` : ''}
+                  🎯 {type.stats?.questions ?? type.quizzes?.reduce((acc, q) => acc + q.questions.length, 0) ?? 0} Question{(type.stats?.questions ?? type.quizzes?.reduce((acc, q) => acc + q.questions.length, 0)) !== 1 ? 's' : ''} {((type.stats?.quizzes ?? type.quizzes?.length) || 0) > 1 ? `(${type.stats?.quizzes ?? type.quizzes?.length} Quizzes)` : ''}
                 </span>
               )}
+              {/* Legacy tags if stats aren't explicitly provided but legacy fields are */}
+              {!type.stats && !type.pdfUrl && type.noteBoxes && type.noteBoxes.length > 0 && <span className={`px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400`}>📦 Noteboxes</span>}
+              {!type.stats && !type.pdfUrl && (!type.noteBoxes || type.noteBoxes.length === 0) && type.notesMarkdown && <span className={`px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400`}>📝 Notes</span>}
             </div>
           </Link>
         </motion.div>

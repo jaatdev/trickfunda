@@ -31,3 +31,18 @@ export interface KDCategory {
   description: string;
 }
 export interface KDMathsChapter { slug: string; title: string; typesCount: number; }
+
+export interface KDNode {
+  slug: string;
+  title: string;
+  // Local files found in this directory
+  concept: KDConcept | null;
+  // Sub-directories found in this directory
+  children: {
+    slug: string;
+    title: string;
+    stats: KDStats;
+  }[] | null;
+  // Aggregated stats of this directory and all descendants
+  stats: KDStats;
+}
