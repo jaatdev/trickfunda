@@ -17,6 +17,7 @@ import { QuizReview } from './QuizReview';
 import { DiceLayoutRenderer } from './DiceLayoutRenderer';
 import { useUser } from '@clerk/nextjs';
 import CanvasOverlay from '../canvas/CanvasOverlay';
+import * as htmlToImage from 'html-to-image';
 
 // Convert QuizQuestion to EnhancedQuizQuestion
 function enhanceQuestions(questions: QuizQuestion[]): EnhancedQuizQuestion[] {
@@ -65,6 +66,35 @@ export function QuizPanel({ questions, topicId, onComplete }: QuizPanelProps) {
       quiz.startQuiz();
     }
   }, []);
+
+  const handleDownloadSnippet = async () => {
+    const element = document.getElementById('quiz-snippet-container');
+    if (!element) return;
+    
+    try {
+      // Temporarily hide the "Actions" section (Skip, Clear, Prev, Next)
+      const actionsEl = element.querySelector('.quiz-actions-container') as HTMLElement;
+      if (actionsEl) actionsEl.style.display = 'none';
+
+      const dataUrl = await htmlToImage.toPng(element, {
+        backgroundColor: document.documentElement.classList.contains('dark') ? '#171717' : '#ffffff',
+        pixelRatio: 2,
+        style: {
+          transform: 'scale(1)',
+          transformOrigin: 'top left',
+        }
+      });
+      
+      if (actionsEl) actionsEl.style.display = 'flex';
+
+      const link = document.createElement('a');
+      link.download = `quiz-snippet-q${quiz.navigation.currentIndex + 1}.png`;
+      link.href = dataUrl;
+      link.click();
+    } catch (err) {
+      console.error('Failed to download snippet:', err);
+    }
+  };
 
   // Handle quiz completion
   useEffect(() => {
@@ -260,6 +290,18 @@ export function QuizPanel({ questions, topicId, onComplete }: QuizPanelProps) {
               </span>
             </div>
           )}
+
+            {/* Download Snippet Button */}
+            <button
+              onClick={handleDownloadSnippet}
+              className="px-3 py-1.5 md:px-4 md:py-2 bg-linear-to-r from-blue-600 to-cyan-600 text-white rounded-lg text-xs md:text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2"
+              title="Download question snippet as image"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              <span className="hidden sm:inline">Download Snippet</span>
+            </button>
           </div>
 
           {/* Progress */}
@@ -332,6 +374,7 @@ export function QuizPanel({ questions, topicId, onComplete }: QuizPanelProps) {
             <AnimatePresence mode="wait">
               <motion.div
                 key={quiz.navigation.currentIndex}
+                id="quiz-snippet-container"
                 initial={{ x: 50, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: -50, opacity: 0 }}
@@ -455,7 +498,7 @@ export function QuizPanel({ questions, topicId, onComplete }: QuizPanelProps) {
                 </div>
 
                 {/* Actions */}
-                <div className="p-4 md:p-6 bg-neutral-50 dark:bg-neutral-800/50 border-t border-neutral-200 dark:border-neutral-800">
+                <div className="quiz-actions-container p-4 md:p-6 bg-neutral-50 dark:bg-neutral-800/50 border-t border-neutral-200 dark:border-neutral-800">
                   <div className="flex flex-wrap items-center justify-between gap-3">
                     <div className="flex gap-2 flex-wrap">
                       {currentAttempt.selectedOptionId && !isAdmin && (

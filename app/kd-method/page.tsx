@@ -14,25 +14,28 @@ import { getSubjectTheme } from '@/utils/themeMapping'
 export default async function KDMethodHome() {
   const stats = await getAllKDStats()
   const dynamicSubjects = await getKDChapterSubjects();
-  
+  const englishTheme = getSubjectTheme('english');
   const categories: Category[] = [
     {
       href: '/kd-method/english-100-concepts',
       title: 'English 100 Concepts',
       description: 'Master the top 100 English grammar rules and concepts with our proven KD Method. Includes notes and targeted quizzes.',
       iconName: 'BookOpen',
-      ...getSubjectTheme('english'),
+      color: englishTheme.bgLight,
+      ...englishTheme,
     }
   ];
 
   dynamicSubjects.forEach((subject) => {
     const title = subject.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ').replace('Gs', 'GS');
+    const theme = getSubjectTheme(subject);
     categories.push({
       href: `/kd-method/${subject}`,
       title,
       description: `Master ${title} chapter by chapter with comprehensive notes and interactive practice quizzes.`,
       iconName: subject.includes('math') ? 'Calculator' : subject.includes('english') ? 'BookOpen' : subject.includes('reasoning') ? 'Brain' : subject.includes('gs') ? 'Globe' : subject.includes('vocab') ? 'SpellCheck' : 'BookOpen',
-      ...getSubjectTheme(subject),
+      color: theme.bgLight,
+      ...theme,
     });
   });
 
