@@ -476,7 +476,7 @@ export default function CanvasOverlay({ isOpen, onClose, questionIndex }: Canvas
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="absolute pointer-events-auto border-2 border-blue-500/50 bg-blue-500/5 cursor-move flex items-start justify-center"
+              className="absolute pointer-events-auto border-2 border-dashed border-blue-500 bg-blue-500/10 cursor-move flex items-start justify-center"
               style={{
                 left: selectionBBox.x - 10,
                 top: selectionBBox.y - 10,
