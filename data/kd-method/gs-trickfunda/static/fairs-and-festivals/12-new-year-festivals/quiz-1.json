@@ -1,0 +1,227 @@
+[
+  {
+    "id": "ny-fest-q1",
+    "prompt": "Puthandu is celebrated as the traditional New Year in which of the following states?",
+    "prompt_hi": "पुथांडु निम्नलिखित में से किस राज्य में पारंपरिक नव वर्ष के रूप में मनाया जाता है?",
+    "options": ["Kerala", "Karnataka", "Tamil Nadu", "Andhra Pradesh"],
+    "options_hi": ["केरल", "कर्नाटक", "तमिलनाडु", "आंध्र प्रदेश"],
+    "answerIndex": 2,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "ny-fest-q2",
+    "prompt": "The traditional New Year festival of Kerala is known as:",
+    "prompt_hi": "केरल के पारंपरिक नव वर्ष उत्सव को किस नाम से जाना जाता है?",
+    "options": ["Vishu", "Onam", "Ugadi", "Puthandu"],
+    "options_hi": ["विशु", "ओणम", "उगादी", "पुथांडु"],
+    "answerIndex": 0,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "ny-fest-q3",
+    "prompt": "Bohag Bihu marks the New Year for the people of which state?",
+    "prompt_hi": "बोहाग बिहू किस राज्य के लोगों के लिए नए साल का प्रतीक है?",
+    "options": ["Odisha", "Assam", "West Bengal", "Manipur"],
+    "options_hi": ["ओडिशा", "असम", "पश्चिम बंगाल", "मणिपुर"],
+    "answerIndex": 1,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "ny-fest-q4",
+    "prompt": "Poila Baisakh is primarily celebrated as the New Year in West Bengal and which other state?",
+    "prompt_hi": "पोइला बैसाख मुख्य रूप से पश्चिम बंगाल और किस अन्य राज्य में नव वर्ष के रूप में मनाया जाता है?",
+    "options": ["Assam", "Odisha", "Tripura", "Bihar"],
+    "options_hi": ["असम", "ओडिशा", "त्रिपुरा", "बिहार"],
+    "answerIndex": 2,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "ny-fest-q5",
+    "prompt": "Pana Sankranti is the traditional New Year festival of:",
+    "prompt_hi": "पना संक्रांति कहाँ का पारंपरिक नव वर्ष उत्सव है?",
+    "options": ["Odisha", "Karnataka", "Gujarat", "Punjab"],
+    "options_hi": ["ओडिशा", "कर्नाटक", "गुजरात", "पंजाब"],
+    "answerIndex": 0,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "ny-fest-q6",
+    "prompt": "Which of the following festivals is celebrated as the Manipuri New Year?",
+    "prompt_hi": "निम्नलिखित में से कौन सा त्योहार मणिपुरी नव वर्ष के रूप में मनाया जाता है?",
+    "options": ["Cheti Chand", "Navreh", "Cheiraoba", "Bestu Varas"],
+    "options_hi": ["चेटी चंड", "नवरेह", "चैराओबा", "बेस्तु बरस"],
+    "answerIndex": 2,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "ny-fest-q7",
+    "prompt": "Gudi Padwa is the traditional New Year festival celebrated mainly in Maharashtra and:",
+    "prompt_hi": "गुड़ी पड़वा मुख्य रूप से महाराष्ट्र और कहाँ मनाया जाने वाला पारंपरिक नव वर्ष उत्सव है?",
+    "options": ["Goa", "Gujarat", "Madhya Pradesh", "Chhattisgarh"],
+    "options_hi": ["गोवा", "गुजरात", "मध्य प्रदेश", "छत्तीसगढ़"],
+    "answerIndex": 0,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "ny-fest-q8",
+    "prompt": "Ugadi is celebrated as the New Year in which of the following groups of states?",
+    "prompt_hi": "उगादी निम्नलिखित में से किन राज्यों के समूह में नव वर्ष के रूप में मनाया जाता है?",
+    "options": ["Maharashtra, Goa, Gujarat", "Andhra Pradesh, Telangana, Karnataka", "Tamil Nadu, Kerala, Karnataka", "Odisha, West Bengal, Assam"],
+    "options_hi": ["महाराष्ट्र, गोवा, गुजरात", "आंध्र प्रदेश, तेलंगाना, कर्नाटक", "तमिलनाडु, केरल, कर्नाटक", "ओडिशा, पश्चिम बंगाल, असम"],
+    "answerIndex": 1,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "ny-fest-q9",
+    "prompt": "Navreh is the lunar New Year celebrated in which region of India?",
+    "prompt_hi": "नवरेह भारत के किस क्षेत्र में मनाया जाने वाला चंद्र नव वर्ष है?",
+    "options": ["Punjab", "Kashmir", "Sikkim", "Himachal Pradesh"],
+    "options_hi": ["पंजाब", "कश्मीर", "सिक्किम", "हिमाचल प्रदेश"],
+    "answerIndex": 1,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "ny-fest-q10",
+    "prompt": "Which community celebrates 'Cheti Chand' as their New Year?",
+    "prompt_hi": "कौन सा समुदाय 'चेटी चंड' को अपने नव वर्ष के रूप में मनाता है?",
+    "options": ["Parsi", "Sindhi", "Sikh", "Jain"],
+    "options_hi": ["पारसी", "सिंधी", "सिख", "जैन"],
+    "answerIndex": 1,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "ny-fest-q11",
+    "prompt": "Bestu Varas marks the traditional New Year for the people of:",
+    "prompt_hi": "बेस्तु बरस कहाँ के लोगों के लिए पारंपरिक नव वर्ष का प्रतीक है?",
+    "options": ["Maharashtra", "Rajasthan", "Gujarat", "Punjab"],
+    "options_hi": ["महाराष्ट्र", "राजस्थान", "गुजरात", "पंजाब"],
+    "answerIndex": 2,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "ny-fest-q12",
+    "prompt": "During which months is Bestu Varas typically celebrated?",
+    "prompt_hi": "बेस्तु बरस आमतौर पर किन महीनों के दौरान मनाया जाता है?",
+    "options": ["March-April", "Mid-April", "October-November", "January-February"],
+    "options_hi": ["मार्च-अप्रैल", "मध्य-अप्रैल", "अक्टूबर-नवंबर", "जनवरी-फरवरी"],
+    "answerIndex": 2,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "ny-fest-q13",
+    "prompt": "In which time of the year is Puthandu celebrated?",
+    "prompt_hi": "पुथांडु साल के किस समय मनाया जाता है?",
+    "options": ["Mid-April", "March-April", "Mid-January", "October-November"],
+    "options_hi": ["मध्य-अप्रैल", "मार्च-अप्रैल", "मध्य-जनवरी", "अक्टूबर-नवंबर"],
+    "answerIndex": 0,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "ny-fest-q14",
+    "prompt": "Which of the following festivals is celebrated in March-April?",
+    "prompt_hi": "निम्नलिखित में से कौन सा त्योहार मार्च-अप्रैल में मनाया जाता है?",
+    "options": ["Vishu", "Bohag Bihu", "Gudi Padwa", "Baisakhi"],
+    "options_hi": ["विशु", "बोहाग बिहू", "गुड़ी पड़वा", "बैसाखी"],
+    "answerIndex": 2,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "ny-fest-q15",
+    "prompt": "Pana Sankranti is observed in which month?",
+    "prompt_hi": "पना संक्रांति किस महीने में मनाई जाती है?",
+    "options": ["Mid-April", "March-April", "October-November", "Mid-January"],
+    "options_hi": ["मध्य-अप्रैल", "मार्च-अप्रैल", "अक्टूबर-नवंबर", "मध्य-जनवरी"],
+    "answerIndex": 0,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "ny-fest-q16",
+    "prompt": "Ugadi is celebrated to mark the New Year usually in the months of:",
+    "prompt_hi": "नए साल को चिह्नित करने के लिए उगादी आमतौर पर किन महीनों में मनाया जाता है?",
+    "options": ["October-November", "March-April", "Mid-April", "July-August"],
+    "options_hi": ["अक्टूबर-नवंबर", "मार्च-अप्रैल", "मध्य-अप्रैल", "जुलाई-अगस्त"],
+    "answerIndex": 1,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "ny-fest-q17",
+    "prompt": "The harvest and New Year festival of Punjab, Baisakhi, falls in which period?",
+    "prompt_hi": "पंजाब का फसल और नव वर्ष उत्सव, बैसाखी, किस अवधि में आता है?",
+    "options": ["Mid-January", "March-April", "Mid-April", "October-November"],
+    "options_hi": ["मध्य-जनवरी", "मार्च-अप्रैल", "मध्य-अप्रैल", "अक्टूबर-नवंबर"],
+    "answerIndex": 2,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "ny-fest-q18",
+    "prompt": "Navreh is generally celebrated in which month?",
+    "prompt_hi": "नवरेह आमतौर पर किस महीने में मनाया जाता है?",
+    "options": ["March-April", "Mid-April", "October-November", "Mid-August"],
+    "options_hi": ["मार्च-अप्रैल", "मध्य-अप्रैल", "अक्टूबर-नवंबर", "मध्य-अगस्त"],
+    "answerIndex": 0,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "ny-fest-q19",
+    "prompt": "In which state is the New Year known as 'Cheiraoba'?",
+    "prompt_hi": "किस राज्य में नव वर्ष को 'चैराओबा' के नाम से जाना जाता है?",
+    "options": ["Tripura", "Manipur", "Assam", "Sikkim"],
+    "options_hi": ["त्रिपुरा", "मणिपुर", "असम", "सिक्किम"],
+    "answerIndex": 1,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "ny-fest-q20",
+    "prompt": "Which state celebrates 'Vishu' in mid-April?",
+    "prompt_hi": "कौन सा राज्य मध्य-अप्रैल में 'विशु' मनाता है?",
+    "options": ["Karnataka", "Tamil Nadu", "Kerala", "Andhra Pradesh"],
+    "options_hi": ["कर्नाटक", "तमिलनाडु", "केरल", "आंध्र प्रदेश"],
+    "answerIndex": 2,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "ny-fest-q21",
+    "prompt": "Sindhis celebrate their New Year in the month of:",
+    "prompt_hi": "सिंधी अपना नया साल किस महीने में मनाते हैं?",
+    "options": ["Mid-April", "March-April", "October-November", "August-September"],
+    "options_hi": ["मध्य-अप्रैल", "मार्च-अप्रैल", "अक्टूबर-नवंबर", "अगस्त-सितंबर"],
+    "answerIndex": 1,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "ny-fest-q22",
+    "prompt": "Which of these festivals is NOT celebrated in Mid-April?",
+    "prompt_hi": "इनमें से कौन सा त्योहार मध्य-अप्रैल में नहीं मनाया जाता है?",
+    "options": ["Puthandu", "Poila Baisakh", "Ugadi", "Bohag Bihu"],
+    "options_hi": ["पुथांडु", "पोइला बैसाख", "उगादी", "बोहाग बिहू"],
+    "answerIndex": 2,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "ny-fest-q23",
+    "prompt": "Which of these festivals is NOT celebrated in March-April?",
+    "prompt_hi": "इनमें से कौन सा त्योहार मार्च-अप्रैल में नहीं मनाया जाता है?",
+    "options": ["Cheti Chand", "Bestu Varas", "Gudi Padwa", "Navreh"],
+    "options_hi": ["चेटी चंड", "बेस्तु बरस", "गुड़ी पड़वा", "नवरेह"],
+    "answerIndex": 1,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "ny-fest-q24",
+    "prompt": "The state of Gujarat celebrates its New Year in which month?",
+    "prompt_hi": "गुजरात राज्य अपना नव वर्ष किस महीने में मनाता है?",
+    "options": ["March-April", "Mid-April", "October-November", "December-January"],
+    "options_hi": ["मार्च-अप्रैल", "मध्य-अप्रैल", "अक्टूबर-नवंबर", "दिसंबर-जनवरी"],
+    "answerIndex": 2,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "ny-fest-q25",
+    "prompt": "The Assamese New Year is celebrated in the month of:",
+    "prompt_hi": "असमिया नव वर्ष किस महीने में मनाया जाता है?",
+    "options": ["October-November", "Mid-April", "March-April", "Mid-January"],
+    "options_hi": ["अक्टूबर-नवंबर", "मध्य-अप्रैल", "मार्च-अप्रैल", "मध्य-जनवरी"],
+    "answerIndex": 1,
+    "examTag": "[SSC Expected]"
+  }
+]

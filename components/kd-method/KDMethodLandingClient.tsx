@@ -19,70 +19,21 @@ const itemVariants: Variants = {
   show: { opacity: 1, y: 0, transition: { type: 'spring' as const, stiffness: 300, damping: 24 } },
 };
 
-const categories = [
-  {
-    href: '/kd-method/english-100-concepts',
-    title: 'English 100 Concepts',
-    description: 'Master the top 100 English grammar rules and concepts with our proven KD Method. Includes notes and targeted quizzes.',
-    icon: BookOpen,
-    color: 'from-blue-500/20 to-cyan-500/20',
-    iconColor: 'text-blue-500 dark:text-blue-400',
-    hoverBorder: 'hover:border-blue-500/50 dark:hover:border-blue-500/50',
-    hoverText: 'group-hover:text-blue-500 dark:group-hover:text-blue-400',
-  },
-  {
-    href: '/kd-method/english-chapterwise',
-    title: 'English Chapterwise',
-    description: 'Master English grammar chapter by chapter with comprehensive notes and bilingual practice quizzes.',
-    icon: BookOpen,
-    color: 'from-indigo-500/20 to-blue-500/20',
-    iconColor: 'text-indigo-500 dark:text-indigo-400',
-    hoverBorder: 'hover:border-indigo-500/50 dark:hover:border-indigo-500/50',
-    hoverText: 'group-hover:text-indigo-500 dark:group-hover:text-indigo-400',
-  },
-  {
-    href: '/kd-method/maths-trickfunda',
-    title: 'Maths TrickFunda',
-    description: 'Master essential mathematics concepts, chapter by chapter, with bilingual quizzes and interactive notes.',
-    icon: Calculator,
-    color: 'from-emerald-500/20 to-teal-500/20',
-    iconColor: 'text-emerald-500 dark:text-emerald-400',
-    hoverBorder: 'hover:border-emerald-500/50 dark:hover:border-emerald-500/50',
-    hoverText: 'group-hover:text-emerald-500 dark:group-hover:text-emerald-400',
-  },
-  {
-    href: '/kd-method/gs-trickfunda',
-    title: 'GS TrickFunda',
-    description: 'Master General Studies with tricks and mnemonics, structured by history, geography, and more.',
-    icon: Globe,
-    color: 'from-amber-500/20 to-orange-500/20',
-    iconColor: 'text-amber-500 dark:text-amber-400',
-    hoverBorder: 'hover:border-amber-500/50 dark:hover:border-amber-500/50',
-    hoverText: 'group-hover:text-amber-500 dark:group-hover:text-amber-400',
-  },
-  {
-    href: '/kd-method/reasoning-trickfunda',
-    title: 'Reasoning TrickFunda',
-    description: 'Solve logical puzzles in seconds with proven methods and daily practice quizzes.',
-    icon: Brain,
-    color: 'from-purple-500/20 to-pink-500/20',
-    iconColor: 'text-purple-500 dark:text-purple-400',
-    hoverBorder: 'hover:border-purple-500/50 dark:hover:border-purple-500/50',
-    hoverText: 'group-hover:text-purple-500 dark:group-hover:text-purple-400',
-  },
-  {
-    href: '/kd-method/vocab-trickfunda',
-    title: 'Vocab TrickFunda',
-    description: 'Memorize thousands of words effortlessly using visual cues, root words, and association tricks.',
-    icon: SpellCheck,
-    color: 'from-rose-500/20 to-red-500/20',
-    iconColor: 'text-rose-500 dark:text-rose-400',
-    hoverBorder: 'hover:border-rose-500/50 dark:hover:border-rose-500/50',
-    hoverText: 'group-hover:text-rose-500 dark:group-hover:text-rose-400',
-  },
-];
+export type Category = {
+  href: string;
+  title: string;
+  description: string;
+  iconName: string; // passing icon as string to avoid passing full React component over network boundary
+  color: string;
+  iconColor: string;
+  hoverBorder: string;
+  hoverText: string;
+};
 
-export default function KDMethodLandingClient() {
+// We import all potentially needed icons
+import * as LucideIcons from 'lucide-react';
+
+export default function KDMethodLandingClient({ categories }: { categories: Category[] }) {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 pt-24 pb-12 px-4 md:pt-32 md:pb-16 md:px-8 relative overflow-hidden">
       {/* Background glowing orbs */}
@@ -117,40 +68,37 @@ export default function KDMethodLandingClient() {
           animate="show"
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {categories.map((cat, index) => {
-            const Icon = cat.icon;
-            return (
-              <motion.div key={cat.href} variants={itemVariants} className={index === 0 ? "md:col-span-2 lg:col-span-2" : ""}>
-                <Link 
-                  href={cat.href}
-                  className={`group relative flex flex-col h-full p-8 bg-white/60 dark:bg-gray-900/60 backdrop-blur-xl rounded-3xl border border-gray-200/50 dark:border-gray-800/50 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 ${cat.hoverBorder}`}
-                >
-                  {/* Subtle hover gradient background */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${cat.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
-                  
-                  <div className="relative z-10 flex flex-col h-full space-y-6">
-                    <div className="flex items-start justify-between">
-                      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center bg-gray-50 dark:bg-gray-800 group-hover:scale-110 transition-transform duration-500 shadow-sm border border-gray-100 dark:border-gray-700`}>
-                        <Icon className={`w-7 h-7 ${cat.iconColor}`} />
-                      </div>
-                      <div className="w-10 h-10 rounded-full bg-gray-50 dark:bg-gray-800 flex items-center justify-center opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-300">
-                        <ArrowRight className={`w-5 h-5 ${cat.iconColor}`} />
+          {categories.map((category) => {
+              const Icon = (LucideIcons as any)[category.iconName] || LucideIcons.BookOpen;
+              return (
+                <motion.div key={category.href} variants={itemVariants}>
+                  <Link href={category.href} className="group block h-full">
+                    <div className={`h-full relative bg-white dark:bg-gray-900 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-800 ${category.hoverBorder} overflow-hidden flex flex-col`}>
+                      
+                      {/* Background Gradient */}
+                      <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                      
+                      <div className="relative z-10 flex flex-col h-full">
+                        <div className="flex items-center justify-between mb-6">
+                          <div className={`p-4 rounded-2xl bg-gray-50 dark:bg-gray-800 ${category.iconColor} group-hover:scale-110 transition-transform duration-300 shadow-sm`}>
+                            <Icon className="w-8 h-8" strokeWidth={1.5} />
+                          </div>
+                          <ArrowRight className={`w-6 h-6 text-gray-400 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ${category.hoverText}`} />
+                        </div>
+                        
+                        <h3 className={`text-2xl font-bold text-gray-900 dark:text-white mb-4 ${category.hoverText} transition-colors duration-300`}>
+                          {category.title}
+                        </h3>
+                        
+                        <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed flex-grow">
+                          {category.description}
+                        </p>
                       </div>
                     </div>
-                    
-                    <div>
-                      <h2 className={`text-2xl font-bold mb-3 transition-colors duration-300 ${cat.hoverText}`}>
-                        {cat.title}
-                      </h2>
-                      <p className="text-gray-500 dark:text-gray-400 font-medium leading-relaxed">
-                        {cat.description}
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
-            );
-          })}
+                  </Link>
+                </motion.div>
+              );
+            })}
         </motion.section>
       </div>
     </div>

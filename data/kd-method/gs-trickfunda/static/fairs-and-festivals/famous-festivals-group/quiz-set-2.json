@@ -1,0 +1,227 @@
+[
+  {
+    "id": "fest-group-q26",
+    "prompt": "The grand harvest festival of Onam is primarily celebrated in which Indian state?",
+    "prompt_hi": "फसल का भव्य त्योहार ओणम मुख्य रूप से किस भारतीय राज्य में मनाया जाता है?",
+    "options": ["Tamil Nadu", "Karnataka", "Kerala", "Andhra Pradesh"],
+    "options_hi": ["तमिलनाडु", "कर्नाटक", "केरल", "आंध्र प्रदेश"],
+    "answerIndex": 2,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "fest-group-q27",
+    "prompt": "How many days does the traditional celebration of Onam last?",
+    "prompt_hi": "ओणम का पारंपरिक उत्सव कितने दिनों तक चलता है?",
+    "options": ["4 days", "7 days", "10 days", "15 days"],
+    "options_hi": ["4 दिन", "7 दिन", "10 दिन", "15 दिन"],
+    "answerIndex": 2,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "fest-group-q28",
+    "prompt": "What is the name of the very first day of the 10-day Onam festival?",
+    "prompt_hi": "10-दिवसीय ओणम त्योहार के सबसे पहले दिन का नाम क्या है?",
+    "options": ["Chithira", "Atham", "Vishakam", "Moolam"],
+    "options_hi": ["चिथिरा", "अथम", "विसाकम", "मूलम"],
+    "answerIndex": 1,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "fest-group-q29",
+    "prompt": "The grand climax of the Onam festival falls on its 10th day. What is it called?",
+    "prompt_hi": "ओणम त्योहार का भव्य चरमोत्कर्ष इसके 10वें दिन होता है। इसे क्या कहा जाता है?",
+    "options": ["Thiruvonam", "Uthradom", "Pooradam", "Thriketa"],
+    "options_hi": ["थिरुवोनम", "उथ्राडोम", "पूरादम", "थ्रिकेता"],
+    "answerIndex": 0,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "fest-group-q30",
+    "prompt": "According to legend, the Onam festival celebrates the annual homecoming of which benevolent king?",
+    "prompt_hi": "पौराणिक कथाओं के अनुसार, ओणम त्योहार किस परोपकारी राजा की वार्षिक घर वापसी का जश्न मनाता है?",
+    "options": ["King Ashoka", "King Mahabali", "King Vikramaditya", "King Krishnadevaraya"],
+    "options_hi": ["राजा अशोक", "राजा महाबली", "राजा विक्रमादित्य", "राजा कृष्णदेवराय"],
+    "answerIndex": 1,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "fest-group-q31",
+    "prompt": "Which day of the Onam festival is primarily associated with the famous snake boat race (Vallamkali) preparations?",
+    "prompt_hi": "ओणम त्योहार का कौन सा दिन मुख्य रूप से प्रसिद्ध स्नेक बोट रेस (वल्लमकली) की तैयारियों से जुड़ा है?",
+    "options": ["Chodi", "Vishakam", "Anizham", "Moolam"],
+    "options_hi": ["चोथी", "विसाकम", "अनिझम", "मूलम"],
+    "answerIndex": 2,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "fest-group-q32",
+    "prompt": "What is the second day of the Onam festival called?",
+    "prompt_hi": "ओणम त्योहार के दूसरे दिन को क्या कहा जाता है?",
+    "options": ["Chithira", "Chodi", "Atham", "Thriketa"],
+    "options_hi": ["चिथिरा", "चोथी", "अथम", "थ्रिकेता"],
+    "answerIndex": 0,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "fest-group-q33",
+    "prompt": "Which of the following represents the correct chronological order of the first three days of Onam?",
+    "prompt_hi": "निम्नलिखित में से कौन सा ओणम के पहले तीन दिनों के सही कालानुक्रमिक क्रम का प्रतिनिधित्व करता है?",
+    "options": ["Atham, Chithira, Chodi", "Chithira, Atham, Chodi", "Atham, Chodi, Chithira", "Chodi, Chithira, Atham"],
+    "options_hi": ["अथम, चिथिरा, चोथी", "चिथिरा, अथम, चोथी", "अथम, चोथी, चिथिरा", "चोथी, चिथिरा, अथम"],
+    "answerIndex": 0,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "fest-group-q34",
+    "prompt": "What is the name of the 9th day of the Onam festival, which is considered the eve of the main celebration?",
+    "prompt_hi": "ओणम त्योहार के 9वें दिन का नाम क्या है, जिसे मुख्य उत्सव की पूर्व संध्या माना जाता है?",
+    "options": ["Pooradam", "Uthradom", "Moolam", "Thriketa"],
+    "options_hi": ["पूरादम", "उथ्राडोम", "मूलम", "थ्रिकेता"],
+    "answerIndex": 1,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "fest-group-q35",
+    "prompt": "Which of the following is the 7th day of the Onam festival?",
+    "prompt_hi": "निम्नलिखित में से कौन सा ओणम त्योहार का 7वां दिन है?",
+    "options": ["Thriketa", "Anizham", "Moolam", "Pooradam"],
+    "options_hi": ["थ्रिकेता", "अनिझम", "मूलम", "पूरादम"],
+    "answerIndex": 2,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "fest-group-q36",
+    "prompt": "Which of the following is NOT one of the 10 days of the Onam festival?",
+    "prompt_hi": "निम्नलिखित में से कौन सा ओणम त्योहार के 10 दिनों में से एक नहीं है?",
+    "options": ["Vishakam", "Anizham", "Kaanum", "Pooradam"],
+    "options_hi": ["विसाकम", "अनिझम", "कानुम", "पूरादम"],
+    "answerIndex": 2,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "fest-group-q37",
+    "prompt": "Which of the following represents the correct sequence of the four days of Pongal?",
+    "prompt_hi": "निम्नलिखित में से कौन सा पोंगल के चार दिनों के सही क्रम का प्रतिनिधित्व करता है?",
+    "options": ["Thai, Bhogi, Mattu, Kaanum", "Bhogi, Thai, Kaanum, Mattu", "Bhogi, Thai, Mattu, Kaanum", "Mattu, Thai, Bhogi, Kaanum"],
+    "options_hi": ["थाई, भोगी, मट्टू, कानुम", "भोगी, थाई, कानुम, मट्टू", "भोगी, थाई, मट्टू, कानुम", "मट्टू, थाई, भोगी, कानुम"],
+    "answerIndex": 2,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "fest-group-q38",
+    "prompt": "Which of the following pairs of Kumbh Mela cities and their respective rivers is INCORRECTLY matched?",
+    "prompt_hi": "कुंभ मेला शहरों और उनकी संबंधित नदियों का निम्नलिखित में से कौन सा जोड़ा गलत सुमेलित है?",
+    "options": ["Prayagraj - Ganga, Yamuna, Saraswati", "Haridwar - Ganga", "Ujjain - Shipra", "Nashik - Shipra"],
+    "options_hi": ["प्रयागराज - गंगा, यमुना, सरस्वती", "हरिद्वार - गंगा", "उज्जैन - क्षिप्रा", "नासिक - क्षिप्रा"],
+    "answerIndex": 3,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "fest-group-q39",
+    "prompt": "Which of the following pairs of Bihu forms and their alternate names is INCORRECTLY matched?",
+    "prompt_hi": "बिहू के रूपों और उनके वैकल्पिक नामों का निम्नलिखित में से कौन सा जोड़ा गलत सुमेलित है?",
+    "options": ["Bohag Bihu - Kongali Bihu", "Magh Bihu - Bhogali Bihu", "Kati Bihu - Kongali Bihu", "Rongali Bihu - Bohag Bihu"],
+    "options_hi": ["बोहाग बिहू - कंगाली बिहू", "माघ बिहू - भोगाली बिहू", "काटी बिहू - कंगाली बिहू", "रोंगाली बिहू - बोहाग बिहू"],
+    "answerIndex": 0,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "fest-group-q40",
+    "prompt": "Match the festival group to its exact duration: Pongal.",
+    "prompt_hi": "त्योहार समूह का उसकी सटीक अवधि से मिलान करें: पोंगल।",
+    "options": ["3 days", "4 days", "10 days", "12 days"],
+    "options_hi": ["3 दिन", "4 दिन", "10 दिन", "12 दिन"],
+    "answerIndex": 1,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "fest-group-q41",
+    "prompt": "In which state is the famous 'Simhastha Kumbh Mela' organized?",
+    "prompt_hi": "प्रसिद्ध 'सिंहस्थ कुंभ मेला' किस राज्य में आयोजित किया जाता है?",
+    "options": ["Uttar Pradesh", "Uttarakhand", "Madhya Pradesh", "Maharashtra"],
+    "options_hi": ["उत्तर प्रदेश", "उत्तराखंड", "मध्य प्रदेश", "महाराष्ट्र"],
+    "answerIndex": 2,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "fest-group-q42",
+    "prompt": "Which day of the Onam festival is officially known as the 8th day?",
+    "prompt_hi": "ओणम त्योहार के किस दिन को आधिकारिक तौर पर 8वें दिन के रूप में जाना जाता है?",
+    "options": ["Thriketa", "Moolam", "Pooradam", "Uthradom"],
+    "options_hi": ["थ्रिकेता", "मूलम", "पूरादम", "उथ्राडोम"],
+    "answerIndex": 2,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "fest-group-q43",
+    "prompt": "Which of the following festivals does NOT belong to the general group of 'Harvest Festivals'?",
+    "prompt_hi": "निम्नलिखित में से कौन सा त्योहार 'फसल उत्सवों' (Harvest Festivals) के सामान्य समूह से संबंधित नहीं है?",
+    "options": ["Bihu", "Pongal", "Kumbh Mela", "Onam"],
+    "options_hi": ["बिहू", "पोंगल", "कुंभ मेला", "ओणम"],
+    "answerIndex": 2,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "fest-group-q44",
+    "prompt": "During which form of Bihu is the act of 'feasting' the most prominent ritual?",
+    "prompt_hi": "बिहू के किस रूप के दौरान 'दावत' (Feasting) सबसे प्रमुख अनुष्ठान है?",
+    "options": ["Kongali Bihu", "Bhogali Bihu", "Kati Bihu", "Rongali Bihu"],
+    "options_hi": ["कंगाली बिहू", "भोगाली बिहू", "काटी बिहू", "रोंगाली बिहू"],
+    "answerIndex": 1,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "fest-group-q45",
+    "prompt": "The fourth day of the Onam festival is known as:",
+    "prompt_hi": "ओणम त्योहार का चौथा दिन किस नाम से जाना जाता है?",
+    "options": ["Chodi", "Anizham", "Vishakam", "Moolam"],
+    "options_hi": ["चोथी", "अनिझम", "विसाकम", "मूलम"],
+    "answerIndex": 2,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "fest-group-q46",
+    "prompt": "Which specific day of Pongal honors the contribution of cattle to agriculture?",
+    "prompt_hi": "पोंगल का कौन सा विशिष्ट दिन कृषि में मवेशियों के योगदान का सम्मान करता है?",
+    "options": ["Thai Pongal", "Kaanum Pongal", "Bhogi Pongal", "Mattu Pongal"],
+    "options_hi": ["थाई पोंगल", "कानुम पोंगल", "भोगी पोंगल", "मट्टू पोंगल"],
+    "answerIndex": 3,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "fest-group-q47",
+    "prompt": "If you are celebrating 'Thiruvonam', you are most likely in which state?",
+    "prompt_hi": "यदि आप 'थिरुवोनम' मना रहे हैं, तो आप सबसे अधिक संभावना किस राज्य में हैं?",
+    "options": ["Tamil Nadu", "Kerala", "Karnataka", "Assam"],
+    "options_hi": ["तमिलनाडु", "केरल", "कर्नाटक", "असम"],
+    "answerIndex": 1,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "fest-group-q48",
+    "prompt": "Which festival involves boiling new rice in milk as its central ritual?",
+    "prompt_hi": "किस त्योहार में नए चावल को दूध में उबालना एक केंद्रीय अनुष्ठान के रूप में शामिल है?",
+    "options": ["Bhogi Pongal", "Kaanum Pongal", "Mattu Pongal", "Thai Pongal"],
+    "options_hi": ["भोगी पोंगल", "कानुम पोंगल", "मट्टू पोंगल", "थाई पोंगल"],
+    "answerIndex": 3,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "fest-group-q49",
+    "prompt": "Which of the following rivers is associated with the Kumbh Mela held in Haridwar?",
+    "prompt_hi": "निम्नलिखित में से कौन सी नदी हरिद्वार में आयोजित कुंभ मेले से जुड़ी है?",
+    "options": ["Yamuna", "Godavari", "Ganga", "Shipra"],
+    "options_hi": ["यमुना", "गोदावरी", "गंगा", "क्षिप्रा"],
+    "answerIndex": 2,
+    "examTag": "[SSC Expected]"
+  },
+  {
+    "id": "fest-group-q50",
+    "prompt": "Identify the correct combination of the 4 Kumbh Mela locations in India:",
+    "prompt_hi": "भारत में कुंभ मेले के 4 स्थानों के सही संयोजन को पहचानें:",
+    "options": ["Prayagraj, Varanasi, Ujjain, Nashik", "Haridwar, Prayagraj, Ujjain, Nashik", "Haridwar, Prayagraj, Patna, Nashik", "Rishikesh, Prayagraj, Ujjain, Nashik"],
+    "options_hi": ["प्रयागराज, वाराणसी, उज्जैन, नासिक", "हरिद्वार, प्रयागराज, उज्जैन, नासिक", "हरिद्वार, प्रयागराज, पटना, नासिक", "ऋषिकेश, प्रयागराज, उज्जैन, नासिक"],
+    "answerIndex": 1,
+    "examTag": "[SSC Expected]"
+  }
+]

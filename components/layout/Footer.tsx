@@ -14,12 +14,12 @@ export default function Footer() {
   const orbs = useMemo(() => 
     [...Array(20)].map((_, i) => ({
       id: i,
-      left: seededRandom(i * 4 + 1) * 100,
-      top: seededRandom(i * 4 + 2) * 100,
-      x: seededRandom(i * 4 + 3) * 50 - 25,
-      y: seededRandom(i * 4 + 4) * 50 - 25,
-      duration: 10 + seededRandom(i * 4 + 5) * 10,
-      delay: seededRandom(i * 4 + 6) * 5,
+      left: Math.round(seededRandom(i * 4 + 1) * 1000) / 10,
+      top: Math.round(seededRandom(i * 4 + 2) * 1000) / 10,
+      x: Math.round((seededRandom(i * 4 + 3) * 50 - 25) * 10) / 10,
+      y: Math.round((seededRandom(i * 4 + 4) * 50 - 25) * 10) / 10,
+      duration: Math.round(10 + seededRandom(i * 4 + 5) * 10),
+      delay: Math.round(seededRandom(i * 4 + 6) * 5),
     })), 
   [])
   const socialLinks = [

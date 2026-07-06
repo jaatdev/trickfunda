@@ -131,13 +131,15 @@ export async function getKDConceptBySlug(categorySlug: string, slug: string): Pr
 }
 
 export async function getKDChapterSubjects(): Promise<string[]> {
-  return [
-    'english-chapterwise',
-    'maths-trickfunda',
-    'gs-trickfunda',
-    'reasoning-trickfunda',
-    'vocab-trickfunda'
-  ];
+  try {
+    const entries = await fs.promises.readdir(KD_METHOD_DIR, { withFileTypes: true });
+    return entries
+      .filter((entry) => entry.isDirectory() && entry.name !== 'english-100-concepts')
+      .map((entry) => entry.name);
+  } catch (error) {
+    console.error('Error reading kd-method directory:', error);
+    return [];
+  }
 }
 
 export async function getKDChapters(subjectSlug: string): Promise<{slug: string; title: string; typesCount: number; stats: KDStats}[]> {
