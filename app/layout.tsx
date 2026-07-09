@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning className={`${inter.variable} ${jetbrains.variable}`}>
-        <body>
+        <body suppressHydrationWarning>
           <NextThemesProvider attribute="class" defaultTheme="system" enableSystem>
             <FullscreenProvider>
               <ToastProvider>

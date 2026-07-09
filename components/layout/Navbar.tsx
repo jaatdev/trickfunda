@@ -24,6 +24,8 @@ export default function Navbar() {
   
   const { scrollY } = useScroll();
 
+  if (pathname.startsWith('/admin')) return null;
+
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() ?? 0;
     

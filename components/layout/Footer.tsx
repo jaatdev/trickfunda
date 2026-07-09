@@ -10,7 +10,11 @@ const seededRandom = (seed: number) => {
   return x - Math.floor(x)
 }
 
+import { usePathname } from 'next/navigation'
+
 export default function Footer() {
+  const pathname = usePathname();
+
   const orbs = useMemo(() => 
     [...Array(20)].map((_, i) => ({
       id: i,
@@ -22,6 +26,9 @@ export default function Footer() {
       delay: Math.round(seededRandom(i * 4 + 6) * 5),
     })), 
   [])
+
+  if (pathname.startsWith('/admin')) return null;
+
   const socialLinks = [
     { icon: '▶️', label: 'YouTube', href: 'https://www.youtube.com/@TrickFunda' },
     { icon: '✈️', label: 'Telegram', href: 'https://t.me/trickfunda' },

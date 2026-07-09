@@ -1,0 +1,15 @@
+- `[x]` 1. **Setup Admin Foundation**
+  - `[x]` Delete old layout, dashboard, and legacy subject/note manager files to clear the slate.
+  - `[x]` Implement robust `fs`-based API routes (`/api/admin/fs/...`) to read/write the `data/kd-method` directory directly.
+  - `[x]` Create a new `app/admin/layout.tsx` featuring a modern, dark-themed, glassmorphic sidebar and topbar using Framer Motion.
+- `[x]` 2. **Build the Dashboard**
+  - `[x]` Create a dashboard at `/admin/page.tsx` that fetches live statistics from the new APIs (total subjects, total chapters, total quizzes).
+  - `[x]` Implement animated statistic cards and a recent activity mock feed.
+- `[x]` 3. **KD Method Content Explorer**
+  - `[x]` Create `/admin/explorer/page.tsx` as a powerful file-manager style interface to navigate Subjects -> Chapters -> Types -> Concepts.
+  - `[x]` Add ability to create new folders (subjects/chapters) directly via the API.
+- `[x]` 4. **Modular Content Editor**
+  - `[x]` Build `/admin/editor/page.tsx` to handle editing `notes.md`, `noteboxes.json`, and `quiz.json` inside a selected concept.
+  - `[x]` Break down the legacy 1400-line editor into smaller, manageable components.
+- `[x]` 5. **Quiz Builder GUI**
+  - `[x]` Add a GUI to construct `quiz.json` files visually (adding questions, options, setting correct answers) rather than typing JSON.
