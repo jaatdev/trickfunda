@@ -117,7 +117,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                   <p className="text-sm font-medium leading-none">{user.fullName}</p>
                   <p className="text-xs text-gray-500 mt-1">{user.primaryEmailAddress?.emailAddress}</p>
                 </div>
-                <UserButton afterSignOutUrl="/" appearance={{ elements: { avatarBox: "w-9 h-9" } }} />
+                <UserButton fallbackRedirectUrl="/" appearance={{ elements: { avatarBox: "w-9 h-9" } }} />
               </div>
             ) : (
               <div className="w-9 h-9 rounded-full bg-gray-200 dark:bg-gray-800 animate-pulse" />
