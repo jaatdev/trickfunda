@@ -70,6 +70,72 @@ export type DiceLayout = {
   grid_matrix?: (string | null)[][];
 };
 
+// ============================================================================
+// GEOMETRY FIGURE DATA (Dynamic figure rendering for Geometry & Mensuration)
+// Mirrors the DiceLayout pattern: JSON → FigureRenderer → SVG sub-components
+// ============================================================================
+
+export type ShapeType =
+  | 'triangle'
+  | 'quadrilateral'
+  | 'circle'
+  | 'semi_circle'
+  | 'lines_and_angles'
+  | 'composite';
+
+export type FigureData = {
+  shape_type: ShapeType;
+
+  // Vertex labels (auto-layout computes positions from shape_type + relationships)
+  vertices?: string[];
+
+  // Edges to draw explicitly (optional — renderers infer from shape_type if omitted)
+  edges?: string[];
+  dashed_edges?: string[];
+  extended_edges?: string[];
+
+  // Named dimensions (side lengths, radii, distances)
+  dimensions?: Record<string, string>;
+
+  // Angles
+  known_angles?: Record<string, string>;
+  unknown_angles?: string[];
+  expressions?: Record<string, string>;
+
+  // Geometric relationships
+  relationships?: {
+    parallel?: string[];
+    perpendicular?: string[];
+    transversal_lines?: string[];
+    bisectors?: Record<string, string>;
+    equal_sides?: string[][];
+    chord?: string;
+    center?: string;
+    diameter?: string;
+    tangent?: string;
+    inscribed?: { shape: string; container: string; center?: string };
+    triangle_inscribed?: string;
+  };
+
+  // Composite shapes
+  components?: string[];
+
+  // Circle-specific
+  center?: string;
+  radius_line?: string;
+  arcs?: { center: string; radius: number; start_angle: number; end_angle: number }[];
+
+  // Visual markers
+  right_angles?: string[];
+  tick_marks?: Record<string, number>;
+
+  // Extra positioned labels
+  labels?: { text: string; x: number; y: number }[];
+
+  // Unknown variable to solve for
+  unknown_variable?: string;
+};
+
 export type QuizQuestion = {
   id: string
   prompt: string
@@ -83,6 +149,8 @@ export type QuizQuestion = {
   meta?: NodeMeta
   dice_layout?: DiceLayout
   options_dice_layout?: DiceLayout[]
+  figure_data?: FigureData
+  options_figure_data?: FigureData[]
 }
 
 // ============================================================================

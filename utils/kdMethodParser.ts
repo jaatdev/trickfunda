@@ -438,3 +438,41 @@ export async function getKDNode(pathArray: string[]): Promise<import('@/types/kd
     stats
   };
 }
+
+export interface QuizTreeItem {
+  slug: string;
+  title: string;
+  path: string;
+  children?: QuizTreeItem[];
+}
+
+export async function getKDQuizTree(currentPath: string[] = []): Promise<QuizTreeItem[]> {
+  const nodeDir = path.join(KD_METHOD_DIR, ...currentPath);
+  if (!fs.existsSync(nodeDir)) return [];
+
+  const items: QuizTreeItem[] = [];
+  const entries = await fs.promises.readdir(nodeDir, { withFileTypes: true });
+  const folders = entries.filter(e => e.isDirectory());
+
+  for (const folder of folders) {
+    const nextPath = [...currentPath, folder.name];
+    const fullPathString = nextPath.join('/');
+    const title = folder.name === 'english-100-concepts' ? 'English 100 Concepts' : formatTitle(folder.name);
+    
+    const children = await getKDQuizTree(nextPath);
+    
+    const item: QuizTreeItem = {
+      slug: folder.name,
+      title: title,
+      path: fullPathString,
+    };
+    
+    if (children.length > 0) {
+      item.children = children;
+    }
+    
+    items.push(item);
+  }
+  
+  return items;
+}

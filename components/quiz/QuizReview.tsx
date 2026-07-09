@@ -3,8 +3,10 @@
 import { motion } from 'framer-motion';
 import { getThemeById } from '@/lib/theme-variants';
 import { MathJax } from 'better-react-mathjax';
-import { DiceLayout } from '@/lib/types';
+import { DiceLayout, FigureData } from '@/lib/types';
 import { DiceLayoutRenderer } from './DiceLayoutRenderer';
+import { FigureRenderer } from './geometry/FigureRenderer';
+import * as htmlToImage from 'html-to-image';
 
 interface QuizAttempt {
   questionId: string;
@@ -19,6 +21,8 @@ interface QuizAttempt {
   examTag?: string;
   dice_layout?: DiceLayout;
   options_dice_layout?: DiceLayout[];
+  figure_data?: FigureData;
+  options_figure_data?: FigureData[];
 }
 
 interface QuizScore {
@@ -43,6 +47,8 @@ import { useState } from 'react';
 export function QuizReview({ attempts, score, topicId, onClose }: QuizReviewProps) {
   const theme = getThemeById(topicId);
   const [filter, setFilter] = useState<'all' | 'correct' | 'incorrect' | 'skipped' | 'time'>('all');
+  const [isDownloading, setIsDownloading] = useState(false);
+  const [downloadProgress, setDownloadProgress] = useState(0);
 
   // Compute Time Analytics
   const validBreakdowns = attempts.map((a, index) => ({ ...a, originalIndex: index + 1 }));
@@ -62,24 +68,144 @@ export function QuizReview({ attempts, score, topicId, onClose }: QuizReviewProp
     displayedAttempts = [...validBreakdowns].sort((a, b) => (b.timeSpent || 0) - (a.timeSpent || 0));
   }
 
+  const handleDownloadImage = async () => {
+    setIsDownloading(true);
+    setDownloadProgress(0);
+    setFilter('all');
+    
+    // Wait for the filter to apply and DOM to update
+    await new Promise(resolve => setTimeout(resolve, 500));
+    
+    const element = document.getElementById('quiz-review-container');
+    if (!element) {
+      setIsDownloading(false);
+      return;
+    }
+    
+    try {
+      // Temporarily hide elements we don't want in the PDF
+      const elementsToHide = element.querySelectorAll('.hide-on-download');
+      elementsToHide.forEach(el => (el as HTMLElement).style.display = 'none');
+
+      const isDark = document.documentElement.classList.contains('dark');
+      const { jsPDF } = await import('jspdf');
+      const pdf = new jsPDF('p', 'pt', 'a4');
+      
+      const margin = 20; 
+      const pdfWidth = pdf.internal.pageSize.getWidth() - (2 * margin);
+      const pageHeight = pdf.internal.pageSize.getHeight() - (2 * margin);
+      
+      let currentY = margin;
+      
+      const elementsToCapture = Array.from(element.querySelectorAll('.pdf-page-element')) as HTMLElement[];
+      
+      for (let i = 0; i < elementsToCapture.length; i++) {
+        setDownloadProgress(Math.round(((i) / elementsToCapture.length) * 100));
+        // Small delay to allow React to paint the progress bar
+        await new Promise(resolve => setTimeout(resolve, 20));
+        
+        const el = elementsToCapture[i];
+        
+        const dataUrl = await htmlToImage.toPng(el, {
+          backgroundColor: isDark ? '#171717' : '#ffffff',
+          pixelRatio: 2,
+          style: {
+            transform: 'scale(1)',
+            transformOrigin: 'top left',
+            margin: '0',
+          }
+        });
+        
+        const imgProps = pdf.getImageProperties(dataUrl);
+        const scaledHeight = (imgProps.height * pdfWidth) / imgProps.width;
+        
+        // If it doesn't fit on the current page, add a new page (unless we are already at the top of a page)
+        if (currentY + scaledHeight > pdf.internal.pageSize.getHeight() - margin) {
+          if (currentY > margin) {
+            pdf.addPage();
+            currentY = margin;
+          }
+        }
+        
+        pdf.addImage(dataUrl, 'PNG', margin, currentY, pdfWidth, scaledHeight);
+        currentY += scaledHeight + 15; // 15pt gap between elements
+        
+        if (i === elementsToCapture.length - 1) {
+          setDownloadProgress(100);
+          await new Promise(resolve => setTimeout(resolve, 50));
+        }
+      }
+      
+      pdf.save('quiz-review.pdf');
+      
+    } catch (err) {
+      console.error('Failed to download review pdf:', err);
+    } finally {
+      const elementsToHide = element.querySelectorAll('.hide-on-download');
+      elementsToHide.forEach(el => (el as HTMLElement).style.display = '');
+      setIsDownloading(false);
+      setDownloadProgress(0);
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-neutral-50 to-neutral-100 dark:from-neutral-950 dark:to-neutral-900 py-8">
-      <div className="container mx-auto px-4 max-w-4xl">
+    <>
+      {isDownloading && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+          <div className="bg-white dark:bg-neutral-900 rounded-2xl p-8 max-w-sm w-full mx-4 shadow-2xl text-center">
+            <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Generating PDF...</h3>
+            <div className="w-full bg-gray-200 dark:bg-gray-800 rounded-full h-4 mb-4 overflow-hidden relative">
+              <div 
+                className="bg-emerald-500 h-4 rounded-full transition-all duration-300 absolute left-0 top-0"
+                style={{ width: `${downloadProgress}%` }}
+              />
+            </div>
+            <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">
+              Processing {downloadProgress}%
+            </p>
+            <p className="text-xs text-gray-400 mt-2">
+              Please wait while we perfectly stitch your questions together without cutting them.
+            </p>
+          </div>
+        </div>
+      )}
+      <div className="min-h-screen bg-gradient-to-br from-neutral-50 to-neutral-100 dark:from-neutral-950 dark:to-neutral-900 pt-24 pb-8 md:pt-32">
+      <div id="quiz-review-container" className="container mx-auto px-4 max-w-4xl">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-white dark:bg-neutral-900 rounded-2xl shadow-xl p-8 mb-6"
+          className="pdf-page-element bg-white dark:bg-neutral-900 rounded-2xl shadow-xl p-8 mb-6"
         >
-          <div className="text-center mb-6">
-            <h1 className="text-3xl font-bold mb-2">Quiz Review</h1>
-            <p className="text-neutral-600 dark:text-neutral-400">
-              Review your answers and learn from mistakes
-            </p>
+          <div className="text-center mb-6 relative flex flex-col md:flex-row items-center justify-between">
+            <div className="flex-1">
+              <h1 className="text-3xl font-bold mb-2">Quiz Review</h1>
+              <p className="text-neutral-600 dark:text-neutral-400">
+                Review your answers and learn from mistakes
+              </p>
+            </div>
+            
+            <button 
+              onClick={handleDownloadImage}
+              disabled={isDownloading}
+              className="hide-on-download mt-4 md:mt-0 flex items-center gap-2 text-sm px-4 py-2 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors bg-white dark:bg-gray-900 shadow-sm font-medium disabled:opacity-50"
+            >
+              {isDownloading ? (
+                <svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+              ) : (
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+              )}
+              {isDownloading ? 'Processing...' : 'Download PDF'}
+            </button>
           </div>
 
           {/* Filters */}
-          <div className="flex justify-center gap-2 mb-6">
+          <div className="flex justify-center gap-2 mb-6 hide-on-download">
             <button
               onClick={() => setFilter('all')}
               className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${filter === 'all' ? 'bg-neutral-800 text-white dark:bg-white dark:text-neutral-900' : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-400'}`}
@@ -157,7 +283,7 @@ export function QuizReview({ attempts, score, topicId, onClose }: QuizReviewProp
 
           <button
             onClick={onClose}
-            className="mt-6 w-full px-6 py-3 rounded-lg font-medium text-white transition-all hover:shadow-lg"
+            className="print:hidden hide-on-download mt-6 w-full px-6 py-3 rounded-lg font-medium text-white transition-all hover:shadow-lg"
             style={{ background: theme.gradient }}
           >
             Back to Quiz
@@ -172,7 +298,7 @@ export function QuizReview({ attempts, score, topicId, onClose }: QuizReviewProp
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.05 }}
-              className="bg-white dark:bg-neutral-900 rounded-xl shadow-lg p-6"
+              className="pdf-page-element bg-white dark:bg-neutral-900 rounded-xl shadow-lg p-6 print:break-inside-avoid print:shadow-none print:border print:border-gray-300"
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="flex-1">
@@ -210,6 +336,9 @@ export function QuizReview({ attempts, score, topicId, onClose }: QuizReviewProp
                   {attempt.dice_layout && (
                     <DiceLayoutRenderer layout={attempt.dice_layout} />
                   )}
+                  {attempt.figure_data && (
+                    <FigureRenderer data={attempt.figure_data} className="mt-4 mb-4" />
+                  )}
                 </div>
               </div>
 
@@ -241,6 +370,11 @@ export function QuizReview({ attempts, score, topicId, onClose }: QuizReviewProp
                               <DiceLayoutRenderer layout={attempt.options_dice_layout[optionIndex]} />
                             </div>
                           )}
+                          {attempt.options_figure_data?.[optionIndex] && (
+                            <div className="mt-2 w-full flex justify-center">
+                              <FigureRenderer data={attempt.options_figure_data[optionIndex]} className="max-w-[200px]" />
+                            </div>
+                          )}
                         </span>
                         {isCorrect && (
                           <span className="text-green-600 dark:text-green-400 font-bold">✓</span>
@@ -266,7 +400,8 @@ export function QuizReview({ attempts, score, topicId, onClose }: QuizReviewProp
           ))}
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }
 

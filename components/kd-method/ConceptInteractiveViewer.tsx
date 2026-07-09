@@ -6,6 +6,7 @@ import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import rehypeHighlight from 'rehype-highlight';
 import { QuizPanel } from '@/components/quiz/QuizPanel';
+import { QuizConfigurator } from '@/components/quiz/QuizConfigurator';
 import { QuizQuestion } from '@/lib/types';
 import { useFullscreen } from '@/lib/fullscreen-context';
 import { NoteBox } from '@/lib/admin-types';
@@ -27,6 +28,7 @@ interface Props {
 
 export function ConceptInteractiveViewer({ title, notesMarkdown, noteBoxes, pdfUrl, youtubeUrls, quizzes, slug }: Props) {
   const [activeQuizId, setActiveQuizId] = useState<string | null>(null);
+  const [quizQuestionCount, setQuizQuestionCount] = useState<number | null>(null);
   const [isCanvasOpen, setIsCanvasOpen] = useState(false);
   const [fullscreenMode, setFullscreenMode] = useState<'none' | 'pdf' | 'canvas'>('none');
   const { enterFullscreen, exitFullscreen } = useFullscreen();
@@ -72,7 +74,10 @@ export function ConceptInteractiveViewer({ title, notesMarkdown, noteBoxes, pdfU
     };
   }, [activeQuizId, fullscreenMode, enterFullscreen, exitFullscreen]);
 
-  const activeQuiz = quizzes?.find(q => q.id === activeQuizId);
+  const activeQuiz = quizzes?.find((q) => q.id === activeQuizId);
+  const activeQuestions = activeQuiz && quizQuestionCount 
+    ? [...activeQuiz.questions].sort(() => Math.random() - 0.5).slice(0, quizQuestionCount)
+    : [];
 
   const mathJaxConfig = {
     options: {
@@ -264,26 +269,43 @@ export function ConceptInteractiveViewer({ title, notesMarkdown, noteBoxes, pdfU
 
       {/* Quiz Session Fullscreen View */}
       {activeQuiz && (
-        <div className="fixed inset-0 z-[100] bg-gray-50 dark:bg-gray-950 overflow-y-auto flex justify-center">
-          <div className="w-[95%] max-w-none py-4 md:py-8 animate-in fade-in slide-in-from-bottom-8 duration-500">
-            <div className="mb-6 flex items-center justify-between">
-              <div>
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">{activeQuiz.title}</h2>
-                <p className="text-gray-500 dark:text-gray-400 mt-1">Test your understanding of {title}.</p>
-              </div>
-              <button
-                onClick={() => setActiveQuizId(null)}
-                className="text-sm px-4 py-2 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors bg-white dark:bg-gray-900 shadow-sm"
-              >
-                ← Exit Quiz
-              </button>
+        <div className="fixed inset-0 z-[100] bg-gray-50 dark:bg-gray-950 overflow-y-auto flex items-center justify-center">
+          
+          {quizQuestionCount === null ? (
+            <div className="w-full px-4">
+              <QuizConfigurator
+                quizTitle={activeQuiz.title}
+                totalAvailable={activeQuiz.questions.length}
+                onStart={(count) => setQuizQuestionCount(count)}
+                onCancel={() => setActiveQuizId(null)}
+              />
             </div>
-            
-            <QuizPanel 
-              questions={activeQuiz.questions} 
-              topicId={`kd-english-${slug}-${activeQuiz.id}`} 
-            />
-          </div>
+          ) : (
+            <div className="w-[95%] h-full max-w-none py-4 md:py-8 animate-in fade-in slide-in-from-bottom-8 duration-500 flex flex-col">
+              <div className="mb-6 flex items-center justify-between shrink-0">
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white">{activeQuiz.title}</h2>
+                  <p className="text-gray-500 dark:text-gray-400 mt-1">Test your understanding of {title}.</p>
+                </div>
+                <button
+                  onClick={() => {
+                    setActiveQuizId(null);
+                    setQuizQuestionCount(null);
+                  }}
+                  className="text-sm px-4 py-2 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors bg-white dark:bg-gray-900 shadow-sm"
+                >
+                  ← Exit Quiz
+                </button>
+              </div>
+              
+              <div className="flex-1 min-h-0">
+                <QuizPanel 
+                  questions={activeQuestions} 
+                  topicId={`kd-english-${slug}-${activeQuiz.id}`} 
+                />
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>

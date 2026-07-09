@@ -39,6 +39,17 @@ export default async function KDMethodHome() {
     });
   });
 
+  categories.push({
+    href: '/kd-method/custom-quiz',
+    title: 'Custom Quiz Builder',
+    description: 'Build your own advanced all-in-one quiz. Select subjects and topics to generate a randomized test.',
+    iconName: 'Settings2',
+    color: 'from-blue-500/10 to-transparent dark:from-blue-500/20',
+    iconColor: 'text-blue-500',
+    hoverBorder: 'group-hover:border-blue-500/50',
+    hoverText: 'group-hover:text-blue-600 dark:group-hover:text-blue-400',
+  });
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 pt-24 pb-8 px-8 md:pt-32 md:pb-16 md:px-16 relative overflow-hidden">
       <div className="max-w-7xl mx-auto space-y-8 relative z-10">

@@ -15,6 +15,7 @@ import { MathJax } from 'better-react-mathjax';
 import { getThemeById } from '@/lib/theme-variants';
 import { QuizReview } from './QuizReview';
 import { DiceLayoutRenderer } from './DiceLayoutRenderer';
+import { FigureRenderer } from './geometry/FigureRenderer';
 import { useUser } from '@clerk/nextjs';
 import CanvasOverlay from '../canvas/CanvasOverlay';
 import * as htmlToImage from 'html-to-image';
@@ -189,6 +190,8 @@ export function QuizPanel({ questions, topicId, onComplete }: QuizPanelProps) {
         timeSpent: q.timeSpent,
         dice_layout: q.question.dice_layout,
         options_dice_layout: q.question.options_dice_layout,
+        figure_data: q.question.figure_data,
+        options_figure_data: q.question.options_figure_data,
       };
     });
 
@@ -218,6 +221,8 @@ export function QuizPanel({ questions, topicId, onComplete }: QuizPanelProps) {
           examTag: q.question.examTag,
           dice_layout: q.question.dice_layout,
           options_dice_layout: q.question.options_dice_layout,
+          figure_data: q.question.figure_data,
+          options_figure_data: q.question.options_figure_data,
         }))}
         score={quiz.session.score!}
         topicId={topicId}
@@ -418,6 +423,10 @@ export function QuizPanel({ questions, topicId, onComplete }: QuizPanelProps) {
                       {currentQuestion.dice_layout && (
                         <DiceLayoutRenderer layout={currentQuestion.dice_layout} />
                       )}
+                      
+                      {currentQuestion.figure_data && (
+                        <FigureRenderer data={currentQuestion.figure_data} className="mt-4 mb-4" />
+                      )}
                     </div>
                     
                     <button
@@ -487,8 +496,14 @@ export function QuizPanel({ questions, topicId, onComplete }: QuizPanelProps) {
                         <span className={`flex-1 pt-1 break-words min-w-0 text-sm md:text-base leading-relaxed pointer-events-none ${textStyle}`}>
                           <MathJax>{displayOption}</MathJax>
                           {currentQuestion.options_dice_layout?.[index] && (
-                            <div className="mt-2 pointer-events-none">
+                            <div className="mt-2 flex justify-center">
                               <DiceLayoutRenderer layout={currentQuestion.options_dice_layout[index]} />
+                            </div>
+                          )}
+
+                          {currentQuestion.options_figure_data?.[index] && (
+                            <div className="mt-2 flex justify-center w-full">
+                              <FigureRenderer data={currentQuestion.options_figure_data[index]} className="max-w-[200px]" />
                             </div>
                           )}
                         </span>
@@ -636,7 +651,7 @@ function QuizResults({ score, theme, onRestart, onReview }: any) {
   const averageTime = score.averageTimePerQuestion || 0;
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-neutral-50 to-neutral-100 dark:from-neutral-950 dark:to-neutral-900 flex items-center justify-center p-4 py-12">
+    <div className="min-h-screen bg-linear-to-br from-neutral-50 to-neutral-100 dark:from-neutral-950 dark:to-neutral-900 flex items-center justify-center p-4 pt-24 pb-12 md:pt-32">
       <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}

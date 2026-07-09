@@ -1,0 +1,562 @@
+[
+  {
+    "id": "maths-trickfunda-geometry-linesandangles-classshee-q1",
+    "prompt": "If two supplementary angles differ by 74°, then one of the angles is:",
+    "prompt_hi": "यदि दो सम्पूरक कोणों का अंतर 74º है, तो उनमें से एक कोण होगा:",
+    "options": [
+      "65°",
+      "55°",
+      "43°",
+      "53°"
+    ],
+    "options_hi": [
+      "65°",
+      "55°",
+      "43°",
+      "53°"
+    ],
+    "answerIndex": 3,
+    "examTag": "[SSC CHSL 08/06/2022 (Shift- 01)]"
+  },
+  {
+    "id": "maths-trickfunda-geometry-linesandangles-classshee-q2",
+    "prompt": "In the figure, two straight lines AB and CD intersect each other at O. If ∠AOE = 75°, find the value of a, b and c respectively.",
+    "prompt_hi": "चित्र में, दो सीधी रेखाएँ AB और CD एक-दूसरे को बिन्दु O पर प्रतिच्छेदित करती हैं। यदि ∠AOE = 75° है तो क्रमशः a, b और c के मान ज्ञात करें।",
+    "figure_data": {
+      "shape_type": "lines_and_angles",
+      "vertices": ["A", "B", "C", "D", "E", "O"],
+      "relationships": {
+        "intersecting_lines": ["AB", "CD"],
+        "intersection_point": "O",
+        "rays": ["OE"]
+      },
+      "known_angles": {
+        "AOE": "75°"
+      },
+      "expressions": {
+        "angles": ["a", "b", "2c", "4b"]
+      },
+      "unknown_variables": ["a", "b", "c"]
+    },
+    "options": [
+      "84°, 21°, 48°",
+      "21°, 84°, 48°",
+      "48°, 21°, 84°",
+      "21°, 48°, 84°"
+    ],
+    "options_hi": [
+      "84°, 21°, 48°",
+      "21°, 84°, 48°",
+      "48°, 21°, 84°",
+      "21°, 48°, 84°"
+    ],
+    "answerIndex": 0,
+    "examTag": ""
+  },
+  {
+    "id": "maths-trickfunda-geometry-linesandangles-classshee-q3",
+    "prompt": "The three lines l, m & n are parallel to each other. What is the measure of ∠ABC.",
+    "prompt_hi": "तीन रेखाएँ l, m और n एक दूसरे के समांतर हैं। ∠ABC की माप क्या है?",
+    "figure_data": {
+      "shape_type": "lines_and_angles",
+      "vertices": ["A", "B", "C", "D", "E", "F"],
+      "relationships": {
+        "parallel": ["l", "m", "n"],
+        "transversal_lines": ["AB", "BC"]
+      },
+      "known_angles": {
+        "top_intersection": "45°",
+        "bottom_intersection": "60°"
+      },
+      "unknown_variable": "∠ABC"
+    },
+    "options": [
+      "105°",
+      "115°",
+      "120°",
+      "110°"
+    ],
+    "options_hi": [
+      "105°",
+      "115°",
+      "120°",
+      "110°"
+    ],
+    "answerIndex": 0,
+    "examTag": ""
+  },
+  {
+    "id": "maths-trickfunda-geometry-linesandangles-classshee-q4",
+    "prompt": "In the given figure l, m, n are parallel to each other and b : c = 2 : 3. What is the value of a ?",
+    "prompt_hi": "दिए गए चित्र में l, m, n एक-दूसरे के समांतर हैं और b : c = 2 : 3 है। a का मान क्या है?",
+    "figure_data": {
+      "shape_type": "lines_and_angles",
+      "relationships": {
+        "parallel": ["l", "m", "n"],
+        "transversal_lines": ["t1"]
+      },
+      "expressions": {
+        "ratio": "b : c = 2 : 3"
+      },
+      "unknown_angles": ["a", "b", "c"],
+      "unknown_variable": "a"
+    },
+    "options": [
+      "90º",
+      "95º",
+      "105º",
+      "108º"
+    ],
+    "options_hi": [
+      "90º",
+      "95º",
+      "105º",
+      "108º"
+    ],
+    "answerIndex": 3,
+    "examTag": ""
+  },
+  {
+    "id": "maths-trickfunda-geometry-linesandangles-classshee-q5",
+    "prompt": "If a transversal line intersects two parallel lines, and the difference between two interior angles on the same side of the transversal line is 40°, then find the smallest angle among the interior angles.",
+    "prompt_hi": "यदि एक तिर्यक छेदी रेखा दो समानांतर रेखाओं को प्रतिच्छेदित करती है, और तिर्यक छेदी रेखा के एक ही तरफ के दो आंतरिक कोणों के बीच का अंतर 40° है, तो आंतरिक कोणों में सबसे छोटा कोण ज्ञात कीजिए।",
+    "options": [
+      "60°",
+      "50°",
+      "40°",
+      "70°"
+    ],
+    "options_hi": [
+      "60°",
+      "50°",
+      "40°",
+      "70°"
+    ],
+    "answerIndex": 3,
+    "examTag": "[SSC CHSL MAINS 10/01/2024]"
+  },
+  {
+    "id": "maths-trickfunda-geometry-linesandangles-classshee-q6",
+    "prompt": "In the given figure find x.",
+    "prompt_hi": "दिए गए चित्र में x का मान ज्ञात करें।",
+    "figure_data": {
+      "shape_type": "lines_and_angles",
+      "relationships": {
+        "parallel": ["AB", "CD"],
+        "transversal_lines": ["AC", "AE"]
+      },
+      "known_angles": {
+        "angle_1": "105°",
+        "angle_2": "45°"
+      },
+      "unknown_variable": "x"
+    },
+    "options": [
+      "60º",
+      "50º",
+      "45º",
+      "30º"
+    ],
+    "options_hi": [
+      "60º",
+      "50º",
+      "45º",
+      "30º"
+    ],
+    "answerIndex": 0,
+    "examTag": ""
+  },
+  {
+    "id": "maths-trickfunda-geometry-linesandangles-classshee-q7",
+    "prompt": "In the given figure AB||CD and AC||BD and if ∠EAC = 40º, ∠FDG = 55º, ∠HAB = x, then the value of x is :",
+    "prompt_hi": "दिए गए चित्र में AB||CD तथा AC||BD है। यदि ∠EAC = 40º, ∠FDG = 55º, ∠HAB = x, तो x का मान ज्ञात करें।",
+    "figure_data": {
+      "shape_type": "lines_and_angles",
+      "vertices": ["A", "B", "C", "D", "E", "F", "G", "H", "K"],
+      "relationships": {
+        "parallel": [["AB", "CD"], ["AC", "BD"]]
+      },
+      "known_angles": {
+        "EAC": "40°",
+        "FDG": "55°"
+      },
+      "expressions": {
+        "HAB": "x"
+      },
+      "unknown_variable": "x"
+    },
+    "options": [
+      "95º",
+      "70º",
+      "35º",
+      "85º"
+    ],
+    "options_hi": [
+      "95º",
+      "70º",
+      "35º",
+      "85º"
+    ],
+    "answerIndex": 3,
+    "examTag": ""
+  },
+  {
+    "id": "maths-trickfunda-geometry-linesandangles-classshee-q8",
+    "prompt": "In the given figure AB||CD. Find the value of x?",
+    "prompt_hi": "दिए गए चित्र में AB||CD है, x का मान क्या होगा?",
+    "figure_data": {
+      "shape_type": "lines_and_angles",
+      "vertices": ["A", "B", "C", "D"],
+      "relationships": {
+        "parallel": ["AB", "CD"]
+      },
+      "expressions": {
+        "angles": ["3x", "4x", "5x", "6x"]
+      },
+      "unknown_variable": "x"
+    },
+    "options": [
+      "5º",
+      "10º",
+      "20º",
+      "12º"
+    ],
+    "options_hi": [
+      "5º",
+      "10º",
+      "20º",
+      "12º"
+    ],
+    "answerIndex": 1,
+    "examTag": ""
+  },
+  {
+    "id": "maths-trickfunda-geometry-linesandangles-classshee-q9",
+    "prompt": "Find the value of a + b.",
+    "prompt_hi": "a + b का मान क्या होगा?",
+    "figure_data": {
+      "shape_type": "lines_and_angles",
+      "vertices": ["A", "B", "C", "D", "E"],
+      "known_angles": {
+        "angle_1": "130°",
+        "angle_2": "50°"
+      },
+      "unknown_angles": ["a", "b"],
+      "unknown_variable": "a + b"
+    },
+    "options": [
+      "80º",
+      "180º",
+      "90º",
+      "120º"
+    ],
+    "options_hi": [
+      "80º",
+      "180º",
+      "90º",
+      "120º"
+    ],
+    "answerIndex": 0,
+    "examTag": ""
+  },
+  {
+    "id": "maths-trickfunda-geometry-linesandangles-classshee-q10",
+    "prompt": "In the given figure below AB||CD, find x.",
+    "prompt_hi": "नीचे दिए गए चित्र में AB||CD है, x का मान ज्ञात करें।",
+    "figure_data": {
+      "shape_type": "lines_and_angles",
+      "vertices": ["A", "B", "C", "D"],
+      "relationships": {
+        "parallel": ["AB", "CD"]
+      },
+      "known_angles": {
+        "inside_top": "110°",
+        "inside_bottom": "35°"
+      },
+      "expressions": {
+        "intersect_angle": "2x + 15°"
+      },
+      "unknown_variable": "x"
+    },
+    "options": [
+      "45º",
+      "40º",
+      "35º",
+      "67.5º"
+    ],
+    "options_hi": [
+      "45º",
+      "40º",
+      "35º",
+      "67.5º"
+    ],
+    "answerIndex": 0,
+    "examTag": ""
+  },
+  {
+    "id": "maths-trickfunda-geometry-linesandangles-classshee-q11",
+    "prompt": "If AB||CD then find the value of α + β + γ.",
+    "prompt_hi": "यदि AB||CD तब α + β + γ का मान निकालिये।",
+    "figure_data": {
+      "shape_type": "lines_and_angles",
+      "vertices": ["A", "B", "C", "D", "O"],
+      "relationships": {
+        "parallel": ["AB", "CD"]
+      },
+      "unknown_angles": ["α", "β", "γ"],
+      "unknown_variable": "α + β + γ"
+    },
+    "options": [
+      "180º",
+      "270º",
+      "360º",
+      "240º"
+    ],
+    "options_hi": [
+      "180º",
+      "270º",
+      "360º",
+      "240º"
+    ],
+    "answerIndex": 2,
+    "examTag": ""
+  },
+  {
+    "id": "maths-trickfunda-geometry-linesandangles-classshee-q12",
+    "prompt": "In the given figure find x.",
+    "prompt_hi": "दिए गए चित्र में x का मान ज्ञात करें।",
+    "figure_data": {
+      "shape_type": "lines_and_angles",
+      "vertices": ["A", "B", "C", "D", "E", "F"],
+      "relationships": {
+        "parallel": ["AB", "CD"]
+      },
+      "known_angles": {
+        "angle_1": "105°",
+        "angle_2": "45°"
+      },
+      "unknown_variable": "x"
+    },
+    "options": [
+      "60°",
+      "50°",
+      "45°",
+      "30°"
+    ],
+    "options_hi": [
+      "60°",
+      "50°",
+      "45°",
+      "30°"
+    ],
+    "answerIndex": 0,
+    "examTag": "[SSC Phase-XII 25/06/2024 (Shift-02)]"
+  },
+  {
+    "id": "maths-trickfunda-geometry-linesandangles-classshee-q13",
+    "prompt": "Find the values of x?",
+    "prompt_hi": "x का मान ज्ञात करें।",
+    "figure_data": {
+      "shape_type": "lines_and_angles",
+      "vertices": ["A", "B", "C", "D"],
+      "known_angles": {
+        "top_transversal": "133°",
+        "bottom_transversal": "143°"
+      },
+      "expressions": {
+        "intersection": "x°"
+      },
+      "unknown_variable": "x"
+    },
+    "options": [
+      "79º",
+      "81º",
+      "89º",
+      "84º"
+    ],
+    "options_hi": [
+      "79º",
+      "81º",
+      "89º",
+      "84º"
+    ],
+    "answerIndex": 3,
+    "examTag": ""
+  },
+  {
+    "id": "maths-trickfunda-geometry-linesandangles-classshee-q14",
+    "prompt": "In the figure given below PQ||RS||TU||VW, PR = 21 cm, RT= 27 cm, TV = 51 cm, QW = 121 cm, then find SU?",
+    "prompt_hi": "दिए गए चित्र में PQ||RS||TU||VW, भुजा PR = 21 सेमी, RT = 27 सेमी, TV = 51 सेमी, QW = 121 सेमी है, तो भुजा SU का मान ज्ञात करें।",
+    "figure_data": {
+      "shape_type": "lines_and_angles",
+      "vertices": ["P", "Q", "R", "S", "T", "U", "V", "W"],
+      "relationships": {
+        "parallel": ["PQ", "RS", "TU", "VW"],
+        "transversal_lines": ["PV", "QW"]
+      },
+      "dimensions": {
+        "PR": "21 cm",
+        "RT": "27 cm",
+        "TV": "51 cm",
+        "QW": "121 cm"
+      },
+      "unknown_variable": "SU"
+    },
+    "options": [
+      "42 cm",
+      "38 cm",
+      "36 cm",
+      "33 cm"
+    ],
+    "options_hi": [
+      "42 cm",
+      "38 cm",
+      "36 cm",
+      "33 cm"
+    ],
+    "answerIndex": 3,
+    "examTag": ""
+  },
+  {
+    "id": "maths-trickfunda-geometry-linesandangles-classshee-q15",
+    "prompt": "In the given figure below AB||CD||EF, if AB = 36 cm, EF = 50 cm, AC = 5/9 CE then find CD = ?",
+    "prompt_hi": "नीचे दिए गए चित्र में AB||CD||EF. यदि AB = 36 सेमी, EF = 50 सेमी, AC = 5/9 CE तो CD का मान क्या होगा?",
+    "figure_data": {
+      "shape_type": "lines_and_angles",
+      "vertices": ["A", "B", "C", "D", "E", "F"],
+      "relationships": {
+        "parallel": ["AB", "CD", "EF"],
+        "transversal_lines": ["ACE", "BDF"]
+      },
+      "dimensions": {
+        "AB": "36 cm",
+        "EF": "50 cm"
+      },
+      "expressions": {
+        "AC": "5/9 CE"
+      },
+      "unknown_variable": "CD"
+    },
+    "options": [
+      "40",
+      "45",
+      "199/7",
+      "41"
+    ],
+    "options_hi": [
+      "40",
+      "45",
+      "199/7",
+      "41"
+    ],
+    "answerIndex": 3,
+    "examTag": ""
+  },
+  {
+    "id": "maths-trickfunda-geometry-linesandangles-classshee-q16",
+    "prompt": "In the figure, QS = QT and RU = RT, ∠QPR = 36º. Find ∠STU.",
+    "prompt_hi": "दिए गए चित्र में QS = QT और RU = RT, ∠QPR = 36º है, तो ∠STU का मान है :",
+    "figure_data": {
+      "shape_type": "triangle",
+      "vertices": ["P", "Q", "R", "S", "T", "U"],
+      "relationships": {
+        "equal_sides": [["QS", "QT"], ["RU", "RT"]]
+      },
+      "known_angles": {
+        "QPR": "36°",
+        "SQU": "90°"
+      },
+      "unknown_variable": "∠STU"
+    },
+    "options": [
+      "96º",
+      "84º",
+      "72º",
+      "60º"
+    ],
+    "options_hi": [
+      "96º",
+      "84º",
+      "72º",
+      "60º"
+    ],
+    "answerIndex": 2,
+    "examTag": ""
+  },
+  {
+    "id": "maths-trickfunda-geometry-linesandangles-classshee-q17",
+    "prompt": "The complement angle of 70º is :",
+    "prompt_hi": "70º का पूरक कोण ज्ञात करें।",
+    "options": [
+      "π/18 radian",
+      "5π/9 radian",
+      "π/9 radian",
+      "5π/9 radian"
+    ],
+    "options_hi": [
+      "π/18 radian",
+      "5π/9 radian",
+      "π/9 radian",
+      "5π/9 radian"
+    ],
+    "answerIndex": 2,
+    "examTag": ""
+  },
+  {
+    "id": "maths-trickfunda-geometry-linesandangles-classshee-q18",
+    "prompt": "The complement angle of 30º20' is :",
+    "prompt_hi": "30º20' का पूरक कोण ज्ञात करें।",
+    "options": [
+      "69º40'",
+      "59º40'",
+      "35º80'",
+      "159º40'"
+    ],
+    "options_hi": [
+      "69º40'",
+      "59º40'",
+      "35º80'",
+      "159º40'"
+    ],
+    "answerIndex": 1,
+    "examTag": ""
+  },
+  {
+    "id": "maths-trickfunda-geometry-linesandangles-classshee-q19",
+    "prompt": "The measure of an angle is 18º less than the measure of its complementary angle then find the value of angle?",
+    "prompt_hi": "एक कोण का मान उसके कोटिपूरक कोण से 18º कम है। कोण का मान ज्ञात करें।",
+    "options": [
+      "48º",
+      "38º",
+      "54º",
+      "36º"
+    ],
+    "options_hi": [
+      "48º",
+      "38º",
+      "54º",
+      "36º"
+    ],
+    "answerIndex": 3,
+    "examTag": ""
+  },
+  {
+    "id": "maths-trickfunda-geometry-linesandangles-classshee-q20",
+    "prompt": "The measure of half of supplement of ∠P is 19º more than thrice of half of measure of complement of angle P. What is sum in radians, of the measure of twice of supplement and half of complement of ∠P.",
+    "prompt_hi": "कोण P के संपूरक का आधा उसके पूरक के तीन गुना के आधे से 19º अधिक है। कोण P के संपूरक का दो गुना तथा पूरक का आधा का योग रेडियन में क्या होगा?",
+    "options": [
+      "49π/36",
+      "36π/49",
+      "3π/4",
+      "33π/43"
+    ],
+    "options_hi": [
+      "49π/36",
+      "36π/49",
+      "3π/4",
+      "33π/43"
+    ],
+    "answerIndex": 0,
+    "examTag": ""
+  }
+]
