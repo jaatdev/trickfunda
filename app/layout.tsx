@@ -6,6 +6,7 @@ import { FullscreenProvider } from '@/lib/fullscreen-context'
 import ToastProvider from '@/components/feedback/ToastProvider'
 import LayoutWrapper from '@/components/layout/LayoutWrapper'
 import Navbar from '@/components/layout/Navbar'
+import NavbarSpacer from '@/components/layout/NavbarSpacer'
 import Footer from '@/components/layout/Footer'
 import GlobalFullscreenButton from '@/components/GlobalFullscreenButton'
 import '@/styles/globals.css'
@@ -28,7 +29,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <ToastProvider>
                 <LayoutWrapper>
                   <Navbar />
-                  <main className="flex-1 relative z-0">{children}</main>
+                  <NavbarSpacer />
+                  <main className="flex-1 relative z-0 flex flex-col">{children}</main>
                   <Footer />
                   <GlobalFullscreenButton />
                 </LayoutWrapper>
