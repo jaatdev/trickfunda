@@ -35,7 +35,7 @@ export function QuantumViewerWrapper({ concept }: Props) {
       [&_h3]:!text-fuchsia-200 [&_h3]:font-mono
       [&_p]:!text-purple-100
       [&_span]:!text-purple-100
-      [&_button]:!border-purple-600/50 [&_button:hover]:!border-fuchsia-500 [&_button]:!bg-[#1A0033]/60 [&_button:hover]:!bg-purple-900/80 [&_button]:!text-fuchsia-200 [&_button]:font-mono
+      [&_button:not([class*="quiz-status"])]:!border-purple-600/50 [&_button:not([class*="quiz-status"]):hover]:!border-fuchsia-500 [&_button:not([class*="quiz-status"])]:!bg-[#1A0033]/60 [&_button:not([class*="quiz-status"]):hover]:!bg-purple-900/80 [&_button:not([class*="quiz-status"])]:!text-fuchsia-200 [&_button:not([class*="quiz-status"])]:font-mono
       [&_.bg-emerald-500]:!bg-purple-700 [&_.bg-emerald-500:hover]:!bg-fuchsia-600 [&_.text-white]:!text-white
       [&_.prose-emerald]:!prose-fuchsia
       [&_.quiz-status-answered]:!bg-cyan-400/20 [&_.quiz-status-answered]:!border-cyan-400 [&_.quiz-status-answered]:!text-cyan-400

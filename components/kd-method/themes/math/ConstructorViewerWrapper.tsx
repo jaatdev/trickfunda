@@ -35,7 +35,7 @@ export function ConstructorViewerWrapper({ concept }: Props) {
       [&_h3]:!text-sky-100 [&_h3]:font-mono
       [&_p]:!text-sky-100 [&_p]:font-mono
       [&_span]:!text-sky-100 [&_span]:font-mono
-      [&_button]:!border-sky-600/50 [&_button:hover]:!border-sky-400 [&_button]:!bg-sky-950/60 [&_button:hover]:!bg-sky-900/80 [&_button]:!text-sky-100 [&_button]:font-mono
+      [&_button:not([class*="quiz-status"])]:!border-sky-600/50 [&_button:not([class*="quiz-status"]):hover]:!border-sky-400 [&_button:not([class*="quiz-status"])]:!bg-sky-950/60 [&_button:not([class*="quiz-status"]):hover]:!bg-sky-900/80 [&_button:not([class*="quiz-status"])]:!text-sky-100 [&_button:not([class*="quiz-status"])]:font-mono
       [&_.bg-emerald-500]:!bg-sky-700 [&_.bg-emerald-500:hover]:!bg-sky-600 [&_.text-white]:!text-white
       [&_.prose-emerald]:!prose-sky [&_.prose]:!font-mono
       [&_.quiz-status-answered]:!bg-blue-500/20 [&_.quiz-status-answered]:!border-blue-500 [&_.quiz-status-answered]:!text-blue-500

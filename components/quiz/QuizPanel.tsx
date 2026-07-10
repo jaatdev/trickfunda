@@ -606,7 +606,7 @@ function QuizSidebar({ questions, currentIndex, onQuestionClick, theme }: any) {
               whileTap={{ scale: 0.95 }}
               className={`
                 aspect-square rounded-lg font-bold text-sm transition-all
-                ${isCurrent ? 'ring-2 ring-offset-2' : ''}
+                ${isCurrent ? 'ring-2 ring-offset-2 quiz-status-current' : ''}
                 ${getStatusClass(status)}
               `}
               style={isCurrent ? { 

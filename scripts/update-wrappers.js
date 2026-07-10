@@ -85,9 +85,8 @@ for (const wrapper of wrappers) {
       [&_.quiz-status-unanswered]:!bg-${wrapper.colors.unanswered}/20 [&_.quiz-status-unanswered]:!border-${wrapper.colors.unanswered} [&_.quiz-status-unanswered]:!text-${wrapper.colors.unanswered}
     `;
     
-    // Insert before the closing `">` of the className string.
-    // Easiest is to look for `">` before the children/ConceptInteractiveViewer
-    content = content.replace(/\s*">\s*(<(?:ConceptInteractiveViewer|div|\{children}))/, (match, p1) => {
+    // Fix regex to match any of `<Concept`, `<div`, `{children}`
+    content = content.replace(/\s*">\s*(<(?:ConceptInteractiveViewer|div)|\{children\})/, (match, p1) => {
       return rules + '    ">\n      ' + p1;
     });
 

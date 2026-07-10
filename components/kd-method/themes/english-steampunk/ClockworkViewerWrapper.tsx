@@ -35,7 +35,7 @@ export function ClockworkViewerWrapper({ concept }: Props) {
       [&_h3]:!text-[#E8D090] [&_h3]:font-serif
       [&_p]:!text-[#E8D090] [&_p]:font-serif
       [&_span]:!text-[#E8D090] [&_span]:font-serif
-      [&_button]:!border-[#5C4B33] [&_button:hover]:!border-[#D4AF37] [&_button]:!bg-[#2A1F13] [&_button:hover]:!bg-[#3A2A18] [&_button]:!text-[#D4AF37] [&_button]:font-serif [&_button]:shadow-[inset_0_1px_2px_rgba(255,255,255,0.1),0_2px_4px_rgba(0,0,0,0.5)]
+      [&_button:not([class*="quiz-status"])]:!border-[#5C4B33] [&_button:not([class*="quiz-status"]):hover]:!border-[#D4AF37] [&_button:not([class*="quiz-status"])]:!bg-[#2A1F13] [&_button:not([class*="quiz-status"]):hover]:!bg-[#3A2A18] [&_button:not([class*="quiz-status"])]:!text-[#D4AF37] [&_button:not([class*="quiz-status"])]:font-serif [&_button:not([class*="quiz-status"])]:shadow-[inset_0_1px_2px_rgba(255,255,255,0.1),0_2px_4px_rgba(0,0,0,0.5)]
       [&_.bg-emerald-500]:!bg-[#8B7347] [&_.bg-emerald-500:hover]:!bg-[#B87333] [&_.text-white]:!text-[#FFF8E7]
       [&_.prose-emerald]:!prose-amber [&_.prose]:!font-serif
       [&_.quiz-status-answered]:!bg-emerald-600/20 [&_.quiz-status-answered]:!border-emerald-600 [&_.quiz-status-answered]:!text-emerald-600
