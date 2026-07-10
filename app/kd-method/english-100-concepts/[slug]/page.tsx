@@ -39,7 +39,7 @@ export default async function ConceptPage(props: Props) {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 pt-24 pb-4 px-4 md:pt-32 md:pb-8 md:px-8">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 pb-4 px-4 md: md:pb-8 md:px-8">
       <div className="max-w-4xl mx-auto space-y-6">
         
         {/* Breadcrumb Navigation */}

@@ -109,7 +109,7 @@ export default function RoadmapPage() {
         />
       ))}
 
-      <section className="relative pt-32 pb-20 px-6">
+      <section className="relative pb-20 px-6">
         <div className="max-w-7xl mx-auto">
           {/* Hero */}
           <motion.div
@@ -170,10 +170,10 @@ export default function RoadmapPage() {
                 key={status}
                 onClick={() => setFilter(status as any)}
                 className={`px-6 py-3 rounded-xl font-bold transition-all ${
-                  filter === status
-                    ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-lg'
-                    : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300'
-                }`}
+ filter === status
+ ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-lg'
+ : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300'
+ }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

@@ -164,7 +164,7 @@ export default function BlogPage() {
         />
       ))}
 
-      <section className="relative pt-32 pb-20 px-6">
+      <section className="relative pb-20 px-6">
         <div className="max-w-7xl mx-auto">
           {/* Hero */}
           <motion.div
@@ -260,7 +260,7 @@ export default function BlogPage() {
                       {post.excerpt}
                     </p>
                     
-                    <div className="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700">
+                    <div className="flex items-center justify-between border-t border-gray-200 dark:border-gray-700">
                       <div className="flex items-center gap-2 text-sm">
                         <User className="w-4 h-4 text-gray-400" />
                         <span className="text-gray-600 dark:text-gray-400">{post.author}</span>
@@ -292,10 +292,10 @@ export default function BlogPage() {
                   key={category}
                   onClick={() => setSelectedCategory(category)}
                   className={`px-6 py-3 rounded-xl font-bold transition-all ${
-                    selectedCategory === category
-                      ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-lg'
-                      : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300'
-                  }`}
+ selectedCategory === category
+ ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-lg'
+ : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300'
+ }`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >

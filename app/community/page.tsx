@@ -19,7 +19,7 @@ const members = [
 export default function CommunityPage() {
   return (
     <div className="min-h-screen bg-linear-to-br from-slate-950 via-violet-950 to-fuchsia-950">
-      <section className="relative pt-32 pb-20 px-6 overflow-hidden">
+      <section className="relative pb-20 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(139,92,246,0.15),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(217,70,239,0.15),transparent_50%)]" />
         

@@ -54,7 +54,7 @@ const resources = [
 export default function ResourcesPage() {
   return (
     <div className="min-h-screen bg-linear-to-br from-slate-950 via-rose-950 to-orange-950">
-      <section className="relative pt-32 pb-20 px-6 overflow-hidden">
+      <section className="relative pb-20 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_40%_40%,rgba(244,63,94,0.15),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_60%_60%,rgba(251,146,60,0.15),transparent_50%)]" />
         

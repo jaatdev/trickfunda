@@ -114,7 +114,7 @@ export default function PricingPage() {
         />
       ))}
 
-      <section className="relative pt-32 pb-20 px-6">
+      <section className="relative pb-20 px-6">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -146,20 +146,20 @@ export default function PricingPage() {
               <button
                 onClick={() => setBillingCycle('monthly')}
                 className={`px-6 py-3 rounded-full font-bold transition-all ${
-                  billingCycle === 'monthly' 
-                    ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white' 
-                    : 'text-gray-600 dark:text-gray-400'
-                }`}
+ billingCycle === 'monthly' 
+ ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white' 
+ : 'text-gray-600 dark:text-gray-400'
+ }`}
               >
                 Monthly
               </button>
               <button
                 onClick={() => setBillingCycle('yearly')}
                 className={`px-6 py-3 rounded-full font-bold transition-all relative ${
-                  billingCycle === 'yearly' 
-                    ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white' 
-                    : 'text-gray-600 dark:text-gray-400'
-                }`}
+ billingCycle === 'yearly' 
+ ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white' 
+ : 'text-gray-600 dark:text-gray-400'
+ }`}
               >
                 Yearly
                 <span className="absolute -top-2 -right-2 px-2 py-1 bg-amber-500 text-white text-xs rounded-full">
@@ -193,8 +193,8 @@ export default function PricingPage() {
                 
                 <motion.div 
                   className={`relative bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl border-2 ${
-                    plan.popular ? 'border-violet-500' : 'border-gray-200 dark:border-gray-700'
-                  } overflow-hidden`}
+ plan.popular ? 'border-violet-500' : 'border-gray-200 dark:border-gray-700'
+ } overflow-hidden`}
                   whileHover={{ scale: 1.05, y: -10 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
@@ -235,10 +235,10 @@ export default function PricingPage() {
                     
                     <motion.button
                       className={`w-full py-4 rounded-xl font-bold text-lg mb-8 ${
-                        plan.popular 
-                          ? 'bg-gradient-to-r from-violet-500 to-purple-500 text-white shadow-lg' 
-                          : 'bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white'
-                      }`}
+ plan.popular 
+ ? 'bg-gradient-to-r from-violet-500 to-purple-500 text-white shadow-lg' 
+ : 'bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white'
+ }`}
                       whileHover={{ scale: 1.05, boxShadow: '0 10px 30px rgba(0,0,0,0.2)' }}
                       whileTap={{ scale: 0.95 }}
                     >

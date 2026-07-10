@@ -25,7 +25,7 @@ const perks = [
 export default function CareersPage() {
   return (
     <div className="min-h-screen bg-linear-to-br from-slate-950 via-purple-950 to-pink-950">
-      <section className="relative pt-32 pb-20 px-6 overflow-hidden">
+      <section className="relative pb-20 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_40%_40%,rgba(168,85,247,0.15),transparent_50%)]" />
         
         <div className="max-w-6xl mx-auto relative z-10">

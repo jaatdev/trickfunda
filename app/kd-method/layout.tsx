@@ -35,7 +35,7 @@ export default async function KDMethodLayout({
             </button>
           </SignInButton>
 
-          <div className="mt-6 pt-6 border-t border-gray-100 dark:border-white/5">
+          <div className="mt-6 border-t border-gray-100 dark:border-white/5">
             <Link href="/" className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors">
               Return to Homepage
               <ArrowRight className="w-4 h-4" />

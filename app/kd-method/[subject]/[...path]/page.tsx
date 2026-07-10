@@ -81,7 +81,7 @@ export default async function RecursiveKDMethodPage(props: Props) {
   const subjectTitle = params.subject.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ').replace('Gs', 'GS');
 
   return (
-    <main className="min-h-screen bg-gray-50 dark:bg-gray-950 pt-24 pb-12 px-4 md:pt-32 md:pb-8 md:px-8 relative overflow-hidden">
+    <main className="min-h-screen bg-gray-50 dark:bg-gray-950 pb-12 px-4 md: md:pb-8 md:px-8 relative overflow-hidden">
       <div className="max-w-7xl mx-auto space-y-6 relative z-10">
         {/* Breadcrumb Navigation */}
         <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-gray-500 dark:text-gray-400 mb-8">

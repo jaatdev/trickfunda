@@ -5,7 +5,7 @@ import { Cookie, Settings, Eye, Shield } from 'lucide-react';
 export default function CookiesPage() {
   return (
     <div className="min-h-screen bg-linear-to-br from-slate-950 via-amber-950 to-orange-950">
-      <section className="relative pt-32 pb-20 px-6 overflow-hidden">
+      <section className="relative pb-20 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(251,146,60,0.1),transparent_50%)]" />
         
         <div className="max-w-4xl mx-auto relative z-10">

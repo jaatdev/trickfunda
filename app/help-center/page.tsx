@@ -103,7 +103,7 @@ export default function HelpCenterPage() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 px-6 overflow-hidden">
+      <section className="relative pb-16 px-6 overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -287,10 +287,10 @@ export default function HelpCenterPage() {
                     key={cat}
                     onClick={() => setSelectedCategory(cat)}
                     className={`px-4 py-2 rounded-xl font-medium transition-all ${
-                      selectedCategory === cat
-                        ? 'bg-gradient-to-r from-cyan-600 to-blue-600 text-white'
-                        : 'bg-slate-800/50 text-slate-400 hover:text-white border border-slate-700/50'
-                    }`}
+ selectedCategory === cat
+ ? 'bg-gradient-to-r from-cyan-600 to-blue-600 text-white'
+ : 'bg-slate-800/50 text-slate-400 hover:text-white border border-slate-700/50'
+ }`}
                   >
                     {cat}
                   </button>

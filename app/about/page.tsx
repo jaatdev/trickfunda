@@ -21,7 +21,7 @@ const stats = [
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-blue-950 dark:to-gray-900">
-      <section className="relative pt-32 pb-20 px-6 bg-gradient-to-br from-blue-600 to-indigo-600">
+      <section className="relative pb-20 px-6 bg-gradient-to-br from-blue-600 to-indigo-600">
         <div className="max-w-5xl mx-auto text-center text-white">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}

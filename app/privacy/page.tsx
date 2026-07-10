@@ -29,7 +29,7 @@ const sections = [
 export default function PrivacyPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-gray-50 to-zinc-50 dark:from-gray-900 dark:via-slate-950 dark:to-gray-900">
-      <section className="relative pt-32 pb-20 px-6 bg-gradient-to-br from-slate-700 to-gray-800">
+      <section className="relative pb-20 px-6 bg-gradient-to-br from-slate-700 to-gray-800">
         <div className="max-w-5xl mx-auto text-center text-white">
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}

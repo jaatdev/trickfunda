@@ -209,7 +209,7 @@ export default function CustomQuizBuilderClient({ quizTree }: Props) {
         
         {/* Quiz Session View */}
         {activeQuiz ? (
-          <div className={`w-[95%] h-full max-w-none ${isQuizComplete ? 'pt-24 pb-8 md:pt-32 md:pb-12' : 'py-4 md:py-8'} animate-in fade-in slide-in-from-bottom-8 duration-500 flex flex-col`}>
+          <div className={`w-[95%] h-full max-w-none ${isQuizComplete ? 'pb-8 md:pb-12' : 'py-4 md:py-8'} animate-in fade-in slide-in-from-bottom-8 duration-500 flex flex-col`}>
             <div className="mb-6 flex items-center justify-between shrink-0">
               <div>
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white">{activeQuiz.title}</h2>
@@ -239,7 +239,7 @@ export default function CustomQuizBuilderClient({ quizTree }: Props) {
           </div>
         ) : (
           /* Builder Configuration View */
-          <div className="w-full max-w-4xl px-4 pt-24 pb-8 md:pt-32 animate-in fade-in slide-in-from-bottom-8 duration-500">
+          <div className="w-full max-w-4xl px-4 pb-8 animate-in fade-in slide-in-from-bottom-8 duration-500">
             
             {/* Header */}
             <div className="flex items-start justify-between mb-8">

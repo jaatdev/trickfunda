@@ -5,7 +5,7 @@ import { FileText, Scale, Shield, AlertCircle } from 'lucide-react';
 export default function TermsPage() {
   return (
     <div className="min-h-screen bg-linear-to-br from-slate-950 via-slate-900 to-slate-950">
-      <section className="relative pt-32 pb-20 px-6 overflow-hidden">
+      <section className="relative pb-20 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(100,100,100,0.1),transparent_50%)]" />
         
         <div className="max-w-4xl mx-auto relative z-10">

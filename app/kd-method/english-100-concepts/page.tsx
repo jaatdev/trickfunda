@@ -14,7 +14,7 @@ export default async function EnglishConceptsPage() {
   const stats = aggregateKDStats(concepts);
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 pt-24 pb-8 px-8 md:pt-32 md:pb-16 md:px-16 relative overflow-hidden">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 pb-8 px-8 md: md:pb-16 md:px-16 relative overflow-hidden">
       <div className="max-w-7xl mx-auto space-y-6 relative z-10">
         <header className="space-y-4 mb-4">
           <div className="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400 mb-4">
