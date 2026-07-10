@@ -623,19 +623,19 @@ function QuizSidebar({ questions, currentIndex, onQuestionClick, theme }: any) {
       {/* Legend */}
       <div className="mt-6 space-y-2 text-xs">
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 rounded bg-green-100 dark:bg-green-900/30 border-2 border-green-500"></div>
+          <div className="w-4 h-4 rounded bg-green-100 dark:bg-green-900/30 border-2 border-green-500 quiz-status-answered"></div>
           <span>Answered</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 rounded bg-yellow-100 dark:bg-yellow-900/30 border-2 border-yellow-500"></div>
+          <div className="w-4 h-4 rounded bg-yellow-100 dark:bg-yellow-900/30 border-2 border-yellow-500 quiz-status-marked"></div>
           <span>Marked</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 rounded bg-neutral-100 dark:bg-neutral-800 border-2 border-neutral-300 dark:border-neutral-700"></div>
+          <div className="w-4 h-4 rounded bg-neutral-100 dark:bg-neutral-800 border-2 border-neutral-300 dark:border-neutral-700 quiz-status-unanswered"></div>
           <span>Not Answered</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 rounded bg-red-100 dark:bg-red-900/30 border-2 border-red-500"></div>
+          <div className="w-4 h-4 rounded bg-red-100 dark:bg-red-900/30 border-2 border-red-500 quiz-status-skipped"></div>
           <span>Skipped</span>
         </div>
       </div>
@@ -770,13 +770,13 @@ function getStatusClass(status: QuestionStatus): string {
   switch (status) {
     case 'answered':
     case 'answered-marked':
-      return 'bg-green-100 dark:bg-green-900/30 border-2 border-green-500 text-green-700 dark:text-green-300';
+      return 'bg-green-100 dark:bg-green-900/30 border-2 border-green-500 text-green-700 dark:text-green-300 quiz-status-answered';
     case 'marked':
-      return 'bg-yellow-100 dark:bg-yellow-900/30 border-2 border-yellow-500 text-yellow-700 dark:text-yellow-300';
+      return 'bg-yellow-100 dark:bg-yellow-900/30 border-2 border-yellow-500 text-yellow-700 dark:text-yellow-300 quiz-status-marked';
     case 'skipped':
-      return 'bg-red-100 dark:bg-red-900/30 border-2 border-red-500 text-red-700 dark:text-red-300';
+      return 'bg-red-100 dark:bg-red-900/30 border-2 border-red-500 text-red-700 dark:text-red-300 quiz-status-skipped';
     default:
-      return 'bg-neutral-100 dark:bg-neutral-800 border-2 border-neutral-300 dark:border-neutral-700';
+      return 'bg-neutral-100 dark:bg-neutral-800 border-2 border-neutral-300 dark:border-neutral-700 quiz-status-unanswered';
   }
 }
 

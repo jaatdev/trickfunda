@@ -38,7 +38,11 @@ export function ConstructorViewerWrapper({ concept }: Props) {
       [&_button]:!border-sky-600/50 [&_button:hover]:!border-sky-400 [&_button]:!bg-sky-950/60 [&_button:hover]:!bg-sky-900/80 [&_button]:!text-sky-100 [&_button]:font-mono
       [&_.bg-emerald-500]:!bg-sky-700 [&_.bg-emerald-500:hover]:!bg-sky-600 [&_.text-white]:!text-white
       [&_.prose-emerald]:!prose-sky [&_.prose]:!font-mono
-    ">
+      [&_.quiz-status-answered]:!bg-blue-500/20 [&_.quiz-status-answered]:!border-blue-500 [&_.quiz-status-answered]:!text-blue-500
+      [&_.quiz-status-marked]:!bg-amber-400/20 [&_.quiz-status-marked]:!border-amber-400 [&_.quiz-status-marked]:!text-amber-400
+      [&_.quiz-status-skipped]:!bg-red-500/20 [&_.quiz-status-skipped]:!border-red-500 [&_.quiz-status-skipped]:!text-red-500
+      [&_.quiz-status-unanswered]:!bg-slate-400/20 [&_.quiz-status-unanswered]:!border-slate-400 [&_.quiz-status-unanswered]:!text-slate-400
+        ">
       <ConceptInteractiveViewer 
         title={concept.title}
         notesMarkdown={concept.notesMarkdown}

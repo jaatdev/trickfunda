@@ -38,7 +38,11 @@ export function ClockworkViewerWrapper({ concept }: Props) {
       [&_button]:!border-[#5C4B33] [&_button:hover]:!border-[#D4AF37] [&_button]:!bg-[#2A1F13] [&_button:hover]:!bg-[#3A2A18] [&_button]:!text-[#D4AF37] [&_button]:font-serif [&_button]:shadow-[inset_0_1px_2px_rgba(255,255,255,0.1),0_2px_4px_rgba(0,0,0,0.5)]
       [&_.bg-emerald-500]:!bg-[#8B7347] [&_.bg-emerald-500:hover]:!bg-[#B87333] [&_.text-white]:!text-[#FFF8E7]
       [&_.prose-emerald]:!prose-amber [&_.prose]:!font-serif
-    ">
+      [&_.quiz-status-answered]:!bg-emerald-600/20 [&_.quiz-status-answered]:!border-emerald-600 [&_.quiz-status-answered]:!text-emerald-600
+      [&_.quiz-status-marked]:!bg-amber-500/20 [&_.quiz-status-marked]:!border-amber-500 [&_.quiz-status-marked]:!text-amber-500
+      [&_.quiz-status-skipped]:!bg-rose-600/20 [&_.quiz-status-skipped]:!border-rose-600 [&_.quiz-status-skipped]:!text-rose-600
+      [&_.quiz-status-unanswered]:!bg-stone-500/20 [&_.quiz-status-unanswered]:!border-stone-500 [&_.quiz-status-unanswered]:!text-stone-500
+        ">
       <ConceptInteractiveViewer 
         title={concept.title}
         notesMarkdown={concept.notesMarkdown}

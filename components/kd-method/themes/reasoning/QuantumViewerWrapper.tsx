@@ -38,7 +38,11 @@ export function QuantumViewerWrapper({ concept }: Props) {
       [&_button]:!border-purple-600/50 [&_button:hover]:!border-fuchsia-500 [&_button]:!bg-[#1A0033]/60 [&_button:hover]:!bg-purple-900/80 [&_button]:!text-fuchsia-200 [&_button]:font-mono
       [&_.bg-emerald-500]:!bg-purple-700 [&_.bg-emerald-500:hover]:!bg-fuchsia-600 [&_.text-white]:!text-white
       [&_.prose-emerald]:!prose-fuchsia
-    ">
+      [&_.quiz-status-answered]:!bg-cyan-400/20 [&_.quiz-status-answered]:!border-cyan-400 [&_.quiz-status-answered]:!text-cyan-400
+      [&_.quiz-status-marked]:!bg-fuchsia-400/20 [&_.quiz-status-marked]:!border-fuchsia-400 [&_.quiz-status-marked]:!text-fuchsia-400
+      [&_.quiz-status-skipped]:!bg-rose-500/20 [&_.quiz-status-skipped]:!border-rose-500 [&_.quiz-status-skipped]:!text-rose-500
+      [&_.quiz-status-unanswered]:!bg-slate-400/20 [&_.quiz-status-unanswered]:!border-slate-400 [&_.quiz-status-unanswered]:!text-slate-400
+        ">
       <ConceptInteractiveViewer 
         title={concept.title}
         notesMarkdown={concept.notesMarkdown}

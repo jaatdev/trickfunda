@@ -38,7 +38,11 @@ export function LexiconViewerWrapper({ concept }: Props) {
       [&_button]:!border-[#5C4B33]/50 [&_button:hover]:!border-[#D4AF37]/80 [&_button]:!bg-[#251A0C]/60 [&_button:hover]:!bg-[#3A2A18]/80 [&_button]:!text-[#FCEABB] [&_button]:font-serif
       [&_.bg-emerald-500]:!bg-[#5C4B33] [&_.bg-emerald-500:hover]:!bg-[#8B7347] [&_.text-white]:!text-[#FFF8E7]
       [&_.prose-emerald]:!prose-yellow [&_.prose]:!font-serif
-    ">
+      [&_.quiz-status-answered]:!bg-emerald-500/20 [&_.quiz-status-answered]:!border-emerald-500 [&_.quiz-status-answered]:!text-emerald-500
+      [&_.quiz-status-marked]:!bg-amber-400/20 [&_.quiz-status-marked]:!border-amber-400 [&_.quiz-status-marked]:!text-amber-400
+      [&_.quiz-status-skipped]:!bg-rose-500/20 [&_.quiz-status-skipped]:!border-rose-500 [&_.quiz-status-skipped]:!text-rose-500
+      [&_.quiz-status-unanswered]:!bg-stone-400/20 [&_.quiz-status-unanswered]:!border-stone-400 [&_.quiz-status-unanswered]:!text-stone-400
+        ">
       <ConceptInteractiveViewer 
         title={concept.title}
         notesMarkdown={concept.notesMarkdown}
