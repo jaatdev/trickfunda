@@ -8,6 +8,7 @@ import ChapterTypesClient from '@/components/kd-method/ChapterTypesClient';
 import StatsBanner from '@/components/kd-method/StatsBanner';
 import { Metadata } from 'next';
 import { GSHologramTheme } from '@/components/kd-method/themes/gs/GSHologramTheme';
+import { VocabLexiconTheme } from '@/components/kd-method/themes/vocab/VocabLexiconTheme';
 
 type Props = {
   params: Promise<{ subject: string; path: string[] }>;
@@ -84,6 +85,10 @@ export default async function RecursiveKDMethodPage(props: Props) {
   // ==========================================
   // INNER THEME ORCHESTRATION ENGINE
   // ==========================================
+  if (params.subject === 'vocab-trickfunda') {
+    return <VocabLexiconTheme node={node} path={params.path} subjectTitle={subjectTitle} subjectSlug={params.subject} />;
+  }
+
   if (params.subject === 'gs-trickfunda') {
     return <GSHologramTheme node={node} path={params.path} subjectTitle={subjectTitle} subjectSlug={params.subject} />;
   }
