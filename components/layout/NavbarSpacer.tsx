@@ -4,8 +4,8 @@ import { usePathname } from 'next/navigation';
 export default function NavbarSpacer() {
   const pathname = usePathname();
   
-  // No spacer on admin routes because the navbar is hidden there
-  if (pathname.startsWith('/admin')) return null;
+  // No spacer on admin or canvas routes because the navbar is hidden there
+  if (pathname.startsWith('/admin') || pathname.startsWith('/canvas')) return null;
   
   // No spacer on home page because the hero section is full-bleed and goes under the transparent navbar
   if (pathname === '/') return null;

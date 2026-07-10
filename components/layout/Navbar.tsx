@@ -24,7 +24,7 @@ export default function Navbar() {
   
   const { scrollY } = useScroll();
 
-  if (pathname.startsWith('/admin')) return null;
+  if (pathname.startsWith('/admin') || pathname.startsWith('/canvas')) return null;
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() ?? 0;
