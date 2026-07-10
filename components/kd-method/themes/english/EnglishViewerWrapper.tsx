@@ -34,7 +34,7 @@ export function EnglishViewerWrapper({ children }: Props) {
       [&_h3]:!text-amber-200 [&_h3]:font-serif
       [&_p]:!text-amber-100/80 [&_p]:font-serif [&_p]:leading-relaxed
       [&_span]:!text-amber-100/80 [&_span]:font-serif
-      [&_button:not([class*="quiz-status"])]:!border-amber-700/50 [&_button:not([class*="quiz-status"]):hover]:!border-amber-500 [&_button:not([class*="quiz-status"])]:!bg-[#0B1021] [&_button:not([class*="quiz-status"]):hover]:!bg-[#151C33] [&_button:not([class*="quiz-status"])]:!text-amber-400 [&_button:not([class*="quiz-status"])]:font-serif [&_button:not([class*="quiz-status"])]:shadow-[0_4px_10px_rgba(0,0,0,0.5)]
+      [&_button:not([class*='quiz-status'])]:!border-amber-700/50 [&_button:not([class*='quiz-status']):hover]:!border-amber-500 [&_button:not([class*='quiz-status'])]:!bg-[#0B1021] [&_button:not([class*='quiz-status']):hover]:!bg-[#151C33] [&_button:not([class*='quiz-status'])]:!text-amber-400 [&_button:not([class*='quiz-status'])]:font-serif [&_button:not([class*='quiz-status'])]:shadow-[0_4px_10px_rgba(0,0,0,0.5)]
       [&_.bg-emerald-500]:!bg-amber-700/40 [&_.bg-emerald-500:hover]:!bg-amber-600/50 [&_.bg-emerald-500]:!border [&_.bg-emerald-500]:!border-amber-500/50 [&_.text-white]:!text-amber-200
       [&_.prose-emerald]:!prose-amber [&_.prose]:!font-serif
       [&_a]:!text-amber-400 [&_a:hover]:!text-amber-300 [&_a]:underline-offset-4

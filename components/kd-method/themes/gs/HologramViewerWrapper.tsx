@@ -34,7 +34,7 @@ export function HologramViewerWrapper({ concept }: Props) {
       [&_h3]:!text-cyan-100
       [&_p]:!text-cyan-100
       [&_span]:!text-cyan-100
-      [&_button:not([class*="quiz-status"])]:!border-cyan-500/50 [&_button:not([class*="quiz-status"]):hover]:!border-cyan-400 [&_button:not([class*="quiz-status"])]:!bg-cyan-900/40 [&_button:not([class*="quiz-status"]):hover]:!bg-cyan-800/60 [&_button:not([class*="quiz-status"])]:!text-cyan-100
+      [&_button:not([class*='quiz-status'])]:!border-cyan-500/50 [&_button:not([class*='quiz-status']):hover]:!border-cyan-400 [&_button:not([class*='quiz-status'])]:!bg-cyan-900/40 [&_button:not([class*='quiz-status']):hover]:!bg-cyan-800/60 [&_button:not([class*='quiz-status'])]:!text-cyan-100
       [&_.bg-emerald-500]:!bg-cyan-600 [&_.bg-emerald-500:hover]:!bg-cyan-500 [&_.text-white]:!text-white
       [&_.prose-emerald]:!prose-cyan
       [&_.quiz-status-answered]:!bg-cyan-400/20 [&_.quiz-status-answered]:!border-cyan-400 [&_.quiz-status-answered]:!text-cyan-400

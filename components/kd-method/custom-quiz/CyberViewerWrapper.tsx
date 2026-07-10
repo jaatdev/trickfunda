@@ -34,7 +34,7 @@ export function CyberViewerWrapper({ children }: Props) {
       [&_h3]:!text-[#E0F8FF] [&_h3]:font-mono [&_h3]:uppercase
       [&_p]:!text-[#B0E8FF] [&_p]:font-mono
       [&_span]:!text-[#B0E8FF] [&_span]:font-mono
-      [&_button:not([class*="quiz-status"])]:!border-[#00F0FF]/50 [&_button:not([class*="quiz-status"]):hover]:!border-[#00F0FF] [&_button:not([class*="quiz-status"])]:!bg-[#050B14] [&_button:not([class*="quiz-status"]):hover]:!bg-[#0A1628] [&_button:not([class*="quiz-status"])]:!text-[#00F0FF] [&_button:not([class*="quiz-status"])]:font-mono [&_button:not([class*="quiz-status"])]:shadow-[inset_0_0_10px_rgba(0,240,255,0.1),0_0_15px_rgba(0,240,255,0.2)] [&_button:not([class*="quiz-status"])]:uppercase [&_button:not([class*="quiz-status"])]:tracking-widest
+      [&_button:not([class*='quiz-status'])]:!border-[#00F0FF]/50 [&_button:not([class*='quiz-status']):hover]:!border-[#00F0FF] [&_button:not([class*='quiz-status'])]:!bg-[#050B14] [&_button:not([class*='quiz-status']):hover]:!bg-[#0A1628] [&_button:not([class*='quiz-status'])]:!text-[#00F0FF] [&_button:not([class*='quiz-status'])]:font-mono [&_button:not([class*='quiz-status'])]:shadow-[inset_0_0_10px_rgba(0,240,255,0.1),0_0_15px_rgba(0,240,255,0.2)] [&_button:not([class*='quiz-status'])]:uppercase [&_button:not([class*='quiz-status'])]:tracking-widest
       [&_.bg-emerald-500]:!bg-[#00F0FF]/20 [&_.bg-emerald-500:hover]:!bg-[#00F0FF]/40 [&_.bg-emerald-500]:!border [&_.bg-emerald-500]:!border-[#00F0FF] [&_.text-white]:!text-[#00F0FF]
       [&_.prose-emerald]:!prose-cyan [&_.prose]:!font-mono
       [&_.quiz-status-answered]:!bg-cyan-400/20 [&_.quiz-status-answered]:!border-cyan-400 [&_.quiz-status-answered]:!text-cyan-400
