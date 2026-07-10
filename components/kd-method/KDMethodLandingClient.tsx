@@ -2,104 +2,188 @@
 
 import Link from 'next/link';
 import { motion, Variants } from 'framer-motion';
-import { BookOpen, Calculator, Globe, Brain, SpellCheck, ArrowRight } from 'lucide-react';
+import { BookOpen, Calculator, Globe, Brain, SpellCheck, ArrowRight, ShieldCheck } from 'lucide-react';
+import * as LucideIcons from 'lucide-react';
 
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { type: 'spring' as const, stiffness: 300, damping: 24 } },
-};
+import { NeuralBackground } from '@/components/ui/kd-method/NeuralBackground';
+import { GlitchText } from '@/components/ui/kd-method/GlitchText';
+import { ScannerCard } from '@/components/ui/kd-method/ScannerCard';
 
 export type Category = {
   href: string;
   title: string;
   description: string;
-  iconName: string; // passing icon as string to avoid passing full React component over network boundary
+  iconName: string;
   color: string;
   iconColor: string;
   hoverBorder: string;
   hoverText: string;
 };
 
-// We import all potentially needed icons
-import * as LucideIcons from 'lucide-react';
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
+  show: { opacity: 1, y: 0, scale: 1, transition: { type: 'spring', stiffness: 200, damping: 20 } },
+};
+
+// Map original colors to the neon equivalent for ScannerCard props
+function getNeonColor(colorClass: string) {
+  if (colorClass.includes('emerald') || colorClass.includes('green')) return 'emerald';
+  if (colorClass.includes('cyan') || colorClass.includes('blue')) return 'cyan';
+  if (colorClass.includes('violet') || colorClass.includes('purple')) return 'violet';
+  if (colorClass.includes('rose') || colorClass.includes('red')) return 'rose';
+  if (colorClass.includes('amber') || colorClass.includes('yellow')) return 'amber';
+  return 'emerald'; // default
+}
+
+// Static color maps for Tailwind CSS
+const colorMaps: Record<string, any> = {
+  emerald: {
+    bg: 'bg-emerald-500/10',
+    border: 'border-emerald-500/30',
+    borderHover: 'group-hover:border-emerald-500/40',
+    text: 'text-emerald-400',
+    textHover: 'group-hover:text-emerald-300',
+    shadow: 'shadow-[0_0_15px_rgba(16,185,129,0.3)]',
+    shadowHover: 'group-hover:shadow-[0_0_15px_rgba(16,185,129,0.2)]',
+    borderBase: 'border-emerald-500/20'
+  },
+  cyan: {
+    bg: 'bg-cyan-500/10',
+    border: 'border-cyan-500/30',
+    borderHover: 'group-hover:border-cyan-500/40',
+    text: 'text-cyan-400',
+    textHover: 'group-hover:text-cyan-300',
+    shadow: 'shadow-[0_0_15px_rgba(6,182,212,0.3)]',
+    shadowHover: 'group-hover:shadow-[0_0_15px_rgba(6,182,212,0.2)]',
+    borderBase: 'border-cyan-500/20'
+  },
+  violet: {
+    bg: 'bg-violet-500/10',
+    border: 'border-violet-500/30',
+    borderHover: 'group-hover:border-violet-500/40',
+    text: 'text-violet-400',
+    textHover: 'group-hover:text-violet-300',
+    shadow: 'shadow-[0_0_15px_rgba(139,92,246,0.3)]',
+    shadowHover: 'group-hover:shadow-[0_0_15px_rgba(139,92,246,0.2)]',
+    borderBase: 'border-violet-500/20'
+  },
+  rose: {
+    bg: 'bg-rose-500/10',
+    border: 'border-rose-500/30',
+    borderHover: 'group-hover:border-rose-500/40',
+    text: 'text-rose-400',
+    textHover: 'group-hover:text-rose-300',
+    shadow: 'shadow-[0_0_15px_rgba(244,63,94,0.3)]',
+    shadowHover: 'group-hover:shadow-[0_0_15px_rgba(244,63,94,0.2)]',
+    borderBase: 'border-rose-500/20'
+  },
+  amber: {
+    bg: 'bg-amber-500/10',
+    border: 'border-amber-500/30',
+    borderHover: 'group-hover:border-amber-500/40',
+    text: 'text-amber-400',
+    textHover: 'group-hover:text-amber-300',
+    shadow: 'shadow-[0_0_15px_rgba(245,158,11,0.3)]',
+    shadowHover: 'group-hover:shadow-[0_0_15px_rgba(245,158,11,0.2)]',
+    borderBase: 'border-amber-500/20'
+  }
+};
 
 export default function KDMethodLandingClient({ categories }: { categories: Category[] }) {
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 pt-24 pb-12 px-4 md:pt-32 md:pb-16 md:px-8 relative overflow-hidden">
-      {/* Background glowing orbs */}
-      <div className="absolute top-0 inset-x-0 h-96 bg-gradient-to-b from-emerald-500/10 to-transparent pointer-events-none" />
-      <div className="absolute -top-40 -right-40 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-40 -left-40 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+    <div className="min-h-screen bg-[#020617] text-gray-100 pt-24 pb-12 px-4 md:pt-32 md:pb-16 md:px-8 relative overflow-hidden selection:bg-emerald-500/30">
+      
+      {/* Interactive Background */}
+      <NeuralBackground />
 
-      <div className="max-w-5xl mx-auto space-y-12 relative z-10">
-        <header className="space-y-6 text-center md:text-left">
+      <div className="max-w-6xl mx-auto space-y-16 relative z-10">
+        
+        {/* Header Section */}
+        <header className="space-y-6 text-center">
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ type: "spring", bounce: 0.5, duration: 0.8 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-none bg-emerald-500/10 border border-emerald-500/30 shadow-[0_0_20px_rgba(16,185,129,0.2)] mb-4"
           >
-            <h1 className="text-5xl md:text-7xl font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-cyan-500 pb-2">
-              KD Method
-            </h1>
+            <ShieldCheck className="w-4 h-4 text-emerald-400" />
+            <span className="text-sm font-mono tracking-widest text-emerald-300 uppercase">System Initialized</span>
           </motion.div>
-          <motion.p 
+          
+          <motion.h1 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
-            className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto md:mx-0"
+            className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-teal-200 to-cyan-300 tracking-tighter drop-shadow-[0_0_15px_rgba(16,185,129,0.3)] pb-2"
           >
-            A new way to quickly master concepts through notes and interactive quizzes.
+            <GlitchText text="KD Method" />
+          </motion.h1>
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto font-mono"
+          >
+            Rapid learning protocol online. Select a datacore module to begin knowledge transfer.
           </motion.p>
         </header>
 
-        <motion.section 
+        {/* Datacore Grid */}
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="show"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-[250px]"
         >
-          {categories.map((category) => {
-              const Icon = (LucideIcons as any)[category.iconName] || LucideIcons.BookOpen;
-              return (
-                <motion.div key={category.href} variants={itemVariants}>
-                  <Link href={category.href} className="group block h-full">
-                    <div className={`h-full relative bg-white dark:bg-gray-900 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-800 ${category.hoverBorder} overflow-hidden flex flex-col`}>
-                      
-                      {/* Background Gradient */}
-                      <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                      
-                      <div className="relative z-10 flex flex-col h-full">
-                        <div className="flex items-center justify-between mb-6">
-                          <div className={`p-4 rounded-2xl bg-gray-50 dark:bg-gray-800 ${category.iconColor} group-hover:scale-110 transition-transform duration-300 shadow-sm`}>
-                            <Icon className="w-8 h-8" strokeWidth={1.5} />
-                          </div>
-                          <ArrowRight className={`w-6 h-6 text-gray-400 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ${category.hoverText}`} />
-                        </div>
-                        
-                        <h3 className={`text-2xl font-bold text-gray-900 dark:text-white mb-4 ${category.hoverText} transition-colors duration-300`}>
-                          {category.title}
-                        </h3>
-                        
-                        <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed flex-grow">
-                          {category.description}
-                        </p>
+          {categories.map((category, index) => {
+            const Icon = (LucideIcons as any)[category.iconName] || BookOpen;
+            const neonColor = getNeonColor(category.color);
+            const style = colorMaps[neonColor] || colorMaps.emerald;
+            
+            return (
+              <motion.div key={category.href} variants={itemVariants} className="h-full">
+                <Link href={category.href} className="block h-full outline-none group">
+                  <ScannerCard color={neonColor}>
+                    
+                    <div className="flex items-center justify-between mb-4 relative z-10">
+                      <div className={`p-3 rounded-md ${style.bg} ${style.border} ${style.shadow}`}>
+                        <Icon className={`w-6 h-6 ${style.text} drop-shadow-md`} />
+                      </div>
+                      <div className={`px-3 py-1 rounded-sm border ${style.borderBase} bg-slate-950 font-mono text-xs ${style.text} uppercase tracking-widest`}>
+                        Module {(index + 1).toString().padStart(2, '0')}
                       </div>
                     </div>
-                  </Link>
-                </motion.div>
-              );
-            })}
-        </motion.section>
+
+                    <div className="mt-auto space-y-2 relative z-10">
+                      <h3 className={`text-2xl font-bold text-gray-100 ${style.textHover} transition-colors duration-300 font-mono tracking-tight`}>
+                        {category.title}
+                      </h3>
+                      <p className="text-sm text-gray-400 group-hover:text-gray-300 line-clamp-2 transition-colors duration-300">
+                        {category.description}
+                      </p>
+                    </div>
+
+                    <div className={`absolute bottom-6 right-6 w-10 h-10 rounded-md ${style.bg} ${style.border} flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-2`}>
+                      <ArrowRight className={`w-5 h-5 ${style.text}`} />
+                    </div>
+
+                  </ScannerCard>
+                </Link>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+
       </div>
     </div>
   );
