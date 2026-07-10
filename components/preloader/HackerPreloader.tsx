@@ -351,8 +351,13 @@ export default function HackerPreloader() {
   };
 
   // ─── Sequence Orchestration ─────────────────────────────────
+  const sequenceStartedRef = useRef(false);
+
   useEffect(() => {
-    if (!isActive || phase === 'idle' || phase === 'done') return;
+    // Only run if active, not idle, not done, and hasn't started yet
+    if (!isActive || phase === 'idle' || phase === 'done' || sequenceStartedRef.current) return;
+    
+    sequenceStartedRef.current = true;
     
     const t = (fn: () => void, ms: number) => {
       const id = setTimeout(fn, ms);
@@ -418,6 +423,7 @@ export default function HackerPreloader() {
     return () => {
       timersRef.current.forEach(clearTimeout);
       clearInterval(piv);
+      sequenceStartedRef.current = false;
     };
   }, [isActive, phase]);
 

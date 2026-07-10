@@ -30,6 +30,11 @@ export default function GlobalFullscreenButton() {
   // Show toast when entering fullscreen
   useEffect(() => {
     if (isFullscreen) {
+      // Don't show toast if the user is currently in the hacker preloader sequence
+      if (typeof window !== 'undefined' && !sessionStorage.getItem('tf_preloader_v3')) {
+        return;
+      }
+      
       showToast({
         message: '🎯 Fullscreen Mode Active! Press ESC or F11 to exit',
         variant: 'success',
