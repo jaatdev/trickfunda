@@ -1,11 +1,11 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 export function TextReveal({ text, className }: { text: string; className?: string }) {
   const letters = Array.from(text);
 
-  const container = {
+  const container: Variants = {
     hidden: { opacity: 0 },
     visible: (i = 1) => ({
       opacity: 1,
@@ -13,7 +13,7 @@ export function TextReveal({ text, className }: { text: string; className?: stri
     }),
   };
 
-  const child = {
+  const child: Variants = {
     visible: {
       opacity: 1,
       y: 0,
