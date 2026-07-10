@@ -9,6 +9,7 @@ import Navbar from '@/components/layout/Navbar'
 import NavbarSpacer from '@/components/layout/NavbarSpacer'
 import Footer from '@/components/layout/Footer'
 import GlobalFullscreenButton from '@/components/GlobalFullscreenButton'
+import HackerPreloader from '@/components/preloader/HackerPreloader'
 import '@/styles/globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <FullscreenProvider>
               <ToastProvider>
                 <LayoutWrapper>
+                  <HackerPreloader />
                   <Navbar />
                   <NavbarSpacer />
                   <main className="flex-1 relative z-0 flex flex-col">{children}</main>
