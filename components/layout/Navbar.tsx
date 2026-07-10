@@ -24,9 +24,6 @@ export default function Navbar() {
   
   const { scrollY } = useScroll();
 
-  const hiddenRoutes = ['/admin', '/canvas', '/pdf-merger', '/ai'];
-  if (pathname && hiddenRoutes.some(route => pathname.startsWith(route))) return null;
-
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() ?? 0;
     
@@ -44,6 +41,10 @@ export default function Navbar() {
     }
   });
 
+  // Ensure ALL hooks are called before any early return!
+  const hiddenRoutes = ['/admin', '/canvas', '/pdf-merger', '/ai'];
+  const isHiddenRoute = pathname && hiddenRoutes.some(route => pathname.startsWith(route));
+
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -52,7 +53,7 @@ export default function Navbar() {
     }
   }, [isMobileMenuOpen]);
 
-
+  if (isHiddenRoute) return null;
 
   return (
     <>
