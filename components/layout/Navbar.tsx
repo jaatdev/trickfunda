@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useMotionValueEvent, Variants } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Youtube, Send } from 'lucide-react';
@@ -14,7 +14,7 @@ import { NavbarMobileMenu } from './NavbarMobileMenu';
 import { useAppTheme } from '@/hooks/useAppTheme';
 import MagneticNavLink from '../ui/navbar/MagneticNavLink';
 
-const navVariants = {
+const navVariants: Variants = {
   hidden: { opacity: 0, y: -20 },
   visible: { 
     opacity: 1, 
@@ -27,7 +27,7 @@ const navVariants = {
   }
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: -10 },
   visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 300, damping: 24 } }
 };
