@@ -1,8 +1,11 @@
 'use client'
 
 import Link from 'next/link'
-import { motion } from 'framer-motion'
-import { useMemo } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useMemo, useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
+import { useAuth } from '@clerk/nextjs'
+import { useAppTheme } from '@/hooks/useAppTheme'
 
 // Seeded random for consistent SSR/client rendering
 const seededRandom = (seed: number) => {
@@ -10,9 +13,58 @@ const seededRandom = (seed: number) => {
   return x - Math.floor(x)
 }
 
-import { usePathname } from 'next/navigation'
-import { useAuth } from '@clerk/nextjs'
-import { useAppTheme } from '@/hooks/useAppTheme'
+// Typing Effect Component
+const TerminalText = ({ text, delay = 0 }: { text: string; delay?: number }) => {
+  const [displayedText, setDisplayedText] = useState('');
+  
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
+    const startTyping = () => {
+      let i = 0;
+      const interval = setInterval(() => {
+        setDisplayedText(text.slice(0, i + 1));
+        i++;
+        if (i >= text.length) clearInterval(interval);
+      }, 50);
+      return interval;
+    };
+    
+    timeoutId = setTimeout(() => {
+      const interval = startTyping();
+      return () => clearInterval(interval);
+    }, delay);
+    
+    return () => clearTimeout(timeoutId);
+  }, [text, delay]);
+
+  return (
+    <span className="font-mono text-xs opacity-70 tracking-widest flex items-center gap-1">
+      {displayedText}
+      <motion.span 
+        animate={{ opacity: [1, 0] }} 
+        transition={{ repeat: Infinity, duration: 0.8 }}
+        className="w-2 h-3 bg-current inline-block"
+      />
+    </span>
+  );
+};
+
+// Bracket Hover Link Component
+const FooterLink = ({ href, label, color }: { href: string; label: string; color: string }) => {
+  return (
+    <Link href={href} className="group relative inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-300">
+      <span className={`opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 font-mono text-${color}-400`}>
+        [
+      </span>
+      <span className="relative z-10 group-hover:translate-x-1 transition-transform duration-300">
+        {label}
+      </span>
+      <span className={`opacity-0 translate-x-2 group-hover:opacity-100 group-hover:-translate-x-0 transition-all duration-300 font-mono text-${color}-400`}>
+        ]
+      </span>
+    </Link>
+  );
+};
 
 export default function Footer() {
   const pathname = usePathname();
@@ -20,13 +72,13 @@ export default function Footer() {
   const theme = useAppTheme(pathname);
 
   const orbs = useMemo(() => 
-    [...Array(20)].map((_, i) => ({
+    [...Array(15)].map((_, i) => ({
       id: i,
-      left: Math.round(seededRandom(i * 4 + 1) * 1000) / 10,
-      top: Math.round(seededRandom(i * 4 + 2) * 1000) / 10,
+      left: Math.round(seededRandom(i * 4 + 1) * 100) % 100,
+      top: Math.round(seededRandom(i * 4 + 2) * 100) % 100,
       x: Math.round((seededRandom(i * 4 + 3) * 50 - 25) * 10) / 10,
       y: Math.round((seededRandom(i * 4 + 4) * 50 - 25) * 10) / 10,
-      duration: Math.round(10 + seededRandom(i * 4 + 5) * 10),
+      duration: Math.round(15 + seededRandom(i * 4 + 5) * 10),
       delay: Math.round(seededRandom(i * 4 + 6) * 5),
     })), 
   [])
@@ -73,81 +125,139 @@ export default function Footer() {
   ]
 
   return (
-    <footer className={`relative bg-gradient-to-br ${theme.footerGradient} text-white overflow-hidden transition-colors duration-700`}>
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
+    <footer 
+      className={`relative bg-gradient-to-br ${theme.footerGradient} text-white overflow-hidden transition-colors duration-700 border-t border-white/5 mt-20`}
+      style={{ '--nav-glow-color': theme.navGlowHex } as React.CSSProperties}
+    >
+      {/* Cyber Grid Background */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
+           style={{
+             backgroundImage: `
+               linear-gradient(to right, white 1px, transparent 1px),
+               linear-gradient(to bottom, white 1px, transparent 1px)
+             `,
+             backgroundSize: '40px 40px'
+           }}
+      />
+
+      {/* Animated glowing orbs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {orbs.map((orb) => (
           <motion.div
             key={orb.id}
-            className={`absolute w-32 h-32 ${theme.footerOrbColor} rounded-full blur-xl transition-colors duration-700`}
+            className={`absolute w-48 h-48 ${theme.footerOrbColor} rounded-full blur-[80px] transition-colors duration-700`}
             style={{
               left: `${orb.left}%`,
               top: `${orb.top}%`,
             }}
             animate={{
-              scale: [1, 1.5, 1],
-              opacity: [0.1, 0.3, 0.1],
-              x: [0, orb.x, 0],
-              y: [0, orb.y, 0],
+              scale: [1, 1.2, 1],
+              opacity: [0.05, 0.15, 0.05],
+              x: [0, orb.x * 2, 0],
+              y: [0, orb.y * 2, 0],
             }}
             transition={{
               duration: orb.duration,
               repeat: Infinity,
               delay: orb.delay,
+              ease: "linear"
             }}
           />
         ))}
       </div>
 
-      {/* Pattern Overlay */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-          backgroundSize: '30px 30px'
-        }}></div>
-      </div>
-
       <div className="relative max-w-7xl mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
+        
+        {/* Newsletter Section - Cyberpunk Style */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-20"
+        >
+          <div className="relative rounded-3xl bg-black/40 backdrop-blur-md border border-white/10 p-1 overflow-hidden group max-w-3xl mx-auto">
+            {/* Running edge border specifically for newsletter */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_2s_infinite] pointer-events-none" />
+            
+            <div className="bg-black/60 rounded-[22px] p-8 relative overflow-hidden border border-white/5 z-10">
+              <div className="absolute inset-0 cyber-grid opacity-10 pointer-events-none" />
+              <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
+                <div className="flex-1 text-center md:text-left">
+                  <div className={`text-sm font-mono mb-2 ${theme.accentText}`}>
+                    <TerminalText text="> INIT_COMM_PROTOCOL" />
+                  </div>
+                  <h3 className="text-3xl font-black mb-2 tracking-tight">Stay Updated</h3>
+                  <p className="text-gray-400 text-sm">Receive data packets regarding new subjects and features.</p>
+                </div>
+                
+                <div className="w-full md:w-auto flex-1 max-w-md flex flex-col sm:flex-row gap-3">
+                  <div className="relative flex-1">
+                    <span className="absolute left-4 top-1/2 -translate-y-1/2 font-mono text-gray-500">{'>'}</span>
+                    <input
+                      type="email"
+                      placeholder="user@network.com"
+                      className="w-full pl-8 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-mono text-sm placeholder-gray-600 focus:outline-none focus:border-white/30 focus:bg-white/10 transition-all"
+                    />
+                  </div>
+                  <motion.button
+                    className={`px-6 py-3 rounded-xl ${theme.accentBg} text-white font-bold font-mono text-sm shadow-[0_0_15px_rgba(255,255,255,0.1)] relative overflow-hidden group/btn`}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <span className="relative z-10">EXECUTE</span>
+                    <span className="absolute inset-0 bg-white/20 -translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300" />
+                  </motion.button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Main Footer Links */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
           {/* Brand Section */}
           <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center gap-3 mb-6 group">
+            <Link href="/" className="flex items-center gap-4 mb-8 group inline-flex">
               <motion.div 
-                className="w-14 h-14 flex items-center justify-center"
-                whileHover={{ scale: 1.1, rotate: 5 }}
+                className="relative w-14 h-14 rounded-2xl overflow-hidden bg-black/50 border border-white/10 p-2"
+                whileHover={{ scale: 1.05, rotate: [0, -5, 5, 0] }}
+                transition={{ duration: 0.5 }}
               >
-                <img src="/logo.jpg" alt="TrickFunda Logo" className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(255,215,0,0.4)] rounded-2xl" />
+                <div className={`absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity ${theme.accentBg}`} />
+                <img src="/logo.jpg" alt="TrickFunda Logo" className="w-full h-full object-contain relative z-10 drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]" />
               </motion.div>
               <div className="flex flex-col">
-                <span className="text-3xl font-black bg-gradient-to-r from-yellow-400 via-amber-400 to-orange-400 bg-clip-text text-transparent">
+                <span className="text-3xl font-black tracking-tight text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all duration-300">
                   TrickFunda
                 </span>
-                <span className="text-xs text-gray-400">Learn, Master, Excel</span>
+                <span className={`text-xs font-mono tracking-wider uppercase mt-1 ${theme.accentText}`}>
+                  <TerminalText text="SYS.ONLINE" delay={500} />
+                </span>
               </div>
             </Link>
             
-            <p className="text-gray-400 mb-6 max-w-sm leading-relaxed">
-              World-class notes with flashcards, quizzes, and spaced repetition learning. 
-              Ace your competitive exams with confidence.
+            <p className="text-gray-400 mb-8 max-w-sm leading-relaxed text-sm">
+              Advanced knowledge acquisition framework. Flashcards, quizzes, and spaced repetition learning modules for competitive exams.
             </p>
             
-            <div className="flex gap-3">
+            <div className="flex gap-4">
               {socialLinks.map((social, i) => (
                 <motion.a
                   key={i}
                   href={social.href}
-                  className="w-11 h-11 rounded-xl bg-white/5 hover:bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/10 transition-all"
-                  whileHover={{ scale: 1.1, y: -3 }}
+                  className="w-12 h-12 rounded-xl bg-black/40 hover:bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/10 transition-all group relative overflow-hidden"
+                  whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   aria-label={social.label}
                 >
-                  <span className="text-xl">{social.icon}</span>
+                  <span className={`absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity ${theme.accentBg}`} />
+                  <span className="text-xl relative z-10 group-hover:scale-110 transition-transform">{social.icon}</span>
                 </motion.a>
               ))}
             </div>
           </div>
 
-          {/* Footer Sections */}
+          {/* Footer Link Sections */}
           {footerSections.map((section, idx) => (
             <motion.div
               key={idx}
@@ -156,26 +266,16 @@ export default function Footer() {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
             >
-              <h3 className={`font-bold text-${section.color}-300 mb-4 text-lg`}>
-                {section.title}
-              </h3>
-              <ul className="space-y-3">
+              <div className="flex items-center gap-2 mb-6">
+                <span className={`w-2 h-2 rounded-full ${section.color === 'violet' ? 'bg-violet-400' : section.color === 'fuchsia' ? 'bg-fuchsia-400' : 'bg-pink-400'} shadow-[0_0_8px_currentColor]`} />
+                <h3 className="font-bold text-white tracking-wide uppercase text-sm">
+                  {section.title}
+                </h3>
+              </div>
+              <ul className="space-y-4">
                 {section.links.map((link, i) => (
                   <li key={i}>
-                    <Link 
-                      href={link.href} 
-                      className="text-gray-400 hover:text-white transition-all inline-flex items-center gap-2 group"
-                    >
-                      <motion.span
-                        className="opacity-0 group-hover:opacity-100 transition-opacity"
-                        initial={false}
-                      >
-                        →
-                      </motion.span>
-                      <span className="group-hover:translate-x-1 transition-transform">
-                        {link.label}
-                      </span>
-                    </Link>
+                    <FooterLink href={link.href} label={link.label} color={section.color} />
                   </li>
                 ))}
               </ul>
@@ -183,62 +283,32 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Newsletter Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className={`mb-12 p-8 rounded-3xl bg-gradient-to-r from-white/[0.02] to-white/[0.05] backdrop-blur-sm border ${theme.navBorderColor}`}
-        >
-          <div className="max-w-2xl mx-auto text-center">
-            <h3 className={`text-2xl font-black mb-3 ${theme.accentText}`}>
-              📬 Stay Updated
-            </h3>
-            <p className="text-gray-400 mb-6">
-              Get the latest study tips, new subjects, and exclusive content delivered to your inbox.
-            </p>
-            <div className="flex gap-3 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-violet-500 transition-all"
-              />
-              <motion.button
-                className={`px-8 py-3 rounded-xl ${theme.accentBg} text-white font-bold shadow-lg`}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Subscribe
-              </motion.button>
-            </div>
-          </div>
-        </motion.div>
-
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <motion.p 
-            className="text-gray-400 text-sm"
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 relative">
+          <motion.div 
+            className="flex items-center gap-2 text-gray-400 text-sm font-mono"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            © 2025 TrickFunda. Made with{' '}
-            <motion.span
-              className="inline-block"
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 1, repeat: Infinity }}
-            >
-              💜
-            </motion.span>
-            {' '}for learners worldwide.
-          </motion.p>
+            <span>© 2025 TRICKFUNDA</span>
+            <span className="text-white/20">|</span>
+            <span className="flex items-center gap-2">
+              BUILD WITH 
+              <motion.span
+                className={`inline-block w-2 h-2 rounded-full ${theme.accentBg}`}
+                animate={{ opacity: [1, 0.2, 1], scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+            </span>
+          </motion.div>
           
-          <div className="flex gap-6 text-sm">
-            {['Terms', 'Privacy', 'Cookies'].map((item, i) => (
+          <div className="flex gap-8 text-sm font-mono">
+            {['TERMS', 'PRIVACY', 'COOKIES'].map((item, i) => (
               <motion.div key={i} whileHover={{ scale: 1.05 }}>
                 <Link 
                   href={`/${item.toLowerCase()}`} 
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="text-gray-500 hover:text-white transition-colors tracking-wider"
                 >
                   {item}
                 </Link>
