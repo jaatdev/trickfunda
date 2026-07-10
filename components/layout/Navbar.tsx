@@ -43,7 +43,7 @@ export default function Navbar() {
 
   // Ensure ALL hooks are called before any early return!
   const hiddenRoutes = ['/admin', '/canvas', '/pdf-merger', '/ai'];
-  const isHiddenRoute = pathname && hiddenRoutes.some(route => pathname.startsWith(route));
+  const isHiddenRoute = pathname && hiddenRoutes.some(route => pathname.startsWith(route)) && isSignedIn;
 
   useEffect(() => {
     if (isMobileMenuOpen) {

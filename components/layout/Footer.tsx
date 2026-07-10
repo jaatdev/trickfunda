@@ -11,9 +11,11 @@ const seededRandom = (seed: number) => {
 }
 
 import { usePathname } from 'next/navigation'
+import { useAuth } from '@clerk/nextjs'
 
 export default function Footer() {
   const pathname = usePathname();
+  const { isSignedIn } = useAuth();
 
   const orbs = useMemo(() => 
     [...Array(20)].map((_, i) => ({
@@ -28,7 +30,7 @@ export default function Footer() {
   [])
 
   const hiddenRoutes = ['/admin', '/canvas', '/pdf-merger', '/ai'];
-  if (pathname && hiddenRoutes.some(route => pathname.startsWith(route))) return null;
+  if (pathname && hiddenRoutes.some(route => pathname.startsWith(route)) && isSignedIn) return null;
 
   const socialLinks = [
     { icon: '▶️', label: 'YouTube', href: 'https://www.youtube.com/@TrickFunda' },
