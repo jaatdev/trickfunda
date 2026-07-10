@@ -312,7 +312,7 @@ const ScanLines = () => (
 // ═══════════════════════════════════════════════════════════════
 export default function HackerPreloader() {
   const [isActive, setIsActive] = useState(false);
-  const [phase, setPhase] = useState<'poweron' | 'boot' | 'scan' | 'access' | 'logo' | 'done'>('poweron');
+  const [phase, setPhase] = useState<'idle' | 'poweron' | 'boot' | 'scan' | 'access' | 'logo' | 'done'>('idle');
   const [bootLines, setBootLines] = useState<typeof BOOT_LINES>([]);
   const [progress, setProgress] = useState(0);
   const [showStatic, setShowStatic] = useState(false);
@@ -324,7 +324,7 @@ export default function HackerPreloader() {
 
   // ─── Init ───────────────────────────────────────────────────
   useEffect(() => {
-    const hasSeen = sessionStorage.getItem('tf_preloader_v2');
+    const hasSeen = sessionStorage.getItem('tf_preloader_v3');
     if (!hasSeen) {
       setIsActive(true);
       scrollRef.current = window.scrollY;
@@ -335,9 +335,25 @@ export default function HackerPreloader() {
     }
   }, []);
 
+  const handleStartSequence = () => {
+    if (phase !== 'idle') return;
+    
+    // Attempt to enter fullscreen on click
+    try {
+      if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      }
+    } catch (e) {
+      // Ignore errors if fullscreen is denied
+    }
+
+    setPhase('poweron');
+  };
+
   // ─── Sequence Orchestration ─────────────────────────────────
   useEffect(() => {
-    if (!isActive) return;
+    if (!isActive || phase === 'idle' || phase === 'done') return;
+    
     const t = (fn: () => void, ms: number) => {
       const id = setTimeout(fn, ms);
       timersRef.current.push(id);
@@ -381,8 +397,17 @@ export default function HackerPreloader() {
       document.body.style.top = '';
       document.body.style.width = '';
       window.scrollTo(0, scrollRef.current);
-      sessionStorage.setItem('tf_preloader_v2', 'true');
+      sessionStorage.setItem('tf_preloader_v3', 'true');
       setIsActive(false);
+      
+      // Attempt to exit fullscreen when done
+      try {
+        if (document.fullscreenElement && document.exitFullscreen) {
+          document.exitFullscreen().catch(() => {});
+        }
+      } catch (e) {
+        // Ignore
+      }
     }, TOTAL_DURATION);
 
     // Progress bar
@@ -394,7 +419,7 @@ export default function HackerPreloader() {
       timersRef.current.forEach(clearTimeout);
       clearInterval(piv);
     };
-  }, [isActive]);
+  }, [isActive, phase]);
 
   if (!isActive) return null;
 
@@ -402,9 +427,10 @@ export default function HackerPreloader() {
     <AnimatePresence>
       {isActive && (
         <motion.div
-          className="fixed inset-0 z-[9999] bg-black flex items-center justify-center overflow-hidden select-none cursor-default"
+          className={`fixed inset-0 z-[9999] bg-black flex items-center justify-center overflow-hidden select-none ${phase === 'idle' ? 'cursor-pointer' : 'cursor-default'}`}
           exit={{ opacity: 0, scale: 1.1, filter: 'blur(12px)' }}
           transition={{ duration: 0.6 }}
+          onClick={handleStartSequence}
         >
           {/* CRT Scan Lines */}
           <ScanLines />
@@ -438,6 +464,41 @@ export default function HackerPreloader() {
               ● LIVE
             </motion.div>
           </div>
+
+          {/* ═══ PHASE: IDLE (WAITING FOR CLICK) ═══ */}
+          <AnimatePresence>
+            {phase === 'idle' && (
+              <motion.div
+                key="idle"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0, scale: 1.5, filter: 'blur(10px)' }}
+                transition={{ duration: 0.4 }}
+                className="absolute inset-0 flex items-center justify-center z-[10005] bg-black/60 backdrop-blur-sm"
+              >
+                <div className="flex flex-col items-center">
+                  <motion.div
+                    animate={{ opacity: [0.3, 1, 0.3] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                    className="w-16 h-16 sm:w-24 sm:h-24 rounded-full border border-red-500/50 flex items-center justify-center mb-6"
+                  >
+                    <div className="w-4 h-4 sm:w-6 sm:h-6 bg-red-500 rounded-full shadow-[0_0_20px_rgba(239,68,68,0.8)]" />
+                  </motion.div>
+                  <ScrambleText
+                    text="SYSTEM OVERRIDE REQUIRED"
+                    className="font-mono text-xl sm:text-3xl font-black text-red-500 tracking-[0.3em] mb-4 text-center"
+                  />
+                  <motion.div
+                    animate={{ opacity: [1, 0] }}
+                    transition={{ duration: 0.8, repeat: Infinity, ease: 'linear' }}
+                    className="font-mono text-green-400 text-xs sm:text-sm tracking-[0.5em] text-center"
+                  >
+                    [ CLICK ANYWHERE TO INITIALIZE ]
+                  </motion.div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           {/* ═══ PHASE: POWER ON ═══ */}
           <AnimatePresence mode="wait">
