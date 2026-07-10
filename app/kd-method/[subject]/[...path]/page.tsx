@@ -9,6 +9,8 @@ import StatsBanner from '@/components/kd-method/StatsBanner';
 import { Metadata } from 'next';
 import { GSHologramTheme } from '@/components/kd-method/themes/gs/GSHologramTheme';
 import { VocabLexiconTheme } from '@/components/kd-method/themes/vocab/VocabLexiconTheme';
+import { MathConstructorTheme } from '@/components/kd-method/themes/math/MathConstructorTheme';
+import { ReasoningQuantumTheme } from '@/components/kd-method/themes/reasoning/ReasoningQuantumTheme';
 
 type Props = {
   params: Promise<{ subject: string; path: string[] }>;
@@ -85,6 +87,14 @@ export default async function RecursiveKDMethodPage(props: Props) {
   // ==========================================
   // INNER THEME ORCHESTRATION ENGINE
   // ==========================================
+  if (params.subject === 'maths-trickfunda' || params.subject === 'abhinay-sir-maths') {
+    return <MathConstructorTheme node={node} path={params.path} subjectTitle={subjectTitle} subjectSlug={params.subject} />;
+  }
+
+  if (params.subject === 'reasoning-trickfunda') {
+    return <ReasoningQuantumTheme node={node} path={params.path} subjectTitle={subjectTitle} subjectSlug={params.subject} />;
+  }
+
   if (params.subject === 'vocab-trickfunda') {
     return <VocabLexiconTheme node={node} path={params.path} subjectTitle={subjectTitle} subjectSlug={params.subject} />;
   }
