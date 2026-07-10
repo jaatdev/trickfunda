@@ -1,23 +1,31 @@
 import { getKDChapters, getKDChapterSubjects, getKDSubjectStats } from '@/utils/kdMethodParser';
 import Link from 'next/link';
+import { Metadata } from 'next';
 import SubjectListClient from '@/components/kd-method/SubjectListClient';
 import StatsBanner from '@/components/kd-method/StatsBanner';
 import { MathTheme } from '@/components/kd-method/themes/math/MathTheme';
+import { ReasoningTheme } from '@/components/kd-method/themes/reasoning/ReasoningTheme';
 
 export async function generateStaticParams() {
   const subjects = await getKDChapterSubjects();
   return subjects.map(subject => ({ subject }));
 }
 
-export default async function TrickFundaIndex({ params }: { params: Promise<{ subject: string }> }) {
-  const { subject } = await params;
+export async function generateMetadata({ params }: { params: Promise<{ subject: string }> }): Promise<Metadata> {
+  const resolvedParams = await params;
+  return {
+    title: `${resolvedParams.subject.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')} | KD Method | TrickFunda`,
+    description: `Explore all chapters and types for ${resolvedParams.subject} in the KD Method.`,
+  };
+}
+
+export default async function SubjectPage({ params }: { params: Promise<{ subject: string }> }) {
+  const resolvedParams = await params;
+  const { subject } = resolvedParams;
   const chapters = await getKDChapters(subject);
   const stats = await getKDSubjectStats(subject);
 
-  // Format title from slug
-  const subjectTitle = subject.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-  // Handle specific acronyms correctly
-  const displayTitle = subjectTitle.replace('Gs', 'GS');
+  const displayTitle = subject.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 
   // ==========================================
   // THEME ORCHESTRATION ENGINE
@@ -26,8 +34,9 @@ export default async function TrickFundaIndex({ params }: { params: Promise<{ su
     return <MathTheme subjectSlug={subject} chapters={chapters} displayTitle={displayTitle} />;
   }
 
-  // Future themes can be added here
-  // if (subject === 'reasoning-trickfunda') return <ReasoningTheme ... />
+  if (subject === 'reasoning-trickfunda') {
+    return <ReasoningTheme subjectSlug={subject} chapters={chapters} displayTitle={displayTitle} />;
+  }
 
   // ==========================================
   // DEFAULT FALLBACK THEME
