@@ -339,6 +339,16 @@ export default function HackerPreloader() {
 
   const handleStartSequence = () => {
     if (phase !== 'idle') return;
+    
+    // Attempt to enter true OS-level fullscreen on click for maximum immersion
+    try {
+      if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      }
+    } catch (e) {
+      // Ignore errors if fullscreen is denied
+    }
+
     setPhase('poweron');
 
     const t = (fn: () => void, ms: number) => {
@@ -386,6 +396,15 @@ export default function HackerPreloader() {
       window.scrollTo(0, scrollRef.current);
       sessionStorage.setItem('tf_preloader_v3', 'true');
       setIsActive(false);
+      
+      // Exit OS-level fullscreen when done
+      try {
+        if (document.fullscreenElement && document.exitFullscreen) {
+          document.exitFullscreen().catch(() => {});
+        }
+      } catch (e) {
+        // Ignore
+      }
     }, TOTAL_DURATION);
 
     // Progress bar
