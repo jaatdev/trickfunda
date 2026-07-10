@@ -79,9 +79,9 @@ export function MathTheme({ subjectSlug, chapters, displayTitle }: Props) {
             transition={{ duration: 1, delay: 0.4 }}
             className="text-lg md:text-xl text-blue-300/70 max-w-2xl font-mono mt-4"
           >
-            > Establishing multidimensional parameters...
+            &gt; Establishing multidimensional parameters...
             <br />
-            > Select a theorem to expand.
+            &gt; Select a theorem to expand.
           </motion.p>
         </header>
 
