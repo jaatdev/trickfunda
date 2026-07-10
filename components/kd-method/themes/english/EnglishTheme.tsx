@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { motion, Variants } from 'framer-motion';
 import { ChevronRight, Feather } from 'lucide-react';
 
-import { KDStats } from '@/types/kdMethod';
+import { KDStats, KDConcept } from '@/types/kdMethod';
 import { GoldenDustBackground } from './GoldenDustBackground';
 import { ScholarlyCard } from './ScholarlyCard';
 
@@ -21,21 +21,13 @@ const itemVariants: Variants = {
   show: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { type: 'spring', stiffness: 200, damping: 20 } },
 };
 
-type Chapter = {
-  title: string;
-  slug: string;
-  typesCount: number;
-  stats: KDStats;
-};
-
 type Props = {
-  subjectSlug: string;
-  chapters: Chapter[];
+  concepts: KDConcept[];
   displayTitle: string;
 };
 
-export function EnglishTheme({ subjectSlug, chapters, displayTitle }: Props) {
-  if (chapters.length === 0) {
+export function EnglishTheme({ concepts, displayTitle }: Props) {
+  if (concepts.length === 0) {
     return (
       <div className="py-12 text-center text-amber-500/50 font-serif">
         The archives are empty. Wait for the scribe.
@@ -89,47 +81,54 @@ export function EnglishTheme({ subjectSlug, chapters, displayTitle }: Props) {
           animate="show"
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-[280px]"
         >
-          {chapters.map((chapter, i) => (
-            <motion.div key={chapter.slug} variants={itemVariants} className="h-full">
-              <Link href={`/kd-method/${subjectSlug}/${chapter.slug}`} className="block h-full outline-none group">
-                <ScholarlyCard>
-                  
-                  {/* Chapter Roman Numeral Header */}
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="font-serif text-3xl font-bold text-amber-500/20 group-hover:text-amber-400/40 transition-colors duration-500">
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
-                    <div className="w-8 h-8 rounded-full border border-amber-500/0 group-hover:border-amber-500/50 flex items-center justify-center transition-all duration-500">
-                      <ChevronRight className="w-4 h-4 text-amber-500/0 group-hover:text-amber-400 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-500" />
+          {concepts.map((concept, i) => {
+            const quizCount = concept.quizzes?.length || 0;
+            const questionCount = concept.quizzes?.reduce((acc, q) => acc + (q.questions?.length || 0), 0) || 0;
+
+            return (
+              <motion.div key={concept.slug} variants={itemVariants} className="h-full">
+                <Link href={`/kd-method/english-100-concepts/${concept.slug}`} className="block h-full outline-none group">
+                  <ScholarlyCard>
+                    
+                    {/* Chapter Roman Numeral Header */}
+                    <div className="flex items-center justify-between mb-6">
+                      <span className="font-serif text-3xl font-bold text-amber-500/20 group-hover:text-amber-400/40 transition-colors duration-500">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <div className="w-8 h-8 rounded-full border border-amber-500/0 group-hover:border-amber-500/50 flex items-center justify-center transition-all duration-500">
+                        <ChevronRight className="w-4 h-4 text-amber-500/0 group-hover:text-amber-400 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-500" />
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Title */}
-                  <h2 className="text-2xl font-serif text-amber-50 group-hover:text-amber-200 transition-colors duration-300 leading-tight">
-                    {chapter.title}
-                  </h2>
-                  
-                  {/* Metadata / Tags */}
-                  <div className="mt-auto pt-6 flex flex-wrap gap-2 text-xs font-sans tracking-widest uppercase">
-                    <span className="px-2 py-1 rounded bg-amber-950/40 text-amber-500 border border-amber-900/30">
-                      {chapter.typesCount} Types
-                    </span>
-                    {chapter.stats.quizzes > 0 && (
-                      <span className="px-2 py-1 rounded bg-blue-950/40 text-blue-400 border border-blue-900/30">
-                        {chapter.stats.quizzes} Quizzes
-                      </span>
-                    )}
-                    {chapter.stats.questions > 0 && (
-                      <span className="px-2 py-1 rounded bg-rose-950/40 text-rose-400 border border-rose-900/30">
-                        {chapter.stats.questions} Q's
-                      </span>
-                    )}
-                  </div>
+                    {/* Title */}
+                    <h2 className="text-2xl font-serif text-amber-50 group-hover:text-amber-200 transition-colors duration-300 leading-tight">
+                      {concept.title}
+                    </h2>
+                    
+                    {/* Metadata / Tags */}
+                    <div className="mt-auto pt-6 flex flex-wrap gap-2 text-xs font-sans tracking-widest uppercase">
+                      {quizCount > 0 && (
+                        <span className="px-2 py-1 rounded bg-blue-950/40 text-blue-400 border border-blue-900/30">
+                          {quizCount} Quizzes
+                        </span>
+                      )}
+                      {questionCount > 0 && (
+                        <span className="px-2 py-1 rounded bg-rose-950/40 text-rose-400 border border-rose-900/30">
+                          {questionCount} Q's
+                        </span>
+                      )}
+                      {concept.youtubeUrls && concept.youtubeUrls.length > 0 && (
+                        <span className="px-2 py-1 rounded bg-red-950/40 text-red-400 border border-red-900/30">
+                          Video
+                        </span>
+                      )}
+                    </div>
 
-                </ScholarlyCard>
-              </Link>
-            </motion.div>
-          ))}
+                  </ScholarlyCard>
+                </Link>
+              </motion.div>
+            );
+          })}
         </motion.div>
 
       </div>

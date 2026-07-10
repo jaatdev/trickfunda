@@ -2,7 +2,6 @@ import { getKDChapters, getKDChapterSubjects, getKDSubjectStats } from '@/utils/
 import Link from 'next/link';
 import SubjectListClient from '@/components/kd-method/SubjectListClient';
 import StatsBanner from '@/components/kd-method/StatsBanner';
-import { EnglishTheme } from '@/components/kd-method/themes/english/EnglishTheme';
 import { MathTheme } from '@/components/kd-method/themes/math/MathTheme';
 
 export async function generateStaticParams() {
@@ -23,15 +22,12 @@ export default async function TrickFundaIndex({ params }: { params: Promise<{ su
   // ==========================================
   // THEME ORCHESTRATION ENGINE
   // ==========================================
-  if (subject === 'english-100-concepts') {
-    return <EnglishTheme subjectSlug={subject} chapters={chapters} displayTitle={displayTitle} />;
-  }
-  if (subject === 'math') {
+  if (subject === 'maths-trickfunda' || subject === 'abhinay-sir-maths') {
     return <MathTheme subjectSlug={subject} chapters={chapters} displayTitle={displayTitle} />;
   }
 
   // Future themes can be added here
-  // if (subject === 'reasoning') return <ReasoningTheme ... />
+  // if (subject === 'reasoning-trickfunda') return <ReasoningTheme ... />
 
   // ==========================================
   // DEFAULT FALLBACK THEME
