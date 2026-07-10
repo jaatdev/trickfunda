@@ -146,20 +146,6 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-
-  // Rewrites for Multi Zones
-  async rewrites() {
-    return [
-      {
-        source: '/canvas',
-        destination: 'https://trickfunda-canvas.vercel.app',
-      },
-      {
-        source: '/canvas/:path*',
-        destination: 'https://trickfunda-canvas.vercel.app/:path*',
-      },
-    ];
-  },
 };
 
 export default withBundleAnalyzer(withPWA(nextConfig));
