@@ -14,11 +14,10 @@ export default function QuizBuilderPage() {
   const handleAddQuestion = () => {
     const newQuestion: QuizQuestion = {
       id: crypto.randomUUID(),
-      question: "New Question Text",
+      prompt: "New Question Text",
       options: ["Option A", "Option B", "Option C", "Option D"],
-      correct_answer: "Option A",
-      explanation: "Explanation goes here",
-      layout_type: "default"
+      answerIndex: 0,
+      reason: "Explanation goes here",
     };
     setQuestions([...questions, newQuestion]);
     setExpandedIndex(questions.length);
@@ -35,12 +34,6 @@ export default function QuizBuilderPage() {
     const newOptions = [...newQuestions[qIndex].options];
     newOptions[optIndex] = value;
     newQuestions[qIndex].options = newOptions;
-    
-    // Update correct answer if it matched the old option
-    if (newQuestions[qIndex].correct_answer === questions[qIndex].options[optIndex]) {
-      newQuestions[qIndex].correct_answer = value;
-    }
-    
     setQuestions(newQuestions);
   };
 
@@ -155,7 +148,7 @@ export default function QuizBuilderPage() {
                           Q{index + 1}
                         </div>
                         <span className="font-semibold text-gray-900 dark:text-gray-100 line-clamp-1">
-                          {q.question.replace(/<[^>]+>/g, '') || "Empty Question"}
+                          {q.prompt.replace(/<[^>]+>/g, '') || "Empty Question"}
                         </span>
                       </div>
                       <div className="flex items-center gap-3">
@@ -183,8 +176,8 @@ export default function QuizBuilderPage() {
                                 Question Text (HTML/MathJax Supported)
                               </label>
                               <textarea
-                                value={q.question}
-                                onChange={(e) => handleUpdateQuestion(index, { question: e.target.value })}
+                                value={q.prompt}
+                                onChange={(e) => handleUpdateQuestion(index, { prompt: e.target.value })}
                                 className="w-full p-4 bg-gray-50 dark:bg-black/50 border border-gray-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none transition-all min-h-[100px]"
                               />
                             </div>
@@ -196,12 +189,12 @@ export default function QuizBuilderPage() {
                               </label>
                               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 {q.options.map((opt, optIndex) => (
-                                  <div key={optIndex} className={`flex items-center gap-3 p-2 rounded-xl border ${q.correct_answer === opt ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-500/10' : 'border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-black/50'}`}>
+                                  <div key={optIndex} className={`flex items-center gap-3 p-2 rounded-xl border ${q.answerIndex === optIndex ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-500/10' : 'border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-black/50'}`}>
                                     <input
                                       type="radio"
                                       name={`correct-${index}`}
-                                      checked={q.correct_answer === opt}
-                                      onChange={() => handleUpdateQuestion(index, { correct_answer: opt })}
+                                      checked={q.answerIndex === optIndex}
+                                      onChange={() => handleUpdateQuestion(index, { answerIndex: optIndex })}
                                       className="w-4 h-4 text-emerald-500 focus:ring-emerald-500 ml-2"
                                     />
                                     <input
@@ -222,8 +215,8 @@ export default function QuizBuilderPage() {
                                 Explanation
                               </label>
                               <textarea
-                                value={q.explanation}
-                                onChange={(e) => handleUpdateQuestion(index, { explanation: e.target.value })}
+                                value={q.reason}
+                                onChange={(e) => handleUpdateQuestion(index, { reason: e.target.value })}
                                 className="w-full p-4 bg-gray-50 dark:bg-black/50 border border-gray-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none transition-all min-h-[80px]"
                               />
                             </div>
@@ -233,13 +226,20 @@ export default function QuizBuilderPage() {
                               <div>
                                 <label className="block text-xs font-medium text-gray-500 mb-1">Layout Type</label>
                                 <select 
-                                  value={q.layout_type || 'default'}
-                                  onChange={(e) => handleUpdateQuestion(index, { layout_type: e.target.value as any })}
+                                  value={q.dice_layout ? q.dice_layout.layout_type : ''}
+                                  onChange={(e) => {
+                                    if (e.target.value === '') {
+                                      const { dice_layout, ...rest } = q;
+                                      handleUpdateQuestion(index, { ...rest, dice_layout: undefined } as any);
+                                    } else {
+                                      handleUpdateQuestion(index, { dice_layout: { layout_type: e.target.value as any, dice_instances: [] } });
+                                    }
+                                  }}
                                   className="w-full p-2.5 bg-gray-50 dark:bg-black/50 border border-gray-200 dark:border-white/10 rounded-lg outline-none text-sm"
                                 >
-                                  <option value="default">Default</option>
-                                  <option value="dice">Dice Visualization</option>
-                                  <option value="geometry">Geometry SVG</option>
+                                  <option value="">Default (None)</option>
+                                  <option value="3d_isometric">Dice Visualization (3D Isometric)</option>
+                                  <option value="unfolded_net">Dice Visualization (Unfolded Net)</option>
                                 </select>
                               </div>
                             </div>

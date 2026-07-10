@@ -185,14 +185,14 @@ export default function SettingsPage() {
                 label="Maintenance Mode" 
                 description="Disable public access to the site while performing updates."
                 value={settings.maintenanceMode}
-                onChange={(val) => updateSetting('maintenanceMode', val)}
+                onChange={(val: boolean) => updateSetting('maintenanceMode', val)}
                 danger
               />
               <ToggleRow 
                 label="Allow Registrations" 
                 description="Allow new users to sign up and create accounts via Clerk."
                 value={settings.allowRegistrations}
-                onChange={(val) => updateSetting('allowRegistrations', val)}
+                onChange={(val: boolean) => updateSetting('allowRegistrations', val)}
               />
             </div>
           </div>
@@ -217,19 +217,19 @@ export default function SettingsPage() {
               <ToggleRow 
                 label="KD Method System" 
                 value={settings.features.kdMethod}
-                onChange={(val) => updateFeature('kdMethod', val)}
+                onChange={(val: boolean) => updateFeature('kdMethod', val)}
                 small
               />
               <ToggleRow 
                 label="Custom Quizzes" 
                 value={settings.features.customQuizzes}
-                onChange={(val) => updateFeature('customQuizzes', val)}
+                onChange={(val: boolean) => updateFeature('customQuizzes', val)}
                 small
               />
               <ToggleRow 
                 label="Leaderboard & Rankings" 
                 value={settings.features.leaderboard}
-                onChange={(val) => updateFeature('leaderboard', val)}
+                onChange={(val: boolean) => updateFeature('leaderboard', val)}
                 small
               />
             </div>
