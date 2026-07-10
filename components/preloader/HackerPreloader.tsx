@@ -335,30 +335,12 @@ export default function HackerPreloader() {
     }
   }, []);
 
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
   const handleStartSequence = () => {
     if (phase !== 'idle') return;
-    
-    // Attempt to enter fullscreen on click
-    try {
-      if (document.documentElement.requestFullscreen) {
-        document.documentElement.requestFullscreen().catch(() => {});
-      }
-    } catch (e) {
-      // Ignore errors if fullscreen is denied
-    }
-
     setPhase('poweron');
-  };
 
-  // ─── Sequence Orchestration ─────────────────────────────────
-  const sequenceStartedRef = useRef(false);
-
-  useEffect(() => {
-    // Only run if active, not idle, not done, and hasn't started yet
-    if (!isActive || phase === 'idle' || phase === 'done' || sequenceStartedRef.current) return;
-    
-    sequenceStartedRef.current = true;
-    
     const t = (fn: () => void, ms: number) => {
       const id = setTimeout(fn, ms);
       timersRef.current.push(id);
@@ -404,28 +386,21 @@ export default function HackerPreloader() {
       window.scrollTo(0, scrollRef.current);
       sessionStorage.setItem('tf_preloader_v3', 'true');
       setIsActive(false);
-      
-      // Attempt to exit fullscreen when done
-      try {
-        if (document.fullscreenElement && document.exitFullscreen) {
-          document.exitFullscreen().catch(() => {});
-        }
-      } catch (e) {
-        // Ignore
-      }
     }, TOTAL_DURATION);
 
     // Progress bar
-    const piv = setInterval(() => {
+    intervalRef.current = setInterval(() => {
       setProgress(p => Math.min(p + 100 / (TOTAL_DURATION / 100), 100));
     }, 100);
+  };
 
+  // Cleanup on unmount
+  useEffect(() => {
     return () => {
       timersRef.current.forEach(clearTimeout);
-      clearInterval(piv);
-      sequenceStartedRef.current = false;
+      if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [isActive, phase]);
+  }, []);
 
   if (!isActive) return null;
 
