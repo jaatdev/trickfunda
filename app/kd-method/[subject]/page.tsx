@@ -5,6 +5,7 @@ import SubjectListClient from '@/components/kd-method/SubjectListClient';
 import StatsBanner from '@/components/kd-method/StatsBanner';
 import { MathTheme } from '@/components/kd-method/themes/math/MathTheme';
 import { ReasoningTheme } from '@/components/kd-method/themes/reasoning/ReasoningTheme';
+import { GSCosmicTheme } from '@/components/kd-method/themes/gs/GSCosmicTheme';
 
 export async function generateStaticParams() {
   const subjects = await getKDChapterSubjects();
@@ -30,6 +31,10 @@ export default async function SubjectPage({ params }: { params: Promise<{ subjec
   // ==========================================
   // THEME ORCHESTRATION ENGINE
   // ==========================================
+  if (subject === 'gs-trickfunda') {
+    return <GSCosmicTheme subjectSlug={subject} chapters={chapters} displayTitle={displayTitle} />;
+  }
+
   if (subject === 'maths-trickfunda' || subject === 'abhinay-sir-maths') {
     return <MathTheme subjectSlug={subject} chapters={chapters} displayTitle={displayTitle} />;
   }

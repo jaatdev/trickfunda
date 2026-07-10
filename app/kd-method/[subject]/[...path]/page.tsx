@@ -7,6 +7,7 @@ import { ConceptInteractiveViewer } from '@/components/kd-method/ConceptInteract
 import ChapterTypesClient from '@/components/kd-method/ChapterTypesClient';
 import StatsBanner from '@/components/kd-method/StatsBanner';
 import { Metadata } from 'next';
+import { GSHologramTheme } from '@/components/kd-method/themes/gs/GSHologramTheme';
 
 type Props = {
   params: Promise<{ subject: string; path: string[] }>;
@@ -79,6 +80,13 @@ export default async function RecursiveKDMethodPage(props: Props) {
   }
 
   const subjectTitle = params.subject.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ').replace('Gs', 'GS');
+
+  // ==========================================
+  // INNER THEME ORCHESTRATION ENGINE
+  // ==========================================
+  if (params.subject === 'gs-trickfunda') {
+    return <GSHologramTheme node={node} path={params.path} subjectTitle={subjectTitle} subjectSlug={params.subject} />;
+  }
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-gray-950 pb-12 px-4 md: md:pb-8 md:px-8 relative overflow-hidden">
