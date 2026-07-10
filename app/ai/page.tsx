@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import FloatingHomeButton from '@/components/layout/FloatingHomeButton';
+import IframeWrapper from '@/components/ui/IframeWrapper';
 
 export const metadata: Metadata = {
   title: 'TrickFunda AI',
@@ -10,10 +11,8 @@ export default function AiPage() {
   return (
     <>
       <FloatingHomeButton />
-      <iframe 
+      <IframeWrapper 
         src="https://trickfunda-ai.vercel.app/"
-        className="w-full h-screen block border-none m-0 p-0 overflow-hidden"
-        style={{ minHeight: '100dvh' }}
         title="TrickFunda AI"
         allow="clipboard-read; clipboard-write; microphone"
       />

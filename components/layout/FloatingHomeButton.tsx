@@ -10,7 +10,7 @@ export default function FloatingHomeButton() {
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: 0.5, duration: 0.5 }}
-      className="fixed top-4 left-4 z-[9999]"
+      className="fixed top-4 right-4 z-[9999]"
     >
       <Link 
         href="/tools"
