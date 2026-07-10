@@ -25,7 +25,7 @@ export default function Navbar() {
   const { scrollY } = useScroll();
 
   const hiddenRoutes = ['/admin', '/canvas', '/pdf-merger', '/ai'];
-  if (hiddenRoutes.some(route => pathname.startsWith(route))) return null;
+  if (pathname && hiddenRoutes.some(route => pathname.startsWith(route))) return null;
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() ?? 0;
