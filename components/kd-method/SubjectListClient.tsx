@@ -4,16 +4,13 @@ import Link from 'next/link';
 import { motion, Variants } from 'framer-motion';
 import { getSubjectTheme } from '@/utils/themeMapping';
 import { ChevronRight } from 'lucide-react';
-
 import { KDStats } from '@/types/kdMethod';
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
+    transition: { staggerChildren: 0.1 },
   },
 };
 

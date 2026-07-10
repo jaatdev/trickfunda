@@ -2,6 +2,8 @@ import { getKDChapters, getKDChapterSubjects, getKDSubjectStats } from '@/utils/
 import Link from 'next/link';
 import SubjectListClient from '@/components/kd-method/SubjectListClient';
 import StatsBanner from '@/components/kd-method/StatsBanner';
+import { EnglishTheme } from '@/components/kd-method/themes/english/EnglishTheme';
+import { MathTheme } from '@/components/kd-method/themes/math/MathTheme';
 
 export async function generateStaticParams() {
   const subjects = await getKDChapterSubjects();
@@ -18,9 +20,25 @@ export default async function TrickFundaIndex({ params }: { params: Promise<{ su
   // Handle specific acronyms correctly
   const displayTitle = subjectTitle.replace('Gs', 'GS');
 
+  // ==========================================
+  // THEME ORCHESTRATION ENGINE
+  // ==========================================
+  if (subject === 'english-100-concepts') {
+    return <EnglishTheme subjectSlug={subject} chapters={chapters} displayTitle={displayTitle} />;
+  }
+  if (subject === 'math') {
+    return <MathTheme subjectSlug={subject} chapters={chapters} displayTitle={displayTitle} />;
+  }
+
+  // Future themes can be added here
+  // if (subject === 'reasoning') return <ReasoningTheme ... />
+
+  // ==========================================
+  // DEFAULT FALLBACK THEME
+  // ==========================================
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-gray-950 pb-12 px-4 md: md:pb-8 md:px-8 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto space-y-6 relative z-10">
+      <div className="max-w-7xl mx-auto space-y-6 relative z-10 pt-24 md:pt-32">
         {/* Breadcrumb Navigation */}
         <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-gray-500 dark:text-gray-400 mb-8">
           <Link href="/kd-method" className="hover:text-emerald-500 transition-colors whitespace-nowrap">KD Method</Link>
