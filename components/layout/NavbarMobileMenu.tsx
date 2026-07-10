@@ -13,6 +13,7 @@ export function NavbarMobileMenu({ closeMenu }: NavbarMobileMenuProps) {
   const { isSignedIn } = useAuth();
   const menuItems = [
     { label: 'KD Method', href: '/kd-method' },
+    { label: 'Student Tools', href: '/tools' },
     { label: 'Success Stories', href: '/#success-stories' },
     { label: 'Pro/Pricing', href: '/pricing' },
   ];

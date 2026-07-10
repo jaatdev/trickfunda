@@ -2,19 +2,19 @@ import { Metadata } from 'next';
 import FloatingHomeButton from '@/components/layout/FloatingHomeButton';
 
 export const metadata: Metadata = {
-  title: 'TrickFunda Canvas',
-  description: 'A powerful infinite canvas drawing and brainstorming app.',
+  title: 'TrickFunda AI',
+  description: 'AI-powered study assistant for TrickFunda students.',
 };
 
-export default function CanvasPage() {
+export default function AiPage() {
   return (
     <>
       <FloatingHomeButton />
       <iframe 
-        src="https://trickfunda-canvas.vercel.app/"
+        src="https://trickfunda-ai.vercel.app/"
         className="w-full h-screen block border-none m-0 p-0 overflow-hidden"
         style={{ minHeight: '100dvh' }}
-        title="TrickFunda Canvas"
+        title="TrickFunda AI"
         allow="clipboard-read; clipboard-write; microphone"
       />
     </>

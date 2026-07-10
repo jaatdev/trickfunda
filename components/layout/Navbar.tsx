@@ -24,7 +24,8 @@ export default function Navbar() {
   
   const { scrollY } = useScroll();
 
-  if (pathname.startsWith('/admin') || pathname.startsWith('/canvas')) return null;
+  const hiddenRoutes = ['/admin', '/canvas', '/pdf-merger', '/ai'];
+  if (hiddenRoutes.some(route => pathname.startsWith(route))) return null;
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() ?? 0;
@@ -99,7 +100,13 @@ export default function Navbar() {
                 <span className="w-1.5 h-1.5 rounded-full bg-violet-500 absolute -top-0 -right-1 opacity-80 shadow-[0_0_10px_rgba(139,92,246,0.8)]" />
               </Link>
               
-
+              <Link
+                href="/tools"
+                className="px-4 py-2 rounded-xl text-sm font-bold text-gray-300 transition-colors hover:text-white relative group flex items-center gap-1"
+              >
+                <span className="relative z-10">Tools</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-500 absolute -top-0 -right-1 opacity-80 shadow-[0_0_10px_rgba(59,130,246,0.8)]" />
+              </Link>
               
               <Link
                 href="/#success-stories"

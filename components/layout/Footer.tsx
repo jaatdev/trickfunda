@@ -27,7 +27,8 @@ export default function Footer() {
     })), 
   [])
 
-  if (pathname.startsWith('/admin') || pathname.startsWith('/canvas')) return null;
+  const hiddenRoutes = ['/admin', '/canvas', '/pdf-merger', '/ai'];
+  if (hiddenRoutes.some(route => pathname.startsWith(route))) return null;
 
   const socialLinks = [
     { icon: '▶️', label: 'YouTube', href: 'https://www.youtube.com/@TrickFunda' },
