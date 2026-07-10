@@ -7,6 +7,7 @@ import { MathTheme } from '@/components/kd-method/themes/math/MathTheme';
 import { ReasoningTheme } from '@/components/kd-method/themes/reasoning/ReasoningTheme';
 import { GSCosmicTheme } from '@/components/kd-method/themes/gs/GSCosmicTheme';
 import { VocabMatrixTheme } from '@/components/kd-method/themes/vocab/VocabMatrixTheme';
+import { EnglishSteampunkTheme } from '@/components/kd-method/themes/english-steampunk/EnglishSteampunkTheme';
 
 export async function generateStaticParams() {
   const subjects = await getKDChapterSubjects();
@@ -32,6 +33,10 @@ export default async function SubjectPage({ params }: { params: Promise<{ subjec
   // ==========================================
   // THEME ORCHESTRATION ENGINE
   // ==========================================
+  if (subject === 'english-chapterwise') {
+    return <EnglishSteampunkTheme subjectSlug={subject} chapters={chapters} displayTitle={displayTitle} />;
+  }
+
   if (subject === 'vocab-trickfunda') {
     return <VocabMatrixTheme subjectSlug={subject} chapters={chapters} displayTitle={displayTitle} />;
   }

@@ -11,6 +11,7 @@ import { GSHologramTheme } from '@/components/kd-method/themes/gs/GSHologramThem
 import { VocabLexiconTheme } from '@/components/kd-method/themes/vocab/VocabLexiconTheme';
 import { MathConstructorTheme } from '@/components/kd-method/themes/math/MathConstructorTheme';
 import { ReasoningQuantumTheme } from '@/components/kd-method/themes/reasoning/ReasoningQuantumTheme';
+import { EnglishClockworkTheme } from '@/components/kd-method/themes/english-steampunk/EnglishClockworkTheme';
 
 type Props = {
   params: Promise<{ subject: string; path: string[] }>;
@@ -87,6 +88,10 @@ export default async function RecursiveKDMethodPage(props: Props) {
   // ==========================================
   // INNER THEME ORCHESTRATION ENGINE
   // ==========================================
+  if (params.subject === 'english-chapterwise') {
+    return <EnglishClockworkTheme node={node} path={params.path} subjectTitle={subjectTitle} subjectSlug={params.subject} />;
+  }
+
   if (params.subject === 'maths-trickfunda' || params.subject === 'abhinay-sir-maths') {
     return <MathConstructorTheme node={node} path={params.path} subjectTitle={subjectTitle} subjectSlug={params.subject} />;
   }
