@@ -5,6 +5,7 @@ export type AppTheme = {
   navBgColor: string; // The specific tailwind color class for the glassmorphism background
   navBorderColor: string;
   navGlow: string;
+  navGlowHex: string; // Used for CSS variable injection
   footerGradient: string;
   footerOrbColor: string;
   accentText: string;
@@ -16,6 +17,7 @@ export const defaultTheme: AppTheme = {
   navBgColor: 'bg-black',
   navBorderColor: 'border-white/10',
   navGlow: 'shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]',
+  navGlowHex: 'rgba(255,255,255,0.4)',
   footerGradient: 'from-gray-900 via-violet-950 to-gray-900',
   footerOrbColor: 'bg-violet-500/5',
   accentText: 'text-violet-400',
@@ -27,6 +29,7 @@ const cosmicTheme: AppTheme = {
   navBgColor: 'bg-[#0a001a]',
   navBorderColor: 'border-cyan-500/30',
   navGlow: 'shadow-[0_8px_32px_0_rgba(6,182,212,0.2)]', // cyan glow
+  navGlowHex: '#06b6d4',
   footerGradient: 'from-[#030014] via-fuchsia-950/40 to-[#030014]',
   footerOrbColor: 'bg-cyan-500/10',
   accentText: 'text-cyan-400',
@@ -38,6 +41,7 @@ const matrixTheme: AppTheme = {
   navBgColor: 'bg-[#001100]',
   navBorderColor: 'border-emerald-500/30',
   navGlow: 'shadow-[0_8px_32px_0_rgba(16,185,129,0.2)]', // emerald glow
+  navGlowHex: '#10b981',
   footerGradient: 'from-black via-[#002200] to-black',
   footerOrbColor: 'bg-emerald-500/10',
   accentText: 'text-emerald-400',
@@ -49,6 +53,7 @@ const mathTheme: AppTheme = {
   navBgColor: 'bg-[#000814]',
   navBorderColor: 'border-blue-500/30',
   navGlow: 'shadow-[0_8px_32px_0_rgba(59,130,246,0.2)]', // blue glow
+  navGlowHex: '#3b82f6',
   footerGradient: 'from-slate-950 via-blue-950/40 to-slate-950',
   footerOrbColor: 'bg-blue-500/10',
   accentText: 'text-blue-400',
@@ -60,6 +65,7 @@ const steampunkTheme: AppTheme = {
   navBgColor: 'bg-[#1a0f00]',
   navBorderColor: 'border-amber-700/40',
   navGlow: 'shadow-[0_8px_32px_0_rgba(217,119,6,0.2)]', // amber glow
+  navGlowHex: '#d97706',
   footerGradient: 'from-[#1a0f00] via-[#3a2000] to-[#1a0f00]',
   footerOrbColor: 'bg-amber-600/10',
   accentText: 'text-amber-500',
@@ -71,6 +77,7 @@ const oxfordTheme: AppTheme = {
   navBgColor: 'bg-[#001a0f]',
   navBorderColor: 'border-emerald-700/40',
   navGlow: 'shadow-[0_8px_32px_0_rgba(5,150,105,0.2)]', // emerald glow
+  navGlowHex: '#059669',
   footerGradient: 'from-[#001a0f] via-[#00331a] to-[#001a0f]',
   footerOrbColor: 'bg-emerald-600/10',
   accentText: 'text-emerald-500',
@@ -82,6 +89,7 @@ const reasoningTheme: AppTheme = {
   navBgColor: 'bg-[#0f001a]',
   navBorderColor: 'border-violet-500/30',
   navGlow: 'shadow-[0_8px_32px_0_rgba(139,92,246,0.2)]', // violet glow
+  navGlowHex: '#8b5cf6',
   footerGradient: 'from-gray-950 via-[#1a0033] to-gray-950',
   footerOrbColor: 'bg-violet-500/10',
   accentText: 'text-violet-400',
@@ -93,6 +101,7 @@ const toolsTheme: AppTheme = {
   navBgColor: 'bg-[#030014]',
   navBorderColor: 'border-fuchsia-500/30',
   navGlow: 'shadow-[0_8px_32px_0_rgba(217,70,239,0.2)]', // fuchsia glow
+  navGlowHex: '#d946ef',
   footerGradient: 'from-[#030014] via-violet-950/50 to-[#030014]',
   footerOrbColor: 'bg-fuchsia-500/10',
   accentText: 'text-fuchsia-400',

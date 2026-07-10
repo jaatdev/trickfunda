@@ -12,6 +12,25 @@ import NavContinuePill from './NavContinuePill';
 import { NavbarDropdown } from './NavbarDropdown';
 import { NavbarMobileMenu } from './NavbarMobileMenu';
 import { useAppTheme } from '@/hooks/useAppTheme';
+import MagneticNavLink from '../ui/navbar/MagneticNavLink';
+
+const navVariants = {
+  hidden: { opacity: 0, y: -20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      duration: 0.5,
+      staggerChildren: 0.1,
+      delayChildren: 0.1
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: -10 },
+  visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 300, damping: 24 } }
+};
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -71,7 +90,10 @@ export default function Navbar() {
           isMobileMenuOpen ? "h-screen px-0" : "top-4 px-4 sm:top-6"
         }`}
       >
-        <div
+        <motion.div
+          variants={navVariants}
+          initial="hidden"
+          animate="visible"
           className={`relative w-full transition-all duration-500 ${
             isMobileMenuOpen
               ? "flex flex-col h-full max-w-none rounded-none px-0 pt-0 bg-black/95 backdrop-blur-3xl border-transparent"
@@ -81,52 +103,50 @@ export default function Navbar() {
                     : `${theme.navBgColor}/20 backdrop-blur-md border-white/5 shadow-none`
                 }`
           }`}
+          style={{ '--nav-glow-color': theme.navGlowHex } as React.CSSProperties}
         >
+          {/* Futuristic Backgrounds */}
+          {!isMobileMenuOpen && scrolled && (
+            <>
+              <div className="running-border" />
+              <div className="cyber-grid" />
+            </>
+          )}
+
           {/* Top Bar - Always Visible */}
           <div className={`flex w-full items-center justify-between z-50 ${isMobileMenuOpen ? "px-6 py-4" : "px-6 py-3"}`}>
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 group z-50" onClick={() => setIsMobileMenuOpen(false)}>
-              {/* LOGO IMAGE ADDED HERE */}
-              <img src="/logo.jpg" alt="TrickFunda Logo" className="w-12 h-12 object-contain drop-shadow-[0_0_15px_rgba(255,215,0,0.4)]" />
-              <span className="font-black text-2xl tracking-tight bg-gradient-to-r from-yellow-400 via-amber-400 to-orange-400 bg-clip-text text-transparent drop-shadow-sm">
-                TrickFunda
-              </span>
-            </Link>
+            <motion.div variants={itemVariants} className="z-50">
+              <Link href="/" className="flex items-center gap-3 group" onClick={() => setIsMobileMenuOpen(false)}>
+                {/* LOGO IMAGE ADDED HERE */}
+                <div className="relative">
+                  <div className={`absolute inset-0 rounded-full blur-md opacity-0 group-hover:opacity-50 transition-opacity duration-500 ${theme.accentBg}`} />
+                  <img src="/logo.jpg" alt="TrickFunda Logo" className="w-12 h-12 object-contain drop-shadow-[0_0_15px_rgba(255,215,0,0.4)] relative z-10" />
+                </div>
+                <span className="font-black text-2xl tracking-tight bg-gradient-to-r from-yellow-400 via-amber-400 to-orange-400 bg-clip-text text-transparent drop-shadow-sm group-hover:drop-shadow-[0_0_8px_rgba(251,191,36,0.6)] transition-all duration-300">
+                  TrickFunda
+                </span>
+              </Link>
+            </motion.div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-2 absolute left-1/2 -translate-x-1/2">
-              <Link
-                href="/kd-method"
-                className="px-4 py-2 rounded-xl text-sm font-bold text-gray-300 transition-colors hover:text-white relative group flex items-center gap-1"
-              >
-                <span className="relative z-10">KD Method</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-violet-500 absolute -top-0 -right-1 opacity-80 shadow-[0_0_10px_rgba(139,92,246,0.8)]" />
-              </Link>
-              
-              <Link
-                href="/tools"
-                className="px-4 py-2 rounded-xl text-sm font-bold text-gray-300 transition-colors hover:text-white relative group flex items-center gap-1"
-              >
-                <span className="relative z-10">Tools</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-blue-500 absolute -top-0 -right-1 opacity-80 shadow-[0_0_10px_rgba(59,130,246,0.8)]" />
-              </Link>
-              
-              <Link
-                href="/#success-stories"
-                className="px-4 py-2 rounded-xl text-sm font-bold text-gray-300 transition-colors hover:text-white"
-              >
-                Success Stories
-              </Link>
-              <Link
-                href="/pricing"
-                className="px-4 py-2 rounded-xl text-sm font-bold text-gray-300 transition-colors hover:text-white"
-              >
-                Pro/Pricing
-              </Link>
+            <nav className="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
+              <motion.div variants={itemVariants}>
+                <MagneticNavLink href="/kd-method" label="KD Method" theme={theme} showBadge={true} />
+              </motion.div>
+              <motion.div variants={itemVariants}>
+                <MagneticNavLink href="/tools" label="Tools" theme={theme} showBadge={true} />
+              </motion.div>
+              <motion.div variants={itemVariants}>
+                <MagneticNavLink href="/#success-stories" label="Success Stories" theme={theme} />
+              </motion.div>
+              <motion.div variants={itemVariants}>
+                <MagneticNavLink href="/pricing" label="Pro/Pricing" theme={theme} />
+              </motion.div>
             </nav>
 
             {/* Actions (Desktop) */}
-            <div className="flex items-center gap-3 z-50">
+            <motion.div variants={itemVariants} className="flex items-center gap-3 z-50">
               <div className="hidden md:flex items-center gap-3">
                 <div className="text-white hidden lg:block">
                   <NavContinuePill />
@@ -192,7 +212,7 @@ export default function Navbar() {
                   )}
                 </AnimatePresence>
               </button>
-            </div>
+            </motion.div>
           </div>
 
           {/* The Veil - Mobile Menu Overlay */}
@@ -202,7 +222,7 @@ export default function Navbar() {
             )}
           </AnimatePresence>
 
-        </div>
+        </motion.div>
       </motion.header>
     </>
   );

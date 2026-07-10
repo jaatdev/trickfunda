@@ -1114,3 +1114,48 @@ html.dark .toast-close:hover {
   .notes-theme .card { box-shadow: none !important; page-break-inside: avoid; }
   .notes-theme a { color: black !important; text-decoration: underline !important; }
 }
+
+/* === Navbar Futuristic Animations === */
+
+@keyframes border-spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.running-border {
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+  mask-image: linear-gradient(black, black), linear-gradient(black, black);
+  mask-clip: content-box, border-box;
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  padding: 2px;
+}
+
+.running-border::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(from 0deg, transparent 0%, transparent 70%, var(--nav-glow-color, rgba(255,255,255,0.8)) 100%);
+  animation: border-spin 3s linear infinite;
+}
+
+.cyber-grid {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: center;
+  z-index: -2;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
