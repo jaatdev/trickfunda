@@ -11,9 +11,11 @@ import InstallPrompt from '@/components/pwa/InstallPrompt';
 import NavContinuePill from './NavContinuePill';
 import { NavbarDropdown } from './NavbarDropdown';
 import { NavbarMobileMenu } from './NavbarMobileMenu';
+import { useAppTheme } from '@/hooks/useAppTheme';
 
 export default function Navbar() {
   const pathname = usePathname();
+  const theme = useAppTheme(pathname);
   const { isSignedIn } = useAuth();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
@@ -73,10 +75,10 @@ export default function Navbar() {
           className={`relative w-full transition-all duration-500 ${
             isMobileMenuOpen
               ? "flex flex-col h-full max-w-none rounded-none px-0 pt-0 bg-black/95 backdrop-blur-3xl border-transparent"
-              : `mx-auto max-w-5xl rounded-full ${
+              : `mx-auto max-w-5xl rounded-full border ${
                   scrolled
-                    ? "bg-black/40 backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]"
-                    : "bg-black/10 backdrop-blur-md border border-white/5 shadow-none"
+                    ? `${theme.navBgColor}/60 backdrop-blur-2xl ${theme.navBorderColor} ${theme.navGlow}`
+                    : `${theme.navBgColor}/20 backdrop-blur-md border-white/5 shadow-none`
                 }`
           }`}
         >

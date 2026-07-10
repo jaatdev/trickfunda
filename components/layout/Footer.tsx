@@ -12,10 +12,12 @@ const seededRandom = (seed: number) => {
 
 import { usePathname } from 'next/navigation'
 import { useAuth } from '@clerk/nextjs'
+import { useAppTheme } from '@/hooks/useAppTheme'
 
 export default function Footer() {
   const pathname = usePathname();
   const { isSignedIn } = useAuth();
+  const theme = useAppTheme(pathname);
 
   const orbs = useMemo(() => 
     [...Array(20)].map((_, i) => ({
@@ -71,13 +73,13 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="relative bg-gradient-to-br from-gray-900 via-violet-950 to-gray-900 text-white overflow-hidden">
+    <footer className={`relative bg-gradient-to-br ${theme.footerGradient} text-white overflow-hidden transition-colors duration-700`}>
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         {orbs.map((orb) => (
           <motion.div
             key={orb.id}
-            className="absolute w-32 h-32 bg-violet-500/5 rounded-full blur-xl"
+            className={`absolute w-32 h-32 ${theme.footerOrbColor} rounded-full blur-xl transition-colors duration-700`}
             style={{
               left: `${orb.left}%`,
               top: `${orb.top}%`,
@@ -186,10 +188,10 @@ export default function Footer() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-12 p-8 rounded-3xl bg-gradient-to-r from-violet-600/10 via-fuchsia-600/10 to-pink-600/10 backdrop-blur-sm border border-white/10"
+          className={`mb-12 p-8 rounded-3xl bg-gradient-to-r from-white/[0.02] to-white/[0.05] backdrop-blur-sm border ${theme.navBorderColor}`}
         >
           <div className="max-w-2xl mx-auto text-center">
-            <h3 className="text-2xl font-black mb-3 bg-gradient-to-r from-violet-400 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent">
+            <h3 className={`text-2xl font-black mb-3 ${theme.accentText}`}>
               📬 Stay Updated
             </h3>
             <p className="text-gray-400 mb-6">
@@ -202,8 +204,8 @@ export default function Footer() {
                 className="flex-1 px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-violet-500 transition-all"
               />
               <motion.button
-                className="px-8 py-3 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-bold shadow-lg"
-                whileHover={{ scale: 1.05, boxShadow: '0 10px 30px rgba(139, 92, 246, 0.4)' }}
+                className={`px-8 py-3 rounded-xl ${theme.accentBg} text-white font-bold shadow-lg`}
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 Subscribe
