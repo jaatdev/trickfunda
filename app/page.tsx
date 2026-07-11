@@ -11,10 +11,10 @@ import SubjectsGrid from '@/components/home/SubjectsGrid'
 import TestimonialsSection from '@/components/home/TestimonialsSection'
 import CTASection from '@/components/home/CTASection'
 import FloatingElements from '@/components/home/FloatingElements'
-import { getKDChapters, getAllKDStats } from '@/utils/kdMethodParser'
+import { getKDChapters, getAllKDStats } from '@/utils/studyMaterialParser'
 
 export default async function HomePage() {
-  const kdMethodDir = path.join(process.cwd(), 'data', 'kd-method')
+  const kdMethodDir = path.join(process.cwd(), 'data', 'study-material')
   let folders: string[] = []
   if (fs.existsSync(kdMethodDir)) {
     const entries = fs.readdirSync(kdMethodDir, { withFileTypes: true })

@@ -17,7 +17,7 @@ const BOOT_LINES = [
   { t: 1800, text: '> NET: Establishing encrypted tunnel...', type: 'info' },
   { t: 2400, text: '> NET: TLS 1.3 handshake ████████████████ COMPLETE', type: 'ok' },
   { t: 3000, text: '> LOAD: quiz_engine.mod ............... [OK]', type: 'ok' },
-  { t: 3400, text: '> LOAD: kd_method_framework.mod ....... [OK]', type: 'ok' },
+  { t: 3400, text: '> LOAD: study_material_framework.mod ....... [OK]', type: 'ok' },
   { t: 3800, text: '> LOAD: spaced_repetition.mod ......... [OK]', type: 'ok' },
   { t: 4200, text: '> LOAD: flashcard_renderer.mod ........ [OK]', type: 'ok' },
   { t: 4600, text: '> MOUNT: /subjects/polity ............. [OK]', type: 'ok' },

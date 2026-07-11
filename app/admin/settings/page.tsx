@@ -215,7 +215,7 @@ export default function SettingsPage() {
 
             <div className="space-y-4 pt-2">
               <ToggleRow 
-                label="KD Method System" 
+                label="Study Material System" 
                 value={settings.features.kdMethod}
                 onChange={(val: boolean) => updateFeature('kdMethod', val)}
                 small

@@ -114,7 +114,7 @@ export default function ContentExplorer() {
             Content Explorer
           </h1>
           <p className="text-gray-500 dark:text-gray-400 mt-1">
-            Manage the KD Method file structure directly on the server.
+            Manage the Study Material file structure directly on the server.
           </p>
         </div>
         <button

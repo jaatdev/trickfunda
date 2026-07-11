@@ -132,7 +132,7 @@ export default function WysiwygEditor({ content, onChange }: WysiwygEditorProps)
     content: content,
     onUpdate: ({ editor }) => {
       // Return HTML. If you need strict Markdown, you would use turndown to convert HTML to Markdown.
-      // But KD Method supports HTML inside notes.md!
+      // But Study Material supports HTML inside notes.md!
       onChange(editor.getHTML());
     },
     editorProps: {

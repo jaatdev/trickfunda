@@ -129,7 +129,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <motion.a 
-            href="/kd-method" 
+            href="/study-material" 
             className="group px-12 py-6 bg-white text-violet-600 rounded-2xl font-black text-xl shadow-2xl relative overflow-hidden"
             whileHover={{ scale: 1.05, boxShadow: '0 20px 60px rgba(236, 72, 153, 0.5)' }}
             whileTap={{ scale: 0.95 }}

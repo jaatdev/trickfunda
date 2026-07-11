@@ -12,7 +12,7 @@ const wrappers = [
 ];
 
 for (const file of wrappers) {
-  const fullPath = path.join('c:/Users/Kapil Chaudhary/Desktop/notty/components/kd-method', file);
+  const fullPath = path.join('c:/Users/Kapil Chaudhary/Desktop/notty/components/study-material', file);
   if (!fs.existsSync(fullPath)) continue;
 
   let content = fs.readFileSync(fullPath, 'utf8');

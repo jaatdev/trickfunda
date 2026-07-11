@@ -132,7 +132,7 @@ export default function Navbar() {
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
               <motion.div variants={itemVariants}>
-                <MagneticNavLink href="/kd-method" label="KD Method" theme={theme} showBadge={true} />
+                <MagneticNavLink href="/study-material" label="Study Material" theme={theme} showBadge={true} />
               </motion.div>
               <motion.div variants={itemVariants}>
                 <MagneticNavLink href="/tools" label="Tools" theme={theme} showBadge={true} />

@@ -1,5 +1,5 @@
 import React from 'react';
-import { getAllKDStats, getKDChapterSubjects, getKDSubjectStats } from '@/utils/kdMethodParser';
+import { getAllKDStats, getKDChapterSubjects, getKDSubjectStats } from '@/utils/studyMaterialParser';
 import { BookOpen, Files, FileText, CheckSquare, Youtube, GraduationCap, FolderTree, FileEdit } from 'lucide-react';
 import { getThemeById } from '@/lib/theme-variants';
 
@@ -87,7 +87,7 @@ export default async function AdminDashboard() {
           <div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl p-6 text-white shadow-lg shadow-emerald-500/20">
             <h2 className="text-xl font-bold mb-2">Quick Actions</h2>
             <p className="text-emerald-100 text-sm mb-6">
-              Manage the KD Method file structure directly from the browser.
+              Manage the Study Material file structure directly from the browser.
             </p>
             <div className="space-y-3">
               <QuickActionButton href="/admin/explorer" icon={FolderTree} title="Open Content Explorer" desc="Browse and create folders" />
@@ -108,7 +108,7 @@ export default async function AdminDashboard() {
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-gray-500 dark:text-gray-400">Data Directory</span>
-                <span className="font-mono text-xs text-gray-600 dark:text-gray-300">/data/kd-method</span>
+                <span className="font-mono text-xs text-gray-600 dark:text-gray-300">/data/study-material</span>
               </div>
             </div>
           </div>

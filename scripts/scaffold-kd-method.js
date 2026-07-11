@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const KD_METHOD_DIR = path.join(process.cwd(), 'data', 'kd-method');
+const KD_METHOD_DIR = path.join(process.cwd(), 'data', 'study-material');
 
 const scaffoldData = [
   // GS TrickFunda

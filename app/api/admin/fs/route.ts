@@ -3,9 +3,9 @@ import { requireAdminAPI } from '@/lib/adminAuth';
 import fs from 'fs';
 import path from 'path';
 
-const KD_METHOD_DIR = path.join(process.cwd(), 'data', 'kd-method');
+const KD_METHOD_DIR = path.join(process.cwd(), 'data', 'study-material');
 
-// Helper to ensure paths don't escape the kd-method directory
+// Helper to ensure paths don't escape the study-material directory
 function getSafePath(requestPath: string) {
   // Remove leading slashes and normalize
   const normalized = path.normalize(requestPath.replace(/^\/+/, ''));

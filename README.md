@@ -25,7 +25,7 @@ TrickFunda combines beautiful UI design with learning science — spaced repetit
 
 | | |
 |:---:|:---:|
-| **🏠 Stunning Landing Page** | **📚 KD Method Learning System** |
+| **🏠 Stunning Landing Page** | **📚 Study Material Learning System** |
 | Animated hero, 3D card effects, parallax | 7 subjects, chapter-based structured learning |
 | **🧠 Exam-Simulation Quizzes** | **📊 Detailed Quiz Review** |
 | Timed, keyboard shortcuts, bilingual | Per-question analytics, PDF export |
@@ -34,9 +34,9 @@ TrickFunda combines beautiful UI design with learning science — spaced repetit
 
 ## ✨ Features
 
-### 🎓 KD Method — The Core Learning Engine
+### 🎓 Study Material — The Core Learning Engine
 
-The **KD Method** is TrickFunda's structured, chapter-by-chapter learning system spanning **7 subject areas**:
+The **Study Material** is TrickFunda's structured, chapter-by-chapter learning system spanning **7 subject areas**:
 
 | Subject | Description |
 |---------|-------------|
@@ -78,7 +78,7 @@ A sophisticated, full-featured quiz interface that replicates a real exam enviro
 
 Build your own personalized quiz from any combination of topics:
 
-- **Interactive topic tree** — browse all KD Method subjects/chapters/topics with checkboxes and parent-child selection
+- **Interactive topic tree** — browse all Study Material subjects/chapters/topics with checkboxes and parent-child selection
 - **Question count slider** — 10 to 200 questions (step of 5)
 - **Random sampling** — questions are shuffled from selected topics via a dedicated API
 - **Seamless transition** — enters fullscreen quiz mode after generation
@@ -200,7 +200,7 @@ trickfunda/
 │   ├── api/                      # API routes
 │   │   ├── admin/                # Admin APIs
 │   │   ├── drafts/               # Content draft management
-│   │   ├── kd-method/            # Quiz generation API
+│   │   ├── study-material/            # Quiz generation API
 │   │   ├── presence/             # Real-time presence (heartbeat)
 │   │   ├── published/            # Published content API
 │   │   └── upload/               # Image upload (Cloudinary + Supabase)
@@ -210,7 +210,7 @@ trickfunda/
 │   ├── contact/                  # Contact form
 │   ├── features/                 # Feature showcase
 │   ├── help-center/              # Help & documentation
-│   ├── kd-method/                # ← THE CORE LEARNING SYSTEM
+│   ├── study-material/                # ← THE CORE LEARNING SYSTEM
 │   │   ├── [subject]/            # Dynamic subject pages
 │   │   │   └── [...path]/        # Deep nested topic pages
 │   │   ├── custom-quiz/          # Custom Quiz Builder
@@ -233,7 +233,7 @@ trickfunda/
 │   │   ├── FeaturesShowcase.tsx  # 3D tilt feature cards
 │   │   ├── SubjectsGrid.tsx      # Dynamic subject grid
 │   │   └── TestimonialsSection.tsx
-│   ├── kd-method/                # KD Method components
+│   ├── study-material/                # Study Material components
 │   │   └── ConceptInteractiveViewer.tsx
 │   ├── layout/                   # Navbar & Footer
 │   ├── quiz/                     # Quiz system
@@ -252,7 +252,7 @@ trickfunda/
 │   └── ui/                       # Shared UI components
 │
 ├── data/                         # Content data
-│   ├── kd-method/                # KD Method file-based content
+│   ├── study-material/                # Study Material file-based content
 │   │   ├── maths-trickfunda/     # Math chapters & quizzes
 │   │   ├── english-100-concepts/ # 100 English concept files
 │   │   ├── english-chapterwise/
@@ -361,7 +361,7 @@ npm run build
 npm start
 ```
 
-> The build script automatically runs `node scripts/build-static-data.js` before the Next.js build to generate `data/notes-static.json` from the file-based KD Method content.
+> The build script automatically runs `node scripts/build-static-data.js` before the Next.js build to generate `data/notes-static.json` from the file-based Study Material content.
 
 ---
 
@@ -418,7 +418,7 @@ npx vitest
 |--------|-------------|
 | `npm run dev` | Start development server with Turbopack |
 | `npm run build` | Build static data + production bundle |
-| `npm run build:data` | Generate `notes-static.json` from KD Method files |
+| `npm run build:data` | Generate `notes-static.json` from Study Material files |
 | `npm start` | Start production server |
 | `npm run lint` | Run ESLint |
 

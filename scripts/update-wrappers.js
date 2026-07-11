@@ -68,7 +68,7 @@ const wrappers = [
 ];
 
 for (const wrapper of wrappers) {
-  const fullPath = path.join('c:/Users/Kapil Chaudhary/Desktop/notty/components/kd-method', wrapper.file);
+  const fullPath = path.join('c:/Users/Kapil Chaudhary/Desktop/notty/components/study-material', wrapper.file);
   if (!fs.existsSync(fullPath)) {
     console.error(`File not found: ${fullPath}`);
     continue;
