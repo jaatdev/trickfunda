@@ -17,7 +17,6 @@ export function TextReveal({ text, className }: { text: string; className?: stri
     visible: {
       opacity: 1,
       y: 0,
-      filter: 'blur(0px)',
       transition: {
         type: 'spring',
         damping: 12,
@@ -27,7 +26,6 @@ export function TextReveal({ text, className }: { text: string; className?: stri
     hidden: {
       opacity: 0,
       y: 20,
-      filter: 'blur(10px)',
       transition: {
         type: 'spring',
         damping: 12,
