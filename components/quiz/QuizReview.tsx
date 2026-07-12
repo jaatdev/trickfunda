@@ -151,25 +151,25 @@ export function QuizReview({ attempts, score, topicId, onClose }: QuizReviewProp
   return (
     <>
       {isDownloading && (
-        <div className="fixed inset-0 z-[9999] bg-black/90 backdrop-blur-xl flex flex-col items-center justify-center text-emerald-400 font-mono animate-in fade-in duration-300">
+        <div className="fixed inset-0 z-[9999] bg-black/90 backdrop-blur-xl flex flex-col items-center justify-center text-emerald-400 font-mono animate-in fade-in duration-300 px-4 text-center">
           <div className="relative flex items-center justify-center mb-8">
             <div className="absolute inset-0 bg-emerald-500/20 blur-xl rounded-full" />
-            <Shield className="w-16 h-16 text-emerald-500 animate-pulse relative z-10" />
-            <Loader2 className="w-24 h-24 absolute animate-spin text-emerald-500/50" />
+            <Shield className="w-12 h-12 md:w-16 md:h-16 text-emerald-500 animate-pulse relative z-10" />
+            <Loader2 className="w-20 h-20 md:w-24 md:h-24 absolute animate-spin text-emerald-500/50" />
           </div>
-          <h2 className="text-2xl md:text-3xl font-bold tracking-[0.3em] mb-4 text-emerald-500 flex items-center gap-3 drop-shadow-[0_0_10px_rgba(16,185,129,0.8)]">
-            <Terminal className="w-6 h-6 animate-pulse" />
+          <h2 className="text-xl md:text-3xl font-bold tracking-[0.1em] md:tracking-[0.3em] mb-4 text-emerald-500 flex items-center justify-center gap-3 drop-shadow-[0_0_10px_rgba(16,185,129,0.8)]">
+            <Terminal className="w-5 h-5 md:w-6 md:h-6 animate-pulse" />
             SYSTEM COMPILING
           </h2>
           <div className="flex flex-col items-center gap-2">
-            <p className="text-emerald-400/80 animate-pulse text-sm md:text-base tracking-widest">
+            <p className="text-emerald-400/80 animate-pulse text-xs md:text-base tracking-widest">
               Processing PDF {downloadProgress}%
             </p>
-            <div className="w-64 h-1.5 bg-gray-900 border border-emerald-500/30 rounded-full overflow-hidden mt-6 relative">
+            <div className="w-48 md:w-64 h-1.5 bg-gray-900 border border-emerald-500/30 rounded-full overflow-hidden mt-6 relative">
               <div className="absolute top-0 left-0 h-full bg-emerald-500 w-full animate-[shimmer_2s_infinite] opacity-50" />
               <div className="h-full bg-emerald-400 rounded-full shadow-[0_0_10px_rgba(52,211,153,0.8)] transition-all duration-300" style={{ width: `${Math.max(5, downloadProgress)}%` }} />
             </div>
-            <p className="text-emerald-500/60 font-mono text-xs mt-4 text-center">
+            <p className="text-emerald-500/60 font-mono text-[10px] md:text-xs mt-4 text-center">
               Please wait while we stitch your questions.
             </p>
           </div>
@@ -181,7 +181,7 @@ export function QuizReview({ attempts, score, topicId, onClose }: QuizReviewProp
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="pdf-page-element bg-white dark:bg-neutral-900 rounded-2xl shadow-xl p-8 mb-6"
+          className="pdf-page-element bg-white dark:bg-neutral-900 rounded-2xl shadow-xl p-5 md:p-8 mb-6"
         >
           <div className="text-center mb-6 relative flex flex-col md:flex-row items-center justify-between">
             <div className="flex-1">

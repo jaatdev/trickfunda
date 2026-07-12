@@ -39,6 +39,10 @@ export default function FlashcardSessionClient({ flashcards, category, day }: Pr
     if (!element) return;
     
     setIsGenerating(true);
+    
+    // Allow React to paint the overlay before blocking the main thread
+    await new Promise(resolve => setTimeout(resolve, 100));
+    
     try {
       const { toJpeg } = await import('html-to-image');
       const { jsPDF } = await import('jspdf');
@@ -109,60 +113,60 @@ export default function FlashcardSessionClient({ flashcards, category, day }: Pr
     return (
       <>
         {isGenerating && (
-          <div className="fixed inset-0 z-[300] bg-black/90 backdrop-blur-xl flex flex-col items-center justify-center text-emerald-400 font-mono animate-in fade-in duration-300">
+          <div className="fixed inset-0 z-[300] bg-black/90 backdrop-blur-xl flex flex-col items-center justify-center text-emerald-400 font-mono animate-in fade-in duration-300 px-4 text-center">
             <div className="relative flex items-center justify-center mb-8">
               <div className="absolute inset-0 bg-emerald-500/20 blur-xl rounded-full" />
-              <Shield className="w-16 h-16 text-emerald-500 animate-pulse relative z-10" />
-              <Loader2 className="w-24 h-24 absolute animate-spin text-emerald-500/50" />
+              <Shield className="w-12 h-12 md:w-16 md:h-16 text-emerald-500 animate-pulse relative z-10" />
+              <Loader2 className="w-20 h-20 md:w-24 md:h-24 absolute animate-spin text-emerald-500/50" />
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold tracking-[0.3em] mb-4 text-emerald-500 flex items-center gap-3 drop-shadow-[0_0_10px_rgba(16,185,129,0.8)]">
-              <Terminal className="w-6 h-6 animate-pulse" />
+            <h2 className="text-xl md:text-3xl font-bold tracking-[0.1em] md:tracking-[0.3em] mb-4 text-emerald-500 flex items-center justify-center gap-3 drop-shadow-[0_0_10px_rgba(16,185,129,0.8)]">
+              <Terminal className="w-5 h-5 md:w-6 md:h-6 animate-pulse" />
               SYSTEM COMPILING
             </h2>
             <div className="flex flex-col items-center gap-2">
-              <p className="text-emerald-400/80 animate-pulse text-sm md:text-base tracking-widest">ENCRYPTING PDF DATASTREAM...</p>
-              <div className="w-64 h-1.5 bg-gray-900 border border-emerald-500/30 rounded-full overflow-hidden mt-6 relative">
+              <p className="text-emerald-400/80 animate-pulse text-xs md:text-base tracking-widest">ENCRYPTING PDF DATASTREAM...</p>
+              <div className="w-48 md:w-64 h-1.5 bg-gray-900 border border-emerald-500/30 rounded-full overflow-hidden mt-6 relative">
                 <div className="absolute top-0 left-0 h-full bg-emerald-500 w-full animate-[shimmer_2s_infinite] opacity-50" />
                 <div className="h-full bg-emerald-400 rounded-full shadow-[0_0_10px_rgba(52,211,153,0.8)] animate-[pulse_1s_ease-in-out_infinite] w-[70%]" />
               </div>
             </div>
           </div>
         )}
-        <div className="min-h-screen bg-white dark:bg-gray-950 p-8 md:p-16">
-          <div className="max-w-6xl mx-auto space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-700">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-950 p-4 md:p-16">
+          <div className="max-w-6xl mx-auto space-y-6 md:space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-700">
           
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6 print:hidden">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 print:hidden text-center md:text-left">
             <div className="space-y-2">
-              <div className="flex items-center gap-3 text-emerald-500 font-bold mb-2">
+              <div className="flex items-center justify-center md:justify-start gap-3 text-emerald-500 font-bold mb-2">
                 <CheckCircle className="w-6 h-6" /> Session Complete!
               </div>
-              <h1 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white capitalize">
+              <h1 className="text-2xl md:text-4xl font-black text-gray-900 dark:text-white capitalize">
                 {category} - {day.replace('-', ' ')} Summary
               </h1>
-              <p className="text-gray-500 dark:text-gray-400">
+              <p className="text-sm md:text-base text-gray-500 dark:text-gray-400">
                 You've mastered {flashcards.length} words today. Review them below or download as PDF.
               </p>
             </div>
             
-            <div className="flex gap-4">
+            <div className="flex flex-col sm:flex-row w-full md:w-auto gap-3 md:gap-4">
               <button 
                 onClick={handleDownloadPdf}
-                className="px-6 py-3 bg-gray-100 dark:bg-gray-900 hover:bg-gray-200 dark:hover:bg-gray-800 text-gray-900 dark:text-white rounded-xl font-bold transition-colors flex items-center gap-2"
+                className="w-full sm:w-auto px-6 py-3 bg-white dark:bg-gray-900 border border-gray-200 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-900 dark:text-white rounded-xl font-bold transition-colors flex items-center justify-center gap-2 shadow-sm"
               >
                 <Printer className="w-5 h-5" /> Download PDF
               </button>
               <Link 
                 href={`/study-material/vocab-trickfunda/${category}`}
-                className="px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl font-bold transition-colors shadow-lg shadow-emerald-500/20"
+                className="w-full sm:w-auto px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl font-bold transition-colors shadow-lg shadow-emerald-500/20 flex items-center justify-center gap-2"
               >
                 Back to Curriculum
               </Link>
             </div>
           </div>
 
-          <div id="pdf-summary-content" className="bg-white dark:bg-[#111] border border-gray-200 dark:border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl print:shadow-none print:border-none print:p-0">
-            <div className="text-center mb-10 pdf-header">
-              <h1 className="text-4xl font-black text-gray-900 dark:text-white capitalize mb-2">Vocab TrickFunda</h1>
+          <div id="pdf-summary-content" className="bg-white dark:bg-[#111] border border-gray-200 dark:border-white/10 rounded-3xl p-4 md:p-12 shadow-sm md:shadow-2xl print:shadow-none print:border-none print:p-0">
+            <div className="text-center mb-8 md:mb-10 pdf-header">
+              <h1 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white capitalize mb-2">Vocab TrickFunda</h1>
               <h2 className="text-xl text-gray-600 dark:text-gray-400 capitalize">{category} - {day.replace('-', ' ')}</h2>
             </div>
 

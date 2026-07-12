@@ -12,7 +12,7 @@ export default async function ProtectedToolsLayout({
 
   if (!userId) {
     return (
-      <div className="min-h-[80vh] flex flex-col items-center justify-center p-4 bg-[#030014]">
+      <div className="flex-1 flex flex-col items-center justify-center p-4 bg-[#030014] py-12 md:py-24">
         <div className="max-w-md w-full bg-white/5 border border-white/10 rounded-3xl p-8 shadow-2xl relative overflow-hidden text-center animate-in fade-in slide-in-from-bottom-4 duration-700 backdrop-blur-xl">
           {/* Background Glow */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-32 bg-violet-500/20 blur-[50px] pointer-events-none" />

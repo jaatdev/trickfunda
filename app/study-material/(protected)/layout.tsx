@@ -12,8 +12,8 @@ export default async function StudyMaterialLayout({
 
   if (!userId) {
     return (
-      <div className="min-h-[80vh] flex flex-col items-center justify-center p-4">
-        <div className="max-w-md w-full bg-white dark:bg-[#111] border border-gray-200 dark:border-white/10 rounded-3xl p-8 shadow-2xl relative overflow-hidden text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
+      <div className="flex-1 flex flex-col items-center justify-center p-4 md:min-h-[80vh]">
+        <div className="max-w-md w-full bg-white dark:bg-[#111] border border-gray-200 dark:border-white/10 rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
           {/* Background Glow */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-32 bg-emerald-500/20 blur-[50px] pointer-events-none" />
           

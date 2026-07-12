@@ -62,13 +62,13 @@ export default function FeaturesShowcase() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-black mb-4 bg-gradient-to-r from-violet-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-6xl font-black mb-4 bg-gradient-to-r from-violet-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent px-2">
             ✨ Powerful Features
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400">Everything you need to ace your exams</p>
+          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 px-4">Everything you need to ace your exams</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
           {features.map((feature, idx) => (
             <motion.div
               key={idx}
@@ -81,7 +81,7 @@ export default function FeaturesShowcase() {
               className="relative group"
             >
               <motion.div
-                className="relative bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl p-8 rounded-3xl border border-white/20 shadow-xl overflow-hidden"
+                className="relative bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl p-6 md:p-8 rounded-3xl border border-white/20 shadow-xl overflow-hidden"
                 whileHover={{ 
                   scale: 1.05,
                   rotateY: 5,

@@ -71,7 +71,7 @@ export default function HeroSection() {
         </motion.div>
 
         <motion.h1 
-          className="text-7xl md:text-9xl font-black mb-6 leading-tight drop-shadow-2xl"
+          className="text-5xl md:text-8xl lg:text-9xl font-black mb-6 leading-tight drop-shadow-2xl px-2"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -107,14 +107,14 @@ export default function HeroSection() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="w-full max-w-3xl mx-auto mb-8 rounded-3xl overflow-hidden shadow-2xl border border-white/20"
+          className="w-full max-w-3xl mx-auto mb-8 rounded-3xl overflow-hidden shadow-2xl border border-white/20 px-4 md:px-0"
         >
           {/* BANNER IMAGE ADDED HERE */}
-          <img src="/banner.jpg" alt="TrickFunda Banner" className="w-full h-auto object-contain bg-black/40 backdrop-blur-sm" />
+          <img src="/banner.jpg" alt="TrickFunda Banner" className="w-full h-auto object-contain bg-black/40 backdrop-blur-sm rounded-3xl" />
         </motion.div>
 
         <motion.p 
-          className="text-xl md:text-2xl mb-12 opacity-95 max-w-3xl mx-auto"
+          className="text-lg md:text-xl lg:text-2xl mb-10 md:mb-12 opacity-95 max-w-3xl mx-auto px-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -123,14 +123,14 @@ export default function HeroSection() {
         </motion.p>
 
         <motion.div 
-          className="flex flex-col sm:flex-row gap-6 justify-center mb-16"
+          className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full px-6 sm:px-0 max-w-sm sm:max-w-none mx-auto justify-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <motion.a 
             href="/study-material" 
-            className="group px-12 py-6 bg-white text-violet-600 rounded-2xl font-black text-xl shadow-2xl relative overflow-hidden"
+            className="group px-8 py-5 md:px-12 md:py-6 bg-white text-violet-600 rounded-2xl font-black text-lg md:text-xl shadow-2xl relative overflow-hidden w-full sm:w-auto"
             whileHover={{ scale: 1.05, boxShadow: '0 20px 60px rgba(236, 72, 153, 0.5)' }}
             whileTap={{ scale: 0.95 }}
           >
@@ -138,13 +138,13 @@ export default function HeroSection() {
               className="absolute inset-0 bg-gradient-to-r from-pink-500 to-violet-500 opacity-0 group-hover:opacity-10"
               initial={false}
             />
-            <span className="relative z-10">Start Learning Free →</span>
+            <span className="relative flex items-center justify-center gap-2">Start Learning Free →</span>
             <span className="block text-xs font-normal mt-1 opacity-70">No credit card required</span>
           </motion.a>
           
           <motion.a 
             href="#features" 
-            className="px-12 py-6 bg-white/10 backdrop-blur-md text-white rounded-2xl font-black text-xl border-2 border-white/30 shadow-2xl"
+            className="px-8 py-5 md:px-12 md:py-6 w-full sm:w-auto bg-white/10 backdrop-blur-md text-white rounded-2xl font-black text-lg md:text-xl border-2 border-white/30 shadow-2xl"
             whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 0.2)' }}
             whileTap={{ scale: 0.95 }}
           >
@@ -153,7 +153,7 @@ export default function HeroSection() {
         </motion.div>
 
         <motion.div 
-          className="flex flex-wrap justify-center gap-12"
+          className="flex flex-wrap justify-center gap-6 md:gap-12"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.8 }}

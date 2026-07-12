@@ -30,7 +30,7 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-indigo-50 via-white to-purple-50 p-4">
+    <div className="flex-1 w-full flex items-center justify-center bg-linear-to-br from-indigo-50 via-white to-purple-50 p-4 md:min-h-screen py-8 md:py-4">
       <div className="w-full max-w-md">
         {/* Logo/Brand */}
         <div className="text-center mb-8">
@@ -41,7 +41,7 @@ export default function SignupPage() {
         </div>
 
         {/* Signup Form */}
-        <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8">
+        <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 md:p-8">
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Full Name */}
             <div>
