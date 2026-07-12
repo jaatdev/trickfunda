@@ -7,7 +7,7 @@ import { DiceLayout, FigureData } from '@/lib/types';
 import { DiceLayoutRenderer } from './DiceLayoutRenderer';
 import { FigureRenderer } from './geometry/FigureRenderer';
 import * as htmlToImage from 'html-to-image';
-
+import { Shield, Loader2, Terminal } from 'lucide-react';
 interface QuizAttempt {
   questionId: string;
   prompt: string;
@@ -151,20 +151,26 @@ export function QuizReview({ attempts, score, topicId, onClose }: QuizReviewProp
   return (
     <>
       {isDownloading && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
-          <div className="bg-white dark:bg-neutral-900 rounded-2xl p-8 max-w-sm w-full mx-4 shadow-2xl text-center">
-            <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Generating PDF...</h3>
-            <div className="w-full bg-gray-200 dark:bg-gray-800 rounded-full h-4 mb-4 overflow-hidden relative">
-              <div 
-                className="bg-emerald-500 h-4 rounded-full transition-all duration-300 absolute left-0 top-0"
-                style={{ width: `${downloadProgress}%` }}
-              />
-            </div>
-            <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">
-              Processing {downloadProgress}%
+        <div className="fixed inset-0 z-[9999] bg-black/90 backdrop-blur-xl flex flex-col items-center justify-center text-emerald-400 font-mono animate-in fade-in duration-300">
+          <div className="relative flex items-center justify-center mb-8">
+            <div className="absolute inset-0 bg-emerald-500/20 blur-xl rounded-full" />
+            <Shield className="w-16 h-16 text-emerald-500 animate-pulse relative z-10" />
+            <Loader2 className="w-24 h-24 absolute animate-spin text-emerald-500/50" />
+          </div>
+          <h2 className="text-2xl md:text-3xl font-bold tracking-[0.3em] mb-4 text-emerald-500 flex items-center gap-3 drop-shadow-[0_0_10px_rgba(16,185,129,0.8)]">
+            <Terminal className="w-6 h-6 animate-pulse" />
+            SYSTEM COMPILING
+          </h2>
+          <div className="flex flex-col items-center gap-2">
+            <p className="text-emerald-400/80 animate-pulse text-sm md:text-base tracking-widest">
+              Processing PDF {downloadProgress}%
             </p>
-            <p className="text-xs text-gray-400 mt-2">
-              Please wait while we perfectly stitch your questions together without cutting them.
+            <div className="w-64 h-1.5 bg-gray-900 border border-emerald-500/30 rounded-full overflow-hidden mt-6 relative">
+              <div className="absolute top-0 left-0 h-full bg-emerald-500 w-full animate-[shimmer_2s_infinite] opacity-50" />
+              <div className="h-full bg-emerald-400 rounded-full shadow-[0_0_10px_rgba(52,211,153,0.8)] transition-all duration-300" style={{ width: `${Math.max(5, downloadProgress)}%` }} />
+            </div>
+            <p className="text-emerald-500/60 font-mono text-xs mt-4 text-center">
+              Please wait while we stitch your questions.
             </p>
           </div>
         </div>
