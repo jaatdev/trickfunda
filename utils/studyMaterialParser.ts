@@ -365,20 +365,24 @@ export async function getKDNode(pathArray: string[]): Promise<import('@/types/st
         if (file.name.startsWith('quiz') && file.name.endsWith('.json')) {
           try {
             const rawQuiz = await fs.promises.readFile(path.join(nodeDir, file.name), 'utf8');
-            const questions = JSON.parse(rawQuiz) as QuizQuestion[];
-            const titlePart = file.name.replace('.json', '');
-            const title = titlePart === 'quiz' ? 'Quiz' : formatTitle(titlePart.replace('quiz-', ''));
-            quizzes.push({ id: titlePart, title, questions });
+            if (rawQuiz.trim().length > 0) {
+              const questions = JSON.parse(rawQuiz) as QuizQuestion[];
+              const titlePart = file.name.replace('.json', '');
+              const title = titlePart === 'quiz' ? 'Quiz' : formatTitle(titlePart.replace('quiz-', ''));
+              quizzes.push({ id: titlePart, title, questions });
+            }
           } catch (e) {
             console.error(`Error parsing ${file.name} in ${nodeSlug}`, e);
           }
         } else if (file.name.startsWith('flashcards') && file.name.endsWith('.json')) {
           try {
             const rawCards = await fs.promises.readFile(path.join(nodeDir, file.name), 'utf8');
-            const flashcards = JSON.parse(rawCards) as import('@/lib/types').SubjectFlashcard[];
-            const titlePart = file.name.replace('.json', '');
-            const title = titlePart === 'flashcards' ? 'Flashcards' : formatTitle(titlePart.replace('flashcards-', ''));
-            flashcardSets.push({ id: titlePart, title, flashcards });
+            if (rawCards.trim().length > 0) {
+              const flashcards = JSON.parse(rawCards) as import('@/lib/types').SubjectFlashcard[];
+              const titlePart = file.name.replace('.json', '');
+              const title = titlePart === 'flashcards' ? 'Flashcards' : formatTitle(titlePart.replace('flashcards-', ''));
+              flashcardSets.push({ id: titlePart, title, flashcards });
+            }
           } catch (e) {
             console.error(`Error parsing ${file.name} in ${nodeSlug}`, e);
           }

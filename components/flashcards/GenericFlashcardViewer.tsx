@@ -149,7 +149,7 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
 
       {/* Main Flashcard Container */}
       <div className="relative w-[90vw] md:w-[80vw] lg:w-[70vw] xl:w-[60vw] h-[70vh] md:h-[75vh] min-h-[500px] flex items-center justify-center perspective-[2000px] z-40">
-        <AnimatePresence custom={direction} mode="wait">
+        <AnimatePresence custom={direction}>
           <motion.div
             key={currentIndex}
             custom={direction}
@@ -157,164 +157,168 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
             initial="enter"
             animate="center"
             exit="exit"
-            className="w-full h-full cursor-pointer group"
+            className="absolute inset-0 w-full h-full cursor-pointer group"
             onClick={handleNextState}
-            style={{ transformStyle: 'preserve-3d' }}
+            style={{ transformStyle: 'preserve-3d', WebkitTapHighlightColor: 'transparent' }}
           >
             {/* Front of Card */}
             <motion.div 
-              className="absolute inset-0 w-full h-full rounded-[2.5rem] bg-gradient-to-br from-[#1a1a2e] to-[#16213e] border border-blue-500/30 shadow-[0_0_50px_rgba(59,130,246,0.15)] flex flex-col items-center justify-center p-8 md:p-12 overflow-y-auto overflow-x-hidden scrollbar-hide backface-hidden"
+              className="absolute inset-0 w-full h-full rounded-[2.5rem] bg-gradient-to-br from-[#1a1a2e] to-[#16213e] border border-blue-500/30 shadow-[0_0_50px_rgba(59,130,246,0.15)] overflow-hidden backface-hidden"
               initial={false}
               animate={{ rotateX: flipState > 0 ? 180 : 0 }}
               transition={{ type: "spring", stiffness: 260, damping: 20 }}
               style={{ backfaceVisibility: 'hidden' }}
             >
-              <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.05)_50%,transparent_75%)] bg-[length:250%_250%] animate-[shimmer_3s_infinite]" />
+              <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.05)_50%,transparent_75%)] bg-[length:250%_250%] animate-[shimmer_3s_infinite] pointer-events-none" />
               
-              <div className="flex-1 flex flex-col items-center justify-center w-full relative z-10 gap-6">
-                {currentCard.type && (
-                  <span className="px-6 py-2 bg-blue-500/10 border border-blue-500/20 text-blue-400 rounded-full text-xs font-bold uppercase tracking-[0.2em] mb-4 shadow-[0_0_20px_rgba(59,130,246,0.2)]">
-                    {currentCard.type}
-                  </span>
-                )}
-                
-                <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-br from-white via-blue-100 to-blue-500/50 bg-clip-text text-transparent filter drop-shadow-[0_0_15px_rgba(59,130,246,0.3)] text-center break-words text-balance w-full max-w-4xl px-4 leading-relaxed md:leading-snug">
-                  {currentCard.front}
-                </h1>
-                
-                {currentCard.front_hi && (
-                  <h2 className="text-lg md:text-xl lg:text-2xl font-medium text-blue-200/70 text-center break-words text-balance w-full max-w-4xl px-4 mt-2 leading-relaxed">
-                    {currentCard.front_hi}
-                  </h2>
-                )}
+              <div className="absolute inset-0 w-full h-full overflow-y-auto overflow-x-hidden scrollbar-hide p-8 md:p-12 flex flex-col" style={{ transform: 'translateZ(0)' }}>
+                <div className="flex-1 flex flex-col items-center justify-center w-full relative z-10 gap-6">
+                  {currentCard.type && (
+                    <span className="px-6 py-2 bg-blue-500/10 border border-blue-500/20 text-blue-400 rounded-full text-xs font-bold uppercase tracking-[0.2em] mb-4 shadow-[0_0_20px_rgba(59,130,246,0.2)]">
+                      {currentCard.type}
+                    </span>
+                  )}
+                  
+                  <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-br from-white via-blue-100 to-blue-500/50 bg-clip-text text-transparent filter drop-shadow-[0_0_15px_rgba(59,130,246,0.3)] text-center break-words text-balance w-full max-w-4xl px-4 leading-relaxed md:leading-snug">
+                    {currentCard.front}
+                  </h1>
+                  
+                  {currentCard.front_hi && (
+                    <h2 className="text-lg md:text-xl lg:text-2xl font-medium text-blue-200/70 text-center break-words text-balance w-full max-w-4xl px-4 mt-2 leading-relaxed">
+                      {currentCard.front_hi}
+                    </h2>
+                  )}
 
-                {(currentCard.hint || currentCard.hint_hi) && (
-                  <div className="mt-8 flex flex-col items-center w-full">
-                    {!showHint ? (
-                      <button 
-                        onClick={(e) => { e.stopPropagation(); setShowHint(true); }}
-                        className="px-6 py-2.5 rounded-full border border-yellow-500/30 text-yellow-400/80 hover:bg-yellow-500/10 hover:text-yellow-400 transition-all flex items-center gap-2 shadow-[0_0_15px_rgba(234,179,8,0.1)]"
-                      >
-                        <Info className="w-4 h-4" /> Show Hint
-                      </button>
-                    ) : (
-                      <div className="px-6 py-4 rounded-2xl bg-yellow-500/10 border border-yellow-500/20 text-yellow-100/90 text-center text-sm md:text-base w-full max-w-lg shadow-[0_0_20px_rgba(234,179,8,0.15)] animate-in fade-in zoom-in-95 duration-300">
-                        {currentCard.hint && <p className="font-medium">{currentCard.hint}</p>}
-                        {currentCard.hint_hi && <p className="mt-2 text-yellow-200/70">{currentCard.hint_hi}</p>}
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
-              
-              <div className="mt-8 text-blue-400/50 text-sm font-medium uppercase tracking-widest animate-bounce flex items-center justify-center gap-2 relative z-10 shrink-0">
-                Tap to Flip <ArrowRight className="w-4 h-4 rotate-90" />
+                  {(currentCard.hint || currentCard.hint_hi) && (
+                    <div className="mt-8 flex flex-col items-center w-full">
+                      {!showHint ? (
+                        <button 
+                          onClick={(e) => { e.stopPropagation(); setShowHint(true); }}
+                          className="px-6 py-2.5 rounded-full border border-yellow-500/30 text-yellow-400/80 hover:bg-yellow-500/10 hover:text-yellow-400 transition-all flex items-center gap-2 shadow-[0_0_15px_rgba(234,179,8,0.1)]"
+                        >
+                          <Info className="w-4 h-4" /> Show Hint
+                        </button>
+                      ) : (
+                        <div className="px-6 py-4 rounded-2xl bg-yellow-500/10 border border-yellow-500/20 text-yellow-100/90 text-center text-sm md:text-base w-full max-w-lg shadow-[0_0_20px_rgba(234,179,8,0.15)] animate-in fade-in zoom-in-95 duration-300">
+                          {currentCard.hint && <p className="font-medium">{currentCard.hint}</p>}
+                          {currentCard.hint_hi && <p className="mt-2 text-yellow-200/70">{currentCard.hint_hi}</p>}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+                
+                <div className="mt-8 text-blue-400/50 text-sm font-medium uppercase tracking-widest animate-bounce flex items-center justify-center gap-2 relative z-10 shrink-0">
+                  Tap to Flip <ArrowRight className="w-4 h-4 rotate-90" />
+                </div>
               </div>
             </motion.div>
 
             {/* Back of Card */}
             <motion.div 
-              className="absolute inset-0 w-full h-full rounded-[2.5rem] bg-gradient-to-br from-[#111827] to-[#1f2937] border border-purple-500/30 shadow-[0_0_50px_rgba(168,85,247,0.15)] flex flex-col items-center p-8 md:p-12 overflow-y-auto overflow-x-hidden scrollbar-hide"
+              className="absolute inset-0 w-full h-full rounded-[2.5rem] bg-gradient-to-br from-[#111827] to-[#1f2937] border border-purple-500/30 shadow-[0_0_50px_rgba(168,85,247,0.15)] overflow-hidden backface-hidden"
               initial={false}
               animate={{ rotateX: flipState === 0 ? -180 : 0 }}
               transition={{ type: "spring", stiffness: 260, damping: 20 }}
               style={{ backfaceVisibility: 'hidden', transform: 'rotateX(180deg)' }}
             >
-              <div className="w-full flex-1 flex flex-col justify-center items-center gap-8 py-8">
-                
-                <div className="text-center w-full max-w-4xl space-y-6">
-                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white drop-shadow-md text-balance leading-relaxed">
-                    {currentCard.back}
-                  </h2>
-                  {currentCard.back_hi && (
-                    <h3 className="text-lg md:text-xl lg:text-2xl font-medium text-white/70 drop-shadow-md text-balance leading-relaxed">
-                      {currentCard.back_hi}
-                    </h3>
+              <div className="absolute inset-0 w-full h-full overflow-y-auto overflow-x-hidden scrollbar-hide p-8 md:p-12 flex flex-col" style={{ transform: 'translateZ(0)' }}>
+                <div className="w-full flex-1 flex flex-col justify-center items-center gap-8 py-8">
+                  
+                  <div className="text-center w-full max-w-4xl space-y-6">
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white drop-shadow-md text-balance leading-relaxed">
+                      {currentCard.back}
+                    </h2>
+                    {currentCard.back_hi && (
+                      <h3 className="text-lg md:text-xl lg:text-2xl font-medium text-white/70 drop-shadow-md text-balance leading-relaxed">
+                        {currentCard.back_hi}
+                      </h3>
+                    )}
+                  </div>
+
+                  {(currentCard.explanation || currentCard.explanation_hi) && (
+                    <div className="w-full max-w-4xl mt-4 bg-black/40 backdrop-blur-md p-6 md:p-8 rounded-3xl border border-white/10 shadow-lg text-center">
+                      <h4 className="text-sm font-bold uppercase tracking-widest text-purple-400 mb-4 flex items-center justify-center gap-2">
+                        <Sparkles className="w-4 h-4" /> Explanation
+                      </h4>
+                      {currentCard.explanation && (
+                        <p className="text-gray-200 text-base md:text-lg leading-relaxed">{currentCard.explanation}</p>
+                      )}
+                      {currentCard.explanation_hi && (
+                        <p className="text-gray-400 text-sm md:text-base mt-3 leading-relaxed">{currentCard.explanation_hi}</p>
+                      )}
+                    </div>
+                  )}
+
+                  {currentCard.lists && currentCard.lists.length > 0 && (
+                    <div className={`grid grid-cols-1 ${currentCard.lists.length > 1 ? 'lg:grid-cols-2' : ''} gap-6 w-full max-w-5xl mt-6`}>
+                      {currentCard.lists.map((list, idx) => {
+                        const theme = list.colorTheme || (idx % 2 === 0 ? 'emerald' : 'rose');
+                        let bgClass = "bg-emerald-500/10 border-emerald-500/20 shadow-[0_0_30px_rgba(16,185,129,0.1)] group-hover:border-emerald-500/40";
+                        let titleClass = "text-emerald-400";
+                        let blobClass = "bg-emerald-500/10";
+                        let itemClass = "text-emerald-100 border-emerald-500/20";
+
+                        if (theme === 'rose') {
+                          bgClass = "bg-rose-500/10 border-rose-500/20 shadow-[0_0_30px_rgba(244,63,94,0.1)] group-hover:border-rose-500/40";
+                          titleClass = "text-rose-400";
+                          blobClass = "bg-rose-500/10";
+                          itemClass = "text-rose-100 border-rose-500/20";
+                        } else if (theme === 'blue') {
+                          bgClass = "bg-blue-500/10 border-blue-500/20 shadow-[0_0_30px_rgba(59,130,246,0.1)] group-hover:border-blue-500/40";
+                          titleClass = "text-blue-400";
+                          blobClass = "bg-blue-500/10";
+                          itemClass = "text-blue-100 border-blue-500/20";
+                        } else if (theme === 'amber') {
+                          bgClass = "bg-amber-500/10 border-amber-500/20 shadow-[0_0_30px_rgba(245,158,11,0.1)] group-hover:border-amber-500/40";
+                          titleClass = "text-amber-400";
+                          blobClass = "bg-amber-500/10";
+                          itemClass = "text-amber-100 border-amber-500/20";
+                        } else if (theme === 'purple') {
+                          bgClass = "bg-purple-500/10 border-purple-500/20 shadow-[0_0_30px_rgba(168,85,247,0.1)] group-hover:border-purple-500/40";
+                          titleClass = "text-purple-400";
+                          blobClass = "bg-purple-500/10";
+                          itemClass = "text-purple-100 border-purple-500/20";
+                        }
+
+                        return (
+                          <div key={idx} className={`p-6 rounded-3xl border relative overflow-hidden transition-colors ${bgClass}`}>
+                            <div className={`absolute top-0 right-0 w-32 h-32 rounded-full blur-2xl -mr-16 -mt-16 ${blobClass}`} />
+                            <div className="flex flex-col gap-1 mb-5 relative z-10">
+                              <h3 className={`font-bold flex items-center gap-2 text-lg uppercase tracking-wider ${titleClass}`}>
+                                <Info className="w-5 h-5" /> {list.title}
+                              </h3>
+                              {list.title_hi && (
+                                <h4 className={`font-medium flex items-center gap-2 text-sm opacity-80 ${titleClass}`}>
+                                  {list.title_hi}
+                                </h4>
+                              )}
+                            </div>
+                            
+                            <div className="flex flex-wrap gap-2.5 relative z-10">
+                              {list.items.map((item, i) => (
+                                <span key={i} className={`px-4 py-2.5 bg-black/50 backdrop-blur-md rounded-xl text-sm font-medium border shadow-[0_4px_12px_rgba(0,0,0,0.5)] break-words leading-relaxed ${itemClass}`}>
+                                  {item}
+                                  {list.items_hi && list.items_hi[i] && (
+                                    <span className="block text-xs opacity-70 mt-1.5">{list.items_hi[i]}</span>
+                                  )}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
                   )}
                 </div>
-
-                {(currentCard.explanation || currentCard.explanation_hi) && (
-                  <div className="w-full max-w-4xl mt-4 bg-black/40 backdrop-blur-md p-6 md:p-8 rounded-3xl border border-white/10 shadow-lg text-center">
-                    <h4 className="text-sm font-bold uppercase tracking-widest text-purple-400 mb-4 flex items-center justify-center gap-2">
-                      <Sparkles className="w-4 h-4" /> Explanation
-                    </h4>
-                    {currentCard.explanation && (
-                      <p className="text-gray-200 text-base md:text-lg leading-relaxed">{currentCard.explanation}</p>
-                    )}
-                    {currentCard.explanation_hi && (
-                      <p className="text-gray-400 text-sm md:text-base mt-3 leading-relaxed">{currentCard.explanation_hi}</p>
-                    )}
-                  </div>
-                )}
-
-                {currentCard.lists && currentCard.lists.length > 0 && (
-                  <div className={`grid grid-cols-1 ${currentCard.lists.length > 1 ? 'lg:grid-cols-2' : ''} gap-6 w-full max-w-5xl mt-6`}>
-                    {currentCard.lists.map((list, idx) => {
-                      const theme = list.colorTheme || (idx % 2 === 0 ? 'emerald' : 'rose');
-                      let bgClass = "bg-emerald-500/10 border-emerald-500/20 shadow-[0_0_30px_rgba(16,185,129,0.1)] group-hover:border-emerald-500/40";
-                      let titleClass = "text-emerald-400";
-                      let blobClass = "bg-emerald-500/10";
-                      let itemClass = "text-emerald-100 border-emerald-500/20";
-
-                      if (theme === 'rose') {
-                        bgClass = "bg-rose-500/10 border-rose-500/20 shadow-[0_0_30px_rgba(244,63,94,0.1)] group-hover:border-rose-500/40";
-                        titleClass = "text-rose-400";
-                        blobClass = "bg-rose-500/10";
-                        itemClass = "text-rose-100 border-rose-500/20";
-                      } else if (theme === 'blue') {
-                        bgClass = "bg-blue-500/10 border-blue-500/20 shadow-[0_0_30px_rgba(59,130,246,0.1)] group-hover:border-blue-500/40";
-                        titleClass = "text-blue-400";
-                        blobClass = "bg-blue-500/10";
-                        itemClass = "text-blue-100 border-blue-500/20";
-                      } else if (theme === 'amber') {
-                        bgClass = "bg-amber-500/10 border-amber-500/20 shadow-[0_0_30px_rgba(245,158,11,0.1)] group-hover:border-amber-500/40";
-                        titleClass = "text-amber-400";
-                        blobClass = "bg-amber-500/10";
-                        itemClass = "text-amber-100 border-amber-500/20";
-                      } else if (theme === 'purple') {
-                        bgClass = "bg-purple-500/10 border-purple-500/20 shadow-[0_0_30px_rgba(168,85,247,0.1)] group-hover:border-purple-500/40";
-                        titleClass = "text-purple-400";
-                        blobClass = "bg-purple-500/10";
-                        itemClass = "text-purple-100 border-purple-500/20";
-                      }
-
-                      return (
-                        <div key={idx} className={`p-6 rounded-3xl border relative overflow-hidden transition-colors ${bgClass}`}>
-                          <div className={`absolute top-0 right-0 w-32 h-32 rounded-full blur-2xl -mr-16 -mt-16 ${blobClass}`} />
-                          <div className="flex flex-col gap-1 mb-5 relative z-10">
-                            <h3 className={`font-bold flex items-center gap-2 text-lg uppercase tracking-wider ${titleClass}`}>
-                              <Info className="w-5 h-5" /> {list.title}
-                            </h3>
-                            {list.title_hi && (
-                              <h4 className={`font-medium flex items-center gap-2 text-sm opacity-80 ${titleClass}`}>
-                                {list.title_hi}
-                              </h4>
-                            )}
-                          </div>
-                          
-                          <div className="flex flex-wrap gap-2.5 relative z-10">
-                            {list.items.map((item, i) => (
-                              <span key={i} className={`px-4 py-2.5 bg-black/50 backdrop-blur-md rounded-xl text-sm font-medium border shadow-[0_4px_12px_rgba(0,0,0,0.5)] break-words leading-relaxed ${itemClass}`}>
-                                {item}
-                                {list.items_hi && list.items_hi[i] && (
-                                  <span className="block text-xs opacity-70 mt-1.5">{list.items_hi[i]}</span>
-                                )}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-              
-              <div className="mt-4 text-purple-400/50 text-sm font-medium uppercase tracking-widest animate-bounce flex items-center justify-center gap-2 relative z-10 shrink-0">
-                {hasTrick ? (
-                  <>Tap for KD Hack <Brain className="w-4 h-4" /></>
-                ) : (
-                  <>Tap for Next Card <ArrowRight className="w-4 h-4" /></>
-                )}
+                
+                <div className="mt-4 text-purple-400/50 text-sm font-medium uppercase tracking-widest animate-bounce flex items-center justify-center gap-2 relative z-10 shrink-0">
+                  {hasTrick ? (
+                    <>Tap for KD Hack <Brain className="w-4 h-4" /></>
+                  ) : (
+                    <>Tap for Next Card <ArrowRight className="w-4 h-4" /></>
+                  )}
+                </div>
               </div>
             </motion.div>
 
@@ -322,45 +326,47 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
             {hasTrick && (
               <div className="absolute inset-0 w-full h-full rounded-[2.5rem] overflow-hidden z-20 pointer-events-none">
                 <motion.div 
-                  className="absolute inset-0 w-full h-full bg-gradient-to-b from-[#064e3b] to-[#022c22] border-2 border-emerald-400 shadow-[0_0_100px_rgba(52,211,153,0.3)] flex flex-col items-center p-8 md:p-12 overflow-y-auto overflow-x-hidden scrollbar-hide pointer-events-auto"
+                  className="absolute inset-0 w-full h-full bg-gradient-to-b from-[#064e3b] to-[#022c22] border-2 border-emerald-400 shadow-[0_0_100px_rgba(52,211,153,0.3)] flex flex-col items-center overflow-hidden pointer-events-auto"
                   initial={{ y: '100%', opacity: 0 }}
                   animate={{ y: flipState === 2 ? 0 : '100%', opacity: flipState === 2 ? 1 : 0 }}
                   transition={{ type: "spring", stiffness: 200, damping: 25 }}
                 >
-                  <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20 mix-blend-overlay" />
+                  <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20 mix-blend-overlay pointer-events-none" />
                   <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/20 rounded-full blur-[100px] pointer-events-none" />
                   <div className="absolute bottom-0 left-0 w-96 h-96 bg-emerald-500/20 rounded-full blur-[100px] pointer-events-none" />
 
-                  <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center space-y-10 w-full max-w-4xl py-8">
-                    <div className="flex flex-col items-center gap-4">
-                      <motion.div 
-                        initial={{ scale: 0.5, rotate: -180 }}
-                        animate={{ scale: flipState === 2 ? 1 : 0.5, rotate: flipState === 2 ? 0 : -180 }}
-                        transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
-                        className="w-20 h-20 md:w-24 md:h-24 bg-emerald-400/20 border border-emerald-400/50 rounded-full flex shrink-0 items-center justify-center shadow-[0_0_50px_rgba(52,211,153,0.5)]"
-                      >
-                        <Brain className="w-10 h-10 md:w-12 md:h-12 text-emerald-400 drop-shadow-[0_0_15px_rgba(52,211,153,0.8)]" />
-                      </motion.div>
+                  <div className="absolute inset-0 w-full h-full overflow-y-auto overflow-x-hidden scrollbar-hide p-8 md:p-12 flex flex-col" style={{ transform: 'translateZ(0)' }}>
+                    <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center space-y-10 w-full max-w-4xl py-8">
+                      <div className="flex flex-col items-center gap-4">
+                        <motion.div 
+                          initial={{ scale: 0.5, rotate: -180 }}
+                          animate={{ scale: flipState === 2 ? 1 : 0.5, rotate: flipState === 2 ? 0 : -180 }}
+                          transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
+                          className="w-20 h-20 md:w-24 md:h-24 bg-emerald-400/20 border border-emerald-400/50 rounded-full flex shrink-0 items-center justify-center shadow-[0_0_50px_rgba(52,211,153,0.5)]"
+                        >
+                          <Brain className="w-10 h-10 md:w-12 md:h-12 text-emerald-400 drop-shadow-[0_0_15px_rgba(52,211,153,0.8)]" />
+                        </motion.div>
+                        
+                        <h3 className="text-emerald-400 font-bold tracking-[0.3em] uppercase text-lg md:text-xl">KD Hack / Memory Trick</h3>
+                      </div>
                       
-                      <h3 className="text-emerald-400 font-bold tracking-[0.3em] uppercase text-lg md:text-xl">KD Hack / Memory Trick</h3>
+                      <div className="space-y-6 w-full">
+                        {displayTrick && (
+                          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-relaxed md:leading-relaxed text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] text-balance break-words">
+                            {displayTrick}
+                          </h2>
+                        )}
+                        {displayTrickHi && (
+                          <h2 className="text-xl md:text-2xl lg:text-3xl font-medium leading-relaxed md:leading-relaxed text-emerald-100/90 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] text-balance break-words">
+                            {displayTrickHi}
+                          </h2>
+                        )}
+                      </div>
                     </div>
-                    
-                    <div className="space-y-6 w-full">
-                      {displayTrick && (
-                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-relaxed md:leading-relaxed text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] text-balance break-words">
-                          {displayTrick}
-                        </h2>
-                      )}
-                      {displayTrickHi && (
-                        <h2 className="text-xl md:text-2xl lg:text-3xl font-medium leading-relaxed md:leading-relaxed text-emerald-100/90 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] text-balance break-words">
-                          {displayTrickHi}
-                        </h2>
-                      )}
-                    </div>
-                  </div>
 
-                  <div className="mt-8 text-emerald-400/70 text-sm font-medium uppercase tracking-widest animate-pulse flex items-center justify-center gap-2 relative z-10 shrink-0">
-                    Tap for Next Card <ArrowRight className="w-5 h-5" />
+                    <div className="mt-8 text-emerald-400/70 text-sm font-medium uppercase tracking-widest animate-pulse flex items-center justify-center gap-2 relative z-10 shrink-0">
+                      Tap for Next Card <ArrowRight className="w-5 h-5" />
+                    </div>
                   </div>
                 </motion.div>
               </div>

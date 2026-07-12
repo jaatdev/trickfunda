@@ -1,0 +1,631 @@
+[
+  {
+    "id": "physics-sound-class-1-001",
+    "type": "concept",
+    "front": "What is the fundamental physical nature of sound?",
+    "front_hi": "ध्वनि की मूल भौतिक प्रकृति क्या है?",
+    "back": "Sound is a form of energy.",
+    "back_hi": "ध्वनि ऊर्जा का एक रूप है।",
+    "hint": "Think about what enables work to be done when you speak or hit a drum.",
+    "hint_hi": "सोचें कि जब आप बोलते हैं या ड्रम बजाते हैं तो कार्य करने में क्या सक्षम होता है।",
+    "trick": "Logic Link: Energy cannot be created or destroyed, only transferred. When a physical force causes an object to vibrate, kinetic energy transfers into sound energy.",
+    "trick_hi": "Logic Link: ऊर्जा को न तो बनाया जा सकता है और न ही नष्ट किया जा सकता है, केवल स्थानांतरित किया जा सकता है। जब कोई भौतिक बल किसी वस्तु को कंपन कराता है, तो गतिज ऊर्जा ध्वनि ऊर्जा में स्थानांतरित हो जाती है।",
+    "explanation": "Like light and heat, sound is a distinct form of energy that travels through physical spaces.",
+    "explanation_hi": "प्रकाश और ऊष्मा की तरह, ध्वनि ऊर्जा का एक विशिष्ट रूप है जो भौतिक स्थानों के माध्यम से यात्रा करती है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "sound", "energy"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-1-002",
+    "type": "concept",
+    "front": "In what form is sound energy carried from one place to another?",
+    "front_hi": "ध्वनि ऊर्जा को एक स्थान से दूसरे स्थान तक किस रूप में ले जाया जाता है?",
+    "back": "It is carried in the form of waves.",
+    "back_hi": "इसे तरंगों के रूप में ले जाया जाता है।",
+    "hint": "Think of ripples in a pond.",
+    "hint_hi": "तालाब में लहरों के बारे में सोचें।",
+    "trick": "Logic Link: A wave is a disturbance that transfers energy through a medium without permanently moving the matter itself. Sound relies on this moving disturbance.",
+    "trick_hi": "Logic Link: तरंग एक विक्षोभ है जो पदार्थ को स्थायी रूप से स्थानांतरित किए बिना माध्यम से ऊर्जा स्थानांतरित करती है। ध्वनि इसी गतिमान विक्षोभ पर निर्भर करती है।",
+    "explanation": "Sound travels sequentially as a continuous wave of pressure moving outward from the source.",
+    "explanation_hi": "ध्वनि स्रोत से बाहर की ओर जाने वाले दबाव की निरंतर तरंग के रूप में क्रमिक रूप से यात्रा करती है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "sound", "waves"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-1-003",
+    "type": "concept",
+    "front": "What does the term 'Vibration' mean in physics?",
+    "front_hi": "भौतिकी में 'कंपन' (Vibration) शब्द का क्या अर्थ है?",
+    "back": "Vibration means Oscillation.",
+    "back_hi": "कंपन का अर्थ है दोलन (Oscillation)।",
+    "hint": "Think of a pendulum swinging back and forth.",
+    "hint_hi": "आगे-पीछे झूलते पेंडुलम के बारे में सोचें।",
+    "trick": "Logic Link: Oscillation refers to a periodic back-and-forth motion around a central equilibrium point. Vibration is simply rapid oscillation.",
+    "trick_hi": "Logic Link: दोलन एक केंद्रीय संतुलन बिंदु के चारों ओर एक आवधिक आगे-पीछे की गति को संदर्भित करता है। कंपन केवल तीव्र दोलन है।",
+    "explanation": "Every sound originates from a vibrating object. This rapid back-and-forth movement disturbs the surrounding medium.",
+    "explanation_hi": "हर ध्वनि किसी कंपन करने वाली वस्तु से उत्पन्न होती है। यह तीव्र आगे-पीछे की गति आसपास के माध्यम को विक्षुब्ध करती है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "vibration", "oscillation"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-1-004",
+    "type": "concept",
+    "front": "What are the two necessary conditions for the production and propagation of sound?",
+    "front_hi": "ध्वनि के उत्पादन और प्रसार के लिए दो आवश्यक शर्तें क्या हैं?",
+    "back": "1. Vibration of an object, 2. Presence of a medium.",
+    "back_hi": "1. किसी वस्तु का कंपन, 2. माध्यम की उपस्थिति।",
+    "hint": "You need an action to start it, and material to carry it.",
+    "hint_hi": "आपको इसे शुरू करने के लिए एक क्रिया की आवश्यकता है, और इसे ले जाने के लिए सामग्री की।",
+    "trick": "Logic Link: Sound transfers kinetic energy. Without an initial vibration, there is no kinetic energy. Without a medium (particles), there is nothing to bump into to carry that energy forward.",
+    "trick_hi": "Logic Link: ध्वनि गतिज ऊर्जा को स्थानांतरित करती है। प्रारंभिक कंपन के बिना, कोई गतिज ऊर्जा नहीं होती है। माध्यम (कणों) के बिना, उस ऊर्जा को आगे ले जाने के लिए टकराने के लिए कुछ भी नहीं है।",
+    "explanation": "If either the source isn't vibrating or there is no material medium, sound cannot exist or travel.",
+    "explanation_hi": "यदि स्रोत कंपन नहीं कर रहा है या कोई भौतिक माध्यम नहीं है, तो ध्वनि मौजूद नहीं हो सकती है या यात्रा नहीं कर सकती है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "sound", "basics"]
+    },
+    "lists": [
+      {
+        "title": "Types of Mediums",
+        "title_hi": "माध्यमों के प्रकार",
+        "items": ["Solid", "Liquid", "Gas"],
+        "colorTheme": "blue"
+      }
+    ]
+  },
+  {
+    "id": "physics-sound-class-1-005",
+    "type": "concept",
+    "front": "If an explosion happens on the Moon, why does the sound never reach Earth?",
+    "front_hi": "यदि चंद्रमा पर कोई विस्फोट होता है, तो उसकी ध्वनि पृथ्वी तक कभी क्यों नहीं पहुँचती?",
+    "back": "Because there is a vacuum between the Earth and the Moon, and sound cannot travel without a medium.",
+    "back_hi": "क्योंकि पृथ्वी और चंद्रमा के बीच निर्वात है, और ध्वनि बिना किसी माध्यम के यात्रा नहीं कर सकती।",
+    "hint": "What lies in outer space between celestial bodies?",
+    "hint_hi": "खगोलीय पिंडों के बीच बाहरी अंतरिक्ष में क्या है?",
+    "trick": "Logic Link: Space is a vacuum, meaning it lacks air or gas molecules. Since sound is a mechanical wave that requires particle collisions to move, it stops instantly where the atmosphere ends.",
+    "trick_hi": "Logic Link: अंतरिक्ष एक निर्वात है, जिसका अर्थ है कि इसमें हवा या गैस के अणुओं का अभाव है। चूंकि ध्वनि एक यांत्रिक तरंग है जिसे गति करने के लिए कणों की टक्कर की आवश्यकता होती है, इसलिए जहां वायुमंडल समाप्त होता है, यह तुरंत रुक जाती है।",
+    "explanation": "Sound waves strictly require a solid, liquid, or gas medium.",
+    "explanation_hi": "ध्वनि तरंगों को सख्ती से ठोस, तरल या गैस माध्यम की आवश्यकता होती है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "sound", "vacuum", "space"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-1-006",
+    "type": "concept",
+    "front": "If an explosion on the Moon makes no sound on Earth, why can we still see the flash of light from it?",
+    "front_hi": "यदि चंद्रमा पर हुए विस्फोट की ध्वनि पृथ्वी पर नहीं सुनाई देती, तो हम फिर भी इसकी चमक क्यों देख सकते हैं?",
+    "back": "Because light does not require any medium to travel; it can pass through a vacuum.",
+    "back_hi": "क्योंकि प्रकाश को यात्रा करने के लिए किसी माध्यम की आवश्यकता नहीं होती है; यह निर्वात से होकर गुजर सकता है।",
+    "hint": "Compare the nature of light waves to sound waves.",
+    "hint_hi": "प्रकाश तरंगों की प्रकृति की तुलना ध्वनि तरंगों से करें।",
+    "trick": "Logic Link: Light is an electromagnetic wave. It propagates via oscillating electric and magnetic fields, not by bumping physical particles. Therefore, the vacuum of space is not a barrier.",
+    "trick_hi": "Logic Link: प्रकाश एक विद्युत चुम्बकीय तरंग है। यह दोलनशील विद्युत और चुंबकीय क्षेत्रों के माध्यम से फैलता है, न कि भौतिक कणों से टकराकर। इसलिए, अंतरिक्ष का निर्वात कोई बाधा नहीं है।",
+    "explanation": "This fundamental difference explains why we can see distant stars but cannot hear them.",
+    "explanation_hi": "यह मूलभूत अंतर बताता है कि हम दूर के तारों को क्यों देख सकते हैं लेकिन उन्हें सुन नहीं सकते।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "light", "electromagnetic"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-1-007",
+    "type": "concept",
+    "front": "When watching a rocket launch from a distance, why do you see the rocket shining before you hear its roaring sound?",
+    "front_hi": "दूर से रॉकेट लॉन्च देखते समय, आपको रॉकेट की गर्जना सुनने से पहले रॉकेट चमकता हुआ क्यों दिखाई देता है?",
+    "back": "Because the speed of light is significantly greater (>>>) than the speed of sound.",
+    "back_hi": "क्योंकि प्रकाश की गति ध्वनि की गति से काफी अधिक (>>>) होती है।",
+    "hint": "Think about lightning and thunder.",
+    "hint_hi": "बिजली और गरज के बारे में सोचें।",
+    "trick": "Logic Link: Both signals are emitted at the exact same time. But light travels at ~300,000 km/s while sound travels at just about 343 m/s in air. Light wins the race to your senses.",
+    "trick_hi": "Logic Link: दोनों सिग्नल एक ही समय में उत्सर्जित होते हैं। लेकिन प्रकाश ~300,000 किमी/सेकेंड की गति से यात्रा करता है जबकि ध्वनि हवा में केवल 343 मीटर/सेकेंड की गति से यात्रा करती है। प्रकाश आपकी इंद्रियों तक पहुँचने की दौड़ जीत जाता है।",
+    "explanation": "This is why visual events always precede auditory events for distant phenomena.",
+    "explanation_hi": "यही कारण है कि दूर की घटनाओं के लिए दृश्य घटनाएं हमेशा श्रवण घटनाओं से पहले होती हैं।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "speed", "light", "sound"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-1-008",
+    "type": "concept",
+    "front": "What is the standard unit used to measure the loudness or noise of sound?",
+    "front_hi": "ध्वनि या शोर की प्रबलता मापने के लिए प्रयुक्त मानक इकाई क्या है?",
+    "back": "Decibel (dB)",
+    "back_hi": "डेसिबल (Decibel - dB)",
+    "hint": "It starts with 'Deci'.",
+    "hint_hi": "यह 'Deci' से शुरू होता है।",
+    "trick": "Logic Link: Loudness is subjective and relates to amplitude. To measure how our ears perceive this intensity exponentially, we use the logarithmic Decibel scale.",
+    "trick_hi": "Logic Link: प्रबलता व्यक्तिपरक है और आयाम (amplitude) से संबंधित है। यह मापने के लिए कि हमारे कान इस तीव्रता को घातीय रूप से कैसे देखते हैं, हम लॉगरिदमिक डेसिबल पैमाने का उपयोग करते हैं।",
+    "explanation": "The loudness depends on the amplitude of the vibration. Higher amplitude creates a louder sound measured in Decibels.",
+    "explanation_hi": "प्रबलता कंपन के आयाम पर निर्भर करती है। उच्च आयाम एक तेज ध्वनि बनाता है जिसे डेसिबल में मापा जाता है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "sound", "loudness", "units"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-1-009",
+    "type": "concept",
+    "front": "Mathematically, what is a Decibel in relation to a 'bel'?",
+    "front_hi": "गणितीय रूप से, 'बेल' (bel) के संबंध में डेसिबल क्या है?",
+    "back": "A Decibel is exactly 1/10th part of a bel.",
+    "back_hi": "डेसिबल एक बेल का ठीक 1/10वां हिस्सा है।",
+    "hint": "The prefix 'Deci' literally means this.",
+    "hint_hi": "उपसर्ग 'Deci' का शाब्दिक अर्थ यही है।",
+    "trick": "Logic Link: In the metric system, 'deci' always means one-tenth. Just like a decimeter is 1/10 of a meter, a decibel is 1/10 of a bel.",
+    "trick_hi": "Logic Link: मीट्रिक प्रणाली में, 'deci' का हमेशा अर्थ दसवां हिस्सा होता है। जिस तरह एक डेसीमीटर एक मीटर का 1/10 है, एक डेसिबल एक बेल का 1/10 है।",
+    "explanation": "The 'bel' unit is named in honor of Alexander Graham Bell.",
+    "explanation_hi": "'बेल' इकाई का नाम अलेक्जेंडर ग्राहम बेल के सम्मान में रखा गया है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "sound", "units"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-1-010",
+    "type": "concept",
+    "front": "What is the audible sound frequency range for normal human hearing?",
+    "front_hi": "सामान्य मानव श्रवण के लिए श्रव्य ध्वनि आवृत्ति सीमा क्या है?",
+    "back": "20 Hz to 20 kHz (20,000 Hz).",
+    "back_hi": "20 हर्ट्ज (Hz) से 20 किलोहर्ट्ज़ (kHz) (20,000 Hz)।",
+    "hint": "It spans from a very low rumble of 20 vibrations per sec to a high pitch of 20,000.",
+    "hint_hi": "यह प्रति सेकंड 20 कंपन की बहुत कम गड़गड़ाहट से लेकर 20,000 की उच्च पिच तक फैला है।",
+    "trick": "Logic Link: Frequencies below 20 Hz (Infrasound) are too slow to trigger our ear structure, and those above 20 kHz (Ultrasound) vibrate too rapidly for our eardrums to decode.",
+    "trick_hi": "Logic Link: 20 हर्ट्ज (इन्फ्रासाउंड) से कम आवृत्तियाँ हमारे कान की संरचना को ट्रिगर करने के लिए बहुत धीमी हैं, और 20 किलोहर्ट्ज़ (अल्ट्रासाउंड) से ऊपर की आवृत्तियाँ हमारे कान के पर्दे के लिए डिकोड करने के लिए बहुत तेज़ी से कंपन करती हैं।",
+    "explanation": "Sound waves outside this specific range exist in the environment but humans are physiologically incapable of perceiving them.",
+    "explanation_hi": "इस विशिष्ट सीमा के बाहर की ध्वनि तरंगें पर्यावरण में मौजूद हैं लेकिन मनुष्य शारीरिक रूप से उन्हें समझने में असमर्थ हैं।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "sound", "human-biology", "frequency"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-1-011",
+    "type": "concept",
+    "front": "What is the 'Persistence of Hearing' time for the human ear?",
+    "front_hi": "मानव कान के लिए 'श्रवण की दृढ़ता' (Persistence of Hearing) का समय क्या है?",
+    "back": "1/10 seconds (or 0.1 sec).",
+    "back_hi": "1/10 सेकंड (या 0.1 सेकंड)।",
+    "hint": "It's the time fraction representing 10 events in one second.",
+    "hint_hi": "यह एक सेकंड में 10 घटनाओं का प्रतिनिधित्व करने वाला समय अंश है।",
+    "trick": "Logic Link: The brain needs a tiny fraction of a second to process a sound. If two sounds hit the ear faster than 0.1s apart, the brain merges them into one continuous sound.",
+    "trick_hi": "Logic Link: मस्तिष्क को एक ध्वनि को संसाधित करने के लिए एक सेकंड के एक छोटे से अंश की आवश्यकता होती है। यदि दो ध्वनियां 0.1s से अधिक तेजी से कान से टकराती हैं, तो मस्तिष्क उन्हें एक निरंतर ध्वनि में मिला देता है।",
+    "explanation": "This means the effect of a sound remains lingering on the ear for exactly 0.1 seconds.",
+    "explanation_hi": "इसका अर्थ है कि ध्वनि का प्रभाव कान पर ठीक 0.1 सेकंड तक रहता है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "sound", "biology", "echo"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-1-012",
+    "type": "concept",
+    "front": "What is the 'Persistence of Vision' time for the human retina (eye)?",
+    "front_hi": "मानव रेटिना (आंख) के लिए 'दृष्टि की दृढ़ता' (Persistence of Vision) का समय क्या है?",
+    "back": "1/16 seconds (or 0.062 sec).",
+    "back_hi": "1/16 सेकंड (या 0.062 सेकंड)।",
+    "hint": "It's slightly faster than human hearing persistence.",
+    "hint_hi": "यह मानव श्रवण की दृढ़ता से थोड़ा तेज है।",
+    "trick": "Logic Link: To see smooth motion, frames of light must be shown faster than the retina can discard the old image. If images change faster than 1/16th of a second, it creates the illusion of a continuous video.",
+    "trick_hi": "Logic Link: सुचारू गति देखने के लिए, प्रकाश के फ्रेम को रेटिना द्वारा पुरानी छवि को हटाने की तुलना में तेजी से दिखाया जाना चाहिए। यदि चित्र एक सेकंड के 1/16वें हिस्से से अधिक तेजी से बदलते हैं, तो यह निरंतर वीडियो का भ्रम पैदा करता है।",
+    "explanation": "The effect of an image (light) remains imprinted on the retina for 1/16th of a second after it disappears.",
+    "explanation_hi": "किसी चित्र (प्रकाश) के गायब होने के बाद उसका प्रभाव रेटिना पर 1/16 सेकंड तक अंकित रहता है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "light", "vision", "biology"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-1-013",
+    "type": "concept",
+    "front": "What is the scientific study of the production of sound waves called?",
+    "front_hi": "ध्वनि तरंगों के उत्पादन के वैज्ञानिक अध्ययन को क्या कहा जाता है?",
+    "back": "Acoustics",
+    "back_hi": "ध्वनिकी (Acoustics)",
+    "hint": "Think of the type of guitar that doesn't use electricity.",
+    "hint_hi": "उस प्रकार के गिटार के बारे में सोचें जो बिजली का उपयोग नहीं करता है।",
+    "trick": "Logic Link: Acoustics is the branch of physics covering mechanical waves in gases, liquids, and solids, specifically focusing on sound.",
+    "trick_hi": "Logic Link: एकॉस्टिक्स भौतिकी की वह शाखा है जो गैसों, तरल पदार्थों और ठोस पदार्थों में यांत्रिक तरंगों को कवर करती है, विशेष रूप से ध्वनि पर ध्यान केंद्रित करती है।",
+    "explanation": "It focuses on the production, control, transmission, reception, and effects of sound.",
+    "explanation_hi": "यह ध्वनि के उत्पादन, नियंत्रण, संचरण, स्वागत और प्रभावों पर केंद्रित है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "sound", "terminology"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-1-014",
+    "type": "concept",
+    "front": "Which instrument is used for the study and visual display of the waveform of any signal?",
+    "front_hi": "किसी भी संकेत (signal) के तरंग रूप (waveform) के अध्ययन और दृश्य प्रदर्शन के लिए किस उपकरण का उपयोग किया जाता है?",
+    "back": "Oscilloscope",
+    "back_hi": "ऑसिलोस्कोप (Oscilloscope)",
+    "hint": "It measures 'oscillations'.",
+    "hint_hi": "यह 'दोलनों' को मापता है।",
+    "trick": "Logic Link: An oscilloscope physically plots the electrical representation of a wave on a graph over time, showing its true oscillation shape.",
+    "trick_hi": "Logic Link: एक आस्टसीलस्कप समय के साथ एक ग्राफ पर एक तरंग के विद्युत प्रतिनिधित्व को भौतिक रूप से प्लॉट करता है, जो इसका वास्तविक दोलन आकार दिखाता है।",
+    "explanation": "By visualizing the waveform, scientists can determine the frequency, amplitude, and properties of the wave.",
+    "explanation_hi": "तरंगरूप की कल्पना करके, वैज्ञानिक तरंग की आवृत्ति, आयाम और गुणों का निर्धारण कर सकते हैं।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "instruments", "waves"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-1-015",
+    "type": "concept",
+    "front": "Based on their requirement for a medium, what are the two main categories of waves in physics?",
+    "front_hi": "माध्यम की आवश्यकता के आधार पर, भौतिकी में तरंगों की दो मुख्य श्रेणियां क्या हैं?",
+    "back": "1. Mechanical Waves\n2. Non-Mechanical (Electromagnetic) Waves",
+    "back_hi": "1. यांत्रिक तरंगें (Mechanical Waves)\n2. गैर-यांत्रिक (विद्युत चुम्बकीय) तरंगें (Non-Mechanical Waves)",
+    "hint": "One relies on physical mechanics to move, the other doesn't.",
+    "hint_hi": "एक गति करने के लिए भौतिक यांत्रिकी पर निर्भर करता है, दूसरा नहीं।",
+    "trick": "Logic Link: Nature divides energy transmission into two regimes: one that uses actual matter as a vehicle (mechanical) and one that is self-propagating pure energy fields (electromagnetic).",
+    "trick_hi": "Logic Link: प्रकृति ऊर्जा संचरण को दो व्यवस्थाओं में विभाजित करती है: एक जो वास्तविक पदार्थ का उपयोग वाहन के रूप में करता है (यांत्रिक) और दूसरा जो स्व-प्रसारित शुद्ध ऊर्जा क्षेत्र (विद्युत चुम्बकीय) है।",
+    "explanation": "Mechanical needs a medium; Non-mechanical does not.",
+    "explanation_hi": "यांत्रिक को माध्यम की आवश्यकता होती है; गैर-यांत्रिक को नहीं।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "waves", "classification"]
+    },
+    "lists": [
+      {
+        "title": "Wave Types",
+        "title_hi": "तरंग के प्रकार",
+        "items": ["Mechanical", "Non-Mechanical (EM)"],
+        "colorTheme": "emerald"
+      }
+    ]
+  },
+  {
+    "id": "physics-sound-class-1-016",
+    "type": "concept",
+    "front": "What is the defining characteristic of Mechanical Waves?",
+    "front_hi": "यांत्रिक तरंगों (Mechanical Waves) की परिभाषित विशेषता क्या है?",
+    "back": "They explicitly require a material medium to travel.",
+    "back_hi": "उन्हें यात्रा करने के लिए स्पष्ट रूप से एक भौतिक माध्यम की आवश्यकता होती है।",
+    "hint": "They cannot exist in a vacuum.",
+    "hint_hi": "वे निर्वात में मौजूद नहीं हो सकते।",
+    "trick": "Logic Link: 'Mechanical' means physical parts are working together. The 'parts' here are molecules bumping into one another. No molecules = no mechanics.",
+    "trick_hi": "Logic Link: 'यांत्रिक' का अर्थ है भौतिक भाग एक साथ काम कर रहे हैं। यहाँ 'भाग' एक-दूसरे से टकराने वाले अणु हैं। कोई अणु नहीं = कोई यांत्रिकी नहीं।",
+    "explanation": "Sound waves and water waves are classic examples of mechanical waves.",
+    "explanation_hi": "ध्वनि तरंगें और जल तरंगें यांत्रिक तरंगों के क्लासिक उदाहरण हैं।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "waves", "mechanical"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-1-017",
+    "type": "concept",
+    "front": "What is the defining characteristic of Non-Mechanical Waves?",
+    "front_hi": "गैर-यांत्रिक तरंगों (Non-Mechanical Waves) की परिभाषित विशेषता क्या है?",
+    "back": "They do NOT require a material medium and can travel through a vacuum.",
+    "back_hi": "उन्हें किसी भौतिक माध्यम की आवश्यकता नहीं होती है और वे निर्वात से होकर यात्रा कर सकते हैं।",
+    "hint": "Think of sunlight traveling through space.",
+    "hint_hi": "अंतरिक्ष से होकर यात्रा करने वाले सूर्य के प्रकाश के बारे में सोचें।",
+    "trick": "Logic Link: Since they are composed of oscillating electric and magnetic fields, they sustain themselves without needing atoms to push against.",
+    "trick_hi": "Logic Link: चूंकि वे दोलनशील विद्युत और चुंबकीय क्षेत्रों से बने होते हैं, वे परमाणुओं को धकेलने की आवश्यकता के बिना खुद को बनाए रखते हैं।",
+    "explanation": "Non-Mechanical waves are also known as Electromagnetic (EM) Waves.",
+    "explanation_hi": "गैर-यांत्रिक तरंगों को विद्युत चुम्बकीय (EM) तरंगों के रूप में भी जाना जाता है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "waves", "electromagnetic"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-1-018",
+    "type": "concept",
+    "front": "List 6 common examples of Non-Mechanical (Electromagnetic) Waves.",
+    "front_hi": "गैर-यांत्रिक (विद्युत चुम्बकीय) तरंगों के 6 सामान्य उदाहरण दें।",
+    "back": "1. Light\n2. Microwave\n3. Infrared\n4. X-rays\n5. UV Rays\n6. Radio Waves",
+    "back_hi": "1. प्रकाश (Light)\n2. माइक्रोवेव (Microwave)\n3. इन्फ्रारेड (Infrared)\n4. एक्स-रे (X-rays)\n5. यूवी किरणें (UV Rays)\n6. रेडियो तरंगें (Radio Waves)",
+    "hint": "Think of the entire spectrum you study in optics and communications.",
+    "hint_hi": "संपूर्ण स्पेक्ट्रम के बारे में सोचें जिसका आप प्रकाशिकी और संचार में अध्ययन करते हैं।",
+    "trick": "Logic Link: All these are simply different manifestations of EM energy at varying frequencies. Because they are the same core phenomenon, none of them need a medium.",
+    "trick_hi": "Logic Link: ये सभी अलग-अलग आवृत्तियों पर ईएम ऊर्जा की अलग-अलग अभिव्यक्तियां हैं। क्योंकि वे एक ही मुख्य घटना हैं, उनमें से किसी को भी माध्यम की आवश्यकता नहीं है।",
+    "explanation": "These waves encompass the entire Electromagnetic Spectrum.",
+    "explanation_hi": "ये तरंगें संपूर्ण विद्युत चुम्बकीय स्पेक्ट्रम को समाहित करती हैं।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "waves", "electromagnetic", "spectrum"]
+    },
+    "lists": [
+      {
+        "title": "Electromagnetic Examples",
+        "title_hi": "विद्युत चुम्बकीय उदाहरण",
+        "items": ["Light", "Microwave", "Infrared", "X-rays", "UV Rays", "Radio Waves"],
+        "colorTheme": "purple"
+      }
+    ]
+  },
+  {
+    "id": "physics-sound-class-1-019",
+    "type": "concept",
+    "front": "What are the two sub-types into which Mechanical Waves are divided based on particle vibration direction?",
+    "front_hi": "कण कंपन दिशा के आधार पर यांत्रिक तरंगों को किन दो उप-प्रकारों में विभाजित किया गया है?",
+    "back": "1. Longitudinal Waves\n2. Transverse Waves",
+    "back_hi": "1. अनुदैर्ध्य तरंगें (Longitudinal Waves)\n2. अनुप्रस्थ तरंगें (Transverse Waves)",
+    "hint": "One moves parallel, the other perpendicular.",
+    "hint_hi": "एक समानांतर चलता है, दूसरा लंबवत।",
+    "trick": "Logic Link: Mechanical waves depend on atoms bumping each other. They can either bump forward/backward in the direction of travel (Longitudinal) or shake side-to-side/up-and-down (Transverse).",
+    "trick_hi": "Logic Link: यांत्रिक तरंगें परमाणुओं के एक-दूसरे से टकराने पर निर्भर करती हैं। वे या तो यात्रा की दिशा में आगे/पीछे (अनुदैर्ध्य) टकरा सकते हैं या अगल-बगल/ऊपर-नीचे (अनुप्रस्थ) हिल सकते हैं।",
+    "explanation": "These classifications are purely based on the geometry of the wave motion relative to particle motion.",
+    "explanation_hi": "ये वर्गीकरण पूरी तरह से कण गति के सापेक्ष तरंग गति की ज्यामिति पर आधारित हैं।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "waves", "mechanical", "types"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-1-020",
+    "type": "concept",
+    "front": "In a Longitudinal Wave, what is the geometric relationship and angle between the direction of wave travel and the vibration of particles?",
+    "front_hi": "एक अनुदैर्ध्य तरंग (Longitudinal Wave) में, तरंग यात्रा की दिशा और कणों के कंपन के बीच ज्यामितीय संबंध और कोण क्या है?",
+    "back": "The particles vibrate Parallel (L & R) to the direction of the wave. The angle (theta) is 0°.",
+    "back_hi": "कण तरंग की दिशा के समानांतर (L और R) कंपन करते हैं। कोण (थीटा) 0° है।",
+    "hint": "Left and Right (L&R) motion along the path of travel.",
+    "hint_hi": "यात्रा के पथ के साथ बाएँ और दाएँ (L&R) गति।",
+    "trick": "Logic Link: 'Longitudinal' implies 'along the length'. If the wave pushes forward, the particles also squeeze forward and bounce backward exactly on that same line.",
+    "trick_hi": "Logic Link: 'अनुदैर्ध्य' का तात्पर्य 'लंबाई के साथ' है। यदि तरंग आगे की ओर धकेलती है, तो कण भी आगे की ओर सिकुड़ते हैं और ठीक उसी रेखा पर पीछे की ओर उछलते हैं।",
+    "explanation": "Sound waves in air are the prime example; air molecules compress and expand in the exact direction the sound is traveling.",
+    "explanation_hi": "हवा में ध्वनि तरंगें प्रमुख उदाहरण हैं; हवा के अणु ठीक उसी दिशा में सिकुड़ते और फैलते हैं जिस दिशा में ध्वनि यात्रा कर रही है।",
+    "meta": {
+      "difficulty": "hard",
+      "tags": ["physics", "waves", "longitudinal", "geometry"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-1-021",
+    "type": "concept",
+    "front": "Give two key examples of Longitudinal Waves mentioned in the notes.",
+    "front_hi": "नोट्स में उल्लिखित अनुदैर्ध्य तरंगों (Longitudinal Waves) के दो प्रमुख उदाहरण दें।",
+    "back": "1. Sound Waves\n2. Spring Waves",
+    "back_hi": "1. ध्वनि तरंगें (Sound Waves)\n2. स्प्रिंग तरंगें (Spring Waves)",
+    "hint": "One is what you hear, the other is what happens when you push a coiled metal wire.",
+    "hint_hi": "एक वह है जो आप सुनते हैं, दूसरा वह है जो तब होता है जब आप एक कुंडलित धातु के तार को धक्का देते हैं।",
+    "trick": "Logic Link: Both sound and compressed springs push matter forward, which rebounds backward, operating completely parallel to the direction of travel (0 degrees).",
+    "trick_hi": "Logic Link: ध्वनि और संपीड़ित स्प्रिंग दोनों पदार्थ को आगे धकेलते हैं, जो पीछे की ओर उछलता है, यात्रा की दिशा (0 डिग्री) के पूरी तरह से समानांतर काम करता है।",
+    "explanation": "Understanding how a spring compresses and expands is a great visual model for how sound moves through air.",
+    "explanation_hi": "स्प्रिंग कैसे सिकुड़ता और फैलता है, यह समझना ध्वनि हवा में कैसे चलती है, इसका एक बेहतरीन दृश्य मॉडल है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "waves", "longitudinal", "examples"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-1-022",
+    "type": "concept",
+    "front": "In a Transverse Wave, what is the geometric relationship and angle between the direction of wave travel and the vibration of particles?",
+    "front_hi": "एक अनुप्रस्थ तरंग (Transverse Wave) में, तरंग यात्रा की दिशा और कणों के कंपन के बीच ज्यामितीय संबंध और कोण क्या है?",
+    "back": "The particles vibrate Perpendicular (Up & Down) to the direction of the wave. The angle is 90°.",
+    "back_hi": "कण तरंग की दिशा के लंबवत (ऊपर और नीचे) कंपन करते हैं। कोण 90° है।",
+    "hint": "Think of creating ripples on a string.",
+    "hint_hi": "एक तार पर लहरें बनाने के बारे में सोचें।",
+    "trick": "Logic Link: 'Trans' means 'across'. The energy travels forward horizontally, but the particles are simply displaced vertically (across the path) to pass the energy along.",
+    "trick_hi": "Logic Link: 'ट्रांस' का अर्थ है 'आर-पार'। ऊर्जा क्षैतिज रूप से आगे बढ़ती है, लेकिन ऊर्जा को पारित करने के लिए कणों को लंबवत (पथ के आर-पार) विस्थापित किया जाता है।",
+    "explanation": "Even though the wave moves forward, the actual water or rope particles are just moving straight up and straight down.",
+    "explanation_hi": "भले ही तरंग आगे बढ़ती है, वास्तविक पानी या रस्सी के कण सिर्फ सीधे ऊपर और सीधे नीचे जा रहे हैं।",
+    "meta": {
+      "difficulty": "hard",
+      "tags": ["physics", "waves", "transverse", "geometry"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-1-023",
+    "type": "concept",
+    "front": "What is the primary example of a Mechanical Transverse Wave given in the notes?",
+    "front_hi": "नोट्स में दिए गए यांत्रिक अनुप्रस्थ तरंग (Mechanical Transverse Wave) का प्राथमिक उदाहरण क्या है?",
+    "back": "Water Waves",
+    "back_hi": "जल तरंगें (Water waves)",
+    "hint": "Ocean ripples.",
+    "hint_hi": "समुद्र की लहरें।",
+    "trick": "Logic Link: If you place an object on a pond and a water wave passes, the object bobs Up and Down (90 degrees to wave direction) without moving forward.",
+    "trick_hi": "Logic Link: यदि आप तालाब में कोई वस्तु रखते हैं और पानी की लहर गुजरती है, तो वस्तु आगे बढ़े बिना ऊपर और नीचे (तरंग दिशा में 90 डिग्री) उछलती है।",
+    "explanation": "Water waves exhibit classic up and down motion perpendicular to the forward direction.",
+    "explanation_hi": "पानी की लहरें आगे की दिशा के लंबवत क्लासिक ऊपर और नीचे की गति प्रदर्शित करती हैं।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "waves", "transverse", "examples"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-1-024",
+    "type": "concept",
+    "front": "Combining its properties, mathematically define the physical nature of a Light wave.",
+    "front_hi": "इसके गुणों को मिलाकर, प्रकाश (Light) तरंग की भौतिक प्रकृति को गणितीय रूप से परिभाषित करें।",
+    "back": "Light is both Transverse AND Non-Mechanical.",
+    "back_hi": "प्रकाश अनुप्रस्थ (Transverse) और गैर-यांत्रिक (Non-Mechanical) दोनों है।",
+    "hint": "It oscillates at 90 degrees but doesn't need atoms to do it.",
+    "hint_hi": "यह 90 डिग्री पर दोलन करता है लेकिन इसके लिए परमाणुओं की आवश्यकता नहीं होती है।",
+    "trick": "Logic Link: It doesn't need a medium (Non-Mechanical), but its electric/magnetic fields oscillate at 90° to the path of travel (Transverse).",
+    "trick_hi": "Logic Link: इसे किसी माध्यम की आवश्यकता नहीं होती है (गैर-यांत्रिक), लेकिन इसके विद्युत/चुंबकीय क्षेत्र यात्रा के पथ पर 90° पर दोलन करते हैं (अनुप्रस्थ)।",
+    "explanation": "Every single wave in the electromagnetic spectrum acts this exact same way.",
+    "explanation_hi": "विद्युत चुम्बकीय स्पेक्ट्रम में हर एक तरंग बिल्कुल इसी तरह कार्य करती है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "waves", "light", "properties"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-1-025",
+    "type": "concept",
+    "front": "When a wave travels through a Spring, what are the two alternating phases created?",
+    "front_hi": "जब कोई तरंग किसी स्प्रिंग से होकर गुजरती है, तो बनने वाले दो एकांतर चरण क्या हैं?",
+    "back": "Compression and Expansion (or Rarefraction).",
+    "back_hi": "संपीड़न (Compression) और विस्तार / विरलन (Expansion / Rarefraction)।",
+    "hint": "Squeezing together and pulling apart.",
+    "hint_hi": "एक साथ निचोड़ना और अलग खींचना।",
+    "trick": "Logic Link: In longitudinal waves, energy transfers by squeezing particles tightly together (Compression) and then pulling them apart as the energy passes (Rarefaction).",
+    "trick_hi": "Logic Link: अनुदैर्ध्य तरंगों में, ऊर्जा कणों को एक साथ कसकर निचोड़कर (संपीड़न) स्थानांतरित होती है और फिर ऊर्जा के गुजरने पर उन्हें अलग कर देती है (विरलन)।",
+    "explanation": "These phases are the defining characteristic of how a mechanical longitudinal wave moves through a flexible medium.",
+    "explanation_hi": "ये चरण इस बात की परिभाषित विशेषता हैं कि एक लचीले माध्यम से एक यांत्रिक अनुदैर्ध्य तरंग कैसे चलती है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "waves", "spring", "longitudinal"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-1-026",
+    "type": "concept",
+    "front": "In a spring undergoing a longitudinal wave, how does the direction of the wave relate to the direction of vibration mathematically?",
+    "front_hi": "एक अनुदैर्ध्य तरंग से गुजरने वाले स्प्रिंग में, तरंग की दिशा गणितीय रूप से कंपन की दिशा से कैसे संबंधित है?",
+    "back": "They are in opposite directions but on the same line (0 degrees).",
+    "back_hi": "वे विपरीत दिशाओं में हैं लेकिन एक ही रेखा (0 डिग्री) पर हैं।",
+    "hint": "Think of a push and rebound strictly along a single axis.",
+    "hint_hi": "कड़ाई से एक ही धुरी के साथ धक्का और पलटाव के बारे में सोचें।",
+    "trick": "Logic Link: The particle vibrates back and forth. When bouncing back (opposite to wave forward motion), it remains exactly on the 0° line. It never deviates off-axis.",
+    "trick_hi": "Logic Link: कण आगे-पीछे कंपन करता है। वापस उछलते समय (तरंग के आगे की गति के विपरीत), यह ठीक 0° रेखा पर रहता है। यह कभी भी धुरी से नहीं भटकता।",
+    "explanation": "This confirms its pure longitudinal nature; the motion is strictly 1-Dimensional relative to the path.",
+    "explanation_hi": "यह इसकी शुद्ध अनुदैर्ध्य प्रकृति की पुष्टि करता है; गति पथ के सापेक्ष कड़ाई से 1-आयामी है।",
+    "meta": {
+      "difficulty": "hard",
+      "tags": ["physics", "waves", "spring", "geometry"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-1-027",
+    "type": "concept",
+    "front": "What type of wave is produced when playing a Dholak (Indian drum)?",
+    "front_hi": "ढोलक बजाते समय किस प्रकार की तरंग उत्पन्न होती है?",
+    "back": "Longitudinal Wave",
+    "back_hi": "अनुदैर्ध्य तरंग (Longitudinal Wave)",
+    "hint": "The skin pushes air in and out directly.",
+    "hint_hi": "खाल हवा को सीधे अंदर और बाहर धकेलती है।",
+    "trick": "Logic Link: Striking the Dholak skin pushes it inward and outward. This flat pushing motion creates compressions and rarefactions in the adjacent air molecules, creating a sound wave (which is longitudinal).",
+    "trick_hi": "Logic Link: ढोलक की खाल पर प्रहार करने से वह अंदर और बाहर की ओर धकेलता है। यह चपटी धक्का देने वाली गति आसन्न वायु के अणुओं में संपीड़न और विरलन पैदा करती है, जिससे एक ध्वनि तरंग (जो अनुदैर्ध्य है) बनती है।",
+    "explanation": "All sound waves produced in gases (air) by percussive instruments are longitudinal.",
+    "explanation_hi": "टक्कर वाद्ययंत्रों द्वारा गैसों (हवा) में उत्पन्न सभी ध्वनि तरंगें अनुदैर्ध्य होती हैं।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "sound", "instruments", "longitudinal"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-1-028",
+    "type": "concept",
+    "front": "According to the notes, what is the ONLY type of wave that technically cannot exist in physics?",
+    "front_hi": "नोट्स के अनुसार, भौतिकी में एकमात्र प्रकार की तरंग कौन सी है जो तकनीकी रूप से मौजूद नहीं हो सकती है?",
+    "back": "Longitudinal Non-Mechanical (or Longitudinal Electromagnetic) wave.",
+    "back_hi": "अनुदैर्ध्य गैर-यांत्रिक (या अनुदैर्ध्य विद्युत चुम्बकीय) तरंग।",
+    "hint": "You cannot have EM waves moving parallel to their own direction.",
+    "hint_hi": "आपके पास ईएम तरंगें अपनी दिशा के समानांतर नहीं हो सकती हैं।",
+    "trick": "Logic Link: Electromagnetic fields intrinsically oscillate perpendicular (90°) to the direction of wave travel. Therefore, an EM wave is strictly Transverse. A longitudinal EM wave breaks the laws of electromagnetism.",
+    "trick_hi": "Logic Link: विद्युत चुम्बकीय क्षेत्र आंतरिक रूप से तरंग यात्रा की दिशा के लंबवत (90°) दोलन करते हैं। इसलिए, एक ईएम तरंग कड़ाई से अनुप्रस्थ है। एक अनुदैर्ध्य ईएम तरंग विद्युत चुंबकत्व के नियमों को तोड़ती है।",
+    "explanation": "Every single Electromagnetic wave is Transverse. A 'Longitudinal Electromagnetic' wave is an impossible contradiction.",
+    "explanation_hi": "हर एक विद्युत चुम्बकीय तरंग अनुप्रस्थ होती है। एक 'अनुदैर्ध्य विद्युत चुम्बकीय' तरंग एक असंभव विरोधाभास है।",
+    "meta": {
+      "difficulty": "hard",
+      "tags": ["physics", "waves", "electromagnetic", "impossible"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-1-029",
+    "type": "concept",
+    "front": "What general category of waves do Earthquake waves fall into?",
+    "front_hi": "भूकंप तरंगें तरंगों की किस सामान्य श्रेणी में आती हैं?",
+    "back": "Mechanical Waves",
+    "back_hi": "यांत्रिक तरंगें (Mechanical Waves)",
+    "hint": "Do they require the Earth to travel through?",
+    "hint_hi": "क्या उन्हें यात्रा करने के लिए पृथ्वी की आवश्यकता है?",
+    "trick": "Logic Link: Earthquakes rely entirely on the Earth's crust and mantle (solid medium) to propagate. Because they require a medium to bump and shift, they are purely Mechanical.",
+    "trick_hi": "Logic Link: भूकंप पूरी तरह से फैलने के लिए पृथ्वी की पपड़ी और मेंटल (ठोस माध्यम) पर निर्भर करते हैं। क्योंकि उन्हें टकराने और स्थानांतरित होने के लिए एक माध्यम की आवश्यकता होती है, वे विशुद्ध रूप से यांत्रिक हैं।",
+    "explanation": "Earthquakes transfer massive kinetic energy through the planet's solid structures.",
+    "explanation_hi": "भूकंप ग्रह की ठोस संरचनाओं के माध्यम से भारी गतिज ऊर्जा को स्थानांतरित करते हैं।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "waves", "earthquake", "mechanical"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-1-030",
+    "type": "concept",
+    "front": "What specific type of wave is a Surface Earthquake wave?",
+    "front_hi": "सतही भूकंप (Surface Earthquake) तरंग किस विशिष्ट प्रकार की तरंग है?",
+    "back": "Longitudinal Wave (0 degrees).",
+    "back_hi": "अनुदैर्ध्य तरंग (0 डिग्री)।",
+    "hint": "It moves along the surface pushing forward.",
+    "hint_hi": "यह सतह के साथ-साथ आगे धकेलते हुए चलती है।",
+    "trick": "Logic Link: Surface waves compress and expand the earth horizontally in the same direction the wave travels, acting just like a spring (0°).",
+    "trick_hi": "Logic Link: सतही तरंगें उसी दिशा में पृथ्वी को क्षैतिज रूप से संकुचित और विस्तारित करती हैं जिस दिशा में तरंग यात्रा करती है, ठीक एक स्प्रिंग (0°) की तरह कार्य करती है।",
+    "explanation": "This causes the intense shaking back and forth on the surface.",
+    "explanation_hi": "यह सतह पर आगे और पीछे तीव्र झटकों का कारण बनता है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "waves", "earthquake", "longitudinal"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-1-031",
+    "type": "concept",
+    "front": "What specific type of wave is an Inner Earthquake wave?",
+    "front_hi": "आंतरिक भूकंप (Inner Earthquake) तरंग किस विशिष्ट प्रकार की तरंग है?",
+    "back": "Transversal Wave (90 degrees).",
+    "back_hi": "अनुप्रस्थ तरंग (Transversal Wave - 90 डिग्री)।",
+    "hint": "It moves deep inside, shaking things up and down.",
+    "hint_hi": "यह गहराई के अंदर चलती है, चीजों को ऊपर-नीचे हिलाती है।",
+    "trick": "Logic Link: Inner waves displace the deep rock vertically (up and down) as the energy travels outward, forcing a 90° relationship.",
+    "trick_hi": "Logic Link: आंतरिक तरंगें गहरी चट्टान को लंबवत (ऊपर और नीचे) विस्थापित करती हैं क्योंकि ऊर्जा बाहर की ओर यात्रा करती है, जिससे 90° का संबंध बनता है।",
+    "explanation": "These are shear waves that ripple vertically through the inner layers of the earth.",
+    "explanation_hi": "ये कतरनी तरंगें हैं जो पृथ्वी की आंतरिक परतों के माध्यम से लंबवत रूप से लहरती हैं।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "waves", "earthquake", "transverse"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-1-032",
+    "type": "concept",
+    "front": "The motion of a snake slithering or a rope being flicked represents what type of wave?",
+    "front_hi": "फिसलते हुए सांप की गति या झटकी जा रही रस्सी किस प्रकार की तरंग को दर्शाती है?",
+    "back": "Transverse Wave",
+    "back_hi": "अनुप्रस्थ तरंग (Transverse Wave)",
+    "hint": "Side-to-side motion for forward travel.",
+    "hint_hi": "आगे की यात्रा के लिए अगल-बगल की गति।",
+    "trick": "Logic Link: To go forward, a snake pushes its body side-to-side (90°). To send a wave down a rope, your hand moves up and down (90°). Both are perpendicular displacements.",
+    "trick_hi": "Logic Link: आगे जाने के लिए, सांप अपने शरीर को अगल-बगल (90°) धकेलता है। रस्सी से लहर भेजने के लिए, आपका हाथ ऊपर और नीचे (90°) चलता है। दोनों लंबवत विस्थापन हैं।",
+    "explanation": "This is a classic macroscopic visual representation of a transverse mechanical wave.",
+    "explanation_hi": "यह एक अनुप्रस्थ यांत्रिक तरंग का एक क्लासिक मैक्रोस्कोपिक दृश्य प्रतिनिधित्व है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "waves", "transverse", "examples"]
+    },
+    "lists": []
+  }
+]

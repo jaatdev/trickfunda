@@ -1,8 +1,15 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
 
 export default function FloatingElements() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const elements = [
     { emoji: '📚', size: 'text-4xl', delay: 0 },
     { emoji: '🎯', size: 'text-3xl', delay: 0.5 },
@@ -13,6 +20,8 @@ export default function FloatingElements() {
     { emoji: '✨', size: 'text-3xl', delay: 3 },
     { emoji: '🎓', size: 'text-4xl', delay: 3.5 },
   ]
+
+  if (!mounted) return null;
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
