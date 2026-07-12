@@ -52,7 +52,7 @@ export default function FlashcardSessionClient({ flashcards, category, day }: Pr
       const pdfHeight = pdf.internal.pageSize.getHeight();
       
       const logoImg = new Image();
-      logoImg.src = '/trickfunda-official-logo.png';
+      logoImg.src = '/trickfunda-official-logo.jpeg';
       let logoLoaded = false;
       try {
         await new Promise((resolve, reject) => {
@@ -70,7 +70,8 @@ export default function FlashcardSessionClient({ flashcards, category, day }: Pr
         if (logoLoaded) {
           const logoWidth = 45;
           const logoHeight = (logoImg.height * logoWidth) / logoImg.width;
-          pdf.addImage(logoImg, 'PNG', pdfWidth / 2 - logoWidth / 2, 10, logoWidth, logoHeight);
+          // Position at Top Right (with 10mm margin from right edge)
+          pdf.addImage(logoImg, 'JPEG', pdfWidth - logoWidth - 10, 10, logoWidth, logoHeight);
           return 10 + logoHeight + 10; // return new starting Y
         }
         return 10;
