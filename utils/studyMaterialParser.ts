@@ -165,13 +165,14 @@ export function aggregateKDStats(concepts: KDConcept[]): KDStats {
     videos: acc.videos + (c.youtubeUrls?.length || 0),
     pdfs: acc.pdfs + (c.pdfUrl ? 1 : 0),
     quizzes: acc.quizzes + (c.quizzes?.length || 0),
-    questions: acc.questions + (c.quizzes?.reduce((qAcc, q) => qAcc + (q.questions?.length || 0), 0) || 0)
-  }), { concepts: 0, videos: 0, pdfs: 0, quizzes: 0, questions: 0 });
+    questions: acc.questions + (c.quizzes?.reduce((qAcc, q) => qAcc + (q.questions?.length || 0), 0) || 0),
+    flashcards: acc.flashcards + (c.flashcardSets?.reduce((fAcc, f) => fAcc + (f.flashcards?.length || 0), 0) || 0)
+  }), { concepts: 0, videos: 0, pdfs: 0, quizzes: 0, questions: 0, flashcards: 0 });
 }
 
 export async function getKDChapterStats(subjectSlug: string, chapterSlug: string): Promise<KDStats> {
   const node = await getKDNode([subjectSlug, chapterSlug]);
-  return node ? node.stats : { concepts: 0, videos: 0, pdfs: 0, quizzes: 0, questions: 0 };
+  return node ? node.stats : { concepts: 0, videos: 0, pdfs: 0, quizzes: 0, questions: 0, flashcards: 0 };
 }
 
 export async function getKDSubjectStats(subjectSlug: string): Promise<KDStats> {
@@ -181,14 +182,14 @@ export async function getKDSubjectStats(subjectSlug: string): Promise<KDStats> {
   }
 
   const node = await getKDNode([subjectSlug]);
-  return node ? node.stats : { concepts: 0, videos: 0, pdfs: 0, quizzes: 0, questions: 0 };
+  return node ? node.stats : { concepts: 0, videos: 0, pdfs: 0, quizzes: 0, questions: 0, flashcards: 0 };
 }
 
 export async function getAllKDStats(): Promise<KDStats & { subjects: number }> {
   const subjects = await getKDChapterSubjects();
   subjects.push('english-100-concepts');
   
-  const allStats = { subjects: subjects.length, concepts: 0, videos: 0, pdfs: 0, quizzes: 0, questions: 0 };
+  const allStats = { subjects: subjects.length, concepts: 0, videos: 0, pdfs: 0, quizzes: 0, questions: 0, flashcards: 0 };
   
   for (const subject of subjects) {
     const stats = await getKDSubjectStats(subject);
@@ -197,6 +198,7 @@ export async function getAllKDStats(): Promise<KDStats & { subjects: number }> {
     allStats.pdfs += stats.pdfs;
     allStats.quizzes += stats.quizzes;
     allStats.questions += stats.questions;
+    allStats.flashcards += stats.flashcards;
   }
   
   return allStats;
@@ -431,7 +433,7 @@ export async function getKDNode(pathArray: string[]): Promise<import('@/types/st
   }
 
   // 3. Aggregate stats (local concept stats + all children stats)
-  const stats: KDStats = { concepts: 0, videos: 0, pdfs: 0, quizzes: 0, questions: 0 };
+  const stats: KDStats = { concepts: 0, videos: 0, pdfs: 0, quizzes: 0, questions: 0, flashcards: 0 };
   
   if (concept) {
     stats.concepts += 1;
@@ -439,6 +441,7 @@ export async function getKDNode(pathArray: string[]): Promise<import('@/types/st
     stats.pdfs += concept.pdfUrl ? 1 : 0;
     stats.quizzes += concept.quizzes.length;
     stats.questions += concept.quizzes.reduce((acc, q) => acc + q.questions.length, 0);
+    stats.flashcards += concept.flashcardSets?.reduce((acc, f) => acc + f.flashcards.length, 0) || 0;
   }
 
   for (const child of children) {
@@ -447,6 +450,7 @@ export async function getKDNode(pathArray: string[]): Promise<import('@/types/st
     stats.pdfs += child.stats.pdfs;
     stats.quizzes += child.stats.quizzes;
     stats.questions += child.stats.questions;
+    stats.flashcards += child.stats.flashcards;
   }
 
   return {

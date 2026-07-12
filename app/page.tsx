@@ -79,6 +79,7 @@ export default async function HomePage() {
         videos={kdStats.videos}
         quizzes={kdStats.quizzes}
         questions={kdStats.questions}
+        flashcards={kdStats.flashcards}
       />
       
       <FeaturesShowcase />

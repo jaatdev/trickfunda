@@ -121,6 +121,11 @@ export function EnglishSteampunkTheme({ subjectSlug, chapters, displayTitle }: P
                         {chapter.stats.questions} SPECS
                       </span>
                     )}
+                    {chapter.stats.flashcards > 0 && (
+                      <span className="px-2 py-1 bg-[#1A1208] text-fuchsia-500 border border-[#5C4B33] shadow-[inset_0_2px_4px_rgba(0,0,0,0.8)]">
+                        {chapter.stats.flashcards} CARDS
+                      </span>
+                    )}
                   </div>
 
                 </SteampunkCard>

@@ -93,6 +93,11 @@ export default function SubjectListClient({ subjectSlug, chapters }: Props) {
                   {chapter.stats.questions} Q's
                 </span>
               )}
+              {chapter.stats.flashcards > 0 && (
+                <span className="px-3 py-1 rounded-full bg-fuchsia-50 dark:bg-fuchsia-900/20 text-fuchsia-600 dark:text-fuchsia-400">
+                  {chapter.stats.flashcards} Cards
+                </span>
+              )}
             </div>
           </Link>
         </motion.div>

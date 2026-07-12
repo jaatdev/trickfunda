@@ -122,6 +122,11 @@ export function GSCosmicTheme({ subjectSlug, chapters, displayTitle }: Props) {
                         {chapter.stats.questions} Q's
                       </span>
                     )}
+                    {chapter.stats.flashcards > 0 && (
+                      <span className="px-3 py-1.5 rounded bg-fuchsia-900/40 text-fuchsia-200 border border-fuchsia-800/50 backdrop-blur-md">
+                        {chapter.stats.flashcards} Cards
+                      </span>
+                    )}
                   </div>
 
                 </TimelineCard>

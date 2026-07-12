@@ -1,6 +1,6 @@
 import React from 'react';
 import { getAllKDStats, getKDChapterSubjects, getKDSubjectStats } from '@/utils/studyMaterialParser';
-import { BookOpen, Files, FileText, CheckSquare, Youtube, GraduationCap, FolderTree, FileEdit } from 'lucide-react';
+import { BookOpen, Files, FileText, CheckSquare, Youtube, GraduationCap, FolderTree, FileEdit, Layers } from 'lucide-react';
 import { getThemeById } from '@/lib/theme-variants';
 
 export default async function AdminDashboard() {
@@ -39,6 +39,7 @@ export default async function AdminDashboard() {
         <StatCard title="Questions" value={stats.questions} icon={GraduationCap} color="text-purple-500" bg="bg-purple-500/10" />
         <StatCard title="Video Links" value={stats.videos} icon={Youtube} color="text-red-500" bg="bg-red-500/10" />
         <StatCard title="PDFs" value={stats.pdfs} icon={FileText} color="text-amber-500" bg="bg-amber-500/10" />
+        <StatCard title="Flashcards" value={stats.flashcards} icon={Layers} color="text-fuchsia-500" bg="bg-fuchsia-500/10" />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -69,6 +70,10 @@ export default async function AdminDashboard() {
                     <div className="text-center">
                       <div className="text-lg font-semibold">{subject.stats.questions}</div>
                       <div className="text-xs text-gray-500">Questions</div>
+                    </div>
+                    <div className="text-center hidden lg:block">
+                      <div className="text-lg font-semibold">{subject.stats.flashcards}</div>
+                      <div className="text-xs text-gray-500">Flashcards</div>
                     </div>
                   </div>
                 </div>

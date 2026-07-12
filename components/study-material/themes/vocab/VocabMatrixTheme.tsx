@@ -121,6 +121,11 @@ export function VocabMatrixTheme({ subjectSlug, chapters, displayTitle }: Props)
                         {chapter.stats.questions} BYTES
                       </span>
                     )}
+                    {chapter.stats.flashcards > 0 && (
+                      <span className="px-2 py-1 bg-pink-950 text-pink-400 border border-pink-800/50">
+                        {chapter.stats.flashcards} CARDS
+                      </span>
+                    )}
                   </div>
 
                 </MatrixCard>

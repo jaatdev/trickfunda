@@ -132,6 +132,11 @@ export function GSHologramTheme({ node, path, subjectTitle, subjectSlug }: Props
                             {child.stats.questions} Q's
                           </span>
                         )}
+                        {child.stats.flashcards > 0 && (
+                          <span className="px-2 py-1 bg-fuchsia-900/30 text-fuchsia-300 border border-fuchsia-800/50">
+                            {child.stats.flashcards} Cards
+                          </span>
+                        )}
                       </div>
 
                     </HologramFolderCard>

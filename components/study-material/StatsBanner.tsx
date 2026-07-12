@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { KDStats } from '@/types/studyMaterial'
-import { BookOpen, Video, FileText, HelpCircle, FileQuestion } from 'lucide-react'
+import { BookOpen, Video, FileText, HelpCircle, FileQuestion, Layers } from 'lucide-react'
 import { getSubjectTheme } from '@/utils/themeMapping'
 import AnimatedCounter from '@/components/shared/AnimatedCounter'
 
@@ -21,6 +21,7 @@ export default function StatsBanner({ stats, subjectSlug = 'default', label = 'T
     { label: 'Quizzes', value: stats.quizzes, icon: <FileQuestion className="w-5 h-5" /> },
     { label: 'Questions', value: stats.questions, icon: <HelpCircle className="w-5 h-5" /> },
     { label: 'PDFs', value: stats.pdfs, icon: <FileText className="w-5 h-5" /> },
+    { label: 'Flashcards', value: stats.flashcards || 0, icon: <Layers className="w-5 h-5" />, customColor: 'text-fuchsia-500 bg-fuchsia-50 dark:bg-fuchsia-500/20' },
   ].filter(s => s.value > 0) // only show non-zero stats
 
   if (statItems.length === 0) return null
@@ -38,7 +39,7 @@ export default function StatsBanner({ stats, subjectSlug = 'default', label = 'T
       <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8">
         {statItems.map((stat, i) => (
           <div key={stat.label} className="flex items-center space-x-2">
-            <div className={`p-2 rounded-lg bg-gray-50 dark:bg-gray-800 ${theme.primary}`}>
+            <div className={`p-2 rounded-lg ${stat.customColor || `bg-gray-50 dark:bg-gray-800 ${theme.primary}`}`}>
               {stat.icon}
             </div>
             <div>

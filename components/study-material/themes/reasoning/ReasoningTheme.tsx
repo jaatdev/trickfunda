@@ -128,6 +128,11 @@ export function ReasoningTheme({ subjectSlug, chapters, displayTitle }: Props) {
                         {chapter.stats.questions} Q's
                       </span>
                     )}
+                    {chapter.stats.flashcards > 0 && (
+                      <span className="px-2.5 py-1 rounded bg-pink-900/30 text-pink-300 border border-pink-800/50">
+                        {chapter.stats.flashcards} Cards
+                      </span>
+                    )}
                   </div>
 
                 </PuzzleCard>

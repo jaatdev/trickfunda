@@ -30,7 +30,7 @@ export interface KDStats {
   quizzes: number;
   questions: number;
   pdfs: number;
-  flashcards?: number;
+  flashcards: number;
 }
 
 export interface KDCategory {

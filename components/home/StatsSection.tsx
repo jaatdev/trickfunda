@@ -9,13 +9,15 @@ interface StatsSectionProps {
   videos: number
   quizzes: number
   questions: number
+  flashcards: number
 }
 
-export default function StatsSection({ subjects, concepts, videos, quizzes, questions }: StatsSectionProps) {
+export default function StatsSection({ subjects, concepts, videos, quizzes, questions, flashcards }: StatsSectionProps) {
   const stats = [
     { value: subjects, label: 'Subjects', gradient: 'from-indigo-600 to-indigo-400', icon: '📚' },
     { value: concepts, label: 'Concepts & Types', gradient: 'from-emerald-600 to-emerald-400', icon: '📖' },
     { value: questions, label: 'Quiz Questions', gradient: 'from-amber-600 to-amber-400', icon: '❓' },
+    { value: flashcards, label: 'Flashcards', gradient: 'from-fuchsia-600 to-fuchsia-400', icon: '🃏' },
     { value: videos, label: 'Video Lessons', gradient: 'from-pink-600 to-pink-400', icon: '🎥' },
   ]
 
@@ -37,7 +39,7 @@ export default function StatsSection({ subjects, concepts, videos, quizzes, ques
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400">Real results from real students</p>
         </motion.div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 justify-center">
           {stats.map((stat, idx) => (
             <motion.div
               key={idx}
@@ -62,7 +64,7 @@ export default function StatsSection({ subjects, concepts, videos, quizzes, ques
               <motion.div
                 className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 rounded-2xl md:rounded-3xl transition-opacity"
                 style={{
-                  backgroundImage: `linear-gradient(135deg, ${stat.gradient.includes('indigo') ? 'rgba(99, 102, 241, 0.2)' : stat.gradient.includes('emerald') ? 'rgba(16, 185, 129, 0.2)' : stat.gradient.includes('amber') ? 'rgba(245, 158, 11, 0.2)' : 'rgba(236, 72, 153, 0.2)'}, transparent)`
+                  backgroundImage: `linear-gradient(135deg, ${stat.gradient.includes('indigo') ? 'rgba(99, 102, 241, 0.2)' : stat.gradient.includes('emerald') ? 'rgba(16, 185, 129, 0.2)' : stat.gradient.includes('amber') ? 'rgba(245, 158, 11, 0.2)' : stat.gradient.includes('fuchsia') ? 'rgba(217, 70, 239, 0.2)' : 'rgba(236, 72, 153, 0.2)'}, transparent)`
                 }}
               />
               
