@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useFullscreen } from '@/lib/fullscreen-context';
 import FlashcardViewer, { Flashcard } from '@/components/vocab/FlashcardViewer';
-import { Brain, ArrowRight, Printer, CheckCircle } from 'lucide-react';
+import { Brain, ArrowRight, Printer, CheckCircle, Terminal, Shield, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 
 interface Props {
@@ -16,6 +16,7 @@ export default function FlashcardSessionClient({ flashcards, category, day }: Pr
   const { enterFullscreen, exitFullscreen } = useFullscreen();
   const [isStarted, setIsStarted] = useState(false);
   const [isFinished, setIsFinished] = useState(false);
+  const [isGenerating, setIsGenerating] = useState(false);
 
   const handleStart = async () => {
     setIsStarted(true);
@@ -32,9 +33,12 @@ export default function FlashcardSessionClient({ flashcards, category, day }: Pr
   }
 
   const handleDownloadPdf = async () => {
+    if (isGenerating) return;
+    
     const element = document.getElementById('pdf-summary-content');
     if (!element) return;
     
+    setIsGenerating(true);
     try {
       const { toJpeg } = await import('html-to-image');
       const { jsPDF } = await import('jspdf');
@@ -68,18 +72,16 @@ export default function FlashcardSessionClient({ flashcards, category, day }: Pr
         pdf.rect(0, 0, pdfWidth, pdfHeight, 'F');
         
         if (logoLoaded) {
-          const logoWidth = 45;
+          const logoWidth = 15; 
           const logoHeight = (logoImg.height * logoWidth) / logoImg.width;
-          // Position at Top Right (with 10mm margin from right edge)
           pdf.addImage(logoImg, 'JPEG', pdfWidth - logoWidth - 10, 10, logoWidth, logoHeight);
-          return 10 + logoHeight + 10; // return new starting Y
+          return 10 + logoHeight + 10;
         }
         return 10;
       };
 
       let currentY = addBackground();
 
-      // Capture header first
       const headerEl = element.querySelector('.pdf-header') as HTMLElement;
       
       if (headerEl) {
@@ -92,7 +94,6 @@ export default function FlashcardSessionClient({ flashcards, category, day }: Pr
       
       const cards = element.querySelectorAll('.pdf-card-item');
       
-      // Process each card individually to prevent page breaks inside a card
       for (let i = 0; i < cards.length; i++) {
         const card = cards[i] as HTMLElement;
         const dataUrl = await toJpeg(card, { 
@@ -102,31 +103,52 @@ export default function FlashcardSessionClient({ flashcards, category, day }: Pr
         });
         
         const imgProps = pdf.getImageProperties(dataUrl);
-        // Add 20mm padding (10mm left, 10mm right)
         const renderWidth = pdfWidth - 20; 
         const imgHeight = (imgProps.height * renderWidth) / imgProps.width;
         
-        // If this card exceeds the remaining page height, add a new page
         if (currentY + imgHeight > pdfHeight - 10) {
           pdf.addPage();
           currentY = addBackground();
         }
         
         pdf.addImage(dataUrl, 'JPEG', 10, currentY, renderWidth, imgHeight);
-        currentY += imgHeight + 10; // gap between cards
+        currentY += imgHeight + 10;
       }
       
       pdf.save(`TrickFunda-${category}-${day}.pdf`);
     } catch (error) {
       console.error('Failed to generate PDF:', error);
       alert('Failed to generate PDF. Please try printing the page instead.');
+    } finally {
+      setIsGenerating(false);
     }
   };
 
   if (isFinished) {
     return (
-      <div className="min-h-screen bg-white dark:bg-gray-950 p-8 md:p-16">
-        <div className="max-w-6xl mx-auto space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-700">
+      <>
+        {isGenerating && (
+          <div className="fixed inset-0 z-[300] bg-black/90 backdrop-blur-xl flex flex-col items-center justify-center text-emerald-400 font-mono animate-in fade-in duration-300">
+            <div className="relative flex items-center justify-center mb-8">
+              <div className="absolute inset-0 bg-emerald-500/20 blur-xl rounded-full" />
+              <Shield className="w-16 h-16 text-emerald-500 animate-pulse relative z-10" />
+              <Loader2 className="w-24 h-24 absolute animate-spin text-emerald-500/50" />
+            </div>
+            <h2 className="text-2xl md:text-3xl font-bold tracking-[0.3em] mb-4 text-emerald-500 flex items-center gap-3 drop-shadow-[0_0_10px_rgba(16,185,129,0.8)]">
+              <Terminal className="w-6 h-6 animate-pulse" />
+              SYSTEM COMPILING
+            </h2>
+            <div className="flex flex-col items-center gap-2">
+              <p className="text-emerald-400/80 animate-pulse text-sm md:text-base tracking-widest">ENCRYPTING PDF DATASTREAM...</p>
+              <div className="w-64 h-1.5 bg-gray-900 border border-emerald-500/30 rounded-full overflow-hidden mt-6 relative">
+                <div className="absolute top-0 left-0 h-full bg-emerald-500 w-full animate-[shimmer_2s_infinite] opacity-50" />
+                <div className="h-full bg-emerald-400 rounded-full shadow-[0_0_10px_rgba(52,211,153,0.8)] animate-[pulse_1s_ease-in-out_infinite] w-[70%]" />
+              </div>
+            </div>
+          </div>
+        )}
+        <div className="min-h-screen bg-white dark:bg-gray-950 p-8 md:p-16">
+          <div className="max-w-6xl mx-auto space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-700">
           
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 print:hidden">
             <div className="space-y-2">
@@ -157,7 +179,6 @@ export default function FlashcardSessionClient({ flashcards, category, day }: Pr
             </div>
           </div>
 
-          {/* Printable List */}
           <div id="pdf-summary-content" className="bg-white dark:bg-[#111] border border-gray-200 dark:border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl print:shadow-none print:border-none print:p-0">
             <div className="text-center mb-10 pdf-header">
               <h1 className="text-4xl font-black text-gray-900 dark:text-white capitalize mb-2">Vocab TrickFunda</h1>
@@ -222,7 +243,6 @@ export default function FlashcardSessionClient({ flashcards, category, day }: Pr
     );
   }
 
-  // Initial Pre-flight screen
   return (
     <div className="min-h-[80vh] bg-gray-50 dark:bg-gray-950 p-8 md:p-16 flex flex-col items-center justify-center">
       <div className="max-w-2xl w-full bg-white dark:bg-[#111] border border-gray-200 dark:border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl text-center space-y-8 animate-in zoom-in-95 duration-500">

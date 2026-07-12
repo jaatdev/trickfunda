@@ -1,7 +1,7 @@
 'use client';
 
-import React from 'react';
-import { Brain, Printer, CheckCircle, ArrowLeft, Info } from 'lucide-react';
+import React, { useState } from 'react';
+import { Brain, Printer, CheckCircle, ArrowLeft, Info, Terminal, Shield, Loader2 } from 'lucide-react';
 import type { SubjectFlashcard } from '@/lib/types';
 
 interface Props {
@@ -11,10 +11,15 @@ interface Props {
 }
 
 export default function GenericFlashcardSummary({ flashcards, title, onClose }: Props) {
+  const [isGenerating, setIsGenerating] = useState(false);
+
   const handleDownloadPdf = async () => {
+    if (isGenerating) return;
+    
     const element = document.getElementById('generic-pdf-summary-content');
     if (!element) return;
     
+    setIsGenerating(true);
     try {
       const { toJpeg } = await import('html-to-image');
       const { jsPDF } = await import('jspdf');
@@ -48,7 +53,7 @@ export default function GenericFlashcardSummary({ flashcards, title, onClose }: 
         pdf.rect(0, 0, pdfWidth, pdfHeight, 'F');
         
         if (logoLoaded) {
-          const logoWidth = 45;
+          const logoWidth = 15; // Small VIP logo size
           const logoHeight = (logoImg.height * logoWidth) / logoImg.width;
           // Position at Top Right (with 10mm margin from right edge)
           pdf.addImage(logoImg, 'JPEG', pdfWidth - logoWidth - 10, 10, logoWidth, logoHeight);
@@ -100,12 +105,35 @@ export default function GenericFlashcardSummary({ flashcards, title, onClose }: 
     } catch (error) {
       console.error('Failed to generate PDF:', error);
       alert('Failed to generate PDF. Please try printing the page instead.');
+    } finally {
+      setIsGenerating(false);
     }
   };
 
   return (
-    <div className="fixed inset-0 z-[200] bg-gray-900/40 dark:bg-black/60 backdrop-blur-sm overflow-y-auto p-4 md:p-8">
-      <div className="w-full max-w-6xl mx-auto bg-gray-50/95 dark:bg-[#0a0a0a]/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-[2.5rem] p-6 md:p-10 shadow-2xl animate-in fade-in zoom-in-95 duration-500 my-4 md:my-10">
+    <>
+      {isGenerating && (
+        <div className="fixed inset-0 z-[300] bg-black/90 backdrop-blur-xl flex flex-col items-center justify-center text-emerald-400 font-mono animate-in fade-in duration-300">
+          <div className="relative flex items-center justify-center mb-8">
+            <div className="absolute inset-0 bg-emerald-500/20 blur-xl rounded-full" />
+            <Shield className="w-16 h-16 text-emerald-500 animate-pulse relative z-10" />
+            <Loader2 className="w-24 h-24 absolute animate-spin text-emerald-500/50" />
+          </div>
+          <h2 className="text-2xl md:text-3xl font-bold tracking-[0.3em] mb-4 text-emerald-500 flex items-center gap-3 drop-shadow-[0_0_10px_rgba(16,185,129,0.8)]">
+            <Terminal className="w-6 h-6 animate-pulse" />
+            SYSTEM COMPILING
+          </h2>
+          <div className="flex flex-col items-center gap-2">
+            <p className="text-emerald-400/80 animate-pulse text-sm md:text-base tracking-widest">ENCRYPTING PDF DATASTREAM...</p>
+            <div className="w-64 h-1.5 bg-gray-900 border border-emerald-500/30 rounded-full overflow-hidden mt-6 relative">
+              <div className="absolute top-0 left-0 h-full bg-emerald-500 w-full animate-[shimmer_2s_infinite] opacity-50" />
+              <div className="h-full bg-emerald-400 rounded-full shadow-[0_0_10px_rgba(52,211,153,0.8)] animate-[pulse_1s_ease-in-out_infinite] w-[70%]" />
+            </div>
+          </div>
+        </div>
+      )}
+      <div className="fixed inset-0 z-[200] bg-gray-900/40 dark:bg-black/60 backdrop-blur-sm overflow-y-auto p-4 md:p-8">
+        <div className="w-full max-w-6xl mx-auto bg-gray-50/95 dark:bg-[#0a0a0a]/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-[2.5rem] p-6 md:p-10 shadow-2xl animate-in fade-in zoom-in-95 duration-500 my-4 md:my-10">
         
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 print:hidden mb-8">
           <div className="space-y-2">
@@ -284,5 +312,6 @@ export default function GenericFlashcardSummary({ flashcards, title, onClose }: 
 
       </div>
     </div>
+    </>
   );
 }
