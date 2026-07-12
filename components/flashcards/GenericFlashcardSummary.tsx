@@ -36,29 +36,9 @@ export default function GenericFlashcardSummary({ flashcards, title, onClose }: 
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = pdf.internal.pageSize.getHeight();
       
-      const logoImg = new Image();
-      logoImg.src = '/trickfunda-official-logo.jpeg';
-      let logoLoaded = false;
-      try {
-        await new Promise((resolve, reject) => {
-          logoImg.onload = () => { logoLoaded = true; resolve(null); };
-          logoImg.onerror = reject;
-        });
-      } catch (e) {
-        console.warn('Could not load logo for PDF', e);
-      }
-
       const addBackground = () => {
         pdf.setFillColor(bgColor);
         pdf.rect(0, 0, pdfWidth, pdfHeight, 'F');
-        
-        if (logoLoaded) {
-          const logoWidth = 15; // Small VIP logo size
-          const logoHeight = (logoImg.height * logoWidth) / logoImg.width;
-          // Position at Top Right (with 10mm margin from right edge)
-          pdf.addImage(logoImg, 'JPEG', pdfWidth - logoWidth - 10, 10, logoWidth, logoHeight);
-          return 10 + logoHeight + 10; // return new starting Y
-        }
         return 10;
       };
 
