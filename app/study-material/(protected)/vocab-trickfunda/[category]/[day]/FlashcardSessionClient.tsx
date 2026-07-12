@@ -51,16 +51,35 @@ export default function FlashcardSessionClient({ flashcards, category, day }: Pr
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = pdf.internal.pageSize.getHeight();
       
+      const logoImg = new Image();
+      logoImg.src = '/trickfunda-official-logo.png';
+      let logoLoaded = false;
+      try {
+        await new Promise((resolve, reject) => {
+          logoImg.onload = () => { logoLoaded = true; resolve(null); };
+          logoImg.onerror = reject;
+        });
+      } catch (e) {
+        console.warn('Could not load logo for PDF', e);
+      }
+
       const addBackground = () => {
         pdf.setFillColor(bgColor);
         pdf.rect(0, 0, pdfWidth, pdfHeight, 'F');
+        
+        if (logoLoaded) {
+          const logoWidth = 45;
+          const logoHeight = (logoImg.height * logoWidth) / logoImg.width;
+          pdf.addImage(logoImg, 'PNG', pdfWidth / 2 - logoWidth / 2, 10, logoWidth, logoHeight);
+          return 10 + logoHeight + 10; // return new starting Y
+        }
+        return 10;
       };
 
-      addBackground();
+      let currentY = addBackground();
 
       // Capture header first
       const headerEl = element.querySelector('.pdf-header') as HTMLElement;
-      let currentY = 10;
       
       if (headerEl) {
         const headerData = await toJpeg(headerEl, { quality: 0.92, pixelRatio: 2, backgroundColor: bgColor });
@@ -89,12 +108,11 @@ export default function FlashcardSessionClient({ flashcards, category, day }: Pr
         // If this card exceeds the remaining page height, add a new page
         if (currentY + imgHeight > pdfHeight - 10) {
           pdf.addPage();
-          addBackground();
-          currentY = 10;
+          currentY = addBackground();
         }
         
         pdf.addImage(dataUrl, 'JPEG', 10, currentY, renderWidth, imgHeight);
-        currentY += imgHeight + 10; // 10mm gap between cards
+        currentY += imgHeight + 10; // gap between cards
       }
       
       pdf.save(`TrickFunda-${category}-${day}.pdf`);
