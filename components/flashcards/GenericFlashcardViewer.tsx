@@ -101,26 +101,23 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
 
   const cardVariants: import('framer-motion').Variants = {
     enter: (dir: number) => ({
-      x: dir > 0 ? '100%' : '-100%',
       opacity: 0,
-      scale: 0.8,
-      rotateY: dir > 0 ? 45 : -45,
+      scale: 0.95,
+      filter: 'blur(20px)',
     }),
     center: {
       zIndex: 1,
-      x: 0,
       opacity: 1,
       scale: 1,
-      rotateY: 0,
-      transition: { type: 'spring', stiffness: 200, damping: 25 }
+      filter: 'blur(0px)',
+      transition: { duration: 0.5, ease: "easeOut" }
     },
     exit: (dir: number) => ({
       zIndex: 0,
-      x: dir < 0 ? '100%' : '-100%',
       opacity: 0,
-      scale: 0.8,
-      rotateY: dir < 0 ? 45 : -45,
-      transition: { duration: 0.4, ease: "easeInOut" }
+      scale: 1.05,
+      filter: 'blur(20px)',
+      transition: { duration: 0.5, ease: "easeIn" }
     })
   };
 
