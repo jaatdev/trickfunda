@@ -103,10 +103,10 @@ export default function GenericFlashcardSummary({ flashcards, title, onClose }: 
   };
 
   return (
-    <div className="fixed inset-0 z-[200] bg-white dark:bg-gray-950 overflow-y-auto p-4 md:p-8 lg:p-12">
-      <div className="max-w-6xl mx-auto space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-700">
+    <div className="fixed inset-0 z-[200] bg-gray-900/40 dark:bg-black/60 backdrop-blur-sm overflow-y-auto p-4 md:p-8">
+      <div className="w-full max-w-6xl mx-auto bg-gray-50/95 dark:bg-[#0a0a0a]/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-[2.5rem] p-6 md:p-10 shadow-2xl animate-in fade-in zoom-in-95 duration-500 my-4 md:my-10">
         
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 print:hidden">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 print:hidden mb-8">
           <div className="space-y-2">
             <div className="flex items-center gap-3 text-emerald-500 font-bold mb-2">
               <CheckCircle className="w-6 h-6" /> Session Complete!
@@ -119,10 +119,10 @@ export default function GenericFlashcardSummary({ flashcards, title, onClose }: 
             </p>
           </div>
           
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-4">
             <button 
               onClick={handleDownloadPdf}
-              className="px-6 py-3 bg-gray-100 dark:bg-gray-900 hover:bg-gray-200 dark:hover:bg-gray-800 text-gray-900 dark:text-white rounded-xl font-bold transition-colors flex items-center gap-2"
+              className="px-6 py-3 bg-white dark:bg-gray-900 border border-gray-200 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-900 dark:text-white rounded-xl font-bold transition-colors flex items-center gap-2 shadow-sm"
             >
               <Printer className="w-5 h-5" /> Download PDF
             </button>
@@ -130,13 +130,13 @@ export default function GenericFlashcardSummary({ flashcards, title, onClose }: 
               onClick={onClose}
               className="px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl font-bold transition-colors shadow-lg shadow-emerald-500/20 flex items-center gap-2"
             >
-              <ArrowLeft className="w-5 h-5" /> Back to Curriculum
+              <ArrowLeft className="w-5 h-5" /> Back to Notes
             </button>
           </div>
         </div>
 
         {/* Printable List */}
-        <div id="generic-pdf-summary-content" className="bg-white dark:bg-[#111] border border-gray-200 dark:border-white/10 rounded-3xl p-6 md:p-12 shadow-2xl print:shadow-none print:border-none print:p-0">
+        <div id="generic-pdf-summary-content" className="bg-white dark:bg-[#111] border border-gray-200 dark:border-white/10 rounded-3xl p-6 md:p-12 shadow-sm print:shadow-none print:border-none print:p-0">
           <div className="text-center mb-10 pdf-header">
             <h1 className="text-4xl font-black text-gray-900 dark:text-white capitalize mb-2">TrickFunda</h1>
             <h2 className="text-xl text-gray-600 dark:text-gray-400 capitalize">{title}</h2>
