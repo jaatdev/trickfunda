@@ -101,23 +101,26 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
 
   const cardVariants: import('framer-motion').Variants = {
     enter: (dir: number) => ({
+      x: dir > 0 ? '100%' : '-100%',
       opacity: 0,
-      scale: 0.95,
-      filter: 'blur(20px)',
+      scale: 0.8,
+      rotateY: dir > 0 ? 45 : -45,
     }),
     center: {
       zIndex: 1,
+      x: 0,
       opacity: 1,
       scale: 1,
-      filter: 'blur(0px)',
-      transition: { duration: 0.5, ease: "easeOut" }
+      rotateY: 0,
+      transition: { type: 'spring', stiffness: 200, damping: 25 }
     },
     exit: (dir: number) => ({
       zIndex: 0,
+      x: dir < 0 ? '100%' : '-100%',
       opacity: 0,
-      scale: 1.05,
-      filter: 'blur(20px)',
-      transition: { duration: 0.5, ease: "easeIn" }
+      scale: 0.8,
+      rotateY: dir < 0 ? 45 : -45,
+      transition: { duration: 0.4, ease: "easeInOut" }
     })
   };
 
@@ -160,22 +163,16 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
           >
             {/* Front of Card */}
             <motion.div 
-              className="absolute inset-0 w-full h-full rounded-[2.5rem] bg-gradient-to-br from-[#1a1a2e] to-[#16213e] border border-blue-500/30 shadow-[0_0_50px_rgba(59,130,246,0.15)] overflow-hidden backface-hidden"
+              className="absolute inset-0 w-full h-full rounded-[2.5rem] bg-gradient-to-br from-[#1a1a2e] to-[#16213e] border border-blue-500/30 shadow-[0_0_50px_rgba(59,130,246,0.15)] overflow-hidden"
               initial={false}
-              animate={{ rotateX: flipState > 0 ? 180 : 0 }}
+              animate={{ rotateX: flipState > 0 ? 180 : 0, zIndex: flipState === 0 ? 10 : 0 }}
               transition={{ type: "spring", stiffness: 260, damping: 20 }}
-              style={{ backfaceVisibility: 'hidden' }}
+              style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
             >
               <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.05)_50%,transparent_75%)] bg-[length:250%_250%] animate-[shimmer_3s_infinite] pointer-events-none" />
               
               <div className="absolute inset-0 w-full h-full overflow-y-auto overflow-x-hidden scrollbar-hide p-8 md:p-12 flex flex-col" style={{ transform: 'translateZ(0)' }}>
                 <div className="flex-1 flex flex-col items-center justify-center w-full relative z-10 gap-6">
-                  {currentCard.type && (
-                    <span className="px-6 py-2 bg-blue-500/10 border border-blue-500/20 text-blue-400 rounded-full text-xs font-bold uppercase tracking-[0.2em] mb-4 shadow-[0_0_20px_rgba(59,130,246,0.2)]">
-                      {currentCard.type}
-                    </span>
-                  )}
-                  
                   <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-br from-white via-blue-100 to-blue-500/50 bg-clip-text text-transparent filter drop-shadow-[0_0_15px_rgba(59,130,246,0.3)] text-center break-words text-balance w-full max-w-4xl px-4 leading-relaxed md:leading-snug">
                     {currentCard.front}
                   </h1>
@@ -213,11 +210,11 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
 
             {/* Back of Card */}
             <motion.div 
-              className="absolute inset-0 w-full h-full rounded-[2.5rem] bg-gradient-to-br from-[#111827] to-[#1f2937] border border-purple-500/30 shadow-[0_0_50px_rgba(168,85,247,0.15)] overflow-hidden backface-hidden"
+              className="absolute inset-0 w-full h-full rounded-[2.5rem] bg-gradient-to-br from-[#111827] to-[#1f2937] border border-purple-500/30 shadow-[0_0_50px_rgba(168,85,247,0.15)] overflow-hidden"
               initial={false}
-              animate={{ rotateX: flipState === 0 ? -180 : 0 }}
+              animate={{ rotateX: flipState === 0 ? -180 : 0, zIndex: flipState === 0 ? 0 : 10 }}
               transition={{ type: "spring", stiffness: 260, damping: 20 }}
-              style={{ backfaceVisibility: 'hidden', transform: 'rotateX(180deg)' }}
+              style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: 'rotateX(180deg)' }}
             >
               <div className="absolute inset-0 w-full h-full overflow-y-auto overflow-x-hidden scrollbar-hide p-8 md:p-12 flex flex-col" style={{ transform: 'translateZ(0)' }}>
                 <div className="w-full flex-1 flex flex-col justify-center items-center gap-8 py-8">

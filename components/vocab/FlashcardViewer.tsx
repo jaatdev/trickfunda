@@ -150,11 +150,11 @@ export default function FlashcardViewer({ flashcards, onFinish }: Props) {
           >
             {/* Front of Card (Word) */}
             <motion.div 
-              className="absolute inset-0 w-full h-full rounded-[2.5rem] bg-gradient-to-br from-[#1a1a2e] to-[#16213e] border border-blue-500/30 shadow-[0_0_50px_rgba(59,130,246,0.15)] overflow-hidden backface-hidden"
+              className="absolute inset-0 w-full h-full rounded-[2.5rem] bg-gradient-to-br from-[#1a1a2e] to-[#16213e] border border-blue-500/30 shadow-[0_0_50px_rgba(59,130,246,0.15)] overflow-hidden"
               initial={false}
-              animate={{ rotateX: flipState > 0 ? 180 : 0 }}
+              animate={{ rotateX: flipState > 0 ? 180 : 0, zIndex: flipState === 0 ? 10 : 0 }}
               transition={{ type: "spring", stiffness: 260, damping: 20 }}
-              style={{ backfaceVisibility: 'hidden' }}
+              style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
             >
               <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.05)_50%,transparent_75%)] bg-[length:250%_250%] animate-[shimmer_3s_infinite] pointer-events-none" />
               
@@ -174,13 +174,13 @@ export default function FlashcardViewer({ flashcards, onFinish }: Props) {
               </div>
             </motion.div>
 
-            {/* Back of Card (Meaning/Syn/Ant) */}
+            {/* Back of Card (Meaning & Synonyms) */}
             <motion.div 
-              className="absolute inset-0 w-full h-full rounded-[2.5rem] bg-gradient-to-br from-[#111827] to-[#1f2937] border border-purple-500/30 shadow-[0_0_50px_rgba(168,85,247,0.15)] overflow-hidden backface-hidden"
+              className="absolute inset-0 w-full h-full rounded-[2.5rem] bg-gradient-to-br from-[#111827] to-[#1f2937] border border-purple-500/30 shadow-[0_0_50px_rgba(168,85,247,0.15)] overflow-hidden"
               initial={false}
-              animate={{ rotateX: flipState === 0 ? -180 : 0 }}
+              animate={{ rotateX: flipState === 0 ? -180 : 0, zIndex: flipState === 0 ? 0 : 10 }}
               transition={{ type: "spring", stiffness: 260, damping: 20 }}
-              style={{ backfaceVisibility: 'hidden', transform: 'rotateX(180deg)' }}
+              style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: 'rotateX(180deg)' }}
             >
               <div className="absolute inset-0 w-full h-full overflow-y-auto overflow-x-hidden scrollbar-hide p-8 md:p-10 flex flex-col" style={{ transform: 'translateZ(0)' }}>
                 <div className="w-full flex-1 flex flex-col">
