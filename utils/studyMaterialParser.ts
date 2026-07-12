@@ -355,29 +355,43 @@ export async function getKDNode(pathArray: string[]): Promise<import('@/types/st
   }
 
   const quizzes: KDQuiz[] = [];
+  const flashcardSets: import('@/types/studyMaterial').KDFlashcardSet[] = [];
   let hasLocalFiles = false;
 
   try {
     const files = await fs.promises.readdir(nodeDir, { withFileTypes: true });
     for (const file of files) {
-      if (file.isFile() && file.name.startsWith('quiz') && file.name.endsWith('.json')) {
-        try {
-          const rawQuiz = await fs.promises.readFile(path.join(nodeDir, file.name), 'utf8');
-          const questions = JSON.parse(rawQuiz) as QuizQuestion[];
-          const titlePart = file.name.replace('.json', '');
-          const title = titlePart === 'quiz' ? 'Quiz' : formatTitle(titlePart.replace('quiz-', ''));
-          quizzes.push({ id: titlePart, title, questions });
-        } catch (e) {
-          console.error(`Error parsing ${file.name} in ${nodeSlug}`, e);
+      if (file.isFile()) {
+        if (file.name.startsWith('quiz') && file.name.endsWith('.json')) {
+          try {
+            const rawQuiz = await fs.promises.readFile(path.join(nodeDir, file.name), 'utf8');
+            const questions = JSON.parse(rawQuiz) as QuizQuestion[];
+            const titlePart = file.name.replace('.json', '');
+            const title = titlePart === 'quiz' ? 'Quiz' : formatTitle(titlePart.replace('quiz-', ''));
+            quizzes.push({ id: titlePart, title, questions });
+          } catch (e) {
+            console.error(`Error parsing ${file.name} in ${nodeSlug}`, e);
+          }
+        } else if (file.name.startsWith('flashcards') && file.name.endsWith('.json')) {
+          try {
+            const rawCards = await fs.promises.readFile(path.join(nodeDir, file.name), 'utf8');
+            const flashcards = JSON.parse(rawCards) as import('@/lib/types').SubjectFlashcard[];
+            const titlePart = file.name.replace('.json', '');
+            const title = titlePart === 'flashcards' ? 'Flashcards' : formatTitle(titlePart.replace('flashcards-', ''));
+            flashcardSets.push({ id: titlePart, title, flashcards });
+          } catch (e) {
+            console.error(`Error parsing ${file.name} in ${nodeSlug}`, e);
+          }
         }
       }
     }
   } catch (e) {
-    console.error(`Error reading directory ${nodeDir} for quizzes:`, e);
+    console.error(`Error reading directory ${nodeDir} for local files:`, e);
   }
   quizzes.sort((a, b) => a.id.localeCompare(b.id));
+  flashcardSets.sort((a, b) => a.id.localeCompare(b.id));
 
-  if (notesMarkdown || noteBoxes || pdfUrl || youtubeUrls || quizzes.length > 0) {
+  if (notesMarkdown || noteBoxes || pdfUrl || youtubeUrls || quizzes.length > 0 || flashcardSets.length > 0) {
     hasLocalFiles = true;
   }
 
@@ -389,6 +403,7 @@ export async function getKDNode(pathArray: string[]): Promise<import('@/types/st
     pdfUrl,
     youtubeUrls,
     quizzes,
+    flashcardSets,
   } : null;
 
   // 2. Check for sub-directories (children)

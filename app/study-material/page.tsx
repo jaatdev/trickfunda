@@ -27,6 +27,7 @@ export default async function StudyMaterialHome() {
   ];
 
   dynamicSubjects.forEach((subject) => {
+    if (subject === 'vocab-trickfunda') return;
     const title = subject.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ').replace('Gs', 'GS');
     const theme = getSubjectTheme(subject);
     categories.push({
@@ -48,6 +49,17 @@ export default async function StudyMaterialHome() {
     iconColor: 'text-blue-500',
     hoverBorder: 'group-hover:border-blue-500/50',
     hoverText: 'group-hover:text-blue-600 dark:group-hover:text-blue-400',
+  });
+
+  categories.push({
+    href: '/study-material/vocab-trickfunda',
+    title: 'Gamified KD Flashcards',
+    description: 'Master Vocabulary, Idioms, and One-Word Substitutions with mind-blowing 3-stage animated hacks in a structured daily curriculum.',
+    iconName: 'Brain',
+    color: 'from-emerald-500/10 to-transparent dark:from-emerald-500/20',
+    iconColor: 'text-emerald-500',
+    hoverBorder: 'group-hover:border-emerald-500/50',
+    hoverText: 'group-hover:text-emerald-600 dark:group-hover:text-emerald-400',
   });
 
   return (

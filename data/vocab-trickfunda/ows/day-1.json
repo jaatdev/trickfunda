@@ -1,0 +1,373 @@
+
+{
+  "flashcards": [
+    {
+      "id": "ows-day-1-1",
+      "type": "ows",
+      "word": "Abdicate",
+      "meaning": "To give up the throne/ To give up a throne voluntarily/ To renounce, a high position of authority or control to renounce one's throne",
+      "kdKey": "Ab = अब, dicate = दिक्कत",
+      "kdHack": "अब गद्दी सँभालने में दिक्कत हो रही है इसलिए उसने अपना पद त्याग दिया।"
+    },
+    {
+      "id": "ows-day-1-2",
+      "type": "ows",
+      "word": "Abdication",
+      "meaning": "Act of renouncing the throne./Act of giving up thethrone / Giving up one's authority or throne / Voluntary giving up of throne in favour of someone",
+      "kdKey": "Ab = अब, dicate = दिक्कत",
+      "kdHack": "अब दिक्कत होने पर पद त्यागने का कार्य।"
+    },
+    {
+      "id": "ows-day-1-3",
+      "type": "ows",
+      "word": "Nostalgia",
+      "meaning": "An excessively intense desire for returning topast or lost conditions./A strong desire to return home, Home sickness/Afeeling of fondnessmixed with some sadness for something in the passst / A sentimental longing or wistful affection for a period in the past/ Memories of the past/ Sentimental longing for a period in the past A sentimental longing for a period in the past/ A sentimental longing for a time in the past",
+      "kdKey": "Nostal = Hostel (हॉस्टल)",
+      "kdHack": "हॉस्टल में रहने वाले बच्चों को हमेशा अपने घर की याद सताती है।"
+    },
+    {
+      "id": "ows-day-1-4",
+      "type": "ows",
+      "word": "Teetotaller",
+      "meaning": "One who abstains from alcoholic drinks / One who does not take any intoxicating drugs/ A person who completely abstains from alcohol/Aperson who never takes alcoholic drinks/ A person who abstains completely from alcoholic drinks/ One who does not take any alcoholic drink",
+      "kdKey": "Tee = tea (चाय), total = टोटल",
+      "kdHack": "जो व्यक्ति टोटल टी (चाय) ही पीता है, वह कभी शराब नहीं पीता।"
+    },
+    {
+      "id": "ows-day-1-5",
+      "type": "ows",
+      "word": "Sinecure",
+      "meaning": "An office with a salary but no work / A job with high salary but a little responsibility/ An office with high salary but no work/ A post with little work but high salary",
+      "kdKey": "Sine = साइन, cur = करो",
+      "kdHack": "ऑफिस जाओ और सिर्फ साइन करो, ऐसी नौकरी जिसमें काम कम और पैसा ज्यादा हो।"
+    },
+    {
+      "id": "ows-day-1-6",
+      "type": "ows",
+      "word": "Obsolete",
+      "meaning": "No longer used because something new has been invented/A thing no longer inuse / The word is no longer in use./The thing no longer in use / No longer in existence or use /A word or practice that has gone out of use /Anything which is no longer in use. / Something no longer in use / A word or law no longer in use",
+      "kdKey": "Ob = अब, sole = शोले",
+      "kdHack": "अब शोले मूवी का जमाना पुराना (obsolete) हो गया है।"
+    },
+    {
+      "id": "ows-day-1-7",
+      "type": "ows",
+      "word": "Obsolescent",
+      "meaning": "Passing out of use",
+      "kdKey": "Ob = अब, sole = शोले",
+      "kdHack": "अब शोले मूवी पुरानी हो रही है।"
+    },
+    {
+      "id": "ows-day-1-8",
+      "type": "ows",
+      "word": "Complacent",
+      "meaning": "One who is completely self satisfied/Smugly self-satisfied / Satisfied, with no desire to change or improve",
+      "kdKey": "Com = कम, place = प्लेस",
+      "kdHack": "जिसे कम प्लेस (जगह) मिले, फिर भी वह पूरी तरह से संतुष्ट रहे।"
+    },
+    {
+      "id": "ows-day-1-9",
+      "type": "ows",
+      "word": "Ascetic",
+      "meaning": "Aperson who avoids sensory pleasures and physicalcomforts./A religious person with strict way of lifelone wholeads an austere life/One who denies oneself ordinary bodilypleasures/Characterized by severe self-discipline andabstention from all forms of indulgence, typically for religious reasons/Person leading a life of strict self-discipline",
+      "kdKey": "Asce = ऐश, tic = टिक",
+      "kdHack": "जो व्यक्ति ऐश की जिंदगी में ना टिके, वह संन्यासी होता है।"
+    },
+    {
+      "id": "ows-day-1-10",
+      "type": "ows",
+      "word": "Truant",
+      "meaning": "A student left school or class without permission/ One who remains absent from duty without permission/ A student who idly or without excuse absents himselfherself from school/ One who stays away from school with permission/ A school boy who cuts classes frequently.",
+      "kdKey": "Truant = तुरंत",
+      "kdHack": "तुरंत बिना बताए स्कूल से भाग जाने वाला छात्र।"
+    },
+    {
+      "id": "ows-day-1-11",
+      "type": "ows",
+      "word": "Brittle",
+      "meaning": "Hard but liable to be easily broken / That which may be easilybroken/ Liable to break easily/A thing likely to be easily broken /Liable tobe easily broken/ The thing that can beeasily broken",
+      "kdKey": "Britt = ब्रिटानिया",
+      "kdHack": "ब्रिटानिया का बिस्कुट बहुत आसानी से टूट जाता है।"
+    },
+    {
+      "id": "ows-day-1-12",
+      "type": "ows",
+      "word": "Fragile",
+      "meaning": "Something which is easily breakable Something which is easily breakable That can be casily",
+      "kdKey": "Fragi = फर्जी, le = ले",
+      "kdHack": "फर्जी सामान ले लोगे तो वह बहुत आसानी से टूट जाएगा।"
+    },
+    {
+      "id": "ows-day-1-13",
+      "type": "ows",
+      "word": "Extravagant",
+      "meaning": "A person who wastes his money on luxurv/A person who wastemoney on luxury/A man",
+      "kdKey": "Extra = एक्स्ट्रा",
+      "kdHack": "जो जरूरत से ज्यादा (एक्स्ट्रा) पैसा बहाता है, वह बहुत खर्चीला होता है।"
+    },
+    {
+      "id": "ows-day-1-14",
+      "type": "ows",
+      "word": "Insolvent",
+      "meaning": "Who is unable to pay debts/ A person who js unable to pay his debts./ Aperson who has no money to pay off his debts/ Unable to pay one's debt/ a person who is unable to pay his debts/ Incapable of paying debts/ Being unable to pay one's debt",
+      "kdKey": "In = नहीं, solve = सॉल्व",
+      "kdHack": "जो अपना कर्ज चुकाने की समस्या सॉल्व ना कर सके, वह दिवालिया हो जाता है।"
+    },
+    {
+      "id": "ows-day-1-15",
+      "type": "ows",
+      "word": "Parvenu",
+      "meaning": "One who suddenly gained wealth, power and prestige/ Newly rich hero /A person of obscure position who has gained wealth",
+      "kdKey": "Parven = परवीन",
+      "kdHack": "परवीन बाबी फिल्मों में आते ही रातों-रात अमीर बन गई थीं।"
+    },
+    {
+      "id": "ows-day-1-16",
+      "type": "ows",
+      "word": "Altruist",
+      "meaning": "A person who devotes his/her life for the welfare of others/A person who loves everybody/ One who is concerned with the welfare of others / A person unselfishly concerned for or devoted to the welfare of others/ One who works for the good ofanother / One who devotes one's life to the welfare of other people lover of mankind",
+      "kdKey": "Al = all (सभी), truist = ट्रस्ट (भरोसा)",
+      "kdHack": "जो All (सभी) पर ट्रस्ट करे, वह बहुत परोपकारी होता है।"
+    },
+    {
+      "id": "ows-day-1-17",
+      "type": "ows",
+      "word": "Altruism",
+      "meaning": "Unselfish interest in the welfare of others/The philosophy of putting another's welfare above one's own.",
+      "kdKey": "Altruist से ही बना है",
+      "kdHack": "Altruist से ही बना है।"
+    },
+    {
+      "id": "ows-day-1-18",
+      "type": "ows",
+      "word": "Slam",
+      "meaning": "To shut a door, window or lid forcefully and loudly",
+      "kdKey": "Slam = सलाम",
+      "kdHack": "मूवी में आपने देखा होगा जब कोई एक्टर पुलिसवाला होता है जब गुस्से में आता हैं और पुलिस वाली खिड़की को जोर से बंद करता है तो अच्छे से अच्छे गुंडे भी सलाम ठोकते है।"
+    },
+    {
+      "id": "ows-day-1-19",
+      "type": "ows",
+      "word": "Provender",
+      "meaning": "Food for farm animals",
+      "kdKey": "Prov = पर्व, ender = अंदर",
+      "kdHack": "मकर सक्रांति के पर्व पर हमारे अंदर भी ऐसी भावना जागृत होती है कि पशुओं को चारा डाले मतलब कि पशु का भोजन"
+    },
+    {
+      "id": "ows-day-1-20",
+      "type": "ows",
+      "word": "Frothy",
+      "meaning": "To be full or covered with a mass of small bubbles",
+      "kdKey": "Frothy = फिरोते",
+      "kdHack": "जब आप गिलास में पेप्सी डालकर फिरोते है तो उसमें छोटे-छोटे bubbles बन जाते है मतलब कि झागदार।"
+    },
+    {
+      "id": "ows-day-1-21",
+      "type": "ows",
+      "word": "Plagiarism",
+      "meaning": "Copying someone else's work and trying to submit it as your own./Literary theft or passing off an author's original work as one's own / Theft of another person's writings or ideas and passing them off as one's own. / The practice of taking someone else's work or ideas and passing them off as one's own / The practice of taking someone else's work / Stealing of ideas or writings of someone else",
+      "kdKey": "Pl = पल, agi = आगी, ri = रे",
+      "kdHack": "एक ऐसा व्यक्ति जो दूसरे व्यक्ति के ideas या कार्य को चुराकर उसे ऐसे represent करता है जैसे मानो कि खुद के हो तो ऐसे आदमी को हर पल ये डर सताता है कि पुलिस आ गयी (आगी) रे मतलब कि आ गयी रे।"
+    },
+    {
+      "id": "ows-day-1-22",
+      "type": "ows",
+      "word": "Plagiarist",
+      "meaning": "One who copies from other writers / A person who steals the writing of others",
+      "kdKey": "Plagiarism से ही बना है।",
+      "kdHack": "Plagiarism से ही बना है। इसका मतलब यह है कि आपको इसकी अलग से ट्रिक्स बनाने की जरूरत नहीं है।"
+    },
+    {
+      "id": "ows-day-1-23",
+      "type": "ows",
+      "word": "Tryst",
+      "meaning": "A private romantic rendezvous between lovers. / keep a private, romantic rendezvous with a lover",
+      "kdKey": "Try = कोशिश, st = सेट",
+      "kdHack": "लड़की को सेट करने के लिए गुप्त स्थान पर ही मिलने की कोशिश करनी चाहिए।"
+    },
+    {
+      "id": "ows-day-1-24",
+      "type": "ows",
+      "word": "Constellation",
+      "meaning": "A group of stars having a particular shape./A group of stars found close together /. A number of stars grouped together/ A group of stars that make a pattern/ A group of stars",
+      "kdKey": "Cons = कौनसा, tell = बताना, a = एक, tion = क्षण",
+      "kdHack": "गांवों में जब किसी के दादा-दादी मर जाते है तो छोटे बच्चे रात के समय में तारों के समूह में से एक कहता है वो तारा मेरे दादा है, फिर दूसरे को पूछते है तू बताना कौनसी तेरी दादी है तो एक क्षण के लिए सोचता है फिर कहता है वो रही मेरी दादी मतलब कि तारो का समूह।"
+    },
+    {
+      "id": "ows-day-1-25",
+      "type": "ows",
+      "word": "Raconteur",
+      "meaning": "Story-teller; one who tells stories with wit and skill. / Specially skilled in storytelling",
+      "kdKey": "Raco = रखो, teur = tour[टूर]",
+      "kdHack": "अगर लम्बे दूर पर ही कही जा रहे हो तो टूर पर ऐसे आदमी को तो रखो जो अच्छी-अच्छी मजेदार कहानियां सुनाता हो।"
+    },
+    {
+      "id": "ows-day-1-26",
+      "type": "ows",
+      "word": "Drover",
+      "meaning": "One who deals in cattle",
+      "kdKey": "Dro = डरो, ver = बैर",
+      "kdHack": "जो चौपायों को बेचने का व्यापार करते है उनको उनके घर से बुजुर्ग आदमी यही कहता है कि अरे भगवान से डरो इन बेजुबान जानवरों से क्यों बैर रखते हो इनको क्यों बेचते हो मतलब कि चौपायों को बेचने वाला।"
+    },
+    {
+      "id": "ows-day-1-27",
+      "type": "ows",
+      "word": "Compere",
+      "meaning": "Master of ceremonies / A person who introduces the performers or contestants in a variety show/ One who introduces performing artistes on the stage programmes",
+      "kdKey": "Com = काम, pe = पे, re = रे",
+      "kdHack": "अगर कही पर शो होने वाला हो और सभी लोग इधर-उधर घूम रहे हो तो जो इनका मास्टर होगा वो सभी को बोलेगा कि काम पे लग जाओ रे मतलब कि कार्यक्रम-उद्घोषक।"
+    },
+    {
+      "id": "ows-day-1-28",
+      "type": "ows",
+      "word": "Apprentice",
+      "meaning": "A person who has just started learning / One who is learning a trade/ A person learning a trade under someone/ A person who agrees to work for somebody in order to learn a skill/ A person who works for an employer for a fixed period of time in order to learn the particular skills",
+      "kdKey": "App = आप, rent = रेंट, ce = से",
+      "kdHack": "जब आप सिटी में पढ़ाई के लिए जाते है तो आप भी रेंट पर रूम लेकर ही पढ़ते है क्योंकि आप नौसिखिया ही तो होते है।"
+    },
+    {
+      "id": "ows-day-1-29",
+      "type": "ows",
+      "word": "Demagogue",
+      "meaning": "A political leader who tries to stir up people / A political leader who seeks support by appealing to popular desires and prejudices rather than by using rational argument/ a leader who sways his followers by his oratory/ A political leader appealing to popular desires and prejudices",
+      "kdKey": "Demag = दिमाग, ogue = आग",
+      "kdHack": "नेता लोग अपना दिमाग पूरा लगाते है कि जनता में आग कैसे लगायी जाये मतलब कि जनोत्तेजक नेता।"
+    },
+    {
+      "id": "ows-day-1-30",
+      "type": "ows",
+      "word": "Convoy",
+      "meaning": "A group of vehicles travelling together/ a group of trucks/lorries travelling together under protection",
+      "kdKey": "Con = कौन, vo = वो, y = ये",
+      "kdHack": "चुनावी रैली में जब अपने गांव से 50-60 गाड़ी एक साथ जाती है तो हर कोई देखने वाला यही पूछता है कि कौन है ये वो जो इतनी गाड़ीयों के साथ जा रहा है मतलब कि वाहनों का दल।"
+    },
+    {
+      "id": "ows-day-1-31",
+      "type": "ows",
+      "word": "Veteran",
+      "meaning": "A person having significant experience in an occupation./A person with a long experience / One who has long experience/ one who has a long experience of any occupation/ A person who has had long experience in a particular field/ One who has long experience/ A person who is long experienced or practiced in an activity/capacity",
+      "kdKey": "Veter = वेटर",
+      "kdHack": "शादियों में वेटर वो ही लाते है जिनको अनुभव होता है।"
+    },
+    {
+      "id": "ows-day-1-32",
+      "type": "ows",
+      "word": "Notorious",
+      "meaning": "A person who is well-known for an unfavourable way / Known widely and usually unfavourable/ One who is known widely but usually unfavourably/ A man of evil reputation/ Have an evil reputation/ A person who is well-known in an unfavourable way/ A person of evil reputation/ To be known for bad acts",
+      "kdKey": "Not = नोट बंदी, us = हमे",
+      "kdHack": "नोट बंदी के दौरान एक प्राइवेट बैंक के मैनेजर धांधली के कारण बहुत बदनाम हुए थे।"
+    },
+    {
+      "id": "ows-day-1-33",
+      "type": "ows",
+      "word": "Notoriety",
+      "meaning": "Ill-fame",
+      "kdKey": "Notorious से ही बना है",
+      "kdHack": "Notorious से ही बना है इसका मतलब कि आपको इसकी अलग से ट्रिक्स बनाने और याद करने की जरूरत नहीं है।"
+    },
+    {
+      "id": "ows-day-1-34",
+      "type": "ows",
+      "word": "Totalitarian",
+      "meaning": "In which there is only one political party that has complete power and control over the people/ A system of government in which only one political party is allowed to function",
+      "kdKey": "Total = टोटल, tari = तेरी",
+      "kdHack": "हमारे देश में एक पार्टी ऐसी भी है जिसमें केवल उसी के परिवार की चलती हैं तो हम बोलते है कि टोटल तेरी ही क्यों चलती हैं क्योंकि उसके पास complete power and control है मतलब कि जिसमें एक व्यक्ति के पास ही सारे अधिकार है।"
+    },
+    {
+      "id": "ows-day-1-35",
+      "type": "ows",
+      "word": "Biopsy",
+      "meaning": "Examination of the tissue of a diseased person. / A test in which cells from diseased organs are removed and tested/ examination of living tissue.",
+      "kdKey": "Bio = बायोलॉजी, p = पढ़ने, sy = से",
+      "kdHack": "बायोलॉजी को पढ़ने से ही पता चलता है कि बीमार व्यक्ति के कोशिकाओं की जांच कैसे करना है।"
+    },
+    {
+      "id": "ows-day-1-36",
+      "type": "ows",
+      "word": "Cosmopolitan",
+      "meaning": "An outlook that is influenced by people from all over the world/A person who regards the whole world as his country./A citizen of the world / A person who can make himself/herself feel at home in any country./ A person who regards the whole world as his country / One who is a citizen not of a country but of the world",
+      "kdKey": "Cos = कोश, m = में, politan = पॉलिटिशियन",
+      "kdHack": "Polity में हम पढ़ते है कि महात्मा गांधी जी ने कोसों दूरियां तय की थी क्योंकि वो जहां भी जाते वहां comfortable feel करते थे मतलब कि पूरे संसार भर को अपना देश मानते थे।"
+    },
+    {
+      "id": "ows-day-1-37",
+      "type": "ows",
+      "word": "Cosmopolite",
+      "meaning": "A person who regards whole world as his country",
+      "kdKey": "Cosmopolitan, Cosmopolite से ही बना हुआ है।",
+      "kdHack": "Cosmopolitan, Cosmopolite से ही बना हुआ है।"
+    },
+    {
+      "id": "ows-day-1-38",
+      "type": "ows",
+      "word": "Philistine",
+      "meaning": "One who dislikes art and culture/A person who is interested in material gains and is hostile to art/culture./One who does not care for literature or art/ One who is indifferent to art and culture",
+      "kdKey": "Phil = पहले, s = से, tin = तीन",
+      "kdHack": "हमे तो पहले से ही पता है वो तीसरी क्लास तक ही पढ़ा हुआ है इसलिए उसे कला या कलात्मक चीजो की समझ नहीं है।"
+    },
+    {
+      "id": "ows-day-1-39",
+      "type": "ows",
+      "word": "Obituary",
+      "meaning": "A news article that reports the recent death of a person/ A report giving the news of the death and details about the life of the deceased/Notice of a death of a person/ an account in the newspaper about the funeral of the deceased/ Printed notice of somebody's dearth/ A notice of a person's death",
+      "kdKey": "O = ओ, bitu = बिटु",
+      "kdHack": "जैसे ही उसे मृत्यु की सूचना लगी तो वे रोने लग गयी ओ मेरा बिटु कहा चला गया।"
+    },
+    {
+      "id": "ows-day-1-40",
+      "type": "ows",
+      "word": "Elegy",
+      "meaning": "A poem of lamentation on the death of someone loved and admired./A poem of lamentation on the death of someone loved and admired / A funeral poem / A mournful poem or a song / A song sung at the death of a person",
+      "kdKey": "e = ऐ, le = ले, gy = गया",
+      "kdHack": "उसके जवान बेटे के मर जाने पर पूरे घर में मातम (शोक सा) माहोल हो गया और उसकी मां कह रही है कि ऐ ले गया रे मेरे बेटे को।"
+    },
+    {
+      "id": "ows-day-1-41",
+      "type": "ows",
+      "word": "Colleague",
+      "meaning": "A co-worker or a fellow worker in the same institution/ A co- worker in an office or institution/ Persons working at the same place/ People who work together at the same place",
+      "kdKey": "",
+      "kdHack": ""
+    },
+    {
+      "id": "ows-day-1-42",
+      "type": "ows",
+      "word": "Mortal",
+      "meaning": "Subject to death",
+      "kdKey": "",
+      "kdHack": ""
+    },
+    {
+      "id": "ows-day-1-43",
+      "type": "ows",
+      "word": "Post-mortem",
+      "meaning": "An examination of dead body/ Operation of the body after death/ An examination of a dead body to determine the cause of death.",
+      "kdKey": "",
+      "kdHack": ""
+    },
+    {
+      "id": "ows-day-1-44",
+      "type": "ows",
+      "word": "Draw/Drawn",
+      "meaning": "A game that results neither in victory nor in defeat./A game in which no one wins / A game in which neither party wins/ a game that results neither in victory nor in defeat",
+      "kdKey": "",
+      "kdHack": ""
+    },
+    {
+      "id": "ows-day-1-45",
+      "type": "ows",
+      "word": "Curator",
+      "meaning": "A keeper or custodian of a museum or other collection./One who is in charge of a museum or art gallery./ One who is incharge of a museum/a cricket pitch./A person in charge of a museum /The keeper of a museum",
+      "kdKey": "",
+      "kdHack": ""
+    },
+    {
+      "id": "ows-day-1-o1",
+      "type": "ows",
+      "word": "Omnipresent",
+      "meaning": "Present everywhere at the same time.",
+      "kdKey": "Omni",
+      "kdHack": "Omni (All) + Present -> Someone who is present all over the place."
+    }
+  ]
+}

@@ -1,0 +1,904 @@
+{
+  "flashcards": [
+    {
+      "id": "sure60-day2-vocab-1",
+      "type": "vocab",
+      "word": "Chide",
+      "meaning": "To criticize or blame somebody because they have done something wrong (Scold / डांटना)",
+      "synonyms": ["Scold", "Rebuke"],
+      "antonyms": ["Praise", "Compliment", "Applaud"],
+      "kdHack": "Key: Chide = चिड़ -> जब मैंने उसे सभी Friends के सामने डांटा तो वो चिड़ गया।"
+    },
+    {
+      "id": "sure60-day2-vocab-2",
+      "type": "vocab",
+      "word": "Stentorian",
+      "meaning": "Loud and powerful (Loud / जोर की आवाज का)",
+      "synonyms": ["Loud", "Thunderous"],
+      "antonyms": ["Quiet"],
+      "kdHack": "Key: S = शादी, tent = टेंट -> शादी में जो टेंट लगाने वाले आते हैं वो टेंट लगाते वक्त बहुत जोर की आवाज में बोलते हैं।"
+    },
+    {
+      "id": "sure60-day2-vocab-3",
+      "type": "vocab",
+      "word": "Clasp",
+      "meaning": "Grasp (something) tightly with one's hand (Grip / मजबूती से पकड़ना)",
+      "synonyms": ["Grip", "Embrace"],
+      "antonyms": ["Loose", "Unclasp"],
+      "kdHack": "Key: Cla = कला, sp = एस पी -> एस पी में अपराधी को मजबूती से पकड़ने की कला होती है।"
+    },
+    {
+      "id": "sure60-day2-vocab-4",
+      "type": "vocab",
+      "word": "Kindle",
+      "meaning": "To start burning; to make a fire start burning (Ignite / जलाना)",
+      "synonyms": ["Ignite", "Fire"],
+      "antonyms": ["Extinguish", "Put out"],
+      "kdHack": "Key: Kindle sound of candle (मोमबत्ती) -> Candle (मोमबत्ती) जो कि जलाने के ही काम आती है।"
+    },
+    {
+      "id": "sure60-day2-vocab-5",
+      "type": "vocab",
+      "word": "Salubrious",
+      "meaning": "Pleasant to live in; clean and healthy (Healthful, Healthy, Beneficial / स्वस्थ)",
+      "synonyms": ["Healthy", "Healthful", "Wholesome", "Beneficial"],
+      "antonyms": ["Unhealthy"],
+      "kdHack": "Key: Salu= सल्लू (सलमान खान) -> सल्लू (सलमान खान) जो कि Healthy ही तो है।"
+    },
+    {
+      "id": "sure60-day2-vocab-6",
+      "type": "vocab",
+      "word": "Gloomy",
+      "meaning": "Nearly dark, or badly lit in a way that makes you feel sad (Sad, Sombre, Morose, Depressing / दुखी / अंधकारमय)",
+      "synonyms": ["Sombre", "Murky", "Downcast", "Depressing"],
+      "antonyms": ["Radiant", "Bright", "Buoyant", "Glad", "Optimistic"],
+      "kdHack": "Key: Gloomy Sound of गुलामी -> गुलामी में आदमी उदास ही तो रहता है और उसकी जिंदगी में अँधेरा ही छाया रहता है।"
+    },
+    {
+      "id": "sure60-day2-vocab-7",
+      "type": "vocab",
+      "word": "Pillory",
+      "meaning": "To criticize somebody strongly in public (Censure, Condemn / निंदा करना)",
+      "synonyms": ["Censure", "Condemn"],
+      "antonyms": ["Praise", "Commend"],
+      "kdHack": "Key: Pillor = पिलर -> जब Question का आंसर नही बताया तो उसे पिलर से बाँध दिया इसलिए सभी ने उस teacher की निंदा की।"
+    },
+    {
+      "id": "sure60-day2-vocab-8",
+      "type": "vocab",
+      "word": "Lampoon",
+      "meaning": "To criticize somebody/something publicly in a humorous way that makes them look silly (To criticize / निन्दा करना)",
+      "synonyms": ["Criticize"],
+      "antonyms": ["Applaud"],
+      "kdHack": "Key: Lamp = लैम्प, on = on -> जब मैंने रूम का लैम्प ऑन ही छोड़ दिया तो पापा ने मेरी सबके सामने बहुत निन्दा की।"
+    },
+    {
+      "id": "sure60-day2-vocab-9",
+      "type": "vocab",
+      "word": "Detest",
+      "meaning": "To hate somebody/something very much (Hate, Dislike / घृणा करना)",
+      "synonyms": ["Hate", "Abhor", "Despise"],
+      "antonyms": ["Like", "Love", "Adore"],
+      "kdHack": "Key: De = दे, test = टेस्ट -> जो टीचर Student को ज्यादा ही टेस्ट देते है उससे ज्यादातर Student घृणा ही करते है।"
+    },
+    {
+      "id": "sure60-day2-vocab-10",
+      "type": "vocab",
+      "word": "Attenuate",
+      "meaning": "To make something weaker or less effective (Weakened, Very thin / बहुत पतला)",
+      "synonyms": ["Weakened", "Very thin"],
+      "antonyms": ["Strong", "Strengthen"],
+      "kdHack": "Key: At = पर, ten = 10, u = तुम, ate = खाना -> अगर तुम 10 साल की उम्र में गुटखा खाने लग गये हो तो बेटा जल्दी पतले हो जाओगे।"
+    },
+    {
+      "id": "sure60-day2-vocab-11",
+      "type": "vocab",
+      "word": "Injurious",
+      "meaning": "Causing or likely to cause harm or damage (Pernicious, Harmful / नुकसानदायक)",
+      "synonyms": ["Harmful", "Detrimental", "Deleterious"],
+      "antonyms": ["Beneficial"],
+      "kdHack": "Key: Injuri = चोट -> अगर किसी खिलाड़ी को अभ्यास मैच में ही चोट लग जाती है तो वो उसके लिए नुकसानदायक होती है।"
+    },
+    {
+      "id": "sure60-day2-vocab-12",
+      "type": "vocab",
+      "word": "Obese",
+      "meaning": "Very fat, in a way that is not healthy (Very fat / बहुत मोटा)",
+      "synonyms": ["Corpulent", "Fat", "Stout"],
+      "antonyms": ["Thin", "Slim", "Emaciated", "Gaunt"],
+      "kdHack": "Key: O = ओ, bese = भैंसे -> मोटे आदमी को हम मजाक में ओ भैंसे इधर आ ऐसे ही तो बोलते हैं।"
+    },
+    {
+      "id": "sure60-day2-vocab-13",
+      "type": "vocab",
+      "word": "Abecedarian",
+      "meaning": "A person just learning the ABCs of something (Beginner, Neophyte, Novice / नौसिखिया)",
+      "synonyms": ["Beginner", "Neophyte", "Novice", "Learner", "Newcomer"],
+      "antonyms": ["Expert"],
+      "kdHack": "Key: A = A, be = B, ce = C, d = D, ari = आ रही -> अभी तो उसे इस काम की ABCD ही समझ में आ रही है क्योकि वो नौसिखिया है।"
+    },
+    {
+      "id": "sure60-day2-vocab-14",
+      "type": "vocab",
+      "word": "Coddle",
+      "meaning": "To treat somebody with too much care and attention (Cosset / लाड़-प्यार करना)",
+      "synonyms": ["Satisfy", "Pamper"],
+      "antonyms": ["Ignore", "Neglect"],
+      "kdHack": "Key: Cod = कोड़ -> उसके घर वाले उससे लाड़-कोड़ कुछ ज्यादा ही करते है मतलब कि उसकी प्यार से देखभाल करते है।"
+    },
+    {
+      "id": "sure60-day2-vocab-15",
+      "type": "vocab",
+      "word": "Heedless",
+      "meaning": "Not paying careful attention to somebody/something (Careless / लापरवाह)",
+      "synonyms": ["Careless", "Reckless", "Negligent"],
+      "antonyms": ["Thoughtful", "Heedful", "Careful", "Cautious"],
+      "kdHack": "Key: Heed = हेड, less = कम -> जहाँ लोग Office के हेड की कम ही सुनते है वहां पर लोग लापरवाह ही मिलेंगे।"
+    },
+    {
+      "id": "sure60-day2-vocab-16",
+      "type": "vocab",
+      "word": "Noxious",
+      "meaning": "Harmful, poisonous, or very unpleasant (Harmful / नुकसानदायक)",
+      "synonyms": ["Pernicious", "Harmful", "Deleterious", "Baneful", "Noisome"],
+      "antonyms": ["Harmless", "Innocuous"],
+      "kdHack": "Key: Noxi = नक्सीर, us = हमे -> हमे पता है कि अगर किसी व्यक्ति के सारे दिन ही नक्सीर आती रहती है तो वो उसके लिए नुकसानदायक ही होती है।"
+    },
+    {
+      "id": "sure60-day2-vocab-17",
+      "type": "vocab",
+      "word": "Flexible",
+      "meaning": "Able to change to suit new conditions or situations (Elastic / लचीला)",
+      "synonyms": ["Elastic", "Pliant"],
+      "antonyms": ["Stiff", "Defiant"],
+      "kdHack": "Key: Flexibl= फ्लेक्सिबल गर्दन -> फ्लेक्सिबल गर्दन वाला ऐड जिसमे वो ब्रश बहुत लचीला ही तो होता है।"
+    },
+    {
+      "id": "sure60-day2-vocab-18",
+      "type": "vocab",
+      "word": "Fragile",
+      "meaning": "Easily broken or damaged (Weak, Brittle, Delicate / आसानी से टूटने वाला)",
+      "synonyms": ["Weak", "Brittle", "Delicate"],
+      "antonyms": ["Strong", "Tough"],
+      "kdHack": "Key: Fragi= फर्जी, le= ले -> जब भी हम कोई फर्जी चीज लेते है तो आसानी से टूट जाती है।"
+    },
+    {
+      "id": "sure60-day2-vocab-19",
+      "type": "vocab",
+      "word": "Eager",
+      "meaning": "Very interested and excited by something that is going to happen (Exhilarated, Keen, Avid / उत्सुक)",
+      "synonyms": ["Exhilarated", "Keen", "Enthusiastic", "Avid"],
+      "antonyms": ["Uneager", "Uninterested"],
+      "kdHack": "Key: E= एग्जाम, ager= अगर -> अगर एग्जाम टाइम पर हो तो हर स्टूडेंट उत्सुक होकर ही पढ़ता है।"
+    },
+    {
+      "id": "sure60-day2-vocab-20",
+      "type": "vocab",
+      "word": "Berate",
+      "meaning": "To criticize or speak angrily to somebody because you do not approve of something they have done (Scold / डांटना)",
+      "synonyms": ["Scold", "Upbraid", "Rebuke"],
+      "antonyms": ["Praise", "Compliment"],
+      "kdHack": "Key: Berate = Burate (ब्युरेट) -> अगर कोई Student Chemistry की लैब में Burate तोड़ दे तो टीचर Student को डांटते-फटकारते ही है।"
+    },
+    {
+      "id": "sure60-day2-vocab-21",
+      "type": "vocab",
+      "word": "Corpulent",
+      "meaning": "Having a large bulky body (Very fat, Obese, Rotund / मोटा)",
+      "synonyms": ["Obese", "Fat", "Rotund"],
+      "antonyms": ["Thin", "Emaciated", "Gaunt", "Lanky"],
+      "kdHack": "Key: Cor = कर, pull = pull (खींचना) -> वो इतनी मोटी है की उसे दो चार आदमी खींच कर लाते है।"
+    },
+    {
+      "id": "sure60-day2-vocab-22",
+      "type": "vocab",
+      "word": "Complacent",
+      "meaning": "Too satisfied with yourself or with a situation (Self-satisfied, Smug / आत्म सन्तुष्ट)",
+      "synonyms": ["Self-satisfied", "Smug"],
+      "antonyms": ["Concerned", "Humble", "Dissatisfied"],
+      "kdHack": "Key: Com = कम, place = स्थान (जगह) -> हमारे देश के ऋषि-मुनि कम जगह में रहने के बावजूद भी अपने आप से सन्तुष्ट रहते है।"
+    },
+    {
+      "id": "sure60-day2-vocab-23",
+      "type": "vocab",
+      "word": "Pudgy",
+      "meaning": "Slightly fat (Very fat / मोटा)",
+      "synonyms": ["Corpulent", "Stout", "Chubby", "Fat"],
+      "antonyms": ["Thin", "Gaunt", "Slim", "Lanky"],
+      "kdHack": "Key: Pod = पड़, gy = गयी -> खा-खा कर इतनी मोटी हो गयी कि थोड़ी सी दूर चलते ही पड़ गयी।"
+    },
+    {
+      "id": "sure60-day2-vocab-24",
+      "type": "vocab",
+      "word": "Dank",
+      "meaning": "Slightly wet, cold and unpleasant (Damp, Wet / गीला)",
+      "synonyms": ["Damp", "Wet", "Moist"],
+      "antonyms": ["Dry"],
+      "kdHack": "Key: Dank sound of tank (टैंक) -> पानी का टैंक जो की गीला रहता है।"
+    },
+    {
+      "id": "sure60-day2-vocab-25",
+      "type": "vocab",
+      "word": "Damp",
+      "meaning": "Slightly wet, often in a way that is unpleasant (Wet / गीला)",
+      "synonyms": ["Wet", "Moisten"],
+      "antonyms": ["Dry", "Drought", "Arid"],
+      "kdHack": "Key: Dam = बाँध -> बाँध जो कि पानी के कारण गीला रहता है।"
+    },
+    {
+      "id": "sure60-day2-vocab-26",
+      "type": "vocab",
+      "word": "Dampen",
+      "meaning": "Make slightly wet; make less strong or intense (Wet / गीला)",
+      "synonyms": ["Wet", "Moisten"],
+      "antonyms": ["Dry"],
+      "kdHack": "Key: Dam = बाँध -> बाँध जो कि पानी के कारण गीला रहता है।"
+    },
+    {
+      "id": "sure60-day2-vocab-27",
+      "type": "vocab",
+      "word": "Encountered",
+      "meaning": "To experience something unpleasant or difficult (Experiencing, Faced / सामना करना)",
+      "synonyms": ["Faced", "Experiencing"],
+      "antonyms": ["Avoided"],
+      "kdHack": "Key: Encounter = एनकाउंटर -> अपराधी को पुलिस के एनकाउंटर का सामना करना पड़ा।"
+    },
+    {
+      "id": "sure60-day2-vocab-28",
+      "type": "vocab",
+      "word": "Legacy",
+      "meaning": "Money or property that is given to you by somebody when they die (Inheritance / पैतृक सम्पति)",
+      "synonyms": ["Inheritance", "Bequest"],
+      "antonyms": ["Dispossession"],
+      "kdHack": "Key: Le = ले, gacy = जासी -> जब घर में पैतृक सम्पत्ति के लिए बेटे लड़ते है तो बड़े-बूढ़े लोग कह ही देते है कि इसे क्या साथ लेकर जायेगा क्या मतलब कि इसे साथ ले जासी क्या।"
+    },
+    {
+      "id": "sure60-day2-vocab-29",
+      "type": "vocab",
+      "word": "Juvenile",
+      "meaning": "Relating to young people who are not yet adults (Childish/Young / जवान/युवा)",
+      "synonyms": ["Young", "Youthful", "Immature"],
+      "antonyms": ["Mature", "Adult", "Senior"],
+      "kdHack": "Key: Juven = Sound of जवान -> जवान जो कि Young होता है।"
+    },
+    {
+      "id": "sure60-day2-vocab-30",
+      "type": "vocab",
+      "word": "Clammy",
+      "meaning": "Slightly wet in an unpleasant way (Moist, Damp / चिप-चिपा)",
+      "synonyms": ["Moist", "Damp"],
+      "antonyms": ["Dry"],
+      "kdHack": "Key: Clam= कलम, my= मेरे -> मेरे को भी पता है कि कलम को ज्यादा टाइम तक पकड़ कर लिखने से अंगुलिया चिप-चिपी हो जाती है।"
+    },
+    {
+      "id": "sure60-day2-vocab-31",
+      "type": "vocab",
+      "word": "Accomplice",
+      "meaning": "A person who helps another to commit a crime (Abettor, Partner in crime / सहअपराधी)",
+      "synonyms": ["Abettor", "Partner in crime", "Associate"],
+      "antonyms": ["Opponent", "Rival"],
+      "kdHack": "Key: Ac= एक, com= काम, plice= पुलिस -> पुलिस का एक ही काम होता है अपराध में साथी होता है उसे ढूँढना।"
+    },
+    {
+      "id": "sure60-day2-vocab-32",
+      "type": "vocab",
+      "word": "Humbug",
+      "meaning": "Dishonest language or behaviour that is intended to trick people (Cheat, Dupe / धोखा)",
+      "synonyms": ["Cheat", "Dupe", "Trick"],
+      "antonyms": ["Candor", "Artlessness"],
+      "kdHack": "Key: Hum = हम, bug= भग (भाग) -> हमे धोखा देकर वो भग (भाग) गये।"
+    },
+    {
+      "id": "sure60-day2-vocab-33",
+      "type": "vocab",
+      "word": "Gull",
+      "meaning": "A person who is fooled or deceived (Trick, Deceive, Hoodwink / धोखा)",
+      "synonyms": ["Trick", "Deceive", "Hoodwink"],
+      "antonyms": ["Honest"],
+      "kdHack": "Key: Gull = गुल -> उस बेचारी लड़की को उसने पता नही ऐसा क्या गुल खिलाया कि वो उसके झांसे में आ गयी और बाद मे उसे धोखा दे दिया।"
+    },
+    {
+      "id": "sure60-day2-vocab-34",
+      "type": "vocab",
+      "word": "Swindle",
+      "meaning": "To cheat somebody in order to get something (Fraud / ठगना/धोखा देना)",
+      "synonyms": ["Fraud", "Deceive", "Trick", "Cheat"],
+      "antonyms": ["Honesty"],
+      "kdHack": "Key: Swindle = सैंडल -> जब वो लड़का उस लड़की को धोखा देने वाला ही था तो उस लड़की को जैसे ही पता चला तो उसने कहा की तेरे सैंडल की पड़ेगी।"
+    },
+    {
+      "id": "sure60-day2-vocab-35",
+      "type": "vocab",
+      "word": "Foe",
+      "meaning": "An enemy or opponent (Enemy / शत्रु)",
+      "synonyms": ["Enemy", "Opponent"],
+      "antonyms": ["Ally", "Friend"],
+      "kdHack": "Key: Foe = Friend of enemy -> दुश्मन का दोस्त दुश्मन ही होता है।"
+    },
+    {
+      "id": "sure60-day2-vocab-36",
+      "type": "vocab",
+      "word": "Torrid",
+      "meaning": "Very hot and dry (Hot, Tropical, Very hot and dry / बहुत गर्म)",
+      "synonyms": ["Hot", "Sultry", "Sweltering"],
+      "antonyms": ["Freezing", "Frigid"],
+      "kdHack": "Key: Torri = तोरी -> तोरी गर्म मौसम में ही आती है।"
+    },
+    {
+      "id": "sure60-day2-vocab-37",
+      "type": "vocab",
+      "word": "Sheath",
+      "meaning": "A cover that fits closely over the blade of a knife or weapon (Coat / म्यान)",
+      "synonyms": ["Coat", "Scabbard"],
+      "antonyms": [],
+      "kdHack": "Key: She = वह, ath = आती -> वह (झाँसी की रानी लक्ष्मीबाई) जब युद्ध करने जाती तो अपनी तलवार को म्यान में डालकर ही आती थी।"
+    },
+    {
+      "id": "sure60-day2-vocab-38",
+      "type": "vocab",
+      "word": "Preposterous",
+      "meaning": "Completely unreasonable or absurd (Absurd / बेतुका)",
+      "synonyms": ["Absurd", "Ridiculous", "Ludicrous"],
+      "antonyms": ["Reasonable"],
+      "kdHack": "Key: Pre = पहले, poster= पोस्टर, us = हमे -> Pk movie का सबसे पहला poster बहुत ही बेतुका था।"
+    },
+    {
+      "id": "sure60-day2-vocab-39",
+      "type": "vocab",
+      "word": "Adieu",
+      "meaning": "Goodbye (Farewell / अलविदा/विदाई)",
+      "synonyms": ["Farewell", "Goodbye", "Leave", "Departure"],
+      "antonyms": ["Coming", "Arrive", "Welcome"],
+      "kdHack": "Key: A = एक, dieu = ड्यू -> विदाई समारोह में सबको एक-एक ड्यू की बोतल दी।"
+    },
+    {
+      "id": "sure60-day2-vocab-40",
+      "type": "vocab",
+      "word": "Disparage",
+      "meaning": "Regard or represent as being of little worth (Vilify / निन्दा करना/अपमानित करना)",
+      "synonyms": ["Vilify"],
+      "antonyms": ["Compliment"],
+      "kdHack": "Key: Dis = देश, parage = पराजय -> क्रिकेट में जब देश की पराजय होती है तो हर कोई निंदा करता है।"
+    },
+    {
+      "id": "sure60-day2-vocab-41",
+      "type": "vocab",
+      "word": "Futility",
+      "meaning": "Pointlessness or uselessness (Useless, Uselessness / बेकार)",
+      "synonyms": ["Useless", "Uselessness"],
+      "antonyms": ["Useful"],
+      "kdHack": "Key: Futi = फूटी, li = ले -> अगर हम कोई चीज Market से लाते है और वो फूटी हुई निकल जाये तो वो बेकार हो जाती है।"
+    },
+    {
+      "id": "sure60-day2-vocab-42",
+      "type": "vocab",
+      "word": "Futile",
+      "meaning": "Incapable of producing any useful result; pointless (Useless / बेकार)",
+      "synonyms": ["Useless", "Valueless", "Fruitless", "Vain", "Worthless"],
+      "antonyms": ["Productive", "Worthy", "Useful", "Effective", "Beneficial", "Profitable", "Fruitful"],
+      "kdHack": "Key: Futi = फूटी, le = ले -> अगर हम कोई चीज Market से लाते है और वो फूटी हुई निकल जाये तो वो बेकार हो जाती है।"
+    },
+    {
+      "id": "sure60-day2-vocab-43",
+      "type": "vocab",
+      "word": "Stink",
+      "meaning": "Have a strong unpleasant smell (Stench, Smell, Fetor / बदबू)",
+      "synonyms": ["Stench", "Smell", "Fetor"],
+      "antonyms": ["Fragrance", "Perfume"],
+      "kdHack": "Key: St = स्टूडेंट, ink = इंक -> कई बार स्टूडेंट की जेब में पेन से इंक निकल जाती है जिससे बहुत बदबू आती है।"
+    },
+    {
+      "id": "sure60-day2-vocab-44",
+      "type": "vocab",
+      "word": "Stinking",
+      "meaning": "Having a very strong, unpleasant smell (Fetid, Malodorous / बदबू)",
+      "synonyms": ["Fetid", "Malodorous"],
+      "antonyms": ["Fragrant", "Aromatic"],
+      "kdHack": "Key: St = स्टूडेंट, ink = इंक -> कई बार स्टूडेंट की जेब में पेन से इंक निकल जाती है जिससे बहुत बदबू आती है।"
+    },
+    {
+      "id": "sure60-day2-vocab-45",
+      "type": "vocab",
+      "word": "Parry",
+      "meaning": "To defend yourself against somebody by pushing their attack to one side (Avoid / बचाव)",
+      "synonyms": ["Avoid", "Dodge"],
+      "antonyms": ["Confront", "Encounter"],
+      "kdHack": "Key: Parry = परी -> पापा अपनी परी की हर गलती को Avoid कर देते है।"
+    },
+    {
+      "id": "sure60-day2-vocab-46",
+      "type": "vocab",
+      "word": "Skirt",
+      "meaning": "Attempt to ignore; avoid dealing with (Dodge, Avoid, Evade / बचना / टालना)",
+      "synonyms": ["Dodge", "Avoid", "Evade"],
+      "antonyms": ["Confront", "Encounter", "Tackle"],
+      "kdHack": "Key: Skirt = स्कर्ट -> स्कर्ट पहनी हुई लडकी मनचले लड़कों से रस्ते में बचने की ही कोशिश करती है।"
+    },
+    {
+      "id": "sure60-day2-vocab-47",
+      "type": "vocab",
+      "word": "Din",
+      "meaning": "A loud, unpleasant noise that lasts for a long time (Loud, Uproar / शोरगुल)",
+      "synonyms": ["Loud", "Uproar", "Racket", "Tumult"],
+      "antonyms": ["Silence"],
+      "kdHack": "Key: Din = दिन -> दिन में रात की तुलना में बहुत ज्यादा शोरगुल रहता है।"
+    },
+    {
+      "id": "sure60-day2-vocab-48",
+      "type": "vocab",
+      "word": "Staunch",
+      "meaning": "Very loyal and committed in attitude (Loyal / निष्ठावान, सच्चा)",
+      "synonyms": ["Loyal"],
+      "antonyms": ["Disloyal", "Infidel", "Treacherous", "Unsteady"],
+      "kdHack": "Key: St = Student, unch = ऊँचा -> निष्ठावान/सच्चा स्टूडेंट ही घर वालो का नाम ऊँचा करता है।"
+    },
+    {
+      "id": "sure60-day2-vocab-49",
+      "type": "vocab",
+      "word": "Stationary",
+      "meaning": "Not moving; not intended to be moved (Standing, Fixed / स्थिर)",
+      "synonyms": ["Standing", "Fixed"],
+      "antonyms": ["Moving", "Mobile", "Movable"],
+      "kdHack": "Key: Station = स्टेशन -> स्टेशन जो कि एक जगह स्थिर ही तो रहता है।"
+    },
+    {
+      "id": "sure60-day2-vocab-50",
+      "type": "vocab",
+      "word": "Moribund",
+      "meaning": "At the point of death (Death, Dying / मृत्यु या मृत्यु के कगार पर)",
+      "synonyms": ["Death", "Dying"],
+      "antonyms": ["Alive"],
+      "kdHack": "Key: Mor = मर, bund = बूंद -> उसे पिछले 1 महीने से एक बूंद भी पानी की नही मिली इसलिए उसकी मृत्यु हो गयी।"
+    },
+    {
+      "id": "sure60-day2-vocab-51",
+      "type": "vocab",
+      "word": "Meticulous",
+      "meaning": "Paying careful attention to every detail (Careful, Perfectionist, Methodical, Over attentive / सतर्क, अतिसावधान)",
+      "synonyms": ["Careful", "Perfectionist", "Methodical", "Over attentive"],
+      "antonyms": ["Careless", "Heedless", "Chaotical"],
+      "kdHack": "Key: Meti = मिट्टी, colous = कलश -> मिट्टी के कलश को हमेशा सावधानी पूर्वक रखना चाहिए क्योंकि थोड़ी सी ठोकर लगने पर फूट सकता है।"
+    },
+    {
+      "id": "sure60-day2-vocab-52",
+      "type": "vocab",
+      "word": "Abduct",
+      "meaning": "To take somebody away illegally, especially using force (Kidnap / अपहरण करना)",
+      "synonyms": ["Kidnap", "Seize"],
+      "antonyms": ["Release", "Let go", "Redeem"],
+      "kdHack": "Key: Ab = अब, Duc = ढक -> आजकल गुंडे जब अपहरण करते है तो मुंह को ढक कर ही ले जाते है।"
+    },
+    {
+      "id": "sure60-day2-vocab-53",
+      "type": "vocab",
+      "word": "Augment",
+      "meaning": "To increase the amount, value, size, etc. of something (Increase / बढ़ना)",
+      "synonyms": ["Increase", "Expand", "Enlarge", "Enhance"],
+      "antonyms": ["Decrease", "Contract", "Diminish", "Truncate"],
+      "kdHack": "Key: Aug = आग, ment = मिनट -> जब किसी जगह आग लगती है तो बढ़ने में 1 मिनट भी नहीं लगाती है।"
+    },
+    {
+      "id": "sure60-day2-vocab-54",
+      "type": "vocab",
+      "word": "Augmentation",
+      "meaning": "The act or process of increasing the amount, value, size, etc. (Accretion / वृद्धि)",
+      "synonyms": ["Accretion", "Increase", "Enlargement"],
+      "antonyms": ["Reduction", "Subtraction"],
+      "kdHack": "Key: Aug = आग, ment = मिनट -> जब किसी जगह आग लगती है तो बढ़ने में 1 मिनट भी नहीं लगाती है।"
+    },
+    {
+      "id": "sure60-day2-vocab-55",
+      "type": "vocab",
+      "word": "Aftermath",
+      "meaning": "The consequences or after-effects of a significant unpleasant event (Result, Consequence / परिणाम)",
+      "synonyms": ["Result", "Consequence"],
+      "antonyms": ["Basis"],
+      "kdHack": "Key: After = बाद मे, math = गणित -> गणित पढ़ने के बाद इस बार उसका परिणाम अच्छा आया है।"
+    },
+    {
+      "id": "sure60-day2-vocab-56",
+      "type": "vocab",
+      "word": "Desist",
+      "meaning": "To stop doing something (Cease, Stop, Discontinue / बंद करना)",
+      "synonyms": ["Cease", "Stop", "Discontinue"],
+      "antonyms": ["Continue"],
+      "kdHack": "Key: Desi = देशी जुगाड़, st = स्टूडेंट -> जब से देशी जुगाड़ की ट्रिक्स से स्टूडेंट ने पढ़ना स्टार्ट किया है तब से उन्होंने मार्केट की ओर बुक्स से पढ़ना ही बंद कर दिया है।"
+    },
+    {
+      "id": "sure60-day2-vocab-57",
+      "type": "vocab",
+      "word": "Seethe",
+      "meaning": "To be extremely angry but trying not to show it (To be very angry / अंदर ही अंदर गुस्सा)",
+      "synonyms": ["Fume", "Angry"],
+      "antonyms": ["Calm"],
+      "kdHack": "Key: Seethe = सीते -> जब रावण सीता को ले गया था तो उस टाइम भगवान राम सीते-सीते ऐसे पुकार-पुकार के अंदर ही अंदर बहुत गुस्सा हुए थे।"
+    },
+    {
+      "id": "sure60-day2-vocab-58",
+      "type": "vocab",
+      "word": "Ire",
+      "meaning": "Anger (Wrath, Anger, Fury / गुस्सा)",
+      "synonyms": ["Wrath", "Anger", "Fury", "Irritation"],
+      "antonyms": ["Calmness", "Serenity", "Sangfroid", "Composure"],
+      "kdHack": "Key: Ire = अरे -> कई बार गुस्से में हम बोल देते है कि अरे दे ना सुनता नहीं है क्या।"
+    },
+    {
+      "id": "sure60-day2-vocab-59",
+      "type": "vocab",
+      "word": "Ireful",
+      "meaning": "Full of intense anger (Irate, Angry / क्रोधी)",
+      "synonyms": ["Irate", "Wrathful", "Furious"],
+      "antonyms": [],
+      "kdHack": "Key: Ire = अरे -> कई बार गुस्से में हम बोल देते है कि अरे दे ना सुनता नहीं है क्या।"
+    },
+    {
+      "id": "sure60-day2-vocab-60",
+      "type": "vocab",
+      "word": "Compunction",
+      "meaning": "A guilty feeling about doing something (Remorse / पछतावा)",
+      "synonyms": ["Remorse", "regret", "Contrition"],
+      "antonyms": ["Apathy"],
+      "kdHack": "Key: Com = कम, punction = फंक्शन -> उस फोन में कम फंक्शन आने पर उसे बहुत ही ज्यादा पछतावा हुआ की काश थोड़े से और पैसे देकर अच्छा फोन ले लेता।"
+    },
+    {
+      "id": "sure60-day2-vocab-61",
+      "type": "vocab",
+      "word": "Lassitude",
+      "meaning": "A state of feeling very tired in mind or body; lack of energy (Laziness / आलस्य)",
+      "synonyms": ["Laziness", "Stupor"],
+      "antonyms": ["Vigour", "Energy", "Enthusiasm", "Activity"],
+      "kdHack": "Key: Lassi = लस्सी -> अगर गर्मियों में हम लस्सी पीते है तो बहुत ज्यादा आलस्य आ जाता है।"
+    },
+    {
+      "id": "sure60-day2-vocab-62",
+      "type": "vocab",
+      "word": "Sloth",
+      "meaning": "Reluctance to work or make an effort; laziness (Laziness, Indolence, Slothfulness / आलस्य)",
+      "synonyms": ["Lazy", "Idle", "Indolent", "Sluggish"],
+      "antonyms": ["Active", "Energetic", "Lively"],
+      "kdHack": "Key: Slo = स्लो, th = थी -> उसके काम करने की स्पीड बहुत स्लो थी क्योकि उसमे आलस्य बहुत ज्यादा था।"
+    },
+    {
+      "id": "sure60-day2-vocab-63",
+      "type": "vocab",
+      "word": "Badger",
+      "meaning": "Repeatedly ask someone to do something; pester (Harass, Annoy, Pester / तंग करना)",
+      "synonyms": ["Harass", "Annoy", "Pester"],
+      "antonyms": ["Appease", "Comfort"],
+      "kdHack": "Key: Bad = बुरा, ger = घर -> बुरे घर में भूत बहुत ज्यादा तंग करते है।"
+    },
+    {
+      "id": "sure60-day2-vocab-64",
+      "type": "vocab",
+      "word": "Bother",
+      "meaning": "Beset / परेशान करना",
+      "synonyms": ["Annoy", "Harass", "Disturb", "Beset"],
+      "antonyms": [],
+      "kdHack": "Key: B = भाग, other = दूसरा -> उसका पति उसे बहुत परेशान करता था इसलिए वो किसी दूसरे लड़के के साथ भाग गयी।"
+    },
+    {
+      "id": "sure60-day2-vocab-65",
+      "type": "vocab",
+      "word": "Beset",
+      "meaning": "Of a problem or difficulty to trouble someone persistently (Harass / तंग करना)",
+      "synonyms": ["Harass"],
+      "antonyms": ["Assist", "Aid"],
+      "kdHack": "Key: Be = भी, set = सेठ -> बड़े-बड़े सेठ भी अपने नौकरों को तंग ही करते है।"
+    },
+    {
+      "id": "sure60-day2-vocab-66",
+      "type": "vocab",
+      "word": "Duteous",
+      "meaning": "Dutiful (Dutiful, Obedient / आज्ञाकारी)",
+      "synonyms": ["Dutiful", "Obedient", "Compliant", "Submissive"],
+      "antonyms": [],
+      "kdHack": "Key: Dute = ड्यूटी, us = हमे -> जो टाइम पर ड्यूटी पर आता है वो ही हमे आज्ञाकारी लगता है।"
+    },
+    {
+      "id": "sure60-day2-vocab-67",
+      "type": "vocab",
+      "word": "Ribald",
+      "meaning": "Referring to sexual matters in an amusingly rude or irreverent way (Obscene / अश्लील)",
+      "synonyms": ["Bawdy", "Lewd", "Obscene"],
+      "antonyms": ["Decent", "Clean"],
+      "kdHack": "Key: R = रघु, Bald – गंजा -> रोडीज में रघु-राजीव दोनों गंजे मिलकर अश्लील गाली देते रहते हैं।"
+    },
+    {
+      "id": "sure60-day2-vocab-68",
+      "type": "vocab",
+      "word": "Indecent",
+      "meaning": "Thought to be morally offensive, especially involving sex (Vulgar, Obscene / अश्लील)",
+      "synonyms": ["Vulgar", "Obscene", "Dirty"],
+      "antonyms": ["Decent", "Pure"],
+      "kdHack": "Key: In= not (नहीं), decent = सभ्य -> जो सभ्य नहीं होता वो, अश्लील हरकते ही करता रहता है।"
+    },
+    {
+      "id": "sure60-day2-vocab-69",
+      "type": "vocab",
+      "word": "Outlandish",
+      "meaning": "Strange or extremely unusual (Strange / विचित्र)",
+      "synonyms": ["Strange", "Bizarre", "Queer"],
+      "antonyms": ["Common"],
+      "kdHack": "Key: Out = बाहर, land = प्रदेश -> प्रदेश से जब बाहर जाते है तो हमे हर चीज विचित्र ही लगती है।"
+    },
+    {
+      "id": "sure60-day2-vocab-70",
+      "type": "vocab",
+      "word": "Provisional",
+      "meaning": "Arranged for the present time only and likely to be changed (Temporary, Makeshift / अस्थायी)",
+      "synonyms": ["Temporary", "Makeshift"],
+      "antonyms": ["Permanent"],
+      "kdHack": "Key: Provisional = Provisional Certificate -> Graduation पूरी करने के बाद जो provisional certificate मिलता है वो अस्थायी ही होता है।"
+    },
+    {
+      "id": "sure60-day2-vocab-71",
+      "type": "vocab",
+      "word": "Solemn",
+      "meaning": "Not happy or smiling (Serious, Grave / गंभीर)",
+      "synonyms": ["Serious", "Grave", "Sober"],
+      "antonyms": ["Frivolous", "Cheerful", "Comical"],
+      "kdHack": "Key: Sole = अकेला, mn = मन -> जब हम घर पर अकेले होते है तो मन नही लगता है और serious बैठे रहते है।"
+    },
+    {
+      "id": "sure60-day2-vocab-72",
+      "type": "vocab",
+      "word": "Monotonous",
+      "meaning": "Never changing and therefore boring (Dull / नीरस)",
+      "synonyms": ["Dull", "Uninteresting", "Boring", "Repetitive", "Tedium", "Vapid"],
+      "antonyms": ["Interesting"],
+      "kdHack": "Key: Mono = सिंगल, ton = टोन, us = हमे -> वो हमेशा सिंगल टोन में ही गाना गाता है इसलिए हमे मजा नही आता है मतलब नीरस सा लगता है।"
+    },
+    {
+      "id": "sure60-day2-vocab-73",
+      "type": "vocab",
+      "word": "Monotony",
+      "meaning": "Lack of variety and interest; tedious repetition (Boredom / नीरस)",
+      "synonyms": ["Boredom", "Tedium", "Humdrum"],
+      "antonyms": ["Excitement"],
+      "kdHack": "Key: Mono = सिंगल, ton = टोन -> वो हमेशा सिंगल टोन में ही गाना गाता है इसलिए हमे मजा नही आता है मतलब नीरस सा लगता है।"
+    },
+    {
+      "id": "sure60-day2-vocab-74",
+      "type": "vocab",
+      "word": "Cynosure",
+      "meaning": "A person or thing that is the centre of attention (Centre of Attraction / आकर्षण)",
+      "synonyms": ["Centre of Attraction"],
+      "antonyms": [],
+      "kdHack": "Key: Cynosure sound of dinosaur (डायनासोर) -> अगर गाँव में डायनासोर आ जाये तो वो आकर्षण का केंद्र बन जाता है।"
+    },
+    {
+      "id": "sure60-day2-vocab-75",
+      "type": "vocab",
+      "word": "Curtail",
+      "meaning": "To limit something or make it last for a shorter time (Shorten, Downsize / छोटा करना)",
+      "synonyms": ["Shorten", "Reduce"],
+      "antonyms": ["Lengthen", "Increase", "Enlarge", "Continue", "Extend"],
+      "kdHack": "Key: Curt sound of cut=काटना -> किसी चीज को cut (कट) कर देना मतलब कि छोटा कर देना।"
+    },
+    {
+      "id": "sure60-day2-vocab-76",
+      "type": "vocab",
+      "word": "Garner",
+      "meaning": "To obtain or collect something such as information, support, etc (Collect / इकट्ठा करना)",
+      "synonyms": ["Collect", "Assemble"],
+      "antonyms": ["Spread", "Disperse"],
+      "kdHack": "Key: Garner sound of Gardner (माली) -> माली जो कि फूलो को सुबह -सुबह इकट्ठा ही तो करता है।"
+    },
+    {
+      "id": "sure60-day2-vocab-77",
+      "type": "vocab",
+      "word": "Amass",
+      "meaning": "To collect something, especially in large quantities over a period of time (Gather Together, Accumulate / इकट्ठा करना)",
+      "synonyms": ["Accumulate", "Collect", "Gather"],
+      "antonyms": ["Distribute", "Disperse", "Divide"],
+      "kdHack": "Key: A = एक, mass = मांस -> एक मांस के टुकड़े को देखते ही गांवो में काफी सारे कुत्ते इकट्ठे हो जाते हैं।"
+    },
+    {
+      "id": "sure60-day2-vocab-78",
+      "type": "vocab",
+      "word": "Chary",
+      "meaning": "Cautiously or suspiciously reluctant to do something (Cautious, Watchful / सावधान)",
+      "synonyms": ["Wary", "Cautious", "Circumspect"],
+      "antonyms": ["Careless", "Heedless", "Negligent"],
+      "kdHack": "Key: Chary= चेरी पॉलिश -> चेरी पॉलिश से जूतों को पॉलिश करते समय सावधान रहना चाहिए, ताकि कपड़े खराब न हो जाये।"
+    },
+    {
+      "id": "sure60-day2-vocab-79",
+      "type": "vocab",
+      "word": "Swift",
+      "meaning": "Happening or done quickly and immediately (Meteoric / तेज)",
+      "synonyms": ["Quick", "Rapid", "Speedy"],
+      "antonyms": ["Slow", "Sluggish", "Gradual"],
+      "kdHack": "Key: Swift = Swift Dzire -> Swift Dzire गाड़ी जो की बहुत तेज चलती हैं।"
+    },
+    {
+      "id": "sure60-day2-vocab-80",
+      "type": "vocab",
+      "word": "Crooked",
+      "meaning": "Not in a straight line; bent or twisted (Devious / टेढ़ा-मेढ़ा)",
+      "synonyms": ["Devious"],
+      "antonyms": ["Straight", "Direct"],
+      "kdHack": "Key: Crook = कुरकुरे -> कुरकुरे जो कि टेढ़े-मेढ़े होते हैं।"
+    },
+    {
+      "id": "sure60-day2-vocab-81",
+      "type": "vocab",
+      "word": "Clandestine",
+      "meaning": "Done secretly or kept secret (Undercover, Secret / गुप्त)",
+      "synonyms": ["Secret", "Covert", "Surreptitious", "Hidden", "Undercover"],
+      "antonyms": ["Open", "Public", "Forthrightly", "Honest", "Candid", "Known"],
+      "kdHack": "Key: Cla = कला, destine = डेस्टिनी -> जिसे डेस्टिनी बताने की कला आती है वो उसको गुप्त ही रखते है।"
+    },
+    {
+      "id": "sure60-day2-vocab-82",
+      "type": "vocab",
+      "word": "Clandestinely",
+      "meaning": "In a secretive and illicit way (Secretly / गुप्त रूप से)",
+      "synonyms": ["Secretly"],
+      "antonyms": ["Openly"],
+      "kdHack": "Key: Cla = कला, destine = डेस्टिनी -> जिसे डेस्टिनी बताने की कला आती है वो उसको गुप्त ही रखते है।"
+    },
+    {
+      "id": "sure60-day2-vocab-83",
+      "type": "vocab",
+      "word": "Furtive",
+      "meaning": "Behaving in a way that shows that you want to keep something secret (Secret, Secretive, Surreptitious / गुप्त)",
+      "synonyms": ["Sneaky", "Stealthy"],
+      "antonyms": ["Open"],
+      "kdHack": "Key: Furti = फुर्ती -> जब पुलिस वाले पकड़ने आये तो वो फुर्ती से गुप्त स्थान पर जाकर छिप गया।"
+    },
+    {
+      "id": "sure60-day2-vocab-84",
+      "type": "vocab",
+      "word": "Teem",
+      "meaning": "To contain large numbers of animals or people (Abound / प्रचुरता)",
+      "synonyms": ["Abound", "Overflow"],
+      "antonyms": ["Want", "Lack", "Need"],
+      "kdHack": "Key: Teem = टीम -> अभी टीम इंडिया में आलराउंडर प्रचुर मात्रा में है।"
+    },
+    {
+      "id": "sure60-day2-vocab-85",
+      "type": "vocab",
+      "word": "Teeming",
+      "meaning": "To contain large numbers of animals or people (Abounding with / बहुतायत से होना)",
+      "synonyms": ["Abundant", "Abounding", "Copious"],
+      "antonyms": ["Empty", "Lacking"],
+      "kdHack": "Key: Teem = टीम -> अभी टीम इंडिया में आलराउंडर प्रचुर मात्रा में है।"
+    },
+    {
+      "id": "sure60-day2-vocab-86",
+      "type": "vocab",
+      "word": "Abundance",
+      "meaning": "A large quantity that is more than enough (Plentifulness, Exuberance / प्रचुरता)",
+      "synonyms": ["Plentifulness", "Ampleness", "Copiousness", "Exuberance", "Opulence"],
+      "antonyms": ["Scarcity", "Insufficient"],
+      "kdHack": "Key: A = एक, bund = बूंद, ance = अनेक -> एक-एक बूंद - 2 से अनेक (प्रचुर) मात्रा में धन इकट्ठा किया जा सकता है।"
+    },
+    {
+      "id": "sure60-day2-vocab-87",
+      "type": "vocab",
+      "word": "Abundant",
+      "meaning": "Existing in large quantities; more than enough (Plentiful, Ample, Abounding / प्रचुर)",
+      "synonyms": ["Plentiful", "Profuse"],
+      "antonyms": ["Meagre", "Scarce", "Scanty", "Minimal"],
+      "kdHack": "Key: A = एक, bound = बूंद -> एक बूंद - 2 से अनेक (प्रचुर) मात्रा में धन इकट्ठा किया जा सकता है।"
+    },
+    {
+      "id": "sure60-day2-vocab-88",
+      "type": "vocab",
+      "word": "Surfeit",
+      "meaning": "An amount that is too large (Excess, Surplus / जरूरत से ज्यादा)",
+      "synonyms": ["Plethora", "Glut", "Surplus"],
+      "antonyms": ["Lack", "Deficiency", "Absence"],
+      "kdHack": "Key: Sur = सर, feit = फट -> जरूरत से ज्यादा काम करने पर आदमी का सर फटने लगता है।"
+    },
+    {
+      "id": "sure60-day2-vocab-89",
+      "type": "vocab",
+      "word": "Thrall",
+      "meaning": "Controlled or strongly influenced by somebody/something (Enslave, Slave / दासता/गुलामी)",
+      "synonyms": ["Bondage", "Slavery", "Enslavement"],
+      "antonyms": ["Freedom"],
+      "kdHack": "Key: Thr = थर, all = सभी -> गुलामी में सभी लोग थर-थर ही कांपते है।"
+    },
+    {
+      "id": "sure60-day2-vocab-90",
+      "type": "vocab",
+      "word": "Thraldom",
+      "meaning": "The state of being in slavery or bondage to another person (Bondage / दासता)",
+      "synonyms": ["Bondage", "Enslavement"],
+      "antonyms": ["Freedom"],
+      "kdHack": "Key: Thr = थर, all = सभी -> गुलामी में सभी लोग थर-थर ही कांपते है।"
+    },
+    {
+      "id": "sure60-day2-vocab-91",
+      "type": "vocab",
+      "word": "Urban",
+      "meaning": "शहरी",
+      "synonyms": [],
+      "antonyms": ["Rural"],
+      "kdHack": "Day-02 Easy Word List"
+    },
+    {
+      "id": "sure60-day2-vocab-92",
+      "type": "vocab",
+      "word": "Rural",
+      "meaning": "ग्रामीण",
+      "synonyms": [],
+      "antonyms": ["Urban"],
+      "kdHack": "Day-02 Easy Word List"
+    },
+    {
+      "id": "sure60-day2-vocab-93",
+      "type": "vocab",
+      "word": "Comedy",
+      "meaning": "सुखान्त",
+      "synonyms": [],
+      "antonyms": ["Tragedy"],
+      "kdHack": "Day-02 Easy Word List"
+    },
+    {
+      "id": "sure60-day2-vocab-94",
+      "type": "vocab",
+      "word": "Tragedy",
+      "meaning": "दुखद",
+      "synonyms": [],
+      "antonyms": ["Comedy"],
+      "kdHack": "Day-02 Easy Word List"
+    },
+    {
+      "id": "sure60-day2-vocab-95",
+      "type": "vocab",
+      "word": "Close",
+      "meaning": "नजदीक",
+      "synonyms": [],
+      "antonyms": ["Distant"],
+      "kdHack": "Day-02 Easy Word List"
+    },
+    {
+      "id": "sure60-day2-vocab-96",
+      "type": "vocab",
+      "word": "Distant",
+      "meaning": "Faraway / दूर",
+      "synonyms": ["Faraway"],
+      "antonyms": ["Close"],
+      "kdHack": "Day-02 Easy Word List"
+    },
+    {
+      "id": "sure60-day2-vocab-97",
+      "type": "vocab",
+      "word": "Above",
+      "meaning": "के ऊपर",
+      "synonyms": [],
+      "antonyms": ["Beneath"],
+      "kdHack": "Day-02 Easy Word List"
+    },
+    {
+      "id": "sure60-day2-vocab-98",
+      "type": "vocab",
+      "word": "Beneath",
+      "meaning": "के नीचे",
+      "synonyms": [],
+      "antonyms": ["Above"],
+      "kdHack": "Day-02 Easy Word List"
+    },
+    {
+      "id": "sure60-day2-vocab-99",
+      "type": "vocab",
+      "word": "Blessing",
+      "meaning": "आशीर्वाद",
+      "synonyms": [],
+      "antonyms": ["Curse"],
+      "kdHack": "Day-02 Easy Word List"
+    },
+    {
+      "id": "sure60-day2-vocab-100",
+      "type": "vocab",
+      "word": "Curse",
+      "meaning": "अभिशाप",
+      "synonyms": [],
+      "antonyms": ["Blessing"],
+      "kdHack": "Day-02 Easy Word List"
+    }
+  ]
+}

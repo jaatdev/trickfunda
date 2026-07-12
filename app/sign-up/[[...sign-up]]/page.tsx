@@ -12,7 +12,6 @@ export default function SignUpPage() {
               card: 'bg-white dark:bg-[#1a2332] rounded-xl shadow-xl',
             }
           }}
-          fallbackRedirectUrl="/admin/notes"
           signInUrl="/sign-in"
         />
       </div>

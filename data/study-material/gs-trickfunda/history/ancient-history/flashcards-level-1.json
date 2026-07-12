@@ -1,0 +1,34 @@
+[
+  {
+    "id": "hist-anc-ivc-1",
+    "type": "fact", 
+    "front": "Who discovered the Indus Valley Civilization site of Harappa?",
+    "front_hi": "हड़प्पा के सिंधु घाटी सभ्यता स्थल की खोज किसने की?",
+    "back": "Dayaram Sahni in 1921",
+    "back_hi": "दयाराम साहनी ने 1921 में",
+    "hint": "His first name starts with 'D'",
+    "hint_hi": "उनका पहला नाम 'D' से शुरू होता है",
+    "trick": "Key: Hara = हरा, Daya = दया -> हरी भरी चीजों पर दया करनी चाहिए (Dayaram Sahni - Harappa)",
+    "trick_hi": "Key: हरा -> हरी भरी चीजों पर दया करनी चाहिए (Dayaram साहनी - हड़प्पा)",
+    "explanation": "Harappa was the first Indus site to be discovered and excavated under the supervision of Sir John Marshall.",
+    "explanation_hi": "हड़प्पा सर जॉन मार्शल की देखरेख में खोजा और खोदा जाने वाला पहला सिंधु स्थल था।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["history", "ancient", "ivc"]
+    },
+    "lists": [
+      {
+        "title": "Important Sites",
+        "title_hi": "महत्वपूर्ण स्थल",
+        "items": ["Harappa", "Mohenjodaro", "Lothal", "Kalibangan"],
+        "colorTheme": "emerald"
+      },
+      {
+        "title": "Key Discoveries",
+        "title_hi": "प्रमुख खोजें",
+        "items": ["Great Bath", "Granary", "Dockyard"],
+        "colorTheme": "blue"
+      }
+    ]
+  }
+]

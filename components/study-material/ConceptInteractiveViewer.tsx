@@ -12,9 +12,11 @@ import { useFullscreen } from '@/lib/fullscreen-context';
 import { NoteBox } from '@/lib/admin-types';
 import NoteBoxRenderer from '@/components/NoteBoxRenderer';
 import { useUser } from '@clerk/nextjs';
-import { KDQuiz } from '@/types/studyMaterial';
+import { KDQuiz, KDFlashcardSet } from '@/types/studyMaterial';
 import { MathJaxContext } from 'better-react-mathjax';
 import CanvasOverlay from '../canvas/CanvasOverlay';
+import GenericFlashcardViewer from '../flashcards/GenericFlashcardViewer';
+import GenericFlashcardSummary from '../flashcards/GenericFlashcardSummary';
 
 interface Props {
   title: string;
@@ -23,11 +25,14 @@ interface Props {
   pdfUrl: string | null;
   youtubeUrls: string[] | null;
   quizzes: KDQuiz[];
+  flashcardSets?: KDFlashcardSet[];
   slug: string;
 }
 
-export function ConceptInteractiveViewer({ title, notesMarkdown, noteBoxes, pdfUrl, youtubeUrls, quizzes, slug }: Props) {
+export function ConceptInteractiveViewer({ title, notesMarkdown, noteBoxes, pdfUrl, youtubeUrls, quizzes, flashcardSets, slug }: Props) {
   const [activeQuizId, setActiveQuizId] = useState<string | null>(null);
+  const [activeFlashcardId, setActiveFlashcardId] = useState<string | null>(null);
+  const [finishedFlashcardSetId, setFinishedFlashcardSetId] = useState<string | null>(null);
   const [quizQuestionCount, setQuizQuestionCount] = useState<number | null>(null);
   const [isCanvasOpen, setIsCanvasOpen] = useState(false);
   const [fullscreenMode, setFullscreenMode] = useState<'none' | 'pdf' | 'canvas'>('none');
@@ -51,7 +56,7 @@ export function ConceptInteractiveViewer({ title, notesMarkdown, noteBoxes, pdfU
   if (hasMarkdown) tabs.push({ id: 'markdown', label: '📝 Text Notes' });
 
   useEffect(() => {
-    if (activeQuizId || fullscreenMode !== 'none') {
+    if (activeQuizId || activeFlashcardId || fullscreenMode !== 'none') {
       document.documentElement.setAttribute('data-page-type', 'notes');
       enterFullscreen();
     } else {
@@ -63,6 +68,7 @@ export function ConceptInteractiveViewer({ title, notesMarkdown, noteBoxes, pdfU
       if (!document.fullscreenElement) {
         setFullscreenMode('none');
         setActiveQuizId(null);
+        setActiveFlashcardId(null);
       }
     };
     
@@ -72,7 +78,7 @@ export function ConceptInteractiveViewer({ title, notesMarkdown, noteBoxes, pdfU
       document.documentElement.removeAttribute('data-page-type');
       exitFullscreen();
     };
-  }, [activeQuizId, fullscreenMode, enterFullscreen, exitFullscreen]);
+  }, [activeQuizId, activeFlashcardId, fullscreenMode, enterFullscreen, exitFullscreen]);
 
   const activeQuiz = quizzes?.find((q) => q.id === activeQuizId);
   const activeQuestions = activeQuiz && quizQuestionCount 
@@ -247,8 +253,27 @@ export function ConceptInteractiveViewer({ title, notesMarkdown, noteBoxes, pdfU
           </section>
         )}
 
+        {flashcardSets && flashcardSets.length > 0 && (
+          <section className="pt-6 pb-4 flex flex-wrap justify-center gap-4">
+            {flashcardSets.map((f) => (
+              <button
+                key={f.id}
+                onClick={() => setActiveFlashcardId(f.id)}
+                className="px-10 py-4 bg-purple-600 hover:bg-purple-700 text-white rounded-xl font-bold text-xl transition-all duration-300 shadow-[0_0_20px_rgba(147,51,234,0.3)] hover:shadow-[0_0_30px_rgba(147,51,234,0.5)] hover:-translate-y-1 active:translate-y-0"
+              >
+                <div className="flex flex-col items-center">
+                  <span>Open {f.title}</span>
+                  <span className="text-xs font-normal opacity-90 mt-1 bg-black/20 px-2 py-0.5 rounded-full">
+                    {f.flashcards.length} Card{f.flashcards.length !== 1 ? 's' : ''}
+                  </span>
+                </div>
+              </button>
+            ))}
+          </section>
+        )}
+
         {quizzes && quizzes.length > 0 && (
-          <section className="pt-6 pb-12 flex flex-wrap justify-center gap-4">
+          <section className="pt-4 pb-12 flex flex-wrap justify-center gap-4">
             {quizzes.map((q) => (
               <button
                 key={q.id}
@@ -266,6 +291,27 @@ export function ConceptInteractiveViewer({ title, notesMarkdown, noteBoxes, pdfU
           </section>
         )}
       </div>
+
+      {/* Flashcard Session Fullscreen View */}
+      {activeFlashcardId && flashcardSets && (
+        <GenericFlashcardViewer 
+          flashcards={flashcardSets.find(f => f.id === activeFlashcardId)?.flashcards || []}
+          onClose={() => setActiveFlashcardId(null)}
+          onFinish={() => {
+            setFinishedFlashcardSetId(activeFlashcardId);
+            setActiveFlashcardId(null);
+          }}
+        />
+      )}
+
+      {/* Flashcard Summary Screen */}
+      {finishedFlashcardSetId && flashcardSets && (
+        <GenericFlashcardSummary
+          flashcards={flashcardSets.find(f => f.id === finishedFlashcardSetId)?.flashcards || []}
+          title={flashcardSets.find(f => f.id === finishedFlashcardSetId)?.title || 'Flashcards'}
+          onClose={() => setFinishedFlashcardSetId(null)}
+        />
+      )}
 
       {/* Quiz Session Fullscreen View */}
       {activeQuiz && (

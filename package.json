@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "npm run build:data && next dev --webpack",
-    "build": "npm run build:data && next build",
+    "dev": "next dev --webpack",
+    "build": "next build",
     "build:data": "node scripts/build-static-data.js",
     "split-data": "node scripts/split-structure.js",
     "combine-data": "node scripts/combine-structure.js",

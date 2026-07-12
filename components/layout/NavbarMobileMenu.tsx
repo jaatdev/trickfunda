@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useAuth, UserButton } from '@clerk/nextjs';
 import { Youtube, Send } from 'lucide-react';
 
@@ -11,6 +12,7 @@ interface NavbarMobileMenuProps {
 
 export function NavbarMobileMenu({ closeMenu }: NavbarMobileMenuProps) {
   const { isSignedIn } = useAuth();
+  const pathname = usePathname();
   const menuItems = [
     { label: 'Study Material', href: '/study-material' },
     { label: 'Student Tools', href: '/tools' },
@@ -72,7 +74,7 @@ export function NavbarMobileMenu({ closeMenu }: NavbarMobileMenuProps) {
         <div className="flex justify-center w-full mt-2">
           {!isSignedIn ? (
             <Link 
-              href="/sign-in" 
+              href={`/sign-in?redirect_url=${pathname}`} 
               onClick={closeMenu}
               className="w-full text-center px-8 py-4 rounded-full font-bold text-lg bg-black text-white dark:bg-white dark:text-black transition-transform active:scale-95"
             >

@@ -169,7 +169,7 @@ export default function Navbar() {
                 <div className="pl-3 border-l border-white/10">
                   {!isSignedIn ? (
                     <Link
-                      href="/sign-in"
+                      href={`/sign-in?redirect_url=${pathname}`}
                       className="px-5 py-2 text-sm font-bold text-white bg-white/10 hover:bg-white/20 border border-white/20 rounded-full transition-all"
                     >
                       Login

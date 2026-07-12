@@ -1,10 +1,16 @@
-import { QuizQuestion } from '../lib/types';
+import { QuizQuestion, SubjectFlashcard } from '../lib/types';
 import { NoteBox } from '../lib/admin-types';
 
 export interface KDQuiz {
   id: string;
   title: string;
   questions: QuizQuestion[];
+}
+
+export interface KDFlashcardSet {
+  id: string;
+  title: string;
+  flashcards: SubjectFlashcard[];
 }
 
 export interface KDConcept {
@@ -15,6 +21,7 @@ export interface KDConcept {
   pdfUrl: string | null;
   youtubeUrls: string[] | null;
   quizzes: KDQuiz[];
+  flashcardSets?: KDFlashcardSet[];
 }
 
 export interface KDStats {
@@ -23,6 +30,7 @@ export interface KDStats {
   quizzes: number;
   questions: number;
   pdfs: number;
+  flashcards?: number;
 }
 
 export interface KDCategory {

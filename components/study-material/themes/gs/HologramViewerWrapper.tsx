@@ -49,6 +49,7 @@ export function HologramViewerWrapper({ concept }: Props) {
         pdfUrl={concept.pdfUrl}
         youtubeUrls={concept.youtubeUrls}
         quizzes={concept.quizzes}
+        flashcardSets={concept.flashcardSets}
         slug={concept.slug}
       />
     </div>

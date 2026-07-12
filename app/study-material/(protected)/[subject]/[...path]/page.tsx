@@ -173,6 +173,7 @@ export default async function RecursiveStudyMaterialPage(props: Props) {
               pdfUrl={node.concept.pdfUrl}
               youtubeUrls={node.concept.youtubeUrls}
               quizzes={node.concept.quizzes}
+              flashcardSets={node.concept.flashcardSets}
               slug={node.concept.slug}
             />
           </div>

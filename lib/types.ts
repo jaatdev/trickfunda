@@ -46,6 +46,36 @@ export type Flashcard = {
   mnemonic?: string
 }
 
+export type FlashcardList = {
+  title: string;
+  title_hi?: string;
+  items: string[];
+  items_hi?: string[];
+  colorTheme?: 'emerald' | 'rose' | 'blue' | 'amber' | 'purple';
+};
+
+export type SubjectFlashcard = {
+  id: string;
+  type?: string;
+  front: string;
+  front_hi?: string;
+  back: string;
+  back_hi?: string;
+  hint?: string;
+  hint_hi?: string;
+  trick?: string;
+  trick_hi?: string;
+  kdHack?: string;
+  kdHack_hi?: string;
+  explanation?: string;
+  explanation_hi?: string;
+  lists?: FlashcardList[];
+  meta?: {
+    difficulty?: Difficulty;
+    tags?: string[];
+  };
+};
+
 export type FlashcardsNode = BaseNode & {
   kind: 'flashcards'
   shuffle?: boolean
