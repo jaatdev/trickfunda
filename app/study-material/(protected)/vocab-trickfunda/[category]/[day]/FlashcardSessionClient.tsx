@@ -221,6 +221,7 @@ export default function FlashcardSessionClient({ flashcards, category, day }: Pr
 
         </div>
       </div>
+      </>
     );
   }
 
