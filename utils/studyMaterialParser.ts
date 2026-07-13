@@ -102,7 +102,8 @@ export async function getKDConceptBySlug(categorySlug: string, slug: string): Pr
       if (file.startsWith('quiz') && file.endsWith('.json')) {
         try {
           const rawQuiz = await fs.promises.readFile(path.join(conceptDir, file), 'utf8');
-          const questions = JSON.parse(rawQuiz) as QuizQuestion[];
+          const parsedQuiz = JSON.parse(rawQuiz);
+          const questions = Array.isArray(parsedQuiz) ? parsedQuiz : (parsedQuiz.questions || []);
           
           const titlePart = file.replace('.json', '');
           const title = titlePart === 'quiz' ? 'Quiz' : formatTitle(titlePart.replace('quiz-', ''));
@@ -277,7 +278,8 @@ export async function getKDChapterTypeData(subjectSlug: string, chapterSlug: str
       if (file.startsWith('quiz') && file.endsWith('.json')) {
         try {
           const rawQuiz = await fs.promises.readFile(path.join(conceptDir, file), 'utf8');
-          const questions = JSON.parse(rawQuiz) as QuizQuestion[];
+          const parsedQuiz = JSON.parse(rawQuiz);
+          const questions = Array.isArray(parsedQuiz) ? parsedQuiz : (parsedQuiz.questions || []);
           
           const titlePart = file.replace('.json', '');
           const title = titlePart === 'quiz' ? 'Quiz' : formatTitle(titlePart.replace('quiz-', ''));
@@ -368,7 +370,8 @@ export async function getKDNode(pathArray: string[]): Promise<import('@/types/st
           try {
             const rawQuiz = await fs.promises.readFile(path.join(nodeDir, file.name), 'utf8');
             if (rawQuiz.trim().length > 0) {
-              const questions = JSON.parse(rawQuiz) as QuizQuestion[];
+              const parsedQuiz = JSON.parse(rawQuiz);
+              const questions = Array.isArray(parsedQuiz) ? parsedQuiz : (parsedQuiz.questions || []);
               const titlePart = file.name.replace('.json', '');
               const title = titlePart === 'quiz' ? 'Quiz' : formatTitle(titlePart.replace('quiz-', ''));
               quizzes.push({ id: titlePart, title, questions });
