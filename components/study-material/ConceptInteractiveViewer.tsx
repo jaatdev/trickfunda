@@ -15,8 +15,7 @@ import { useUser } from '@clerk/nextjs';
 import { KDQuiz, KDFlashcardSet } from '@/types/studyMaterial';
 import { MathJaxContext } from 'better-react-mathjax';
 import CanvasOverlay from '../canvas/CanvasOverlay';
-import GenericFlashcardViewer from '../flashcards/GenericFlashcardViewer';
-import GenericFlashcardSummary from '../flashcards/GenericFlashcardSummary';
+import GenericFlashcardSession from '../flashcards/GenericFlashcardSession';
 
 interface Props {
   title: string;
@@ -32,7 +31,6 @@ interface Props {
 export function ConceptInteractiveViewer({ title, notesMarkdown, noteBoxes, pdfUrl, youtubeUrls, quizzes, flashcardSets, slug }: Props) {
   const [activeQuizId, setActiveQuizId] = useState<string | null>(null);
   const [activeFlashcardId, setActiveFlashcardId] = useState<string | null>(null);
-  const [finishedFlashcardSetId, setFinishedFlashcardSetId] = useState<string | null>(null);
   const [quizQuestionCount, setQuizQuestionCount] = useState<number | null>(null);
   const [isCanvasOpen, setIsCanvasOpen] = useState(false);
   const [fullscreenMode, setFullscreenMode] = useState<'none' | 'pdf' | 'canvas'>('none');
@@ -296,22 +294,10 @@ export function ConceptInteractiveViewer({ title, notesMarkdown, noteBoxes, pdfU
 
       {/* Flashcard Session Fullscreen View */}
       {activeFlashcardId && flashcardSets && (
-        <GenericFlashcardViewer 
+        <GenericFlashcardSession 
           flashcards={flashcardSets.find(f => f.id === activeFlashcardId)?.flashcards || []}
+          title={flashcardSets.find(f => f.id === activeFlashcardId)?.title || 'Flashcards'}
           onClose={() => setActiveFlashcardId(null)}
-          onFinish={() => {
-            setFinishedFlashcardSetId(activeFlashcardId);
-            setActiveFlashcardId(null);
-          }}
-        />
-      )}
-
-      {/* Flashcard Summary Screen */}
-      {finishedFlashcardSetId && flashcardSets && (
-        <GenericFlashcardSummary
-          flashcards={flashcardSets.find(f => f.id === finishedFlashcardSetId)?.flashcards || []}
-          title={flashcardSets.find(f => f.id === finishedFlashcardSetId)?.title || 'Flashcards'}
-          onClose={() => setFinishedFlashcardSetId(null)}
         />
       )}
 
