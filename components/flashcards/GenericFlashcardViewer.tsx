@@ -29,7 +29,7 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
@@ -173,11 +173,11 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
             <motion.div 
               className="absolute inset-0 w-full h-full rounded-[2.5rem] bg-gradient-to-br from-[#1a1a2e] to-[#16213e] border border-blue-500/30 shadow-[0_0_50px_rgba(59,130,246,0.15)] overflow-hidden"
               initial={false}
-              animate={{ rotateX: flipState > 0 ? 180 : 0, zIndex: flipState === 0 ? 10 : 0 }}
-              transition={{ type: "spring", stiffness: 260, damping: 20 }}
+              animate={{ rotateX: flipState > 0 ? (isMobile ? 0 : 180) : 0, zIndex: flipState === 0 ? 10 : 0, opacity: flipState === 0 ? 1 : 0 }}
+              transition={isMobile ? { duration: 0 } : { type: "spring", stiffness: 260, damping: 20 }}
               style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
             >
-              <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.05)_50%,transparent_75%)] bg-[length:250%_250%] animate-[shimmer_3s_infinite] pointer-events-none" />
+              <div className={`absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.05)_50%,transparent_75%)] bg-[length:250%_250%] ${isMobile ? '' : 'animate-[shimmer_3s_infinite]'} pointer-events-none`} />
               
               <div className="absolute inset-0 w-full h-full overflow-y-auto overflow-x-hidden scrollbar-hide p-8 md:p-12 flex flex-col">
                 <div className="flex-1 flex flex-col items-center justify-center w-full relative z-10 gap-6">
@@ -210,7 +210,7 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
                   )}
                 </div>
                 
-                <div className="mt-8 text-blue-400/50 text-sm font-medium uppercase tracking-widest animate-bounce flex items-center justify-center gap-2 relative z-10 shrink-0">
+                <div className={`mt-8 text-blue-400/50 text-sm font-medium uppercase tracking-widest ${isMobile ? '' : 'animate-bounce'} flex items-center justify-center gap-2 relative z-10 shrink-0`}>
                   Tap to Flip <ArrowRight className="w-4 h-4 rotate-90" />
                 </div>
               </div>
@@ -220,9 +220,9 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
             <motion.div 
               className="absolute inset-0 w-full h-full rounded-[2.5rem] bg-gradient-to-br from-[#111827] to-[#1f2937] border border-purple-500/30 shadow-[0_0_50px_rgba(168,85,247,0.15)] overflow-hidden"
               initial={false}
-              animate={{ rotateX: flipState === 0 ? -180 : 0, zIndex: flipState === 0 ? 0 : 10 }}
-              transition={{ type: "spring", stiffness: 260, damping: 20 }}
-              style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: 'rotateX(180deg)' }}
+              animate={{ rotateX: flipState === 0 ? (isMobile ? 0 : -180) : 0, zIndex: flipState === 0 ? 0 : 10, opacity: flipState === 1 ? 1 : 0 }}
+              transition={isMobile ? { duration: 0 } : { type: "spring", stiffness: 260, damping: 20 }}
+              style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: isMobile ? 'none' : 'rotateX(180deg)' }}
             >
               <div className="absolute inset-0 w-full h-full overflow-y-auto overflow-x-hidden scrollbar-hide p-8 md:p-12 flex flex-col">
                 <div className="w-full flex-1 flex flex-col justify-center items-center gap-8 py-8">
@@ -331,7 +331,7 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
                   className="absolute inset-0 w-full h-full bg-gradient-to-b from-[#064e3b] to-[#022c22] border-2 border-emerald-400 shadow-[0_0_100px_rgba(52,211,153,0.3)] flex flex-col items-center overflow-hidden pointer-events-auto"
                   initial={{ y: '100%', opacity: 0 }}
                   animate={{ y: flipState === 2 ? 0 : '100%', opacity: flipState === 2 ? 1 : 0 }}
-                  transition={{ type: "spring", stiffness: 200, damping: 25 }}
+                  transition={isMobile ? { duration: 0 } : { type: "spring", stiffness: 200, damping: 25 }}
                 >
                   <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20 mix-blend-overlay pointer-events-none" />
                   <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/20 rounded-full blur-[100px] pointer-events-none" />
@@ -343,7 +343,7 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
                         <motion.div 
                           initial={{ scale: 0.5, rotate: -180 }}
                           animate={{ scale: flipState === 2 ? 1 : 0.5, rotate: flipState === 2 ? 0 : -180 }}
-                          transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
+                          transition={isMobile ? { duration: 0 } : { type: "spring", stiffness: 200, delay: 0.2 }}
                           className="w-20 h-20 md:w-24 md:h-24 bg-emerald-400/20 border border-emerald-400/50 rounded-full flex shrink-0 items-center justify-center shadow-[0_0_50px_rgba(52,211,153,0.5)]"
                         >
                           <Brain className="w-10 h-10 md:w-12 md:h-12 text-emerald-400 drop-shadow-[0_0_15px_rgba(52,211,153,0.8)]" />
@@ -366,7 +366,7 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
                       </div>
                     </div>
 
-                    <div className="mt-8 text-emerald-400/70 text-sm font-medium uppercase tracking-widest animate-pulse flex items-center justify-center gap-2 relative z-10 shrink-0">
+                    <div className={`mt-8 text-emerald-400/70 text-sm font-medium uppercase tracking-widest ${isMobile ? '' : 'animate-pulse'} flex items-center justify-center gap-2 relative z-10 shrink-0`}>
                       Tap for Next Card <ArrowRight className="w-5 h-5" />
                     </div>
                   </div>
