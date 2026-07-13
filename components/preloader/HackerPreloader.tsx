@@ -324,6 +324,12 @@ export default function HackerPreloader() {
 
   // ─── Init ───────────────────────────────────────────────────
   useEffect(() => {
+    // Skip entirely for mobile devices (innerWidth < 1024)
+    if (window.innerWidth < 1024) {
+      sessionStorage.setItem('tf_preloader_v3', 'true');
+      return;
+    }
+
     const hasSeen = sessionStorage.getItem('tf_preloader_v3');
     if (!hasSeen) {
       setIsActive(true);
