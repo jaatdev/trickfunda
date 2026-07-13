@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { Brain, Printer, CheckCircle, ArrowLeft, Info, Terminal, Shield, Loader2 } from 'lucide-react';
 import type { SubjectFlashcard } from '@/lib/types';
 
@@ -12,6 +13,16 @@ interface Props {
 
 export default function GenericFlashcardSummary({ flashcards, title, onClose }: Props) {
   const [isGenerating, setIsGenerating] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    const originalStyle = window.getComputedStyle(document.body).overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = originalStyle;
+    };
+  }, []);
 
   const handleDownloadPdf = async () => {
     if (isGenerating) return;
@@ -94,7 +105,9 @@ export default function GenericFlashcardSummary({ flashcards, title, onClose }: 
     }
   };
 
-  return (
+  if (!mounted) return null;
+
+  const content = (
     <>
       {isGenerating && (
         <div className="fixed inset-0 z-[300] bg-black/90 backdrop-blur-xl flex flex-col items-center justify-center text-emerald-400 font-mono animate-in fade-in duration-300 px-4 text-center">
@@ -298,4 +311,6 @@ export default function GenericFlashcardSummary({ flashcards, title, onClose }: 
     </div>
     </>
   );
+
+  return createPortal(content, document.body);
 }
