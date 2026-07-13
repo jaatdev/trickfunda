@@ -1,0 +1,33 @@
+[
+  {
+    "id": "math_demo_1",
+    "type": "Formula",
+    "front": "What is the quadratic formula?",
+    "back": "The quadratic formula is used to find the solutions to a quadratic equation \\(ax^2 + bx + c = 0\\).",
+    "explanation": "The formula is:\n\\[ x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} \\]",
+    "kdHack": "Sing it to the tune of 'Pop Goes the Weasel'!"
+  },
+  {
+    "id": "math_demo_2",
+    "type": "Concept",
+    "front": "Euler's Identity",
+    "back": "Euler's identity connects the five fundamental mathematical constants.",
+    "explanation": "It is often called the most beautiful equation in mathematics:\n\\[ e^{i\\pi} + 1 = 0 \\]",
+    "lists": [
+      {
+        "title": "Constants used",
+        "items": ["\\(e\\)", "\\(i\\)", "\\(\\pi\\)", "\\(1\\)", "\\(0\\)"],
+        "colorTheme": "blue"
+      }
+    ]
+  },
+  {
+    "id": "math_demo_3",
+    "type": "Theorem",
+    "front": "Pythagorean Theorem",
+    "back": "In a right-angled triangle, the square of the hypotenuse is equal to the sum of the squares of the other two sides.",
+    "explanation": "\\[ a^2 + b^2 = c^2 \\]",
+    "hint": "Think of triangles!",
+    "kdHack": "A simple 3-4-5 triangle works: \\(3^2 + 4^2 = 9 + 16 = 25 = 5^2\\)"
+  }
+]
