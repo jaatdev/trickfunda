@@ -158,7 +158,7 @@ export default function FlashcardViewer({ flashcards, onFinish }: Props) {
             >
               <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.05)_50%,transparent_75%)] bg-[length:250%_250%] animate-[shimmer_3s_infinite] pointer-events-none" />
               
-              <div className="absolute inset-0 w-full h-full overflow-y-auto overflow-x-hidden scrollbar-hide p-8 md:p-12 flex flex-col" style={{ transform: 'translateZ(0)' }}>
+              <div className="absolute inset-0 w-full h-full overflow-y-auto overflow-x-hidden scrollbar-hide p-8 md:p-12 flex flex-col">
                 <div className="flex-1 flex flex-col items-center justify-center w-full relative z-10">
                   <span className="px-6 py-2 bg-blue-500/10 border border-blue-500/20 text-blue-400 rounded-full text-xs font-bold uppercase tracking-[0.2em] mb-8 shadow-[0_0_20px_rgba(59,130,246,0.2)]">
                     {currentCard.type}
@@ -182,7 +182,7 @@ export default function FlashcardViewer({ flashcards, onFinish }: Props) {
               transition={{ type: "spring", stiffness: 260, damping: 20 }}
               style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: 'rotateX(180deg)' }}
             >
-              <div className="absolute inset-0 w-full h-full overflow-y-auto overflow-x-hidden scrollbar-hide p-8 md:p-10 flex flex-col" style={{ transform: 'translateZ(0)' }}>
+              <div className="absolute inset-0 w-full h-full overflow-y-auto overflow-x-hidden scrollbar-hide p-8 md:p-10 flex flex-col">
                 <div className="w-full flex-1 flex flex-col">
                   <div className="text-center space-y-6 flex-1 flex flex-col justify-center">
                     <h2 className="text-2xl font-black text-white/20 uppercase tracking-widest break-words">{currentCard.word}</h2>
@@ -246,7 +246,7 @@ export default function FlashcardViewer({ flashcards, onFinish }: Props) {
                 <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/20 rounded-full blur-[100px] pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-96 h-96 bg-emerald-500/20 rounded-full blur-[100px] pointer-events-none" />
 
-                <div className="absolute inset-0 w-full h-full overflow-y-auto overflow-x-hidden scrollbar-hide p-8 md:p-12 flex flex-col" style={{ transform: 'translateZ(0)' }}>
+                <div className="absolute inset-0 w-full h-full overflow-y-auto overflow-x-hidden scrollbar-hide p-8 md:p-12 flex flex-col">
                   <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center space-y-8 w-full">
                     <motion.div 
                       initial={{ scale: 0.5, rotate: -180 }}
