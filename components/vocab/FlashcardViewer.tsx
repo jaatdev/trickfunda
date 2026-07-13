@@ -35,6 +35,14 @@ export default function FlashcardViewer({ flashcards, onFinish }: Props) {
   // 2 = KD Hack (Special Reveal)
   const [flipState, setFlipState] = useState(0);
   const [direction, setDirection] = useState(1);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     setMounted(true);
@@ -91,23 +99,24 @@ export default function FlashcardViewer({ flashcards, onFinish }: Props) {
 
   const cardVariants: import('framer-motion').Variants = {
     enter: (dir: number) => ({
+      zIndex: 0,
       opacity: 0,
-      scale: 0.95,
-      filter: 'blur(20px)',
+      scale: isMobile ? 1 : 1.05,
+      filter: isMobile ? 'blur(0px)' : 'blur(20px)',
     }),
     center: {
       zIndex: 1,
       opacity: 1,
       scale: 1,
       filter: 'blur(0px)',
-      transition: { duration: 0.5, ease: "easeOut" }
+      transition: { duration: isMobile ? 0.2 : 0.5, ease: "easeOut" }
     },
     exit: (dir: number) => ({
       zIndex: 0,
       opacity: 0,
-      scale: 1.05,
-      filter: 'blur(20px)',
-      transition: { duration: 0.5, ease: "easeIn" }
+      scale: isMobile ? 1 : 1.05,
+      filter: isMobile ? 'blur(0px)' : 'blur(20px)',
+      transition: { duration: isMobile ? 0.2 : 0.5, ease: "easeIn" }
     })
   };
 

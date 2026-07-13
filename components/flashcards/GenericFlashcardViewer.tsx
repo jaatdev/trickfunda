@@ -26,6 +26,14 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
   const [flipState, setFlipState] = useState(0);
   const [direction, setDirection] = useState(1);
   const [showHint, setShowHint] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     setMounted(true);
@@ -101,10 +109,10 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
 
   const cardVariants: import('framer-motion').Variants = {
     enter: (dir: number) => ({
-      x: dir > 0 ? '100%' : '-100%',
+      x: isMobile ? 0 : (dir > 0 ? '100%' : '-100%'),
       opacity: 0,
-      scale: 0.8,
-      rotateY: dir > 0 ? 45 : -45,
+      scale: isMobile ? 1 : 0.8,
+      rotateY: isMobile ? 0 : (dir > 0 ? 45 : -45),
     }),
     center: {
       zIndex: 1,
@@ -112,15 +120,15 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
       opacity: 1,
       scale: 1,
       rotateY: 0,
-      transition: { type: 'spring', stiffness: 200, damping: 25 }
+      transition: { type: 'spring', stiffness: 200, damping: 25, duration: isMobile ? 0.2 : undefined }
     },
     exit: (dir: number) => ({
       zIndex: 0,
-      x: dir < 0 ? '100%' : '-100%',
+      x: isMobile ? 0 : (dir < 0 ? '100%' : '-100%'),
       opacity: 0,
-      scale: 0.8,
-      rotateY: dir < 0 ? 45 : -45,
-      transition: { duration: 0.4, ease: "easeInOut" }
+      scale: isMobile ? 1 : 0.8,
+      rotateY: isMobile ? 0 : (dir < 0 ? 45 : -45),
+      transition: { duration: isMobile ? 0.2 : 0.4, ease: "easeInOut" }
     })
   };
 
