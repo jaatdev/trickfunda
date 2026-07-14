@@ -17,9 +17,9 @@ export const QuizConfigurator: React.FC<QuizConfiguratorProps> = ({
   onCancel,
   isGenerating = false
 }) => {
-  // If the total available is less than 25, the minimum is the total available.
-  // Otherwise, the minimum is 25.
-  const minQuestions = Math.min(25, totalAvailable);
+  // If the total available is less than 5, the minimum is the total available.
+  // Otherwise, the minimum is 5.
+  const minQuestions = Math.min(5, totalAvailable);
   const [selectedCount, setSelectedCount] = useState<number>(minQuestions);
 
   const handleStart = () => {
@@ -61,9 +61,9 @@ export const QuizConfigurator: React.FC<QuizConfiguratorProps> = ({
           </div>
         </div>
 
-        {totalAvailable < 25 && (
+        {totalAvailable < 5 && (
           <div className="p-4 bg-blue-50 dark:bg-blue-900/20 text-blue-800 dark:text-blue-300 rounded-xl text-sm border border-blue-100 dark:border-blue-800/30">
-            This quiz has fewer than 25 questions available. The question count is fixed to the maximum available.
+            This quiz has fewer than 5 questions available. The question count is fixed to the maximum available.
           </div>
         )}
 

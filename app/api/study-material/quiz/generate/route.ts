@@ -86,12 +86,17 @@ export async function POST(req: Request) {
         uniqueQuestions = allQuestions; // fallback if no IDs
     }
 
-    // Shuffle
-    const shuffled = shuffleArray(uniqueQuestions);
-    
-    // Slice
-    const limit = questionCount ? Math.min(questionCount, shuffled.length) : shuffled.length;
-    const finalQuestions = shuffled.slice(0, limit);
+    // Only shuffle if we are taking a subset of questions.
+    // If the user requested the maximum available questions, keep them in the original order.
+    const limit = questionCount ? Math.min(questionCount, uniqueQuestions.length) : uniqueQuestions.length;
+    let finalQuestions = uniqueQuestions;
+
+    if (limit < uniqueQuestions.length) {
+      const shuffled = shuffleArray(uniqueQuestions);
+      finalQuestions = shuffled.slice(0, limit);
+    } else {
+      finalQuestions = uniqueQuestions.slice(0, limit);
+    }
 
     return NextResponse.json({
       id: 'custom-quiz-' + Date.now(),

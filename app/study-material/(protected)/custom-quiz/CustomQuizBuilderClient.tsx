@@ -23,7 +23,7 @@ export default function CustomQuizBuilderClient({ quizTree }: Props) {
   const [selectedPaths, setSelectedPaths] = useState<Set<string>>(new Set());
   const [expandedPaths, setExpandedPaths] = useState<Set<string>>(new Set());
   
-  const [questionCount, setQuestionCount] = useState<number>(25);
+  const [questionCount, setQuestionCount] = useState<number>(5);
   const [isGenerating, setIsGenerating] = useState(false);
   const [activeQuiz, setActiveQuiz] = useState<{ id: string, title: string, questions: QuizQuestion[] } | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -412,13 +412,13 @@ export default function CustomQuizBuilderClient({ quizTree }: Props) {
                     <div className="absolute top-1/2 left-0 right-0 h-1 bg-[#00F0FF]/20 -translate-y-1/2 rounded-full overflow-hidden">
                       <div 
                         className="absolute top-0 left-0 bottom-0 bg-[#00F0FF] shadow-[0_0_10px_#00F0FF]"
-                        style={{ width: `${((questionCount - 10) / (200 - 10)) * 100}%` }}
+                        style={{ width: `${((questionCount - 5) / (200 - 5)) * 100}%` }}
                       />
                     </div>
                     
                     <input 
                       type="range" 
-                      min={10} 
+                      min={5} 
                       max={200} 
                       step={5}
                       value={questionCount}
@@ -430,7 +430,7 @@ export default function CustomQuizBuilderClient({ quizTree }: Props) {
                     <div 
                       className="absolute top-1/2 -translate-y-1/2 w-4 h-8 bg-[#00F0FF] border-2 border-white shadow-[0_0_15px_#00F0FF] pointer-events-none transition-transform"
                       style={{ 
-                        left: `calc(${((questionCount - 10) / (200 - 10)) * 100}% - 8px)`,
+                        left: `calc(${((questionCount - 5) / (200 - 5)) * 100}% - 8px)`,
                       }}
                     >
                       <div className="absolute inset-0 flex items-center justify-center">
@@ -440,7 +440,7 @@ export default function CustomQuizBuilderClient({ quizTree }: Props) {
                   </div>
                   
                   <div className="flex justify-between text-[10px] text-[#50C8FF] mt-2 uppercase tracking-widest font-bold">
-                    <span>10 Min</span>
+                    <span>5 Min</span>
                     <span>200 Max</span>
                   </div>
                 </div>

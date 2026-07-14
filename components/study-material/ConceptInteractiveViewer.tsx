@@ -80,7 +80,9 @@ export function ConceptInteractiveViewer({ title, notesMarkdown, noteBoxes, pdfU
 
   const activeQuiz = quizzes?.find((q) => q.id === activeQuizId);
   const activeQuestions = activeQuiz && quizQuestionCount 
-    ? [...activeQuiz.questions].sort(() => Math.random() - 0.5).slice(0, quizQuestionCount)
+    ? (quizQuestionCount >= activeQuiz.questions.length 
+        ? [...activeQuiz.questions].slice(0, quizQuestionCount)
+        : [...activeQuiz.questions].sort(() => Math.random() - 0.5).slice(0, quizQuestionCount))
     : [];
 
   const mathJaxConfig = {
