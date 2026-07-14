@@ -309,6 +309,24 @@ export async function getKDChapterTypeData(subjectSlug: string, chapterSlug: str
 
 // ---------------- RECURSIVE NODE PARSER ----------------
 
+async function getAllFlashcardFiles(dir: string): Promise<string[]> {
+  let files: string[] = [];
+  try {
+    const entries = await fs.promises.readdir(dir, { withFileTypes: true });
+    for (const entry of entries) {
+      const fullPath = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        files = files.concat(await getAllFlashcardFiles(fullPath));
+      } else if (entry.isFile() && (entry.name.startsWith('flashcard') || entry.name.includes('flashcard')) && entry.name.endsWith('.json')) {
+        files.push(fullPath);
+      }
+    }
+  } catch (e) {
+    console.error(`Error reading flashcards from ${dir}:`, e);
+  }
+  return files;
+}
+
 export async function getKDNode(pathArray: string[]): Promise<import('@/types/studyMaterial').KDNode | null> {
   const nodeDir = path.join(KD_METHOD_DIR, ...pathArray);
   if (!fs.existsSync(nodeDir)) return null;
@@ -399,6 +417,30 @@ export async function getKDNode(pathArray: string[]): Promise<import('@/types/st
   }
   quizzes.sort((a, b) => a.id.localeCompare(b.id));
   flashcardSets.sort((a, b) => a.id.localeCompare(b.id));
+
+  // Add recursive master flashcard set
+  const allFlashcardFiles = await getAllFlashcardFiles(nodeDir);
+  const localFlashcardFiles = allFlashcardFiles.filter(f => path.dirname(f) === nodeDir);
+  
+  if (allFlashcardFiles.length > 1 || (allFlashcardFiles.length === 1 && localFlashcardFiles.length === 0)) {
+    let combinedCards: import('@/lib/types').SubjectFlashcard[] = [];
+    for (const f of allFlashcardFiles) {
+      try {
+        const content = await fs.promises.readFile(f, 'utf8');
+        if (content.trim().length > 0) {
+          combinedCards = combinedCards.concat(JSON.parse(content));
+        }
+      } catch(e) {}
+    }
+    
+    if (combinedCards.length > 0) {
+      flashcardSets.push({
+        id: 'master-flashcards',
+        title: 'Master Flashcards (All Nested)',
+        flashcards: combinedCards
+      });
+    }
+  }
 
   if (notesMarkdown || noteBoxes || pdfUrl || youtubeUrls || quizzes.length > 0 || flashcardSets.length > 0) {
     hasLocalFiles = true;
