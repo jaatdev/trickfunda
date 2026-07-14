@@ -25,7 +25,6 @@ export default function GenericFlashcardSession({ flashcards, title, onClose }: 
 
   const handleFinish = async () => {
     setIsFinished(true);
-    await exitFullscreen();
   };
 
   const handleClose = async () => {
