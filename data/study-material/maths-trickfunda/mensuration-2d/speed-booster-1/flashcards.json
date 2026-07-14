@@ -1,0 +1,72 @@
+[
+  {
+    "id": "mensuration-2d-circle-speed-booster-1-01",
+    "type": "concept",
+    "front": "What is the Base Radius (Level 1) in the KD \\( 7-44-154 \\) Rule?",
+    "front_hi": "KD \\( 7-44-154 \\) नियम में बेस रेडियस (Level 1) क्या है?",
+    "back": "\\( 7 \\)",
+    "back_hi": "\\( 7 \\)",
+    "hint": "Thala's jersey number.",
+    "hint_hi": "थाला की जर्सी का नंबर।",
+    "trick": "Logic Link: \\( 7 \\) is the foundation. All radii are evaluated as multiples \\( (x) \\) of \\( 7 \\). Here, \\( x=1 \\).",
+    "trick_hi": "Logic Link: \\( 7 \\) नींव है। सभी त्रिज्याओं का मूल्यांकन \\( 7 \\) के गुणकों \\( (x) \\) के रूप में किया जाता है। यहाँ, \\( x=1 \\)।",
+    "explanation": "This acts as multiplier \\( x=1 \\).",
+    "explanation_hi": "यह गुणक \\( x=1 \\) के रूप में कार्य करता है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["math", "circle", "radius"]
+    },
+    "lists": [
+      {
+        "title": "KD 7-44-154 Magic Table",
+        "items": [
+          "Radius (r): \\( 7x \\)",
+          "Circumference (C): \\( 44x \\)",
+          "Area (A): \\( 154x^2 \\)"
+        ],
+        "items_hi": [
+          "त्रिज्या (r): \\( 7x \\)",
+          "परिधि (C): \\( 44x \\)",
+          "क्षेत्रफल (A): \\( 154x^2 \\)"
+        ],
+        "colorTheme": "blue"
+      }
+    ]
+  },
+  {
+    "id": "mensuration-2d-circle-speed-booster-1-02",
+    "type": "application",
+    "front": "If the radius of a circle is \\( 14 \\text{ cm} \\), what is its circumference?",
+    "front_hi": "यदि किसी वृत्त की त्रिज्या \\( 14 \\text{ cm} \\) है, तो उसकी परिधि क्या है?",
+    "back": "\\( 88 \\text{ cm} \\)",
+    "back_hi": "\\( 88 \\text{ cm} \\)",
+    "hint": "Identify the multiplier \\( x \\) by dividing \\( 14 \\) by \\( 7 \\).",
+    "hint_hi": "\\( 14 \\) को \\( 7 \\) से भाग देकर गुणक \\( x \\) ज्ञात करें।",
+    "trick": "Radius is \\( 14 = 7 \\times 2 \\), so \\( x=2 \\).\nCircumference = \\( 44 \\times 2 = 88 \\).",
+    "trick_hi": "त्रिज्या \\( 14 = 7 \\times 2 \\) है, इसलिए \\( x=2 \\)।\nपरिधि = \\( 44 \\times 2 = 88 \\)।",
+    "explanation": "Using the 7-44-154 rule, since the radius is twice the base radius (\\( x=2 \\)), the circumference is also twice the base circumference (\\( 44 \\times 2 \\)).",
+    "explanation_hi": "7-44-154 नियम का उपयोग करते हुए, चूँकि त्रिज्या आधार त्रिज्या की दोगुनी (\\( x=2 \\)) है, इसलिए परिधि भी आधार परिधि की दोगुनी (\\( 44 \\times 2 \\)) होगी।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["math", "circle", "circumference"]
+    }
+  },
+  {
+    "id": "mensuration-2d-circle-speed-booster-1-03",
+    "type": "application",
+    "front": "If the radius of a circle is \\( 21 \\text{ cm} \\), what is its area?",
+    "front_hi": "यदि किसी वृत्त की त्रिज्या \\( 21 \\text{ cm} \\) है, तो उसका क्षेत्रफल क्या है?",
+    "back": "\\( 1386 \\text{ cm}^2 \\)",
+    "back_hi": "\\( 1386 \\text{ cm}^2 \\)",
+    "hint": "Find \\( x \\), then use the area formula \\( 154 \\times x^2 \\).",
+    "hint_hi": "\\( x \\) ज्ञात करें, फिर क्षेत्रफल सूत्र \\( 154 \\times x^2 \\) का उपयोग करें।",
+    "trick": "\\( r = 21 = 7 \\times 3 \\), so \\( x=3 \\).\nArea = \\( 154 \\times 3^2 = 154 \\times 9 = 1386 \\).",
+    "trick_hi": "\\( r = 21 = 7 \\times 3 \\), इसलिए \\( x=3 \\)।\nक्षेत्रफल = \\( 154 \\times 3^2 = 154 \\times 9 = 1386 \\)।",
+    "explanation": "Remember that Area scales by \\( x^2 \\), not just \\( x \\). So if radius is tripled, area is multiplied by \\( 9 \\).",
+    "explanation_hi": "याद रखें कि क्षेत्रफल \\( x^2 \\) के अनुपात में बढ़ता है, केवल \\( x \\) के नहीं। इसलिए यदि त्रिज्या तीन गुनी कर दी जाए, तो क्षेत्रफल को \\( 9 \\) से गुणा किया जाता है।",
+    "meta": {
+      "difficulty": "hard",
+      "tags": ["math", "circle", "area"]
+    }
+  }
+]

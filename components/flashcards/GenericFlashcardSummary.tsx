@@ -130,10 +130,10 @@ export default function GenericFlashcardSummary({ flashcards, title, onClose }: 
           </div>
         </div>
       )}
-      <div className="fixed inset-0 z-[200] bg-gray-900/40 dark:bg-black/60 backdrop-blur-sm overflow-y-auto p-2 md:p-8">
-        <div className="w-full max-w-6xl mx-auto bg-gray-50/95 dark:bg-[#0a0a0a]/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl md:rounded-[2.5rem] p-4 md:p-10 shadow-2xl animate-in fade-in zoom-in-95 duration-500 my-4 md:my-10">
+      <div className="fixed inset-0 z-[200] bg-gray-50 dark:bg-gray-950 overflow-y-auto p-4 md:p-16">
+        <div className="max-w-6xl mx-auto space-y-6 md:space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-700">
         
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 print:hidden mb-8 text-center md:text-left">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 print:hidden text-center md:text-left">
           <div className="space-y-2">
             <div className="flex items-center justify-center md:justify-start gap-3 text-emerald-500 font-bold mb-2">
               <CheckCircle className="w-6 h-6" /> Session Complete!
@@ -163,7 +163,7 @@ export default function GenericFlashcardSummary({ flashcards, title, onClose }: 
         </div>
 
         {/* Printable List */}
-        <div id="generic-pdf-summary-content" className="bg-white dark:bg-[#111] border border-gray-200 dark:border-white/10 rounded-3xl p-6 md:p-12 shadow-sm print:shadow-none print:border-none print:p-0">
+        <div id="generic-pdf-summary-content" className="bg-white dark:bg-[#111] border border-gray-200 dark:border-white/10 rounded-3xl p-4 md:p-12 shadow-sm md:shadow-2xl print:shadow-none print:border-none print:p-0">
           <div className="text-center mb-10 pdf-header">
             <h1 className="text-4xl font-black text-gray-900 dark:text-white capitalize mb-2">TrickFunda</h1>
             <h2 className="text-xl text-gray-600 dark:text-gray-400 capitalize">{title}</h2>

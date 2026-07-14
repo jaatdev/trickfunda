@@ -1,0 +1,372 @@
+{
+  "flashcards": [
+    {
+      "id": "ows-day-3-1",
+      "type": "ows",
+      "word": "Epitaph",
+      "meaning": "A short text written on tombstone/Words inscribed on the grave/tomb in the memory of the one buried / An inscription on a tombstone in memory of the deceased / Words written on a tombstone in the memory of the person who has died / Words written on the tomb of a person / Words written on a tomb/An inscription on a tomb / Words inscribed on a tomb / Words written on the tomb of a dead person / Inscription on a gravestone / words or lines written on the tomb of a person समाधी लेख [SELECTION POST 2024][SSC SO (Audit), 1997][SSC CGL T-1 2011,2016,2017,2018][SSC CGL T-2 2013,2016][SSC MT(NT), 2014][SSC CPO T-1 2024(RE 2016),2019][SSC CHSL T-1 2021][SSC MTS 2022]",
+      "kdKey": "E = इसके, pita = पिता",
+      "kdHack": "ये इसके पिता की समाधि है क्योंकि इसके ऊपर इसके पिता का नाम लिखा है मतलब कि समाधि लेख।"
+    },
+    {
+      "id": "ows-day-3-2",
+      "type": "ows",
+      "word": "Apathetic",
+      "meaning": "Showing or feeling no interest, enthusiasm, or concern उदासीन [SSC CPO T-1 2017]",
+      "kdKey": "A = एक, path = पाठी",
+      "kdHack": "अगर स्टूडेंट को एक ही पाठी पढ़ाओगे तो वो उदासीन ही हो जायेगा।"
+    },
+    {
+      "id": "ows-day-3-3",
+      "type": "ows",
+      "word": "Hymn",
+      "meaning": "A religious song or poem of praise to God or a god/ A song or music in praise of God स्तुति करना [SSC CPO T-1 2017,2018]",
+      "kdKey": "Hy = हे, mn = मन",
+      "kdHack": "भगवान की स्तुति करते समय गाते है कि हे मन मेरा मन्दिर शिव मेरी पूजा।"
+    },
+    {
+      "id": "ows-day-3-4",
+      "type": "ows",
+      "word": "Dandy",
+      "meaning": "A man who pays too much attention to his clothes and personal appearance वस्त्र की ओर विशेष ध्यान देनेवाला मनुष्य",
+      "kdKey": "Dandy = धंधे",
+      "kdHack": "जब कोई भी आदमी धंधे पर जाता है तो अपने वस्त्र के ऊपर विशेष ध्यान देता है कि अच्छे है या नहीं।"
+    },
+    {
+      "id": "ows-day-3-5",
+      "type": "ows",
+      "word": "Emigrant",
+      "meaning": "A Person who leaves his own country and goes to live in another/ One who leaves one's country in order to settle permanently in another/ One who goes to settle in another country प्रवासी [SSC CGL T-1 2019][SSC MTS 2020][SSC CHSL T-1 2021][SSC CPO 2014,2015]",
+      "kdKey": "E = Exit (बाहर)",
+      "kdHack": "बाहर जाने वाला मतलब कि प्रवासी।"
+    },
+    {
+      "id": "ows-day-3-6",
+      "type": "ows",
+      "word": "Immigrant",
+      "meaning": "One who settles in another country./A person who comes to one country from another in order to settle/ person coming to a foreign land to settle there/ a person who comes to a country from his own country for settling/ A foreigner who settles in a country आप्रवासी [SSC SO (Audit), 2001][SSC CHSL T-1 2021,2023][SSC CPO PRE 2023][SSC CPO T- 2, 2011]",
+      "kdKey": "I = in (आना)",
+      "kdHack": "आने वाला मतलब कि आप्रवासी।"
+    },
+    {
+      "id": "ows-day-3-7",
+      "type": "ows",
+      "word": "Illegible",
+      "meaning": "Which cannot be read./Incapable of being read / Incapable of being read / Impossible to decipher, make out or read / A hand writing which is difficult or impossible to read/ A handwriting that cannot be read/ One who is unable to read and write/ That which cannot be easily read/ That which is incapable of being read or understood अपठनीय [SSC DEO 2008][FCI 2012][SSC CHSL T-1 2020,2022] [SSC CGL PRE-2013,2023][SSC MTS 2013,2023]",
+      "kdKey": "Ill = बीमार",
+      "kdHack": "जब बीमार हो जाते है तो डॉक्टर के पास जाते है और डॉक्टर जो दवाई लिखता है वो हम पढ़ नहीं सकते है मतलब कि अपठनीय।"
+    },
+    {
+      "id": "ows-day-3-8",
+      "type": "ows",
+      "word": "Stoicism",
+      "meaning": "One who is indifferent to pleasure or pain Calmness and indifference to suffering/ Indifference to pleasure and pain/ Calmness and indifference to suffering मनस्वी [SSC SO (Audit), 2005][SSC CGL T1, 2016][SSC INVESTIGATOR 2010]",
+      "kdKey": "Sto = stone (पत्थर), cism = किस्म",
+      "kdHack": "वो पत्थर की किस्म का आदमी है मतलब कि उसके ऊपर सुख और दुःख का कोई फर्क नहीं पड़ता है।"
+    },
+    {
+      "id": "ows-day-3-9",
+      "type": "ows",
+      "word": "Stoic",
+      "meaning": "Indifferent to pain and pleasure./A person who is indifferent to pain and pleasures of life./Not to be affected by the pleasures and pains of life./One who is indifferent to pleasure or pain/ A person who can endure pain or hardship without showing his feelings or complaining/ a person who is indifferent to pain and pleasures of life/ One who accepts pleasure and pain equally/ One who is unaffected or indifferent to joy, pain, pleasure or grief [SSC SO (Audit), 2003][SSC SO(CA), 2005][SSC CGL T-1 2013,2016,2021,2022][SSC CHSL T-1 2018,2022] [SSC CPO T-1 2019,2023]",
+      "kdKey": "Stoicism, Stoic से ही बना है।",
+      "kdHack": "Stoicism, Stoic से ही बना है।"
+    },
+    {
+      "id": "ows-day-3-10",
+      "type": "ows",
+      "word": "Ambidextrous",
+      "meaning": "A person who is able to use both hands with equal skill/ One who is able to use both hands/ Able to use the left hand and right hand equally well/ Using right and left hand equally well/ One who can use both hands efficiently/ one who can use either hand with ease दोनों हाथों से दक्ष [SSC LDC 2010][SSC CGL T-1 2016][SSC CHSL T-1 2019][SSC MTS 2021]",
+      "kdKey": "Ambi = अम्बे माता, dex = दक्ष, us = हमे",
+      "kdHack": "हमे पता है कि अम्बे माता जादू बरसाने में दोनों हाथों से दक्ष है।"
+    },
+    {
+      "id": "ows-day-3-11",
+      "type": "ows",
+      "word": "Manuscript",
+      "meaning": "A book or paper written in hand/ A paper written by hand/ A paper/story/poem first written out by hand हस्तलिखित [SSC LDC, 2011][SSC CGL T1, 2016]",
+      "kdKey": "Man = आदमी, script = लेख",
+      "kdHack": "आदमी के द्वारा लिखा हुआ लेख हस्तलिखित ही होगा।"
+    },
+    {
+      "id": "ows-day-3-12",
+      "type": "ows",
+      "word": "Postscript",
+      "meaning": "An addition to the end of a letter ps./ Anything written in a letter after it is signed पश्च लेख [SSC CPO 2016]",
+      "kdKey": "Post = बाद, script = लेख",
+      "kdHack": "बाद में लिखना मतलब की पश्च लेख।"
+    },
+    {
+      "id": "ows-day-3-13",
+      "type": "ows",
+      "word": "Sacrilege",
+      "meaning": "Violation or misuse of what is regarded as sacred/ An act of treating a holy thing or place without respect/ Violation of something holy or sacred/ violating the sanctity of religious places/ objects/ Violation of the sanctity of the Church/ Violation of that which is holy and sacred/ Violation of the sanctity of a sacred place धार्मिक चीजो का अपमान करना / पवित्र चीज का अपमान करना [SSC SO (CA), 2006][SSC Statistical Invigilator, 2005][SSC MTS 2021][SSC CHSL T-1 2016,2022][SSC CGL T-2 2016][SSC PH XI 2023]",
+      "kdKey": "Sac = शक, religi = religious (धार्मिक)",
+      "kdHack": "धार्मिक चीजो पर शक करना मतलब कि उनका अपमान ही करना है।"
+    },
+    {
+      "id": "ows-day-3-14",
+      "type": "ows",
+      "word": "Hypochondriac",
+      "meaning": "One who is excessively worried about one's health/ who is over anxious about his health/ A person who has an unnatural anxiety about one's own health typically involves imagined symptoms of illness/ A person who constantly thinks that he is sick./ A person who thinks he is ill all the time/ A patient with imaginary symptoms and diseases रोगभ्रमी [SSC Statistical Invigilator, 2006][SSC MTS 2021][SSC CHSL T-1 2020][SSC CPO T-1 2018,(RE 2016)]",
+      "kdKey": "Hy = है, pocho = पूछो, n = नहीं, dr = डर",
+      "kdHack": "अगर आप अपने पापा से भाई के लिए ये बोलो कि इसके दो-तीन दिन से छींक आ रही है तो पापा बोलते है कि हे नहीं पूछो उससे वो डर जायेगा क्योंकि वो अपनी health को लेकर बहुत ज्यादा चिंतित रहता है मतलब कि रोगभ्रमी।"
+    },
+    {
+      "id": "ows-day-3-15",
+      "type": "ows",
+      "word": "Hypochondria",
+      "meaning": "A persistent anxiety about one's health usually involving imagined symptoms of illness/ Excessive preoccupation with one's health रोगभ्रम",
+      "kdKey": "Hypochondriac से ही बना है।",
+      "kdHack": "Hypochondriac से ही बना है।"
+    },
+    {
+      "id": "ows-day-3-16",
+      "type": "ows",
+      "word": "Sceptic",
+      "meaning": "One who is always doubting / One who is given to questioning the truth of facts and the soundness of inference/ A person inclined to question or doubt accepted opinions शक्की मिजाज / संदेहवादी [SSC CPO 2014][SSC CGL T-1 2017]",
+      "kdKey": "Sce = शक्की, pti = पति",
+      "kdHack": "शक्की किस्म की पत्नी को हमेशा पति पर Doubt ही होता है।"
+    },
+    {
+      "id": "ows-day-3-17",
+      "type": "ows",
+      "word": "Impostor/Imposter",
+      "meaning": "A person pretending to be somebody he is not/ A person who dishonestly pretends to be somebody else/ A person who pretends to be what he is not ढोंगी [FCI, 2012][SSC STENO 2010]",
+      "kdKey": "Poster = पोस्टर",
+      "kdHack": "नेता लोग जो पोस्टर चिपकाते है उनको देखकर लगता है गरीबो की सहायता करने वाला है जबकि ऐसा कुछ भी नहीं होता है मतलब कि ढोंगी।"
+    },
+    {
+      "id": "ows-day-3-18",
+      "type": "ows",
+      "word": "Euthanasia",
+      "meaning": "Bringing about a gentle and easy death especially to end suffering/ Putting to death painlessly to end suffering/ Painless death given to patients to relieve suffering/ Thing that bring gentle and painless death from incurable disease/ Act of mercy killing इच्छा मृत्यु [SSC CGL T-1 2016][SSC CPO 2017]",
+      "kdKey": "Euth = youth (युवा), an = एक, asia = एशिया",
+      "kdHack": "एशिया महाद्वीप का एक युवा बेरोजगारी के कारण इच्छा मृत्यु पसंद करता है।"
+    },
+    {
+      "id": "ows-day-3-19",
+      "type": "ows",
+      "word": "Mansion",
+      "meaning": "A large impressive house/ A very large impressive residence [SSC CHSL T-1 2018][SSC CGL T-2 2019]",
+      "kdKey": "Mansi = मानसिंह",
+      "kdHack": "सबको पता है, राजा मानसिंह बहुत बडे शानदार घर मे रहते थे।"
+    },
+    {
+      "id": "ows-day-3-20",
+      "type": "ows",
+      "word": "Prodigy",
+      "meaning": "A person especially a young one with exceptional abilities/ Child of unusual or remarkable talent विलक्षण प्रतिभा संपन्न व्यक्ति [SSC CGL T-2 2016]",
+      "kdKey": "Pr = पर, rodigy = रोडीज",
+      "kdHack": "टीवी पर दिखाया जाता है कि रोडीज में विलक्षण प्रतिभा संपन्न व्यक्ति को ही वो लेते है।"
+    },
+    {
+      "id": "ows-day-3-21",
+      "type": "ows",
+      "word": "Exodus",
+      "meaning": "Large scale departure of people / A situation in which many people leave a place at the same time निर्गमन, प्रस्थान, विदाई [SSC CHSL T-1 2019]",
+      "kdKey": "Exo = एकसौ, dus = दस",
+      "kdHack": "विदाई/प्रस्थान के टाइम उन्होंने मुझे जुआरी के रूप में एक सौ दस रूपये दिए।"
+    },
+    {
+      "id": "ows-day-3-22",
+      "type": "ows",
+      "word": "Honorary",
+      "meaning": "One who holds a post without any salary/ A post without remuneration/ Conferred as an honour/ A job carrying no salary/ Holding an office without receiving a pay अवैतनिक [SSC CGL T-1 2015,2016][SSC CPO T-1 2019]",
+      "kdKey": "Honor = हॉनर, ary = अरे",
+      "kdHack": "उसे वेतन से कोई मतलब नहीं है वो तो केवल अपने सम्मान के लिए काम करता है मतलब कि अवैतनिक।"
+    },
+    {
+      "id": "ows-day-3-23",
+      "type": "ows",
+      "word": "Abundance",
+      "meaning": "A quantity that is more than enough. प्रचुरता [SSC CPO 2015,2016]",
+      "kdKey": "A = एक, bund = बूंद, ance = अनेक",
+      "kdHack": "एक-एक बूंद से अनेक मात्रा में पानी इकट्ठा किया जा सकता है मतलब कि प्रचुरता।"
+    },
+    {
+      "id": "ows-day-3-24",
+      "type": "ows",
+      "word": "Antagonist",
+      "meaning": "A person who opposes another शत्रु, दुश्मन",
+      "kdKey": "Ant = एन्टी, gonist = गनी",
+      "kdHack": "Wanted मूवी में सलमान खान की गनी भाई से एन्टी ही तो रहती है जो कि सलमान खान का दुश्मन था।"
+    },
+    {
+      "id": "ows-day-3-25",
+      "type": "ows",
+      "word": "Aesthetic/Aesthetics",
+      "meaning": "The branch of philosophy concerned with the study of principles of beauty, especially in art / Having to do with artistic beauty / Concerned with beauty or the appreciation of beauty/ the philosophy of fine arts/ The branch of philosophy concerned with the study of the principles of beauty, especially in art सौन्दर्यशास्त्र / सौन्दर्यपरक [SSC CHSL 2015,2018][SSC MTS 2022]",
+      "kdKey": "Aes = ऐसी, the = थी, tic = टिकी",
+      "kdHack": "वो ऐसी ही थी कि हर किसी की नजर उस पर टिकी मतलब कि बहुत ही सुन्दर थी।"
+    },
+    {
+      "id": "ows-day-3-26",
+      "type": "ows",
+      "word": "Indispensable",
+      "meaning": "Something that is absolutely necessary, that you cannot do without./That cannot be done without/ A person who is absolutely necessary for someone or something / that cannot be dispensed with, removed अनिवार्य / आवश्यक [SSC CGL T-1 2023][SSC CGL T-2 2019][SSC MTS 2022]",
+      "kdKey": "In = में, dispens = डिस्पेन्सरी",
+      "kdHack": "डिस्पेन्सरी में दवाईयों का होना आवश्यक है।"
+    },
+    {
+      "id": "ows-day-3-27",
+      "type": "ows",
+      "word": "Pseudonym",
+      "meaning": "An imaginary name assumed by an author for disguise / To write under a different name/ A fictitious name used by an author/ A fictitious name especially one assumed by an author लेखक के द्वारा अपनाया गया दुसरा (भिन्ननाम) [SSC CHSL 2012,2014][SSC CGL T-1 2018][CPO T-2 2019][SSC MTS 2021]",
+      "kdKey": "D = different (भिन्न), nym = name (नाम)",
+      "kdHack": "लेखक के द्वारा अपनाया गया Different name (भिन्न नाम)।"
+    },
+    {
+      "id": "ows-day-3-28",
+      "type": "ows",
+      "word": "Martyr",
+      "meaning": "One who goes penalty of death for his persistence in faith/ one who dies for a noble/ Someone who is killed fighting for the cause of religion or faith./ One who suffers for one's faith/ One who embraces voluntary death for the sake of one's country. शहीद [SSC CGL CGL T1 RE, 2015][SSC MTS 2013]",
+      "kdKey": "Mar = मरने, tyr = तैयार",
+      "kdHack": "वो हमेशा देश के लिए मरने के लिए तैयार रहता था इसलिए वो आतंकवादी को मारते-2 उस दिन शहीद हो गया।"
+    },
+    {
+      "id": "ows-day-3-29",
+      "type": "ows",
+      "word": "Eccentric",
+      "meaning": "One who has strange habits/ A man with abnormal habits सनकी [SSC CGL T-1 2014,2016,2017]",
+      "kdKey": "Ec = एक, centr = सेन्टर",
+      "kdHack": "वो बहुत ही सनकी आदमी है हमेशा सेन्टर में बैठने की ही जिद करता है।"
+    },
+    {
+      "id": "ows-day-3-30",
+      "type": "ows",
+      "word": "Axiom",
+      "meaning": "A statement which is accepted as true without proof/ a statement accepted as true without proof सूक्ति /स्वयं सिद्ध",
+      "kdKey": "Axi = एक सी , om = ओम",
+      "kdHack": "जो प्रार्थना के बाद ओम भूर्भुवः स्वः । तत्सवितुर्वरेण्यं भर्गो देवस्यः धीमहि । धियो यो नः प्रचोदयात् ।। ये सूक्ति जो हम बोलते है ये अपने आप में स्वयंसिद्ध है।"
+    },
+    {
+      "id": "ows-day-3-31",
+      "type": "ows",
+      "word": "Gourmet",
+      "meaning": "Someone who loves good food and knows a lot about it./The art of good eating/ a connoisseur of food जो अच्छा खाने में रूचि रखता है / चटोरापन [SSC CHSL T-1 2021]",
+      "kdKey": "Gourm = गरम, et = eat[खाना]",
+      "kdHack": "वो हमेशा गरम-गरम खाना ही खाता है क्योंकि वो अच्छा खाना खाने में ही रूचि रखता है।"
+    },
+    {
+      "id": "ows-day-3-32",
+      "type": "ows",
+      "word": "Gust",
+      "meaning": "A sudden rush of wind/ A strong blast of wind. झोंका [SSC CGL T-1 2017]",
+      "kdKey": "Gus = घुस",
+      "kdHack": "जैसे ही हवा का तेज झोंका आया तो वो घर के अन्दर घुस गया।"
+    },
+    {
+      "id": "ows-day-3-33",
+      "type": "ows",
+      "word": "Lullaby",
+      "meaning": "Songs used to help a child fall asleep / A pleasant song used for causing children to sleep/ A gentle song sung to put a child to sleep लोरी [SSC MTS 2020][SSC CGL PRE-2022]",
+      "kdKey": "Lul = ल, ल, la = ला, by = भाई",
+      "kdHack": "जब मां अपने बच्चे को लोरी सुनाती है तो यह कहती है कि ल,ल,ल मेरा प्यारा बच्चा सोजा, लाल पलंग पर सोजा।"
+    },
+    {
+      "id": "ows-day-3-34",
+      "type": "ows",
+      "word": "Circumlocution",
+      "meaning": "A roundabout way of speaking / Indirect or roundabout expression/ A round-about way of expression/ Method of talking in a roundabout way / The use of many words where only a few are necessary घुमा-फिराकर बताना [SSC CPO T-1 2018][SSC SAS, 2010][SSC CGL T-1 2016,2017]",
+      "kdKey": "Cir = सर, Cum = कम, locution = लोकेशन",
+      "kdHack": "बहुत ही कम सर ऐसे है जो अपने घर की location बताते है ज्यादातर तो पूछने पर घुमा फिरा कर बाते करने लगते है।"
+    },
+    {
+      "id": "ows-day-3-35",
+      "type": "ows",
+      "word": "Idiosyncrasy/Idiosyncratic",
+      "meaning": "Mode of behaviour peculiar to a person/ A mode of behaviour or way of thought peculiar to an individual/ A person's peculiar habit व्यवहार का विशेष प्रकार या सिद्धान्त [SSC CHSL T-1 2016][SSC CPO T-1 2018]",
+      "kdKey": "Idio = इडियट, sync = सनकी, crasy = क्रेजी",
+      "kdHack": "अगर कोई आदमी इडियट, सनकी और क्रेजी है तो उसका व्यवहार करने का तरीका विशेष प्रकार का ही होगा।"
+    },
+    {
+      "id": "ows-day-3-36",
+      "type": "ows",
+      "word": "Embezzle",
+      "meaning": "Steal or misappropriate money/ Steal or misappropriate money placed in one's trust/ Using money placed in one's care in a wrong way to benefit गबन करना /खा जाना [SSC CHSL T-1 2019]",
+      "kdKey": "E = इसके, m = में, bezzle = भेजले",
+      "kdHack": "अरे ये हमेशा पैसो का गबन करता है मेरी मान इसके साथ कोई अपना आदमी भेज ले।"
+    },
+    {
+      "id": "ows-day-3-37",
+      "type": "ows",
+      "word": "Embezzlement",
+      "meaning": "An act of misappropriation of money/ Misappropriation of money गबन [SSC CGL T1, 2016][SSC CHSL 2015]",
+      "kdKey": "E = इसके, m = में, bezzle = भेजले",
+      "kdHack": "अरे ये हमेशा पैसो का गबन करता है मेरी मान इसके साथ कोई अपना आदमी भेज ले।"
+    },
+    {
+      "id": "ows-day-3-38",
+      "type": "ows",
+      "word": "Accomplice",
+      "meaning": "A partner in crime/ A person who helps another to commit a crime/ An associate in crime गुनाह के साथी [SSC CGL T-1 2014,2017][SSC CHSL 2015][SSC CPO 2014][SSC CGL T-2 2019]",
+      "kdKey": "Ac = एक com = कम, plice = पुलिस",
+      "kdHack": "पुलिस का एक ही काम होता है कि गुनाह या अपराधी के साथी कौन-कौन हैं उनको ढूंढना।"
+    },
+    {
+      "id": "ows-day-3-39",
+      "type": "ows",
+      "word": "Impromptu",
+      "meaning": "Made or done without previous preparation [SSC CPO 2014]",
+      "kdKey": "Im = आई एम्, promptu = परमपिता",
+      "kdHack": "मै तो परमपिता परमेश्वर हूं इसलिए मैं तो पहले से बिना तैयारी के आता हूं!"
+    },
+    {
+      "id": "ows-day-3-40",
+      "type": "ows",
+      "word": "Extempore",
+      "meaning": "Spoken or done without any previous thought or preparation./A speech made without preparation / Speech delivered without preparation /Spoken or done without preparation / A speech delivered without any preparation/ A speech or a presentation made without previous preparation बिना तैयारी के [SELECTION POST 2024][SSC CHSL PRE 2012,2014,2022,2023][SSC CGL PRE-2016,2017,2022][SSC CPO PRE 2014,2023]",
+      "kdKey": "tempore = temporary",
+      "kdHack": "अगर आप temporary कोई काम करते है बिना तैयारी के करते है।"
+    },
+    {
+      "id": "ows-day-3-41",
+      "type": "ows",
+      "word": "Boutique",
+      "meaning": "A small shop that sells fashionable clothes, cosmetics etc बुटिक [SSC MTS-2023][SSC CGL T-1 2016]",
+      "kdKey": "",
+      "kdHack": ""
+    },
+    {
+      "id": "ows-day-3-42",
+      "type": "ows",
+      "word": "Barometer",
+      "meaning": "Instrument to measure atmospheric pressure/ An instrument for measuring the atmospheric pressure वायु दाब मापक [SSC CPO 2010][SSC CHSL T-1 2018][SSC CGL T-1 2018]",
+      "kdKey": "",
+      "kdHack": ""
+    },
+    {
+      "id": "ows-day-3-43",
+      "type": "ows",
+      "word": "Pantry",
+      "meaning": "A place where food is kept/ A small room in a big house, hotel, ship etc. where glasses, dishes, spoons, food etc. are kept / A place for provisions etc in the house. भोजन रखने की जगह",
+      "kdKey": "",
+      "kdHack": ""
+    },
+    {
+      "id": "ows-day-3-44",
+      "type": "ows",
+      "word": "Burglar",
+      "meaning": "A person who breaks into a house in order to steal/ One who breaks into a house to commit theft सेंध लगाने वाला [SO (Audit), 2004]",
+      "kdKey": "",
+      "kdHack": ""
+    },
+    {
+      "id": "ows-day-3-45",
+      "type": "ows",
+      "word": "Hangar",
+      "meaning": "A place for housing aeroplanes/ a place for housing aeroplanes/ A building in which aircraft are housed/Enclosed area where aircraft are kept and repaired / A large building with an extensive floor area, typically for housing aircraft हैंगर [SSC CGL T-1 2019,2020][SSC MTS 2022]",
+      "kdKey": "",
+      "kdHack": ""
+    },
+    {
+      "id": "ows-day-3-o1",
+      "type": "ows",
+      "word": "Omnipresent",
+      "meaning": "Present everywhere at the same time.",
+      "kdKey": "Omni",
+      "kdHack": "Omni (All) + Present -> Someone who is present all over the place."
+    }
+  ]
+}
