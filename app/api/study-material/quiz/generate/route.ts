@@ -64,6 +64,8 @@ export async function POST(req: Request) {
         const parsed = JSON.parse(fileContent);
         if (Array.isArray(parsed)) {
           allQuestions.push(...parsed);
+        } else if (parsed && Array.isArray(parsed.questions)) {
+          allQuestions.push(...parsed.questions);
         }
       } catch (e) {
         console.error(`Failed to parse ${filePath}:`, e);

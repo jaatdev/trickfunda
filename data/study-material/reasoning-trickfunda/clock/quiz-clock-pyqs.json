@@ -1,0 +1,1222 @@
+{
+  "questions": [
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-4",
+      "prompt": "An accurate clock shows 2 o'clock in the afternoon. Through how many degrees will the hour hand rotate when the clock shows 6 o'clock in the evening on the same day?",
+      "prompt_hi": "एक सटीक घड़ी दोपहर के 2 बजे का समय दिखाती है। जब उसी दिन शाम के 6 बजेंगे तो घंटे की सुई कितने डिग्री घूमेगी?",
+      "options": [
+        "120°",
+        "125°",
+        "130°",
+        "135°"
+      ],
+      "options_hi": [
+        "120°",
+        "125°",
+        "130°",
+        "135°"
+      ],
+      "answerIndex": 0,
+      "examTag": "UP Police Constable, 18 Feb 2024 (Shift-2)",
+      "reason": "Hour hand rotates in one hour = 30°. The time difference from 2 PM to 6 PM is 4 hours. Hour Hand rotates in 4 hours = 4 × 30° = 120°.",
+      "reason_hi": "घंटे की सुई एक घंटे में 30° घूमती है। दोपहर 2 बजे से शाम 6 बजे के बीच 4 घंटे का अंतर है। 4 घंटे में घंटे की सुई 4 × 30° = 120° घूमेगी।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-5",
+      "prompt": "A clock is started at noon. By 20 minutes past 5, the hour hand has turned through.",
+      "prompt_hi": "एक घड़ी दोपहर 12 बजे शुरू की जाती है। 5 बजकर 20 मिनट तक, घंटे की सुई कितने डिग्री घूम चुकी होगी?",
+      "options": [
+        "160°",
+        "150°",
+        "155°",
+        "145°"
+      ],
+      "options_hi": [
+        "160°",
+        "150°",
+        "155°",
+        "145°"
+      ],
+      "answerIndex": 0,
+      "examTag": "UP Police Constable, 18 Feb 2024 (Shift-1)",
+      "reason": "The clock time moves from 12:00 (noon) to 5:20, which is 5 hours and 20 minutes = 320 minutes. The angle traced by an hour hand per minute is 0.5°. In 320 minutes, the angle = 320 × 0.5° = 160°.",
+      "reason_hi": "घड़ी 12:00 बजे से 5:20 तक चलती है, जो 5 घंटे और 20 मिनट = 320 मिनट है। घंटे की सुई प्रति मिनट 0.5° घूमती है। 320 मिनट में कोण = 320 × 0.5° = 160°।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-6",
+      "prompt": "A clock shows the time at 4:35. If the minute hand moves 270° in a clockwise direction, in which direction does the hour hand point?",
+      "prompt_hi": "एक घड़ी में 4:35 का समय हो रहा है। यदि मिनट की सुई 270° दक्षिणावर्त दिशा में घूमती है, तो घंटे की सुई किस दिशा में इंगित करेगी?",
+      "options": [
+        "South-East",
+        "South-West",
+        "North",
+        "North-East"
+      ],
+      "options_hi": [
+        "दक्षिण-पूर्व",
+        "दक्षिण-पश्चिम",
+        "उत्तर",
+        "उत्तर-पूर्व"
+      ],
+      "answerIndex": 0,
+      "examTag": "UP Police Constable, 18 June 2018 (Shift-2)",
+      "reason": "Minute hand moves 270° clockwise. Since 1 min = 6°, 270° is 45 minutes. Time becomes 4:35 + 45 mins = 5:20. At 5:20, the hour hand is slightly past 5, pointing towards South-East.",
+      "reason_hi": "मिनट की सुई 270° दक्षिणावर्त घूमती है। चूंकि 1 मिनट = 6°, 270° का मतलब 45 मिनट है। समय 4:35 + 45 मिनट = 5:20 हो जाता है। 5:20 पर, घंटे की सुई 5 से थोड़ा आगे होती है, जो दक्षिण-पूर्व की ओर इशारा करती है।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-7",
+      "prompt": "A clock is showing the time 1:40. If the minute hand points to the southwest, in which direction does the hour hand point?",
+      "prompt_hi": "एक घड़ी 1:40 का समय दिखा रही है। यदि मिनट की सुई दक्षिण-पश्चिम की ओर इशारा करती है, तो घंटे की सुई किस दिशा में इशारा करेगी?",
+      "options": [
+        "North-East",
+        "South",
+        "North",
+        "South-East"
+      ],
+      "options_hi": [
+        "उत्तर-पूर्व",
+        "दक्षिण",
+        "उत्तर",
+        "दक्षिण-पूर्व"
+      ],
+      "answerIndex": 0,
+      "examTag": "UP Police Constable, 19 June 2018 (Shift-2)",
+      "reason": "At 1:40, the minute hand is at 8, which is given as South-West. This means 2 (opposite 8) is North-East. The hour hand is between 1 and 2, which falls in the North-East direction.",
+      "reason_hi": "1:40 पर, मिनट की सुई 8 पर होती है, जिसे दक्षिण-पश्चिम दिया गया है। इसका मतलब है कि 2 (8 के विपरीत) उत्तर-पूर्व है। घंटे की सुई 1 और 2 के बीच है, जो उत्तर-पूर्व दिशा में आती है।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-8",
+      "prompt": "A working clock is placed on a table in such a manner that at 9.00 pm, its hour hand is pointing towards north. If the same clock remains in the same position, in which direction will the minute hand point at 2.00 am?",
+      "prompt_hi": "एक चालू घड़ी को मेज पर इस तरह रखा गया है कि रात के 9 बजे घंटे की सुई उत्तर की ओर इशारा कर रही है। यदि वही घड़ी उसी स्थिति में रहे, तो सुबह 2 बजे मिनट वाली सुई किस दिशा की ओर इशारा करेगी?",
+      "options": [
+        "East",
+        "North",
+        "South",
+        "West"
+      ],
+      "options_hi": [
+        "पूर्व",
+        "उत्तर",
+        "दक्षिण",
+        "पश्चिम"
+      ],
+      "answerIndex": 0,
+      "examTag": "NTPC CBT-II, 12 June 2022 (Shift-1)",
+      "reason": "At 9:00 PM, the hour hand is at 9 (pointing North). This implies 12 is East. At 2:00 AM, the minute hand is at 12, so it points towards East.",
+      "reason_hi": "रात 9:00 बजे, घंटे की सुई 9 पर है (उत्तर की ओर इशारा करती है)। इसका अर्थ है 12 पूर्व की ओर है। सुबह 2:00 बजे, मिनट की सुई 12 पर होती है, इसलिए यह पूर्व की ओर इशारा करेगी।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-9",
+      "prompt": "A working clock is placed on a table in such a manner that at 9:00 pm the hour hand is pointing towards the north. If the same clock remains in the same position, in which direction will the minute hand point at 6:00 am?",
+      "prompt_hi": "एक चालू घड़ी को मेज पर इस तरह रखा गया है कि रात के 9 बजे घंटे की सुई उत्तर की ओर इशारा कर रही है। यदि वही घड़ी उसी स्थिति में रहे, तो सुबह 6 बजे मिनट की सुई किस दिशा में इशारा करेगी?",
+      "options": [
+        "North",
+        "East",
+        "South",
+        "West"
+      ],
+      "options_hi": [
+        "उत्तर",
+        "पूर्व",
+        "दक्षिण",
+        "पश्चिम"
+      ],
+      "answerIndex": 1,
+      "examTag": "NTPC CBT-II, 13 June 2022 (Shift-1)",
+      "reason": "At 9:00 PM, hour hand at 9 points North. So 12 points East. At 6:00 AM, the minute hand is at 12, which points East.",
+      "reason_hi": "रात 9:00 बजे, घंटे की सुई 9 पर उत्तर की ओर इशारा करती है। इसलिए 12 पूर्व की ओर होगा। सुबह 6:00 बजे, मिनट की सुई 12 पर होती है, जो पूर्व की ओर इशारा करेगी।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-10",
+      "prompt": "Ramen leaves his home every day at 7:40 am and reaches his office at 9:46 am. One day, he left his home at 7:40 am but travelled one-fourth of the distance at 6/7 of the usual speed and the rest of the distance at 6/5 of the usual speed. At what time did Ramen reach office on that day?",
+      "prompt_hi": "रमन हर दिन 7:40 am पर अपने घर से निकलता है और 9:46 am पर अपने कार्यालय पहुँचता है। एक दिन, वह 7:40 am पर अपने घर से निकला लेकिन एक चौथाई दूरी सामान्य गति की 6/7 से और शेष दूरी सामान्य गति की 6/5 से तय की। उस दिन रमन किस समय कार्यालय पहुँचा?",
+      "options": [
+        "9:45:40 am",
+        "9:35:30 am",
+        "9:25:50 am",
+        "9:30:55 am"
+      ],
+      "options_hi": [
+        "9:45:40 am",
+        "9:35:30 am",
+        "9:25:50 am",
+        "9:30:55 am"
+      ],
+      "answerIndex": 1,
+      "examTag": "NTPC CBT-II, 16 June 2022 (Shift-2)",
+      "reason": "Usual time = 2 hrs 6 mins = 126 mins. One-fourth distance at 6/7 speed takes (1/4)*(7/6)*126 = 36.75 mins. Remaining 3/4 distance at 6/5 speed takes (3/4)*(5/6)*126 = 78.75 mins. Total time = 115.5 mins = 1 hour 55 mins 30 secs. Arrival time = 7:40 AM + 1 hr 55 min 30 sec = 9:35:30 AM.",
+      "reason_hi": "सामान्य समय = 126 मिनट। 1/4 दूरी 6/7 गति पर तय करने में लगा समय = (1/4)*(7/6)*126 = 36.75 मिनट। शेष 3/4 दूरी 6/5 गति पर तय करने में लगा समय = (3/4)*(5/6)*126 = 78.75 मिनट। कुल समय = 115.5 मिनट = 1 घंटा 55 मिनट 30 सेकंड। पहुँचने का समय = 7:40 AM + 1 घंटा 55 मिनट 30 सेकंड = 9:35:30 AM।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-11",
+      "prompt": "What will be the approximate angle between the two hands of a clock (hour hand and minute hand) when the time is 8:45?",
+      "prompt_hi": "जब समय 8:45 है तो घड़ी की दोनों सुइयों (घंटे की सुई और मिनट की सुई) के बीच अनुमानित कोण क्या होगा?",
+      "options": [
+        "10°",
+        "7°",
+        "2°",
+        "17°"
+      ],
+      "options_hi": [
+        "10°",
+        "7°",
+        "2°",
+        "17°"
+      ],
+      "answerIndex": 1,
+      "examTag": "Group D, 17 Aug 2022 (Shift-1)",
+      "reason": "Angle = |30×8 - 5.5×45| = |240 - 247.5| = 7.5°. The approximate angle is 7°.",
+      "reason_hi": "कोण = |30×8 - 5.5×45| = |240 - 247.5| = 7.5°। अनुमानित कोण 7° है।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-12",
+      "prompt": "How many times are the hour and the minute hands of a clock at a right angle in a period of two days?",
+      "prompt_hi": "दो दिनों की अवधि में एक घड़ी की घंटे और मिनट की सुइयां कितनी बार समकोण पर होती हैं?",
+      "options": [
+        "88",
+        "77",
+        "48",
+        "92"
+      ],
+      "options_hi": [
+        "88",
+        "77",
+        "48",
+        "92"
+      ],
+      "answerIndex": 0,
+      "examTag": "Group D, 18 Aug 2022 (Shift-1)",
+      "reason": "In 12 hours, hands are at a right angle 22 times. In a day (24 hours), it's 44 times. In two days (48 hours), it's 44 × 2 = 88 times.",
+      "reason_hi": "12 घंटे में सुइयां 22 बार समकोण बनाती हैं। एक दिन (24 घंटे) में 44 बार। दो दिनों (48 घंटे) में, यह 44 × 2 = 88 बार होता है।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-13",
+      "prompt": "When the minute hand covers a distance equivalent to a period of 2 hours 20 minutes, then what will be the angular distance covered by it?",
+      "prompt_hi": "जब मिनट वाली सुई 2 घंटे 20 मिनट की अवधि के समतुल्य दूरी तय करती है, तो उसके द्वारा तय की गई कोणीय दूरी कितनी होगी?",
+      "options": [
+        "720°",
+        "840°",
+        "480°",
+        "590°"
+      ],
+      "options_hi": [
+        "720°",
+        "840°",
+        "480°",
+        "590°"
+      ],
+      "answerIndex": 1,
+      "examTag": "Group D, 22 Aug 2022 (Shift-1)",
+      "reason": "2 hours 20 minutes = 140 minutes. The minute hand covers 6° in 1 minute. Distance covered = 140 × 6° = 840°.",
+      "reason_hi": "2 घंटे 20 मिनट = 140 मिनट। मिनट की सुई 1 मिनट में 6° तय करती है। तय की गई दूरी = 140 × 6° = 840°।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-14",
+      "prompt": "What is the angle traced by the hour hand in 23 minutes?",
+      "prompt_hi": "23 मिनट में घंटे की सुई द्वारा बनाया गया कोण क्या है?",
+      "options": [
+        "12.5°",
+        "13°",
+        "11.5°",
+        "12°"
+      ],
+      "options_hi": [
+        "12.5°",
+        "13°",
+        "11.5°",
+        "12°"
+      ],
+      "answerIndex": 2,
+      "examTag": "Group D, 18 Aug 2022 (Shift-2)",
+      "reason": "The hour hand traces 0.5° every minute. Angle in 23 minutes = 23 × 0.5° = 11.5°.",
+      "reason_hi": "घंटे की सुई हर मिनट 0.5° घूमती है। 23 मिनट में कोण = 23 × 0.5° = 11.5°।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-15",
+      "prompt": "What is the angular distance covered by the second hand of a correct clock in 12 minutes?",
+      "prompt_hi": "एक सही घड़ी की सेकंड सुई द्वारा 12 मिनट में तय की गई कोणीय दूरी कितनी है?",
+      "options": [
+        "5611°",
+        "4320°",
+        "4762°",
+        "5120°"
+      ],
+      "options_hi": [
+        "5611°",
+        "4320°",
+        "4762°",
+        "5120°"
+      ],
+      "answerIndex": 1,
+      "examTag": "Group D, 23 Aug 2022 (Shift-1)",
+      "reason": "The second hand traces 360° in 1 minute. Distance covered in 12 minutes = 12 × 360° = 4320°.",
+      "reason_hi": "सेकंड की सुई 1 मिनट में 360° घूमती है। 12 मिनट में तय की गई दूरी = 12 × 360° = 4320°।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-16",
+      "prompt": "A clock is set to the right time at 4:00 am on Thursday. If it gains 20 seconds in every 3 hours, then what is the time shown on the clock at 8:30 pm on Friday night?",
+      "prompt_hi": "एक घड़ी बृहस्पतिवार को सुबह 4 बजे सही समय पर सेट की गई है। यदि यह प्रत्येक 3 घंटे में 20 सेकंड आगे बढ़ती है, तो शुक्रवार रात 8:30 पर घड़ी पर क्या समय दिखाया जाएगा?",
+      "options": [
+        "8 hours 34 minutes pm",
+        "9 hours 34 minutes pm",
+        "8 hours 34 minutes 30 seconds pm",
+        "8 hours 30 minutes 30 seconds pm"
+      ],
+      "options_hi": [
+        "8 घंटे 34 मिनट अपराह्न",
+        "9 घंटे 34 मिनट अपराह्न",
+        "8 घंटे 34 मिनट 30 सेकंड अपराह्न",
+        "8 घंटे 30 मिनट 30 सेकंड अपराह्न"
+      ],
+      "answerIndex": 2,
+      "examTag": "RRB JE, 22 May 2019 (Shift-1)",
+      "reason": "Total duration = 40.5 hours. Gain in 3 hours = 20 seconds. Gain in 40.5 hours = (20/3) × 40.5 = 270 seconds = 4 mins 30 secs. Time shown = 8:30 PM + 4 mins 30 secs = 8:34:30 PM.",
+      "reason_hi": "कुल अवधि = 40.5 घंटे। 3 घंटे में लाभ = 20 सेकंड। 40.5 घंटे में लाभ = (20/3) × 40.5 = 270 सेकंड = 4 मिनट 30 सेकंड। दिखाया गया समय = 8:30 PM + 4 मिनट 30 सेकंड = 8:34:30 PM।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-17",
+      "prompt": "Ramya sees her wall clock and it shows 3:50, where the hour hand points east. Which side does the minute hand point?",
+      "prompt_hi": "राम्या अपनी दीवार घड़ी देखती है और उसमें 3:50 बजे हैं, जहाँ घंटे की सुई पूर्व की ओर इशारा करती है। मिनट की सुई किस ओर इशारा करती है?",
+      "options": [
+        "North-east",
+        "South-east",
+        "South-west",
+        "North-west"
+      ],
+      "options_hi": [
+        "उत्तर-पूर्व",
+        "दक्षिण-पूर्व",
+        "दक्षिण-पश्चिम",
+        "उत्तर-पश्चिम"
+      ],
+      "answerIndex": 3,
+      "examTag": "RRB JE, 24 May 2019 (Shift-1)",
+      "reason": "At 3:50, the hour hand is almost at 4. If 4 points East, then 12 is North, 9 is West. The minute hand is at 10, which falls between West and North, meaning North-West.",
+      "reason_hi": "3:50 पर, घंटे की सुई 4 के करीब है। यदि 4 पूर्व की ओर है, तो 12 उत्तर और 9 पश्चिम है। मिनट की सुई 10 पर है, जो पश्चिम और उत्तर के बीच आती है, अर्थात उत्तर-पश्चिम।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-18",
+      "prompt": "A boy is standing at a platform and sees his watch showing 3:45 PM. The hour hand points east and the minute hand points west. Which direction the boy is facing now?",
+      "prompt_hi": "एक लड़का प्लेटफॉर्म पर खड़ा है और उसकी घड़ी में दोपहर 3:45 का समय है। घंटे की सुई पूर्व की ओर और मिनट की सुई पश्चिम की ओर है। अब लड़का किस दिशा के सम्मुख है?",
+      "options": [
+        "South-east",
+        "East",
+        "North",
+        "South-west"
+      ],
+      "options_hi": [
+        "दक्षिण-पूर्व",
+        "पूर्व",
+        "उत्तर",
+        "दक्षिण-पश्चिम"
+      ],
+      "answerIndex": 2,
+      "examTag": "RRB JE, 24 May 2019 (Shift-3)",
+      "reason": "At 3:45, the hour hand is near 4 (East) and minute hand is at 9 (West). This means 12 points North. Looking directly at the watch places the top (12) ahead of him. So he is facing North.",
+      "reason_hi": "3:45 पर, घंटे की सुई 4 के करीब (पूर्व) और मिनट की सुई 9 (पश्चिम) पर है। इसका मतलब 12 उत्तर की ओर है। घड़ी को सीधा देखने पर शीर्ष (12) सामने होता है। इसलिए वह उत्तर की ओर सम्मुख है।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-19",
+      "prompt": "A train P starts from Meerut at 4 p.m. and reaches Ghaziabad at 5 pm, while another train Q starts from Ghaziabad at 4 pm and reaches Meerut at 5:30 pm. At what time will the two trains cross each other?",
+      "prompt_hi": "एक ट्रेन P मेरठ से शाम 4 बजे चलती है और शाम 5 बजे गाजियाबाद पहुँचती है, जबकि दूसरी ट्रेन Q गाजियाबाद से शाम 4 बजे चलती है और शाम 5:30 बजे मेरठ पहुँचती है। दोनों ट्रेनें किस समय एक-दूसरे को पार करेंगी?",
+      "options": [
+        "4:42 pm",
+        "4:48 pm",
+        "4:50 pm",
+        "4:36 pm"
+      ],
+      "options_hi": [
+        "4:42 pm",
+        "4:48 pm",
+        "4:50 pm",
+        "4:36 pm"
+      ],
+      "answerIndex": 3,
+      "examTag": "RRB JE, 26 May 2019 (Shift-1)",
+      "reason": "Train P takes 1 hr. Train Q takes 1.5 hrs. Let distance = 3 km. Speed P = 3 km/hr. Speed Q = 2 km/hr. Time to meet = Distance / Relative Speed = 3 / (3 + 2) = 3/5 hours = 36 mins. They meet at 4:36 PM.",
+      "reason_hi": "ट्रेन P को 1 घंटा लगता है। ट्रेन Q को 1.5 घंटे लगते हैं। माना दूरी = 3 किमी। P की गति = 3 किमी/घंटा। Q की गति = 2 किमी/घंटा। मिलने का समय = दूरी / सापेक्ष गति = 3 / 5 घंटे = 36 मिनट। वे 4:36 PM पर मिलते हैं।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-20",
+      "prompt": "An alarm was set at 11 AM on Monday on a clock that was set correctly at 1 AM on Sunday, but the clock started gaining 20 seconds every 24 hours. What was the actual time when the alarm went off?",
+      "prompt_hi": "सोमवार को एक घड़ी पर सुबह 11 बजे का अलार्म लगा था, जो रविवार को सुबह 1 बजे सही से सेट किया गया था, लेकिन घड़ी हर 24 घंटे में 20 सेकंड आगे बढ़ने लगी। अलार्म बंद होने का वास्तविक समय क्या था?",
+      "options": [
+        "10:51:20 AM",
+        "10:41:40 AM",
+        "11:30:00 AM",
+        "10:30:00 AM"
+      ],
+      "options_hi": [
+        "10:51:20 AM",
+        "10:41:40 AM",
+        "11:30:00 AM",
+        "10:30:00 AM"
+      ],
+      "answerIndex": 1,
+      "examTag": "RRB JE, 25 May 2019 (Shift-2)",
+      "reason": "Total time passed = 34 hours. Gain per hour = 20/24 seconds = 5/6 seconds. Total gain = 34 × (5/6) = 28.33 seconds? Wait, the official solution treats it as 22 hours from 1 PM Sunday, yielding a gain of ~18 min 20 sec, meaning the original question likely meant gaining 20 *minutes* in 24 hours. Gain = (20/24) × 22 = 18 mins 20 secs. Correct time = 11:00 - 18m 20s = 10:41:40 AM.",
+      "reason_hi": "आधिकारिक समाधान में इसे '24 घंटे में 20 मिनट' का लाभ माना गया है और 22 घंटे का अंतराल (रविवार 1 बजे से) लिया गया है। लाभ = (20/24) × 22 = 18 मिनट 20 सेकंड। वास्तविक समय = 11:00 - 18 मिनट 20 सेकंड = 10:41:40 AM।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-21",
+      "prompt": "A clock started at noon. By 10 minutes past 7, the hour-hand will move through _______.",
+      "prompt_hi": "एक घड़ी दोपहर 12 बजे शुरू हुई। 7 बजकर 10 मिनट तक, घंटे की सुई ..................... तक घूम जाएगी।",
+      "options": [
+        "215°",
+        "60°",
+        "210°",
+        "200°"
+      ],
+      "options_hi": [
+        "215°",
+        "60°",
+        "210°",
+        "200°"
+      ],
+      "answerIndex": 0,
+      "examTag": "RRB JE, 27 May 2019 (Shift-2)",
+      "reason": "Time duration = 7 hours 10 minutes = 430 minutes. The hour hand moves 0.5° per minute. Angle = 430 × 0.5° = 215°.",
+      "reason_hi": "समयावधि = 7 घंटे 10 मिनट = 430 मिनट। घंटे की सुई 0.5° प्रति मिनट घूमती है। कोण = 430 × 0.5° = 215°।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-22",
+      "prompt": "Mani is facing east. He looks time in his watch, it shows as 3 O'clock. Which direction do hour and minute hands point respectively?",
+      "prompt_hi": "मणि पूर्व दिशा की ओर उन्मुख है। वह अपनी घड़ी में समय देखता है, उसमें 3 बजे हैं। घंटे और मिनट की सुइयां क्रमशः किस दिशा की ओर उन्मुख हैं?",
+      "options": [
+        "East and north",
+        "South and east",
+        "South and west",
+        "West and north"
+      ],
+      "options_hi": [
+        "पूर्व और उत्तर",
+        "दक्षिण और पूर्व",
+        "दक्षिण और पश्चिम",
+        "पश्चिम और उत्तर"
+      ],
+      "answerIndex": 1,
+      "examTag": "RRB JE, 27 May 2019 (Shift-2)",
+      "reason": "Since Mani faces East, holding his watch normally means 12 points East. At 3 O'clock, the minute hand points to 12 (East) and the hour hand points to 3 (South). So, South and East respectively.",
+      "reason_hi": "चूँकि मणि पूर्व की ओर सम्मुख है, उसकी घड़ी का 12 पूर्व की ओर इंगित करेगा। 3 बजे, मिनट की सुई 12 (पूर्व) और घंटे की सुई 3 (दक्षिण) की ओर इशारा करती है। अतः क्रमशः दक्षिण और पूर्व।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-23",
+      "prompt": "In 16 minutes, the minute hand gains ______ over the hour hand.",
+      "prompt_hi": "16 मिनट में, मिनट की सुई, घंटे की सुई से ................... आगे हो जाती है।",
+      "options": [
+        "88°",
+        "16°",
+        "80°",
+        "96°"
+      ],
+      "options_hi": [
+        "88°",
+        "16°",
+        "80°",
+        "96°"
+      ],
+      "answerIndex": 0,
+      "examTag": "RRB JE, 28 June 2019 (Shift-3)",
+      "reason": "Minute hand moves 16 × 6° = 96°. Hour hand moves 16 × 0.5° = 8°. Gain = 96° - 8° = 88°.",
+      "reason_hi": "मिनट की सुई 16 × 6° = 96° घूमती है। घंटे की सुई 16 × 0.5° = 8° घूमती है। लाभ = 96° - 8° = 88°।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-24",
+      "prompt": "Find the angle between the hands at 3:30 p.m.",
+      "prompt_hi": "अपराह्न 3:30 बजे सुइयों के बीच का कोण ज्ञात कीजिए।",
+      "options": [
+        "120°",
+        "75°",
+        "105°",
+        "90°"
+      ],
+      "options_hi": [
+        "120°",
+        "75°",
+        "105°",
+        "90°"
+      ],
+      "answerIndex": 1,
+      "examTag": "RRB JE, 28 June 2019 (Shift-3)",
+      "reason": "Angle = |30(3) - 5.5(30)| = |90 - 165| = 75°.",
+      "reason_hi": "कोण = |30(3) - 5.5(30)| = |90 - 165| = 75°।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-25",
+      "prompt": "If the hour hand of a clock moves by 18° then by how many degrees does the minute hand move during the same time?",
+      "prompt_hi": "यदि किसी घड़ी की घंटे वाली सुई 18° घूमती है तो उसी समय में मिनट वाली सुई कितने डिग्री घूमती है?",
+      "options": [
+        "168",
+        "216",
+        "276",
+        "196"
+      ],
+      "options_hi": [
+        "168",
+        "216",
+        "276",
+        "196"
+      ],
+      "answerIndex": 1,
+      "examTag": "ALP, 14 Aug 2018 (Shift-3)",
+      "reason": "Hour hand moves 0.5° per minute. For 18°, time = 18 / 0.5 = 36 minutes. Minute hand moves 6° per minute. Total movement = 36 × 6 = 216°.",
+      "reason_hi": "घंटे की सुई 0.5° प्रति मिनट घूमती है। 18° के लिए समय = 18 / 0.5 = 36 मिनट। मिनट की सुई 6° प्रति मिनट घूमती है। कुल चाल = 36 × 6 = 216°।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-26",
+      "prompt": "What will be the acute angle between the hour-hand and the minute-hand at 4:37 p.m.?",
+      "prompt_hi": "शाम 4:37 बजे घंटे की सुई और मिनट की सुई के बीच न्यून कोण क्या होगा?",
+      "options": [
+        "18°",
+        "83.5°",
+        "6.5°",
+        "18.5°"
+      ],
+      "options_hi": [
+        "18°",
+        "83.5°",
+        "6.5°",
+        "18.5°"
+      ],
+      "answerIndex": 1,
+      "examTag": "ALP, 10 Aug 2018 (Shift-1)",
+      "reason": "Angle = |30(4) - 5.5(37)| = |120 - 203.5| = 83.5°.",
+      "reason_hi": "कोण = |30(4) - 5.5(37)| = |120 - 203.5| = 83.5°।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-27",
+      "prompt": "In a week, how many times are the hands of a clock at right angles with each other?",
+      "prompt_hi": "एक सप्ताह में, कितनी बार घड़ी की सुइयां एक दूसरे के साथ समकोण पर होती हैं?",
+      "options": [
+        "44",
+        "154",
+        "24",
+        "308"
+      ],
+      "options_hi": [
+        "44",
+        "154",
+        "24",
+        "308"
+      ],
+      "answerIndex": 3,
+      "examTag": "ALP, 21 Aug 2018 (Shift-1)",
+      "reason": "Hands are at right angles 44 times a day. In a week (7 days) = 44 × 7 = 308 times.",
+      "reason_hi": "सुइयां एक दिन में 44 बार समकोण पर होती हैं। एक सप्ताह (7 दिन) में = 44 × 7 = 308 बार।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-28",
+      "prompt": "What will be the acute angle between the hour-hand and the minute-hand at 2:13 p.m?",
+      "prompt_hi": "दोपहर 2:13 बजे घंटे और मिनट की सुई के बीच न्यून कोण क्या होगा?",
+      "options": [
+        "16.5°",
+        "18°",
+        "13.5°",
+        "11.5°"
+      ],
+      "options_hi": [
+        "16.5°",
+        "18°",
+        "13.5°",
+        "11.5°"
+      ],
+      "answerIndex": 3,
+      "examTag": "ALP, 20 Aug 2018 (Shift-3)",
+      "reason": "Angle = |30(2) - 5.5(13)| = |60 - 71.5| = 11.5°.",
+      "reason_hi": "कोण = |30(2) - 5.5(13)| = |60 - 71.5| = 11.5°।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-29",
+      "prompt": "Vani is facing East direction. She turns 90° clockwise the 135° Anticlockwise and 45° clockwise, then in which direction she is facing now?",
+      "prompt_hi": "वाणी पूर्व दिशा के सम्मुख खड़ी है। वह 90° दक्षिणावर्त, 135° वामावर्त और 45° दक्षिणावर्त घूमती है, तो अब वह किस दिशा के सम्मुख खड़ी है?",
+      "options": [
+        "East",
+        "North",
+        "West",
+        "South"
+      ],
+      "options_hi": [
+        "पूर्व",
+        "उत्तर",
+        "पश्चिम",
+        "दक्षिण"
+      ],
+      "answerIndex": 0,
+      "examTag": "ALP, 20 Aug 2018 (Shift-3)",
+      "reason": "Total clockwise turns = 90° + 45° = 135°. Anticlockwise turn = 135°. Net rotation = 135° - 135° = 0°. She remains facing East.",
+      "reason_hi": "कुल दक्षिणावर्त घुमाव = 90° + 45° = 135°। वामावर्त घुमाव = 135°। शुद्ध घुमाव = 135° - 135° = 0°। वह पूर्व की ओर ही सम्मुख रहेगी।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-30",
+      "prompt": "A watch shows 6 p.m. where the hour hand points east. In which direction is the minute hand facing when the time is 9.15 p.m.?",
+      "prompt_hi": "एक घड़ी 6 p.m. का समय दिखा रही है, जहाँ घंटे की सुई पूर्व की ओर इशारा करती है। जब समय 9.15 p.m. है, तो मिनट की सुई किस दिशा की ओर होगी?",
+      "options": [
+        "East",
+        "South",
+        "West",
+        "North"
+      ],
+      "options_hi": [
+        "पूर्व",
+        "दक्षिण",
+        "पश्चिम",
+        "उत्तर"
+      ],
+      "answerIndex": 3,
+      "examTag": "ALP, 21 Aug 2018 (Shift-2)",
+      "reason": "At 6 p.m., the hour hand points to 6, which is East. This means 3 points North. At 9:15, the minute hand points to 3. Therefore, it points North.",
+      "reason_hi": "6 p.m. पर, घंटे की सुई 6 पर होती है, जो पूर्व है। इसका अर्थ है कि 3 उत्तर की ओर है। 9:15 पर, मिनट की सुई 3 पर होती है। इसलिए, यह उत्तर की ओर होगी।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-31",
+      "prompt": "What is the obtuse angle formed by the hands of a clock when the time in the clock is 2:30?",
+      "prompt_hi": "जब घड़ी में समय 2:30 हो रहा हो तो घड़ी की सुइयों द्वारा बनाया गया अधिक कोण क्या होगा?",
+      "options": [
+        "95°",
+        "120°",
+        "105°",
+        "165°"
+      ],
+      "options_hi": [
+        "95°",
+        "120°",
+        "105°",
+        "165°"
+      ],
+      "answerIndex": 2,
+      "examTag": "ALP, 31 Aug 2018 (Shift-3)",
+      "reason": "Angle = |30(2) - 5.5(30)| = |60 - 165| = 105°. Since 105° is between 90° and 180°, it is an obtuse angle.",
+      "reason_hi": "कोण = |30(2) - 5.5(30)| = |60 - 165| = 105°। चूंकि 105° 90° और 180° के बीच है, यह एक अधिक कोण है।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-32",
+      "prompt": "What would be the smaller of the two angles formed by the hour hand and the minute hand at 4:52 p.m.?",
+      "prompt_hi": "अपराह्न 4:52 बजे घंटे की सुई और मिनट की सुई द्वारा बनने वाले दो कोणों में से छोटा कोण क्या होगा?",
+      "options": [
+        "162°",
+        "164.5°",
+        "165°",
+        "166°"
+      ],
+      "options_hi": [
+        "162°",
+        "164.5°",
+        "165°",
+        "166°"
+      ],
+      "answerIndex": 3,
+      "examTag": "ALP, 30 Aug 2018 (Shift-1)",
+      "reason": "Angle = |30(4) - 5.5(52)| = |120 - 286| = 166°. Since 166° < 180°, it is the smaller angle.",
+      "reason_hi": "कोण = |30(4) - 5.5(52)| = |120 - 286| = 166°। चूँकि 166° < 180°, यह छोटा कोण है।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-33",
+      "prompt": "A watch gains 5 seconds per minute and was set right at 6 AM. What would be the time shown on the watch when the correct time is 2 PM?",
+      "prompt_hi": "एक घड़ी प्रति मिनट 5 सेकंड आगे बढ़ जाती है और इसे सुबह 6 बजे सेट किया जाता है। जब सही समय दोपहर 2 बजे है तो घड़ी पर क्या समय दिखाया जाएगा?",
+      "options": [
+        "2:20 PM",
+        "2:30 PM",
+        "2:50 PM",
+        "2:40 PM"
+      ],
+      "options_hi": [
+        "दोपहर 2:20",
+        "दोपहर 2:30",
+        "दोपहर 2:50",
+        "दोपहर 2:40"
+      ],
+      "answerIndex": 3,
+      "examTag": "ALP, 29 Aug 2018 (Shift-2)",
+      "reason": "From 6 AM to 2 PM is 8 hours = 480 minutes. The watch gains 5 seconds per minute. Total gain = 480 × 5 = 2400 seconds = 40 minutes. Time shown = 2:00 PM + 40 mins = 2:40 PM.",
+      "reason_hi": "सुबह 6 बजे से दोपहर 2 बजे तक 8 घंटे = 480 मिनट होते हैं। घड़ी 5 सेकंड प्रति मिनट तेज होती है। कुल लाभ = 480 × 5 = 2400 सेकंड = 40 मिनट। दिखाया गया समय = दोपहर 2:00 + 40 मिनट = 2:40 PM।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-34",
+      "prompt": "What is the measure of the smaller of the two angles formed between the hour hand and the minute hand of a clock when it is 5:49 p.m.?",
+      "prompt_hi": "घड़ी के घंटे और मिनट की सुईयों के बीच के दो कोणों में से छोटे कोण का माप कितना होगा, जब घड़ी में 5:49 बजे होते हैं?",
+      "options": [
+        "119°",
+        "119.5°",
+        "120°",
+        "120.5°"
+      ],
+      "options_hi": [
+        "119°",
+        "119.5°",
+        "120°",
+        "120.5°"
+      ],
+      "answerIndex": 1,
+      "examTag": "ALP, 17 Aug 2018 (Shift-3)",
+      "reason": "Angle = |30(5) - 5.5(49)| = |150 - 269.5| = 119.5°.",
+      "reason_hi": "कोण = |30(5) - 5.5(49)| = |150 - 269.5| = 119.5°।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-35",
+      "prompt": "How many times in a week does both the hands of the clock will coincide with each other?",
+      "prompt_hi": "एक सप्ताह में घड़ी की दोनों सुईयां एक दूसरे से कितनी बार मिलती हैं?",
+      "options": [
+        "84",
+        "160",
+        "56",
+        "154"
+      ],
+      "options_hi": [
+        "84",
+        "160",
+        "56",
+        "154"
+      ],
+      "answerIndex": 3,
+      "examTag": "ALP, 13 Aug 2018 (Shift-2)",
+      "reason": "Hands coincide 22 times a day. In a week (7 days) = 22 × 7 = 154 times.",
+      "reason_hi": "सुइयां एक दिन में 22 बार मिलती हैं। एक सप्ताह (7 दिन) में = 22 × 7 = 154 बार।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-36",
+      "prompt": "Select the time that would depict the correct mirror image of 9:30 on a clock.",
+      "prompt_hi": "उस समय का चयन कीजिए जो घड़ी पर 9:30 के सही दर्पण प्रतिबिंब को दर्शाएगा।",
+      "options": [
+        "2:30",
+        "6:30",
+        "7:30",
+        "4:30"
+      ],
+      "options_hi": [
+        "2:30",
+        "6:30",
+        "7:30",
+        "4:30"
+      ],
+      "answerIndex": 0,
+      "examTag": "ALP, 09 Aug 2018 (Shift-3)",
+      "reason": "Mirror image = 11:60 - 9:30 = 2:30.",
+      "reason_hi": "दर्पण प्रतिबिंब = 11:60 - 9:30 = 2:30।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-37",
+      "prompt": "If the number 1 on the clock is replaced by the letter 'M', the number 2 is replaced by 'N' and so on, then when the time is 21:00 p.m. the hour hand will be at _______ letter.",
+      "prompt_hi": "यदि घड़ी पर संख्या 1 को 'M' अक्षर से बदल दिया जाए, संख्या 2 को 'N' से बंदल दिया जाए और इसी क्रम में अन्य भी, तो जब समय अपराह्न 21:00 हो। घंटे की सुई अक्षर पर होगी।",
+      "options": [
+        "S",
+        "T",
+        "U",
+        "V"
+      ],
+      "options_hi": [
+        "S",
+        "T",
+        "U",
+        "V"
+      ],
+      "answerIndex": 2,
+      "examTag": "ALP, 09 Aug 2018 (Shift-2)",
+      "reason": "21:00 corresponds to 9. The mapping is 1=M, 2=N, 3=O, 4=P, 5=Q, 6=R, 7=S, 8=T, 9=U. So the hour hand is at U.",
+      "reason_hi": "21:00 का अर्थ है 9 बजे। मैपिंग 1=M, 2=N, 3=O, 4=P, 5=Q, 6=R, 7=S, 8=T, 9=U है। इसलिए घंटे की सुई U पर होगी।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-38",
+      "prompt": "What is the angle between the minute hand and hour hand when the clock 4:25 hours?",
+      "prompt_hi": "जब घड़ी 4:25 घंटे पर हो तो मिनट की सुई और घंटे की सुई के बीच का कोण क्या है?",
+      "options": [
+        "12.5°",
+        "15°",
+        "17.5°",
+        "20°"
+      ],
+      "options_hi": [
+        "12.5°",
+        "15°",
+        "17.5°",
+        "20°"
+      ],
+      "answerIndex": 2,
+      "examTag": "UPSC Prelims CSAT 2024",
+      "reason": "Angle = |30(4) - 5.5(25)| = |120 - 137.5| = 17.5°.",
+      "reason_hi": "कोण = |30(4) - 5.5(25)| = |120 - 137.5| = 17.5°।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-39",
+      "prompt": "How many times the hour hand and the minute hand coincide in a clock between 10:00 a.m. and 2:00 p.m. (same day)?",
+      "prompt_hi": "एक घड़ी में घंटे की सुई और मिनट की सुई पूर्वाह्न 10:00 बजे से अपराह्न 2:00 बजे के बीच (एक ही दिन) कितनी बार मिलती हैं?",
+      "options": [
+        "3 times",
+        "4 times",
+        "5 times",
+        "6 times"
+      ],
+      "options_hi": [
+        "3 बार",
+        "4 बार",
+        "5 बार",
+        "6 बार"
+      ],
+      "answerIndex": 0,
+      "examTag": "UPSC Prelims CSAT 2024",
+      "reason": "Between 10:00 AM and 2:00 PM, they coincide near 10:54, exactly at 12:00 (which covers the 11 to 1 interval), and near 1:05. This happens 3 times.",
+      "reason_hi": "10:00 AM और 2:00 PM के बीच, सुइयां लगभग 10:54 पर, ठीक 12:00 बजे (जो 11 से 1 का अंतराल कवर करता है), और लगभग 1:05 पर मिलती हैं। यह 3 बार होता है।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-40",
+      "prompt": "A man started from home at 14:30 hours and drove to village, arriving there when the village clock indicated 15:15 hours. After staying for 25 minutes, he drove back by a different route of length 1.25 times the first route at a rate twice as fast reaching home at 16:00 hours. As compared to the clock at home, the village clock is:",
+      "prompt_hi": "एक आदमी 14:30 बजे घर से निकला और गाँव की ओर चला, जब गाँव की घड़ी 15:15 बजे दिखा रही थी, तब वहाँ पहुँचा। 25 मिनट रुकने के बाद,वह पहले मार्ग से 1.25 गुना लंबाई वाले दूसरे मार्ग से दोगुनी गति से वापस चला और 16:00 बजे घर पहुँचा। घर की घड़ी की तुलना में, गाँव की घड़ी:",
+      "options": [
+        "10 minutes slow",
+        "5 minutes slow",
+        "10 minutes fast",
+        "5 minutes fast"
+      ],
+      "options_hi": [
+        "10 मिनट धीमी",
+        "5 मिनट धीमी",
+        "10 मिनट तेज",
+        "5 मिनट तेज"
+      ],
+      "answerIndex": 3,
+      "examTag": "UPSC Prelims CSAT, 2022",
+      "reason": "Total time out = 1.5 hours = 90 mins. Travel time = 90 - 25 = 65 mins. Ratio of speeds: return is 2x. Ratio of distances: return is 1.25x. Ratio of time = 1.25/2 = 5/8. Outward time = t. Return = 5/8 t. t + 5/8 t = 65 -> 13/8 t = 65 -> t = 40 mins. Arrival should be 14:30 + 40m = 15:10. Village clock shows 15:15, so it is 5 minutes fast.",
+      "reason_hi": "घर से बाहर कुल समय = 1.5 घंटे = 90 मिनट। यात्रा का समय = 90 - 25 = 65 मिनट। वापसी का समय = 5/8 × जाते समय लगा समय। t + 5/8 t = 65 => t = 40 मिनट। पहुँचने का वास्तविक समय = 14:30 + 40 मिनट = 15:10 होना चाहिए। गाँव की घड़ी 15:15 दिखा रही है, अतः वह 5 मिनट तेज है।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-41",
+      "prompt": "The angle between the minute hand and the hour hand of a clock when the time is 8:30, is:",
+      "prompt_hi": "एक घड़ी में मिनट की सुई और घंटे की सुई के बीच का कोण क्या होगा जब समय 8:30 बजे है?",
+      "options": [
+        "80°",
+        "75°",
+        "60°",
+        "105°"
+      ],
+      "options_hi": [
+        "80°",
+        "75°",
+        "60°",
+        "105°"
+      ],
+      "answerIndex": 1,
+      "examTag": "GPSC BDO Pre Screening, 19-02-2023 (Set-3)",
+      "reason": "Angle = |30(8) - 5.5(30)| = |240 - 165| = 75°.",
+      "reason_hi": "कोण = |30(8) - 5.5(30)| = |240 - 165| = 75°।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-42",
+      "prompt": "A watch which gains uniformly is 2 minutes low at noon on Monday and is 4 min. 48 sec fast at 2 p.m. on the following Monday. When was it correct?",
+      "prompt_hi": "एक घड़ी जो समान रूप से आगे बढ़ती है, सोमवार को दोपहर 12 बजे 2 मिनट पीछे है और अगले सोमवार को दोपहर 2 बजे 4 मिनट 48 सेकंड आगे है। यह कब सही था?",
+      "options": [
+        "2 p.m. on Tuesday",
+        "2 p.m. on Wednesday",
+        "3 p.m. on Thursday",
+        "1 p.m. on Friday"
+      ],
+      "options_hi": [
+        "मंगलवार को दोपहर 2 बजे",
+        "बुधवार को दोपहर 2 बजे",
+        "गुरुवार को अपराह्न 3 बजे",
+        "शुक्रवार को दोपहर 1 बजे"
+      ],
+      "answerIndex": 1,
+      "examTag": "GPSC BDO Pre Screening, 19-02-2023 (Set-2)",
+      "reason": "Total time from Monday noon to next Monday 2 PM = 170 hours. Total gain = 2 + 4.8 = 6.8 minutes. Time to gain 2 minutes = (170 / 6.8) × 2 = 50 hours. Monday noon + 50 hours = Wednesday 2 PM.",
+      "reason_hi": "सोमवार दोपहर 12 बजे से अगले सोमवार दोपहर 2 बजे तक कुल समय = 170 घंटे। कुल लाभ = 2 + 4.8 = 6.8 मिनट। 2 मिनट लाभ के लिए समय = (170 / 6.8) × 2 = 50 घंटे। सोमवार दोपहर 12 बजे + 50 घंटे = बुधवार दोपहर 2 बजे।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-43",
+      "prompt": "At what time between 9 and 10 o'clock will the hands of a watch be together?",
+      "prompt_hi": "9 और 10 बजे के बीच किस समय घड़ी की सुइयां एक साथ होंगी?",
+      "options": [
+        "45 min. past 9",
+        "50 min. past 9",
+        "49 1/11 min. past 9",
+        "48 2/11 min. past 9"
+      ],
+      "options_hi": [
+        "9 बजकर 45 मिनट",
+        "9 बजकर 50 मिनट",
+        "9 बजकर 49 1/11 मिनट",
+        "9 बजकर 48 2/11 मिनट"
+      ],
+      "answerIndex": 2,
+      "examTag": "GPSC BDO Pre Screening, 19-02-2023 (Set-1)",
+      "reason": "Angle = 0°. Time = 2/11(30 × 9) = 540/11 = 49 1/11 minutes past 9.",
+      "reason_hi": "कोण = 0°। समय = 2/11(30 × 9) = 540/11 = 9 बजकर 49 1/11 मिनट।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-44",
+      "prompt": "How many seconds in total are there in x weeks, x days, x hours, x minutes and x seconds?",
+      "prompt_hi": "x सप्ताह, x दिन, x घंटे, x मिनट और x सेकंड में कुलकितने सेकंड होते हैं?",
+      "options": [
+        "11580x",
+        "11581x",
+        "694860x",
+        "694861x"
+      ],
+      "options_hi": [
+        "11580x",
+        "11581x",
+        "694860x",
+        "694861x"
+      ],
+      "answerIndex": 3,
+      "examTag": "UPSC Prelims CSAT, 2022",
+      "reason": "x weeks = 604800x sec, x days = 86400x sec, x hours = 3600x sec, x mins = 60x sec, x sec = 1x sec. Sum = 694861x seconds.",
+      "reason_hi": "x सप्ताह = 604800x सेकंड, x दिन = 86400x सेकंड, x घंटे = 3600x सेकंड, x मिनट = 60x सेकंड, x सेकंड = 1x सेकंड। कुल योग = 694861x सेकंड।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-45",
+      "prompt": "At 3:40, the hour hand and the minute hand of a clock form an angle of:",
+      "prompt_hi": "3:40 बजे, एक घड़ी की घंटे की सुई और मिनट की सुई कोण बनाती है:",
+      "options": [
+        "120°",
+        "125°",
+        "130°",
+        "135°"
+      ],
+      "options_hi": [
+        "120°",
+        "125°",
+        "130°",
+        "135°"
+      ],
+      "answerIndex": 2,
+      "examTag": "GPSC JSO Pre Screening, 29-01-2022 (Set-1)",
+      "reason": "Angle = |30(3) - 5.5(40)| = |90 - 220| = 130°.",
+      "reason_hi": "कोण = |30(3) - 5.5(40)| = |90 - 220| = 130°।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-46",
+      "prompt": "At what time between 4 and 5 o'clock will the hands of a watch point in opposite directions?",
+      "prompt_hi": "4 से 5 बजे के बीच किस समय घड़ी की सुइयां विपरीत दिशाओं में होंगी?",
+      "options": [
+        "45 min. past 4",
+        "40 min. past 4",
+        "50 4/11 min. past 4",
+        "54 6/11 min. past 4"
+      ],
+      "options_hi": [
+        "4 बजकर 45 मिनट",
+        "4 बजकर 40 मिनट",
+        "4 बजकर 50 4/11 मिनट",
+        "4 बजकर 54 6/11 मिनट"
+      ],
+      "answerIndex": 3,
+      "examTag": "GPSC JSO Pre Screening, 18-09-2022 (Set-4)",
+      "reason": "Angle = 180°. Time = 2/11(30×4 + 180) = 2/11(300) = 600/11 = 54 6/11 mins past 4.",
+      "reason_hi": "कोण = 180°। समय = 2/11(30×4 + 180) = 2/11(300) = 600/11 = 4 बजकर 54 6/11 मिनट।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-47",
+      "prompt": "How many times are the hands of a clock at right angle in a day?",
+      "prompt_hi": "एक दिन में घड़ी की सुइयां कितनी बार समकोण पर होती हैं?",
+      "options": [
+        "22",
+        "24",
+        "44",
+        "48"
+      ],
+      "options_hi": [
+        "22",
+        "24",
+        "44",
+        "48"
+      ],
+      "answerIndex": 2,
+      "examTag": "GPSC JSO Pre Screening, 18-09-2022 (Set-3)",
+      "reason": "Hands of a clock form right angles 44 times in a complete day (24 hours).",
+      "reason_hi": "एक पूरे दिन (24 घंटे) में घड़ी की सुइयां 44 बार समकोण बनाती हैं।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-48",
+      "prompt": "At what angle the hands of a clock are inclined at 15 minutes past 5?",
+      "prompt_hi": "5 बजकर 15 मिनट पर घड़ी की सुइयाँ किस कोण पर झुकी होंगी?",
+      "options": [
+        "58 1/2°",
+        "64°",
+        "67 1/2°",
+        "72 1/2°"
+      ],
+      "options_hi": [
+        "58 1/2°",
+        "64°",
+        "67 1/2°",
+        "72 1/2°"
+      ],
+      "answerIndex": 2,
+      "examTag": "GPSC JSO Pre Screening, 18-09-2022 (Set-2)",
+      "reason": "Angle = |30(5) - 5.5(15)| = |150 - 82.5| = 67.5° = 67 1/2°.",
+      "reason_hi": "कोण = |30(5) - 5.5(15)| = |150 - 82.5| = 67.5° = 67 1/2°।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-49",
+      "prompt": "In a watch, the minute hand crosses the hour hand for the third time exactly after every 3 hrs 18 min 15 seconds of watch time. What is the time gained or lost by this watch in one day?",
+      "prompt_hi": "एक घड़ी में, मिनट की सुई हर 3 घंटे 18 मिनट 15 सेकंड के बाद तीसरी बार घंटे की सुई को पार करती है। एक दिन में इस घड़ी द्वारा कितना समय प्राप्त या खोया गया?",
+      "options": [
+        "14 min 10 seconds lost",
+        "13 min 50 seconds lost",
+        "13 min 20 second gained",
+        "14 min 40 second gained"
+      ],
+      "options_hi": [
+        "14 मिनट 10 सेकंड खो गए",
+        "13 मिनट 50 सेकंड खो गए",
+        "13 मिनट 20 सेकंड खो गए",
+        "14 मिनट 40 सेकंड खो गए"
+      ],
+      "answerIndex": 1,
+      "examTag": "GPSC JSO Pre Screening, 09-09-2022 (Set-4)",
+      "reason": "Normal crossing time = 720/11 = 65 5/11 mins. 3 crossings take 3 × (720/11) = 2160/11 mins ≈ 196.36 mins. Given 3 crossings = 3h 18m 15s = 198.25 mins. The watch takes 198.25 mins to do 196.36 mins of actual work. So it loses time. Time lost per day = 13 mins 50 secs.",
+      "reason_hi": "सामान्य मिलने का समय = 720/11 = 65 5/11 मिनट। 3 बार मिलने में 3 × (720/11) = 2160/11 मिनट ≈ 196.36 मिनट लगते हैं। दिया गया है 3 बार मिलना = 3h 18m 15s = 198.25 मिनट। घड़ी 196.36 मिनट का वास्तविक कार्य 198.25 मिनट में करती है, अतः यह धीमी है। प्रतिदिन खोया समय = 13 मिनट 50 सेकंड।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-50",
+      "prompt": "How many times in a day, are the hands of a clock in straight line but opposite in direction?",
+      "prompt_hi": "एक दिन में कितनी बार घड़ी की सुइयां सीधी रेखा में लेकिन विपरीत दिशा में होती हैं?",
+      "options": [
+        "20",
+        "22",
+        "24",
+        "48"
+      ],
+      "options_hi": [
+        "20",
+        "22",
+        "24",
+        "48"
+      ],
+      "answerIndex": 1,
+      "examTag": "GPSC BDO Pre Screening, 08-02-2022 (Set-1)",
+      "reason": "The hands point in opposite directions 11 times in 12 hours. In 24 hours, they do so 22 times.",
+      "reason_hi": "सुइयां 12 घंटे में 11 बार विपरीत दिशा में होती हैं। 24 घंटे में वे 22 बार ऐसा करती हैं।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-51",
+      "prompt": "A man started from home at 14:30 hours and drove to village, arriving there when the village clock indicated 15:15 hours. After staying for 25 minutes, he drove back by a different route of length 1.25 times the first route at a rate twice as fast reaching home at 16:00 hours. As compared to the clock at home, the village clock is:",
+      "prompt_hi": "एक आदमी 14:30 बजे घर से निकला और गाँव की ओर चला, जब गाँव की घड़ी 15:15 बजे दिखा रही थी, तब वहाँ पहुँचा। 25 मिनट रुकने के बाद,वह पहले मार्ग से 1.25 गुना लंबाई वाले दूसरे मार्ग से दोगुनी गति से वापस चला और 16:00 बजे घर पहुँचा। घर की घड़ी की तुलना में, गाँव की घड़ी:",
+      "options": [
+        "10 minutes slow",
+        "5 minutes slow",
+        "10 minutes fast",
+        "5 minutes fast"
+      ],
+      "options_hi": [
+        "10 मिनट धीमी",
+        "5 मिनट धीमी",
+        "10 मिनट तेज",
+        "5 मिनट तेज"
+      ],
+      "answerIndex": 3,
+      "examTag": "UPSC Prelims CSAT, 2022",
+      "reason": "Total time from home to return = 1.5 hours = 90 mins. Wait time = 25 mins. Travel time = 65 mins. Ratio of return to forward travel time = 1.25 / 2 = 5/8. So forward travel took 40 mins. Arrival at village = 14:30 + 40 mins = 15:10. The village clock shows 15:15, which is 5 mins fast.",
+      "reason_hi": "घर से निकलकर वापस आने का कुल समय = 1.5 घंटे = 90 मिनट। रुकने का समय = 25 मिनट। यात्रा का समय = 65 मिनट। वापसी और जाने के समय का अनुपात = 1.25 / 2 = 5/8। अतः जाने में 40 मिनट लगे। गाँव पहुँचने का समय = 14:30 + 40 मिनट = 15:10। गाँव की घड़ी 15:15 दिखाती है, जो 5 मिनट तेज है।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-52",
+      "prompt": "A clock is set right at 8 a.m. The clock gains 10 minutes in 24 hours. What will be the true time when the clock indicates 1 p.m. on the following day?",
+      "prompt_hi": "एक घड़ी को सुबह 8 बजे ठीक किया गया है। घड़ी 24 घंटे में 10 मिनट आगे बढ़ जाती है। अगले दिन जब घड़ी दोपहर 1 बजे दिखाएगी तो सही समय क्या होगा?",
+      "options": [
+        "12 noon",
+        "48 minutes past 12 noon",
+        "1 p.m.",
+        "2 p.m."
+      ],
+      "options_hi": [
+        "दोपहर 12 बजे",
+        "दोपहर 12 बजकर 48 मिनट",
+        "दोपहर 1 बजे",
+        "दोपहर 2 बजे"
+      ],
+      "answerIndex": 1,
+      "examTag": "67th BPSC Prelims",
+      "reason": "Time indicated = 29 hours. In this faulty clock, 24 hrs 10 mins (145/6 hrs) is equivalent to 24 real hours. True time for 29 indicated hours = (24 / (145/6)) × 29 = 28 hours 48 minutes. 8 AM + 28h 48m = 12:48 PM next day.",
+      "reason_hi": "दिखाया गया समय = 29 घंटे। इस दोषपूर्ण घड़ी में 24 घंटे 10 मिनट (145/6 घंटे) 24 वास्तविक घंटों के बराबर है। 29 दिखाए गए घंटों के लिए सही समय = (24 / (145/6)) × 29 = 28 घंटे 48 मिनट। सुबह 8 बजे + 28 घंटे 48 मिनट = अगले दिन 12:48 PM।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-53",
+      "prompt": "How many times do the hands of a clock coincide in a day?",
+      "prompt_hi": "एक दिन में घड़ी की सुइयाँ कितनी बार एक साथ मिलती हैं?",
+      "options": [
+        "24",
+        "20",
+        "21",
+        "22"
+      ],
+      "options_hi": [
+        "24",
+        "20",
+        "21",
+        "22"
+      ],
+      "answerIndex": 3,
+      "examTag": "WBCS Prelims, 2021",
+      "reason": "The hands coincide 11 times in 12 hours. Therefore, in a day (24 hours), they coincide 22 times.",
+      "reason_hi": "सुइयाँ 12 घंटे में 11 बार एक साथ मिलती हैं। इसलिए, एक दिन (24 घंटे) में, वे 22 बार मिलती हैं।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-54",
+      "prompt": "A wall clock moves 10 minutes fast in every 24 hours. The clock was set right to show the correct time at 8:00 a.m. on Monday. When the clock shows the time 6:00 p.m. on Wednesday, what is the correct time?",
+      "prompt_hi": "एक दीवार घड़ी प्रत्येक 24 घंटे में 10 मिनट तेज चलती है। सोमवार को सुबह 8:00 बजे सही समय दिखाने के लिए घड़ी को सही से सेट किया गया था। जब बुधवार को घड़ी शाम 6:00 बजे का समय दिखाती है, तो सही समय क्या है?",
+      "options": [
+        "5:36 p.m.",
+        "5:30 p.m.",
+        "5:24 p.m.",
+        "5:18 p.m."
+      ],
+      "options_hi": [
+        "5:36 p.m.",
+        "5:30 p.m.",
+        "5:24 p.m.",
+        "5:18 p.m."
+      ],
+      "answerIndex": 0,
+      "examTag": "UPSC Prelims CSAT, 2019",
+      "reason": "Time indicated = 58 hours (Mon 8AM to Wed 6PM). Faulty clock shows 1450 mins for every 1440 real mins. Real time = (1440/1450) × 3480 mins = 3456 mins = 57 hours 36 mins. Mon 8AM + 57h 36m = Wed 5:36 PM.",
+      "reason_hi": "दिखाया गया समय = 58 घंटे (सोमवार 8AM से बुधवार 6PM)। दोषपूर्ण घड़ी प्रत्येक 1440 वास्तविक मिनटों के लिए 1450 मिनट दिखाती है। वास्तविक समय = (1440/1450) × 3480 मिनट = 3456 मिनट = 57 घंटे 36 मिनट। सोमवार 8AM + 57 घंटे 36 मिनट = बुधवार 5:36 PM।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-55",
+      "prompt": "A watch, which loses time uniformly, was observed to be 5 minutes fast at 8.00 p.m. on Thursday. It was noticed to be 7 minutes slow at 8.00 a.m. on the subsequent Monday. When did the watch show the correct time?",
+      "prompt_hi": "एक घड़ी, जो समान रूप से समय खोती है, गुरुवार को शाम 8 बजे 5 मिनट तेज चलती देखी गई। अगले सोमवार को सुबह 8 बजे यह 7 मिनट धीमी चलती देखी गई। घड़ी ने सही समय कब दिखाया?",
+      "options": [
+        "7 a.m. Saturday",
+        "7 a.m. on Friday",
+        "10 a.m. on Sunday",
+        "11 a.m. on Friday"
+      ],
+      "options_hi": [
+        "शनिवार प्रातः 7 बजे",
+        "शुक्रवार को प्रातः 7 बजे",
+        "रविवार को प्रातः 10 बजे",
+        "शुक्रवार को प्रातः 11 बजे"
+      ],
+      "answerIndex": 0,
+      "examTag": "GPSC JSO Pre Screening, 09-10-2019 (Old Model-4)",
+      "reason": "Total time from Thu 8 PM to Mon 8 AM = 84 hours. The watch lost 12 minutes (went from +5 to -7). To show correct time, it needs to lose 5 minutes. Time taken = (84 / 12) × 5 = 35 hours. Thu 8 PM + 35 hours = Sat 7 AM.",
+      "reason_hi": "गुरुवार रात 8 बजे से सोमवार सुबह 8 बजे तक कुल समय = 84 घंटे। घड़ी ने 12 मिनट खो दिए (+5 से -7 हो गई)। सही समय दिखाने के लिए 5 मिनट खोने की आवश्यकता है। लगा समय = (84 / 12) × 5 = 35 घंटे। गुरुवार रात 8 बजे + 35 घंटे = शनिवार सुबह 7 बजे।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-56",
+      "prompt": "A clock fixed on the wall shows a time of 4.25. The time shown by its image on a plane mirror fixed to the opposite wall will be:",
+      "prompt_hi": "दीवार पर लगी एक घड़ी 4.25 का समय दिखाती है। विपरीत दीवार पर लगे समतल दर्पण पर इसके प्रतिबिंब द्वारा दर्शाया गया समय होगा:",
+      "options": [
+        "8:35",
+        "7:25",
+        "7:35",
+        "8:25"
+      ],
+      "options_hi": [
+        "8:35",
+        "7:25",
+        "7:35",
+        "8:25"
+      ],
+      "answerIndex": 2,
+      "examTag": "WBCS Prelims, 2018",
+      "reason": "Mirror image is calculated by subtracting from 11:60. 11:60 - 4:25 = 7:35.",
+      "reason_hi": "दर्पण प्रतिबिंब की गणना 11:60 से घटाकर की जाती है। 11:60 - 4:25 = 7:35।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-57",
+      "prompt": "Between 6 PM and 7 PM the minute hand of a clock will be ahead of the hour hand by 3 minutes at:",
+      "prompt_hi": "शाम 6 बजे से 7 बजे के बीच घड़ी की मिनट की सुई घंटे की सुई से 3 मिनट आगे होगी:",
+      "options": [
+        "6: 15 PM",
+        "6:18 PM",
+        "6:36 PM",
+        "6:48 PM"
+      ],
+      "options_hi": [
+        "6: 15 PM",
+        "6:18 PM",
+        "6:36 PM",
+        "6:48 PM"
+      ],
+      "answerIndex": 2,
+      "examTag": "UPSC Prelims CSAT, 2015",
+      "reason": "3 minutes = 18°. At 6, the initial angle is 180°. For minute hand to be ahead by 18°, angle between them is 18°. Time = 2/11 (30×6 + 18) = 2/11 (198) = 36 minutes. The time is 6:36 PM.",
+      "reason_hi": "3 मिनट = 18°। 6 बजे, प्रारंभिक कोण 180° है। मिनट की सुई 18° आगे होने के लिए, कोण 18° होना चाहिए। समय = 2/11 (30×6 + 18) = 2/11 (198) = 36 मिनट। समय 6:36 PM है।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-58",
+      "prompt": "Through how many degrees does an hour hand in a clock move as the time changes from 3 hours 12 minutes to 6 hours?",
+      "prompt_hi": "एक घड़ी में घंटे की सुई 3 घंटे 12 मिनट से 6 घंटे में समय बदलने पर कितने डिग्री आगे बढ़ती है?",
+      "options": [
+        "105",
+        "99",
+        "90",
+        "84"
+      ],
+      "options_hi": [
+        "105",
+        "99",
+        "90",
+        "84"
+      ],
+      "answerIndex": 3,
+      "examTag": "UPSC Prelims CSAT, 2015",
+      "reason": "Time difference between 3:12 and 6:00 is 2 hours 48 minutes = 168 minutes. The hour hand moves 0.5° per minute. Angle = 168 × 0.5° = 84°. (Note: The official key might list 90° assuming 3 hrs to 6 hrs, but accurate calculation for 3:12 to 6:00 is 84°).",
+      "reason_hi": "3:12 और 6:00 के बीच का समय अंतर 2 घंटे 48 मिनट = 168 मिनट है। घंटे की सुई 0.5° प्रति मिनट चलती है। कोण = 168 × 0.5° = 84°।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-59",
+      "prompt": "The class starts at 10.00 a.m. and lasts till 1:27 p.m. Four periods are held during this interval, After every period, 5 minutes of rest are given to the students. The exact duration of each period is:",
+      "prompt_hi": "एक कक्षा सुबह 10 बजे शुरू होती है और दोपहर 1.27 बजे तक चलती है। इस अंतराल के दौरान चार पीरियड आयोजितकिए जाते हैं। प्रत्येक पीरियड के बाद छात्रों को 5 मिनट का आराम दिया जाता है। प्रत्येक पीरियड की सही अवधि है:",
+      "options": [
+        "42 minutes",
+        "48 minutes",
+        "51 minutes",
+        "53 minutes"
+      ],
+      "options_hi": [
+        "42 मिनट",
+        "48 मिनट",
+        "51 मिनट",
+        "53 मिनट"
+      ],
+      "answerIndex": 1,
+      "examTag": "RPSC RAS Prelims, 2013",
+      "reason": "Total duration = 3 hours 27 minutes = 207 minutes. Since there are 4 periods, there are 3 rest breaks of 5 minutes each = 15 minutes. Total teaching time = 207 - 15 = 192 minutes. Time for each period = 192 / 4 = 48 minutes.",
+      "reason_hi": "कुल अवधि = 3 घंटे 27 मिनट = 207 मिनट। 4 पीरियड होने के कारण, 5 मिनट के 3 आराम अंतराल होंगे = 15 मिनट। कुल शिक्षण समय = 207 - 15 = 192 मिनट। प्रत्येक पीरियड का समय = 192 / 4 = 48 मिनट।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-60",
+      "prompt": "At what time between 5 and 6 will the two hands of a watch coincide?",
+      "prompt_hi": "5 और 6 के बीच किस समय घड़ी की दोनों सुइयाँ एक साथ होंगी?",
+      "options": [
+        "27 minutes past 5",
+        "27 3/11 minutes past 5",
+        "28 minutes past 5",
+        "26 minutes past 5"
+      ],
+      "options_hi": [
+        "5 बजकर 27 मिनट",
+        "5 बजकर 27 3/11 मिनट",
+        "5 बजकर 28 मिनट",
+        "5 बजकर 26 मिनट"
+      ],
+      "answerIndex": 1,
+      "examTag": "67th BPSC Prelims (Re-exam)",
+      "reason": "Coincide means angle is 0°. Time = 2/11(30 × 5) = 300/11 = 27 3/11 minutes past 5.",
+      "reason_hi": "एक साथ होने का मतलब 0° कोण है। समय = 2/11(30 × 5) = 300/11 = 5 बजकर 27 3/11 मिनट।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-pyq's-practice-set-sheet-61",
+      "prompt": "A clock is set right at 6 a.m. it gains 10 minutes in 24 hours. What will be the right time when the clock indicates 11 a.m. on the next day?",
+      "prompt_hi": "एक घड़ी को सुबह 6 बजे ठीक किया जाता है। 24 घंटे में यह 10 मिनट आगे हो जाती है। अगले दिन जब घड़ी सुबह 11 बजे का समय दिखाएगी तो सही समय क्या होगा?",
+      "options": [
+        "48 minutes past 10",
+        "50 minutes past 10",
+        "45 minutes past 10",
+        "10 o'clock exactly"
+      ],
+      "options_hi": [
+        "10 बजकर 48 मिनट",
+        "10 बजकर 50 मिनट",
+        "10 बजकर 45 मिनट",
+        "सुबह 10 बजे"
+      ],
+      "answerIndex": 0,
+      "examTag": "67th BPSC Prelims (Re-exam)",
+      "reason": "Total indicated time from 6 AM to 11 AM next day is 29 hours. 24 hours 10 minutes (145/6 hours) of this clock = 24 real hours. True time = (24 / (145/6)) × 29 = 28.8 hours = 28 hours 48 minutes. True time = 6 AM + 28 hours 48 minutes = 10:48 AM.",
+      "reason_hi": "6 AM से अगले दिन 11 AM तक कुल 29 घंटे होते हैं। इस घड़ी के 24 घंटे 10 मिनट (145/6 घंटे) 24 वास्तविक घंटों के बराबर हैं। सही समय = (24 / (145/6)) × 29 = 28.8 घंटे = 28 घंटे 48 मिनट। सही समय = 6 AM + 28 घंटे 48 मिनट = 10:48 AM।"
+    }
+  ]
+}

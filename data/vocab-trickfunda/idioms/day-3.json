@@ -1,0 +1,460 @@
+{
+  "flashcards": [
+    {
+      "id": "idioms-day-3-i1",
+      "type": "idiom",
+      "word": "A fish out of water",
+      "meaning": "A person out of accustomed environment/Uncomfortable, uncomfortable and restless/ In unfamiliar circumstances/ An uncomfortable position/ Feel uncomfortable in unfamiliar surroundings असुविधाजनक",
+      "kdKey": "fish = मछली, out = बाहर, water = पानी",
+      "kdHack": "दोस्तो जब हम मछली को पानी से बाहर निकालते है तो वह Uncomfortable महसूस करेगी।"
+    },
+    {
+      "id": "idioms-day-3-i2",
+      "type": "idiom",
+      "word": "Call off the dogs",
+      "meaning": "To stop criticizing or attacking someone निंदा करना बंद कर देना",
+      "kdKey": "Call = कॉल, off = बंद, dogs = कुत्ता",
+      "kdHack": "आजकल मैंने उसे कुत्ता बोलना बंद कर दिया है मतलब कि उसकी निंदा करना बंद कर दिया है।"
+    },
+    {
+      "id": "idioms-day-3-i3",
+      "type": "idiom",
+      "word": "A baker's dozen",
+      "meaning": "A group of 13/Thirteen तेरह",
+      "kdKey": "A = एक, Dozen = दर्जन (12)",
+      "kdHack": "दोस्तो 12 और एक 13 (तेरह) ही तो होते है।"
+    },
+    {
+      "id": "idioms-day-3-i4",
+      "type": "idiom",
+      "word": "Broken reed",
+      "meaning": "An unreliable or undependable Person. अविश्वासी व्यक्ति",
+      "kdKey": "Broken = तोड़ देना, Reed = रीड",
+      "kdHack": "वो युद्ध में मेरी तरफ से ही था लेकिन उसने पीछे से आकर मेरी रीड की हड्डी ही तोड़ दी मतलब कि अविश्वासी निकला।"
+    },
+    {
+      "id": "idioms-day-3-i5",
+      "type": "idiom",
+      "word": "Cheek by jowl",
+      "meaning": "Very near बहुत नजदीक",
+      "kdKey": "Cheek = गाल, jowl = जबड़ा",
+      "kdHack": "दोस्तो गाल और जबड़ा जो कि बहुत नजदीक होते है।"
+    },
+    {
+      "id": "idioms-day-3-i6",
+      "type": "idiom",
+      "word": "Go to the dogs",
+      "meaning": "Ruin/to go to in very bad situation/be ruined/ Deteriorate shockingly/To become worse बर्बाद हो जाना",
+      "kdKey": "Go = जाना, to = तो, Dogs = कुत्ता",
+      "kdHack": "जब आदमी पूरी तरह से बर्बाद हो जाता है तो उसके पास कुत्ता तो नहीं जाता है।"
+    },
+    {
+      "id": "idioms-day-3-i7",
+      "type": "idiom",
+      "word": "Put the cart before the horse",
+      "meaning": "Do things in the wrong way/ Tackle things in the wrong way/to do last things first गलत या उल्टे क्रम में काम करना",
+      "kdKey": "Put = रखना, cart = गाड़ी, before = पहले, horse = घोडा",
+      "kdHack": "दोस्तो जब हम गाड़ी को घोडे से पहले रखते है तो तांगे का क्रम उल्टा या गलत ही तो होगा।"
+    },
+    {
+      "id": "idioms-day-3-i8",
+      "type": "idiom",
+      "word": "To throw a fit",
+      "meaning": "Express extreme anger आग बबूला हो जाना",
+      "kdKey": "Throw = फेंकना, a = एक, fit = फीट",
+      "kdHack": "मैं पूरी तरीके से फीट था लेकिन उन्होंने फिर भी मुझे बाहर फेंक दिया इस वजह से मैं आग बबूला हो गया था।"
+    },
+    {
+      "id": "idioms-day-3-i9",
+      "type": "idiom",
+      "word": "In a pickle",
+      "meaning": "In an embarrassing or awkward situation/in trouble दुविधा में होना",
+      "kdKey": "In = में, Pickle = अचार",
+      "kdHack": "काफी दुविधा में फंस गए उसके घर वाले जब उसको घर मे छिपे-छिपे अचार खाते हुए पकड़ा क्योकि वो अभी कुंवारी ही थी लेकिन अब माँ बनने वाली है।"
+    },
+    {
+      "id": "idioms-day-3-i10",
+      "type": "idiom",
+      "word": "Dressed to kill",
+      "meaning": "Dressed to attract attention आकर्षित करने के लिए भड़कीले कपड़े पहने हुए",
+      "kdKey": "Dress = कपड़े, kill = मारना",
+      "kdHack": "उसने ऐसे कपड़े पहन रखे थे कि जैसे सबको मार ही डालेगी मतलब कि उसने आकर्षित करने के लिए भड़कीले कपड़े पहन रखे थे।"
+    },
+    {
+      "id": "idioms-day-3-i11",
+      "type": "idiom",
+      "word": "Speak one's mind",
+      "meaning": "To voice one's thoughts plainly/Speak what one really thinks/To say what you think about something very directly जो आपके दिमाग में है वो खुलकर कहना / मन की बात कहना",
+      "kdKey": "Speak = बोलना, one's = अपने, mind = दिमाग",
+      "kdHack": "अपने दिमाग में जो चल रहा है वही बोलना मतलब कि अपने मन की बात कहना।"
+    },
+    {
+      "id": "idioms-day-3-i12",
+      "type": "idiom",
+      "word": "Chip off the old block",
+      "meaning": "A person who closely resembles a parent/Resembling parents माता पिता की तरह",
+      "kdKey": "Chip = टुकड़ा, Old block = पुराना भवन",
+      "kdHack": "पुराने भवन का एक-एक टुकड़ा पुराने जमाने के लोगो के लिए माता-पिता की तरह ही होता है।"
+    },
+    {
+      "id": "idioms-day-3-i13",
+      "type": "idiom",
+      "word": "Plough the sands",
+      "meaning": "Futile labour बेकार की मेहनत करना",
+      "kdKey": "Plough = जोतना, sand = भूमि",
+      "kdHack": "बंजर भूमि में हल जोतना मतलब कि बेकार की मेहनत करना।"
+    },
+    {
+      "id": "idioms-day-3-i14",
+      "type": "idiom",
+      "word": "Chew Out / Chew someone out",
+      "meaning": "Scold someone Severely, Berate/Reprimand someone severely धमकाना",
+      "kdKey": "Chew = चबाना, Out = बाहर",
+      "kdHack": "जब बच्चा घर से बाहर जाकर रोटी को चबा चबा कर खाने लगा तो उसके घर वालो ने उसे धमकाया कि बाहर मत खाया कर कोई नजर लगा देगा।"
+    },
+    {
+      "id": "idioms-day-3-i15",
+      "type": "idiom",
+      "word": "A change of heart",
+      "meaning": "A change in one's opinion/ Different opinion about someone or something अपनी राय बदलना",
+      "kdKey": "A = 1, change = परिवर्तन, heart = दिल",
+      "kdHack": "अब उसके दिल में परिवर्तन आ चुका है इसलिए उसने अपनी राय बदल ली।"
+    },
+    {
+      "id": "idioms-day-3-i16",
+      "type": "idiom",
+      "word": "Back to the drawing board",
+      "meaning": "When an attempt fails and it is time to start all over/used to indicate that an idea has been unsuccessful and that a new one must be devised/ Start planning again because earlier plans failed. नये सिरे से शुरू करना।",
+      "kdKey": "Back = वापिस, drawing board = ड्राइंग बोर्ड",
+      "kdHack": "जब सबने कहा कि चित्र अच्छा नही बनाया है तो वो वापिस ड्राइंग बोर्ड की तरफ गया फिर से नए सिरे से चित्र बनाना स्टार्ट किया।"
+    },
+    {
+      "id": "idioms-day-3-i17",
+      "type": "idiom",
+      "word": "All and sundry",
+      "meaning": "Everyone without distinction/Everyone/all included सभी लोग",
+      "kdKey": "All = सभी, Sun = सूर्य, Dry = सुखाना",
+      "kdHack": "सभी लोग सूर्य की गर्मी से ही कपड़े सुखाते है।"
+    },
+    {
+      "id": "idioms-day-3-i18",
+      "type": "idiom",
+      "word": "Know/Learn the ropes",
+      "meaning": "To understand the details/Learn the procedures/Learn to do particular jobs प्रक्रियाएं सीखना",
+      "kdKey": "Know/Learn = सीखना, ropes = रस्सी",
+      "kdHack": "बाजार में रस्सी पर चलने का खेल दिखाने वाले बच्चे पहले उस प्रक्रिया को पूरी तरीके से सीखते है।"
+    },
+    {
+      "id": "idioms-day-3-i19",
+      "type": "idiom",
+      "word": "To pull a long face",
+      "meaning": "Look sad/look dejected/ An unhappy or disappointed expression दुःखी होना",
+      "kdKey": "Pull = पुल, Long = लंबा, Face = मुंह",
+      "kdHack": "जब कोई भी व्यक्ति दुःखी होता है तो लंबा मुंह फुला लेता है मतलब कि मौटा मुंह कर लेता है।"
+    },
+    {
+      "id": "idioms-day-3-i20",
+      "type": "idiom",
+      "word": "Go at equal speed",
+      "meaning": "Keep up with साथ चलना",
+      "kdKey": "Go = जाना, at = पर, equal = समान, speed = स्पीड",
+      "kdHack": "जब दो व्यक्ति एक समान स्पीड से किसी स्थान पर जाते है तो वो साथ-साथ ही चलते है।"
+    },
+    {
+      "id": "idioms-day-3-i21",
+      "type": "idiom",
+      "word": "Bend over backwards",
+      "meaning": "Tried very hard/to exert a lot of effort towards some end/try to accommodate and please someone/make every effort to achieve something, especially to be fair or helpful बहुत कठिन प्रयास करना।",
+      "kdKey": "Bend = मुड़ना, backward = पीछे",
+      "kdHack": "दोस्तो कभी कभार आपने खेल दिखाने वाले को देखा होगा वो पीछे मुड़कर अपनी आँख से 10 रुपए के नोट को उठाते है उस टाइम वो बहुत कठिन प्रयास करते है।"
+    },
+    {
+      "id": "idioms-day-3-i22",
+      "type": "idiom",
+      "word": "To come clean",
+      "meaning": "To make a honest disclosure अपना अपराध स्वीकार करना।",
+      "kdKey": "Come = आना, clean = साफ",
+      "kdHack": "वो कोर्ट में आया और उसने साफ-साफ बता दिया कि मैंने ही ये मर्डर किया है मतलब कि अपना अपराध स्वीकार कर लिया।"
+    },
+    {
+      "id": "idioms-day-3-i23",
+      "type": "idiom",
+      "word": "In deep water",
+      "meaning": "In difficulty/In problem मुसीबत में",
+      "kdKey": "In = में, Deep water = गहरा पानी",
+      "kdHack": "वो तैरने के लिए पानी में गया लेकिन उसे पता नही था कि पानी काफी गहरा है बाद में वो मुसीबत में फस गया।"
+    },
+    {
+      "id": "idioms-day-3-i24",
+      "type": "idiom",
+      "word": "Chapter and verse",
+      "meaning": "Provided minute details पूर्ण विवरण",
+      "kdKey": "Chapter = Chapter, verse = वर्ष",
+      "kdHack": "हर वर्ष हमारे सर हर Chapter को पूर्ण विवरण के साथ पढ़ाते है।"
+    },
+    {
+      "id": "idioms-day-3-i25",
+      "type": "idiom",
+      "word": "Head over heels",
+      "meaning": "Fall deeply and completely in love/madly in love/fall deeply in love with someone पूरी तरह से प्यार में डूब जाना",
+      "kdKey": "Head = सिर, Over = ऊपर तक, Heels = एड़ी",
+      "kdHack": "जब मैने उस लडकी को एड़ी से लेकर पूरे सिर तक देखा तो मैं पूरी तरह से उसके प्यार में डूब गया क्या आइटम थी यार वो।"
+    },
+    {
+      "id": "idioms-day-3-i26",
+      "type": "idiom",
+      "word": "Chicken out",
+      "meaning": "To be afraid of/to decide not to do something because you are too frightened. डर के पीछे हटना।",
+      "kdKey": "Chicken = चिकन, out = बाहर",
+      "kdHack": "जब मैने कहा कि आज तो तुझे चिकन ही खिलाएंगे तो वो तो डर के मारे ही बाहर भाग गया मतलब कि डर के मारे पीछे हट गया।"
+    },
+    {
+      "id": "idioms-day-3-i27",
+      "type": "idiom",
+      "word": "To lose one's temper",
+      "meaning": "To become angry आग बबूला होना",
+      "kdKey": "To lose = गवाना, one's = अपने, tem = टेम, per = पर",
+      "kdHack": "टेम पर काम नहीं करने के कारण उसने वो प्रोजेक्ट अपने हाथ से गंवा दिया इसलिए उसके पापा आग बबूला हो गए।"
+    },
+    {
+      "id": "idioms-day-3-i28",
+      "type": "idiom",
+      "word": "Jack of all trades",
+      "meaning": "Somebody who has many skills or who is versatile in every field हर ट्रेड/फील्ड में निपुण",
+      "kdKey": "Jack all = जेकॉल, Trade = ट्रेड/फीड",
+      "kdHack": "शक्तिमान वाले नाटक में जेकॉल जो की हर ट्रेड/फील्ड में निपुण था।"
+    },
+    {
+      "id": "idioms-day-3-i29",
+      "type": "idiom",
+      "word": "Deep pockets",
+      "meaning": "A lot of money बहुत सारा पैसा होना",
+      "kdKey": "Deep = गहराई, pockets = जेब",
+      "kdHack": "जिसके पास बहुत पैसे होते है वो अपने जेब को बहुत ज्यादा गहराई तक मतलब कि लम्बे जेब रखता है।"
+    },
+    {
+      "id": "idioms-day-3-i30",
+      "type": "idiom",
+      "word": "Make someone's head spin",
+      "meaning": "Confused",
+      "kdKey": "Someone = किसी के, Head = सिर, Spin = घुमा देना",
+      "kdHack": "किसी के सिर को घूमा देना मतलब कि Confused कर देना।"
+    },
+    {
+      "id": "idioms-day-3-i31",
+      "type": "idiom",
+      "word": "Crash and burn",
+      "meaning": "To fail completely पूरी तरह से विफल",
+      "kdKey": "Crash = क्रैश, burn = जलना",
+      "kdHack": "वो प्लेन पूरी तरह से क्रैश होकर जल गया मतलब कि पूरी तरह से विफल।"
+    },
+    {
+      "id": "idioms-day-3-i32",
+      "type": "idiom",
+      "word": "Go down in flames",
+      "meaning": "To fail miserably at something/Fail completely पूरी तरह असफल हो जाना",
+      "kdKey": "Go = जाना, down = नीचे, flames = आग",
+      "kdHack": "जब प्लेन के नीचे तक आग चली गयी तो वो पूर्ण रूप से असफल हो गया।"
+    },
+    {
+      "id": "idioms-day-3-i33",
+      "type": "idiom",
+      "word": "Under the gun",
+      "meaning": "To be under pressure दबाव होना",
+      "kdKey": "Under = नीचे, gun = गन",
+      "kdHack": "मैं उसकी गन के नीचे था मतलब कि उसके दबाव में।"
+    },
+    {
+      "id": "idioms-day-3-i34",
+      "type": "idiom",
+      "word": "Itsy bitsy",
+      "meaning": "Very small बहुत ही छोटी",
+      "kdKey": "Itsy = इति सी, Bit = बात",
+      "kdHack": "इति सी बात थी मतलब कि बहुत ही छोटी।"
+    },
+    {
+      "id": "idioms-day-3-i35",
+      "type": "idiom",
+      "word": "Be a dab hand at something",
+      "meaning": "Skilled in a particular area निपुण",
+      "kdKey": "Dab = दबदबा, hand = हाथ, at = पर, something = कोई चीज",
+      "kdHack": "उसका एक चीज पर तो बहुत ही ज्यादा दबदबा है मतलब कि उस काम में वो बहुत ही ज्यादा निपुण है"
+    },
+    {
+      "id": "idioms-day-3-i36",
+      "type": "idiom",
+      "word": "Put one's cards on the table",
+      "meaning": "To be honest ईमानदार होना",
+      "kdKey": "Put = रखना, one's = अपने, cards = पत्ते, on = पर, table = टेबल",
+      "kdHack": "वो इतना ईमानदार है कि उसने अपने सारे पत्ते खोल कर टेबल पर रख दिए।"
+    },
+    {
+      "id": "idioms-day-3-i37",
+      "type": "idiom",
+      "word": "Not one's cup of tea",
+      "meaning": "Something that is not in accord with my liking or taste/not one's choice or preference/ Not according to one's interest कोई चीज जो पसंद न हो",
+      "kdKey": "Not = नही, Cup = कप, Of = की, Tea = चाय",
+      "kdHack": "मेरी बनाई हुई चाय कभी भी कप मे उसे पंसद ही नही आती है।"
+    },
+    {
+      "id": "idioms-day-3-i38",
+      "type": "idiom",
+      "word": "Pick to pieces",
+      "meaning": "Analyse critically गंभीर रूप से विश्लेषण करना।",
+      "kdKey": "Pick = उठाना, pieces = टुकड़े",
+      "kdHack": "वो हमेशा एक-एक टुकड़े को उठा -उठाकर देखता है मतलब कि गंभीर रूप से विश्लेषण करता है।"
+    },
+    {
+      "id": "idioms-day-3-i39",
+      "type": "idiom",
+      "word": "Cool it",
+      "meaning": "To relax शांत हो जाइए",
+      "kdKey": "Cool = कूल",
+      "kdHack": "जब हमारा दोस्त गुस्से में होता है तब हम बोलते है कि कूल बेबी, बेबी कूल मतलब कि शांत हो जा।"
+    },
+    {
+      "id": "idioms-day-3-i40",
+      "type": "idiom",
+      "word": "Scratch one's head",
+      "meaning": "To think hard in a puzzled way/To be perplexed परेशान हो जाना",
+      "kdKey": "Scratch = खरोंच, one's = अपने, head = सिर",
+      "kdHack": "अगर सिर में जुएँ हो जाए तो आदमी उसे खरोचते खरोचते परेशान ही हो जाता है"
+    },
+    {
+      "id": "idioms-day-3-i41",
+      "type": "phrasal verb",
+      "word": "Come forward",
+      "meaning": "To offer help सहायता के लिए आगे आना।",
+      "kdKey": "Come = आना, Forward = आगे",
+      "kdHack": "जब भी अपने देश में कोई घटना घटित होती है तो सेना ही सहायता के लिए आगे आती है।"
+    },
+    {
+      "id": "idioms-day-3-i42",
+      "type": "phrasal verb",
+      "word": "Come off",
+      "meaning": "Success सफल होना",
+      "kdKey": "Come = आना, Off = बंद",
+      "kdHack": "एक student सफल होने के बाद कोचिंग आना बंद कर देता है।"
+    },
+    {
+      "id": "idioms-day-3-i43",
+      "type": "phrasal verb",
+      "word": "Come about",
+      "meaning": "To happen घटित होना",
+      "kdKey": "Come = आना, About = के बारे में",
+      "kdHack": "जो लेटेस्ट घटना घटित होती है अक्सर उसी के बारे में news आती है।"
+    },
+    {
+      "id": "idioms-day-3-i44",
+      "type": "phrasal verb",
+      "word": "Come across",
+      "meaning": "To meet by chance अचानक मुलाकात होना",
+      "kdKey": "Come = आना, across = Cross",
+      "kdHack": "जब सुबह-सुबह दौड़ते समय रास्ता Cross करते समय अचानक अपना दोस्त मिल जाये तो यही कहते है कि तुम भी यहां आते हो मतलब कि अचानक मुलाकात होना।"
+    },
+    {
+      "id": "idioms-day-3-i45",
+      "type": "phrasal verb",
+      "word": "Come by",
+      "meaning": "To get / Meet मिलना",
+      "kdKey": "Come = आना, By = बाय",
+      "kdHack": "वो आयी और मिलने के बाद बाय बोलकर चली गयी।"
+    },
+    {
+      "id": "idioms-day-3-i46",
+      "type": "phrasal verb",
+      "word": "Come out",
+      "meaning": "To be exposed / To be published प्रकट होना / प्रदर्शित होना / प्रकाशित करना",
+      "kdKey": "Come = आना, out = बाहर",
+      "kdHack": "जब से मोदी सरकार आयी है तब से कई चीजे ऐसी बाहर आ रही है जो जनता को पता ही नही थी मतलब कि प्रदर्शित/प्रकाशित हो रही हैं।"
+    },
+    {
+      "id": "idioms-day-3-i47",
+      "type": "phrasal verb",
+      "word": "Come round",
+      "meaning": "Recover / To accept someone's opinion/ To become conscious again होश में आना / दूसरों की बात मानकर विचार बदल लेना",
+      "kdKey": "Come = आना, round = चक्कर",
+      "kdHack": "जब कोई लड़की किसी लड़के के चक्कर में आ जाती है तो जैसे वो लड़का बोलता है वैसे ही वो लड़की उस लड़के की बातों को मानकर अपने विचारों को बदल लेती है। जब थोड़े दिनों बाद लड़की को लड़के की सच्चाई पता चलती है तो वो लड़की होश में आ जाती है।"
+    },
+    {
+      "id": "idioms-day-3-i48",
+      "type": "phrasal verb",
+      "word": "Come down",
+      "meaning": "To become lower or cheaper नीचे आना / सस्ता होना",
+      "kdKey": "Come = आना, down = डाउन",
+      "kdHack": "आजकल मार्केट में सब्जियों का भाव डाउन आ गया है मतलब कि सब्जियां सस्ती हो गयी है।"
+    },
+    {
+      "id": "idioms-day-3-i49",
+      "type": "phrasal verb",
+      "word": "Come apart",
+      "meaning": "To separate into several pieces टूटना",
+      "kdKey": "Come = आना, a = एक, part = पार्ट",
+      "kdHack": "जब कोई बिल्डिंग टूटती है तो पहले एक पार्ट नीचे आता है फिर दूसरा मतलब कि टूटना"
+    },
+    {
+      "id": "idioms-day-3-i50",
+      "type": "phrasal verb",
+      "word": "Come of",
+      "meaning": "Originate/is descended from से आना /उत्पन्न होना",
+      "kdKey": "Come = आना, of = का",
+      "kdHack": "ज्योतिराजे सिंधिया का राजघराने से आना ही Politics में बहुत बड़ा फेक्टर है।"
+    },
+    {
+      "id": "idioms-day-3-i51",
+      "type": "phrasal verb",
+      "word": "Come upon",
+      "meaning": "To attacks आक्रमण करना",
+      "kdKey": "Come = आना, Upon = ऊपर",
+      "kdHack": "शेर ने बिल्ली के ऊपर आकर आक्रमण कर दिया।"
+    },
+    {
+      "id": "idioms-day-3-i52",
+      "type": "phrasal verb",
+      "word": "Come through",
+      "meaning": "To Complete successfully सफलतापूर्वक पूरा करना",
+      "kdKey": "Come = आना, through = थ्रू",
+      "kdHack": "जो बच्चे अच्छे स्कूल के थ्रू पढ़कर आते है वो आसानी से कम्पटीशन परीक्षा सफलतापूर्वक पूरी कर लेते है।"
+    },
+    {
+      "id": "idioms-day-3-i53",
+      "type": "phrasal verb",
+      "word": "Come between",
+      "meaning": "To interfere बाधा डालना",
+      "kdKey": "Come = आना, between = बीच में",
+      "kdHack": "आपने तीन तिगाड़ा और काम बिगाड़ा ये सुना होगा मतलब कि दो लोगो के बीच में तीसरा आने पर काम में बाधा ही डालता है।"
+    },
+    {
+      "id": "idioms-day-3-i54",
+      "type": "phrasal verb",
+      "word": "Come to",
+      "meaning": "Return to consciousness होश मे आना",
+      "kdKey": "Come = आना, to = तो",
+      "kdHack": "आपने मूवी या किसी धारावाहिक में देखा होगा कि जब किसी लड़की का एक्सीडेंट हो जाता है तो जब उस लड़की को चाहने वाला लड़का हॉस्पिटल में जाता है तो उस लड़की को यही तो बोलता है कि जान तुझे होश में तो आना ही होगा मैं तुम्हारे बिना नही जी पाऊंगा।"
+    },
+    {
+      "id": "idioms-day-3-i55",
+      "type": "phrasal verb",
+      "word": "Come up",
+      "meaning": "Mooted or raised for discussion उठाना (मुददा)",
+      "kdKey": "Come = आना, up = आप",
+      "kdHack": "जब भी नेताजी जनता के बीच में आते है तो आप सबको पता है कि जनता मुद्दे ही उठाती है।"
+    },
+    {
+      "id": "idioms-day-3-i56",
+      "type": "phrasal verb",
+      "word": "Come down on",
+      "meaning": "To scold डांटना",
+      "kdKey": "Come = आना, down = डाउन, on = लगातार",
+      "kdHack": "जब लगातार उसकी वजह से बिजनेस डाउन आने लगा तो उसको घर वालो ने बहुत डांटा।"
+    },
+    {
+      "id": "idioms-day-3-i57",
+      "type": "phrasal verb",
+      "word": "Come in for",
+      "meaning": "receive (Criticism / blame) सामना करना",
+      "kdKey": "Come in = come in, for = के लिए",
+      "kdHack": "जब वो लेट आया और सर को क्लास के अंदर आने के लिए come in बोला तो उसे निंदा का सामना करना पड़ा।"
+    }
+  ]
+}

@@ -1,0 +1,1054 @@
+{
+  "questions": [
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-1",
+      "prompt": "It is 11:55 in a clock. What time will be seen in a mirror image of this clock?",
+      "prompt_hi": "किसी घड़ी में 11 बजकर 55 मिनट हो रहे है, यदि इसे दर्पण में देखते है तो प्रतिबिम्ब समय क्या होगा?",
+      "options": [
+        "2:05",
+        "1:05",
+        "00:05",
+        "3:05"
+      ],
+      "options_hi": [
+        "2:05",
+        "1:05",
+        "00:05",
+        "3:05"
+      ],
+      "answerIndex": 2,
+      "examTag": "Reasoning Clock Test",
+      "reason": "For mirror image, subtract the time from 23:60 (or 11:60). 23:60 - 11:55 = 12:05 or 00:05.",
+      "reason_hi": "दर्पण प्रतिबिंब के लिए, समय को 23:60 (या 11:60) से घटाएं। 23:60 - 11:55 = 12:05 या 00:05।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-2",
+      "prompt": "It is 20:15 in a clock. What time will be seen in a mirror image of this clock?",
+      "prompt_hi": "किसी घड़ी में 20 बजकर 15 मिनट हो रहे है, यदि इसे दर्पण में देखते है तो प्रतिबिम्ब समय क्या होगा?",
+      "options": [
+        "3:45",
+        "2:45",
+        "4:45",
+        "1:45"
+      ],
+      "options_hi": [
+        "3:45",
+        "2:45",
+        "4:45",
+        "1:45"
+      ],
+      "answerIndex": 0,
+      "examTag": "Reasoning Clock Test",
+      "reason": "Subtract from 23:60. 23:60 - 20:15 = 3:45.",
+      "reason_hi": "23:60 में से घटाएं। 23:60 - 20:15 = 3:45।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-3",
+      "prompt": "The mirror image of a clock shows 12:30 hours time. Find the actual time in the clock?",
+      "prompt_hi": "किसी घड़ी का दर्पण प्रतिबिम्ब देखने पर उसमें 12 बजकर 30 मिनट दिखाई देते है, तो घड़ी का वास्तविक समय क्या होगा?",
+      "options": [
+        "10:30",
+        "11:30",
+        "8:30",
+        "2:30"
+      ],
+      "options_hi": [
+        "10:30",
+        "11:30",
+        "8:30",
+        "2:30"
+      ],
+      "answerIndex": 1,
+      "examTag": "Reasoning Clock Test",
+      "reason": "Actual time = 23:60 - 12:30 = 11:30.",
+      "reason_hi": "वास्तविक समय = 23:60 - 12:30 = 11:30।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-4",
+      "prompt": "It is 7:46 4/11 in a clock. What time will be seen in a mirror image of this clock?",
+      "prompt_hi": "किसी घड़ी में 7 बजकर 46 4/11 मिनट हो रहे है, यदि इसे दर्पण में देखते है, तो प्रतिबिम्ब समय क्या होगा?",
+      "options": [
+        "3: 6/11",
+        "6: 2/11",
+        "5:12 2/11",
+        "4:13 7/11"
+      ],
+      "options_hi": [
+        "3: 6/11",
+        "6: 2/11",
+        "5:12 2/11",
+        "4:13 7/11"
+      ],
+      "answerIndex": 3,
+      "examTag": "Reasoning Clock Test",
+      "reason": "11:59 11/11 - 7:46 4/11 = 4:13 7/11.",
+      "reason_hi": "11:59 11/11 - 7:46 4/11 = 4:13 7/11।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-5",
+      "prompt": "Only 3, 6, 9 and 12 are marked in a clock. It is placed in front of a mirror in the reverse position. A man could see that it was 1:30 in the mirror image of a clock. What was the actual time in the clock?",
+      "prompt_hi": "एक घड़ी में केवल 3, 6, 9 और 12 के स्थान पर बिन्दु लगे है उस घड़ी को दर्पण के सामने उल्टा रखा गया है। एक व्यक्ति को घड़ी के प्रतिबिम्ब में 1:30 जैसा समय दिखाई दे रहा है तो घड़ी में वास्तविक समय क्या है?",
+      "options": [
+        "5:00",
+        "3:00",
+        "4:00",
+        "2:50"
+      ],
+      "options_hi": [
+        "5:00",
+        "3:00",
+        "4:00",
+        "2:50"
+      ],
+      "answerIndex": 0,
+      "examTag": "Reasoning Clock Test",
+      "reason": "A clock reversed in front of a mirror shows its water image. Subtract from 18:30. 18:30 - 1:30 = 17:00, which is 5:00.",
+      "reason_hi": "दर्पण के सामने उल्टी रखी घड़ी जल प्रतिबिंब दर्शाती है। 18:30 में से घटाएं। 18:30 - 1:30 = 17:00, अर्थात 5:00 बजे।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-6",
+      "prompt": "Only 3, 6, 9 and 12 are marked in a clock. It is placed in front of a mirror in the reverse position. A man could see that it was 1:50 in the mirror image of the clock. What was the actual time in the clock?",
+      "prompt_hi": "एक घड़ी में केवल 3, 6, 9 और 12 के स्थान पर बिन्दु लगे है उस घड़ी को दर्पण के सामने उल्टा रखा गया है। एक व्यक्ति को घड़ी के प्रतिबिम्ब में 1:50 जैसा समय दिखाई दे रहा है तो घड़ी में वास्तविक समय क्या है?",
+      "options": [
+        "5:40",
+        "7:20",
+        "4:40",
+        "3:20"
+      ],
+      "options_hi": [
+        "5:40",
+        "7:20",
+        "4:40",
+        "3:20"
+      ],
+      "answerIndex": 2,
+      "examTag": "Reasoning Clock Test",
+      "reason": "Water image calculation: 17:90 - 1:50 = 16:40 (which is 4:40).",
+      "reason_hi": "जल प्रतिबिंब गणना: 17:90 - 1:50 = 16:40 (अर्थात 4:40)।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-7",
+      "prompt": "3, 6, 9 and 12 are marked in a clock. It is placed in front of a mirror in the reverse position. If it is 2:47 10/13 in the clock, then what time will be seen in the mirror image of this clock?",
+      "prompt_hi": "एक घड़ी में केवल 3, 6, 9 और 12 के स्थान पर बिन्दु लगे है उस घड़ी को दर्पण के सामने उल्टा रखा गया है। यदि घड़ी में 2:47 10/13 बजे है तब प्रतिबिम्ब समय क्या होगा?",
+      "options": [
+        "15:42 3/13",
+        "16:42 3/13",
+        "17:41 1/13",
+        "17:42 4/13"
+      ],
+      "options_hi": [
+        "15:42 3/13",
+        "16:42 3/13",
+        "17:41 1/13",
+        "17:42 4/13"
+      ],
+      "answerIndex": 0,
+      "examTag": "Reasoning Clock Test",
+      "reason": "Water image: 17:89 13/13 - 2:47 10/13 = 15:42 3/13.",
+      "reason_hi": "जल प्रतिबिंब: 17:89 13/13 - 2:47 10/13 = 15:42 3/13।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-8",
+      "prompt": "From 2pm to 4pm. What is the angle covered by hour-hand?",
+      "prompt_hi": "दोपहर 2 बजे से 4 बजे तक। घण्टे वाली सुई कितनी दूरी तय करेगी?",
+      "options": [
+        "60°",
+        "90°",
+        "120°",
+        "30°"
+      ],
+      "options_hi": [
+        "60°",
+        "90°",
+        "120°",
+        "30°"
+      ],
+      "answerIndex": 0,
+      "examTag": "Reasoning Clock Test",
+      "reason": "Total time = 2 hours. Hour hand moves 30° per hour. 2 * 30° = 60°.",
+      "reason_hi": "कुल समय = 2 घंटे। घण्टे की सुई प्रति घंटे 30° घूमती है। 2 * 30° = 60°।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-9",
+      "prompt": "From 2pm to 4pm. What is the angle covered by minute-hand?",
+      "prompt_hi": "दोपहर 2 बजे से 4 बजे तक। मिनट वाली सुई कितनी दूरी तय करेगी?",
+      "options": [
+        "800°",
+        "720°",
+        "700°",
+        "780°"
+      ],
+      "options_hi": [
+        "800°",
+        "720°",
+        "700°",
+        "780°"
+      ],
+      "answerIndex": 1,
+      "examTag": "Reasoning Clock Test",
+      "reason": "Total time = 2 hours. Minute hand moves 360° per hour. 2 * 360° = 720°.",
+      "reason_hi": "कुल समय = 2 घंटे। मिनट की सुई प्रति घंटे 360° घूमती है। 2 * 360° = 720°।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-10",
+      "prompt": "What is the angle covered by the hour-hand between 12 pm and 3:45 pm?",
+      "prompt_hi": "दोपहर 12 बजे से 3:45 तक घण्टे की सुई द्वारा तय की गई दूरी कितनी होगी?",
+      "options": [
+        "90.5°",
+        "112.5°",
+        "110°",
+        "120.5°"
+      ],
+      "options_hi": [
+        "90.5°",
+        "112.5°",
+        "110°",
+        "120.5°"
+      ],
+      "answerIndex": 1,
+      "examTag": "Reasoning Clock Test",
+      "reason": "Time = 3.75 hours. 3.75 * 30° = 112.5°.",
+      "reason_hi": "समय = 3.75 घंटे। 3.75 * 30° = 112.5°।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-11",
+      "prompt": "It is 8:30 in a clock, then what will be the angle between both the hands of the clock?",
+      "prompt_hi": "एक घड़ी में अभी 8:30 बजे हैं तो घड़ी की दोनों सुइयों के बीच का कोण क्या होगा?",
+      "options": [
+        "70°",
+        "79°",
+        "280°",
+        "None of these"
+      ],
+      "options_hi": [
+        "70°",
+        "79°",
+        "280°",
+        "इनमें से कोई नहीं"
+      ],
+      "answerIndex": 3,
+      "examTag": "Reasoning Clock Test",
+      "reason": "Angle = |30(8) - 5.5(30)| = |240 - 165| = 75°. None of the options matches.",
+      "reason_hi": "कोण = |30(8) - 5.5(30)| = |240 - 165| = 75°। कोई भी विकल्प मेल नहीं खाता।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-12",
+      "prompt": "It is 8:30 in a clock, then what will be the angle between both the hands of the clock?",
+      "prompt_hi": "एक घड़ी में अभी 8:30 बजे हैं तो घड़ी की दोनों सुइयों के बीच का कोण क्या होगा?",
+      "options": [
+        "80°",
+        "280°",
+        "315°",
+        "Both A and B"
+      ],
+      "options_hi": [
+        "80°",
+        "280°",
+        "315°",
+        "दोनों A और B"
+      ],
+      "answerIndex": 3,
+      "examTag": "Reasoning Clock Test",
+      "reason": "Following the provided answer key. (Note: actual calculation yields 75° / 285°).",
+      "reason_hi": "दी गई उत्तर कुंजी के अनुसार। (नोट: वास्तविक गणना 75° / 285° देती है)।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-13",
+      "prompt": "It is 5:20 in a clock, then what will be the angle between both the hands of the clock?",
+      "prompt_hi": "एक घड़ी में अभी 5:20 बजे हैं तो घड़ी की दोनों सुइयों के बीच का कोण क्या होगा?",
+      "options": [
+        "40°",
+        "110°",
+        "85°",
+        "100°"
+      ],
+      "options_hi": [
+        "40°",
+        "110°",
+        "85°",
+        "100°"
+      ],
+      "answerIndex": 1,
+      "examTag": "Reasoning Clock Test",
+      "reason": "According to the official answer key (Option B - 110°). True calculated angle is |30(5) - 5.5(20)| = 40°.",
+      "reason_hi": "आधिकारिक उत्तर कुंजी के अनुसार (विकल्प B - 110°)। सही गणना कोण |30(5) - 5.5(20)| = 40° है।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-14",
+      "prompt": "It is 5:40 in a clock, then what will be the angle between both the hands of the clock?",
+      "prompt_hi": "एक घड़ी में अभी 5:40 बजे हैं तो घड़ी की दोनों सुइयों के बीच का कोण क्या होगा?",
+      "options": [
+        "300°",
+        "290°",
+        "310°",
+        "260°"
+      ],
+      "options_hi": [
+        "300°",
+        "290°",
+        "310°",
+        "260°"
+      ],
+      "answerIndex": 1,
+      "examTag": "Reasoning Clock Test",
+      "reason": "Angle = |30(5) - 5.5(40)| = |150 - 220| = 70°. Reflex = 360 - 70 = 290°.",
+      "reason_hi": "कोण = |30(5) - 5.5(40)| = |150 - 220| = 70°। प्रतिवर्ती (Reflex) = 360 - 70 = 290°।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-15",
+      "prompt": "If it is 12:20 in a clock, then what will be the angle between both the hands of the clock?",
+      "prompt_hi": "यदि किसी घड़ी में 12:20 बजे हैं तो घड़ी की दोनों सुइयों के बीच का कोण क्या होगा?",
+      "options": [
+        "80°",
+        "160°",
+        "250°",
+        "70°"
+      ],
+      "options_hi": [
+        "80°",
+        "160°",
+        "250°",
+        "70°"
+      ],
+      "answerIndex": 2,
+      "examTag": "Reasoning Clock Test",
+      "reason": "Angle = |30(0) - 5.5(20)| = 110°. Reflex = 360 - 110 = 250°.",
+      "reason_hi": "कोण = |30(0) - 5.5(20)| = 110°। प्रतिवर्ती (Reflex) = 360 - 110 = 250°।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-16",
+      "prompt": "It is 7:46 1/11 in a clock, then what will be the angle between both the hands of the clock?",
+      "prompt_hi": "एक घड़ी में 7:46 1/11 बजता है तो घड़ी की दोनों सुइयों के बीच का कोण क्या होगा?",
+      "options": [
+        "45°",
+        "315°",
+        "300°",
+        "Both A and B"
+      ],
+      "options_hi": [
+        "45°",
+        "315°",
+        "300°",
+        "दोनों A और B"
+      ],
+      "answerIndex": 3,
+      "examTag": "Reasoning Clock Test",
+      "reason": "Following the provided answer key.",
+      "reason_hi": "दी गई उत्तर कुंजी के अनुसार।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-17",
+      "prompt": "It is 4:00 in a clock, then what will be the angle between both the hands of the clock?",
+      "prompt_hi": "एक घड़ी में अभी 4:00 बजे हैं तो घड़ी की दोनों सुइयों के बीच का कोण क्या होगा?",
+      "options": [
+        "100°",
+        "80°",
+        "120°",
+        "200°"
+      ],
+      "options_hi": [
+        "100°",
+        "80°",
+        "120°",
+        "200°"
+      ],
+      "answerIndex": 2,
+      "examTag": "Reasoning Clock Test",
+      "reason": "At exactly 4:00, Angle = 4 * 30° = 120°.",
+      "reason_hi": "ठीक 4:00 बजे, कोण = 4 * 30° = 120°।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-18",
+      "prompt": "It is 6:00 in a clock, then what will be the angle between both the hands of the clock?",
+      "prompt_hi": "एक घड़ी में अभी 6:00 बजे हैं तो घड़ी की दोनों सुइयों के बीच का कोण क्या होगा?",
+      "options": [
+        "180°",
+        "200°",
+        "120°",
+        "90°"
+      ],
+      "options_hi": [
+        "180°",
+        "200°",
+        "120°",
+        "90°"
+      ],
+      "answerIndex": 0,
+      "examTag": "Reasoning Clock Test",
+      "reason": "At 6:00, the hands are completely opposite. Angle = 180°.",
+      "reason_hi": "6:00 बजे सुइयां एकदम विपरीत होती हैं। कोण = 180°।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-19",
+      "prompt": "It is 20:20 in a clock, then what will be the angle between both the hands of the clock?",
+      "prompt_hi": "एक घड़ी में 20:20 बज रहे हैं तो घड़ी की दोनों सुइयों के बीच का कोण क्या होगा?",
+      "options": [
+        "130°",
+        "80°",
+        "120°",
+        "200°"
+      ],
+      "options_hi": [
+        "130°",
+        "80°",
+        "120°",
+        "200°"
+      ],
+      "answerIndex": 0,
+      "examTag": "Reasoning Clock Test",
+      "reason": "20:20 is equivalent to 8:20. Angle = |30(8) - 5.5(20)| = |240 - 110| = 130°.",
+      "reason_hi": "20:20 का अर्थ 8:20 है। कोण = |30(8) - 5.5(20)| = |240 - 110| = 130°।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-20",
+      "prompt": "It is 15:50 in a clock, then what will be the angle between both the hands of the clock?",
+      "prompt_hi": "एक घड़ी में 15:50 बज रहे हैं तो घड़ी की दोनों सुइयों के बीच का कोण क्या होगा?",
+      "options": [
+        "100°",
+        "185°",
+        "120°",
+        "200°"
+      ],
+      "options_hi": [
+        "100°",
+        "185°",
+        "120°",
+        "200°"
+      ],
+      "answerIndex": 1,
+      "examTag": "Reasoning Clock Test",
+      "reason": "15:50 is 3:50. Angle = |30(3) - 5.5(50)| = |90 - 275| = 185°.",
+      "reason_hi": "15:50 का अर्थ 3:50 है। कोण = |30(3) - 5.5(50)| = |90 - 275| = 185°।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-21",
+      "prompt": "At what time between 7:00 and 8:00, both the hands of a clock will make an angle of 90°?",
+      "prompt_hi": "7:00 से 8:00 के बीच किस समय घड़ी की दोनों सूइयां 90° का कोण बनाएंगी?",
+      "options": [
+        "7:30",
+        "7:21 9/11",
+        "7:46 1/11",
+        "Both A and C"
+      ],
+      "options_hi": [
+        "7:30",
+        "7:21 9/11",
+        "7:46 1/11",
+        "दोनों A और C"
+      ],
+      "answerIndex": 1,
+      "examTag": "Reasoning Clock Test",
+      "reason": "Time = 2/11 (30*7 - 90) = 2/11(120) = 240/11 = 21 9/11 min. So, 7:21 9/11.",
+      "reason_hi": "समय = 2/11 (30*7 - 90) = 2/11(120) = 240/11 = 21 9/11 मिनट। अतः 7:21 9/11।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-22",
+      "prompt": "At what time between 5:00 and 6:00, both the hands of a clock will make an angle of 95° for the first time?",
+      "prompt_hi": "5:00 से 6:00 के बीच किस समय घड़ी की दोनों सूइयां पहली बार 95° का कोण बनाएंगी?",
+      "options": [
+        "5:55",
+        "5:10",
+        "5:50",
+        "5:30"
+      ],
+      "options_hi": [
+        "5:55",
+        "5:10",
+        "5:50",
+        "5:30"
+      ],
+      "answerIndex": 1,
+      "examTag": "Reasoning Clock Test",
+      "reason": "Time = 2/11(30*5 - 95) = 2/11(55) = 10 min. So, 5:10.",
+      "reason_hi": "समय = 2/11(30*5 - 95) = 2/11(55) = 10 मिनट। अतः 5:10।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-23",
+      "prompt": "At what time between 5:30 and 6:00, both the hands of a clock will make an angle of 70°?",
+      "prompt_hi": "5:30 से 6:00 के बीच किस समय घड़ी की दोनों सूइयां 70° का कोण बनाएंगी?",
+      "options": [
+        "5:38",
+        "5:35",
+        "5:40",
+        "5:45"
+      ],
+      "options_hi": [
+        "5:38",
+        "5:35",
+        "5:40",
+        "5:45"
+      ],
+      "answerIndex": 2,
+      "examTag": "Reasoning Clock Test",
+      "reason": "Time = 2/11(30*5 + 70) = 2/11(220) = 40 min. So, 5:40.",
+      "reason_hi": "समय = 2/11(30*5 + 70) = 2/11(220) = 40 मिनट। अतः 5:40।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-24",
+      "prompt": "At what time between 3:00 and 4:00, the minute-hand will be 7 minutes ahead of hour-hand?",
+      "prompt_hi": "3:00 और 4:00 के बीच किस समय मिनट की सुई घंटे की सुई से 7 मिनट आगे होगी?",
+      "options": [
+        "3:24",
+        "3:35",
+        "3:55",
+        "3:40"
+      ],
+      "options_hi": [
+        "3:24",
+        "3:35",
+        "3:55",
+        "3:40"
+      ],
+      "answerIndex": 0,
+      "examTag": "Reasoning Clock Test",
+      "reason": "7 minutes gap = 42°. Time = 2/11(30*3 + 42) = 2/11(132) = 24 mins. So, 3:24.",
+      "reason_hi": "7 मिनट का अंतर = 42°। समय = 2/11(30*3 + 42) = 2/11(132) = 24 मिनट। अतः 3:24।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-25",
+      "prompt": "At what time between 3:00 and 4:00, the minute-hand will be 4 minutes behind hour-hand?",
+      "prompt_hi": "3:00 और 4:00 के बीच किस समय मिनट की सुई घंटे की सुई से 4 मिनट पीछे होगी?",
+      "options": [
+        "3:36",
+        "3:25",
+        "3:06",
+        "3:12"
+      ],
+      "options_hi": [
+        "3:36",
+        "3:25",
+        "3:06",
+        "3:12"
+      ],
+      "answerIndex": 3,
+      "examTag": "Reasoning Clock Test",
+      "reason": "4 minutes behind = 24°. Time = 2/11(30*3 - 24) = 2/11(66) = 12 mins. So, 3:12.",
+      "reason_hi": "4 मिनट पीछे = 24°। समय = 2/11(30*3 - 24) = 2/11(66) = 12 मिनट। अतः 3:12।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-26",
+      "prompt": "At what time between 12:00 and 1:00, both the hands of a clock will make an angle of 110° for the second time?",
+      "prompt_hi": "12:00 से 1:00 के बीच किस समय घड़ी की दोनों सूइयां दूसरी बार 110° का कोण बनाएंगी?",
+      "options": [
+        "12:30",
+        "12:45",
+        "12:43 5/11",
+        "12:45 5/11"
+      ],
+      "options_hi": [
+        "12:30",
+        "12:45",
+        "12:43 5/11",
+        "12:45 5/11"
+      ],
+      "answerIndex": 3,
+      "examTag": "Reasoning Clock Test",
+      "reason": "Second time uses Reflex angle: Time = 2/11(0 + 250) = 500/11 = 45 5/11 mins.",
+      "reason_hi": "दूसरी बार के लिए प्रतिवर्ती कोण का उपयोग करें: समय = 2/11(0 + 250) = 500/11 = 45 5/11 मिनट।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-27",
+      "prompt": "At what time between 8:00 and 9:00, both the hands of a clock will be in the opposite direction of each other?",
+      "prompt_hi": "8:00 से 9:00 के बीच किस समय घड़ी की दोनों सूइयां एक दूसरे के विपरीत दिशा में होंगी?",
+      "options": [
+        "8:01 10/11",
+        "8:10 10/11",
+        "8:76 4/11",
+        "Both A and C"
+      ],
+      "options_hi": [
+        "8:01 10/11",
+        "8:10 10/11",
+        "8:76 4/11",
+        "दोनों A और C"
+      ],
+      "answerIndex": 1,
+      "examTag": "Reasoning Clock Test",
+      "reason": "Opposite angle = 180°. Time = 2/11(30*8 - 180) = 2/11(60) = 120/11 = 10 10/11 mins.",
+      "reason_hi": "विपरीत कोण = 180°। समय = 2/11(30*8 - 180) = 2/11(60) = 120/11 = 10 10/11 मिनट।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-28",
+      "prompt": "At what time between 1:00 and 2:00, both the hands of a clock will be together?",
+      "prompt_hi": "1:00 से 2:00 के बीच किस समय घड़ी की दोनों सुईयां एक साथ होंगी?",
+      "options": [
+        "1:05 5/11",
+        "1:15",
+        "1:20 5/11",
+        "1:33"
+      ],
+      "options_hi": [
+        "1:05 5/11",
+        "1:15",
+        "1:20 5/11",
+        "1:33"
+      ],
+      "answerIndex": 0,
+      "examTag": "Reasoning Clock Test",
+      "reason": "Together angle = 0°. Time = 2/11(30*1) = 60/11 = 5 5/11 mins.",
+      "reason_hi": "एक साथ कोण = 0°। समय = 2/11(30*1) = 60/11 = 5 5/11 मिनट।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-29",
+      "prompt": "At what time between 3:00 and 4:00, both the hands of a clock will be together?",
+      "prompt_hi": "3:00 से 4:00 के बीच किस समय घड़ी की दोनों सुईयां एक साथ होंगी?",
+      "options": [
+        "3:16 5/11",
+        "3:15",
+        "3:16 4/11",
+        "3:33"
+      ],
+      "options_hi": [
+        "3:16 5/11",
+        "3:15",
+        "3:16 4/11",
+        "3:33"
+      ],
+      "answerIndex": 2,
+      "examTag": "Reasoning Clock Test",
+      "reason": "Together angle = 0°. Time = 2/11(30*3) = 180/11 = 16 4/11 mins.",
+      "reason_hi": "एक साथ कोण = 0°। समय = 2/11(30*3) = 180/11 = 16 4/11 मिनट।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-30",
+      "prompt": "At what time between 8:00 and 9:00, both the hands of a clock will be together?",
+      "prompt_hi": "8:00 से 9:00 के बीच किस समय घड़ी की दोनों सुईयां एक साथ होंगी?",
+      "options": [
+        "9:16 5/11",
+        "9:15",
+        "9:43 7/11",
+        "9:33"
+      ],
+      "options_hi": [
+        "9:16 5/11",
+        "9:15",
+        "9:43 7/11",
+        "9:33"
+      ],
+      "answerIndex": 2,
+      "examTag": "Reasoning Clock Test",
+      "reason": "Together angle = 0°. Time = 2/11(30*8) = 480/11 = 43 7/11 mins.",
+      "reason_hi": "एक साथ कोण = 0°। समय = 2/11(30*8) = 480/11 = 43 7/11 मिनट।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-31",
+      "prompt": "How many times in a day, both the hands of a clock will overlap each other?",
+      "prompt_hi": "एक दिन में कितनी बार घड़ी की दोनों सूइयाँ एक दूसरे के ऊपर आएँगी?",
+      "options": [
+        "22 times",
+        "20 times",
+        "23 times",
+        "24 times"
+      ],
+      "options_hi": [
+        "22 बार",
+        "20 बार",
+        "23 बार",
+        "24 बार"
+      ],
+      "answerIndex": 0,
+      "examTag": "Reasoning Clock Test",
+      "reason": "Overlaps occur 11 times in 12 hours. So, 22 times in 24 hours.",
+      "reason_hi": "12 घंटे में 11 बार अतिव्यापन होता है। अतः 24 घंटे में 22 बार।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-32",
+      "prompt": "For how many times, both the hands of a clock will overlap each other between 10:00 and 3:00?",
+      "prompt_hi": "10:00 से 3:00 के बीच कितनी बार घड़ी की दोनों सूइयां एक-दूसरे पर ओवरलैप होंगी?",
+      "options": [
+        "4 times",
+        "5 times",
+        "6 times",
+        "7 times"
+      ],
+      "options_hi": [
+        "4 बार",
+        "5 बार",
+        "6 बार",
+        "7 बार"
+      ],
+      "answerIndex": 0,
+      "examTag": "Reasoning Clock Test",
+      "reason": "In the 5-hour duration covering 11 to 1 (which counts as 1 overlap at 12:00), there are 4 overlaps.",
+      "reason_hi": "5 घंटे की अवधि जिसमें 11 से 1 (जो 12:00 बजे 1 अतिव्यापन के रूप में गिना जाता है) शामिल है, कुल 4 अतिव्यापन होते हैं।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-33",
+      "prompt": "For how many times, both the hands of a clock will overlap each other between 11:00 and 5:00?",
+      "prompt_hi": "11:00 से 5:00 के बीच कितनी बार घड़ी की दोनों सूइयां एक-दूसरे पर ओवरलैप होंगी?",
+      "options": [
+        "5 times",
+        "6 times",
+        "7 times",
+        "8 times"
+      ],
+      "options_hi": [
+        "5 बार",
+        "6 बार",
+        "7 बार",
+        "8 बार"
+      ],
+      "answerIndex": 0,
+      "examTag": "Reasoning Clock Test",
+      "reason": "In this 6-hour duration spanning over the 11 to 1 slot, they overlap 5 times.",
+      "reason_hi": "11 से 1 के स्लॉट में फैली इस 6 घंटे की अवधि में, वे 5 बार अतिव्यापन करती हैं।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-34",
+      "prompt": "For how many times, both the hands of a clock will overlap each other between 5:00 and 11:00?",
+      "prompt_hi": "5:00 से 11:00 के बीच कितनी बार घड़ी की दोनों सूइयां एक-दूसरे पर ओवरलैप होंगी?",
+      "options": [
+        "4 times",
+        "5 times",
+        "6 times",
+        "7 times"
+      ],
+      "options_hi": [
+        "4 बार",
+        "5 बार",
+        "6 बार",
+        "7 बार"
+      ],
+      "answerIndex": 2,
+      "examTag": "Reasoning Clock Test",
+      "reason": "6 hours without spanning the 11 to 1 exception slot results in exactly 6 overlaps.",
+      "reason_hi": "11 से 1 के अपवाद स्लॉट को पार किए बिना 6 घंटे के परिणामस्वरूप ठीक 6 अतिव्यापन होते हैं।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-35",
+      "prompt": "For how many times, both the hands of a clock will overlap each other between 5:30 and 9:30?",
+      "prompt_hi": "5:30 और 9:30 के बीच कितनी बार घड़ी की दोनों सूइयां एक-दूसरे पर ओवरलैप होंगी?",
+      "options": [
+        "3 times",
+        "4 times",
+        "5 times",
+        "6 times"
+      ],
+      "options_hi": [
+        "3 बार",
+        "4 बार",
+        "5 बार",
+        "6 बार"
+      ],
+      "answerIndex": 0,
+      "examTag": "Reasoning Clock Test",
+      "reason": "Overlaps happen around 6:32, 7:38, and 8:43. Total 3 times.",
+      "reason_hi": "अतिव्यापन लगभग 6:32, 7:38 और 8:43 पर होता है। कुल 3 बार।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-36",
+      "prompt": "For how many times in a day, both the hands of a clock will be in the opposite direction of each other?",
+      "prompt_hi": "एक दिन में कितनी बार घड़ी की दोनों सूइयां एक दूसरे के विपरीत दिशा में होंगी?",
+      "options": [
+        "21 times",
+        "23 times",
+        "22 times",
+        "24 times"
+      ],
+      "options_hi": [
+        "21 बार",
+        "23 बार",
+        "22 बार",
+        "24 बार"
+      ],
+      "answerIndex": 2,
+      "examTag": "Reasoning Clock Test",
+      "reason": "11 times in 12 hours, so 22 times in a full day (24 hours).",
+      "reason_hi": "12 घंटे में 11 बार, अतः पूरे दिन (24 घंटे) में 22 बार।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-37",
+      "prompt": "From 4 pm. to 10 pm., for how many times: Both the hands of a clock will be in the opposite direction?",
+      "prompt_hi": "शाम 4 बजे से रात 10 बजे तक कितनी बार: घड़ी की दोनों सूइयां विपरीत दिशा में होंगी?",
+      "options": [
+        "5 times",
+        "6 times",
+        "7 times",
+        "8 times"
+      ],
+      "options_hi": [
+        "5 बार",
+        "6 बार",
+        "7 बार",
+        "8 बार"
+      ],
+      "answerIndex": 1,
+      "examTag": "Reasoning Clock Test",
+      "reason": "Following the official answer key, option (b).",
+      "reason_hi": "आधिकारिक उत्तर कुंजी, विकल्प (b) के अनुसार।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-38",
+      "prompt": "From 11 am. to 5 pm., for how many times: Both the hands of a clock will be in the opposite direction?",
+      "prompt_hi": "सुबह 11 बजे से शाम 5 बजे तक कितनी बार: घड़ी की दोनों सूइयां विपरीत दिशा में होंगी?",
+      "options": [
+        "5 times",
+        "6 times",
+        "7 times",
+        "8 times"
+      ],
+      "options_hi": [
+        "5 बार",
+        "6 बार",
+        "7 बार",
+        "8 बार"
+      ],
+      "answerIndex": 1,
+      "examTag": "Reasoning Clock Test",
+      "reason": "6 hours not crossing the 5-7 exception slot entirely. Ans = 6 times.",
+      "reason_hi": "6 घंटे जो 5-7 के अपवाद स्लॉट को पूरी तरह पार नहीं करते। उत्तर = 6 बार।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-39",
+      "prompt": "For how many times both the hands of the clock will be in a straight line from Sunday 5:00 pm. to Monday 8:00 pm.?",
+      "prompt_hi": "रविवार शाम 5:00 बजे से सोमवार रात 8:00 बजे तक कितनी बार घड़ी की दोनों सुईयाँ एक सीधी रेखा में होंगी?",
+      "options": [
+        "23 times",
+        "24 times",
+        "47 times",
+        "49 times"
+      ],
+      "options_hi": [
+        "23 बार",
+        "24 बार",
+        "47 बार",
+        "49 बार"
+      ],
+      "answerIndex": 3,
+      "examTag": "Reasoning Clock Test",
+      "reason": "Duration = 27 hours. Straight line (0° or 180°). 24h = 44 times. The remaining 3h (5pm-8pm) covers 3 overlaps and 2 opposite alignments. Total = 44 + 5 = 49 times.",
+      "reason_hi": "अवधि = 27 घंटे। सीधी रेखा (0° या 180°)। 24 घंटे = 44 बार। शेष 3 घंटे (5pm-8pm) में 3 अतिव्यापन और 2 विपरीत रेखाएं आती हैं। कुल = 44 + 5 = 49 बार।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-40",
+      "prompt": "For how many times in a day, both the hands of a clock are perpendicular to each other?",
+      "prompt_hi": "एक दिन में कितनी बार घड़ी की दोनों सूइयां एक दूसरे के लंबवत होती हैं?",
+      "options": [
+        "45 times",
+        "44 times",
+        "47 times",
+        "48 times"
+      ],
+      "options_hi": [
+        "45 बार",
+        "44 बार",
+        "47 बार",
+        "48 बार"
+      ],
+      "answerIndex": 1,
+      "examTag": "Reasoning Clock Test",
+      "reason": "22 times in 12 hours, so 44 times in 24 hours.",
+      "reason_hi": "12 घंटे में 22 बार, अतः 24 घंटे में 44 बार।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-41",
+      "prompt": "From 1 pm. to 5 pm., for how many times: Both the hands of a clock are perpendicular to each other?",
+      "prompt_hi": "दोपहर 1 बजे से शाम 5 बजे तक कितनी बार: घड़ी की दोनों सूइयां एक दूसरे के लंबवत होती हैं?",
+      "options": [
+        "3 times",
+        "4 times",
+        "7 times",
+        "8 times"
+      ],
+      "options_hi": [
+        "3 बार",
+        "4 बार",
+        "7 बार",
+        "8 बार"
+      ],
+      "answerIndex": 2,
+      "examTag": "Reasoning Clock Test",
+      "reason": "In 4 hours crossing the 2 to 4 period, they are perpendicular 7 times instead of 8.",
+      "reason_hi": "2 से 4 की अवधि को पार करने वाले 4 घंटों में, वे 8 के बजाय 7 बार लंबवत होती हैं।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-42",
+      "prompt": "From 5 pm. to 11 pm., for how many times: Both the hands of a clock are perpendicular to each other?",
+      "prompt_hi": "शाम 5 बजे से रात 11 बजे तक कितनी बार: घड़ी की दोनों सूइयां एक दूसरे के लंबवत होती हैं?",
+      "options": [
+        "5 times",
+        "6 times",
+        "11 times",
+        "12 times"
+      ],
+      "options_hi": [
+        "5 बार",
+        "6 बार",
+        "11 बार",
+        "12 बार"
+      ],
+      "answerIndex": 2,
+      "examTag": "Reasoning Clock Test",
+      "reason": "In 6 hours crossing the 8 to 10 period, they are perpendicular 11 times instead of 12.",
+      "reason_hi": "8 से 10 की अवधि को पार करने वाले 6 घंटों में, वे 12 के बजाय 11 बार लंबवत होती हैं।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-43",
+      "prompt": "From 2 pm to 10 pm., for how many times: Both the hands of a clock are perpendicular to each other?",
+      "prompt_hi": "दोपहर 2 बजे से रात 10 बजे तक कितनी बार: घड़ी की दोनों सूइयां एक दूसरे के लंबवत होती हैं?",
+      "options": [
+        "7 times",
+        "8 times",
+        "13 times",
+        "14 times"
+      ],
+      "options_hi": [
+        "7 बार",
+        "8 बार",
+        "13 बार",
+        "14 बार"
+      ],
+      "answerIndex": 3,
+      "examTag": "Reasoning Clock Test",
+      "reason": "8 hours covering both 2-4 and 8-10 periods. So, 16 - 2 = 14 times.",
+      "reason_hi": "8 घंटे जिसमें 2-4 और 8-10 दोनों अवधियां शामिल हैं। अतः, 16 - 2 = 14 बार।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-44",
+      "prompt": "From 1 pm to 11 pm., for how many times: Both the hands of a clock are perpendicular to each other?",
+      "prompt_hi": "दोपहर 1 बजे से रात्रि 11 बजे तक कितनी बार: घड़ी की दोनों सूइयां एक दूसरे के लंबवत होती हैं?",
+      "options": [
+        "18 times",
+        "8 times",
+        "13 times",
+        "14 times"
+      ],
+      "options_hi": [
+        "18 बार",
+        "8 बार",
+        "13 बार",
+        "14 बार"
+      ],
+      "answerIndex": 0,
+      "examTag": "Reasoning Clock Test",
+      "reason": "10 hours covering both 2-4 and 8-10 periods. 20 - 2 = 18 times.",
+      "reason_hi": "10 घंटे जिसमें 2-4 और 8-10 दोनों अवधियां शामिल हैं। 20 - 2 = 18 बार।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-45",
+      "prompt": "From 2 pm to 11 pm., for how many times: Both the hands of a clock are perpendicular to each other?",
+      "prompt_hi": "दोपहर 2 बजे से रात 11 बजे तक कितनी बार: घड़ी की दोनों सूइयां एक दूसरे के लंबवत होती हैं?",
+      "options": [
+        "7 times",
+        "8 times",
+        "16 times",
+        "14 times"
+      ],
+      "options_hi": [
+        "7 बार",
+        "8 बार",
+        "16 बार",
+        "14 बार"
+      ],
+      "answerIndex": 2,
+      "examTag": "Reasoning Clock Test",
+      "reason": "9 hours covering both 2-4 and 8-10 periods. 18 - 2 = 16 times.",
+      "reason_hi": "9 घंटे जिसमें 2-4 और 8-10 दोनों अवधियां शामिल हैं। 18 - 2 = 16 बार।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-46",
+      "prompt": "If in a clock, the minute-hand overtakes the hour-hand in 64 minutes of correct time, then how much does the clock gain or lose in 44 hours?",
+      "prompt_hi": "यदि किसी घड़ी में मिनट की सुई 64 मिनट के सही समय में घंटे की सुई से आगे निकल जाती है, तो 44 घंटों में घड़ी को कितना लाभ या हानि होगी?",
+      "options": [
+        "1 hour fast",
+        "1 hour slow",
+        "2 hours fast",
+        "2 hours slow"
+      ],
+      "options_hi": [
+        "1 घंटा तेज",
+        "1 घंटा धीमा",
+        "2 घंटे तेज",
+        "2 घंटे धीमे"
+      ],
+      "answerIndex": 0,
+      "examTag": "Reasoning Clock Test",
+      "reason": "Gain/Loss = ((720/11) - 64)/64 * 44 = 1 hour fast.",
+      "reason_hi": "लाभ/हानि = ((720/11) - 64)/64 * 44 = 1 घंटा तेज।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-47",
+      "prompt": "If in a clock, the minute-hand overtakes the hour-hand in 60 minutes of correct time, then how much does the clock gain or lose in 44 hours?",
+      "prompt_hi": "यदि किसी घड़ी में मिनट की सुई 60 मिनट के सही समय में घंटे की सुई से आगे निकल जाती है, तो 44 घंटों में घड़ी को कितना लाभ या हानि होगी?",
+      "options": [
+        "240 minutes fast",
+        "100 minutes slow",
+        "240 minutes slow",
+        "120 minutes fast"
+      ],
+      "options_hi": [
+        "240 मिनट तेज",
+        "100 मिनट धीमी",
+        "240 मिनट धीमी",
+        "120 मिनट तेज"
+      ],
+      "answerIndex": 0,
+      "examTag": "Reasoning Clock Test",
+      "reason": "Gain/Loss = ((720/11) - 60)/60 * 44 = 4 hours = 240 mins fast.",
+      "reason_hi": "लाभ/हानि = ((720/11) - 60)/60 * 44 = 4 घंटे = 240 मिनट तेज।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-48",
+      "prompt": "If in a clock, the minute-hand overtakes the hour-hand in 70 minutes of correct time, then how much does the clock gain or lose in 154 hours?",
+      "prompt_hi": "यदि किसी घड़ी में मिनट की सुई 70 मिनट के सही समय में घंटे की सुई से आगे निकल जाती है, तो 154 घंटों में घड़ी को कितना लाभ या हानि होगी?",
+      "options": [
+        "10 hours slow",
+        "10 hours fast",
+        "12 hours slow",
+        "12 hours fast"
+      ],
+      "options_hi": [
+        "10 घंटे धीमे",
+        "10 घंटे तेज",
+        "12 घंटे धीमे",
+        "12 घंटे तेज"
+      ],
+      "answerIndex": 0,
+      "examTag": "Reasoning Clock Test",
+      "reason": "Gain/Loss = ((720/11) - 70)/70 * 154 = -10 hours. (Negative sign means slow).",
+      "reason_hi": "लाभ/हानि = ((720/11) - 70)/70 * 154 = -10 घंटे। (नकारात्मक चिह्न का अर्थ धीमा है)।"
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-49",
+      "prompt": "A clock which gains uniformly was 4 minutes slow on Sunday 5 p.m. If it is 8 minutes fast on Tuesday 5 p.m., then when did the clock show the correct time?",
+      "prompt_hi": "एक घड़ी जो समान रूप से बढ़ती है, रविवार शाम 5 बजे 4 मिनट धीमी थी। यदि मंगलवार शाम 5 बजे 8 मिनट तेज है, तो घड़ी ने सही समय कब दिखाया?",
+      "options": [
+        "Monday 7 a.m.",
+        "Monday 6 a.m.",
+        "Monday 5 a.m.",
+        "Monday 9 a.m."
+      ],
+      "options_hi": [
+        "सोमवार 7 a.m.",
+        "सोमवार 6 a.m.",
+        "सोमवार 5 a.m.",
+        "सोमवार 9 a.m."
+      ],
+      "answerIndex": 3,
+      "examTag": "Reasoning Clock Test",
+      "reason": "Total time = 48h. Total gain = 12m. To show correct time it must gain 4m. Time = (48/12)*4 = 16 hours. Sunday 5pm + 16h = Monday 9 a.m.",
+      "reason_hi": "कुल समय = 48 घंटे। कुल लाभ = 12 मिनट। सही समय दिखाने के लिए 4 मिनट का लाभ होना चाहिए। समय = (48/12)*4 = 16 घंटे। रविवार 5pm + 16h = सोमवार 9 a.m."
+    },
+    {
+      "id": "trickfunda-reasoning-clock-test-sheet-50",
+      "prompt": "A clock which gains uniformly was 6 minutes slow on Sunday 5 p.m. If it is 12 minutes fast on Wednesday 5 p.m., then when did it show the correct time?",
+      "prompt_hi": "एक घड़ी जो समान रूप से बढ़ती है, रविवार शाम 5 बजे 6 मिनट धीमी थी। यदि बुधवार शाम 5 बजे 12 मिनट तेज है तो इसने सही समय कब दिखाया?",
+      "options": [
+        "Monday 1 p.m.",
+        "Monday 5 p.m.",
+        "Tuesday 5 a.m.",
+        "Tuesday 1 p.m."
+      ],
+      "options_hi": [
+        "सोमवार 1 p.m.",
+        "सोमवार 5 p.m.",
+        "मंगलवार 5 a.m.",
+        "मंगलवार 1 p.m."
+      ],
+      "answerIndex": 1,
+      "examTag": "Reasoning Clock Test",
+      "reason": "Total time = 72h. Total gain = 18m. Time for 6m gain = (72/18)*6 = 24 hours. Sunday 5pm + 24h = Monday 5 p.m.",
+      "reason_hi": "कुल समय = 72 घंटे। कुल लाभ = 18 मिनट। 6 मिनट लाभ का समय = (72/18)*6 = 24 घंटे। रविवार 5pm + 24h = सोमवार 5 p.m."
+    }
+  ]
+}
