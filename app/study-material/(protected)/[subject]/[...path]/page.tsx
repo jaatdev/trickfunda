@@ -5,6 +5,7 @@ import path from 'path';
 import { getKDNode, getKDChapterSubjects } from '@/utils/studyMaterialParser';
 import { ConceptInteractiveViewer } from '@/components/study-material/ConceptInteractiveViewer';
 import ChapterTypesClient from '@/components/study-material/ChapterTypesClient';
+import FolderContentSwitcher from '@/components/study-material/FolderContentSwitcher';
 import StatsBanner from '@/components/study-material/StatsBanner';
 import { Metadata } from 'next';
 import { GSHologramTheme } from '@/components/study-material/themes/gs/GSHologramTheme';
@@ -152,32 +153,11 @@ export default async function RecursiveStudyMaterialPage(props: Props) {
           )}
         </header>
 
-        {/* If node has sub-folders, render them as cards */}
-        {node.children && node.children.length > 0 && (
-          <div className="mb-12">
-            <ChapterTypesClient 
-              subjectSlug={params.subject} 
-              baseRoute={`/study-material/${params.subject}/${params.path.join('/')}`} 
-              types={node.children} 
-            />
-          </div>
-        )}
-
-        {/* If node has local files, render the Interactive Viewer */}
-        {node.concept && (
-          <div className="max-w-4xl mx-auto">
-            <ConceptInteractiveViewer 
-              title={node.title}
-              notesMarkdown={node.concept.notesMarkdown}
-              noteBoxes={node.concept.noteBoxes}
-              pdfUrl={node.concept.pdfUrl}
-              youtubeUrls={node.concept.youtubeUrls}
-              quizzes={node.concept.quizzes}
-              flashcardSets={node.concept.flashcardSets}
-              slug={node.concept.slug}
-            />
-          </div>
-        )}
+        <FolderContentSwitcher 
+          node={node}
+          subjectSlug={params.subject}
+          baseRoute={`/study-material/${params.subject}/${params.path.join('/')}`}
+        />
       </div>
     </main>
   );

@@ -6,9 +6,10 @@ import { KDConcept } from '@/types/studyMaterial';
 
 type Props = {
   concept: KDConcept;
+  activeFilter?: string;
 };
 
-export function HologramViewerWrapper({ concept }: Props) {
+export function HologramViewerWrapper({ concept, activeFilter }: Props) {
   return (
     <div className="
       hologram-viewer 
@@ -47,10 +48,12 @@ export function HologramViewerWrapper({ concept }: Props) {
         notesMarkdown={concept.notesMarkdown}
         noteBoxes={concept.noteBoxes}
         pdfUrl={concept.pdfUrl}
+        pdfs={concept.pdfs}
         youtubeUrls={concept.youtubeUrls}
         quizzes={concept.quizzes}
         flashcardSets={concept.flashcardSets}
         slug={concept.slug}
+        activeFilter={activeFilter}
       />
     </div>
   );

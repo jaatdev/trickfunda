@@ -7,6 +7,7 @@ import { DraftingCompass, Layers } from 'lucide-react';
 import { ConstructorBackground } from './ConstructorBackground';
 import { ConstructorFolderCard } from './ConstructorFolderCard';
 import { ConstructorViewerWrapper } from './ConstructorViewerWrapper';
+import FolderContentSwitcher from '@/components/study-material/FolderContentSwitcher';
 import StatsBanner from '@/components/study-material/StatsBanner';
 
 const containerVariants: Variants = {
@@ -100,60 +101,62 @@ export function MathConstructorTheme({ node, path, subjectTitle, subjectSlug }: 
           )}
         </header>
 
-        {/* Sub-directories (Folders) */}
-        {node.children && node.children.length > 0 && (
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="show"
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-[220px] mb-12"
-          >
-            {node.children.map((child: any, i: number) => {
-              const href = `/study-material/${subjectSlug}/${path.join('/')}/${child.slug}`;
-              return (
-                <motion.div key={child.slug} variants={itemVariants} className="h-full">
-                  <Link href={href} className="block h-full outline-none group">
-                    <ConstructorFolderCard>
-                      
-                      <div className="flex justify-between items-start mb-4">
-                        <span className="text-xl font-bold text-sky-700 group-hover:text-sky-400 transition-colors duration-300">
-                          SEQ_{String(i + 1).padStart(2, '0')}
-                        </span>
-                        <Layers className="w-6 h-6 text-sky-800 group-hover:text-sky-400 transition-colors duration-300" />
-                      </div>
+        <FolderContentSwitcher 
+          node={node}
+          subjectSlug={subjectSlug}
+          baseRoute={`/study-material/${subjectSlug}/${path.join('/')}`}
+          renderFolders={() => (
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="show"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-[220px] mb-12"
+            >
+              {node.children!.map((child: any, i: number) => {
+                const href = `/study-material/${subjectSlug}/${path.join('/')}/${child.slug}`;
+                return (
+                  <motion.div key={child.slug} variants={itemVariants} className="h-full">
+                    <Link href={href} className="block h-full outline-none group">
+                      <ConstructorFolderCard>
+                        
+                        <div className="flex justify-between items-start mb-4">
+                          <span className="text-xl font-bold text-sky-700 group-hover:text-sky-400 transition-colors duration-300">
+                            SEQ_{String(i + 1).padStart(2, '0')}
+                          </span>
+                          <Layers className="w-6 h-6 text-sky-800 group-hover:text-sky-400 transition-colors duration-300" />
+                        </div>
 
-                      <h2 className="text-xl font-bold text-sky-200 group-hover:text-white transition-colors duration-300 mt-auto uppercase tracking-widest">
-                        {child.title}
-                      </h2>
-                      
-                      <div className="mt-4 pt-4 border-t border-sky-900/50 group-hover:border-sky-500/50 transition-colors duration-300 flex flex-wrap gap-x-4 gap-y-2 text-xs font-bold text-sky-600 uppercase">
-                        {child.stats.concepts > 0 && (
-                          <span>C:{child.stats.concepts}</span>
-                        )}
-                        {child.stats.quizzes > 0 && (
-                          <span>Q:{child.stats.quizzes}</span>
-                        )}
-                      </div>
+                        <h2 className="text-xl font-bold text-sky-200 group-hover:text-white transition-colors duration-300 mt-auto uppercase tracking-widest">
+                          {child.title}
+                        </h2>
+                        
+                        <div className="mt-4 pt-4 border-t border-sky-900/50 group-hover:border-sky-500/50 transition-colors duration-300 flex flex-wrap gap-x-4 gap-y-2 text-xs font-bold text-sky-600 uppercase">
+                          {child.stats.concepts > 0 && (
+                            <span>C:{child.stats.concepts}</span>
+                          )}
+                          {child.stats.quizzes > 0 && (
+                            <span>Q:{child.stats.quizzes}</span>
+                          )}
+                        </div>
 
-                    </ConstructorFolderCard>
-                  </Link>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        )}
-
-        {/* The Final Concept Data Viewer */}
-        {node.concept && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto"
-          >
-            <ConstructorViewerWrapper concept={node.concept} />
-          </motion.div>
-        )}
+                      </ConstructorFolderCard>
+                    </Link>
+                  </motion.div>
+                );
+              })}
+            </motion.div>
+          )}
+          renderConcept={(activeFilter) => (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="max-w-4xl mx-auto"
+            >
+              <ConstructorViewerWrapper concept={node.concept!} activeFilter={activeFilter} />
+            </motion.div>
+          )}
+        />
 
       </div>
     </div>

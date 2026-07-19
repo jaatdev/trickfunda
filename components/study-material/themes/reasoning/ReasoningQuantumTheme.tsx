@@ -7,6 +7,7 @@ import { BrainCircuit, Cpu } from 'lucide-react';
 import { QuantumBackground } from './QuantumBackground';
 import { QuantumFolderCard } from './QuantumFolderCard';
 import { QuantumViewerWrapper } from './QuantumViewerWrapper';
+import FolderContentSwitcher from '@/components/study-material/FolderContentSwitcher';
 import StatsBanner from '@/components/study-material/StatsBanner';
 
 const containerVariants: Variants = {
@@ -100,60 +101,62 @@ export function ReasoningQuantumTheme({ node, path, subjectTitle, subjectSlug }:
           )}
         </header>
 
-        {/* Sub-directories (Folders) */}
-        {node.children && node.children.length > 0 && (
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="show"
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-[220px] mb-12"
-          >
-            {node.children.map((child: any, i: number) => {
-              const href = `/study-material/${subjectSlug}/${path.join('/')}/${child.slug}`;
-              return (
-                <motion.div key={child.slug} variants={itemVariants} className="h-full">
-                  <Link href={href} className="block h-full outline-none group">
-                    <QuantumFolderCard>
-                      
-                      <div className="flex justify-between items-start mb-4">
-                        <span className="text-xl font-bold text-purple-600 group-hover:text-fuchsia-400 transition-colors duration-300">
-                          LINK_{String(i + 1).padStart(2, '0')}
-                        </span>
-                        <Cpu className="w-6 h-6 text-purple-800 group-hover:text-fuchsia-400 transition-colors duration-300" />
-                      </div>
+        <FolderContentSwitcher 
+          node={node}
+          subjectSlug={subjectSlug}
+          baseRoute={`/study-material/${subjectSlug}/${path.join('/')}`}
+          renderFolders={() => (
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="show"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-[220px] mb-12"
+            >
+              {node.children!.map((child: any, i: number) => {
+                const href = `/study-material/${subjectSlug}/${path.join('/')}/${child.slug}`;
+                return (
+                  <motion.div key={child.slug} variants={itemVariants} className="h-full">
+                    <Link href={href} className="block h-full outline-none group">
+                      <QuantumFolderCard>
+                        
+                        <div className="flex justify-between items-start mb-4">
+                          <span className="text-xl font-bold text-purple-600 group-hover:text-fuchsia-400 transition-colors duration-300">
+                            LINK_{String(i + 1).padStart(2, '0')}
+                          </span>
+                          <Cpu className="w-6 h-6 text-purple-800 group-hover:text-fuchsia-400 transition-colors duration-300" />
+                        </div>
 
-                      <h2 className="text-xl font-bold text-fuchsia-100 group-hover:text-white transition-colors duration-300 mt-auto uppercase tracking-widest">
-                        {child.title}
-                      </h2>
-                      
-                      <div className="mt-4 pt-4 border-t border-purple-900/50 group-hover:border-fuchsia-500/50 transition-colors duration-300 flex flex-wrap gap-x-4 gap-y-2 text-xs font-bold text-purple-500 uppercase">
-                        {child.stats.concepts > 0 && (
-                          <span>C:{child.stats.concepts}</span>
-                        )}
-                        {child.stats.quizzes > 0 && (
-                          <span>Q:{child.stats.quizzes}</span>
-                        )}
-                      </div>
+                        <h2 className="text-xl font-bold text-fuchsia-100 group-hover:text-white transition-colors duration-300 mt-auto uppercase tracking-widest">
+                          {child.title}
+                        </h2>
+                        
+                        <div className="mt-4 pt-4 border-t border-purple-900/50 group-hover:border-fuchsia-500/50 transition-colors duration-300 flex flex-wrap gap-x-4 gap-y-2 text-xs font-bold text-purple-500 uppercase">
+                          {child.stats.concepts > 0 && (
+                            <span>C:{child.stats.concepts}</span>
+                          )}
+                          {child.stats.quizzes > 0 && (
+                            <span>Q:{child.stats.quizzes}</span>
+                          )}
+                        </div>
 
-                    </QuantumFolderCard>
-                  </Link>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        )}
-
-        {/* The Final Concept Data Viewer */}
-        {node.concept && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto"
-          >
-            <QuantumViewerWrapper concept={node.concept} />
-          </motion.div>
-        )}
+                      </QuantumFolderCard>
+                    </Link>
+                  </motion.div>
+                );
+              })}
+            </motion.div>
+          )}
+          renderConcept={(activeFilter) => (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="max-w-4xl mx-auto"
+            >
+              <QuantumViewerWrapper concept={node.concept!} activeFilter={activeFilter} />
+            </motion.div>
+          )}
+        />
 
       </div>
     </div>

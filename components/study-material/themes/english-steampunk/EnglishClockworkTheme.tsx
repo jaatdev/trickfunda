@@ -7,6 +7,7 @@ import { BookMarked, Key } from 'lucide-react';
 import { ClockworkBackground } from './ClockworkBackground';
 import { ClockworkFolderCard } from './ClockworkFolderCard';
 import { ClockworkViewerWrapper } from './ClockworkViewerWrapper';
+import FolderContentSwitcher from '@/components/study-material/FolderContentSwitcher';
 import StatsBanner from '@/components/study-material/StatsBanner';
 
 const containerVariants: Variants = {
@@ -100,60 +101,62 @@ export function EnglishClockworkTheme({ node, path, subjectTitle, subjectSlug }:
           )}
         </header>
 
-        {/* Sub-directories (Folders) */}
-        {node.children && node.children.length > 0 && (
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="show"
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-[220px] mb-12"
-          >
-            {node.children.map((child: any, i: number) => {
-              const href = `/study-material/${subjectSlug}/${path.join('/')}/${child.slug}`;
-              return (
-                <motion.div key={child.slug} variants={itemVariants} className="h-full">
-                  <Link href={href} className="block h-full outline-none group">
-                    <ClockworkFolderCard>
-                      
-                      <div className="flex justify-between items-start mb-4">
-                        <span className="text-2xl font-serif text-[#5C4B33] group-hover:text-[#B87333] transition-colors duration-500 italic">
-                          Tome {i + 1}
-                        </span>
-                        <Key className="w-6 h-6 text-[#5C4B33] group-hover:text-[#D4AF37] transition-colors duration-500" />
-                      </div>
+        <FolderContentSwitcher 
+          node={node}
+          subjectSlug={subjectSlug}
+          baseRoute={`/study-material/${subjectSlug}/${path.join('/')}`}
+          renderFolders={() => (
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="show"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-[220px] mb-12"
+            >
+              {node.children!.map((child: any, i: number) => {
+                const href = `/study-material/${subjectSlug}/${path.join('/')}/${child.slug}`;
+                return (
+                  <motion.div key={child.slug} variants={itemVariants} className="h-full">
+                    <Link href={href} className="block h-full outline-none group">
+                      <ClockworkFolderCard>
+                        
+                        <div className="flex justify-between items-start mb-4">
+                          <span className="text-2xl font-serif text-[#5C4B33] group-hover:text-[#B87333] transition-colors duration-500 italic">
+                            Tome {i + 1}
+                          </span>
+                          <Key className="w-6 h-6 text-[#5C4B33] group-hover:text-[#D4AF37] transition-colors duration-500" />
+                        </div>
 
-                      <h2 className="text-2xl font-bold text-[#E8D090] group-hover:text-[#FFF8E7] transition-colors duration-500 mt-auto leading-tight">
-                        {child.title}
-                      </h2>
-                      
-                      <div className="mt-4 pt-4 border-t border-[#3A2A18] group-hover:border-[#5C4B33] transition-colors duration-500 flex flex-wrap gap-x-4 gap-y-2 text-sm text-[#A37B15]">
-                        {child.stats.concepts > 0 && (
-                          <span>{child.stats.concepts} Pages</span>
-                        )}
-                        {child.stats.quizzes > 0 && (
-                          <span>{child.stats.quizzes} Trials</span>
-                        )}
-                      </div>
+                        <h2 className="text-2xl font-bold text-[#E8D090] group-hover:text-[#FFF8E7] transition-colors duration-500 mt-auto leading-tight">
+                          {child.title}
+                        </h2>
+                        
+                        <div className="mt-4 pt-4 border-t border-[#3A2A18] group-hover:border-[#5C4B33] transition-colors duration-500 flex flex-wrap gap-x-4 gap-y-2 text-sm text-[#A37B15]">
+                          {child.stats.concepts > 0 && (
+                            <span>{child.stats.concepts} Pages</span>
+                          )}
+                          {child.stats.quizzes > 0 && (
+                            <span>{child.stats.quizzes} Trials</span>
+                          )}
+                        </div>
 
-                    </ClockworkFolderCard>
-                  </Link>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        )}
-
-        {/* The Final Concept Data Viewer */}
-        {node.concept && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto"
-          >
-            <ClockworkViewerWrapper concept={node.concept} />
-          </motion.div>
-        )}
+                      </ClockworkFolderCard>
+                    </Link>
+                  </motion.div>
+                );
+              })}
+            </motion.div>
+          )}
+          renderConcept={(activeFilter) => (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="max-w-4xl mx-auto"
+            >
+              <ClockworkViewerWrapper concept={node.concept!} activeFilter={activeFilter} />
+            </motion.div>
+          )}
+        />
 
       </div>
     </div>

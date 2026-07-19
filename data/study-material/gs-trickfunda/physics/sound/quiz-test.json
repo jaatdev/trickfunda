@@ -1,0 +1,277 @@
+{
+  "questions": [
+    {
+      "id": "trickfunda-trigonometry-type-3-kapil-sir-1",
+      "prompt": "If \\( 3 \\cos\\theta - 4 \\sin\\theta = 2 \\cos\\theta + \\sin\\theta \\), find \\( \\tan\\theta = ? \\)",
+      "prompt_hi": "यदि \\( 3 \\cos\\theta - 4 \\sin\\theta = 2 \\cos\\theta + \\sin\\theta \\) है, तो \\( \\tan\\theta = ? \\)",
+      "options": [
+        "\\( \\frac{1}{5} \\)",
+        "\\( \\frac{1}{4} \\)",
+        "\\( \\frac{3}{4} \\)",
+        "\\( \\frac{4}{3} \\)"
+      ],
+      "options_hi": [
+        "\\( \\frac{1}{5} \\)",
+        "\\( \\frac{1}{4} \\)",
+        "\\( \\frac{3}{4} \\)",
+        "\\( \\frac{4}{3} \\)"
+      ],
+      "answerIndex": 0,
+      "examTag": "Trigonometry Type-3",
+      "reason": "By rearranging the terms of \\( 3 \\cos\\theta - 4 \\sin\\theta = 2 \\cos\\theta + \\sin\\theta \\), we get \\( 3 \\cos\\theta - 2 \\cos\\theta = \\sin\\theta + 4 \\sin\\theta \\). This gives \\( \\cos\\theta = 5 \\sin\\theta \\). Thus, \\( \\frac{\\sin\\theta}{\\cos\\theta} = \\frac{1}{5} \\), which means \\( \\tan\\theta = \\frac{1}{5} \\).",
+      "reason_hi": "\\( 3 \\cos\\theta - 4 \\sin\\theta = 2 \\cos\\theta + \\sin\\theta \\) के पदों को व्यवस्थित करने पर, \\( 3 \\cos\\theta - 2 \\cos\\theta = \\sin\\theta + 4 \\sin\\theta \\) प्राप्त होता है। इससे \\( \\cos\\theta = 5 \\sin\\theta \\) आता है। इस प्रकार, \\( \\frac{\\sin\\theta}{\\cos\\theta} = \\frac{1}{5} \\), जिसका अर्थ है \\( \\tan\\theta = \\frac{1}{5} \\)।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-3-kapil-sir-2",
+      "prompt": "If \\( \\frac{2 \\sin\\theta - 3 \\cos\\theta}{3 \\sin\\theta + 2 \\cos\\theta} = \\frac{2}{5} \\), find \\( \\tan\\theta = ? \\)",
+      "prompt_hi": "यदि \\( \\frac{2 \\sin\\theta - 3 \\cos\\theta}{3 \\sin\\theta + 2 \\cos\\theta} = \\frac{2}{5} \\) है, तो \\( \\tan\\theta = ? \\)",
+      "options": [
+        "\\( \\frac{4}{5} \\)",
+        "\\( \\frac{9}{19} \\)",
+        "\\( \\frac{19}{4} \\)",
+        "\\( \\frac{5}{4} \\)"
+      ],
+      "options_hi": [
+        "\\( \\frac{4}{5} \\)",
+        "\\( \\frac{9}{19} \\)",
+        "\\( \\frac{19}{4} \\)",
+        "\\( \\frac{5}{4} \\)"
+      ],
+      "answerIndex": 2,
+      "examTag": "Trigonometry Type-3",
+      "reason": "By cross-multiplying the equation: \\( 5(2 \\sin\\theta - 3 \\cos\\theta) = 2(3 \\sin\\theta + 2 \\cos\\theta) \\), we get \\( 10 \\sin\\theta - 15 \\cos\\theta = 6 \\sin\\theta + 4 \\cos\\theta \\). Bringing similar terms together gives \\( 4 \\sin\\theta = 19 \\cos\\theta \\). Therefore, \\( \\tan\\theta = \\frac{\\sin\\theta}{\\cos\\theta} = \\frac{19}{4} \\).",
+      "reason_hi": "समीकरण का वज्र गुणन (Cross multiplication) करने पर: \\( 5(2 \\sin\\theta - 3 \\cos\\theta) = 2(3 \\sin\\theta + 2 \\cos\\theta) \\), जिससे \\( 10 \\sin\\theta - 15 \\cos\\theta = 6 \\sin\\theta + 4 \\cos\\theta \\) प्राप्त होता है। समान पदों को एक साथ लाने पर \\( 4 \\sin\\theta = 19 \\cos\\theta \\) मिलता है। अतः, \\( \\tan\\theta = \\frac{\\sin\\theta}{\\cos\\theta} = \\frac{19}{4} \\) होगा।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-3-kapil-sir-3",
+      "prompt": "If \\( \\frac{\\tan\\theta + \\cot\\theta}{\\tan\\theta - \\cot\\theta} = 2 \\), find \\( \\sin\\theta = ? \\)",
+      "prompt_hi": "यदि \\( \\frac{\\tan\\theta + \\cot\\theta}{\\tan\\theta - \\cot\\theta} = 2 \\) है, तो \\( \\sin\\theta = ? \\)",
+      "options": [
+        "\\( \\frac{2}{\\sqrt{3}} \\)",
+        "\\( \\frac{\\sqrt{3}}{2} \\)",
+        "\\( 2 \\)",
+        "\\( \\sqrt{3} \\)"
+      ],
+      "options_hi": [
+        "\\( \\frac{2}{\\sqrt{3}} \\)",
+        "\\( \\frac{\\sqrt{3}}{2} \\)",
+        "\\( 2 \\)",
+        "\\( \\sqrt{3} \\)"
+      ],
+      "answerIndex": 1,
+      "examTag": "Trigonometry Type-3",
+      "reason": "Substitute \\( \\cot\\theta = \\frac{1}{\\tan\\theta} \\) to get \\( \\frac{\\tan\\theta + \\frac{1}{\\tan\\theta}}{\\tan\\theta - \\frac{1}{\\tan\\theta}} = 2 \\). This simplifies to \\( \\frac{\\tan^2\\theta + 1}{\\tan^2\\theta - 1} = 2 \\). Cross-multiplying yields \\( \\tan^2\\theta + 1 = 2\\tan^2\\theta - 2 \\), which gives \\( \\tan^2\\theta = 3 \\), so \\( \\tan\\theta = \\sqrt{3} \\). This means \\( \\theta = 60^\\circ \\). Therefore, \\( \\sin(60^\\circ) = \\frac{\\sqrt{3}}{2} \\).",
+      "reason_hi": "\\( \\cot\\theta = \\frac{1}{\\tan\\theta} \\) रखने पर \\( \\frac{\\tan\\theta + \\frac{1}{\\tan\\theta}}{\\tan\\theta - \\frac{1}{\\tan\\theta}} = 2 \\) प्राप्त होता है। इसे हल करने पर \\( \\frac{\\tan^2\\theta + 1}{\\tan^2\\theta - 1} = 2 \\) मिलता है। वज्र गुणन करने पर \\( \\tan^2\\theta + 1 = 2\\tan^2\\theta - 2 \\) आता है, जिससे \\( \\tan^2\\theta = 3 \\) और \\( \\tan\\theta = \\sqrt{3} \\) प्राप्त होता है। इसका अर्थ है \\( \\theta = 60^\\circ \\)। अतः, \\( \\sin(60^\\circ) = \\frac{\\sqrt{3}}{2} \\) होगा।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-3-kapil-sir-4",
+      "prompt": "If \\( \\frac{\\sin\\theta + \\cos\\theta}{\\sin\\theta - \\cos\\theta} = 3 \\), find \\( \\sin^4\\theta - \\cos^4\\theta = ? \\)",
+      "prompt_hi": "यदि \\( \\frac{\\sin\\theta + \\cos\\theta}{\\sin\\theta - \\cos\\theta} = 3 \\) है, तो \\( \\sin^4\\theta - \\cos^4\\theta = ? \\)",
+      "options": [
+        "\\( \\frac{3}{5} \\)",
+        "\\( \\frac{1}{5} \\)",
+        "\\( \\frac{2}{5} \\)",
+        "\\( \\frac{4}{5} \\)"
+      ],
+      "options_hi": [
+        "\\( \\frac{3}{5} \\)",
+        "\\( \\frac{1}{5} \\)",
+        "\\( \\frac{2}{5} \\)",
+        "\\( \\frac{4}{5} \\)"
+      ],
+      "answerIndex": 0,
+      "examTag": "Trigonometry Type-3",
+      "reason": "Cross-multiplying gives \\( \\sin\\theta + \\cos\\theta = 3\\sin\\theta - 3\\cos\\theta \\). Rearranging yields \\( 4\\cos\\theta = 2\\sin\\theta \\), meaning \\( \\tan\\theta = \\frac{2}{1} \\). Using a right triangle where Perpendicular = 2 and Base = 1, Hypotenuse = \\( \\sqrt{2^2+1^2} = \\sqrt{5} \\). Thus, \\( \\sin\\theta = \\frac{2}{\\sqrt{5}} \\) and \\( \\cos\\theta = \\frac{1}{\\sqrt{5}} \\). The expression \\( \\sin^4\\theta - \\cos^4\\theta = (\\sin^2\\theta - \\cos^2\\theta)(\\sin^2\\theta + \\cos^2\\theta) = (\\sin^2\\theta - \\cos^2\\theta)(1) = \\left(\\frac{2}{\\sqrt{5}}\\right)^2 - \\left(\\frac{1}{\\sqrt{5}}\\right)^2 = \\frac{4}{5} - \\frac{1}{5} = \\frac{3}{5} \\).",
+      "reason_hi": "वज्र गुणन करने पर \\( \\sin\\theta + \\cos\\theta = 3 \\sin\\theta - 3 \\cos\\theta \\) प्राप्त होता है। व्यवस्थित करने पर \\( 4 \\cos\\theta = 2 \\sin\\theta \\), जिसका अर्थ है \\( \\tan\\theta = \\frac{2}{1} \\)। समकोण त्रिभुज से जहाँ लंब = 2 और आधार = 1 है, कर्ण = \\( \\sqrt{2^2+1^2} = \\sqrt{5} \\) होगा। अतः, \\( \\sin\\theta = \\frac{2}{\\sqrt{5}} \\) और \\( \\cos\\theta = \\frac{1}{\\sqrt{5}} \\)। व्यंजक \\( \\sin^4\\theta - \\cos^4\\theta = (\\sin^2\\theta - \\cos^2\\theta)(\\sin^2\\theta + \\cos^2\\theta) = (\\sin^2\\theta - \\cos^2\\theta)(1) = \\left(\\frac{2}{\\sqrt{5}}\\right)^2 - \\left(\\frac{1}{\\sqrt{5}}\\right)^2 = \\frac{4}{5} - \\frac{1}{5} = \\frac{3}{5} \\)।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-3-kapil-sir-5",
+      "prompt": "If \\( \\frac{\\cos\\theta - \\sin\\theta}{\\cos\\theta + \\sin\\theta} = \\frac{1 - \\sqrt{3}}{1 + \\sqrt{3}} \\), find \\( \\theta = ? \\)",
+      "prompt_hi": "यदि \\( \\frac{\\cos\\theta - \\sin\\theta}{\\cos\\theta + \\sin\\theta} = \\frac{1 - \\sqrt{3}}{1 + \\sqrt{3}} \\) है, तो \\( \\theta = ? \\)",
+      "options": [
+        "\\( 30^\\circ \\)",
+        "\\( 60^\\circ \\)",
+        "\\( 45^\\circ \\)",
+        "\\( 90^\\circ \\)"
+      ],
+      "options_hi": [
+        "\\( 30^\\circ \\)",
+        "\\( 60^\\circ \\)",
+        "\\( 45^\\circ \\)",
+        "\\( 90^\\circ \\)"
+      ],
+      "answerIndex": 1,
+      "examTag": "Trigonometry Type-3",
+      "reason": "Divide the numerator and denominator of the LHS by \\( \\cos\\theta \\). This transforms the equation to \\( \\frac{1 - \\tan\\theta}{1 + \\tan\\theta} \\). By comparing this directly to the RHS \\( \\frac{1 - \\sqrt{3}}{1 + \\sqrt{3}} \\), we can see that \\( \\tan\\theta = \\sqrt{3} \\). Therefore, \\( \\theta = 60^\\circ \\).",
+      "reason_hi": "LHS के अंश और हर को \\( \\cos\\theta \\) से विभाजित करें। यह समीकरण को \\( \\frac{1 - \\tan\\theta}{1 + \\tan\\theta} \\) में बदल देता है। इसकी तुलना सीधे RHS \\( \\frac{1 - \\sqrt{3}}{1 + \\sqrt{3}} \\) से करने पर, हम देख सकते हैं कि \\( \\tan\\theta = \\sqrt{3} \\) है। अतः, \\( \\theta = 60^\\circ \\)।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-3-kapil-sir-6",
+      "prompt": "\\( \\sin 45^\\circ \\sin 30^\\circ + \\cos 45^\\circ \\times \\cos 30^\\circ = ? \\)",
+      "prompt_hi": "\\( \\sin 45^\\circ \\sin 30^\\circ + \\cos 45^\\circ \\times \\cos 30^\\circ \\) का मान क्या होगा?",
+      "options": [
+        "\\( \\frac{1 + \\sqrt{3}}{\\sqrt{2}} \\)",
+        "\\( \\frac{\\sqrt{3} + 1}{\\sqrt{2}} \\)",
+        "\\( \\frac{\\sqrt{3} - 1}{2\\sqrt{2}} \\)",
+        "\\( \\frac{\\sqrt{3} + 1}{2\\sqrt{2}} \\)"
+      ],
+      "options_hi": [
+        "\\( \\frac{1 + \\sqrt{3}}{\\sqrt{2}} \\)",
+        "\\( \\frac{\\sqrt{3} + 1}{\\sqrt{2}} \\)",
+        "\\( \\frac{\\sqrt{3} - 1}{2\\sqrt{2}} \\)",
+        "\\( \\frac{\\sqrt{3} + 1}{2\\sqrt{2}} \\)"
+      ],
+      "answerIndex": 3,
+      "examTag": "Trigonometry Type-3",
+      "reason": "Substituting standard trigonometric values: \\( \\sin 45^\\circ = \\frac{1}{\\sqrt{2}} \\), \\( \\sin 30^\\circ = \\frac{1}{2} \\), \\( \\cos 45^\\circ = \\frac{1}{\\sqrt{2}} \\), and \\( \\cos 30^\\circ = \\frac{\\sqrt{3}}{2} \\). The expression becomes \\( \\left(\\frac{1}{\\sqrt{2}}\\right)\\left(\\frac{1}{2}\\right) + \\left(\\frac{1}{\\sqrt{2}}\\right)\\left(\\frac{\\sqrt{3}}{2}\\right) = \\frac{1}{2\\sqrt{2}} + \\frac{\\sqrt{3}}{2\\sqrt{2}} = \\frac{\\sqrt{3} + 1}{2\\sqrt{2}} \\).",
+      "reason_hi": "मानक त्रिकोणमितीय मान रखने पर: \\( \\sin 45^\\circ = \\frac{1}{\\sqrt{2}} \\), \\( \\sin 30^\\circ = \\frac{1}{2} \\), \\( \\cos 45^\\circ = \\frac{1}{\\sqrt{2}} \\), और \\( \\cos 30^\\circ = \\frac{\\sqrt{3}}{2} \\)। व्यंजक \\( \\left(\\frac{1}{\\sqrt{2}}\\right)\\left(\\frac{1}{2}\\right) + \\left(\\frac{1}{\\sqrt{2}}\\right)\\left(\\frac{\\sqrt{3}}{2}\\right) = \\frac{1}{2\\sqrt{2}} + \\frac{\\sqrt{3}}{2\\sqrt{2}} = \\frac{\\sqrt{3} + 1}{2\\sqrt{2}} \\) बन जाता है।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-3-kapil-sir-7",
+      "prompt": "\\( \\sin 60^\\circ \\times \\cos 30^\\circ + \\cos 60^\\circ \\times \\sin 30^\\circ = ? \\)",
+      "prompt_hi": "\\( \\sin 60^\\circ \\times \\cos 30^\\circ + \\cos 60^\\circ \\times \\sin 30^\\circ = ? \\)",
+      "options": [
+        "\\( 0 \\)",
+        "\\( 1 \\)",
+        "\\( 2 \\)",
+        "\\( \\frac{\\sqrt{3}}{2} \\)"
+      ],
+      "options_hi": [
+        "\\( 0 \\)",
+        "\\( 1 \\)",
+        "\\( 2 \\)",
+        "\\( \\frac{\\sqrt{3}}{2} \\)"
+      ],
+      "answerIndex": 1,
+      "examTag": "Trigonometry Type-3",
+      "reason": "Substituting standard values: \\( \\left(\\frac{\\sqrt{3}}{2}\\right)\\left(\\frac{\\sqrt{3}}{2}\\right) + \\left(\\frac{1}{2}\\right)\\left(\\frac{1}{2}\\right) = \\frac{3}{4} + \\frac{1}{4} = \\frac{4}{4} = 1 \\). Alternatively, using the formula \\( \\sin(A)\\cos(B) + \\cos(A)\\sin(B) = \\sin(A+B) \\), this is equal to \\( \\sin(60^\\circ + 30^\\circ) = \\sin(90^\\circ) = 1 \\).",
+      "reason_hi": "मानक मान रखने पर: \\( \\left(\\frac{\\sqrt{3}}{2}\\right)\\left(\\frac{\\sqrt{3}}{2}\\right) + \\left(\\frac{1}{2}\\right)\\left(\\frac{1}{2}\\right) = \\frac{3}{4} + \\frac{1}{4} = \\frac{4}{4} = 1 \\)। वैकल्पिक रूप से, \\( \\sin(A)\\cos(B) + \\cos(A)\\sin(B) = \\sin(A+B) \\) सूत्र का उपयोग करने पर, यह \\( \\sin(60^\\circ + 30^\\circ) = \\sin(90^\\circ) = 1 \\) के बराबर है।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-3-kapil-sir-8",
+      "prompt": "\\( \\cos 60^\\circ \\times \\cos 45^\\circ - \\sin 60^\\circ \\times \\sin 45^\\circ = ? \\)",
+      "prompt_hi": "\\( \\cos 60^\\circ \\times \\cos 45^\\circ - \\sin 60^\\circ \\times \\sin 45^\\circ = ? \\)",
+      "options": [
+        "\\( \\frac{1 + \\sqrt{3}}{2\\sqrt{2}} \\)",
+        "\\( \\frac{1 - \\sqrt{3}}{2\\sqrt{2}} \\)",
+        "\\( \\frac{1 + \\sqrt{3}}{2} \\)",
+        "\\( \\frac{\\sqrt{3} - 1}{2} \\)"
+      ],
+      "options_hi": [
+        "\\( \\frac{1 + \\sqrt{3}}{2\\sqrt{2}} \\)",
+        "\\( \\frac{1 - \\sqrt{3}}{2\\sqrt{2}} \\)",
+        "\\( \\frac{1 + \\sqrt{3}}{2} \\)",
+        "\\( \\frac{\\sqrt{3} - 1}{2} \\)"
+      ],
+      "answerIndex": 1,
+      "examTag": "Trigonometry Type-3",
+      "reason": "Substituting standard trigonometric values: \\( \\cos 60^\\circ = \\frac{1}{2} \\), \\( \\cos 45^\\circ = \\frac{1}{\\sqrt{2}} \\), \\( \\sin 60^\\circ = \\frac{\\sqrt{3}}{2} \\), and \\( \\sin 45^\\circ = \\frac{1}{\\sqrt{2}} \\). The expression becomes \\( \\left(\\frac{1}{2}\\right)\\left(\\frac{1}{\\sqrt{2}}\\right) - \\left(\\frac{\\sqrt{3}}{2}\\right)\\left(\\frac{1}{\\sqrt{2}}\\right) = \\frac{1}{2\\sqrt{2}} - \\frac{\\sqrt{3}}{2\\sqrt{2}} = \\frac{1 - \\sqrt{3}}{2\\sqrt{2}} \\).",
+      "reason_hi": "मानक त्रिकोणमितीय मान रखने पर: \\( \\cos 60^\\circ = \\frac{1}{2} \\), \\( \\cos 45^\\circ = \\frac{1}{\\sqrt{2}} \\), \\( \\sin 60^\\circ = \\frac{\\sqrt{3}}{2} \\), और \\( \\sin 45^\\circ = \\frac{1}{\\sqrt{2}} \\)। व्यंजक \\( \\left(\\frac{1}{2}\\right)\\left(\\frac{1}{\\sqrt{2}}\\right) - \\left(\\frac{\\sqrt{3}}{2}\\right)\\left(\\frac{1}{\\sqrt{2}}\\right) = \\frac{1}{2\\sqrt{2}} - \\frac{\\sqrt{3}}{2\\sqrt{2}} = \\frac{1 - \\sqrt{3}}{2\\sqrt{2}} \\) बन जाता है।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-3-kapil-sir-9",
+      "prompt": "\\( \\frac{\\tan 45^\\circ}{\\csc 30^\\circ} + \\frac{\\sec 60^\\circ}{\\cot 45^\\circ} - \\frac{5 \\sin 90^\\circ}{2 \\cos 0^\\circ} = ? \\)",
+      "prompt_hi": "\\( \\frac{\\tan 45^\\circ}{\\csc 30^\\circ} + \\frac{\\sec 60^\\circ}{\\cot 45^\\circ} - \\frac{5 \\sin 90^\\circ}{2 \\cos 0^\\circ} = ? \\)",
+      "options": [
+        "\\( 0 \\)",
+        "\\( 2 \\)",
+        "\\( -1 \\)",
+        "\\( \\frac{5}{2} \\)"
+      ],
+      "options_hi": [
+        "\\( 0 \\)",
+        "\\( 2 \\)",
+        "\\( -1 \\)",
+        "\\( \\frac{5}{2} \\)"
+      ],
+      "answerIndex": 0,
+      "examTag": "Trigonometry Type-3",
+      "reason": "Substituting standard values: \\( \\tan 45^\\circ = 1 \\), \\( \\csc 30^\\circ = 2 \\), \\( \\sec 60^\\circ = 2 \\), \\( \\cot 45^\\circ = 1 \\), \\( \\sin 90^\\circ = 1 \\), \\( \\cos 0^\\circ = 1 \\). The expression becomes \\( \\frac{1}{2} + \\frac{2}{1} - \\frac{5(1)}{2(1)} = \\frac{1}{2} + 2 - \\frac{5}{2} = 2.5 - 2.5 = 0 \\).",
+      "reason_hi": "मानक मान रखने पर: \\( \\tan 45^\\circ = 1 \\), \\( \\csc 30^\\circ = 2 \\), \\( \\sec 60^\\circ = 2 \\), \\( \\cot 45^\\circ = 1 \\), \\( \\sin 90^\\circ = 1 \\), \\( \\cos 0^\\circ = 1 \\)। व्यंजक \\( \\frac{1}{2} + \\frac{2}{1} - \\frac{5(1)}{2(1)} = \\frac{1}{2} + 2 - \\frac{5}{2} = 2.5 - 2.5 = 0 \\) हो जाता है।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-3-kapil-sir-10",
+      "prompt": "\\( 2 \\sin^2 30^\\circ - 3 \\cos^2 45^\\circ + \\tan^2 60^\\circ = ? \\)",
+      "prompt_hi": "\\( 2 \\sin^2 30^\\circ - 3 \\cos^2 45^\\circ + \\tan^2 60^\\circ = ? \\)",
+      "options": [
+        "\\( 2 \\)",
+        "\\( 0 \\)",
+        "\\( 1 \\)",
+        "\\( 5 \\)"
+      ],
+      "options_hi": [
+        "\\( 2 \\)",
+        "\\( 0 \\)",
+        "\\( 1 \\)",
+        "\\( 5 \\)"
+      ],
+      "answerIndex": 0,
+      "examTag": "Trigonometry Type-3",
+      "reason": "Substituting values: \\( \\sin 30^\\circ = \\frac{1}{2} \\), \\( \\cos 45^\\circ = \\frac{1}{\\sqrt{2}} \\), \\( \\tan 60^\\circ = \\sqrt{3} \\). The expression becomes \\( 2\\left(\\frac{1}{2}\\right)^2 - 3\\left(\\frac{1}{\\sqrt{2}}\\right)^2 + (\\sqrt{3})^2 = 2\\left(\\frac{1}{4}\\right) - 3\\left(\\frac{1}{2}\\right) + 3 = \\frac{1}{2} - \\frac{3}{2} + 3 = -1 + 3 = 2 \\).",
+      "reason_hi": "मान रखने पर: \\( \\sin 30^\\circ = \\frac{1}{2} \\), \\( \\cos 45^\\circ = \\frac{1}{\\sqrt{2}} \\), \\( \\tan 60^\\circ = \\sqrt{3} \\)। व्यंजक \\( 2\\left(\\frac{1}{2}\\right)^2 - 3\\left(\\frac{1}{\\sqrt{2}}\\right)^2 + (\\sqrt{3})^2 = 2\\left(\\frac{1}{4}\\right) - 3\\left(\\frac{1}{2}\\right) + 3 = \\frac{1}{2} - \\frac{3}{2} + 3 = -1 + 3 = 2 \\) हो जाता है।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-3-kapil-sir-11",
+      "prompt": "If \\( x \\sin^2 60^\\circ - \\frac{3}{2} \\sec 60^\\circ \\tan^2 30^\\circ + \\frac{4}{5} \\sin^2 45^\\circ \\tan^2 60^\\circ = 0 \\), find \\( x = ? \\)",
+      "prompt_hi": "यदि \\( x \\sin^2 60^\\circ - \\frac{3}{2} \\sec 60^\\circ \\tan^2 30^\\circ + \\frac{4}{5} \\sin^2 45^\\circ \\tan^2 60^\\circ = 0 \\) है, तो \\( x = ? \\)",
+      "options": [
+        "\\( \\frac{2}{15} \\)",
+        "\\( \\frac{2}{5} \\)",
+        "\\( -\\frac{4}{15} \\)",
+        "\\( -\\frac{2}{5} \\)"
+      ],
+      "options_hi": [
+        "\\( \\frac{2}{15} \\)",
+        "\\( \\frac{2}{5} \\)",
+        "\\( -\\frac{4}{15} \\)",
+        "\\( -\\frac{2}{5} \\)"
+      ],
+      "answerIndex": 2,
+      "examTag": "Trigonometry Type-3",
+      "reason": "Substituting standard values: \\( x\\left(\\frac{\\sqrt{3}}{2}\\right)^2 - \\left(\\frac{3}{2}\\right)(2)\\left(\\frac{1}{\\sqrt{3}}\\right)^2 + \\left(\\frac{4}{5}\\right)\\left(\\frac{1}{\\sqrt{2}}\\right)^2(\\sqrt{3})^2 = 0 \\). Simplifying gives \\( x\\left(\\frac{3}{4}\\right) - 3\\left(\\frac{1}{3}\\right) + \\left(\\frac{4}{5}\\right)\\left(\\frac{1}{2}\\right)(3) = 0 \\). This gives \\( \\frac{3x}{4} - 1 + \\frac{6}{5} = 0 \\). So, \\( \\frac{3x}{4} + \\frac{1}{5} = 0 \\implies \\frac{3x}{4} = -\\frac{1}{5} \\implies x = -\\frac{4}{15} \\).",
+      "reason_hi": "मानक मान रखने पर: \\( x\\left(\\frac{\\sqrt{3}}{2}\\right)^2 - \\left(\\frac{3}{2}\\right)(2)\\left(\\frac{1}{\\sqrt{3}}\\right)^2 + \\left(\\frac{4}{5}\\right)\\left(\\frac{1}{\\sqrt{2}}\\right)^2(\\sqrt{3})^2 = 0 \\)। हल करने पर \\( x\\left(\\frac{3}{4}\\right) - 3\\left(\\frac{1}{3}\\right) + \\left(\\frac{4}{5}\\right)\\left(\\frac{1}{2}\\right)(3) = 0 \\) प्राप्त होता है। इससे \\( \\frac{3x}{4} - 1 + \\frac{6}{5} = 0 \\) मिलता है। अतः, \\( \\frac{3x}{4} + \\frac{1}{5} = 0 \\implies \\frac{3x}{4} = -\\frac{1}{5} \\implies x = -\\frac{4}{15} \\)।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-3-kapil-sir-12",
+      "prompt": "If \\( x \\sin 45^\\circ = y \\csc 30^\\circ \\), then \\( \\frac{x^4}{y^4} = ? \\)",
+      "prompt_hi": "यदि \\( x \\sin 45^\\circ = y \\csc 30^\\circ \\) है, तो \\( \\frac{x^4}{y^4} = ? \\)",
+      "options": [
+        "\\( 36 \\)",
+        "\\( 64 \\)",
+        "\\( 128 \\)",
+        "\\( 512 \\)"
+      ],
+      "options_hi": [
+        "\\( 36 \\)",
+        "\\( 64 \\)",
+        "\\( 128 \\)",
+        "\\( 512 \\)"
+      ],
+      "answerIndex": 1,
+      "examTag": "Trigonometry Type-3",
+      "reason": "Substituting standard values: \\( x\\left(\\frac{1}{\\sqrt{2}}\\right) = y(2) \\). Rearranging this gives \\( \\frac{x}{y} = 2\\sqrt{2} \\). Therefore, \\( \\left(\\frac{x}{y}\\right)^4 = (2\\sqrt{2})^4 = 16 \\times 4 = 64 \\).",
+      "reason_hi": "मानक मान रखने पर: \\( x\\left(\\frac{1}{\\sqrt{2}}\\right) = y(2) \\)। इसे व्यवस्थित करने पर \\( \\frac{x}{y} = 2\\sqrt{2} \\) प्राप्त होता है। इसलिए, \\( \\left(\\frac{x}{y}\\right)^4 = (2\\sqrt{2})^4 = 16 \\times 4 = 64 \\) होगा।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-3-kapil-sir-13",
+      "prompt": "If \\( \\csc\\theta = \\sqrt{3} \\), then \\( \\cot\\theta - \\csc\\theta = ? \\)",
+      "prompt_hi": "यदि \\( \\csc\\theta = \\sqrt{3} \\) है, तो \\( \\cot\\theta - \\csc\\theta = ? \\)",
+      "options": [
+        "\\( \\sqrt{3} - \\sqrt{2} \\)",
+        "\\( \\sqrt{2} - \\sqrt{3} \\)",
+        "\\( \\sqrt{3} - 1 \\)",
+        "\\( 1 - \\sqrt{3} \\)"
+      ],
+      "options_hi": [
+        "\\( \\sqrt{3} - \\sqrt{2} \\)",
+        "\\( \\sqrt{2} - \\sqrt{3} \\)",
+        "\\( \\sqrt{3} - 1 \\)",
+        "\\( 1 - \\sqrt{3} \\)"
+      ],
+      "answerIndex": 1,
+      "examTag": "Trigonometry Type-3",
+      "reason": "Given \\( \\csc\\theta = \\frac{\\sqrt{3}}{1} \\) (Hypotenuse / Perpendicular), so \\( H = \\sqrt{3} \\) and \\( P = 1 \\). Base \\( B = \\sqrt{H^2 - P^2} = \\sqrt{3 - 1} = \\sqrt{2} \\). Now, \\( \\cot\\theta = \\frac{\\text{Base}}{\\text{Perpendicular}} = \\frac{\\sqrt{2}}{1} = \\sqrt{2} \\). Therefore, \\( \\cot\\theta - \\csc\\theta = \\sqrt{2} - \\sqrt{3} \\).",
+      "reason_hi": "दिया गया है \\( \\csc\\theta = \\frac{\\sqrt{3}}{1} \\) (कर्ण / लंब), अतः \\( H = \\sqrt{3} \\) और \\( P = 1 \\) है। आधार \\( B = \\sqrt{H^2 - P^2} = \\sqrt{3 - 1} = \\sqrt{2} \\)। अब, \\( \\cot\\theta = \\frac{\\text{आधार}}{\\text{लंब}} = \\frac{\\sqrt{2}}{1} = \\sqrt{2} \\)। अतः, \\( \\cot\\theta - \\csc\\theta = \\sqrt{2} - \\sqrt{3} \\) होगा।"
+    }
+  ]
+}

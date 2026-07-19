@@ -7,6 +7,7 @@ import { Database, FolderTree } from 'lucide-react';
 import { HologramBackground } from './HologramBackground';
 import { HologramFolderCard } from './HologramFolderCard';
 import { HologramViewerWrapper } from './HologramViewerWrapper';
+import FolderContentSwitcher from '@/components/study-material/FolderContentSwitcher';
 import StatsBanner from '@/components/study-material/StatsBanner';
 
 const containerVariants: Variants = {
@@ -92,72 +93,74 @@ export function GSHologramTheme({ node, path, subjectTitle, subjectSlug }: Props
           )}
         </header>
 
-        {/* Sub-directories (Folders) */}
-        {node.children && node.children.length > 0 && (
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="show"
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[200px] mb-12"
-          >
-            {node.children.map((child: any, i: number) => {
-              const href = `/study-material/${subjectSlug}/${path.join('/')}/${child.slug}`;
-              return (
-                <motion.div key={child.slug} variants={itemVariants} className="h-full">
-                  <Link href={href} className="block h-full outline-none group">
-                    <HologramFolderCard>
-                      
-                      <div className="flex items-center gap-3 mb-6">
-                        <FolderTree className="w-5 h-5 text-cyan-500" />
-                        <span className="text-xs text-cyan-600 tracking-widest uppercase">DIR_{String(i + 1).padStart(3, '0')}</span>
-                      </div>
+        <FolderContentSwitcher 
+          node={node}
+          subjectSlug={subjectSlug}
+          baseRoute={`/study-material/${subjectSlug}/${path.join('/')}`}
+          renderFolders={() => (
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="show"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[200px] mb-12"
+            >
+              {node.children!.map((child: any, i: number) => {
+                const href = `/study-material/${subjectSlug}/${path.join('/')}/${child.slug}`;
+                return (
+                  <motion.div key={child.slug} variants={itemVariants} className="h-full">
+                    <Link href={href} className="block h-full outline-none group">
+                      <HologramFolderCard>
+                        
+                        <div className="flex items-center gap-3 mb-6">
+                          <FolderTree className="w-5 h-5 text-cyan-500" />
+                          <span className="text-xs text-cyan-600 tracking-widest uppercase">DIR_{String(i + 1).padStart(3, '0')}</span>
+                        </div>
 
-                      <h2 className="text-2xl font-bold text-cyan-100 group-hover:text-white transition-colors duration-300 drop-shadow-[0_0_5px_rgba(34,211,238,0.5)]">
-                        {child.title}
-                      </h2>
-                      
-                      <div className="mt-auto flex flex-wrap gap-2 text-xs">
-                        {child.stats.concepts > 0 && (
-                          <span className="px-2 py-1 bg-cyan-900/40 text-cyan-300 border border-cyan-800/50">
-                            {child.stats.concepts} Concepts
-                          </span>
-                        )}
-                        {child.stats.quizzes > 0 && (
-                          <span className="px-2 py-1 bg-emerald-900/30 text-emerald-300 border border-emerald-800/50">
-                            {child.stats.quizzes} Quizzes
-                          </span>
-                        )}
-                        {child.stats.questions > 0 && (
-                          <span className="px-2 py-1 bg-blue-900/30 text-blue-300 border border-blue-800/50">
-                            {child.stats.questions} Q's
-                          </span>
-                        )}
-                        {child.stats.flashcards > 0 && (
-                          <span className="px-2 py-1 bg-fuchsia-900/30 text-fuchsia-300 border border-fuchsia-800/50">
-                            {child.stats.flashcards} Cards
-                          </span>
-                        )}
-                      </div>
+                        <h2 className="text-2xl font-bold text-cyan-100 group-hover:text-white transition-colors duration-300 drop-shadow-[0_0_5px_rgba(34,211,238,0.5)]">
+                          {child.title}
+                        </h2>
+                        
+                        <div className="mt-auto flex flex-wrap gap-2 text-xs">
+                          {child.stats.concepts > 0 && (
+                            <span className="px-2 py-1 bg-cyan-900/40 text-cyan-300 border border-cyan-800/50">
+                              {child.stats.concepts} Concepts
+                            </span>
+                          )}
+                          {child.stats.quizzes > 0 && (
+                            <span className="px-2 py-1 bg-emerald-900/30 text-emerald-300 border border-emerald-800/50">
+                              {child.stats.quizzes} Quizzes
+                            </span>
+                          )}
+                          {child.stats.questions > 0 && (
+                            <span className="px-2 py-1 bg-blue-900/30 text-blue-300 border border-blue-800/50">
+                              {child.stats.questions} Q's
+                            </span>
+                          )}
+                          {child.stats.flashcards > 0 && (
+                            <span className="px-2 py-1 bg-fuchsia-900/30 text-fuchsia-300 border border-fuchsia-800/50">
+                              {child.stats.flashcards} Cards
+                            </span>
+                          )}
+                        </div>
 
-                    </HologramFolderCard>
-                  </Link>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        )}
-
-        {/* The Final Concept Data Viewer */}
-        {node.concept && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="max-w-5xl mx-auto"
-          >
-            <HologramViewerWrapper concept={node.concept} />
-          </motion.div>
-        )}
+                      </HologramFolderCard>
+                    </Link>
+                  </motion.div>
+                );
+              })}
+            </motion.div>
+          )}
+          renderConcept={(activeFilter) => (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="max-w-5xl mx-auto"
+            >
+              <HologramViewerWrapper concept={node.concept!} activeFilter={activeFilter} />
+            </motion.div>
+          )}
+        />
 
       </div>
     </div>

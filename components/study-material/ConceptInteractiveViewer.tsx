@@ -22,34 +22,40 @@ interface Props {
   notesMarkdown: string | null;
   noteBoxes: NoteBox[] | null;
   pdfUrl: string | null;
+  pdfs?: { id: string; title: string; url: string }[];
   youtubeUrls: string[] | null;
   quizzes: KDQuiz[];
   flashcardSets?: KDFlashcardSet[];
   slug: string;
+  activeFilter?: string;
 }
 
-export function ConceptInteractiveViewer({ title, notesMarkdown, noteBoxes, pdfUrl, youtubeUrls, quizzes, flashcardSets, slug }: Props) {
+export function ConceptInteractiveViewer({ title, notesMarkdown, noteBoxes, pdfUrl, pdfs, youtubeUrls, quizzes, flashcardSets, slug, activeFilter = 'all' }: Props) {
   const [activeQuizId, setActiveQuizId] = useState<string | null>(null);
   const [activeFlashcardId, setActiveFlashcardId] = useState<string | null>(null);
   const [quizQuestionCount, setQuizQuestionCount] = useState<number | null>(null);
   const [isCanvasOpen, setIsCanvasOpen] = useState(false);
   const [fullscreenMode, setFullscreenMode] = useState<'none' | 'pdf' | 'canvas'>('none');
   const { enterFullscreen, exitFullscreen } = useFullscreen();
-  const { user } = useUser();
+  const { user, isSignedIn } = useUser();
   const userEmail = user?.primaryEmailAddress?.emailAddress;
 
-  const hasPdf = !!pdfUrl;
+  const allowList = (process.env.NEXT_PUBLIC_ADMIN_USERS || '')
+    .split(',')
+    .map((s) => s.trim().toLowerCase())
+    .filter(Boolean);
+  const isAdmin = isSignedIn && (!allowList.length || (userEmail && allowList.includes(userEmail.toLowerCase())));
+
+  const hasPdf = (pdfs && pdfs.length > 0) || !!pdfUrl;
   const hasNoteboxes = !!(noteBoxes && noteBoxes.length > 0);
   const hasMarkdown = !!notesMarkdown;
 
-  const [activeTab, setActiveTab] = useState<'pdf' | 'noteboxes' | 'markdown'>(() => {
-    if (hasPdf) return 'pdf';
+  const [activeTab, setActiveTab] = useState<'noteboxes' | 'markdown'>(() => {
     if (hasNoteboxes) return 'noteboxes';
     return 'markdown';
   });
 
   const tabs = [];
-  if (hasPdf) tabs.push({ id: 'pdf', label: '📄 PDF Notes' });
   if (hasNoteboxes) tabs.push({ id: 'noteboxes', label: '📦 Interactive Notes' });
   if (hasMarkdown) tabs.push({ id: 'markdown', label: '📝 Text Notes' });
 
@@ -99,7 +105,7 @@ export function ConceptInteractiveViewer({ title, notesMarkdown, noteBoxes, pdfU
       <div className={activeQuizId ? 'hidden' : 'block'}>
         
         {/* Render YouTube Videos if present */}
-        {youtubeUrls && youtubeUrls.length > 0 && (
+        {(activeFilter === 'all' || activeFilter === 'videos') && youtubeUrls && youtubeUrls.length > 0 && (
           <div className="flex flex-col gap-6 mb-8">
             {youtubeUrls.map((url, idx) => (
               <div key={idx} className="w-full aspect-video animate-in fade-in duration-500 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-sm bg-black">
@@ -116,12 +122,13 @@ export function ConceptInteractiveViewer({ title, notesMarkdown, noteBoxes, pdfU
         )}
 
         {/* Tab Switcher if multiple sources exist */}
-        {tabs.length > 1 && (
+        {/* Tab Switcher if multiple sources exist */}
+        {tabs.length > 1 && (activeFilter === 'all' || activeFilter === 'notes') && (
           <div className="flex space-x-2 mb-6 p-1 bg-gray-100 dark:bg-gray-800 rounded-xl overflow-x-auto">
             {tabs.map(tab => (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id as 'pdf' | 'noteboxes' | 'markdown')}
+                onClick={() => setActiveTab(tab.id as 'noteboxes' | 'markdown')}
                 className={`flex-1 py-2 px-4 rounded-lg text-sm font-medium transition-colors whitespace-nowrap ${
                   activeTab === tab.id
                     ? 'bg-white dark:bg-gray-900 text-emerald-600 dark:text-emerald-400 shadow-sm'
@@ -134,106 +141,8 @@ export function ConceptInteractiveViewer({ title, notesMarkdown, noteBoxes, pdfU
           </div>
         )}
 
-        {/* Render PDF if active */}
-        {activeTab === 'pdf' && pdfUrl && (
-          <div className={`mb-8 animate-in fade-in duration-500 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-sm bg-white dark:bg-gray-900 flex flex-col ${fullscreenMode !== 'none' ? 'fixed inset-0 z-[100] rounded-none border-none m-0' : 'w-full h-[80vh] min-h-[600px]'}`}>
-            {/* PDF Header with Fullscreen Toggle */}
-            <div className="flex items-center justify-between px-4 py-3 bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
-              <h3 className="font-semibold text-gray-700 dark:text-gray-200 truncate pr-4">
-                {title} - PDF Notes
-              </h3>
-              <div className="flex items-center space-x-2">
-                {userEmail === 'kc90040@gmail.com' && (
-                  <a
-                    href={`${pdfUrl}?download=1`}
-                    download
-                    className="flex items-center space-x-2 px-3 py-1.5 text-sm rounded-lg bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-emerald-900/40 transition-colors shadow-sm whitespace-nowrap shrink-0"
-                  >
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                    </svg>
-                    <span>Download PDF</span>
-                  </a>
-                )}
-                {userEmail === 'kc90040@gmail.com' ? (
-                  <>
-                    <button
-                      onClick={() => setFullscreenMode(fullscreenMode === 'pdf' ? 'none' : 'pdf')}
-                      className={`flex items-center space-x-2 px-3 py-1.5 text-sm rounded-lg border transition-colors shadow-sm whitespace-nowrap shrink-0 ${
-                        fullscreenMode === 'pdf' 
-                          ? 'bg-emerald-50 border-emerald-200 text-emerald-600 dark:bg-emerald-900/20 dark:border-emerald-800 dark:text-emerald-400' 
-                          : 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
-                      }`}
-                    >
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-                      </svg>
-                      <span>{fullscreenMode === 'pdf' ? 'Exit Fullscreen' : 'Read Fullscreen'}</span>
-                    </button>
-                    <button
-                      onClick={() => setFullscreenMode(fullscreenMode === 'canvas' ? 'none' : 'canvas')}
-                      className={`flex items-center space-x-2 px-3 py-1.5 text-sm rounded-lg border transition-colors shadow-sm whitespace-nowrap shrink-0 ${
-                        fullscreenMode === 'canvas'
-                          ? 'bg-violet-50 border-violet-200 text-violet-600 dark:bg-violet-900/20 dark:border-violet-800 dark:text-violet-400'
-                          : 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
-                      }`}
-                    >
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                      </svg>
-                      <span>{fullscreenMode === 'canvas' ? 'Exit Canvas' : 'Teach Fullscreen'}</span>
-                    </button>
-                  </>
-                ) : (
-                  <button
-                    onClick={() => setFullscreenMode(fullscreenMode === 'pdf' ? 'none' : 'pdf')}
-                    className="flex items-center space-x-2 px-3 py-1.5 text-sm rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors shadow-sm whitespace-nowrap shrink-0"
-                  >
-                  {fullscreenMode === 'pdf' ? (
-                    <>
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                      <span>Exit Fullscreen</span>
-                    </>
-                  ) : (
-                    <>
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-                      </svg>
-                      <span>Read in Fullscreen</span>
-                    </>
-                  )}
-                  </button>
-                )}
-            </div>
-          </div>
-            {/* PDF Viewer */}
-            <div className="flex-1 w-full h-full relative" onContextMenu={(e) => e.preventDefault()}>
-              {fullscreenMode === 'canvas' && userEmail === 'kc90040@gmail.com' ? (
-                <iframe 
-                  suppressHydrationWarning
-                  src={`https://trickfunda-canvas.vercel.app/?pdfUrl=${encodeURIComponent(
-                    pdfUrl.startsWith('http') ? pdfUrl : (typeof window !== 'undefined' ? window.location.origin + pdfUrl : pdfUrl)
-                  )}`}
-                  className="absolute inset-0 w-full h-full border-none" 
-                  title={`Trickfunda Canvas for ${title}`}
-                  allow="fullscreen"
-                />
-              ) : (
-                <iframe 
-                  suppressHydrationWarning
-                  src={`${pdfUrl}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`} 
-                  className="absolute inset-0 w-full h-full border-none" 
-                  title={`PDF Notes for ${title}`}
-                />
-              )}
-            </div>
-          </div>
-        )}
-
         {/* Render JSON Noteboxes if active */}
-        {activeTab === 'noteboxes' && noteBoxes && noteBoxes.length > 0 && (
+        {(activeFilter === 'all' || activeFilter === 'notes') && activeTab === 'noteboxes' && noteBoxes && noteBoxes.length > 0 && (
           <div className="flex flex-col gap-6 mb-8 animate-in fade-in duration-500">
             {noteBoxes.map((note, index) => (
               <NoteBoxRenderer key={note.id || index} note={note} index={index} />
@@ -242,7 +151,7 @@ export function ConceptInteractiveViewer({ title, notesMarkdown, noteBoxes, pdfU
         )}
 
         {/* Render Markdown if active */}
-        {activeTab === 'markdown' && notesMarkdown && (
+        {(activeFilter === 'all' || activeFilter === 'notes') && activeTab === 'markdown' && notesMarkdown && (
           <section className="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-800 animate-in fade-in duration-500 mb-8">
             <div className="prose prose-slate dark:prose-invert max-w-none prose-emerald">
               <ReactMarkdown
@@ -255,7 +164,46 @@ export function ConceptInteractiveViewer({ title, notesMarkdown, noteBoxes, pdfU
           </section>
         )}
 
-        {flashcardSets && flashcardSets.length > 0 && (
+        {/* PDF Buttons */}
+        {(activeFilter === 'all' || activeFilter === 'pdfs') && hasPdf && (
+          <section className="pt-6 pb-4 flex flex-col items-center justify-center gap-6">
+            {(pdfs || (pdfUrl ? [{ id: 'notes', title: 'PDF Notes', url: pdfUrl }] : [])).map((p) => (
+              <div key={p.id} className="flex flex-col sm:flex-row items-center gap-4">
+                <a
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-10 py-4 bg-rose-500 hover:bg-rose-600 text-white rounded-xl font-bold text-xl transition-all duration-300 shadow-[0_0_20px_rgba(244,63,94,0.3)] hover:shadow-[0_0_30px_rgba(244,63,94,0.5)] hover:-translate-y-1 active:translate-y-0"
+                >
+                  <div className="flex flex-col items-center">
+                    <span>Open {p.title}</span>
+                    <span className="text-xs font-normal opacity-90 mt-1 bg-black/20 px-2 py-0.5 rounded-full">
+                      PDF Document
+                    </span>
+                  </div>
+                </a>
+
+                {isAdmin && (
+                  <a
+                    href={`/canvas?pdf=${encodeURIComponent(p.url)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-10 py-4 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl font-bold text-xl transition-all duration-300 shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_30px_rgba(16,185,129,0.5)] hover:-translate-y-1 active:translate-y-0"
+                  >
+                    <div className="flex flex-col items-center">
+                      <span>Present {p.title}</span>
+                      <span className="text-xs font-normal opacity-90 mt-1 bg-black/20 px-2 py-0.5 rounded-full">
+                        Canvas View
+                      </span>
+                    </div>
+                  </a>
+                )}
+              </div>
+            ))}
+          </section>
+        )}
+
+        {(activeFilter === 'all' || activeFilter === 'flashcards') && flashcardSets && flashcardSets.length > 0 && (
           <section className="pt-6 pb-4 flex flex-wrap justify-center gap-4">
             {flashcardSets.map((f) => (
               <button
@@ -274,7 +222,7 @@ export function ConceptInteractiveViewer({ title, notesMarkdown, noteBoxes, pdfU
           </section>
         )}
 
-        {quizzes && quizzes.length > 0 && (
+        {(activeFilter === 'all' || activeFilter === 'quizzes') && quizzes && quizzes.length > 0 && (
           <section className="pt-4 pb-12 flex flex-wrap justify-center gap-4">
             {quizzes.map((q) => (
               <button

@@ -1,0 +1,971 @@
+[
+  {
+    "id": "physics-sound-class-4-001",
+    "type": "concept",
+    "front": "What physical phenomenon causes music or noise to feel louder during the night?",
+    "front_hi": "किस भौतिक घटना के कारण रात के दौरान संगीत या शोर अधिक तेज़ (louder) महसूस होता है?",
+    "back": "Refraction of Sound Waves.",
+    "back_hi": "ध्वनि तरंगों का अपवर्तन (Refraction of Sound Waves)।",
+    "hint": "The bending of sound due to temperature changes.",
+    "hint_hi": "तापमान में परिवर्तन के कारण ध्वनि का मुड़ना।",
+    "trick": "Logic Link: At night, the temperature gradient in the air changes, causing the sound wave to bend towards the ground rather than escaping into the sky, making it hit our ears with more energy.",
+    "trick_hi": "Logic Link: रात में, हवा में तापमान प्रवणता (gradient) बदल जाती है, जिससे ध्वनि तरंग आकाश में भागने के बजाय जमीन की ओर मुड़ जाती है, जिससे यह अधिक ऊर्जा के साथ हमारे कानों से टकराती है।",
+    "explanation": "Refraction is the change in direction of a wave passing from one medium to another.",
+    "explanation_hi": "अपवर्तन एक माध्यम से दूसरे माध्यम में जाने वाली तरंग की दिशा में परिवर्तन है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "sound", "refraction", "night"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-002",
+    "type": "concept",
+    "front": "During the DAY time, which type of air layer is closest to the ground?",
+    "front_hi": "दिन (DAY) के समय, जमीन के सबसे करीब किस प्रकार की वायु परत होती है?",
+    "back": "Warm Air.",
+    "back_hi": "गर्म हवा (Warm Air)।",
+    "hint": "The sun heats the earth's surface.",
+    "hint_hi": "सूरज पृथ्वी की सतह को गर्म करता है।",
+    "trick": "Logic Link: Sunlight hits the ground directly, heating it up. The ground then transfers this heat to the air immediately above it, making the bottom layer warm.",
+    "trick_hi": "Logic Link: सूरज की रोशनी सीधे जमीन से टकराती है, जिससे वह गर्म हो जाती है। फिर जमीन इस गर्मी को ठीक ऊपर की हवा में स्थानांतरित कर देती है, जिससे निचली परत गर्म हो जाती है।",
+    "explanation": "This warm layer plays a crucial role in daytime sound refraction.",
+    "explanation_hi": "यह गर्म परत दिन के समय ध्वनि अपवर्तन में महत्वपूर्ण भूमिका निभाती है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "sound", "refraction", "day", "temperature"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-003",
+    "type": "concept",
+    "front": "During the DAY time, which type of air layer is present higher up in the atmosphere?",
+    "front_hi": "दिन (DAY) के समय, वायुमंडल में ऊपर की ओर किस प्रकार की वायु परत मौजूद होती है?",
+    "back": "Cool Air.",
+    "back_hi": "ठंडी हवा (Cool Air)।",
+    "hint": "Away from the hot ground.",
+    "hint_hi": "गर्म जमीन से दूर।",
+    "trick": "Logic Link: Because the heat source is the ground, the air gets progressively cooler as you move upwards away from the surface during a sunny day.",
+    "trick_hi": "Logic Link: क्योंकि ऊष्मा का स्रोत जमीन है, धूप वाले दिन जैसे-जैसे आप सतह से ऊपर की ओर बढ़ते हैं, हवा उत्तरोत्तर ठंडी होती जाती है।",
+    "explanation": "Sound travels slower in this upper cool air layer.",
+    "explanation_hi": "इस ऊपरी ठंडी वायु परत में ध्वनि धीमी गति से यात्रा करती है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "sound", "refraction", "day", "temperature"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-004",
+    "type": "concept",
+    "front": "Due to Refraction during the DAY, in which direction do sound waves bend?",
+    "front_hi": "दिन के दौरान अपवर्तन के कारण ध्वनि तरंगें किस दिशा में मुड़ती हैं?",
+    "back": "Upwards (Towards the sky).",
+    "back_hi": "ऊपर की ओर (आकाश की ओर / Upwards)।",
+    "hint": "Away from the listener.",
+    "hint_hi": "श्रोता से दूर।",
+    "trick": "Logic Link: Sound travels faster in warm air (ground) and slower in cool air (sky). Waves always bend towards the slower medium, so they curve upwards into the sky.",
+    "trick_hi": "Logic Link: ध्वनि गर्म हवा (जमीन) में तेज और ठंडी हवा (आकाश) में धीमी गति से यात्रा करती है। तरंगें हमेशा धीमे माध्यम की ओर मुड़ती हैं, इसलिए वे आकाश में ऊपर की ओर मुड़ती हैं।",
+    "explanation": "This is why distant sounds are harder to hear during a hot day.",
+    "explanation_hi": "यही कारण है कि गर्मी के दिनों में दूर की आवाज़ें सुनना कठिन होता है।",
+    "meta": {
+      "difficulty": "hard",
+      "tags": ["physics", "sound", "refraction", "day", "direction"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-005",
+    "type": "concept",
+    "front": "During the NIGHT time, which type of air layer is closest to the ground?",
+    "front_hi": "रात (NIGHT) के समय, जमीन के सबसे करीब किस प्रकार की वायु परत होती है?",
+    "back": "Cool Air.",
+    "back_hi": "ठंडी हवा (Cool Air)।",
+    "hint": "The earth cools down after sunset.",
+    "hint_hi": "सूर्यास्त के बाद धरती ठंडी हो जाती है।",
+    "trick": "Logic Link: Without the sun, the ground rapidly loses its heat and becomes cold. It chills the air immediately touching it, creating a dense, cool layer at the bottom.",
+    "trick_hi": "Logic Link: सूरज के बिना, जमीन तेजी से अपनी गर्मी खो देती है और ठंडी हो जाती है। यह हवा को तुरंत छूते हुए ठंडा कर देता है, जिससे तल पर एक घनी, ठंडी परत बन जाती है।",
+    "explanation": "This inversion of temperature changes how sound travels.",
+    "explanation_hi": "तापमान का यह व्युत्क्रम (inversion) ध्वनि की यात्रा के तरीके को बदल देता है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "sound", "refraction", "night", "temperature"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-006",
+    "type": "concept",
+    "front": "During the NIGHT time, which type of air layer is present higher up in the atmosphere?",
+    "front_hi": "रात (NIGHT) के समय, वायुमंडल में ऊपर की ओर किस प्रकार की वायु परत मौजूद होती है?",
+    "back": "Warm Air.",
+    "back_hi": "गर्म हवा (Warm Air)।",
+    "hint": "The heat rises and gets trapped.",
+    "hint_hi": "गर्मी उठती है और फंस जाती है।",
+    "trick": "Logic Link: The daytime heat rises and remains suspended above the rapidly cooling ground, forming a warmer layer aloft.",
+    "trick_hi": "Logic Link: दिन की गर्मी बढ़ जाती है और तेजी से ठंडी होती जमीन के ऊपर निलंबित रहती है, जिससे ऊपर एक गर्म परत बन जाती है।",
+    "explanation": "Sound travels faster in this upper warm air layer at night.",
+    "explanation_hi": "रात में इस ऊपरी गर्म वायु परत में ध्वनि तेजी से यात्रा करती है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "sound", "refraction", "night", "temperature"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-007",
+    "type": "concept",
+    "front": "Due to Refraction during the NIGHT, in which direction do sound waves bend?",
+    "front_hi": "रात के दौरान अपवर्तन के कारण ध्वनि तरंगें किस दिशा में मुड़ती हैं?",
+    "back": "Downwards (Towards the ground/listener).",
+    "back_hi": "नीचे की ओर (जमीन/श्रोता की ओर / Downwards)।",
+    "hint": "The sound is pushed back to earth.",
+    "hint_hi": "आवाज वापस धरती पर धकेल दी जाती है।",
+    "trick": "Logic Link: At night, the upper air is warm (fast sound) and lower air is cool (slow sound). The top of the wave travels faster than the bottom, causing the wave to curve downward back to the surface.",
+    "trick_hi": "Logic Link: रात में, ऊपरी हवा गर्म (तेज ध्वनि) और निचली हवा ठंडी (धीमी ध्वनि) होती है। तरंग का शीर्ष तल की तुलना में तेजी से यात्रा करता है, जिससे तरंग नीचे की ओर मुड़कर सतह पर वापस आ जाती है।",
+    "explanation": "This downward bending traps acoustic energy near the ground.",
+    "explanation_hi": "यह नीचे की ओर झुकना जमीन के पास ध्वनिक ऊर्जा को फंसाता है।",
+    "meta": {
+      "difficulty": "hard",
+      "tags": ["physics", "sound", "refraction", "night", "direction"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-008",
+    "type": "concept",
+    "front": "What is the ultimate result of Sound Refraction at night for an observer?",
+    "front_hi": "एक पर्यवेक्षक (observer) के लिए रात में ध्वनि अपवर्तन का अंतिम परिणाम क्या होता है?",
+    "back": "Sounds (music/noise) feel much Louder and travel further.",
+    "back_hi": "ध्वनियाँ (संगीत/शोर) बहुत अधिक तेज़ (Louder) महसूस होती हैं और बहुत दूर तक यात्रा करती हैं।",
+    "hint": "Why distant parties keep you awake.",
+    "hint_hi": "क्यों दूर की पार्टियां आपको जगाए रखती हैं।",
+    "trick": "Logic Link: Because the waves are continually bent downwards instead of escaping into space, the acoustic energy is funneled along the ground directly into your ears, increasing intensity.",
+    "trick_hi": "Logic Link: क्योंकि तरंगें अंतरिक्ष में भागने के बजाय लगातार नीचे की ओर मुड़ी हुई हैं, इसलिए ध्वनिक ऊर्जा सीधे आपके कानों में जमीन के साथ प्रवाहित होती है, जिससे तीव्रता बढ़ती है।",
+    "explanation": "This is why train horns or highway traffic are heard clearly late at night.",
+    "explanation_hi": "यही कारण है कि देर रात ट्रेन के हॉर्न या हाईवे का ट्रैफिक स्पष्ट रूप से सुनाई देता है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "sound", "refraction", "result"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-009",
+    "type": "concept",
+    "front": "What is the scientific definition of the 'Diffraction' of sound waves?",
+    "front_hi": "ध्वनि तरंगों के 'विवर्तन' (Diffraction) की वैज्ञानिक परिभाषा क्या है?",
+    "back": "Bending of waves through edges or holes.",
+    "back_hi": "किनारों (edges) या छिद्रों (holes) के माध्यम से तरंगों का मुड़ना।",
+    "hint": "Sneaking around corners.",
+    "hint_hi": "कोनों के चारों ओर छिपना।",
+    "trick": "Logic Link: When a wave encounters an obstacle or a slit, it doesn't just stop or cast a perfect shadow. It wraps around the physical edges and spreads out on the other side. This geometric spreading is Diffraction.",
+    "trick_hi": "Logic Link: जब कोई लहर किसी बाधा या भट्ठा का सामना करती है, तो वह केवल रुकती नहीं है या एक आदर्श छाया नहीं डालती है। यह भौतिक किनारों के चारों ओर लपेटता है और दूसरी तरफ फैलता है। यह ज्यामितीय प्रसार विवर्तन है।",
+    "explanation": "Diffraction allows sound to fill a space even if the source is hidden.",
+    "explanation_hi": "विवर्तन ध्वनि को एक स्थान भरने की अनुमति देता है, भले ही स्रोत छिपा हो।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "sound", "diffraction", "definition"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-010",
+    "type": "concept",
+    "front": "Comparing Light and Sound, which wave has LOW diffraction in daily life?",
+    "front_hi": "प्रकाश और ध्वनि की तुलना करते हुए, दैनिक जीवन में किस तरंग का विवर्तन (diffraction) कम (LOW) होता है?",
+    "back": "Light Waves.",
+    "back_hi": "प्रकाश तरंगें (Light Waves)।",
+    "hint": "It travels in a straight line and creates sharp shadows.",
+    "hint_hi": "यह एक सीधी रेखा में यात्रा करता है और तेज छाया बनाता है।",
+    "trick": "Logic Link: Diffraction only happens effectively when the wave's wavelength matches the size of the obstacle. Light has a microscopically tiny wavelength (nanometers), so it fails to bend around large everyday objects (like a wall), resulting in 'Low' practical diffraction.",
+    "trick_hi": "Logic Link: विवर्तन केवल तभी प्रभावी ढंग से होता है जब तरंग की तरंग दैर्ध्य बाधा के आकार से मेल खाती है। प्रकाश में सूक्ष्म रूप से छोटी तरंग दैर्ध्य (नैनोमीटर) होती है, इसलिए यह बड़ी रोजमर्रा की वस्तुओं (जैसे दीवार) के चारों ओर झुकने में विफल रहता है, जिसके परिणामस्वरूप 'कम' व्यावहारिक विवर्तन होता है।",
+    "explanation": "This is why you cannot see around corners.",
+    "explanation_hi": "यही कारण है कि आप कोनों के चारों ओर नहीं देख सकते हैं।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "waves", "diffraction", "light"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-011",
+    "type": "concept",
+    "front": "Comparing Light and Sound, which wave has HIGH diffraction in daily life?",
+    "front_hi": "प्रकाश और ध्वनि की तुलना करते हुए, दैनिक जीवन में किस तरंग का विवर्तन (diffraction) उच्च (HIGH) होता है?",
+    "back": "Sound Waves.",
+    "back_hi": "ध्वनि तरंगें (Sound Waves)।",
+    "hint": "You can hear someone in the next room.",
+    "hint_hi": "आप दूसरे कमरे में किसी की आवाज़ सुन सकते हैं।",
+    "trick": "Logic Link: Sound waves have large wavelengths (meters). Doors, windows, and walls are also roughly a few meters in size. This perfect size match allows sound waves to heavily wrap and bend around these obstacles (High Diffraction).",
+    "trick_hi": "Logic Link: ध्वनि तरंगों में बड़ी तरंग दैर्ध्य (मीटर) होती है। दरवाजे, खिड़कियां और दीवारें भी आकार में लगभग कुछ मीटर के होते हैं। यह सही आकार का मैच ध्वनि तरंगों को इन बाधाओं के चारों ओर भारी रूप से लपेटने और मोड़ने की अनुमति देता है (उच्च विवर्तन)।",
+    "explanation": "Sound easily spreads in all directions upon passing a door.",
+    "explanation_hi": "दरवाजे से गुजरने पर ध्वनि आसानी से सभी दिशाओं में फैल जाती है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "waves", "diffraction", "sound"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-012",
+    "type": "concept",
+    "front": "In the notes' diagram, what does a straight arrow for Light indicate regarding its path?",
+    "front_hi": "नोट्स के आरेख में, प्रकाश के लिए एक सीधा तीर (straight arrow) इसके पथ के संबंध में क्या इंगित करता है?",
+    "back": "Light travels in a Straight line (Low Diffraction).",
+    "back_hi": "प्रकाश एक सीधी रेखा (Straight line) में यात्रा करता है (कम विवर्तन)।",
+    "hint": "It does not scatter around the corner.",
+    "hint_hi": "यह कोने के चारों ओर नहीं बिखरता है।",
+    "trick": "Logic Link: A straight ray visually represents that light refuses to bend around a physical edge at a macro scale. It simply stops or reflects, creating a shadow.",
+    "trick_hi": "Logic Link: एक सीधी किरण दृष्टिगत रूप से दर्शाती है कि प्रकाश मैक्रो पैमाने पर भौतिक किनारे के चारों ओर झुकने से इंकार करता है। यह बस रुक जाता है या प्रतिबिंबित होता है, एक छाया बनाता है।",
+    "explanation": "Geometric optics largely assumes light travels straight.",
+    "explanation_hi": "ज्यामितीय प्रकाशिकी (optics) काफी हद तक मानती है कि प्रकाश सीधे यात्रा करता है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "waves", "diffraction", "light", "diagram"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-013",
+    "type": "concept",
+    "front": "In the notes' diagram, what do the diverging, multi-directional arrows for Sound indicate?",
+    "front_hi": "नोट्स के आरेख में, ध्वनि के लिए अपसारी, बहु-दिशात्मक तीर (diverging arrows) क्या इंगित करते हैं?",
+    "back": "Sound bends and spreads in all directions (High Diffraction).",
+    "back_hi": "ध्वनि मुड़ती है और सभी दिशाओं में फैलती है (उच्च विवर्तन)।",
+    "hint": "Spreading out from a hole.",
+    "hint_hi": "एक छेद से बाहर फैल रहा है।",
+    "trick": "Logic Link: The arrows pointing outwards in an arc show that once sound passes a gap (like a doorway), it acts as a new source and scatters, filling the adjacent space completely.",
+    "trick_hi": "Logic Link: एक चाप में बाहर की ओर इशारा करने वाले तीर दिखाते हैं कि एक बार जब ध्वनि एक अंतर (जैसे एक द्वार) से गुजरती है, तो यह एक नए स्रोत के रूप में कार्य करती है और बिखर जाती है, आसन्न स्थान को पूरी तरह से भर देती है।",
+    "explanation": "This spreading is the visual representation of diffraction.",
+    "explanation_hi": "यह प्रसार विवर्तन का दृश्य प्रतिनिधित्व है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "waves", "diffraction", "sound", "diagram"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-014",
+    "type": "concept",
+    "front": "Which real-life outdoor example is used in the notes to demonstrate Diffraction?",
+    "front_hi": "विवर्तन (Diffraction) को प्रदर्शित करने के लिए नोट्स में किस वास्तविक जीवन के बाहरी उदाहरण का उपयोग किया गया है?",
+    "back": "A Car on a Night Highway.",
+    "back_hi": "रात के हाईवे पर एक कार (Car on a Night highway)।",
+    "hint": "Approaching a sharp turn.",
+    "hint_hi": "एक तेज मोड़ के पास आ रहा है।",
+    "trick": "Logic Link: If a car is around a bend on a dark highway, you cannot see its headlights (Light doesn't diffract around the mountain), but you CAN clearly hear its horn (Sound heavily diffracts around the mountain edge).",
+    "trick_hi": "Logic Link: यदि कोई कार एक अंधेरे राजमार्ग पर एक मोड़ के आसपास है, तो आप उसकी हेडलाइट्स नहीं देख सकते (प्रकाश पहाड़ के चारों ओर विवर्तित नहीं होता है), लेकिन आप स्पष्ट रूप से उसके हॉर्न को सुन सकते हैं (ध्वनि पहाड़ के किनारे के चारों ओर भारी विवर्तित होती है)।",
+    "explanation": "This perfectly contrasts light and sound diffraction.",
+    "explanation_hi": "यह पूरी तरह से प्रकाश और ध्वनि विवर्तन के विपरीत है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "waves", "diffraction", "example"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-015",
+    "type": "concept",
+    "front": "According to the 'Room 1 & Room 2' diagram, can the sound of a Radio in Room 1 reach Room 2?",
+    "front_hi": "'कमरा 1 और कमरा 2' आरेख के अनुसार, क्या कमरा 1 में एक रेडियो की आवाज कमरा 2 तक पहुंच सकती है?",
+    "back": "Yes, Sound reaches Room 2 (\u2714).",
+    "back_hi": "हाँ, ध्वनि कमरा 2 तक पहुँचती है (\u2714)।",
+    "hint": "It bends past the wall.",
+    "hint_hi": "यह दीवार के पार मुड़ता है।",
+    "trick": "Logic Link: The radio waves generate acoustic sound waves which bend (diffract) around the edges of the wall and doorway, traveling directly into the ears of someone in Room 2.",
+    "trick_hi": "Logic Link: रेडियो तरंगें ध्वनिक ध्वनि तरंगें उत्पन्न करती हैं जो दीवार और द्वार के किनारों के चारों ओर झुकती (विवर्तित) हैं, जो सीधे कक्ष 2 में किसी के कानों में यात्रा करती हैं।",
+    "explanation": "This occurs purely due to the high diffraction of sound.",
+    "explanation_hi": "यह विशुद्ध रूप से ध्वनि के उच्च विवर्तन के कारण होता है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "waves", "diffraction", "sound", "radio"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-016",
+    "type": "concept",
+    "front": "According to the 'Room 1 & Room 2' diagram, can the light of a Torch in Room 1 bend into Room 2?",
+    "front_hi": "'कमरा 1 और कमरा 2' आरेख के अनुसार, क्या कमरा 1 में एक टॉर्च की रोशनी कमरा 2 में मुड़ सकती है?",
+    "back": "No, Light does not bend into Room 2 (\u2718).",
+    "back_hi": "नहीं, प्रकाश कक्ष 2 में नहीं मुड़ता है (\u2718)।",
+    "hint": "It hits the wall and stops.",
+    "hint_hi": "यह दीवार से टकराता है और रुक जाता है।",
+    "trick": "Logic Link: Because light has extremely low diffraction on a human scale, the torch beam travels perfectly straight. It hits the wall dividing the rooms and creates a dark shadow in Room 2, instead of bending around.",
+    "trick_hi": "Logic Link: क्योंकि मानव पैमाने पर प्रकाश में विवर्तन बहुत कम होता है, टॉर्च की किरण पूरी तरह से सीधी यात्रा करती है। यह कमरों को विभाजित करने वाली दीवार से टकराता है और चारों ओर झुकने के बजाय कक्ष 2 में एक गहरी छाया बनाता है।",
+    "explanation": "This fundamentally explains why we can hear but not see someone in an adjacent room.",
+    "explanation_hi": "यह मौलिक रूप से बताता है कि हम किसी आसन्न कमरे में किसी को क्यों सुन सकते हैं लेकिन देख नहीं सकते।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "waves", "diffraction", "light", "torch"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-017",
+    "type": "concept",
+    "front": "What physical property of a wave strictly dictates how much it will diffract?",
+    "front_hi": "किसी तरंग का कौन सा भौतिक गुण सख्ती से यह तय करता है कि वह कितना विवर्तित (diffract) होगी?",
+    "back": "Its Wavelength (\u0924\u0930\u0902\u0917 \u0926\u0948\u0930\u094d\u0927\u094d\u092f).",
+    "back_hi": "इसकी तरंग दैर्ध्य (Wavelength)।",
+    "hint": "The physical length of the wave cycle.",
+    "hint_hi": "तरंग चक्र की भौतिक लंबाई।",
+    "trick": "Logic Link: For maximum bending (diffraction), the Wavelength of the wave must be roughly equal to the physical size of the obstacle or hole. Sound matches everyday objects perfectly; light does not.",
+    "trick_hi": "Logic Link: अधिकतम झुकने (विवर्तन) के लिए, तरंग की तरंग दैर्ध्य लगभग बाधा या छेद के भौतिक आकार के बराबर होनी चाहिए। ध्वनि रोजमर्रा की वस्तुओं से पूरी तरह मेल खाती है; प्रकाश नहीं करता है।",
+    "explanation": "This is the underlying reason behind the Light vs. Sound diffraction difference.",
+    "explanation_hi": "प्रकाश बनाम ध्वनि विवर्तन अंतर के पीछे यही मूल कारण है।",
+    "meta": {
+      "difficulty": "hard",
+      "tags": ["physics", "waves", "diffraction", "wavelength"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-018",
+    "type": "concept",
+    "front": "What is the scientific definition of the 'Interference of Sound'?",
+    "front_hi": "'ध्वनि के व्यतिकरण' (Interference of Sound) की वैज्ञानिक परिभाषा क्या है?",
+    "back": "Overlapping of Sound waves.",
+    "back_hi": "ध्वनि तरंगों का अतिव्यापन (Overlapping of Sound waves)।",
+    "hint": "Two waves crashing together.",
+    "hint_hi": "दो लहरें एक साथ टकरा रही हैं।",
+    "trick": "Logic Link: When two sound waves from different sources (like two speakers) exist in the exact same physical space at the same time, their energies physically add or subtract from each other. This overlapping is Interference.",
+    "trick_hi": "Logic Link: जब विभिन्न स्रोतों (जैसे दो स्पीकर) से दो ध्वनि तरंगें एक ही समय में बिल्कुल समान भौतिक स्थान में मौजूद होती हैं, तो उनकी ऊर्जा भौतिक रूप से एक-दूसरे से जुड़ती या घटती है। यह ओवरलैपिंग व्यतिकरण है।",
+    "explanation": "Interference can completely alter the final sound heard by an observer.",
+    "explanation_hi": "व्यतिकरण किसी पर्यवेक्षक द्वारा सुनी गई अंतिम ध्वनि को पूरी तरह से बदल सकता है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "sound", "interference", "definition"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-019",
+    "type": "concept",
+    "front": "What happens when two overlapping sound waves are in the 'Same Phase'?",
+    "front_hi": "क्या होता है जब दो अतिव्यापी ध्वनि तरंगें 'समान कला' (Same Phase) में होती हैं?",
+    "back": "Their Amplitude increases (Constructive Interference).",
+    "back_hi": "उनका आयाम बढ़ जाता है (Amplitude increases / रचनात्मक व्यतिकरण)।",
+    "hint": "Crest meets Crest.",
+    "hint_hi": "क्रेस्ट क्रेस्ट से मिलता है।",
+    "trick": "Logic Link: If Speaker 1 pushes the air forward at the exact microsecond Speaker 2 pushes the air forward, the two mechanical pushes add together mathematically, creating a massive combined wave (louder sound).",
+    "trick_hi": "Logic Link: यदि स्पीकर 1 उसी सटीक माइक्रोसेकंड में हवा को आगे धकेलता है जब स्पीकर 2 हवा को आगे धकेलता है, तो दोनों यांत्रिक धक्के गणितीय रूप से एक साथ जुड़ जाते हैं, जिससे एक विशाल संयुक्त लहर (तेज़ ध्वनि) बन जाती है।",
+    "explanation": "The notes indicate 'Same -> ~80%' showing a positive reinforcement.",
+    "explanation_hi": "नोट्स सकारात्मक सुदृढीकरण (reinforcement) दिखाते हुए 'समान -> ~ 80%' इंगित करते हैं।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "sound", "interference", "same_phase", "amplitude"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-020",
+    "type": "concept",
+    "front": "What happens when two overlapping sound waves are in the 'Opposite Phase'?",
+    "front_hi": "क्या होता है जब दो अतिव्यापी ध्वनि तरंगें 'विपरीत कला' (Opposite Phase) में होती हैं?",
+    "back": "Their Amplitude decreases or cancels out (Destructive Interference).",
+    "back_hi": "उनका आयाम घट जाता है या रद्द हो जाता है (Amplitude decreases / विनाशी व्यतिकरण)।",
+    "hint": "Crest meets Trough.",
+    "hint_hi": "क्रेस्ट ट्रफ से मिलता है।",
+    "trick": "Logic Link: If Speaker 1 tries to push the air forward (+1), but Speaker 2 tries to pull the exact same air backward (-1), the mechanical forces cancel out to zero. The wave is destroyed.",
+    "trick_hi": "Logic Link: यदि स्पीकर 1 हवा को आगे (+1) धकेलने की कोशिश करता है, लेकिन स्पीकर 2 बिल्कुल उसी हवा को पीछे (-1) खींचने की कोशिश करता है, तो यांत्रिक बल शून्य पर रद्द हो जाते हैं। लहर नष्ट हो जाती है।",
+    "explanation": "This is exactly how noise-cancelling headphones work.",
+    "explanation_hi": "यही वह तरीका है जिससे शोर-रद्द करने वाले (noise-cancelling) हेडफ़ोन काम करते हैं।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "sound", "interference", "opposite_phase", "amplitude"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-021",
+    "type": "concept",
+    "front": "In the notes' diagram, what happens when Speaker 1 (pink wave) and Speaker 2 (yellow wave) are added (+)?",
+    "front_hi": "नोट्स के आरेख में, क्या होता है जब स्पीकर 1 (गुलाबी तरंग) और स्पीकर 2 (पीली तरंग) को जोड़ा (+) जाता है?",
+    "back": "A new wave with a taller height is formed.",
+    "back_hi": "अधिक ऊंचाई वाली एक नई तरंग बनती है।",
+    "hint": "Look at the resulting red wave.",
+    "hint_hi": "परिणामी लाल तरंग को देखें।",
+    "trick": "Logic Link: The diagram visually demonstrates 'Same Phase' interference. The peaks align perfectly, so the resulting wave (\u2191 Amplitude) is visibly much taller than the original two.",
+    "trick_hi": "Logic Link: आरेख दृष्टिगत रूप से 'समान चरण' हस्तक्षेप को प्रदर्शित करता है। चोटियां पूरी तरह से संरेखित होती हैं, इसलिए परिणामी लहर (\u2191 आयाम) स्पष्ट रूप से मूल दो की तुलना में बहुत लंबी है।",
+    "explanation": "This visualizes the mathematical addition of wave energies.",
+    "explanation_hi": "यह तरंग ऊर्जा के गणितीय जोड़ की कल्पना करता है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "sound", "interference", "diagram", "addition"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-022",
+    "type": "concept",
+    "front": "According to the notes, what musical phenomenon is directly caused by Sound Interference?",
+    "front_hi": "नोट्स के अनुसार, कौन सी संगीतमय घटना सीधे ध्वनि व्यतिकरण (Sound Interference) के कारण होती है?",
+    "back": "Beats of music.",
+    "back_hi": "संगीत के बीट्स (Beats of music)।",
+    "hint": "The rhythmic 'wa-wa-wa' sound.",
+    "hint_hi": "लयबद्ध 'वा-वा-वा' ध्वनि।",
+    "trick": "Logic Link: When two slightly different frequencies overlap, they constantly drift in and out of 'Same Phase' (loud) and 'Opposite Phase' (quiet). This rapid loud-soft-loud-soft cycling is what we hear as musical 'Beats'.",
+    "trick_hi": "Logic Link: जब दो थोड़ी अलग आवृत्तियाँ अतिव्याप्त होती हैं, तो वे लगातार 'समान चरण' (जोर से) और 'विपरीत चरण' (शांत) के अंदर और बाहर बहती हैं। यह तीव्र लाउड-सॉफ्ट-लाउड-सॉफ्ट साइक्लिंग वही है जिसे हम संगीतमय 'बीट्स' के रूप में सुनते हैं।",
+    "explanation": "Musicians use beats to tune instruments perfectly.",
+    "explanation_hi": "संगीतकार वाद्ययंत्रों को पूरी तरह से ट्यून करने के लिए बीट्स का उपयोग करते हैं।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "sound", "interference", "beats", "music"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-023",
+    "type": "concept",
+    "front": "What frequently happens to radio signals when you are very near to a Radio Station?",
+    "front_hi": "जब आप किसी रेडियो स्टेशन के बहुत करीब होते हैं तो अक्सर रेडियो सिग्नलों का क्या होता है?",
+    "back": "Radio signals are sometimes not clear.",
+    "back_hi": "रेडियो सिग्नल कभी-कभी स्पष्ट नहीं होते हैं।",
+    "hint": "Static or silence.",
+    "hint_hi": "स्थिर या मौन।",
+    "trick": "Logic Link: Near a massive transmission tower, multiple strong waves (direct and reflected) overlap chaotically. If they hit an 'Opposite Phase' collision, they violently destroy each other, causing the signal to drop out entirely.",
+    "trick_hi": "Logic Link: एक विशाल ट्रांसमिशन टॉवर के पास, कई मजबूत तरंगें (प्रत्यक्ष और परावर्तित) अराजक रूप से ओवरलैप होती हैं। यदि वे एक 'विपरीत चरण' की टक्कर मारते हैं, तो वे हिंसक रूप से एक-दूसरे को नष्ट कर देते हैं, जिससे संकेत पूरी तरह से गिर जाता है।",
+    "explanation": "This real-world issue is caused strictly by wave interference.",
+    "explanation_hi": "यह वास्तविक दुनिया का मुद्दा सख्ती से तरंग हस्तक्षेप के कारण होता है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "waves", "interference", "radio_station"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-024",
+    "type": "concept",
+    "front": "What is the specific zone called near a Radio Station where signals disappear due to interference?",
+    "front_hi": "रेडियो स्टेशन के पास उस विशिष्ट क्षेत्र को क्या कहा जाता है जहाँ व्यतिकरण (interference) के कारण सिग्नल गायब हो जाते हैं?",
+    "back": "Silence Zone.",
+    "back_hi": "साइलेंस ज़ोन (Silence Zone)।",
+    "hint": "A zone of complete quiet.",
+    "hint_hi": "पूर्ण शांति का क्षेत्र।",
+    "trick": "Logic Link: 'Silence' indicates complete cancellation. In this exact geometric radius around the tower, the overlapping radio waves meet perfectly in Opposite Phase (Destructive Interference), resulting in zero amplitude and a 'dead' zone.",
+    "trick_hi": "Logic Link: 'मौन' पूर्ण रद्दीकरण को इंगित करता है। टॉवर के चारों ओर इस सटीक ज्यामितीय त्रिज्या में, अतिव्यापी रेडियो तरंगें विपरीत चरण (विनाशकारी व्यतिकरण) में पूरी तरह से मिलती हैं, जिसके परिणामस्वरूप शून्य आयाम और 'मृत' क्षेत्र होता है।",
+    "explanation": "Telecommunication engineers must calculate and minimize these zones.",
+    "explanation_hi": "दूरसंचार इंजीनियरों को इन क्षेत्रों की गणना और न्यूनतमकरण करना चाहिए।",
+    "meta": {
+      "difficulty": "hard",
+      "tags": ["physics", "waves", "interference", "silence_zone"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-025",
+    "type": "concept",
+    "front": "What is the scientific definition of 'Polarization'?",
+    "front_hi": "'ध्रुवीकरण' (Polarization) की वैज्ञानिक परिभाषा क्या है?",
+    "back": "Converting a Multi Plane wave into a Single Plane wave.",
+    "back_hi": "एक मल्टी प्लेन (Multi Plane) तरंग को सिंगल प्लेन (Single Plane) तरंग में बदलना।",
+    "hint": "Filtering the chaotic directions.",
+    "hint_hi": "अराजक दिशाओं को छानना।",
+    "trick": "Logic Link: Unpolarized waves vibrate up-down, left-right, and diagonally all at once (multi-plane). A polarizing filter acts like a prison bar window, blocking all vibrations except the ones moving in one specific line (single plane).",
+    "trick_hi": "Logic Link: अध्रुवीकृत तरंगें एक ही बार में ऊपर-नीचे, बाएँ-दाएँ और तिरछे (मल्टी-प्लेन) कंपन करती हैं। एक ध्रुवीकरण फिल्टर एक जेल बार खिड़की की तरह काम करता है, एक विशिष्ट रेखा (एकल विमान) में चलने वाले कंपन को छोड़कर सभी कंपन को रोकता है।",
+    "explanation": "This effectively cuts down the intensity and glare of the wave.",
+    "explanation_hi": "यह प्रभावी रूप से तरंग की तीव्रता और चकाचौंध को कम करता है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "waves", "polarization", "definition"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-026",
+    "type": "concept",
+    "front": "Which specific category of waves are the ONLY ones that can show Polarization?",
+    "front_hi": "तरंगों की कौन सी विशिष्ट श्रेणी एकमात्र (ONLY) है जो ध्रुवीकरण (Polarization) दिखा सकती है?",
+    "back": "Transverse Waves Only.",
+    "back_hi": "केवल अनुप्रस्थ तरंगें (Transverse Waves Only)।",
+    "hint": "Waves that wiggle sideways.",
+    "hint_hi": "लहरें जो बग़ल में डगमगाती हैं।",
+    "trick": "Logic Link: To filter out 'side-to-side' or 'up-and-down' movement, the wave MUST physically wiggle perpendicularly (Transverse). If a wave only pushes straight forward, there is no 'side' movement to filter out.",
+    "trick_hi": "Logic Link: 'साइड-टू-साइड' या 'अप-एंड-डाउन' आंदोलन को फ़िल्टर करने के लिए, तरंग को शारीरिक रूप से लंबवत (अनुप्रस्थ) रूप से डगमगाना चाहिए। यदि कोई लहर केवल सीधे आगे की ओर धकेलती है, तो बाहर निकालने के लिए कोई 'पक्ष' आंदोलन नहीं है।",
+    "explanation": "This is a fundamental litmus test to identify wave types.",
+    "explanation_hi": "यह तरंग प्रकारों की पहचान करने के लिए एक मौलिक लिटमस टेस्ट है।",
+    "meta": {
+      "difficulty": "hard",
+      "tags": ["physics", "waves", "polarization", "transverse"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-027",
+    "type": "concept",
+    "front": "What is the required angle (\u03b8) of particle oscillation in a Transverse Wave that allows it to be polarized?",
+    "front_hi": "अनुप्रस्थ तरंग (Transverse Wave) में कण दोलन का आवश्यक कोण (\u03b8) क्या है जो इसे ध्रुवीकृत करने की अनुमति देता है?",
+    "back": "\u03b8 \u2192 90\u00b0 (90 degrees).",
+    "back_hi": "\u03b8 \u2192 90\u00b0 (90 डिग्री)।",
+    "hint": "A right angle.",
+    "hint_hi": "एक समकोण।",
+    "trick": "Logic Link: In transverse waves, particles move at exactly 90 degrees relative to the forward direction. Because they move perpendicular, they create a 'plane' (like an up-down sheet) that can be blocked by a slit.",
+    "trick_hi": "Logic Link: अनुप्रस्थ तरंगों में, कण आगे की दिशा के सापेक्ष ठीक 90 डिग्री पर चलते हैं। क्योंकि वे लंबवत चलते हैं, वे एक 'विमान' (ऊपर-नीचे शीट की तरह) बनाते हैं जिसे एक भट्ठा द्वारा अवरुद्ध किया जा सकता है।",
+    "explanation": "This 90-degree geometry makes the filtering process physically possible.",
+    "explanation_hi": "यह 90-डिग्री ज्यामिति फ़िल्टरिंग प्रक्रिया को भौतिक रूप से संभव बनाती है।",
+    "meta": {
+      "difficulty": "hard",
+      "tags": ["physics", "waves", "polarization", "angle", "transverse"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-028",
+    "type": "concept",
+    "front": "Do Sound waves show Polarization?",
+    "front_hi": "क्या ध्वनि तरंगें ध्रुवीकरण (Polarization) दिखाती हैं?",
+    "back": "No, they do not.",
+    "back_hi": "नहीं, वे नहीं दिखाते हैं।",
+    "hint": "They lack the geometric requirement.",
+    "hint_hi": "उनमें ज्यामितीय आवश्यकता का अभाव है।",
+    "trick": "Logic Link: Polarization requires a 90-degree side-to-side wiggle. Sound strictly pushes straight forward (compression). You can't put a slotted filter on a straight-pushing force.",
+    "trick_hi": "Logic Link: ध्रुवीकरण के लिए 90-डिग्री साइड-टू-साइड विगल की आवश्यकता होती है। ध्वनि कड़ाई से सीधे आगे धकेलती है (संपीड़न)। आप सीधे धकेलने वाले बल पर स्लॉटेड फ़िल्टर नहीं लगा सकते।",
+    "explanation": "This is a guaranteed exam question regarding wave differences.",
+    "explanation_hi": "यह तरंग अंतर के संबंध में एक गारंटीकृत परीक्षा प्रश्न है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "sound", "polarization"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-029",
+    "type": "concept",
+    "front": "Why exactly do sound waves NOT show polarization?",
+    "front_hi": "ध्वनि तरंगें ध्रुवीकरण (polarization) क्यों नहीं दिखाती हैं?",
+    "back": "Because sound waves are Longitudinal.",
+    "back_hi": "क्योंकि ध्वनि तरंगें अनुदैर्ध्य (Longitudinal) होती हैं।",
+    "hint": "Their particles move parallel to the wave.",
+    "hint_hi": "उनके कण तरंग के समानांतर चलते हैं।",
+    "trick": "Logic Link: Longitudinal waves mean particles oscillate back-and-forth along the exact same line the wave is travelling (0 degrees). Without a perpendicular plane (90 degrees), polarization is physically impossible.",
+    "trick_hi": "Logic Link: अनुदैर्ध्य तरंगों का अर्थ है कि कण ठीक उसी रेखा पर आगे-पीछे दोलन करते हैं जिस पर तरंग यात्रा कर रही है (0 डिग्री)। लंबवत विमान (90 डिग्री) के बिना, ध्रुवीकरण शारीरिक रूप से असंभव है।",
+    "explanation": "This establishes the fundamental mechanical limit of acoustic waves.",
+    "explanation_hi": "यह ध्वनिक तरंगों की मौलिक यांत्रिक सीमा स्थापित करता है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "sound", "polarization", "longitudinal"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-030",
+    "type": "concept",
+    "front": "What is considered the Main Difference between Light Waves and Sound Waves regarding their behavior?",
+    "front_hi": "प्रकाश तरंगों और ध्वनि तरंगों के व्यवहार के संबंध में उनके बीच मुख्य अंतर (Main Difference) क्या माना जाता है?",
+    "back": "Polarization (Light shows it, Sound does not).",
+    "back_hi": "ध्रुवीकरण (Polarization - प्रकाश इसे दिखाता है, ध्वनि नहीं)।",
+    "hint": "One can be filtered by a 3D glass, the other cannot.",
+    "hint_hi": "एक को 3D ग्लास द्वारा फ़िल्टर किया जा सकता है, दूसरे को नहीं।",
+    "trick": "Logic Link: Since Light is a transverse electromagnetic wave, it can be polarized. Since Sound is a longitudinal mechanical wave, it cannot. This phenomenon cleanly separates the two branches of physics.",
+    "trick_hi": "Logic Link: चूँकि प्रकाश एक अनुप्रस्थ विद्युत चुम्बकीय तरंग है, इसे ध्रुवीकृत किया जा सकता है। चूँकि ध्वनि एक अनुदैर्ध्य यांत्रिक तरंग है, यह नहीं हो सकती। यह घटना भौतिकी की दो शाखाओं को स्पष्ट रूप से अलग करती है।",
+    "explanation": "If an alien wave is discovered and it can be polarized, it is definitively NOT sound.",
+    "explanation_hi": "यदि एक विदेशी तरंग की खोज की जाती है और इसे ध्रुवीकृत किया जा सकता है, तो यह निश्चित रूप से ध्वनि नहीं है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "waves", "polarization", "difference", "light", "sound"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-031",
+    "type": "concept",
+    "front": "According to the notes, is the light coming from a standard Light Bulb polarized or unpolarized?",
+    "front_hi": "नोट्स के अनुसार, क्या एक मानक लाइट बल्ब (Light Bulb) से आने वाला प्रकाश ध्रुवीकृत (polarized) या अध्रुवीकृत (unpolarized) होता है?",
+    "back": "Unpolarized Light.",
+    "back_hi": "अध्रुवीकृत प्रकाश (Unpolarized Light)।",
+    "hint": "It shoots out chaotically.",
+    "hint_hi": "यह बेतरतीब ढंग से बाहर निकलता है।",
+    "trick": "Logic Link: A bulb filament emits photons chaotically in every possible direction and angle simultaneously. Because it oscillates in multiple planes at once, it is fundamentally Unpolarized.",
+    "trick_hi": "Logic Link: एक बल्ब का फिलामेंट एक साथ हर संभव दिशा और कोण में अराजक रूप से फोटॉन उत्सर्जित करता है। क्योंकि यह एक ही बार में कई विमानों में दोलन करता है, यह मूल रूप से अध्रुवीकृत है।",
+    "explanation": "Most natural and artificial light sources start as unpolarized.",
+    "explanation_hi": "अधिकांश प्राकृतिक और कृत्रिम प्रकाश स्रोत अध्रुवीकृत के रूप में शुरू होते हैं।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "light", "polarization", "bulb"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-032",
+    "type": "concept",
+    "front": "In the diagram, what is the name of the device/material that converts Unpolarized Light into Polarized Light?",
+    "front_hi": "आरेख में, उस उपकरण/सामग्री का क्या नाम है जो अध्रुवीकृत प्रकाश (Unpolarized Light) को ध्रुवीकृत प्रकाश (Polarized Light) में परिवर्तित करता है?",
+    "back": "Polarizer.",
+    "back_hi": "ध्रुवक (Polarizer)।",
+    "hint": "The filter in the middle.",
+    "hint_hi": "बीच में फिल्टर।",
+    "trick": "Logic Link: A Polarizer contains microscopic straight chemical chains. It physically blocks the chaotic multi-directional light waves and only lets a single, perfectly aligned plane of light slip through the 'slits'.",
+    "trick_hi": "Logic Link: एक ध्रुवीकरण (Polarizer) में सूक्ष्म सीधी रासायनिक श्रृंखलाएं होती हैं। यह भौतिक रूप से अराजक बहु-दिशात्मक प्रकाश तरंगों को रोकता है और केवल प्रकाश के एक एकल, पूरी तरह से संरेखित विमान को 'स्लिट्स' के माध्यम से खिसकने देता है।",
+    "explanation": "Photographers often attach circular polarizers to their camera lenses.",
+    "explanation_hi": "फ़ोटोग्राफ़र अक्सर अपने कैमरे के लेंस में गोलाकार ध्रुवीकरण (polarizers) जोड़ते हैं।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "light", "polarization", "device"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-033",
+    "type": "concept",
+    "front": "What optical accessory used in cinemas relies completely on the concept of Light Polarization?",
+    "front_hi": "सिनेमाघरों में उपयोग की जाने वाली कौन सी ऑप्टिकल एक्सेसरी प्रकाश ध्रुवीकरण (Light Polarization) की अवधारणा पर पूरी तरह से निर्भर करती है?",
+    "back": "3D Movie Glasses.",
+    "back_hi": "3D मूवी चश्मा (3D Movie Glasses)।",
+    "hint": "They make the movie pop out.",
+    "hint_hi": "वे फिल्म को बाहर निकालते हैं।",
+    "trick": "Logic Link: A 3D cinema projects two images simultaneously: one polarized vertically, one horizontally. The 3D glasses have a vertical polarizer on the left eye and a horizontal polarizer on the right. Each eye receives a completely different image, forcing the brain to construct a 3D depth illusion.",
+    "trick_hi": "Logic Link: एक 3D सिनेमा एक साथ दो चित्र प्रोजेक्ट करता है: एक लंबवत रूप से ध्रुवीकृत, एक क्षैतिज रूप से। 3D चश्मे में बाईं आंख पर एक ऊर्ध्वाधर ध्रुवीकरण और दाईं ओर एक क्षैतिज ध्रुवीकरण होता है। प्रत्येक आंख को एक पूरी तरह से अलग छवि प्राप्त होती है, जिससे मस्तिष्क को 3D गहराई का भ्रम पैदा करने के लिए मजबूर होना पड़ता है।",
+    "explanation": "Without polarization, 3D technology as we know it would not work.",
+    "explanation_hi": "ध्रुवीकरण के बिना, 3D तकनीक जैसा कि हम जानते हैं काम नहीं करेगी।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "light", "polarization", "3D_glasses"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-034",
+    "type": "concept",
+    "front": "Give an example of a natural phenomenon mentioned in the notes where light becomes polarized.",
+    "front_hi": "नोट्स में उल्लिखित प्राकृतिक घटना का एक उदाहरण दें जहां प्रकाश ध्रुवीकृत हो जाता है।",
+    "back": "Light on Water (Reflection).",
+    "back_hi": "पानी पर प्रकाश (Light on water / परावर्तन)।",
+    "hint": "The glare off the ocean.",
+    "hint_hi": "समुद्र से चकाचौंध।",
+    "trick": "Logic Link: When chaotic unpolarized sunlight hits a flat horizontal surface (like a lake), the water absorbs vertical waves and heavily reflects the horizontal waves. The resulting harsh glare bouncing into your eyes is largely horizontally Polarized Light.",
+    "trick_hi": "Logic Link: जब अराजक अध्रुवीकृत सूर्य का प्रकाश एक सपाट क्षैतिज सतह (एक झील की तरह) से टकराता है, तो पानी ऊर्ध्वाधर तरंगों को अवशोषित करता है और भारी रूप से क्षैतिज तरंगों को दर्शाता है। आपकी आँखों में उछलने वाली परिणामी कठोर चकाचौंध काफी हद तक क्षैतिज रूप से ध्रुवीकृत प्रकाश है।",
+    "explanation": "Polarized sunglasses block this specific horizontal glare.",
+    "explanation_hi": "ध्रुवीकृत धूप का चश्मा इस विशिष्ट क्षैतिज चमक को रोकता है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "light", "polarization", "reflection", "water"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-035",
+    "type": "concept",
+    "front": "What does the squiggly purple wave in the Polarization diagram represent?",
+    "front_hi": "ध्रुवीकरण आरेख में टेढ़ी-मेढ़ी बैंगनी तरंग (squiggly purple wave) क्या दर्शाती है?",
+    "back": "Unpolarized Light.",
+    "back_hi": "अध्रुवीकृत प्रकाश (Unpolarized Light)।",
+    "hint": "Before it goes through the filter.",
+    "hint_hi": "फिल्टर से गुजरने से पहले।",
+    "trick": "Logic Link: The diagram draws loops pointing in multiple chaotic directions (up, down, sideways) to visually simulate a 'multi-plane' electromagnetic wave emitted from a lightbulb.",
+    "trick_hi": "Logic Link: आरेख कई अराजक दिशाओं (ऊपर, नीचे, बग़ल में) में इंगित करने वाले लूप खींचता है ताकि एक लाइटबल्ब से उत्सर्जित 'मल्टी-प्लेन' विद्युत चुम्बकीय तरंग को दृष्टिगत रूप से अनुकरण किया जा सके।",
+    "explanation": "This is the raw, unfiltered state of light.",
+    "explanation_hi": "यह प्रकाश की कच्ची, बिना फिल्टर वाली अवस्था है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "light", "polarization", "diagram", "unpolarized"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-036",
+    "type": "concept",
+    "front": "What does the neat, flat yellow wave emerging on the right side of the Polarization diagram represent?",
+    "front_hi": "ध्रुवीकरण आरेख के दाईं ओर उभरने वाली साफ, सपाट पीली तरंग (yellow wave) क्या दर्शाती है?",
+    "back": "Polarized Light.",
+    "back_hi": "ध्रुवीकृत प्रकाश (Polarized Light)।",
+    "hint": "After passing the 3D glass.",
+    "hint_hi": "3D ग्लास पास करने के बाद।",
+    "trick": "Logic Link: After passing the red 'Polarizer', all the messy side-loops are cut off. Only the clean, up-and-down oscillation survives. It has successfully been restricted to a 'Single Plane'.",
+    "trick_hi": "Logic Link: लाल 'ध्रुवीकरण' को पारित करने के बाद, सभी गन्दे साइड-लूप कट जाते हैं। केवल साफ, ऊपर और नीचे दोलन जीवित रहता है। इसे सफलतापूर्वक 'सिंगल प्लेन' तक सीमित कर दिया गया है।",
+    "explanation": "This demonstrates the filtering power of the polarizer.",
+    "explanation_hi": "यह ध्रुवीकरण की फ़िल्टरिंग शक्ति को प्रदर्शित करता है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "light", "polarization", "diagram", "polarized"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-037",
+    "type": "concept",
+    "front": "What is the scientific definition of the 'Doppler Effect'?",
+    "front_hi": "'डॉपलर प्रभाव' (Doppler Effect) की वैज्ञानिक परिभाषा क्या है?",
+    "back": "Shift in frequency of wave in relation to an observer due to relative motion.",
+    "back_hi": "सापेक्ष गति के कारण पर्यवेक्षक के संबंध में तरंग की आवृत्ति में बदलाव (Shift in frequency of wave)।",
+    "hint": "Why a siren changes pitch as it passes you.",
+    "hint_hi": "आपके पास से गुजरते समय सायरन की पिच क्यों बदल जाती है।",
+    "trick": "Logic Link: The wave itself doesn't change. But because the object producing it is moving, it physically squishes the waves in front of it and stretches the waves behind it, causing the observer to hear an altered (shifted) frequency.",
+    "trick_hi": "Logic Link: लहर अपने आप नहीं बदलती। लेकिन क्योंकि इसे उत्पन्न करने वाली वस्तु आगे बढ़ रही है, यह शारीरिक रूप से अपने सामने की तरंगों को कुचलती है और इसके पीछे की तरंगों को फैलाती है, जिससे पर्यवेक्षक एक परिवर्तित (स्थानांतरित) आवृत्ति सुनता है।",
+    "explanation": "This applies to both sound waves and light waves.",
+    "explanation_hi": "यह ध्वनि तरंगों और प्रकाश तरंगों दोनों पर लागू होता है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "waves", "doppler_effect", "definition"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-038",
+    "type": "concept",
+    "front": "The Doppler Effect fundamentally requires 'Relative Motion' between which two entities?",
+    "front_hi": "डॉपलर प्रभाव के लिए मौलिक रूप से किन दो संस्थाओं के बीच 'सापेक्ष गति' (Relative Motion) की आवश्यकता होती है?",
+    "back": "The Wave Source & The Observer.",
+    "back_hi": "तरंग स्रोत (Wave Source) और पर्यवेक्षक (Observer)।",
+    "hint": "The thing making noise and the person listening.",
+    "hint_hi": "शोर करने वाली चीज और सुनने वाला व्यक्ति।",
+    "trick": "Logic Link: If the ambulance and the pedestrian are perfectly stationary, there is zero compression of the sound waves. One of them MUST be moving towards or away from the other (Relative Motion) to create the frequency shift.",
+    "trick_hi": "Logic Link: यदि एम्बुलेंस और पैदल यात्री पूरी तरह से स्थिर हैं, तो ध्वनि तरंगों का शून्य संपीड़न होता है। आवृत्ति बदलाव बनाने के लिए उनमें से एक को दूसरे की ओर या उससे दूर जाना चाहिए (सापेक्ष गति)।",
+    "explanation": "Relative motion is the trigger for the Doppler Effect.",
+    "explanation_hi": "सापेक्ष गति डॉपलर प्रभाव के लिए ट्रिगर है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "waves", "doppler_effect", "motion"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-039",
+    "type": "concept",
+    "front": "In the Doppler Effect diagram, what object is acting as the 'Wave Source'?",
+    "front_hi": "डॉपलर प्रभाव आरेख में, कौन सी वस्तु 'तरंग स्रोत' (Wave Source) के रूप में कार्य कर रही है?",
+    "back": "Ambulance.",
+    "back_hi": "एम्बुलेंस (Ambulance)।",
+    "hint": "The vehicle with the siren.",
+    "hint_hi": "सायरन वाला वाहन।",
+    "trick": "Logic Link: The Ambulance generates the physical sound wave (siren). Its forward movement through the air alters how those generated waves are physically spaced out in the atmosphere.",
+    "trick_hi": "Logic Link: एम्बुलेंस भौतिक ध्वनि तरंग (सायरन) उत्पन्न करती है। हवा के माध्यम से इसका आगे बढ़ना बदल देता है कि वायुमंडल में वे उत्पन्न तरंगें शारीरिक रूप से कैसे फैली हुई हैं।",
+    "explanation": "Any moving noise-maker (train, jet, car) acts as a wave source.",
+    "explanation_hi": "कोई भी चलती हुई शोर-शराबा करने वाली चीज (ट्रेन, जेट, कार) तरंग स्रोत का काम करती है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "waves", "doppler_effect", "diagram", "source"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-040",
+    "type": "concept",
+    "front": "According to the diagram, what happens to the Frequency for Observer B, whom the ambulance is moving TOWARDS?",
+    "front_hi": "आरेख के अनुसार, प्रेक्षक B (Observer B) के लिए आवृत्ति का क्या होता है, जिसकी ओर एम्बुलेंस बढ़ रही है?",
+    "back": "High Frequency.",
+    "back_hi": "उच्च आवृत्ति (High Frequency)।",
+    "hint": "More waves hit them per second.",
+    "hint_hi": "प्रति सेकंड अधिक लहरें उनसे टकराती हैं।",
+    "trick": "Logic Link: As the ambulance drives forward, it 'chases' its own sound waves. It physically squishes the wavefronts together in front of it. More waves crammed into a smaller space means a higher count hits Observer B's ear per second (High Frequency).",
+    "trick_hi": "Logic Link: जैसे ही एम्बुलेंस आगे बढ़ती है, वह अपनी स्वयं की ध्वनि तरंगों का 'पीछा' करती है। यह शारीरिक रूप से अपने सामने तरंग के मोर्चों को कुचल देता है। एक छोटी सी जगह में रटी हुई अधिक तरंगों का मतलब है कि पर्यवेक्षक B के कान में प्रति सेकंड अधिक संख्या टकराती है (उच्च आवृत्ति)।",
+    "explanation": "This high frequency results in a very sharp, high-pitched siren sound.",
+    "explanation_hi": "इस उच्च आवृत्ति के परिणामस्वरूप बहुत तेज, उच्च-पिच वाली सायरन ध्वनि होती है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "waves", "doppler_effect", "towards", "frequency"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-041",
+    "type": "concept",
+    "front": "According to the diagram, what happens to the Wavelength for Observer B, whom the ambulance is moving TOWARDS?",
+    "front_hi": "आरेख के अनुसार, प्रेक्षक B के लिए तरंग दैर्ध्य (Wavelength) का क्या होता है, जिसकी ओर एम्बुलेंस बढ़ रही है?",
+    "back": "Low Wavelength.",
+    "back_hi": "कम तरंग दैर्ध्य (Low Wavelength)।",
+    "hint": "The waves are squished.",
+    "hint_hi": "लहरें कुचल जाती हैं।",
+    "trick": "Logic Link: Frequency and Wavelength are exact opposites ($f \u221d 1/\u03bb$). If the ambulance squishes the waves together to create High Frequency, the physical distance between the crests (Wavelength) automatically shrinks to become Low.",
+    "trick_hi": "Logic Link: आवृत्ति और तरंग दैर्ध्य बिल्कुल विपरीत हैं ($f \u221d 1/\u03bb$)। यदि एम्बुलेंस उच्च आवृत्ति बनाने के लिए तरंगों को एक साथ कुचलती है, तो शिखरों के बीच की भौतिक दूरी (तरंग दैर्ध्य) स्वचालित रूप से कम हो जाती है।",
+    "explanation": "You can see the pink circles tightly packed on the right side of the diagram.",
+    "explanation_hi": "आप आरेख के दाईं ओर कसकर पैक किए गए गुलाबी घेरे देख सकते हैं।",
+    "meta": {
+      "difficulty": "hard",
+      "tags": ["physics", "waves", "doppler_effect", "towards", "wavelength"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-042",
+    "type": "concept",
+    "front": "According to the diagram, what happens to the Frequency for Observer A, whom the ambulance is moving AWAY from?",
+    "front_hi": "आरेख के अनुसार, प्रेक्षक A के लिए आवृत्ति का क्या होता है, जिससे एम्बुलेंस दूर जा रही है?",
+    "back": "Low Frequency.",
+    "back_hi": "कम आवृत्ति (Low Frequency)।",
+    "hint": "Fewer waves reach them per second.",
+    "hint_hi": "प्रति सेकंड कम लहरें उन तक पहुँचती हैं।",
+    "trick": "Logic Link: As the ambulance drives away, it pulls away from the sound waves it just left behind. This physically stretches the gap between the waves. Fewer stretched waves reach Observer A per second, resulting in Low Frequency.",
+    "trick_hi": "Logic Link: जैसे-जैसे एम्बुलेंस दूर जाती है, वह उन ध्वनि तरंगों से दूर हो जाती है जिन्हें वह पीछे छोड़ गई है। यह शारीरिक रूप से तरंगों के बीच की खाई को फैलाता है। कम फैली हुई तरंगें प्रति सेकंड पर्यवेक्षक ए तक पहुंचती हैं, जिसके परिणामस्वरूप कम आवृत्ति होती है।",
+    "explanation": "This results in a deeper, lower-pitched siren sound as the ambulance leaves.",
+    "explanation_hi": "इसके परिणामस्वरूप एम्बुलेंस के जाने पर सायरन की ध्वनि गहरी और कम सुनाई देती है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "waves", "doppler_effect", "away", "frequency"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-043",
+    "type": "concept",
+    "front": "According to the diagram, what happens to the Wavelength for Observer A, whom the ambulance is moving AWAY from?",
+    "front_hi": "आरेख के अनुसार, प्रेक्षक A के लिए तरंग दैर्ध्य का क्या होता है, जिससे एम्बुलेंस दूर जा रही है?",
+    "back": "High Wavelength.",
+    "back_hi": "उच्च तरंग दैर्ध्य (High Wavelength)।",
+    "hint": "The waves are stretched out.",
+    "hint_hi": "लहरें बाहर फैली हुई हैं।",
+    "trick": "Logic Link: Frequency and Wavelength are exact opposites ($f \u221d 1/\u03bb$). If the escaping ambulance stretches the waves (Low Frequency), the physical gap between the wave crests expands vastly, making it a High Wavelength.",
+    "trick_hi": "Logic Link: आवृत्ति और तरंग दैर्ध्य बिल्कुल विपरीत हैं ($f \u221d 1/\u03bb$)। यदि भागने वाली एम्बुलेंस तरंगों (कम आवृत्ति) को फैलाती है, तो तरंग शिखरों के बीच का भौतिक अंतर काफी हद तक फैल जाता है, जिससे यह एक उच्च तरंग दैर्ध्य बन जाता है।",
+    "explanation": "You can clearly see the pink circles spaced far apart on the left side of the diagram.",
+    "explanation_hi": "आप आरेख के बाईं ओर काफी दूरी पर स्थित गुलाबी वृत्तों को स्पष्ट रूप से देख सकते हैं।",
+    "meta": {
+      "difficulty": "hard",
+      "tags": ["physics", "waves", "doppler_effect", "away", "wavelength"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-044",
+    "type": "concept",
+    "front": "If an object producing a sound approaches you rapidly, what subjective change in 'Pitch' will you hear due to the Doppler Effect?",
+    "front_hi": "यदि ध्वनि उत्पन्न करने वाली कोई वस्तु तेज़ी से आपके पास आती है, तो डॉपलर प्रभाव के कारण आप 'पिच' में क्या व्यक्तिपरक परिवर्तन सुनेंगे?",
+    "back": "The Pitch will sound Higher (Sharper).",
+    "back_hi": "पिच अधिक उच्च/तीक्ष्ण (Higher/Sharper) सुनाई देगी।",
+    "hint": "High frequency equals high pitch.",
+    "hint_hi": "उच्च आवृत्ति उच्च पिच के बराबर है।",
+    "trick": "Logic Link: The Doppler Effect squishes the waves together as it approaches (\u2191 High Frequency). The human ear translates a high mechanical frequency directly into a high, piercing musical Pitch.",
+    "trick_hi": "Logic Link: डॉपलर प्रभाव तरंगों को एक साथ कुचलता है क्योंकि यह आता है (\u2191 उच्च आवृत्ति)। मानव कान सीधे उच्च, भेदी संगीत पिच में उच्च यांत्रिक आवृत्ति का अनुवाद करता है।",
+    "explanation": "This is why the 'vroom' of a race car sounds screechy as it drives towards you.",
+    "explanation_hi": "यही कारण है कि एक रेस कार का 'वरूम' आपकी ओर ड्राइव करते समय चीखता हुआ लगता है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "waves", "doppler_effect", "pitch", "towards"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-045",
+    "type": "concept",
+    "front": "If an object producing a sound moves away from you rapidly, what subjective change in 'Pitch' will you hear due to the Doppler Effect?",
+    "front_hi": "यदि ध्वनि उत्पन्न करने वाली कोई वस्तु तेजी से आपसे दूर जाती है, तो डॉपलर प्रभाव के कारण आप 'पिच' में क्या व्यक्तिपरक परिवर्तन सुनेंगे?",
+    "back": "The Pitch will sound Lower (Deeper).",
+    "back_hi": "पिच कम/गहरी (Lower/Deeper) सुनाई देगी।",
+    "hint": "Low frequency equals low pitch.",
+    "hint_hi": "कम आवृत्ति कम पिच के बराबर है।",
+    "trick": "Logic Link: The Doppler Effect stretches the waves apart as it leaves (\u2193 Low Frequency). The human ear translates a low, stretched mechanical frequency directly into a deep, booming musical Pitch.",
+    "trick_hi": "Logic Link: डॉपलर प्रभाव तरंगों को अलग करता है क्योंकि यह छोड़ देता है (\u2193 कम आवृत्ति)। मानव कान एक कम, फैला हुआ यांत्रिक आवृत्ति का सीधा एक गहरे, तेज संगीत पिच में अनुवाद करता है।",
+    "explanation": "This is why the 'vroom' drops to a deep rumble as the race car passes you and drives away.",
+    "explanation_hi": "यही कारण है कि रेस कार के आपके पास से गुजरने और दूर जाने पर 'वरूम' गहरी गड़गड़ाहट में गिर जाता है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "waves", "doppler_effect", "pitch", "away"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-046",
+    "type": "concept",
+    "front": "In the Refraction diagram, why is there a distinct separation drawn between 'Cool Air' and 'Warm Air'?",
+    "front_hi": "अपवर्तन आरेख में, 'ठंडी हवा' और 'गर्म हवा' के बीच स्पष्ट अलगाव क्यों खींचा गया है?",
+    "back": "To show the boundary between two mediums of different densities.",
+    "back_hi": "विभिन्न घनत्वों के दो माध्यमों के बीच की सीमा को दिखाने के लिए।",
+    "hint": "Refraction needs two different zones.",
+    "hint_hi": "अपवर्तन को दो अलग-अलग क्षेत्रों की आवश्यकता होती है।",
+    "trick": "Logic Link: Refraction strictly requires a wave to pass from one medium into a structurally different medium. Cold air is physically denser than Warm air. This density boundary acts like a lens, forcing the sound to bend.",
+    "trick_hi": "Logic Link: अपवर्तन के लिए सख्ती से एक लहर को एक माध्यम से संरचनात्मक रूप से भिन्न माध्यम में पारित करने की आवश्यकता होती है। ठंडी हवा भौतिक रूप से गर्म हवा की तुलना में सघन होती है। यह घनत्व सीमा एक लेंस की तरह कार्य करती है, जिससे ध्वनि मुड़ने के लिए मजबूर होती है।",
+    "explanation": "Without a temperature/density gradient, sound would just travel straight.",
+    "explanation_hi": "तापमान/घनत्व प्रवणता के बिना, ध्वनि केवल सीधे यात्रा करेगी।",
+    "meta": {
+      "difficulty": "hard",
+      "tags": ["physics", "sound", "refraction", "density", "medium"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-047",
+    "type": "concept",
+    "front": "Based on the Interference notes, what happens if Speaker 1 and Speaker 2 play overlapping sounds, but have 'No effect on wave' mathematically?",
+    "front_hi": "व्यतिकरण नोट्स के आधार पर, क्या होता है यदि स्पीकर 1 और स्पीकर 2 अतिव्यापी ध्वनियाँ बजाते हैं, लेकिन गणितीय रूप से 'तरंग पर कोई प्रभाव नहीं' (No effect on wave) होता है?",
+    "back": "This state is marked with an 'X' (It does not occur in pure interference).",
+    "back_hi": "इस अवस्था को 'X' से चिह्नित किया गया है (यह शुद्ध व्यतिकरण में नहीं होता है)।",
+    "hint": "Waves must either add or subtract.",
+    "hint_hi": "तरंगों को जोड़ना या घटाना होगा।",
+    "trick": "Logic Link: The notes clearly cross out ('X') the option 'No effect on wave'. By the strict laws of physics (Superposition Principle), if two waves occupy the same space, they MUST interact. They will either constructively add (Same Phase) or destructively subtract (Opposite phase). Neutrality is impossible.",
+    "trick_hi": "Logic Link: नोट्स स्पष्ट रूप से 'लहर पर कोई प्रभाव नहीं' विकल्प को पार ('X') करते हैं। भौतिकी के सख्त नियमों (सुपरपोजिशन सिद्धांत) के अनुसार, यदि दो तरंगें एक ही स्थान घेरती हैं, तो उन्हें बातचीत करनी चाहिए। वे या तो रचनात्मक रूप से जोड़ेंगे (समान चरण) या विनाशकारी रूप से घटाएंगे (विपरीत चरण)। तटस्थता असंभव है।",
+    "explanation": "Waves are physical energy, and energy in the same space must sum together.",
+    "explanation_hi": "तरंगें भौतिक ऊर्जा हैं, और एक ही स्थान में ऊर्जा एक साथ जुड़नी चाहिए।",
+    "meta": {
+      "difficulty": "hard",
+      "tags": ["physics", "sound", "interference", "superposition"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-048",
+    "type": "concept",
+    "front": "In the Polarization diagram, what specific angle (\u03b8) is drawn to define Transverse Waves?",
+    "front_hi": "ध्रुवीकरण आरेख में, अनुप्रस्थ तरंगों को परिभाषित करने के लिए कौन सा विशिष्ट कोण (\u03b8) खींचा गया है?",
+    "back": "\u03b8 \u2192 90\u00b0.",
+    "back_hi": "\u03b8 \u2192 90\u00b0.",
+    "hint": "The perpendicular wiggle.",
+    "hint_hi": "लंबवत विगल।",
+    "trick": "Logic Link: The diagram explicitly writes '\u03b8 \u2192 90\u00b0' next to 'Transverse Waves'. This highlights that the particle vibration is 90 degrees offset from the direction of energy travel, providing the physical geometry needed for a polarizer to block it.",
+    "trick_hi": "Logic Link: आरेख स्पष्ट रूप से 'अनुप्रस्थ तरंगों' के बगल में '\u03b8 \u2192 90\u00b0' लिखता है। यह इस बात पर प्रकाश डालता है कि कण कंपन ऊर्जा यात्रा की दिशा से 90 डिग्री ऑफसेट है, एक ध्रुवीकरण को अवरुद्ध करने के लिए आवश्यक भौतिक ज्यामिति प्रदान करता है।",
+    "explanation": "This angle is the key to passing the polarization test.",
+    "explanation_hi": "यह कोण ध्रुवीकरण परीक्षण पास करने की कुंजी है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "waves", "polarization", "transverse", "diagram"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-049",
+    "type": "concept",
+    "front": "According to the Doppler Effect diagram, how does the Ambulance's forward motion affect the wave circles in front of it?",
+    "front_hi": "डॉपलर प्रभाव आरेख के अनुसार, एम्बुलेंस की आगे की गति इसके सामने के तरंग वृत्तों (wave circles) को कैसे प्रभावित करती है?",
+    "back": "It pushes the circles tightly together (compressing them).",
+    "back_hi": "यह वृत्तों को एक साथ कसकर धकेलता है (उन्हें संकुचित करता है)।",
+    "hint": "Look at the right side of the pink rings.",
+    "hint_hi": "गुलाबी छल्ले के दाईं ओर देखें।",
+    "trick": "Logic Link: Because the ambulance moves in the same direction it is emitting sound, it physically catches up to its previously emitted waves. This geometric compression is visually shown by the pink rings bunching up on the right side.",
+    "trick_hi": "Logic Link: चूंकि एम्बुलेंस उसी दिशा में चलती है जिस दिशा में वह ध्वनि उत्सर्जित कर रही है, यह शारीरिक रूप से अपनी पहले उत्सर्जित तरंगों को पकड़ लेती है। यह ज्यामितीय संपीड़न दाईं ओर गुच्छेदार गुलाबी छल्ले द्वारा दृष्टिगत रूप से दिखाया गया है।",
+    "explanation": "This visual bunching represents the shift to High Frequency.",
+    "explanation_hi": "यह दृश्य गुच्छा उच्च आवृत्ति में बदलाव का प्रतिनिधित्व करता है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "waves", "doppler_effect", "diagram", "compression"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-050",
+    "type": "concept",
+    "front": "According to the Doppler Effect diagram, how does the Ambulance's forward motion affect the wave circles behind it?",
+    "front_hi": "डॉपलर प्रभाव आरेख के अनुसार, एम्बुलेंस की आगे की गति इसके पीछे के तरंग वृत्तों को कैसे प्रभावित करती है?",
+    "back": "It stretches the circles far apart.",
+    "back_hi": "यह वृत्तों को एक दूसरे से बहुत दूर खींचता है।",
+    "hint": "Look at the left side of the pink rings.",
+    "hint_hi": "गुलाबी छल्ले के बाईं ओर देखें।",
+    "trick": "Logic Link: Because the ambulance drives away from the waves it left in its wake, the origin point of each new wave is further away from the last. This stretches the gap between the rings, visibly widening them on the left side.",
+    "trick_hi": "Logic Link: चूँकि एम्बुलेंस उन लहरों से दूर चली जाती है जो उसने अपने मद्देनजर छोड़ी थीं, प्रत्येक नई लहर का मूल बिंदु पिछले की तुलना में आगे है। यह अंगूठियों के बीच के अंतर को फैलाता है, जिससे वे बाईं ओर स्पष्ट रूप से चौड़े हो जाते हैं।",
+    "explanation": "This visual stretching represents the shift to Low Frequency.",
+    "explanation_hi": "यह दृश्य खिंचाव कम आवृत्ति में बदलाव का प्रतिनिधित्व करता है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "waves", "doppler_effect", "diagram", "stretching"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-4-051",
+    "type": "concept",
+    "front": "If both the Wave Source (Ambulance) and the Observer are completely stationary, will there be a Doppler Effect?",
+    "front_hi": "यदि तरंग स्रोत (एम्बुलेंस) और पर्यवेक्षक दोनों पूरी तरह से स्थिर (stationary) हैं, तो क्या डॉपलर प्रभाव होगा?",
+    "back": "No, there will be zero Doppler Effect.",
+    "back_hi": "नहीं, शून्य डॉपलर प्रभाव होगा।",
+    "hint": "There is no 'relative motion'.",
+    "hint_hi": "कोई 'सापेक्ष गति' नहीं है।",
+    "trick": "Logic Link: The definition explicitly requires 'relative motion'. If speed = 0, the waves expand in perfectly concentric, evenly spaced circles. The observer hears the exact true frequency emitted by the siren without any shift.",
+    "trick_hi": "Logic Link: परिभाषा स्पष्ट रूप से 'सापेक्ष गति' की आवश्यकता है। यदि गति = 0, तो तरंगें पूरी तरह से संकेंद्रित, समान दूरी वाले वृत्तों में फैलती हैं। पर्यवेक्षक बिना किसी बदलाव के सायरन द्वारा उत्सर्जित सटीक वास्तविक आवृत्ति को सुनता है।",
+    "explanation": "Motion is the mandatory engine of the Doppler shift.",
+    "explanation_hi": "गति डॉपलर बदलाव का अनिवार्य इंजन है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "waves", "doppler_effect", "stationary", "logic"]
+    },
+    "lists": []
+  }
+]

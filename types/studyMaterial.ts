@@ -19,6 +19,7 @@ export interface KDConcept {
   notesMarkdown: string | null;
   noteBoxes: NoteBox[] | null;
   pdfUrl: string | null;
+  pdfs?: { id: string; title: string; url: string }[];
   youtubeUrls: string[] | null;
   quizzes: KDQuiz[];
   flashcardSets?: KDFlashcardSet[];

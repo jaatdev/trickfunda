@@ -1,0 +1,1016 @@
+[
+  {
+    "id": "physics-sound-class-3-001",
+    "type": "concept",
+    "front": "What is the scientific definition of an 'Echo'?",
+    "front_hi": "'प्रतिध्वनि' (Echo) की वैज्ञानिक परिभाषा क्या है?",
+    "back": "It is the repetition of sound from the reflection of sound waves.",
+    "back_hi": "यह ध्वनि तरंगों के परावर्तन (reflection) से ध्वनि की पुनरावृत्ति है।",
+    "hint": "Hearing your voice again.",
+    "hint_hi": "अपनी आवाज़ को दोबारा सुनना।",
+    "trick": "Logic Link: When a sound wave hits a barrier, some energy is absorbed, but a significant portion bounces back. If the time gap is long enough, our brain registers it as a distinct, second sound.",
+    "trick_hi": "Logic Link: जब कोई ध्वनि तरंग किसी अवरोध से टकराती है, तो कुछ ऊर्जा अवशोषित हो जाती है, लेकिन एक महत्वपूर्ण हिस्सा वापस उछल जाता है। यदि समय का अंतर पर्याप्त लंबा है, तो हमारा मस्तिष्क इसे एक अलग, दूसरी ध्वनि के रूप में दर्ज करता है।",
+    "explanation": "Echoes occur when sound bounces off a hard surface.",
+    "explanation_hi": "प्रतिध्वनि तब होती है जब ध्वनि किसी कठोर सतह से टकराकर वापस आती है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "sound", "echo", "reflection"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-002",
+    "type": "concept",
+    "front": "What type of surface is strictly required to produce a clear Echo?",
+    "front_hi": "स्पष्ट प्रतिध्वनि (Echo) उत्पन्न करने के लिए किस प्रकार की सतह की सख्ती से आवश्यकता होती है?",
+    "back": "A Hard Surface.",
+    "back_hi": "एक कठोर सतह (Hard Surface)।",
+    "hint": "Like a mountain or a concrete wall.",
+    "hint_hi": "एक पहाड़ या कंक्रीट की दीवार की तरह।",
+    "trick": "Logic Link: Soft materials absorb kinetic wave energy. Hard surfaces (like rock or steel) resist deformation and violently push the wave energy back into the air, creating the reflection.",
+    "trick_hi": "Logic Link: नरम सामग्री गतिज तरंग ऊर्जा को अवशोषित करती है। कठोर सतहें (जैसे चट्टान या स्टील) विरूपण का विरोध करती हैं और हिंसक रूप से तरंग ऊर्जा को हवा में वापस धकेल देती हैं, जिससे परावर्तन होता है।",
+    "explanation": "Without a hard surface, the sound will just be absorbed (damped).",
+    "explanation_hi": "कठोर सतह के बिना, ध्वनि केवल अवशोषित (शांत) हो जाएगी।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "sound", "echo", "surface"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-003",
+    "type": "concept",
+    "front": "In physics applications, what can Echoes be practically used to measure?",
+    "front_hi": "भौतिकी अनुप्रयोगों में, प्रतिध्वनियों का व्यावहारिक रूप से क्या मापने के लिए उपयोग किया जा सकता है?",
+    "back": "The Speed of Sound.",
+    "back_hi": "ध्वनि की गति (Speed of Sound)।",
+    "hint": "Calculating how fast the wave travels.",
+    "hint_hi": "तरंग कितनी तेजी से यात्रा करती है, इसकी गणना करना।",
+    "trick": "Logic Link: If you know the exact distance to a wall, and you time how long the echo takes to return, you can use basic math (Speed = Distance / Time) to find the wave's velocity.",
+    "trick_hi": "Logic Link: यदि आप दीवार की सटीक दूरी जानते हैं, और आप समय लेते हैं कि प्रतिध्वनि को लौटने में कितना समय लगता है, तो आप तरंग के वेग का पता लगाने के लिए बुनियादी गणित (गति = दूरी / समय) का उपयोग कर सकते हैं।",
+    "explanation": "This was one of the earliest historical methods to estimate sonic speed.",
+    "explanation_hi": "ध्वनिक गति का अनुमान लगाने के लिए यह सबसे शुरुआती ऐतिहासिक तरीकों में से एक था।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "sound", "echo", "application"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-004",
+    "type": "concept",
+    "front": "What is the Minimum Distance in METERS required between the source and the reflecting body to hear an echo?",
+    "front_hi": "एक प्रतिध्वनि सुनने के लिए स्रोत और परावर्तक निकाय के बीच आवश्यक न्यूनतम दूरी मीटर (METERS) में क्या है?",
+    "back": "17 meters.",
+    "back_hi": "17 मीटर।",
+    "hint": "Half of 34 meters.",
+    "hint_hi": "34 मीटर का आधा।",
+    "trick": "Logic Link: Sound travels ~340 m/s. It must take at least 0.1s to return. Total round-trip distance = 340 * 0.1 = 34m. Since the sound goes there and back, the one-way distance to the wall is 34 / 2 = 17 meters.",
+    "trick_hi": "Logic Link: ध्वनि ~340 m/s की यात्रा करती है। इसे लौटने में कम से कम 0.1s लगना चाहिए। कुल राउंड-ट्रिप दूरी = 340 * 0.1 = 34m. चूंकि ध्वनि वहां जाकर वापस आती है, दीवार तक एक तरफ की दूरी 34 / 2 = 17 मीटर है।",
+    "explanation": "If the wall is closer than 17m, the echo merges with the original sound.",
+    "explanation_hi": "यदि दीवार 17 मीटर से अधिक करीब है, तो प्रतिध्वनि मूल ध्वनि में मिल जाती है।",
+    "meta": {
+      "difficulty": "hard",
+      "tags": ["physics", "sound", "echo", "distance", "meters"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-005",
+    "type": "concept",
+    "front": "What is the Minimum Distance in FEET required to hear a distinct echo?",
+    "front_hi": "स्पष्ट प्रतिध्वनि सुनने के लिए आवश्यक न्यूनतम दूरी फीट (FEET) में क्या है?",
+    "back": "56 Feet.",
+    "back_hi": "56 फीट।",
+    "hint": "Convert 17 meters to feet.",
+    "hint_hi": "17 मीटर को फीट में बदलें।",
+    "trick": "Logic Link: 1 meter is approximately 3.28 feet. 17 meters \u00d7 3.28 \u2248 55.7 feet, which rounds to 56 feet in standard physics exams.",
+    "trick_hi": "Logic Link: 1 मीटर लगभग 3.28 फीट होता है। 17 मीटर \u00d7 3.28 \u2248 55.7 फीट, जो मानक भौतिकी परीक्षाओं में 56 फीट के बराबर होता है।",
+    "explanation": "Often tested directly in exams using the imperial system.",
+    "explanation_hi": "अक्सर इंपीरियल सिस्टम का उपयोग करके सीधे परीक्षा में परीक्षण किया जाता है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "sound", "echo", "distance", "feet"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-006",
+    "type": "concept",
+    "front": "What is the Minimum Time gap required between the original sound and the reflected sound to hear an echo?",
+    "front_hi": "प्रतिध्वनि सुनने के लिए मूल ध्वनि और परावर्तित ध्वनि के बीच आवश्यक न्यूनतम समय अंतराल क्या है?",
+    "back": "1/10 seconds (or 0.1 seconds).",
+    "back_hi": "1/10 सेकंड (या 0.1 सेकंड)।",
+    "hint": "Based on the persistence of hearing.",
+    "hint_hi": "सुनने की दृढ़ता के आधार पर।",
+    "trick": "Logic Link: The human brain holds onto an auditory signal for 0.1 seconds. If a reflection arrives before 0.1 seconds, the brain blurs it together. It must arrive AFTER this threshold to be heard separately.",
+    "trick_hi": "Logic Link: मानव मस्तिष्क 0.1 सेकंड के लिए श्रवण संकेत को पकड़ कर रखता है। यदि परावर्तन 0.1 सेकंड से पहले आता है, तो मस्तिष्क इसे एक साथ धुंधला कर देता है। अलग से सुने जाने के लिए इसे इस सीमा के बाद आना चाहिए।",
+    "explanation": "This time threshold creates the 17-meter physical limit.",
+    "explanation_hi": "यह समय सीमा 17-मीटर भौतिक सीमा बनाती है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "sound", "echo", "time"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-007",
+    "type": "concept",
+    "front": "Which flying mammal heavily relies on echoes to catch its prey/food?",
+    "front_hi": "कौन सा उड़ने वाला स्तनपायी अपने शिकार/भोजन को पकड़ने के लिए प्रतिध्वनि (echoes) पर बहुत अधिक निर्भर करता है?",
+    "back": "Bats.",
+    "back_hi": "चमगादड़ (Bats)।",
+    "hint": "The creature of the night.",
+    "hint_hi": "रात का प्राणी।",
+    "trick": "Logic Link: Bats hunt at night where eyes are useless. They evolved to shout high-frequency pulses and listen to the bouncing echoes, mapping a perfect 3D image of a flying mosquito in complete darkness.",
+    "trick_hi": "Logic Link: चमगादड़ रात में शिकार करते हैं जहाँ आँखें बेकार होती हैं। वे उच्च-आवृत्ति दालों को चिल्लाने और उछलती प्रतिध्वनियों को सुनने के लिए विकसित हुए, पूर्ण अंधकार में उड़ने वाले मच्छर की एक आदर्श 3D छवि का मानचित्रण करते हैं।",
+    "explanation": "This biological process is called natural echolocation.",
+    "explanation_hi": "इस जैविक प्रक्रिया को प्राकृतिक इकोलोकेशन कहा जाता है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "sound", "echo", "bats"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-008",
+    "type": "concept",
+    "front": "What specific category of sound waves do Bats use for their echolocation?",
+    "front_hi": "चमगादड़ अपने इकोलोकेशन के लिए किस विशिष्ट श्रेणी की ध्वनि तरंगों का उपयोग करते हैं?",
+    "back": "Ultrasound Waves.",
+    "back_hi": "अल्ट्रासाउंड तरंगें (Ultrasound Waves)।",
+    "hint": "Frequencies above human hearing limits.",
+    "hint_hi": "मानव श्रवण सीमा से ऊपर की आवृत्तियाँ।",
+    "trick": "Logic Link: High-frequency ultrasound waves have tiny wavelengths. Tiny wavelengths bounce perfectly off tiny objects (like bugs). If bats used low frequencies, the wave would pass right over the bug without echoing.",
+    "trick_hi": "Logic Link: उच्च-आवृत्ति अल्ट्रासाउंड तरंगों में छोटी तरंग दैर्ध्य होती है। छोटी तरंग दैर्ध्य छोटी वस्तुओं (जैसे कीड़े) से पूरी तरह से उछलती है। यदि चमगादड़ कम आवृत्तियों का उपयोग करते हैं, तो लहर बिना गूंज के सीधे बग के ऊपर से गुजर जाएगी।",
+    "explanation": "Humans cannot hear the hunting clicks of a bat.",
+    "explanation_hi": "इंसान चमगादड़ के शिकार की क्लिक नहीं सुन सकते।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "sound", "ultrasound", "bats"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-009",
+    "type": "concept",
+    "front": "What is the full form of the acronym SONAR?",
+    "front_hi": "SONAR का फुल फॉर्म क्या है?",
+    "back": "Sound Navigation and Ranging.",
+    "back_hi": "साउंड नेविगेशन एंड रेंजिंग (Sound Navigation and Ranging)।",
+    "hint": "SO = Sound, NA = Navigation, R = Ranging.",
+    "hint_hi": "SO = Sound, NA = Navigation, R = Ranging.",
+    "trick": "Logic Link: The name literally describes its function. It uses 'Sound' to 'Navigate' (find a path) and do 'Ranging' (calculate the range/distance to a target).",
+    "trick_hi": "Logic Link: नाम शाब्दिक रूप से इसके कार्य का वर्णन करता है। यह 'नेविगेट' (रास्ता खोजने) और 'रेंजिंग' (किसी लक्ष्य की सीमा/दूरी की गणना करने) के लिए 'साउंड' का उपयोग करता है।",
+    "explanation": "It is the primary technology used for underwater mapping.",
+    "explanation_hi": "यह पानी के नीचे मानचित्रण के लिए उपयोग की जाने वाली प्राथमिक तकनीक है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "sound", "sonar", "acronym"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-010",
+    "type": "concept",
+    "front": "Name three major applications of SONAR technology given in the notes.",
+    "front_hi": "नोट्स में दी गई SONAR तकनीक के तीन प्रमुख अनुप्रयोगों के नाम बताइए।",
+    "back": "1. Submarines, 2. Ships, 3. Measuring Sea Depths (Artificial echolocation).",
+    "back_hi": "1. पनडुब्बियां (Submarines), 2. जहाज (Ships), 3. समुद्र की गहराई मापना (Measuring Sea Depths)।",
+    "hint": "Ocean vessels and oceanography.",
+    "hint_hi": "महासागर के जहाज और समुद्र विज्ञान।",
+    "trick": "Logic Link: Light cannot penetrate deep into the ocean; it goes completely dark. Therefore, naval vessels must rely entirely on acoustic sound wave reflection (SONAR) to 'see' underwater.",
+    "trick_hi": "Logic Link: प्रकाश समुद्र की गहराई में प्रवेश नहीं कर सकता; यह पूरी तरह से अंधेरा हो जाता है। इसलिए, नौसैनिक जहाजों को पानी के नीचे 'देखने' के लिए ध्वनिक ध्वनि तरंग परावर्तन (सोनार) पर पूरी तरह से निर्भर होना चाहिए।",
+    "explanation": "SONAR acts as the 'eyes' of the navy.",
+    "explanation_hi": "सोनार नौसेना की 'आंखों' के रूप में कार्य करता है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "sound", "sonar", "uses"]
+    },
+    "lists": [
+      {
+        "title": "SONAR Applications",
+        "title_hi": "सोनार अनुप्रयोग",
+        "items": ["Submarines", "Ships", "Sea Depth Calculation"],
+        "colorTheme": "blue"
+      }
+    ]
+  },
+  {
+    "id": "physics-sound-class-3-011",
+    "type": "concept",
+    "front": "What biological term is used to describe how Dolphins and Whales navigate using echoes?",
+    "front_hi": "डॉल्फ़िन और व्हेल प्रतिध्वनि (echoes) का उपयोग करके कैसे नेविगेट करते हैं, इसका वर्णन करने के लिए किस जैविक शब्द का उपयोग किया जाता है?",
+    "back": "Echolocation.",
+    "back_hi": "इकोलोकेशन (Echolocation)।",
+    "hint": "Locating via Echoes.",
+    "hint_hi": "प्रतिध्वनियों के माध्यम से पता लगाना।",
+    "trick": "Logic Link: Just like human-made SONAR, marine mammals organically generate their own pulses, let them hit fish or rocks, and process the return timing to locate objects in 3D space.",
+    "trick_hi": "Logic Link: मानव निर्मित सोनार की तरह, समुद्री स्तनधारी व्यवस्थित रूप से अपनी खुद की दालें उत्पन्न करते हैं, उन्हें मछली या चट्टानों से टकराने देते हैं, और 3D अंतरिक्ष में वस्तुओं का पता लगाने के लिए वापसी समय की प्रक्रिया करते हैं।",
+    "explanation": "Whales have mastered this ability over millions of years of evolution.",
+    "explanation_hi": "व्हेल ने विकास के लाखों वर्षों में इस क्षमता में महारत हासिल कर ली है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "biology", "echolocation", "whales"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-012",
+    "type": "concept",
+    "front": "Which two specialized anatomical organs do Dolphins use for Echolocation?",
+    "front_hi": "इकोलोकेशन के लिए डॉल्फ़िन किन दो विशिष्ट शारीरिक अंगों का उपयोग करती हैं?",
+    "back": "1. Nasal Sacs, 2. Melon.",
+    "back_hi": "1. नेज़ल सैक्स (Nasal Sacs), 2. मेलन (Melon)।",
+    "hint": "One is in the nose, the other sounds like a fruit.",
+    "hint_hi": "एक नाक में है, दूसरा फल जैसा लगता है।",
+    "trick": "Logic Link: The 'Nasal Sacs' forcefully click and generate the physical sound wave. The 'Melon' (a fat mass in the forehead) acts as an acoustic lens, focusing those clicks into a tight, directed beam like a flashlight.",
+    "trick_hi": "Logic Link: 'नेज़ल सैक्स' बलपूर्वक क्लिक करते हैं और भौतिक ध्वनि तरंग उत्पन्न करते हैं। 'मेलन' (माथे में एक वसा द्रव्यमान) एक ध्वनिक लेंस के रूप में कार्य करता है, उन क्लिकों को एक टॉर्च की तरह एक तंग, निर्देशित बीम में केंद्रित करता है।",
+    "explanation": "This specific detail is often highly targeted in advanced science exams.",
+    "explanation_hi": "उन्नत विज्ञान परीक्षाओं में अक्सर इस विशिष्ट विवरण को अत्यधिक लक्षित किया जाता है।",
+    "meta": {
+      "difficulty": "hard",
+      "tags": ["physics", "biology", "dolphin", "organs"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-013",
+    "type": "concept",
+    "front": "What type of material must be used to Prevent the Echo of Sound in a room?",
+    "front_hi": "किसी कमरे में ध्वनि की प्रतिध्वनि (Echo) को रोकने के लिए किस प्रकार की सामग्री का उपयोग किया जाना चाहिए?",
+    "back": "Porous Material (\u091b\u093f\u0926\u094d\u0930 \u0935\u093e\u0932\u0940 \u0938\u093e\u092e\u0917\u094d\u0930\u0940).",
+    "back_hi": "छिद्रपूर्ण सामग्री (Porous Material / छिद्र)।",
+    "hint": "Materials with tiny microscopic holes.",
+    "hint_hi": "छोटे सूक्ष्म छिद्रों वाली सामग्री।",
+    "trick": "Logic Link: When a sound wave hits a porous object, the air gets trapped inside the tiny holes. Friction turns the acoustic kinetic energy into microscopic heat, effectively 'eating' the sound and stopping it from reflecting.",
+    "trick_hi": "Logic Link: जब कोई ध्वनि तरंग किसी छिद्रपूर्ण वस्तु से टकराती है, तो हवा छोटे छिद्रों के अंदर फंस जाती है। घर्षण ध्वनिक गतिज ऊर्जा को सूक्ष्म ऊष्मा में बदल देता है, प्रभावी रूप से ध्वनि को 'खा' जाता है और इसे परावर्तित होने से रोकता है।",
+    "explanation": "This is the fundamental principle of acoustic soundproofing.",
+    "explanation_hi": "यह ध्वनिक ध्वनिरोधी (soundproofing) का मूल सिद्धांत है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "sound", "prevention", "porous"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-014",
+    "type": "concept",
+    "front": "Give three examples of Porous Materials used to prevent echo.",
+    "front_hi": "प्रतिध्वनि को रोकने के लिए उपयोग की जाने वाली छिद्रपूर्ण सामग्री (Porous Materials) के तीन उदाहरण दें।",
+    "back": "1. Curtains, 2. Wood, 3. Clothes.",
+    "back_hi": "1. पर्दे (Curtains), 2. लकड़ी (Wood), 3. कपड़े (Clothes)।",
+    "hint": "Things that make a bedroom quiet.",
+    "hint_hi": "चीजें जो बेडरूम को शांत बनाती हैं।",
+    "trick": "Logic Link: These soft, textured materials act as sound absorbers. An empty room with bare concrete walls echoes badly; bringing in curtains and wooden furniture immediately damps the reflections.",
+    "trick_hi": "Logic Link: ये नरम, बनावट वाली सामग्रियां ध्वनि अवशोषक के रूप में कार्य करती हैं। नंगी कंक्रीट की दीवारों वाला एक खाली कमरा बुरी तरह गूंजता है; पर्दे और लकड़ी के फर्नीचर लाने से परावर्तन तुरंत कम हो जाता है।",
+    "explanation": "Movie theatres are lined with heavily textured cloth for this exact reason.",
+    "explanation_hi": "यही कारण है कि सिनेमाघरों में भारी बनावट वाले कपड़े लगे होते हैं।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "sound", "prevention", "examples"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-015",
+    "type": "concept",
+    "front": "What is the scientific term for the 'persistence of sound after it has been stopped due to multiple reflections'?",
+    "front_hi": "'कई परावर्तनों के कारण रुकने के बाद भी ध्वनि के बने रहने' के लिए वैज्ञानिक शब्द क्या है?",
+    "back": "Reverberation.",
+    "back_hi": "अनुरणन (Reverberation)।",
+    "hint": "The 'hollow' ringing sound in an empty hall.",
+    "hint_hi": "एक खाली हॉल में 'खोखली' बजने वाली आवाज।",
+    "trick": "Logic Link: Unlike a clear echo which is one distinct bounce, reverberation is the sound bouncing chaotically off 10 different walls simultaneously. The reflections overlap continuously, creating a lingering, muddy persistence of sound.",
+    "trick_hi": "Logic Link: एक स्पष्ट प्रतिध्वनि के विपरीत जो एक अलग उछाल है, अनुरणन (reverberation) एक साथ 10 अलग-अलग दीवारों से अराजक रूप से उछलने वाली ध्वनि है। परावर्तन लगातार ओवरलैप होते हैं, जिससे ध्वनि की एक सुस्त, गंदी दृढ़ता पैदा होती है।",
+    "explanation": "Reverberation makes speech very hard to understand in large empty halls.",
+    "explanation_hi": "अनुरणन बड़े खाली हॉलों में भाषण को समझना बहुत कठिन बना देता है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "sound", "reverberation", "definition"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-016",
+    "type": "concept",
+    "front": "What is the specific distance condition required for Reverberation to occur?",
+    "front_hi": "अनुरणन (Reverberation) होने के लिए आवश्यक विशिष्ट दूरी की शर्त क्या है?",
+    "back": "Distance < 17 meters (Less than 17m).",
+    "back_hi": "दूरी < 17 मीटर (17 मीटर से कम)।",
+    "hint": "Shorter than the echo requirement.",
+    "hint_hi": "प्रतिध्वनि की आवश्यकता से कम।",
+    "trick": "Logic Link: If the distance is MORE than 17m, the reflections arrive slowly, creating distinct Echoes. If the walls are CLOSER than 17m, the waves bounce back instantly and violently overlap, creating muddy Reverberation.",
+    "trick_hi": "Logic Link: यदि दूरी 17m से अधिक है, तो परावर्तन धीरे-धीरे आते हैं, जिससे अलग प्रतिध्वनियाँ बनती हैं। यदि दीवारें 17 मीटर से अधिक करीब हैं, तो लहरें तुरंत वापस आती हैं और हिंसक रूप से ओवरलैप होती हैं, जिससे मैला अनुरणन बनता है।",
+    "explanation": "This explains why small tiled bathrooms reverberate heavily.",
+    "explanation_hi": "यह बताता है कि छोटे टाइल वाले बाथरूम भारी क्यों गूंजते हैं।",
+    "meta": {
+      "difficulty": "hard",
+      "tags": ["physics", "sound", "reverberation", "distance"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-017",
+    "type": "concept",
+    "front": "What is the specific time condition for the reflected sound to cause Reverberation?",
+    "front_hi": "परावर्तित ध्वनि के कारण अनुरणन होने के लिए विशिष्ट समय शर्त क्या है?",
+    "back": "Before 0.1 seconds.",
+    "back_hi": "0.1 सेकंड से पहले (Before 0.1 sec)।",
+    "hint": "The signal crashes into the brain too fast.",
+    "hint_hi": "सिग्नल मस्तिष्क में बहुत तेजी से दुर्घटनाग्रस्त हो जाता है।",
+    "trick": "Logic Link: The brain needs 0.1s to clear the first sound. In a small room, multiple reflections hit the ear at 0.02s, 0.05s, 0.08s. The brain physically cannot separate them, so it blends them into a prolonged 'ringing'.",
+    "trick_hi": "Logic Link: मस्तिष्क को पहली ध्वनि साफ करने के लिए 0.1s की आवश्यकता होती है। एक छोटे से कमरे में, 0.02s, 0.05s, 0.08s पर कई परावर्तन कान से टकराते हैं। मस्तिष्क शारीरिक रूप से उन्हें अलग नहीं कर सकता है, इसलिए यह उन्हें लंबे समय तक 'बजने' में मिला देता है।",
+    "explanation": "This is why reverberation feels like one continuous, sustained sound.",
+    "explanation_hi": "यही कारण है कि अनुरणन एक निरंतर, निरंतर ध्वनि की तरह लगता है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "sound", "reverberation", "time"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-018",
+    "type": "concept",
+    "front": "In what type of space does Reverberation occur, as opposed to an Echo?",
+    "front_hi": "प्रतिध्वनि के विपरीत, अनुरणन (Reverberation) किस प्रकार के स्थान (space) में होता है?",
+    "back": "It only occurs in Close spaces (Echo can occur in both close & open spaces).",
+    "back_hi": "यह केवल बंद स्थानों (Close spaces) में होता है (प्रतिध्वनि बंद और खुले दोनों स्थानों में हो सकती है)।",
+    "hint": "You need many walls nearby to trap the sound.",
+    "hint_hi": "ध्वनि को रोकने के लिए आपको आस-पास कई दीवारों की आवश्यकता होती है।",
+    "trick": "Logic Link: Reverberation strictly requires MULTIPLE reflections bouncing back quickly. This geometric chaos can only happen inside a confined, enclosed room. An open mountain valley only gives distinct single echoes.",
+    "trick_hi": "Logic Link: अनुरणन के लिए सख्ती से कई परावर्तनों की आवश्यकता होती है जो तेजी से वापस उछलते हैं। यह ज्यामितीय अराजकता केवल एक सीमित, बंद कमरे के अंदर हो सकती है। एक खुली पहाड़ी घाटी केवल अलग-अलग एकल प्रतिध्वनि देती है।",
+    "explanation": "The architecture of a room heavily dictates its reverberation properties.",
+    "explanation_hi": "कमरे की वास्तुकला इसके अनुरणन गुणों को भारी रूप से निर्धारित करती है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "sound", "reverberation", "space"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-019",
+    "type": "concept",
+    "front": "Can the distance of an object be calculated using Reverberation?",
+    "front_hi": "क्या अनुरणन (Reverberation) का उपयोग करके किसी वस्तु की दूरी की गणना की जा सकती है?",
+    "back": "No, Distance of object CANNOT be calculated by reverberation.",
+    "back_hi": "नहीं, अनुरणन द्वारा वस्तु की दूरी की गणना नहीं (CANNOT) की जा सकती है।",
+    "hint": "It's too messy.",
+    "hint_hi": "यह बहुत गन्दा है।",
+    "trick": "Logic Link: To calculate distance (like SONAR), you need one clean, measurable ping returning. Reverberation is thousands of overlapping pings arriving continuously. You can't put a timer on chaos.",
+    "trick_hi": "Logic Link: दूरी की गणना करने के लिए (सोनार की तरह), आपको एक साफ, मापने योग्य पिंग वापस आने की आवश्यकता है। अनुरणन हजारों अतिव्यापी पिंग लगातार आ रहा है। आप अराजकता पर टाइमर नहीं लगा सकते।",
+    "explanation": "Only a distinct Echo can be used for math/distance formulas.",
+    "explanation_hi": "केवल एक विशिष्ट प्रतिध्वनि का उपयोग गणित/दूरी सूत्रों के लिए किया जा सकता है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "sound", "reverberation", "distance", "calculation"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-020",
+    "type": "concept",
+    "front": "What term is used in acoustics for a room that does NOT have any reverberation?",
+    "front_hi": "ध्वनिकी में उस कमरे के लिए किस शब्द का प्रयोग किया जाता है जिसमें कोई अनुरणन (reverberation) नहीं होता है?",
+    "back": "A Dead Hall.",
+    "back_hi": "डेड हॉल (Dead hall)।",
+    "hint": "The sound 'dies' instantly.",
+    "hint_hi": "ध्वनि तुरंत 'मर' जाती है।",
+    "trick": "Logic Link: In recording studios or movie theatres, they cover the walls in ultra-porous foam. Every sound wave is instantly absorbed. Because the sound doesn't stay 'alive' by bouncing, it is acoustically called a 'Dead' room.",
+    "trick_hi": "Logic Link: रिकॉर्डिंग स्टूडियो या सिनेमाघरों में, वे दीवारों को अल्ट्रा-पोरस फोम में कवर करते हैं। हर ध्वनि तरंग तुरंत अवशोषित हो जाती है। चूँकि ध्वनि उछलकर 'जीवित' नहीं रहती है, इसलिए इसे ध्वनिक रूप से 'डेड' रूम कहा जाता है।",
+    "explanation": "Movie theatre walls are designed to simulate a Dead hall so you only hear the movie's clear audio.",
+    "explanation_hi": "मूवी थियेटर की दीवारों को एक डेड हॉल का अनुकरण करने के लिए डिज़ाइन किया गया है ताकि आप केवल फिल्म का स्पष्ट ऑडियो सुन सकें।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "sound", "reverberation", "dead_hall"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-021",
+    "type": "concept",
+    "front": "What physical principle allows a doctor's Stethoscope to transmit a heartbeat clearly?",
+    "front_hi": "कौन सा भौतिक सिद्धांत डॉक्टर के स्टेथोस्कोप को दिल की धड़कन स्पष्ट रूप से प्रसारित करने की अनुमति देता है?",
+    "back": "Multiple Reflections / Reverberation inside the tube.",
+    "back_hi": "ट्यूब के अंदर एकाधिक परावर्तन (Multiple Reflections) / अनुरणन (Reverberation)।",
+    "hint": "Bouncing off the rubber walls.",
+    "hint_hi": "रबर की दीवारों से उछलना।",
+    "trick": "Logic Link: The sound of the heartbeat enters the rubber tube. It cannot escape, so it bounces back and forth off the internal walls (multiple reflections) traveling perfectly up to the doctor's ears without losing energy to the open air.",
+    "trick_hi": "Logic Link: दिल की धड़कन की आवाज रबर ट्यूब में प्रवेश करती है। यह बच नहीं सकता है, इसलिए यह खुली हवा में ऊर्जा खोए बिना डॉक्टर के कानों तक पूरी तरह से यात्रा करते हुए आंतरिक दीवारों (कई परावर्तनों) से आगे-पीछे उछलता है।",
+    "explanation": "This effectively traps and funnels the acoustic energy.",
+    "explanation_hi": "यह ध्वनिक ऊर्जा को प्रभावी ढंग से फंसाता है और कीप करता है।",
+    "meta": {
+      "difficulty": "hard",
+      "tags": ["physics", "sound", "reverberation", "stethoscope"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-022",
+    "type": "concept",
+    "front": "What acoustic principle causes the prolonged, rolling sound of Cloud Thundering?",
+    "front_hi": "किस ध्वनिक सिद्धांत के कारण बादलों की गरज (Cloud Thundering) की लंबे समय तक चलने वाली, लुढ़कती हुई ध्वनि उत्पन्न होती है?",
+    "back": "Reverberation (Multiple Reflections).",
+    "back_hi": "अनुरणन (Reverberation) / एकाधिक परावर्तन।",
+    "hint": "Bouncing between the clouds and the earth.",
+    "hint_hi": "बादलों और पृथ्वी के बीच उछलना।",
+    "trick": "Logic Link: A lightning strike creates one sharp crack. But that sound wave bounces off mountains, the ground, and dense cloud layers repeatedly. The chaotic overlapping of these delayed reflections creates the long, rumbling 'thunder'.",
+    "trick_hi": "Logic Link: बिजली गिरने से एक तीखी दरार पैदा होती है। लेकिन वह ध्वनि तरंग पहाड़ों, जमीन और घने बादल की परतों से बार-बार टकराती है। इन विलंबित परावर्तनों की अराजक ओवरलैपिंग लंबी, गड़गड़ाहट 'गड़गड़ाहट' पैदा करती है।",
+    "explanation": "This is a massive-scale example of natural reverberation.",
+    "explanation_hi": "यह प्राकृतिक अनुरणन का एक बड़े पैमाने का उदाहरण है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "sound", "reverberation", "thunder"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-023",
+    "type": "concept",
+    "front": "Who are the two scientists credited with inventing SONAR?",
+    "front_hi": "किन दो वैज्ञानिकों को SONAR के आविष्कार का श्रेय दिया जाता है?",
+    "back": "Paul Langevin & Lewis Nixon.",
+    "back_hi": "पॉल लैंग्विन (Paul Langevin) और लेविस निक्सन (Lewis Nixon)।",
+    "hint": "PL & LN.",
+    "hint_hi": "पीएल और एलएन।",
+    "trick": "Logic Link: Nixon invented the first listening devices for underwater icebergs (after the Titanic sank). Langevin mathematically advanced it by using piezoelectric quartz to produce strong high-frequency ultrasound bursts underwater.",
+    "trick_hi": "Logic Link: निक्सन ने पानी के नीचे हिमखंडों (टाइटैनिक के डूबने के बाद) के लिए पहले सुनने वाले उपकरणों का आविष्कार किया। लैंग्विन ने पानी के नीचे मजबूत उच्च आवृत्ति वाले अल्ट्रासाउंड फटने के लिए पीजोइलेक्ट्रिक क्वार्ट्ज का उपयोग करके इसे गणितीय रूप से उन्नत किया।",
+    "explanation": "This invention fundamentally changed naval warfare in WWI and WWII.",
+    "explanation_hi": "इस आविष्कार ने WWI और WWII में नौसैनिक युद्ध को मौलिक रूप से बदल दिया।",
+    "meta": {
+      "difficulty": "hard",
+      "tags": ["physics", "sound", "sonar", "inventors"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-024",
+    "type": "concept",
+    "front": "What is the specific name of the underwater sound hearing device used in SONAR?",
+    "front_hi": "सोनार में प्रयुक्त पानी के नीचे ध्वनि सुनने वाले उपकरण का विशिष्ट नाम क्या है?",
+    "back": "Hydrophone.",
+    "back_hi": "हाइड्रोफोन (Hydrophone)।",
+    "hint": "Hydro = Water, Phone = Sound.",
+    "hint_hi": "हाइड्रो = पानी, फोन = ध्वनि।",
+    "trick": "Logic Link: A microphone picks up sound in the air. A 'Hydro'-phone is structurally sealed and calibrated to pick up the high-pressure acoustic vibrations traveling through the dense medium of water.",
+    "trick_hi": "Logic Link: एक माइक्रोफोन हवा में आवाज पकड़ता है। एक 'हाइड्रो'-फोन पानी के घने माध्यम से यात्रा करने वाले उच्च दबाव वाले ध्वनिक कंपन को लेने के लिए संरचनात्मक रूप से सील और कैलिब्रेट किया जाता है।",
+    "explanation": "It acts as the 'ear' for submarines.",
+    "explanation_hi": "यह पनडुब्बियों के लिए 'कान' का काम करता है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "sound", "sonar", "hydrophone"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-025",
+    "type": "concept",
+    "front": "Which medium is strictly targeted by SONAR technology?",
+    "front_hi": "SONAR तकनीक द्वारा किस माध्यम (medium) को सख्ती से लक्षित किया जाता है?",
+    "back": "Water.",
+    "back_hi": "पानी (Water)।",
+    "hint": "Submarines live here.",
+    "hint_hi": "यहाँ पनडुब्बियाँ रहती हैं।",
+    "trick": "Logic Link: Sound travels incredibly fast (1450-1498 m/sec) and efficiently through dense water. SONAR exploits this highly conductive mechanical medium.",
+    "trick_hi": "Logic Link: ध्वनि अविश्वसनीय रूप से तेज (1450-1498 m/sec) और घने पानी के माध्यम से कुशलतापूर्वक यात्रा करती है। सोनार इस अत्यधिक प्रवाहकीय यांत्रिक माध्यम का फायदा उठाता है।",
+    "explanation": "Air is a poor medium for long-range sound targeting.",
+    "explanation_hi": "लंबी दूरी की ध्वनि लक्ष्यीकरण के लिए हवा एक खराब माध्यम है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "sound", "sonar", "medium"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-026",
+    "type": "concept",
+    "front": "Which medium is strictly targeted by RADAR technology?",
+    "front_hi": "RADAR तकनीक द्वारा किस माध्यम को सख्ती से लक्षित किया जाता है?",
+    "back": "Air.",
+    "back_hi": "हवा (Air)।",
+    "hint": "Airplanes fly here.",
+    "hint_hi": "हवाई जहाज यहां उड़ते हैं।",
+    "trick": "Logic Link: RADAR uses Light/Electromagnetic waves (Radio/Microwaves). EM waves travel perfectly at the speed of light in the air/vacuum, allowing instant detection of jets in the sky.",
+    "trick_hi": "Logic Link: राडार प्रकाश/विद्युत चुम्बकीय तरंगों (रेडियो/माइक्रोवेव) का उपयोग करता है। ईएम तरंगें हवा/निर्वात में प्रकाश की गति से पूरी तरह से यात्रा करती हैं, जिससे आकाश में जेट विमानों का तत्काल पता लगाने की अनुमति मिलती है।",
+    "explanation": "RADAR is practically useless underwater because water absorbs EM waves very quickly.",
+    "explanation_hi": "राडार पानी के नीचे व्यावहारिक रूप से बेकार है क्योंकि पानी ईएम तरंगों को बहुत जल्दी अवशोषित कर लेता है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "waves", "radar", "medium"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-027",
+    "type": "concept",
+    "front": "Unlike SONAR which uses Sound, what kind of wave does RADAR use?",
+    "front_hi": "सोनार (जो ध्वनि का उपयोग करता है) के विपरीत, रडार किस प्रकार की तरंग का उपयोग करता है?",
+    "back": "Light / Electromagnetic waves.",
+    "back_hi": "प्रकाश / विद्युत चुम्बकीय तरंगें (Light / EM waves)।",
+    "hint": "Non-mechanical energy.",
+    "hint_hi": "गैर-यांत्रिक ऊर्जा।",
+    "trick": "Logic Link: R-A-D-A-R stands for Radio Detection And Ranging. Radio waves are an invisible color of Light. They don't need a medium (air/water particles) to bounce off metallic planes.",
+    "trick_hi": "Logic Link: R-A-D-A-R का मतलब रेडियो डिटेक्शन एंड रेंजिंग है। रेडियो तरंगें प्रकाश का एक अदृश्य रंग हैं। उन्हें धात्विक विमानों से उछलने के लिए किसी माध्यम (वायु/जल कणों) की आवश्यकता नहीं होती है।",
+    "explanation": "This fundamental difference is why navies use SONAR and air forces use RADAR.",
+    "explanation_hi": "यह मूलभूत अंतर ही कारण है कि नौसेनाएं सोनार का उपयोग करती हैं और वायु सेना राडार का उपयोग करती हैं।",
+    "meta": {
+      "difficulty": "hard",
+      "tags": ["physics", "waves", "radar", "light"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-028",
+    "type": "concept",
+    "front": "What is the simplest definition of Wavelength on a wave graph?",
+    "front_hi": "तरंग ग्राफ पर तरंग दैर्ध्य (Wavelength) की सबसे सरल परिभाषा क्या है?",
+    "back": "The distance between 2 crests.",
+    "back_hi": "2 शृंगों (crests) के बीच की दूरी।",
+    "hint": "Peak to Peak.",
+    "hint_hi": "चोटी से चोटी।",
+    "trick": "Logic Link: A wave is a repeating pattern. The 'Wavelength' (lambda) measures the exact physical distance it takes for the cycle to restart, perfectly measured from the tip of one peak to the exact tip of the next.",
+    "trick_hi": "Logic Link: एक लहर एक दोहराव वाला पैटर्न है। 'तरंग दैर्ध्य' (lambda) सटीक भौतिक दूरी को मापता है जिसे चक्र को फिर से शुरू करने में लगता है, जो एक चोटी की नोक से अगले की सटीक नोक तक पूरी तरह से मापा जाता है।",
+    "explanation": "It can also be measured from Trough to Trough.",
+    "explanation_hi": "इसे गर्त से गर्त तक भी मापा जा सकता है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "waves", "wavelength", "definition"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-029",
+    "type": "concept",
+    "front": "If the distance between two crests is lambda, what is the exact distance between a Crest and the very next Trough?",
+    "front_hi": "यदि दो शृंगों के बीच की दूरी lambda है, तो एक शृंग (Crest) और ठीक अगले गर्त (Trough) के बीच की सटीक दूरी क्या है?",
+    "back": "lambda / 2$ (Half of the wavelength).",
+    "back_hi": "lambda / 2$ (तरंग दैर्ध्य का आधा)।",
+    "hint": "It is exactly midway through the cycle.",
+    "hint_hi": "यह चक्र के बिल्कुल मध्य में है।",
+    "trick": "Logic Link: A full wave cycle lambda goes: Up to crest, down through zero, down to trough, back up to zero. The highest point (Crest) and lowest point (Trough) are perfectly symmetrical opposites, meaning they are separated by exactly 50% of the cycle.",
+    "trick_hi": "Logic Link: एक पूर्ण तरंग चक्र (lambda) जाता है: शृंग तक, शून्य के माध्यम से नीचे, गर्त तक, वापस शून्य तक। उच्चतम बिंदु (शृंग) और निम्नतम बिंदु (गर्त) पूरी तरह से सममित विपरीत हैं, जिसका अर्थ है कि वे चक्र के ठीक 50% से अलग हैं।",
+    "explanation": "This geometric fact is often tested in diagram-based questions.",
+    "explanation_hi": "इस ज्यामितीय तथ्य का अक्सर आरेख-आधारित प्रश्नों में परीक्षण किया जाता है।",
+    "meta": {
+      "difficulty": "hard",
+      "tags": ["physics", "waves", "wavelength", "distance"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-030",
+    "type": "concept",
+    "front": "What is the metric numerical value of one Nanometer (used to measure tiny wavelengths)?",
+    "front_hi": "एक नैनोमीटर (छोटे तरंग दैर्ध्य को मापने के लिए प्रयुक्त) का मीट्रिक संख्यात्मक मान क्या है?",
+    "back": "$10^{-9}$ meters.",
+    "back_hi": "$10^{-9}$ मीटर।",
+    "hint": "Nano means nine.",
+    "hint_hi": "नैनो का मतलब नौ होता है।",
+    "trick": "Logic Link: Nano visually sounds like 'Nine'. It represents a billionth of a meter. This scale is required to measure high-frequency light and ultrasound waves which are microscopically small.",
+    "trick_hi": "Logic Link: नैनो दृष्टिगत रूप से 'नौ' जैसा लगता है। यह एक मीटर के एक अरबवें हिस्से का प्रतिनिधित्व करता है। उच्च-आवृत्ति वाले प्रकाश और अल्ट्रासाउंड तरंगों को मापने के लिए इस पैमाने की आवश्यकता होती है जो सूक्ष्म रूप से छोटी होती हैं।",
+    "explanation": "Often written as nm.",
+    "explanation_hi": "अक्सर nm के रूप में लिखा जाता है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "units", "wavelength", "nanometer"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-031",
+    "type": "concept",
+    "front": "What is the metric numerical value of one Angstrom?",
+    "front_hi": "एक एंग्स्ट्रॉम (Angstrom) का मीट्रिक संख्यात्मक मान क्या है?",
+    "back": "$10^{-10}$ meters.",
+    "back_hi": "$10^{-10}$ मीटर।",
+    "hint": "One step smaller than a nanometer.",
+    "hint_hi": "नैनोमीटर से एक कदम छोटा।",
+    "trick": "Logic Link: Angstrom is a specialized unit used almost exclusively for atomic-scale physics and X-ray wavelengths. It is precisely one order of magnitude smaller than a nanometer ($10^{-9}$ vs $10^{-10}$).",
+    "trick_hi": "Logic Link: एंग्स्ट्रॉम एक विशेष इकाई है जिसका उपयोग लगभग विशेष रूप से परमाणु-पैमाने की भौतिकी और एक्स-रे तरंग दैर्ध्य के लिए किया जाता है। यह एक नैनोमीटर ($10^{-9}$ बनाम $10^{-10}$) से परिमाण का ठीक एक क्रम छोटा है।",
+    "explanation": "Denoted by the symbol \u00c5.",
+    "explanation_hi": "प्रतीक \u00c5 द्वारा निरूपित।",
+    "meta": {
+      "difficulty": "hard",
+      "tags": ["physics", "units", "wavelength", "angstrom"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-032",
+    "type": "concept",
+    "front": "What is the core formula used to calculate Wave Speed ($v$)?",
+    "front_hi": "तरंग गति ($v$) की गणना करने के लिए उपयोग किया जाने वाला मुख्य सूत्र क्या है?",
+    "back": "$v = f \\times \\lambda$ (Speed = Frequency \u00d7 Wavelength).",
+    "back_hi": "$v = f \\times \\lambda$ (गति = आवृत्ति \u00d7 तरंग दैर्ध्य)।",
+    "hint": "Multiply how often it hits by how long it is.",
+    "hint_hi": "यह कितनी बार हिट करता है, इसे गुणा करें कि यह कितना लंबा है।",
+    "trick": "Logic Link: Speed is Distance / Time. Wavelength (lambda) is the physical distance of one wave. Frequency (f) is how many waves pass per second (1/Time). Therefore, multiplying them gives Distance/Time = Speed.",
+    "trick_hi": "Logic Link: गति = दूरी / समय। तरंग दैर्ध्य (lambda) एक लहर की भौतिक दूरी है। आवृत्ति (f) है कि प्रति सेकंड कितनी तरंगें गुजरती हैं (1/समय)। इसलिए, उन्हें गुणा करने से दूरी/समय = गति मिलती है।",
+    "explanation": "This is the master equation for all wave mechanics (sound, light, water).",
+    "explanation_hi": "यह सभी तरंग यांत्रिकी (ध्वनि, प्रकाश, जल) के लिए मास्टर समीकरण है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "waves", "speed", "formula"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-033",
+    "type": "concept",
+    "front": "How is 'Frequency' scientifically defined?",
+    "front_hi": "'आवृत्ति' (Frequency) को वैज्ञानिक रूप से कैसे परिभाषित किया गया है?",
+    "back": "The Number of Vibrations per Second.",
+    "back_hi": "प्रति सेकंड कंपनों की संख्या (No. of Vibrations per Second)।",
+    "hint": "How 'frequent' something happens.",
+    "hint_hi": "कितनी 'बार-बार' कुछ होता है।",
+    "trick": "Logic Link: If a guitar string wiggles back and forth 440 times in one single second, it is generating 440 distinct wave pulses. That count (440) is its mathematical Frequency.",
+    "trick_hi": "Logic Link: यदि एक गिटार का तार एक सेकंड में 440 बार आगे-पीछे डगमगाता है, तो यह 440 अलग-अलग तरंग दालें उत्पन्न कर रहा है। वह गिनती (440) इसकी गणितीय आवृत्ति है।",
+    "explanation": "High frequency means very fast vibrations.",
+    "explanation_hi": "उच्च आवृत्ति का अर्थ है बहुत तेज कंपन।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "waves", "frequency", "definition"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-034",
+    "type": "concept",
+    "front": "What are the two standard units used to measure Frequency in physics?",
+    "front_hi": "भौतिकी में आवृत्ति (Frequency) को मापने के लिए किन दो मानक इकाइयों का उपयोग किया जाता है?",
+    "back": "Hertz (Hz) or $sec^{-1}$ (1/second).",
+    "back_hi": "हर्ट्ज (Hz) या $sec^{-1}$ (1/second)।",
+    "hint": "Named after a German physicist.",
+    "hint_hi": "एक जर्मन भौतिक विज्ञानी के नाम पर।",
+    "trick": "Logic Link: Since Frequency is 'Cycles per Second', the unit is literally $1 / Seconds$ (or $Seconds^{-1}$). Scientists renamed this mathematical unit to 'Hertz' in honor of Heinrich Hertz.",
+    "trick_hi": "Logic Link: चूंकि आवृत्ति 'साइकिल प्रति सेकंड' है, इसलिए इकाई शाब्दिक रूप से $1 / सेकंड$ (या $सेकंड^{-1}$) है। वैज्ञानिकों ने हेनरिक हर्ट्ज़ के सम्मान में इस गणितीय इकाई का नाम बदलकर 'हर्ट्ज़' कर दिया।",
+    "explanation": "Both Hz and $sec^{-1}$ are perfectly identical in equations.",
+    "explanation_hi": "समीकरणों में Hz और $sec^{-1}$ दोनों पूरी तरह से समान हैं।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "waves", "frequency", "unit"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-035",
+    "type": "concept",
+    "front": "What is the mathematical relationship between Frequency ($f$) and Wavelength (lambda) if speed is constant?",
+    "front_hi": "यदि गति स्थिर है तो आवृत्ति (f) और तरंग दैर्ध्य (lambda) के बीच गणितीय संबंध क्या है?",
+    "back": "They are Inversely Proportional (f \\propto 1/\\lambda$).",
+    "back_hi": "वे व्युत्क्रमानुपाती हैं (f \\propto 1/\\lambda)।",
+    "hint": "If one goes up, the other goes down.",
+    "hint_hi": "अगर एक ऊपर जाता है, तो दूसरा नीचे जाता है।",
+    "trick": "Logic Link: Since $v = f \\times \\lambda$, if the wave speed ($v$) stays the same (like sound in air), you can only pack MORE waves into a second (high frequency) if you make the waves SHORTER (low wavelength).",
+    "trick_hi": "Logic Link: चूँकि $v = f \\times \\lambda$, यदि तरंग की गति ($v$) समान रहती है (जैसे हवा में ध्वनि), तो आप केवल एक सेकंड (उच्च आवृत्ति) में अधिक तरंगें पैक कर सकते हैं यदि आप तरंगों को छोटा (कम तरंग दैर्ध्य) बनाते हैं।",
+    "explanation": "A bass guitar has low frequency and massive, long wavelengths.",
+    "explanation_hi": "बास गिटार में कम आवृत्ति और बड़े पैमाने पर, लंबी तरंग दैर्ध्य होती है।",
+    "meta": {
+      "difficulty": "hard",
+      "tags": ["physics", "waves", "frequency", "wavelength", "relation"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-036",
+    "type": "concept",
+    "front": "How is the 'Time Period' ($T$) of a wave defined?",
+    "front_hi": "किसी तरंग के 'समय अवधि' (Time Period - $T$) को कैसे परिभाषित किया जाता है?",
+    "back": "The time taken to complete 1 vibration.",
+    "back_hi": "1 कंपन पूरा करने में लगने वाला समय।",
+    "hint": "How long for one cycle.",
+    "hint_hi": "एक चक्र के लिए कितना समय।",
+    "trick": "Logic Link: Frequency asks 'How many waves in one second?'. Time Period asks the exact opposite: 'How many seconds for one single wave?'. It measures the duration of one isolated event.",
+    "trick_hi": "Logic Link: आवृत्ति पूछती है 'एक सेकंड में कितनी तरंगें?'। समय अवधि बिल्कुल विपरीत पूछती है: 'एक एकल तरंग के लिए कितने सेकंड?'। यह एक अलग घटना की अवधि को मापता है।",
+    "explanation": "The SI unit for Time Period is simply Seconds (sec).",
+    "explanation_hi": "समय अवधि के लिए SI इकाई केवल सेकंड (sec) है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "waves", "time_period", "definition"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-037",
+    "type": "concept",
+    "front": "What is the formula connecting Time Period ($T$) and Frequency ($f$)?",
+    "front_hi": "समय अवधि ($T$) और आवृत्ति ($f$) को जोड़ने वाला सूत्र क्या है?",
+    "back": "$T = 1 / f$.",
+    "back_hi": "$T = 1 / f$.",
+    "hint": "They are exact opposites.",
+    "hint_hi": "वे बिल्कुल विपरीत हैं।",
+    "trick": "Logic Link: They are mathematical reciprocals. If 10 waves happen in 1 second ($f=10$), then 1 single wave takes exactly $1/10$th of a second to complete ($T=0.1s$).",
+    "trick_hi": "Logic Link: वे गणितीय व्युत्क्रम हैं। यदि 1 सेकंड में 10 तरंगें होती हैं ($f=10$), तो 1 एकल तरंग को पूरा होने में ठीक $1/10$ वां सेकंड लगता है ($T=0.1s$)।",
+    "explanation": "This simple inversion is key to solving wave mechanics problems.",
+    "explanation_hi": "यह सरल व्युत्क्रम तरंग यांत्रिकी समस्याओं को हल करने की कुंजी है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "waves", "time_period", "frequency", "formula"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-038",
+    "type": "concept",
+    "front": "What is the specific frequency range for 'Infra Sound' (Infrasonic)?",
+    "front_hi": "'इन्फ्रा साउंड' (Infrasonic) के लिए विशिष्ट आवृत्ति सीमा क्या है?",
+    "back": "Below 20 Hz (< 20 Hz).",
+    "back_hi": "20 हर्ट्ज से नीचे (< 20 Hz)।",
+    "hint": "Too low for humans to hear.",
+    "hint_hi": "मनुष्यों के सुनने के लिए बहुत कम।",
+    "trick": "Logic Link: The prefix 'Infra' means below (like infrared is below red light). Infrasonic waves vibrate so slowly (less than 20 times a second) that the human eardrum does not register them as sound.",
+    "trick_hi": "Logic Link: 'इन्फ्रा' उपसर्ग का अर्थ है नीचे (जैसे इन्फ्रारेड लाल बत्ती के नीचे है)। इन्फ्रासोनिक तरंगें इतनी धीमी गति से कंपन करती हैं (एक सेकंड में 20 बार से कम) कि मानव कान का पर्दा उन्हें ध्वनि के रूप में दर्ज नहीं करता है।",
+    "explanation": "These waves carry immense energy over huge distances, usually generated by massive objects.",
+    "explanation_hi": "ये तरंगें विशाल दूरियों पर अत्यधिक ऊर्जा ले जाती हैं, जो आमतौर पर विशाल वस्तुओं द्वारा उत्पन्न होती हैं।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "sound", "infrasonic", "range"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-039",
+    "type": "concept",
+    "front": "Name three heavy land mammals mentioned in the notes that use Infrasonic sound to communicate.",
+    "front_hi": "नोट्स में उल्लिखित तीन भारी भूमि स्तनधारियों के नाम बताइए जो संवाद करने के लिए इन्फ्रासोनिक ध्वनि का उपयोग करते हैं।",
+    "back": "Rhino, Elephant, Whale (marine).",
+    "back_hi": "गैंडा (Rhino), हाथी (Elephant), व्हेल (Whale - समुद्री)।",
+    "hint": "The biggest animals on earth.",
+    "hint_hi": "पृथ्वी पर सबसे बड़े जानवर।",
+    "trick": "Logic Link: Massive animals have massive vocal cords. Large structures naturally vibrate at very low, slow frequencies (Infrasonic). These deep waves travel for miles through the ground and ocean.",
+    "trick_hi": "Logic Link: बड़े जानवरों में बड़े वोकल कॉर्ड होते हैं। बड़ी संरचनाएं स्वाभाविक रूप से बहुत कम, धीमी आवृत्तियों (इन्फ्रासोनिक) पर कंपन करती हैं। ये गहरी तरंगें जमीन और समुद्र के माध्यम से मीलों तक यात्रा करती हैं।",
+    "explanation": "Elephants can hear other herds stomping from miles away using infrasound.",
+    "explanation_hi": "हाथी इन्फ्रासाउंड का उपयोग करके मीलों दूर से अन्य झुंडों को कुचलते हुए सुन सकते हैं।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "sound", "infrasonic", "animals"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-040",
+    "type": "concept",
+    "front": "Which bird is specifically noted in the notes for detecting Infrasonic sounds?",
+    "front_hi": "इन्फ्रासोनिक ध्वनियों का पता लगाने के लिए नोट्स में किस पक्षी को विशेष रूप से नोट किया गया है?",
+    "back": "Pigeon.",
+    "back_hi": "कबूतर (Pigeon)।",
+    "hint": "A common city bird.",
+    "hint_hi": "एक आम शहरी पक्षी।",
+    "trick": "Logic Link: Pigeons are remarkable navigators. They can hear the ultra-low frequency infrasound generated by ocean waves crashing and wind blowing over mountains, using it as an acoustic map to find their way home.",
+    "trick_hi": "Logic Link: कबूतर उल्लेखनीय नाविक हैं। वे समुद्र की लहरों के टकराने और पहाड़ों पर बहने वाली हवा से उत्पन्न अति-निम्न आवृत्ति वाले इन्फ्रासाउंड को सुन सकते हैं, इसका उपयोग अपने घर का रास्ता खोजने के लिए ध्वनिक मानचित्र के रूप में कर सकते हैं।",
+    "explanation": "This is part of the secret behind 'carrier pigeons'.",
+    "explanation_hi": "यह 'कैरियर कबूतरों' के पीछे के रहस्य का हिस्सा है।",
+    "meta": {
+      "difficulty": "hard",
+      "tags": ["physics", "sound", "infrasonic", "pigeon"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-041",
+    "type": "concept",
+    "front": "What is the typical frequency range of a human Heartbeat, and what sound category does it fall into?",
+    "front_hi": "मानव हृदय गति (Heartbeat) की विशिष्ट आवृत्ति सीमा क्या है, और यह किस ध्वनि श्रेणी में आती है?",
+    "back": "1 - 2 Hz, which is Infrasonic.",
+    "back_hi": "1 - 2 हर्ट्ज (1 - 2 Hz), जो इन्फ्रासोनिक (Infrasonic) है।",
+    "hint": "It beats about 60-120 times a minute.",
+    "hint_hi": "यह एक मिनट में लगभग 60-120 बार धड़कता है।",
+    "trick": "Logic Link: 60 beats per minute = 1 beat per second (1 Hz). 120 beats = 2 Hz. Since 1-2 Hz is far below the human ear limit of 20 Hz, the physical vibration of the heart is completely Infrasonic.",
+    "trick_hi": "Logic Link: 60 बीट्स प्रति मिनट = 1 बीट प्रति सेकंड (1 हर्ट्ज)। 120 बीट्स = 2 हर्ट्ज। चूंकि 1-2 हर्ट्ज 20 हर्ट्ज की मानव कान सीमा से काफी नीचे है, इसलिए हृदय का शारीरिक कंपन पूरी तरह से इन्फ्रासोनिक है।",
+    "explanation": "This is why doctors need a stethoscope (which amplifies the wave mechanically) to hear it clearly.",
+    "explanation_hi": "यही कारण है कि डॉक्टरों को इसे स्पष्ट रूप से सुनने के लिए एक स्टेथोस्कोप (जो लहर को यंत्रवत् बढ़ाता है) की आवश्यकता होती है।",
+    "meta": {
+      "difficulty": "hard",
+      "tags": ["physics", "biology", "sound", "heartbeat", "infrasonic"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-042",
+    "type": "concept",
+    "front": "What kind of acoustic frequency is generated by an Earthquake?",
+    "front_hi": "भूकंप (Earthquake) द्वारा किस प्रकार की ध्वनिक आवृत्ति उत्पन्न होती है?",
+    "back": "Infrasonic Frequency.",
+    "back_hi": "इन्फ्रासोनिक आवृत्ति (Infrasonic Frequency)।",
+    "hint": "The whole earth shakes slowly.",
+    "hint_hi": "पूरी धरती धीरे-धीरे हिलती है।",
+    "trick": "Logic Link: Tectonic plates are massive and move slowly. When they snap, they generate colossal waves that vibrate at extremely low frequencies (below 20 Hz). We feel the rumble rather than 'hear' it.",
+    "trick_hi": "Logic Link: टेक्टोनिक प्लेटें विशाल हैं और धीरे-धीरे चलती हैं। जब वे टूटते हैं, तो वे विशाल तरंगें उत्पन्न करते हैं जो अत्यंत कम आवृत्तियों (20 हर्ट्ज से नीचे) पर कंपन करती हैं। हम इसे 'सुनने' के बजाय गड़गड़ाहट महसूस करते हैं।",
+    "explanation": "Many animals act strangely before an earthquake because they can sense these infrasonic precursor waves.",
+    "explanation_hi": "भूकंप से पहले कई जानवर अजीब व्यवहार करते हैं क्योंकि वे इन इन्फ्रासोनिक अग्रदूत तरंगों को महसूस कर सकते हैं।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "earthquake", "sound", "infrasonic"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-043",
+    "type": "concept",
+    "front": "What is the exact range of 'Audible Frequencies' (Sonic) for humans?",
+    "front_hi": "मनुष्यों के लिए 'श्रव्य आवृत्तियों' (Audible Frequencies / Sonic) की सटीक सीमा क्या है?",
+    "back": "20 Hz to 20 kHz (20,000 Hz).",
+    "back_hi": "20 हर्ट्ज से 20 किलोहर्ट्ज़ (20,000 Hz)।",
+    "hint": "The sweet spot.",
+    "hint_hi": "सबसे अच्छी जगह।",
+    "trick": "Logic Link: Through evolutionary biology, the human ear architecture is strictly tuned to this specific band. Anything slower (Infra) or faster (Ultra) lacks the physical properties to vibrate our tiny ear bones properly.",
+    "trick_hi": "Logic Link: विकासवादी जीव विज्ञान के माध्यम से, मानव कान की वास्तुकला को इस विशिष्ट बैंड में सख्ती से ट्यून किया गया है। कुछ भी धीमा (इन्फ्रा) या तेज़ (अल्ट्रा) हमारे छोटे कान की हड्डियों को ठीक से कंपन करने के लिए भौतिक गुणों का अभाव है।",
+    "explanation": "Standard musical instruments (Guitar, Violin) are designed exclusively within this range.",
+    "explanation_hi": "मानक संगीत वाद्ययंत्र (गिटार, वायलिन) विशेष रूप से इसी सीमा के भीतर डिज़ाइन किए गए हैं।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "sound", "audible", "range"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-044",
+    "type": "concept",
+    "front": "What is the specific frequency range for 'Ultra Sound' (Ultrasonic)?",
+    "front_hi": "'अल्ट्रा साउंड' (Ultrasonic) के लिए विशिष्ट आवृत्ति सीमा क्या है?",
+    "back": "20 kHz to 200 MHz.",
+    "back_hi": "20 kHz से 200 MHz (मेगाहर्ट्ज)।",
+    "hint": "Above human hearing, reaching into megahertz.",
+    "hint_hi": "मानव श्रवण से ऊपर, मेगाहर्ट्ज तक पहुंचना।",
+    "trick": "Logic Link: The prefix 'Ultra' means beyond (like ultraviolet). These are hyper-fast vibrations (over 20,000 times a second). Medical machines push this into the Millions of Hertz (MHz) to get high-resolution body scans.",
+    "trick_hi": "Logic Link: 'अल्ट्रा' उपसर्ग का अर्थ है परे (जैसे पराबैंगनी)। ये अति-तेज कंपन हैं (एक सेकंड में 20,000 बार से अधिक)। उच्च रिज़ॉल्यूशन वाले बॉडी स्कैन प्राप्त करने के लिए मेडिकल मशीनें इसे लाखों हर्ट्ज़ (मेगाहर्ट्ज) में धकेलती हैं।",
+    "explanation": "These waves pack intense localized energy but do not travel well through air.",
+    "explanation_hi": "ये तरंगें तीव्र स्थानीय ऊर्जा पैक करती हैं लेकिन हवा के माध्यम से अच्छी तरह से यात्रा नहीं करती हैं।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "sound", "ultrasound", "range"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-045",
+    "type": "concept",
+    "front": "Name five animals mentioned in the notes that can hear or produce Ultrasound.",
+    "front_hi": "नोट्स में उल्लिखित पांच जानवरों के नाम बताइए जो अल्ट्रासाउंड सुन या उत्पन्न कर सकते हैं।",
+    "back": "Bats, Dogs, Cats, Monkeys, Dolphins.",
+    "back_hi": "चमगादड़, कुत्ते, बिल्लियाँ, बंदर, डॉल्फ़िन।",
+    "hint": "Pets, primates, and echolocators.",
+    "hint_hi": "पालतू जानवर, प्राइमेट और इकोलोकेटर।",
+    "trick": "Logic Link: Small predators and marine navigators have evolved highly sensitive hearing structures. Dogs can hear high-pitched dog whistles, and bats/dolphins use it actively as biological SONAR.",
+    "trick_hi": "Logic Link: छोटे शिकारियों और समुद्री नाविकों ने अत्यधिक संवेदनशील श्रवण संरचनाएं विकसित की हैं। कुत्ते उच्च-पिच वाली कुत्ते की सीटी सुन सकते हैं, और चमगादड़/डॉल्फ़िन इसे सक्रिय रूप से जैविक सोनार के रूप में उपयोग करते हैं।",
+    "explanation": "This explains why your dog sometimes barks at 'nothing'—they are hearing ultrasonic noises.",
+    "explanation_hi": "यही कारण है कि आपका कुत्ता कभी-कभी 'कुछ नहीं' पर भौंकता है - वे अल्ट्रासोनिक आवाज सुन रहे हैं।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "sound", "ultrasound", "animals"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-046",
+    "type": "concept",
+    "front": "What specific device is used to produce ultrasound for training dogs?",
+    "front_hi": "कुत्तों को प्रशिक्षित करने के लिए अल्ट्रासाउंड उत्पन्न करने के लिए किस विशिष्ट उपकरण का उपयोग किया जाता है?",
+    "back": "Galton Whistle.",
+    "back_hi": "गैल्टन सीटी (Galton Whistle)।",
+    "hint": "Named after Francis Galton.",
+    "hint_hi": "फ्रांसिस गाल्टन के नाम पर।",
+    "trick": "Logic Link: A Galton whistle is mechanically engineered to emit frequencies right around 23,000 Hz. The air pressure blows through a tiny slit, vibrating faster than the human 20k limit. You hear a 'hiss', the dog hears a scream.",
+    "trick_hi": "Logic Link: एक गैल्टन सीटी यंत्रवत् 23,000 हर्ट्ज के आसपास आवृत्तियों का उत्सर्जन करने के लिए इंजीनियर है। हवा का दबाव एक छोटी सी भट्ठा के माध्यम से बहता है, जो मानव 20k सीमा की तुलना में तेजी से कंपन करता है। आपको 'फुफकार' सुनाई देती है, कुत्ता चीख सुनता है।",
+    "explanation": "Often simply referred to as a 'dog whistle'.",
+    "explanation_hi": "अक्सर इसे केवल 'डॉग व्हिसल' कहा जाता है।",
+    "meta": {
+      "difficulty": "hard",
+      "tags": ["physics", "sound", "ultrasound", "device"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-047",
+    "type": "concept",
+    "front": "List three industrial / medical applications of Ultrasound mentioned in the notes.",
+    "front_hi": "नोट्स में उल्लिखित अल्ट्रासाउंड के तीन औद्योगिक / चिकित्सा अनुप्रयोगों की सूची बनाएं।",
+    "back": "1. Medical Navigation (Ultrasounds/Scans), 2. Disinfectants, 3. Cleaning of Chimneys.",
+    "back_hi": "1. मेडिकल नेविगेशन (Medical Navigation), 2. कीटाणुनाशक (Disinfectants), 3. चिमनी की सफाई (Cleaning of Chimneys)।",
+    "hint": "Scanning bodies, killing germs, blasting soot.",
+    "hint_hi": "शरीर को स्कैन करना, कीटाणुओं को मारना, कालिख को नष्ट करना।",
+    "trick": "Logic Link: High-frequency ultrasound packs localized aggressive energy. It can safely vibrate and map soft human tissue (medical), violently shake bacteria cell walls until they burst (disinfectant), and agitate stuck soot particles off chimney walls (cleaning).",
+    "trick_hi": "Logic Link: उच्च-आवृत्ति अल्ट्रासाउंड स्थानीय आक्रामक ऊर्जा पैक करता है। यह सुरक्षित रूप से नरम मानव ऊतक (चिकित्सा) को कंपन और मैप कर सकता है, बैक्टीरिया कोशिका की दीवारों को फटने तक (कीटाणुनाशक) हिंसक रूप से हिला सकता है, और चिमनी की दीवारों (सफाई) से फंसी कालिख के कणों को उत्तेजित कर सकता है।",
+    "explanation": "Ultrasound is basically a tool for 'micro-shaking' things.",
+    "explanation_hi": "अल्ट्रासाउंड मूल रूप से चीजों को 'माइक्रो-शेक' करने का एक उपकरण है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "sound", "ultrasound", "applications"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-048",
+    "type": "concept",
+    "front": "What is the typical noise level (in dB) encountered 'At Home'?",
+    "front_hi": "'घर पर' अनुभव किया जाने वाला विशिष्ट शोर स्तर (dB में) क्या है?",
+    "back": "55 dB.",
+    "back_hi": "55 डेसिबल (dB)।",
+    "hint": "Normal ambient background noise.",
+    "hint_hi": "सामान्य परिवेश पृष्ठभूमि शोर।",
+    "trick": "Logic Link: A quiet conversation or a refrigerator humming falls right in the middle of the Decibel scale. It's loud enough to hear clearly but far below the pain threshold.",
+    "trick_hi": "Logic Link: एक शांत बातचीत या एक रेफ्रिजरेटर की भनभनाहट डेसिबल पैमाने के ठीक बीच में आती है। यह स्पष्ट रूप से सुनने के लिए काफी तेज है लेकिन दर्द की सीमा से काफी नीचे है।",
+    "explanation": "This acts as a baseline for acoustic comfort.",
+    "explanation_hi": "यह ध्वनिक आराम के लिए आधार रेखा के रूप में कार्य करता है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "sound", "decibel", "home"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-049",
+    "type": "concept",
+    "front": "What is the acceptable 'Standard Noise Level' according to physics/environmental standards?",
+    "front_hi": "भौतिकी/पर्यावरण मानकों के अनुसार स्वीकार्य 'मानक शोर स्तर' (Standard Noise Level) क्या है?",
+    "back": "60 dB.",
+    "back_hi": "60 डेसिबल (dB)।",
+    "hint": "Just above the home level.",
+    "hint_hi": "घर के स्तर के ठीक ऊपर।",
+    "trick": "Logic Link: 60 dB represents normal conversational speech in a public place. It is the international benchmark for standard, non-disruptive audio levels in human environments.",
+    "trick_hi": "Logic Link: 60 dB सार्वजनिक स्थान पर सामान्य संवादात्मक भाषण का प्रतिनिधित्व करता है। यह मानव वातावरण में मानक, गैर-विघटनकारी ऑडियो स्तरों के लिए अंतर्राष्ट्रीय मानदंड है।",
+    "explanation": "Urban planning often aims to keep residential zones near 60 dB.",
+    "explanation_hi": "शहरी नियोजन का उद्देश्य अक्सर आवासीय क्षेत्रों को 60 डीबी के पास रखना होता है।",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["physics", "sound", "decibel", "standard"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-050",
+    "type": "concept",
+    "front": "Above what decibel level is sound considered 'Harmful' as per the WHO?",
+    "front_hi": "WHO के अनुसार किस डेसिबल स्तर से ऊपर की ध्वनि को 'हानिकारक' माना जाता है?",
+    "back": "Above 70 - 75 dB.",
+    "back_hi": "70 - 75 डेसिबल (dB) से ऊपर।",
+    "hint": "The level of a loud vacuum cleaner or city traffic.",
+    "hint_hi": "एक ज़ोरदार वैक्यूम क्लीनर या शहर के यातायात का स्तर।",
+    "trick": "Logic Link: The human ear is sensitive. Sustained exposure to wave pressure above 75 dB starts to physically fatigue and damage the microscopic hair cells (stereocilia) inside the inner ear.",
+    "trick_hi": "Logic Link: मानव कान संवेदनशील है। 75 डीबी से ऊपर लहर के दबाव के निरंतर संपर्क से भीतरी कान के अंदर सूक्ष्म बालों की कोशिकाओं (स्टीरियोसिलिया) को शारीरिक रूप से थकावट और नुकसान होने लगता है।",
+    "explanation": "WHO (World Health Organization) sets these limits to prevent global hearing loss.",
+    "explanation_hi": "डब्ल्यूएचओ (विश्व स्वास्थ्य संगठन) वैश्विक सुनवाई हानि को रोकने के लिए ये सीमाएँ निर्धारित करता है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "sound", "decibel", "harmful", "who"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-051",
+    "type": "concept",
+    "front": "At what decibel range does the human ear instantly suffer physical damage?",
+    "front_hi": "किस डेसिबल रेंज में मानव कान को तुरंत शारीरिक क्षति होती है?",
+    "back": "120 - 130 dB.",
+    "back_hi": "120 - 130 डेसिबल (dB)।",
+    "hint": "The Threshold of Pain.",
+    "hint_hi": "दर्द की सीमा।",
+    "trick": "Logic Link: At 120-130 dB (like a thunderclap right next to you or a rock concert speaker), the kinetic amplitude of the wave is so violently huge that it can instantly rip the eardrum membrane.",
+    "trick_hi": "Logic Link: 120-130 dB पर (जैसे आपके ठीक बगल में गड़गड़ाहट या रॉक कॉन्सर्ट स्पीकर), लहर का गतिज आयाम इतना हिंसक रूप से विशाल होता है कि यह कान के पर्दे की झिल्ली को तुरंत फाड़ सकता है।",
+    "explanation": "This is defined in audiology as the 'Threshold of Pain'.",
+    "explanation_hi": "इसे ऑडियोलॉजी में 'दर्द की सीमा' के रूप में परिभाषित किया गया है।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "sound", "decibel", "damage"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-052",
+    "type": "concept",
+    "front": "What extreme acoustic event measures exactly 194 dB?",
+    "front_hi": "कौन सी चरम ध्वनिक घटना ठीक 194 डेसिबल (dB) मापती है?",
+    "back": "A Sonic Boom (Shock Wave).",
+    "back_hi": "सोनिक बूम (Sonic Boom) / शॉक वेव।",
+    "hint": "Explosive sound barrier break.",
+    "hint_hi": "विस्फोटक ध्वनि अवरोध टूट गया।",
+    "trick": "Logic Link: 194 dB is considered the absolute maximum possible sound in Earth's atmosphere. At this level, the low-pressure zone of the wave becomes a complete vacuum. It is no longer sound; it is a violent physical shockwave pushing air at extreme velocities.",
+    "trick_hi": "Logic Link: पृथ्वी के वायुमंडल में 194 dB को पूर्ण अधिकतम संभव ध्वनि माना जाता है। इस स्तर पर, तरंग का निम्न-दबाव क्षेत्र एक पूर्ण निर्वात बन जाता है। यह अब ध्वनि नहीं है; यह एक हिंसक भौतिक शॉकवेव है जो हवा को अत्यधिक वेग से धकेलती है।",
+    "explanation": "This pressure can shatter glass windows.",
+    "explanation_hi": "यह दबाव कांच की खिड़कियां तोड़ सकता है।",
+    "meta": {
+      "difficulty": "hard",
+      "tags": ["physics", "sound", "decibel", "sonic_boom"]
+    },
+    "lists": []
+  },
+  {
+    "id": "physics-sound-class-3-053",
+    "type": "concept",
+    "front": "What human technology is responsible for creating a Sonic Boom (Shock wave)?",
+    "front_hi": "सोनिक बूम (शॉक वेव) बनाने के लिए कौन सी मानव तकनीक जिम्मेदार है?",
+    "back": "Supersonic Planes.",
+    "back_hi": "सुपरसोनिक विमान (Supersonic Planes)।",
+    "hint": "Planes flying faster than Mach 1.",
+    "hint_hi": "विमान मच 1 से तेज उड़ रहे हैं।",
+    "trick": "Logic Link: As a jet exceeds 343 m/s, it catches up to its own sound waves. It plows through them, compressing all the wave energy into a single, massive, cone-shaped shockwave that trails behind the jet, hitting the ground as a 'Boom'.",
+    "trick_hi": "Logic Link: जैसे ही कोई जेट 343 m/s से अधिक हो जाता है, वह अपनी स्वयं की ध्वनि तरंगों को पकड़ लेता है। यह उनके माध्यम से हल जोतता है, सभी तरंग ऊर्जा को एक एकल, विशाल, शंकु के आकार के शॉकवेव में संकुचित करता है जो जेट के पीछे चलता है, जमीन पर 'बूम' के रूप में टकराता है।",
+    "explanation": "Concorde jets were banned from flying supersonic over land because their sonic booms caused structural damage to homes.",
+    "explanation_hi": " कॉनकॉर्ड जेट विमानों को जमीन के ऊपर सुपरसोनिक उड़ान भरने से प्रतिबंधित कर दिया गया था क्योंकि उनके सोनिक बूम से घरों को संरचनात्मक नुकसान होता था।",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["physics", "sound", "shockwave", "supersonic"]
+    },
+    "lists": []
+  }
+]

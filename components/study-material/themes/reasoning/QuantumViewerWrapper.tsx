@@ -6,9 +6,10 @@ import { KDConcept } from '@/types/studyMaterial';
 
 type Props = {
   concept: KDConcept;
+  activeFilter?: string;
 };
 
-export function QuantumViewerWrapper({ concept }: Props) {
+export function QuantumViewerWrapper({ concept, activeFilter }: Props) {
   return (
     <div className="
       quantum-viewer 
@@ -48,10 +49,12 @@ export function QuantumViewerWrapper({ concept }: Props) {
         notesMarkdown={concept.notesMarkdown}
         noteBoxes={concept.noteBoxes}
         pdfUrl={concept.pdfUrl}
+        pdfs={concept.pdfs}
         youtubeUrls={concept.youtubeUrls}
         quizzes={concept.quizzes}
         flashcardSets={concept.flashcardSets}
         slug={concept.slug}
+        activeFilter={activeFilter}
       />
     </div>
   );

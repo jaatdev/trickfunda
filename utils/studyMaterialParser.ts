@@ -96,10 +96,19 @@ export async function getKDConceptBySlug(categorySlug: string, slug: string): Pr
   }
 
   const quizzes: KDQuiz[] = [];
+  const pdfs: { id: string; title: string; url: string }[] = [];
   try {
     const files = await fs.promises.readdir(conceptDir);
     for (const file of files) {
-      if (file.startsWith('quiz') && file.endsWith('.json')) {
+      if (file.startsWith('notes') && file.endsWith('.pdf')) {
+        const titlePart = file.replace('.pdf', '');
+        const title = titlePart === 'notes' ? 'Notes' : formatTitle(titlePart.replace('notes-', ''));
+        pdfs.push({
+          id: titlePart,
+          title,
+          url: `/api/study-material/files/${categorySlug}/${slug}/${file}`
+        });
+      } else if (file.startsWith('quiz') && file.endsWith('.json')) {
         try {
           const rawQuiz = await fs.promises.readFile(path.join(conceptDir, file), 'utf8');
           const parsedQuiz = JSON.parse(rawQuiz);
@@ -126,6 +135,7 @@ export async function getKDConceptBySlug(categorySlug: string, slug: string): Pr
     notesMarkdown,
     noteBoxes,
     pdfUrl,
+    pdfs,
     youtubeUrls,
     quizzes,
   };
@@ -164,7 +174,7 @@ export function aggregateKDStats(concepts: KDConcept[]): KDStats {
   return concepts.reduce((acc, c) => ({
     concepts: acc.concepts + 1,
     videos: acc.videos + (c.youtubeUrls?.length || 0),
-    pdfs: acc.pdfs + (c.pdfUrl ? 1 : 0),
+    pdfs: acc.pdfs + (c.pdfs?.length || (c.pdfUrl ? 1 : 0)),
     quizzes: acc.quizzes + (c.quizzes?.length || 0),
     questions: acc.questions + (c.quizzes?.reduce((qAcc, q) => qAcc + (q.questions?.length || 0), 0) || 0),
     flashcards: acc.flashcards + (c.flashcardSets?.reduce((fAcc, f) => fAcc + (f.flashcards?.length || 0), 0) || 0)
@@ -272,10 +282,19 @@ export async function getKDChapterTypeData(subjectSlug: string, chapterSlug: str
   }
 
   const quizzes: KDQuiz[] = [];
+  const pdfs: { id: string; title: string; url: string }[] = [];
   try {
     const files = await fs.promises.readdir(conceptDir);
     for (const file of files) {
-      if (file.startsWith('quiz') && file.endsWith('.json')) {
+      if (file.startsWith('notes') && file.endsWith('.pdf')) {
+        const titlePart = file.replace('.pdf', '');
+        const title = titlePart === 'notes' ? 'Notes' : formatTitle(titlePart.replace('notes-', ''));
+        pdfs.push({
+          id: titlePart,
+          title,
+          url: `/api/study-material/files/${subjectSlug}/${chapterSlug}/${typeSlug}/${file}`
+        });
+      } else if (file.startsWith('quiz') && file.endsWith('.json')) {
         try {
           const rawQuiz = await fs.promises.readFile(path.join(conceptDir, file), 'utf8');
           const parsedQuiz = JSON.parse(rawQuiz);
@@ -302,6 +321,7 @@ export async function getKDChapterTypeData(subjectSlug: string, chapterSlug: str
     notesMarkdown,
     noteBoxes,
     pdfUrl,
+    pdfs,
     youtubeUrls,
     quizzes,
   };
@@ -378,13 +398,22 @@ export async function getKDNode(pathArray: string[]): Promise<import('@/types/st
 
   const quizzes: KDQuiz[] = [];
   const flashcardSets: import('@/types/studyMaterial').KDFlashcardSet[] = [];
+  const pdfs: { id: string; title: string; url: string }[] = [];
   let hasLocalFiles = false;
 
   try {
     const files = await fs.promises.readdir(nodeDir, { withFileTypes: true });
     for (const file of files) {
       if (file.isFile()) {
-        if (file.name.startsWith('quiz') && file.name.endsWith('.json')) {
+        if (file.name.startsWith('notes') && file.name.endsWith('.pdf')) {
+          const titlePart = file.name.replace('.pdf', '');
+          const title = titlePart === 'notes' ? 'Notes' : formatTitle(titlePart.replace('notes-', ''));
+          pdfs.push({
+            id: titlePart,
+            title,
+            url: `/api/study-material/files/${pathArray.join('/')}/${file.name}`
+          });
+        } else if (file.name.startsWith('quiz') && file.name.endsWith('.json')) {
           try {
             const rawQuiz = await fs.promises.readFile(path.join(nodeDir, file.name), 'utf8');
             if (rawQuiz.trim().length > 0) {
@@ -442,7 +471,7 @@ export async function getKDNode(pathArray: string[]): Promise<import('@/types/st
     }
   }
 
-  if (notesMarkdown || noteBoxes || pdfUrl || youtubeUrls || quizzes.length > 0 || flashcardSets.length > 0) {
+  if (notesMarkdown || noteBoxes || pdfUrl || pdfs.length > 0 || youtubeUrls || quizzes.length > 0 || flashcardSets.length > 0) {
     hasLocalFiles = true;
   }
 
@@ -452,6 +481,7 @@ export async function getKDNode(pathArray: string[]): Promise<import('@/types/st
     notesMarkdown,
     noteBoxes,
     pdfUrl,
+    pdfs,
     youtubeUrls,
     quizzes,
     flashcardSets,
