@@ -1,0 +1,249 @@
+[
+  {
+    "id": "trickfunda-static-gk-current-appointments-administrative-executive-appointments-001",
+    "type": "concept",
+    "front": "Who is the current President of India?",
+    "front_hi": "भारत के वर्तमान राष्ट्रपति कौन हैं?",
+    "back": "Smt. Droupadi Murmu",
+    "back_hi": "श्रीमती द्रौपदी मुर्मू",
+    "hint": "KD Logic: No trick needed for the ultimate bosses.",
+    "hint_hi": "केडी लॉजिक: इन अल्टीमेट बॉस के लिए किसी ट्रिक की जरूरत नहीं है।",
+    "trick": "The 3D Visual: Ye dono desh ki dhadkan hain, bacha-bacha jaanta hai! Inke liye trick nahi, dil mein izzat honi chahiye!",
+    "trick_hi": "3D दृश्य: ये दोनों देश की धड़कन हैं, बच्चा-बच्चा जानता है! इनके लिए ट्रिक नहीं, दिल में इज्जत होनी चाहिए!",
+    "explanation": "Output Box: Desh ki dhadkan ➡️ President ➡️ Smt. Droupadi Murmu",
+    "explanation_hi": "आउटपुट बॉक्स: देश की धड़कन ➡️ राष्ट्रपति ➡️ श्रीमती द्रौपदी मुर्मू",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["static-gk", "appointments", "president"]
+    },
+    "lists": []
+  },
+  {
+    "id": "trickfunda-static-gk-current-appointments-administrative-executive-appointments-002",
+    "type": "concept",
+    "front": "Who is the current Prime Minister of India?",
+    "front_hi": "भारत के वर्तमान प्रधान मंत्री कौन हैं?",
+    "back": "Shri Narendra Modi",
+    "back_hi": "श्री नरेंद्र मोदी",
+    "hint": "KD Logic: No trick needed for the ultimate bosses.",
+    "hint_hi": "केडी लॉजिक: इन अल्टीमेट बॉस के लिए किसी ट्रिक की जरूरत नहीं है।",
+    "trick": "The 3D Visual: Ye dono desh ki dhadkan hain, bacha-bacha jaanta hai! Inke liye trick nahi, dil mein izzat honi chahiye!",
+    "trick_hi": "3D दृश्य: ये दोनों देश की धड़कन हैं, बच्चा-बच्चा जानता है! इनके लिए ट्रिक नहीं, दिल में इज्जत होनी चाहिए!",
+    "explanation": "Output Box: Desh ki dhadkan ➡️ Prime Minister ➡️ Shri Narendra Modi",
+    "explanation_hi": "आउटपुट बॉक्स: देश की धड़कन ➡️ प्रधान मंत्री ➡️ श्री नरेंद्र मोदी",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["static-gk", "appointments", "prime-minister"]
+    },
+    "lists": []
+  },
+  {
+    "id": "trickfunda-static-gk-current-appointments-administrative-executive-appointments-003",
+    "type": "concept",
+    "front": "Who is the current Vice President of India?",
+    "front_hi": "भारत के वर्तमान उपराष्ट्रपति कौन हैं?",
+    "back": "Shri C.P. Radhakrishnan",
+    "back_hi": "श्री सी.पी. राधाकृष्णन",
+    "hint": "KD Word-Hack: Vice + Radha + Krishna.",
+    "hint_hi": "केडी वर्ड-हैक: वाइस (Vice) + राधा + कृष्णा",
+    "trick": "The 3D Visual: Imagine karo, Vice President ki kursi par 'Radha-Krishna' baithe hain aur pura desh unki pooja kar raha hai!",
+    "trick_hi": "3D दृश्य: कल्पना करो, वाइस प्रेसिडेंट की कुर्सी पर 'राधा-कृष्ण' बैठे हैं और पूरा देश उनकी पूजा कर रहा है!",
+    "explanation": "Output Box: Vice President ➡️ Radha-Krishna ➡️ C.P. Radhakrishnan!",
+    "explanation_hi": "आउटपुट बॉक्स: वाइस प्रेसिडेंट ➡️ राधा-कृष्ण ➡️ सी.पी. राधाकृष्णन!",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["static-gk", "appointments", "vice-president"]
+    },
+    "lists": []
+  },
+  {
+    "id": "trickfunda-static-gk-current-appointments-administrative-executive-appointments-004",
+    "type": "concept",
+    "front": "Who is the current Lok Sabha Speaker?",
+    "front_hi": "वर्तमान लोकसभा अध्यक्ष कौन हैं?",
+    "back": "Shri Om Birla",
+    "back_hi": "श्री ओम बिरला",
+    "hint": "KD Word-Hack: Lok (Log) + Speaker + Om.",
+    "hint_hi": "केडी वर्ड-हैक: लोक (लोग) + स्पीकर + ओम",
+    "trick": "The 3D Visual: Lok Sabha mein bahut saare 'Log' shor macha rahe the, toh Speaker ne shant karne ke liye mic par 'OM' (ॐ) ka jaap karvaya!",
+    "trick_hi": "3D दृश्य: लोकसभा में बहुत सारे 'लोग' शोर मचा रहे थे, तो स्पीकर ने शांत करने के लिए माइक पर 'ओम' (ॐ) का जाप करवाया!",
+    "explanation": "Output Box: Lok Sabha shanti ➡️ OM ka jaap ➡️ Om Birla!",
+    "explanation_hi": "आउटपुट बॉक्स: लोकसभा शांति ➡️ ओम का जाप ➡️ ओम बिरला!",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["static-gk", "appointments", "lok-sabha"]
+    },
+    "lists": []
+  },
+  {
+    "id": "trickfunda-static-gk-current-appointments-administrative-executive-appointments-005",
+    "type": "concept",
+    "front": "Who is the current Principal Secretary, PMO?",
+    "front_hi": "वर्तमान प्रधान सचिव, पीएमओ कौन हैं?",
+    "back": "Shri Pramod Kumar Mishra",
+    "back_hi": "श्री प्रमोद कुमार मिश्रा",
+    "hint": "KD Word-Hack: PMO + Pramod (Promote) + Mishra (Mishri).",
+    "hint_hi": "केडी वर्ड-हैक: पीएमओ (PMO) + प्रमोद (Promote) + मिश्रा (मिश्री)",
+    "trick": "The 3D Visual: PM office (PMO) mein jab ek babu ko 'Promote' (Pramod) karke Principal Secretary banaya, toh usne khushi mein sabko 'Mishri' (Mishra) baanti!",
+    "trick_hi": "3D दृश्य: पीएम ऑफिस (PMO) में जब एक बाबू को 'प्रमोट' (Pramod) करके प्रिंसिपल सेक्रेटरी बनाया, तो उसने खुशी में सबको 'मिश्री' (Mishra) बांटी!",
+    "explanation": "Output Box: PMO mein Promote ➡️ Mishri baanti ➡️ Pramod Kumar Mishra!",
+    "explanation_hi": "आउटपुट बॉक्स: पीएमओ में प्रमोट ➡️ मिश्री बांटी ➡️ प्रमोद कुमार मिश्रा!",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["static-gk", "appointments", "pmo"]
+    },
+    "lists": []
+  },
+  {
+    "id": "trickfunda-static-gk-current-appointments-administrative-executive-appointments-006",
+    "type": "concept",
+    "front": "Who is the current Cabinet Secretary?",
+    "front_hi": "वर्तमान कैबिनेट सचिव कौन हैं?",
+    "back": "Shri T.V. Somanathan",
+    "back_hi": "श्री टी.वी. सोमनाथन",
+    "hint": "KD Word-Hack: Cabinet + T.V. + Soma (Somvar).",
+    "hint_hi": "केडी वर्ड-हैक: कैबिनेट + टी.वी. + सोमा (सोमवार)",
+    "trick": "The 3D Visual: Aajkal mantriyon ki 'Cabinet' meeting offline nahi hoti. Har 'Somvar' (Soma) ko sab ek bade se 'T.V.' par online meeting karte hain!",
+    "trick_hi": "3D दृश्य: आजकल मंत्रियों की 'कैबिनेट' मीटिंग ऑफलाइन नहीं होती। हर 'सोमवार' (Soma) को सब एक बड़े से 'टी.वी.' पर ऑनलाइन मीटिंग करते हैं!",
+    "explanation": "Output Box: Cabinet meeting ➡️ T.V. par Somvar ko ➡️ T.V. Somanathan!",
+    "explanation_hi": "आउटपुट बॉक्स: कैबिनेट मीटिंग ➡️ टी.वी. पर सोमवार को ➡️ टी.वी. सोमनाथन!",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["static-gk", "appointments", "cabinet"]
+    },
+    "lists": []
+  },
+  {
+    "id": "trickfunda-static-gk-current-appointments-administrative-executive-appointments-007",
+    "type": "concept",
+    "front": "Who is the current National Security Advisor (NSA)?",
+    "front_hi": "वर्तमान राष्ट्रीय सुरक्षा सलाहकार (NSA) कौन हैं?",
+    "back": "Shri Ajit Doval",
+    "back_hi": "श्री अजीत डोभाल",
+    "hint": "KD Word-Hack: Security + Ajit (Jise hara na sakein) + Doval (Double-Bal).",
+    "hint_hi": "केडी वर्ड-हैक: सिक्योरिटी + अजीत (जिसे हरा न सकें) + डोभाल (डबल-बल)",
+    "trick": "The 3D Visual: Bharat ki 'Security' itni tight hai ki hum 'Ajit' hain, kyunki dushmano se ladne ke liye humare paas 'Double-Bal' (Doval) hai!",
+    "trick_hi": "3D दृश्य: भारत की 'सिक्योरिटी' इतनी टाइट है कि हम 'अजीत' हैं, क्योंकि दुश्मनों से लड़ने के लिए हमारे पास 'डबल-बल' (Doval) है!",
+    "explanation": "Output Box: Security mein Ajit ➡️ Double Bal ➡️ Ajit Doval!",
+    "explanation_hi": "आउटपुट बॉक्स: सिक्योरिटी में अजीत ➡️ डबल बल ➡️ अजीत डोभाल!",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["static-gk", "appointments", "nsa"]
+    },
+    "lists": []
+  },
+  {
+    "id": "trickfunda-static-gk-current-appointments-administrative-executive-appointments-008",
+    "type": "concept",
+    "front": "Who is the current Home Secretary?",
+    "front_hi": "वर्तमान गृह सचिव कौन हैं?",
+    "back": "Shri Govind Mohan",
+    "back_hi": "श्री गोविंद मोहन",
+    "hint": "KD Word-Hack: Home (Ghar) + Govind + Mohan.",
+    "hint_hi": "केडी वर्ड-हैक: होम (घर) + गोविंद + मोहन",
+    "trick": "The 3D Visual: Humare 'Home' (Ghar) mein subah-subah kiske bhajan chalte hain? 'Govind bolo Hari Gopal bolo... Mohan!'",
+    "trick_hi": "3D दृश्य: हमारे 'होम' (घर) में सुबह-सुबह किसके भजन चलते हैं? 'गोविंद बोलो हरि गोपाल बोलो... मोहन!'",
+    "explanation": "Output Box: Home mein bhajan ➡️ Govind aur Mohan ke ➡️ Govind Mohan!",
+    "explanation_hi": "आउटपुट बॉक्स: होम में भजन ➡️ गोविंद और मोहन के ➡️ गोविंद मोहन!",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["static-gk", "appointments", "home-secretary"]
+    },
+    "lists": []
+  },
+  {
+    "id": "trickfunda-static-gk-current-appointments-administrative-executive-appointments-009",
+    "type": "concept",
+    "front": "Who is the current Finance Secretary?",
+    "front_hi": "वर्तमान वित्त सचिव कौन हैं?",
+    "back": "Shri Ajay Seth",
+    "back_hi": "श्री अजय सेठ",
+    "hint": "KD Word-Hack: Finance (Paisa) + Seth.",
+    "hint_hi": "केडी वर्ड-हैक: फाइनेंस (पैसा) + सेठ",
+    "trick": "The 3D Visual: Mohalle mein jiske paas sabse zyada 'Finance' (paisa) hota hai, sab usko kya bulate hain? 'Bade Seth ji!'",
+    "trick_hi": "3D दृश्य: मोहल्ले में जिसके पास सबसे ज्यादा 'फाइनेंस' (पैसा) होता है, सब उसको क्या बुलाते हैं? 'बड़े सेठ जी!'",
+    "explanation": "Output Box: Jiske paas Finance ➡️ Wahi hai Seth ➡️ Ajay Seth!",
+    "explanation_hi": "आउटपुट बॉक्स: जिसके पास फाइनेंस ➡️ वही है सेठ ➡️ अजय सेठ!",
+    "meta": {
+      "difficulty": "easy",
+      "tags": ["static-gk", "appointments", "finance"]
+    },
+    "lists": []
+  },
+  {
+    "id": "trickfunda-static-gk-current-appointments-administrative-executive-appointments-010",
+    "type": "concept",
+    "front": "Who is the current Comptroller and Auditor General (CAG)?",
+    "front_hi": "वर्तमान नियंत्रक एवं महालेखा परीक्षक (CAG) कौन हैं?",
+    "back": "Shri K. Sanjay Murthy",
+    "back_hi": "श्री के. संजय मूर्ति",
+    "hint": "KD Word-Hack: CAG (Kag/Kagaz) + Murthy.",
+    "hint_hi": "केडी वर्ड-हैक: कैग (काग/कागज़) + मूर्ति",
+    "trick": "The 3D Visual: CAG ki audit report ke bahut saare 'Kagaz' (CAG) bach gaye the, toh usse humne ek bohut sundar si 'Murthy' bana di!",
+    "trick_hi": "3D दृश्य: कैग (CAG) की ऑडिट रिपोर्ट के बहुत सारे 'कागज़' (CAG) बच गए थे, तो उससे हमने एक बहुत सुंदर सी 'मूर्ति' बना दी!",
+    "explanation": "Output Box: Kagaz (CAG) se banayi ➡️ Murthy ➡️ K. Sanjay Murthy!",
+    "explanation_hi": "आउटपुट बॉक्स: कागज़ (CAG) से बनाई ➡️ मूर्ति ➡️ के. संजय मूर्ति!",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["static-gk", "appointments", "cag"]
+    },
+    "lists": []
+  },
+  {
+    "id": "trickfunda-static-gk-current-appointments-administrative-executive-appointments-011",
+    "type": "concept",
+    "front": "Who is the current Chairman, UPSC?",
+    "front_hi": "वर्तमान अध्यक्ष, यूपीएससी कौन हैं?",
+    "back": "Dr. Ajay Kumar",
+    "back_hi": "डॉ. अजय कुमार",
+    "hint": "KD Word-Hack: UPSC + Ajay (Unbeatable).",
+    "hint_hi": "केडी वर्ड-हैक: यूपीएससी + अजय (Unbeatable)",
+    "trick": "The 3D Visual: UPSC ka exam itna tough hai ki jo isko phod deta hai, wo duniya mein 'Ajay' (jise koi hara na sake) ban jata hai!",
+    "trick_hi": "3D दृश्य: यूपीएससी का एग्जाम इतना टफ है कि जो इसको फोड़ देता है, वो दुनिया में 'अजय' (जिसे कोई हरा न सके) बन जाता है!",
+    "explanation": "Output Box: UPSC pass kiya ➡️ Ajay ban gaya ➡️ Dr. Ajay Kumar!",
+    "explanation_hi": "आउटपुट बॉक्स: यूपीएससी पास किया ➡️ अजय बन गया ➡️ डॉ. अजय कुमार!",
+    "meta": {
+      "difficulty": "medium",
+      "tags": ["static-gk", "appointments", "upsc"]
+    },
+    "lists": []
+  },
+  {
+    "id": "trickfunda-static-gk-current-appointments-administrative-executive-appointments-012",
+    "type": "concept",
+    "front": "Who is the current Attorney General of India?",
+    "front_hi": "भारत के वर्तमान अटॉर्नी जनरल कौन हैं?",
+    "back": "Shri R. Venkataramani",
+    "back_hi": "श्री आर. वेंकटरमणी",
+    "hint": "KD Word-Hack: Attorney (Aane-to-nahi) + Ramani (Money).",
+    "hint_hi": "केडी वर्ड-हैक: अटॉर्नी (आने-तो-नहीं) + रमणी (मनी/Money)",
+    "trick": "The 3D Visual: Vakeel (Attorney) bola, 'Bhai court mein bina Money (Ramani) khilaye case tere favour mein Aane-to-nahi (Attorney)!'",
+    "trick_hi": "3D दृश्य: वकील (अटॉर्नी) बोला, 'भाई कोर्ट में बिना मनी (रमणी) खिलाए केस तेरे फेवर में आने-तो-नहीं (अटॉर्नी)!'",
+    "explanation": "Output Box: Attorney ki fees ➡️ Money (Ramani) ➡️ R. Venkataramani!",
+    "explanation_hi": "आउटपुट बॉक्स: अटॉर्नी की फीस ➡️ मनी (रमणी) ➡️ आर. वेंकटरमणी!",
+    "meta": {
+      "difficulty": "hard",
+      "tags": ["static-gk", "appointments", "attorney-general"]
+    },
+    "lists": []
+  },
+  {
+    "id": "trickfunda-static-gk-current-appointments-administrative-executive-appointments-013",
+    "type": "concept",
+    "front": "Who is the current Solicitor General?",
+    "front_hi": "वर्तमान सॉलिसिटर जनरल कौन हैं?",
+    "back": "Shri Tushar Mehta",
+    "back_hi": "श्री तुषार मेहता",
+    "hint": "KD Word-Hack: Solicitor (Solid) + Tushar (Baraf/Oas).",
+    "hint_hi": "केडी वर्ड-हैक: सॉलिसिटर (सॉलिड) + तुषार (बर्फ/ओस)",
+    "trick": "The 3D Visual: Court mein inke arguments itne 'Solid' (Solicitor) hote hain, jaise baraf ki thandi 'Tushar' gir rahi ho!",
+    "trick_hi": "3D दृश्य: कोर्ट में इनके आर्गुमेंट्स इतने 'सॉलिड' (सॉलिसिटर) होते हैं, जैसे बर्फ की ठंडी 'तुषार' गिर रही हो!",
+    "explanation": "Output Box: Solid arguments ➡️ Tushar ki tarah ➡️ Tushar Mehta!",
+    "explanation_hi": "आउटपुट बॉक्स: सॉलिड आर्गुमेंट्स ➡️ तुषार की तरह ➡️ तुषार मेहता!",
+    "meta": {
+      "difficulty": "hard",
+      "tags": ["static-gk", "appointments", "solicitor-general"]
+    },
+    "lists": []
+  }
+]

@@ -33,7 +33,7 @@ export default function BackToTop() {
   return (
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      className="fixed bottom-6 right-6 z-40 no-print group"
+      className="fixed bottom-[84px] right-6 z-40 no-print group"
       aria-label="Back to top"
       title="Back to top"
     >

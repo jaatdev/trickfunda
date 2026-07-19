@@ -10,6 +10,7 @@ import NavbarSpacer from '@/components/layout/NavbarSpacer'
 import Footer from '@/components/layout/Footer'
 import GlobalFullscreenButton from '@/components/GlobalFullscreenButton'
 import HackerPreloader from '@/components/preloader/HackerPreloader'
+import BackToTop from '@/components/ui/BackToTop'
 import '@/styles/globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <main className="flex-1 relative z-0 flex flex-col">{children}</main>
                   <Footer />
                   <GlobalFullscreenButton />
+                  <BackToTop />
                 </LayoutWrapper>
               </ToastProvider>
             </FullscreenProvider>

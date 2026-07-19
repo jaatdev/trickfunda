@@ -1,0 +1,319 @@
+{
+  "questions": [
+    {
+      "id": "trickfunda-trigonometry-type-5-kapil-sir-1",
+      "prompt": "If \\( (1 + \\cot\\theta - \\csc\\theta)(1 + \\tan\\theta + \\sec\\theta) = ? \\)",
+      "prompt_hi": "यदि \\( (1 + \\cot\\theta - \\csc\\theta)(1 + \\tan\\theta + \\sec\\theta) = ? \\)",
+      "options": [
+        "\\( 0 \\)",
+        "\\( 1 \\)",
+        "\\( 2 \\)",
+        "\\( 4 \\)"
+      ],
+      "options_hi": [
+        "\\( 0 \\)",
+        "\\( 1 \\)",
+        "\\( 2 \\)",
+        "\\( 4 \\)"
+      ],
+      "answerIndex": 2,
+      "examTag": "Trigonometry Type-5",
+      "reason": "By putting the standard angle \\( \\theta = 45^\\circ \\): \n\\( \\cot 45^\\circ = 1 \\), \\( \\csc 45^\\circ = \\sqrt{2} \\), \\( \\tan 45^\\circ = 1 \\), \\( \\sec 45^\\circ = \\sqrt{2} \\). \nThe expression becomes: \\( (1 + 1 - \\sqrt{2})(1 + 1 + \\sqrt{2}) = (2 - \\sqrt{2})(2 + \\sqrt{2}) \\). \nUsing \\( (a - b)(a + b) = a^2 - b^2 \\): \\( 2^2 - (\\sqrt{2})^2 = 4 - 2 = 2 \\).",
+      "reason_hi": "मानक कोण \\( \\theta = 45^\\circ \\) रखने पर: \n\\( \\cot 45^\\circ = 1 \\), \\( \\csc 45^\\circ = \\sqrt{2} \\), \\( \\tan 45^\\circ = 1 \\), \\( \\sec 45^\\circ = \\sqrt{2} \\)। \nव्यंजक: \\( (1 + 1 - \\sqrt{2})(1 + 1 + \\sqrt{2}) = (2 - \\sqrt{2})(2 + \\sqrt{2}) \\) बन जाता है। \n\\( (a - b)(a + b) = a^2 - b^2 \\) का उपयोग करने पर: \\( 2^2 - (\\sqrt{2})^2 = 4 - 2 = 2 \\)।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-5-kapil-sir-2",
+      "prompt": "If \\( (1 + \\tan\\theta - \\sec\\theta)(1 + \\cot\\theta + \\csc\\theta) = ? \\)",
+      "prompt_hi": "यदि \\( (1 + \\tan\\theta - \\sec\\theta)(1 + \\cot\\theta + \\csc\\theta) = ? \\)",
+      "options": [
+        "\\( 0 \\)",
+        "\\( 1 \\)",
+        "\\( 2 \\)",
+        "\\( 4 \\)"
+      ],
+      "options_hi": [
+        "\\( 0 \\)",
+        "\\( 1 \\)",
+        "\\( 2 \\)",
+        "\\( 4 \\)"
+      ],
+      "answerIndex": 2,
+      "examTag": "Trigonometry Type-5",
+      "reason": "Put \\( \\theta = 45^\\circ \\): \n\\( \\tan 45^\\circ = 1 \\), \\( \\sec 45^\\circ = \\sqrt{2} \\), \\( \\cot 45^\\circ = 1 \\), \\( \\csc 45^\\circ = \\sqrt{2} \\). \nThe expression evaluates to \\( (1 + 1 - \\sqrt{2})(1 + 1 + \\sqrt{2}) = (2 - \\sqrt{2})(2 + \\sqrt{2}) = 4 - 2 = 2 \\).",
+      "reason_hi": "\\( \\theta = 45^\\circ \\) रखने पर: \n\\( \\tan 45^\\circ = 1 \\), \\( \\sec 45^\\circ = \\sqrt{2} \\), \\( \\cot 45^\\circ = 1 \\), \\( \\csc 45^\\circ = \\sqrt{2} \\)। \nयह व्यंजक \\( (1 + 1 - \\sqrt{2})(1 + 1 + \\sqrt{2}) = (2 - \\sqrt{2})(2 + \\sqrt{2}) = 4 - 2 = 2 \\) हो जाता है।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-5-kapil-sir-3",
+      "prompt": "If \\( \\tan 2\\theta \\cdot \\tan 4\\theta = 1 \\), then what is the value of \\( \\tan 3\\theta \\)?",
+      "prompt_hi": "यदि \\( \\tan 2\\theta \\cdot \\tan 4\\theta = 1 \\) तो \\( \\tan 3\\theta \\) का मान क्या होगा-",
+      "options": [
+        "\\( \\sqrt{3} \\)",
+        "\\( 0 \\)",
+        "\\( 1 \\)",
+        "\\( \\frac{1}{\\sqrt{3}} \\)"
+      ],
+      "options_hi": [
+        "\\( \\sqrt{3} \\)",
+        "\\( 0 \\)",
+        "\\( 1 \\)",
+        "\\( \\frac{1}{\\sqrt{3}} \\)"
+      ],
+      "answerIndex": 2,
+      "examTag": "Trigonometry Type-5",
+      "reason": "If \\( \\tan A \\cdot \\tan B = 1 \\), then \\( A + B = 90^\\circ \\). \nHere, \\( 2\\theta + 4\\theta = 90^\\circ \\implies 6\\theta = 90^\\circ \\implies \\theta = 15^\\circ \\). \nWe need to find \\( \\tan 3\\theta = \\tan(3 \\times 15^\\circ) = \\tan 45^\\circ = 1 \\).",
+      "reason_hi": "यदि \\( \\tan A \\cdot \\tan B = 1 \\) हो, तो \\( A + B = 90^\\circ \\) होता है। \nयहाँ, \\( 2\\theta + 4\\theta = 90^\\circ \\implies 6\\theta = 90^\\circ \\implies \\theta = 15^\\circ \\)। \nहमें \\( \\tan 3\\theta = \\tan(3 \\times 15^\\circ) = \\tan 45^\\circ = 1 \\) ज्ञात करना है।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-5-kapil-sir-4",
+      "prompt": "If \\( \\sin(x + y) = \\cos[3(x + y)] \\), then what is the value of \\( \\tan[2(x + y)] \\)?",
+      "prompt_hi": "यदि \\( \\sin(x + y) = \\cos[3(x + y)] \\) हो तो \\( \\tan[2(x + y)] \\) का मान क्या होगा-",
+      "options": [
+        "\\( \\sqrt{3} \\)",
+        "\\( 1 \\)",
+        "\\( 0 \\)",
+        "\\( \\frac{1}{\\sqrt{3}} \\)"
+      ],
+      "options_hi": [
+        "\\( \\sqrt{3} \\)",
+        "\\( 1 \\)",
+        "\\( 0 \\)",
+        "\\( \\frac{1}{\\sqrt{3}} \\)"
+      ],
+      "answerIndex": 1,
+      "examTag": "Trigonometry Type-5",
+      "reason": "When \\( \\sin A = \\cos B \\), then \\( A + B = 90^\\circ \\). \nTherefore, \\( (x + y) + 3(x + y) = 90^\\circ \\implies 4(x + y) = 90^\\circ \\implies 2(x + y) = 45^\\circ \\). \nWe need to find \\( \\tan[2(x + y)] = \\tan 45^\\circ = 1 \\).",
+      "reason_hi": "जब \\( \\sin A = \\cos B \\) होता है, तब \\( A + B = 90^\\circ \\) होता है। \nअतः, \\( (x + y) + 3(x + y) = 90^\\circ \\implies 4(x + y) = 90^\\circ \\implies 2(x + y) = 45^\\circ \\)। \nहमें \\( \\tan[2(x + y)] = \\tan 45^\\circ = 1 \\) ज्ञात करना है।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-5-kapil-sir-5",
+      "prompt": "If \\( \\tan(x + y) \\tan(x - y) = 1 \\), then what is the value of \\( \\tan\\left(\\frac{2x}{3}\\right) \\)?",
+      "prompt_hi": "यदि \\( \\tan(x + y) \\tan(x - y) = 1 \\) हो तो \\( \\tan\\left(\\frac{2x}{3}\\right) \\) का मान क्या होगा?",
+      "options": [
+        "\\( \\frac{1}{\\sqrt{3}} \\)",
+        "\\( \\frac{2}{\\sqrt{3}} \\)",
+        "\\( \\sqrt{3} \\)",
+        "\\( 1 \\)"
+      ],
+      "options_hi": [
+        "\\( \\frac{1}{\\sqrt{3}} \\)",
+        "\\( \\frac{2}{\\sqrt{3}} \\)",
+        "\\( \\sqrt{3} \\)",
+        "\\( 1 \\)"
+      ],
+      "answerIndex": 0,
+      "examTag": "Trigonometry Type-5",
+      "reason": "If \\( \\tan A \\cdot \\tan B = 1 \\), then \\( A + B = 90^\\circ \\). \nSo, \\( (x + y) + (x - y) = 90^\\circ \\implies 2x = 90^\\circ \\implies x = 45^\\circ \\). \nWe need \\( \\tan\\left(\\frac{2x}{3}\\right) = \\tan\\left(\\frac{2 \\times 45^\\circ}{3}\\right) = \\tan\\left(\\frac{90^\\circ}{3}\\right) = \\tan 30^\\circ = \\frac{1}{\\sqrt{3}} \\).",
+      "reason_hi": "यदि \\( \\tan A \\cdot \\tan B = 1 \\) हो, तो \\( A + B = 90^\\circ \\) होता है। \nअतः, \\( (x + y) + (x - y) = 90^\\circ \\implies 2x = 90^\\circ \\implies x = 45^\\circ \\)। \nहमें \\( \\tan\\left(\\frac{2x}{3}\\right) = \\tan\\left(\\frac{2 \\times 45^\\circ}{3}\\right) = \\tan\\left(\\frac{90^\\circ}{3}\\right) = \\tan 30^\\circ = \\frac{1}{\\sqrt{3}} \\) ज्ञात करना है।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-5-kapil-sir-6",
+      "prompt": "If \\( \\tan(2\\theta + 45^\\circ) = \\cot 3\\theta \\), where \\( (2\\theta + 45^\\circ) \\) and \\( 3\\theta \\) are acute angles, then what is the value of \\( \\theta \\)?",
+      "prompt_hi": "यदि \\( \\tan(2\\theta + 45^\\circ) = \\cot 3\\theta \\), जहाँ \\( (2\\theta + 45^\\circ) \\) और \\( 3\\theta \\) न्यूनकोण हैं, तो \\( \\theta \\) का मान है-",
+      "options": [
+        "\\( 5^\\circ \\)",
+        "\\( 9^\\circ \\)",
+        "\\( 12^\\circ \\)",
+        "\\( 15^\\circ \\)"
+      ],
+      "options_hi": [
+        "\\( 5^\\circ \\)",
+        "\\( 9^\\circ \\)",
+        "\\( 12^\\circ \\)",
+        "\\( 15^\\circ \\)"
+      ],
+      "answerIndex": 1,
+      "examTag": "Trigonometry Type-5",
+      "reason": "When \\( \\tan A = \\cot B \\), then \\( A + B = 90^\\circ \\). \nTherefore, \\( (2\\theta + 45^\\circ) + 3\\theta = 90^\\circ \\implies 5\\theta + 45^\\circ = 90^\\circ \\implies 5\\theta = 45^\\circ \\implies \\theta = 9^\\circ \\).",
+      "reason_hi": "जब \\( \\tan A = \\cot B \\) होता है, तब \\( A + B = 90^\\circ \\) होता है। \nअतः, \\( (2\\theta + 45^\\circ) + 3\\theta = 90^\\circ \\implies 5\\theta + 45^\\circ = 90^\\circ \\implies 5\\theta = 45^\\circ \\implies \\theta = 9^\\circ \\)।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-5-kapil-sir-7",
+      "prompt": "If \\( \\sec(7\\theta + 28^\\circ) = \\csc(30^\\circ - 3\\theta) \\), then what will be the value of \\( \\theta \\)?",
+      "prompt_hi": "यदि \\( \\sec(7\\theta + 28^\\circ) = \\csc(30^\\circ - 3\\theta) \\) हो तो \\( \\theta \\) का मान कितना होगा-",
+      "options": [
+        "\\( 8^\\circ \\)",
+        "\\( 5^\\circ \\)",
+        "\\( 60^\\circ \\)",
+        "\\( 9^\\circ \\)"
+      ],
+      "options_hi": [
+        "\\( 8^\\circ \\)",
+        "\\( 5^\\circ \\)",
+        "\\( 60^\\circ \\)",
+        "\\( 9^\\circ \\)"
+      ],
+      "answerIndex": 0,
+      "examTag": "Trigonometry Type-5",
+      "reason": "When \\( \\sec A = \\csc B \\), then \\( A + B = 90^\\circ \\). \nTherefore, \\( (7\\theta + 28^\\circ) + (30^\\circ - 3\\theta) = 90^\\circ \\implies 4\\theta + 58^\\circ = 90^\\circ \\implies 4\\theta = 32^\\circ \\implies \\theta = 8^\\circ \\).",
+      "reason_hi": "जब \\( \\sec A = \\csc B \\) होता है, तब \\( A + B = 90^\\circ \\) होता है। \nअतः, \\( (7\\theta + 28^\\circ) + (30^\\circ - 3\\theta) = 90^\\circ \\implies 4\\theta + 58^\\circ = 90^\\circ \\implies 4\\theta = 32^\\circ \\implies \\theta = 8^\\circ \\)।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-5-kapil-sir-8",
+      "prompt": "If \\( x, y \\) are acute angles \\( (0^\\circ < x + y < 90^\\circ) \\) and \\( \\sin(2x - 20^\\circ) = \\cos(2y + 20^\\circ) \\), then the value of \\( \\tan(x + y) \\) is-",
+      "prompt_hi": "यदि \\( x, y \\) न्यून कोण \\( (0^\\circ < x + y < 90^\\circ) \\) और \\( \\sin(2x - 20^\\circ) = \\cos(2y + 20^\\circ) \\) तो \\( \\tan(x + y) \\) का मान है-",
+      "options": [
+        "\\( 1 \\)",
+        "\\( \\sqrt{3} \\)",
+        "\\( 2 \\)",
+        "\\( 0 \\)"
+      ],
+      "options_hi": [
+        "\\( 1 \\)",
+        "\\( \\sqrt{3} \\)",
+        "\\( 2 \\)",
+        "\\( 0 \\)"
+      ],
+      "answerIndex": 0,
+      "examTag": "Trigonometry Type-5",
+      "reason": "When \\( \\sin A = \\cos B \\), \\( A + B = 90^\\circ \\). \nSo, \\( (2x - 20^\\circ) + (2y + 20^\\circ) = 90^\\circ \\implies 2x + 2y = 90^\\circ \\implies x + y = 45^\\circ \\). \nWe need \\( \\tan(x + y) = \\tan 45^\\circ = 1 \\).",
+      "reason_hi": "जब \\( \\sin A = \\cos B \\) होता है, \\( A + B = 90^\\circ \\) होता है। \nअतः, \\( (2x - 20^\\circ) + (2y + 20^\\circ) = 90^\\circ \\implies 2x + 2y = 90^\\circ \\implies x + y = 45^\\circ \\)। \nहमें \\( \\tan(x + y) = \\tan 45^\\circ = 1 \\) ज्ञात करना है।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-5-kapil-sir-9",
+      "prompt": "If \\( 0 < x < \\frac{\\pi}{2} \\) and \\( \\sec x = \\csc y \\), then what is the value of \\( \\sin(x + y) \\)?",
+      "prompt_hi": "यदि \\( 0 < x < \\frac{\\pi}{2} \\) तथा \\( \\sec x = \\csc y \\) हो तो \\( \\sin(x + y) \\) कितना होगा?",
+      "options": [
+        "\\( 0 \\)",
+        "\\( 1 \\)",
+        "\\( \\frac{1}{2} \\)",
+        "\\( \\frac{1}{\\sqrt{3}} \\)"
+      ],
+      "options_hi": [
+        "\\( 0 \\)",
+        "\\( 1 \\)",
+        "\\( \\frac{1}{2} \\)",
+        "\\( \\frac{1}{\\sqrt{3}} \\)"
+      ],
+      "answerIndex": 1,
+      "examTag": "Trigonometry Type-5",
+      "reason": "When \\( \\sec x = \\csc y \\), then \\( x + y = 90^\\circ \\). \nWe need to find \\( \\sin(x + y) = \\sin 90^\\circ = 1 \\).",
+      "reason_hi": "जब \\( \\sec x = \\csc y \\) होता है, तब \\( x + y = 90^\\circ \\) होता है। \nहमें \\( \\sin(x + y) = \\sin 90^\\circ = 1 \\) ज्ञात करना है।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-5-kapil-sir-10",
+      "prompt": "If \\( \\csc 70^\\circ = \\sec x \\), then what will be the value of \\( x \\)?",
+      "prompt_hi": "यदि \\( \\csc 70^\\circ = \\sec x \\) तो \\( x \\) का मान क्या होगा-",
+      "options": [
+        "\\( 60^\\circ \\)",
+        "\\( 20^\\circ \\)",
+        "\\( 40^\\circ \\)",
+        "\\( 80^\\circ \\)"
+      ],
+      "options_hi": [
+        "\\( 60^\\circ \\)",
+        "\\( 20^\\circ \\)",
+        "\\( 40^\\circ \\)",
+        "\\( 80^\\circ \\)"
+      ],
+      "answerIndex": 1,
+      "examTag": "Trigonometry Type-5",
+      "reason": "Since \\( \\csc A = \\sec B \\), \\( A + B = 90^\\circ \\). \nSo, \\( 70^\\circ + x = 90^\\circ \\implies x = 20^\\circ \\).",
+      "reason_hi": "चूँकि \\( \\csc A = \\sec B \\) होने पर \\( A + B = 90^\\circ \\) होता है। \nअतः, \\( 70^\\circ + x = 90^\\circ \\implies x = 20^\\circ \\)।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-5-kapil-sir-11",
+      "prompt": "If \\( \\theta \\) is a positive acute angle, and \\( \\tan 2\\theta \\cdot \\tan 3\\theta = 1 \\), then what will be the value of \\( (2 \\cos^2\\left(\\frac{5\\theta}{2}\\right) - 1) \\)?",
+      "prompt_hi": "यदि \\( \\theta \\) एक धनात्मक न्यूनकोण है, और \\( \\tan 2\\theta \\cdot \\tan 3\\theta = 1 \\) हो तो \\( (2 \\cos^2\\left(\\frac{5\\theta}{2}\\right) - 1) \\) का मान कितना होगा-",
+      "options": [
+        "\\( -\\frac{1}{2} \\)",
+        "\\( 1 \\)",
+        "\\( 0 \\)",
+        "\\( \\frac{1}{2} \\)"
+      ],
+      "options_hi": [
+        "\\( -\\frac{1}{2} \\)",
+        "\\( 1 \\)",
+        "\\( 0 \\)",
+        "\\( \\frac{1}{2} \\)"
+      ],
+      "answerIndex": 2,
+      "examTag": "Trigonometry Type-5",
+      "reason": "If \\( \\tan A \\cdot \\tan B = 1 \\), then \\( A + B = 90^\\circ \\). \nHere, \\( 2\\theta + 3\\theta = 90^\\circ \\implies 5\\theta = 90^\\circ \\implies \\theta = 18^\\circ \\). \nWe need to find \\( 2 \\cos^2\\left(\\frac{5\\theta}{2}\\right) - 1 \\). Substitute \\( 5\\theta = 90^\\circ \\), so it becomes \\( 2 \\cos^2(45^\\circ) - 1 = 2\\left(\\frac{1}{\\sqrt{2}}\\right)^2 - 1 = 2\\left(\\frac{1}{2}\\right) - 1 = 1 - 1 = 0 \\).",
+      "reason_hi": "यदि \\( \\tan A \\cdot \\tan B = 1 \\) हो, तो \\( A + B = 90^\\circ \\) होता है। \nयहाँ, \\( 2\\theta + 3\\theta = 90^\\circ \\implies 5\\theta = 90^\\circ \\implies \\theta = 18^\\circ \\)। \nहमें \\( 2 \\cos^2\\left(\\frac{5\\theta}{2}\\right) - 1 \\) ज्ञात करना है। \\( 5\\theta = 90^\\circ \\) रखने पर यह \\( 2 \\cos^2(45^\\circ) - 1 = 2\\left(\\frac{1}{\\sqrt{2}}\\right)^2 - 1 = 2\\left(\\frac{1}{2}\\right) - 1 = 1 - 1 = 0 \\) हो जाता है।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-5-kapil-sir-12",
+      "prompt": "If \\( \\sin\\theta = \\cos\\theta \\), then \\( 2 \\tan^2\\theta + \\sin^2\\theta - 1 = ? \\)",
+      "prompt_hi": "यदि \\( \\sin\\theta = \\cos\\theta \\), तो \\( 2 \\tan^2\\theta + \\sin^2\\theta - 1 = ? \\)",
+      "options": [
+        "\\( \\frac{2}{3} \\)",
+        "\\( \\frac{3}{2} \\)",
+        "\\( \\frac{1}{2} \\)",
+        "\\( 2 \\)"
+      ],
+      "options_hi": [
+        "\\( \\frac{2}{3} \\)",
+        "\\( \\frac{3}{2} \\)",
+        "\\( \\frac{1}{2} \\)",
+        "\\( 2 \\)"
+      ],
+      "answerIndex": 1,
+      "examTag": "Trigonometry Type-5",
+      "reason": "If \\( \\sin\\theta = \\cos\\theta \\), dividing by \\( \\cos\\theta \\) gives \\( \\tan\\theta = 1 \\implies \\theta = 45^\\circ \\). \nNow substitute \\( \\theta = 45^\\circ \\): \\( 2 \\tan^2(45^\\circ) + \\sin^2(45^\\circ) - 1 = 2(1)^2 + \\left(\\frac{1}{\\sqrt{2}}\\right)^2 - 1 = 2(1) + \\frac{1}{2} - 1 = 2 + 0.5 - 1 = 1.5 = \\frac{3}{2} \\).",
+      "reason_hi": "यदि \\( \\sin\\theta = \\cos\\theta \\), \\( \\cos\\theta \\) से भाग देने पर \\( \\tan\\theta = 1 \\implies \\theta = 45^\\circ \\) प्राप्त होता है। \nअब \\( \\theta = 45^\\circ \\) रखने पर: \\( 2 \\tan^2(45^\\circ) + \\sin^2(45^\\circ) - 1 = 2(1)^2 + \\left(\\frac{1}{\\sqrt{2}}\\right)^2 - 1 = 2(1) + \\frac{1}{2} - 1 = 2 + 0.5 - 1 = 1.5 = \\frac{3}{2} \\)।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-5-kapil-sir-13",
+      "prompt": "If \\( \\tan\\theta + \\cot\\theta = 2 \\), then \\( \\tan^7\\theta + \\cot^7\\theta = ? \\)",
+      "prompt_hi": "यदि \\( \\tan\\theta + \\cot\\theta = 2 \\), तो \\( \\tan^7\\theta + \\cot^7\\theta = ? \\)",
+      "options": [
+        "\\( 7 \\)",
+        "\\( 0 \\)",
+        "\\( 1 \\)",
+        "\\( 2 \\)"
+      ],
+      "options_hi": [
+        "\\( 7 \\)",
+        "\\( 0 \\)",
+        "\\( 1 \\)",
+        "\\( 2 \\)"
+      ],
+      "answerIndex": 3,
+      "examTag": "Trigonometry Type-5",
+      "reason": "The equation \\( \\tan\\theta + \\cot\\theta = 2 \\) is in the form \\( x + \\frac{1}{x} = 2 \\), which implies \\( x = 1 \\). Therefore, \\( \\tan\\theta = 1 \\implies \\theta = 45^\\circ \\) and \\( \\cot\\theta = 1 \\). \nAny power of 1 is 1, so \\( \\tan^7(45^\\circ) + \\cot^7(45^\\circ) = 1^7 + 1^7 = 1 + 1 = 2 \\).",
+      "reason_hi": "समीकरण \\( \\tan\\theta + \\cot\\theta = 2 \\), \\( x + \\frac{1}{x} = 2 \\) के रूप में है, जिसका अर्थ है \\( x = 1 \\)। अतः, \\( \\tan\\theta = 1 \\implies \\theta = 45^\\circ \\) और \\( \\cot\\theta = 1 \\)। \n1 की कोई भी घात 1 होती है, इसलिए \\( \\tan^7(45^\\circ) + \\cot^7(45^\\circ) = 1^7 + 1^7 = 1 + 1 = 2 \\)।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-5-kapil-sir-14",
+      "prompt": "If \\( \\sin^7\\theta + \\csc^7\\theta = 2 \\), then \\( \\sin^{99}\\theta + \\csc^{99}\\theta = ? \\)",
+      "prompt_hi": "यदि \\( \\sin^7\\theta + \\csc^7\\theta = 2 \\), तो \\( \\sin^{99}\\theta + \\csc^{99}\\theta = ? \\)",
+      "options": [
+        "\\( 99 \\)",
+        "\\( 7 \\)",
+        "\\( 2 \\)",
+        "\\( 2^{99} \\)"
+      ],
+      "options_hi": [
+        "\\( 99 \\)",
+        "\\( 7 \\)",
+        "\\( 2 \\)",
+        "\\( 2^{99} \\)"
+      ],
+      "answerIndex": 2,
+      "examTag": "Trigonometry Type-5",
+      "reason": "Since \\( \\csc\\theta = \\frac{1}{\\sin\\theta} \\), the equation is essentially \\( (x)^7 + \\left(\\frac{1}{x}\\right)^7 = 2 \\). This is only possible if the base value is 1. Thus, \\( \\sin\\theta = 1 \\implies \\theta = 90^\\circ \\). \nTherefore, \\( \\sin^{99}(90^\\circ) + \\csc^{99}(90^\\circ) = 1^{99} + 1^{99} = 1 + 1 = 2 \\).",
+      "reason_hi": "चूँकि \\( \\csc\\theta = \\frac{1}{\\sin\\theta} \\) होता है, समीकरण मूल रूप से \\( (x)^7 + \\left(\\frac{1}{x}\\right)^7 = 2 \\) है। यह तभी संभव है जब आधार मान 1 हो। अतः, \\( \\sin\\theta = 1 \\implies \\theta = 90^\\circ \\)। \nइसलिए, \\( \\sin^{99}(90^\\circ) + \\csc^{99}(90^\\circ) = 1^{99} + 1^{99} = 1 + 1 = 2 \\) होगा।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-5-kapil-sir-15",
+      "prompt": "If \\( \\cos^{99}\\theta + \\sec^{99}\\theta = 2 \\), then \\( \\cos^{100}\\theta + \\sec^{100}\\theta = ? \\)",
+      "prompt_hi": "यदि \\( \\cos^{99}\\theta + \\sec^{99}\\theta = 2 \\), तो \\( \\cos^{100}\\theta + \\sec^{100}\\theta = ? \\)",
+      "options": [
+        "\\( 2^{99} \\)",
+        "\\( 2^{100} \\)",
+        "\\( 2 \\)",
+        "\\( 2^{199} \\)"
+      ],
+      "options_hi": [
+        "\\( 2^{99} \\)",
+        "\\( 2^{100} \\)",
+        "\\( 2 \\)",
+        "\\( 2^{199} \\)"
+      ],
+      "answerIndex": 2,
+      "examTag": "Trigonometry Type-5",
+      "reason": "Since \\( \\sec\\theta = \\frac{1}{\\cos\\theta} \\), this follows the pattern \\( x^n + \\frac{1}{x^n} = 2 \\), which means \\( x = 1 \\). Therefore, \\( \\cos\\theta = 1 \\implies \\theta = 0^\\circ \\). \nFor any power, \\( \\cos^{100}(0^\\circ) + \\sec^{100}(0^\\circ) = 1^{100} + 1^{100} = 1 + 1 = 2 \\).",
+      "reason_hi": "चूँकि \\( \\sec\\theta = \\frac{1}{\\cos\\theta} \\) है, यह \\( x^n + \\frac{1}{x^n} = 2 \\) के पैटर्न का अनुसरण करता है, जिसका अर्थ \\( x = 1 \\) है। अतः, \\( \\cos\\theta = 1 \\implies \\theta = 0^\\circ \\)। \nकिसी भी घात के लिए, \\( \\cos^{100}(0^\\circ) + \\sec^{100}(0^\\circ) = 1^{100} + 1^{100} = 1 + 1 = 2 \\) होगा।"
+    }
+  ]
+}

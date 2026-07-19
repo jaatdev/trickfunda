@@ -10,7 +10,7 @@ export default async function StudyMaterialLayout({
 }) {
   const { userId } = await auth();
 
-  if (!userId) {
+  if (!userId && process.env.NODE_ENV !== 'development') {
     return (
       <div className="fixed inset-0 z-[999] flex flex-col items-center justify-center p-4 bg-white dark:bg-[#111] overflow-y-auto">
         <div className="max-w-md w-full bg-white dark:bg-[#111] border border-gray-200 dark:border-white/10 rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden text-center animate-in fade-in slide-in-from-bottom-4 duration-700">

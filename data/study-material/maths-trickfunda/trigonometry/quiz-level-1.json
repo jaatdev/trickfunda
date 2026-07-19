@@ -1,0 +1,445 @@
+{
+  "questions": [
+    {
+      "id": "trickfunda-trigonometry-type-1-kapil-sir-1",
+      "prompt": "If \\( \\sin\\theta = \\frac{4}{5} \\), find all other trigonometric ratios.",
+      "prompt_hi": "यदि \\( \\sin\\theta = \\frac{4}{5} \\) है, तो अन्य सभी त्रिकोणमितीय-अनुपात ज्ञात करें।",
+      "options": [
+        "\\( \\cos\\theta = \\frac{3}{5}, \\tan\\theta = \\frac{4}{3}, \\cot\\theta = \\frac{3}{4}, \\sec\\theta = \\frac{5}{3}, \\csc\\theta = \\frac{5}{4} \\)",
+        "\\( \\cos\\theta = \\frac{3}{5}, \\tan\\theta = \\frac{3}{4}, \\cot\\theta = \\frac{4}{3}, \\sec\\theta = \\frac{5}{3}, \\csc\\theta = \\frac{5}{4} \\)",
+        "\\( \\cos\\theta = \\frac{4}{5}, \\tan\\theta = \\frac{4}{3}, \\cot\\theta = \\frac{3}{4}, \\sec\\theta = \\frac{5}{4}, \\csc\\theta = \\frac{5}{3} \\)",
+        "\\( \\cos\\theta = \\frac{3}{5}, \\tan\\theta = \\frac{4}{3}, \\cot\\theta = \\frac{3}{4}, \\sec\\theta = \\frac{5}{4}, \\csc\\theta = \\frac{5}{3} \\)"
+      ],
+      "options_hi": [
+        "\\( \\cos\\theta = \\frac{3}{5}, \\tan\\theta = \\frac{4}{3}, \\cot\\theta = \\frac{3}{4}, \\sec\\theta = \\frac{5}{3}, \\csc\\theta = \\frac{5}{4} \\)",
+        "\\( \\cos\\theta = \\frac{3}{5}, \\tan\\theta = \\frac{3}{4}, \\cot\\theta = \\frac{4}{3}, \\sec\\theta = \\frac{5}{3}, \\csc\\theta = \\frac{5}{4} \\)",
+        "\\( \\cos\\theta = \\frac{4}{5}, \\tan\\theta = \\frac{4}{3}, \\cot\\theta = \\frac{3}{4}, \\sec\\theta = \\frac{5}{4}, \\csc\\theta = \\frac{5}{3} \\)",
+        "\\( \\cos\\theta = \\frac{3}{5}, \\tan\\theta = \\frac{4}{3}, \\cot\\theta = \\frac{3}{4}, \\sec\\theta = \\frac{5}{4}, \\csc\\theta = \\frac{5}{3} \\)"
+      ],
+      "answerIndex": 0,
+      "examTag": "Trigonometry Type-1",
+      "reason": "Given \\( \\sin\\theta = \\frac{4}{5} \\). We know \\( \\sin\\theta = \\frac{\\text{Perpendicular (P)}}{\\text{Hypotenuse (H)}} \\). So \\( P = 4, H = 5 \\). By Pythagoras theorem, \\( \\text{Base (B)} = \\sqrt{H^2 - P^2} = \\sqrt{25 - 16} = \\sqrt{9} = 3 \\). Therefore: \\( \\cos\\theta = \\frac{B}{H} = \\frac{3}{5} \\), \\( \\tan\\theta = \\frac{P}{B} = \\frac{4}{3} \\), \\( \\cot\\theta = \\frac{B}{P} = \\frac{3}{4} \\), \\( \\sec\\theta = \\frac{H}{B} = \\frac{5}{3} \\), \\( \\csc\\theta = \\frac{H}{P} = \\frac{5}{4} \\).",
+      "reason_hi": "दिया गया है \\( \\sin\\theta = \\frac{4}{5} \\)। हम जानते हैं कि \\( \\sin\\theta = \\frac{\\text{लंब (P)}}{\\text{कर्ण (H)}} \\)। इसलिए \\( P = 4, H = 5 \\)। पाइथागोरस प्रमेय के अनुसार, \\( \\text{आधार (B)} = \\sqrt{H^2 - P^2} = \\sqrt{25 - 16} = \\sqrt{9} = 3 \\)। अतः: \\( \\cos\\theta = \\frac{B}{H} = \\frac{3}{5} \\), \\( \\tan\\theta = \\frac{P}{B} = \\frac{4}{3} \\), \\( \\cot\\theta = \\frac{B}{P} = \\frac{3}{4} \\), \\( \\sec\\theta = \\frac{H}{B} = \\frac{5}{3} \\), \\( \\csc\\theta = \\frac{H}{P} = \\frac{5}{4} \\) होगा।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-1-kapil-sir-2",
+      "prompt": "If \\( \\cos\\theta = \\frac{4}{5} \\), then \\( \\frac{\\sin\\theta + \\cos\\theta}{\\tan\\theta + \\cot\\theta} = ? \\)",
+      "prompt_hi": "यदि \\( \\cos\\theta = \\frac{4}{5} \\) है, तो \\( \\frac{\\sin\\theta + \\cos\\theta}{\\tan\\theta + \\cot\\theta} = ? \\)",
+      "options": [
+        "\\( \\frac{81}{120} \\)",
+        "\\( \\frac{82}{1825} \\)",
+        "\\( \\frac{84}{125} \\)",
+        "\\( \\frac{85}{120} \\)"
+      ],
+      "options_hi": [
+        "\\( \\frac{81}{120} \\)",
+        "\\( \\frac{82}{1825} \\)",
+        "\\( \\frac{84}{125} \\)",
+        "\\( \\frac{85}{120} \\)"
+      ],
+      "answerIndex": 2,
+      "examTag": "Trigonometry Type-1",
+      "reason": "Given \\( \\cos\\theta = \\frac{4}{5} \\) (B/H). So \\( B = 4, H = 5 \\). Perpendicular \\( P = \\sqrt{5^2 - 4^2} = 3 \\).\nThen \\( \\sin\\theta = \\frac{3}{5} \\), \\( \\tan\\theta = \\frac{3}{4} \\), \\( \\cot\\theta = \\frac{4}{3} \\).\nNumerator = \\( \\sin\\theta + \\cos\\theta = \\frac{3}{5} + \\frac{4}{5} = \\frac{7}{5} \\).\nDenominator = \\( \\tan\\theta + \\cot\\theta = \\frac{3}{4} + \\frac{4}{3} = \\frac{9+16}{12} = \\frac{25}{12} \\).\nResult = \\( \\frac{\\frac{7}{5}}{\\frac{25}{12}} = \\frac{7}{5} \\times \\frac{12}{25} = \\frac{84}{125} \\).",
+      "reason_hi": "दिया गया है \\( \\cos\\theta = \\frac{4}{5} \\) (आधार/कर्ण)। अतः आधार \\( B = 4 \\), कर्ण \\( H = 5 \\)। लंब \\( P = \\sqrt{5^2 - 4^2} = 3 \\)।\nतब \\( \\sin\\theta = \\frac{3}{5} \\), \\( \\tan\\theta = \\frac{3}{4} \\), \\( \\cot\\theta = \\frac{4}{3} \\)।\nअंश = \\( \\sin\\theta + \\cos\\theta = \\frac{3}{5} + \\frac{4}{5} = \\frac{7}{5} \\)।\nहर = \\( \\tan\\theta + \\cot\\theta = \\frac{3}{4} + \\frac{4}{3} = \\frac{9+16}{12} = \\frac{25}{12} \\)।\nपरिणाम = \\( \\frac{\\frac{7}{5}}{\\frac{25}{12}} = \\frac{7}{5} \\times \\frac{12}{25} = \\frac{84}{125} \\)।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-1-kapil-sir-3",
+      "prompt": "If \\( \\tan\\theta = \\frac{3}{4} \\), then \\( \\frac{1 + 2\\sin\\theta + 3\\cos\\theta}{2 + 3\\sin\\theta - 2\\cos\\theta} = ? \\)",
+      "prompt_hi": "यदि \\( \\tan\\theta = \\frac{3}{4} \\) है, तो \\( \\frac{1 + 2\\sin\\theta + 3\\cos\\theta}{2 + 3\\sin\\theta - 2\\cos\\theta} = ? \\)",
+      "options": [
+        "\\( \\frac{11}{23} \\)",
+        "\\( \\frac{11}{20} \\)",
+        "\\( \\frac{20}{11} \\)",
+        "\\( \\frac{23}{11} \\)"
+      ],
+      "options_hi": [
+        "\\( \\frac{11}{23} \\)",
+        "\\( \\frac{11}{20} \\)",
+        "\\( \\frac{20}{11} \\)",
+        "\\( \\frac{23}{11} \\)"
+      ],
+      "answerIndex": 3,
+      "examTag": "Trigonometry Type-1",
+      "reason": "Given \\( \\tan\\theta = \\frac{3}{4} \\) (P/B). So \\( P = 3, B = 4 \\). Hypotenuse \\( H = \\sqrt{3^2 + 4^2} = 5 \\).\nThus, \\( \\sin\\theta = \\frac{3}{5} \\) and \\( \\cos\\theta = \\frac{4}{5} \\).\nNumerator = \\( 1 + 2\\left(\\frac{3}{5}\\right) + 3\\left(\\frac{4}{5}\\right) = 1 + \\frac{6}{5} + \\frac{12}{5} = 1 + \\frac{18}{5} = \\frac{23}{5} \\).\nDenominator = \\( 2 + 3\\left(\\frac{3}{5}\\right) - 2\\left(\\frac{4}{5}\\right) = 2 + \\frac{9}{5} - \\frac{8}{5} = 2 + \\frac{1}{5} = \\frac{11}{5} \\).\nResult = \\( \\frac{\\frac{23}{5}}{\\frac{11}{5}} = \\frac{23}{11} \\).",
+      "reason_hi": "दिया गया है \\( \\tan\\theta = \\frac{3}{4} \\) (लंब/आधार)। अतः \\( P = 3, B = 4 \\)। कर्ण \\( H = \\sqrt{3^2 + 4^2} = 5 \\)।\nइस प्रकार, \\( \\sin\\theta = \\frac{3}{5} \\) और \\( \\cos\\theta = \\frac{4}{5} \\)।\nअंश = \\( 1 + 2\\left(\\frac{3}{5}\\right) + 3\\left(\\frac{4}{5}\\right) = 1 + \\frac{6}{5} + \\frac{12}{5} = 1 + \\frac{18}{5} = \\frac{23}{5} \\)।\nहर = \\( 2 + 3\\left(\\frac{3}{5}\\right) - 2\\left(\\frac{4}{5}\\right) = 2 + \\frac{9}{5} - \\frac{8}{5} = 2 + \\frac{1}{5} = \\frac{11}{5} \\)।\nपरिणाम = \\( \\frac{\\frac{23}{5}}{\\frac{11}{5}} = \\frac{23}{11} \\)।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-1-kapil-sir-4",
+      "prompt": "If \\( \\tan\\theta = \\frac{20}{21} \\), then \\( \\frac{1 - \\sin\\theta + \\cos\\theta}{1 + \\sin\\theta + \\cos\\theta} = ? \\)",
+      "prompt_hi": "यदि \\( \\tan\\theta = \\frac{20}{21} \\) है, तो \\( \\frac{1 - \\sin\\theta + \\cos\\theta}{1 + \\sin\\theta + \\cos\\theta} = ? \\)",
+      "options": [
+        "\\( \\frac{3}{5} \\)",
+        "\\( \\frac{2}{5} \\)",
+        "\\( \\frac{3}{7} \\)",
+        "\\( \\frac{2}{7} \\)"
+      ],
+      "options_hi": [
+        "\\( \\frac{3}{5} \\)",
+        "\\( \\frac{2}{5} \\)",
+        "\\( \\frac{3}{7} \\)",
+        "\\( \\frac{2}{7} \\)"
+      ],
+      "answerIndex": 2,
+      "examTag": "Trigonometry Type-1",
+      "reason": "Given \\( \\tan\\theta = \\frac{20}{21} \\) (P/B). So \\( P = 20, B = 21 \\). Hypotenuse \\( H = \\sqrt{20^2 + 21^2} = \\sqrt{400 + 441} = \\sqrt{841} = 29 \\).\nSo, \\( \\sin\\theta = \\frac{20}{29} \\) and \\( \\cos\\theta = \\frac{21}{29} \\).\nNumerator = \\( 1 - \\frac{20}{29} + \\frac{21}{29} = 1 + \\frac{1}{29} = \\frac{30}{29} \\).\nDenominator = \\( 1 + \\frac{20}{29} + \\frac{21}{29} = 1 + \\frac{41}{29} = \\frac{70}{29} \\).\nResult = \\( \\frac{\\frac{30}{29}}{\\frac{70}{29}} = \\frac{30}{70} = \\frac{3}{7} \\).",
+      "reason_hi": "दिया गया है \\( \\tan\\theta = \\frac{20}{21} \\) (लंब/आधार)। अतः \\( P = 20, B = 21 \\)। कर्ण \\( H = \\sqrt{20^2 + 21^2} = \\sqrt{400 + 441} = \\sqrt{841} = 29 \\)।\nइसलिए, \\( \\sin\\theta = \\frac{20}{29} \\) और \\( \\cos\\theta = \\frac{21}{29} \\)।\nअंश = \\( 1 - \\frac{20}{29} + \\frac{21}{29} = 1 + \\frac{1}{29} = \\frac{30}{29} \\)।\nहर = \\( 1 + \\frac{20}{29} + \\frac{21}{29} = 1 + \\frac{41}{29} = \\frac{70}{29} \\)।\nपरिणाम = \\( \\frac{\\frac{30}{29}}{\\frac{70}{29}} = \\frac{30}{70} = \\frac{3}{7} \\)।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-1-kapil-sir-5",
+      "prompt": "If \\( \\tan\\theta = \\frac{a}{b} \\), find \\( \\frac{a\\sin\\theta - b\\cos\\theta}{a\\sin\\theta + b\\cos\\theta} \\)",
+      "prompt_hi": "यदि \\( \\tan\\theta = \\frac{a}{b} \\) है, तो \\( \\frac{a\\sin\\theta - b\\cos\\theta}{a\\sin\\theta + b\\cos\\theta} \\) ज्ञात करें।",
+      "options": [
+        "\\( \\frac{a^2 + b^2}{a^2 - b^2} \\)",
+        "\\( \\frac{a^2 - b^2}{a^2 + b^2} \\)",
+        "\\( \\frac{a + b}{a - b} \\)",
+        "\\( \\frac{a - b}{a + b} \\)"
+      ],
+      "options_hi": [
+        "\\( \\frac{a^2 + b^2}{a^2 - b^2} \\)",
+        "\\( \\frac{a^2 - b^2}{a^2 + b^2} \\)",
+        "\\( \\frac{a + b}{a - b} \\)",
+        "\\( \\frac{a - b}{a + b} \\)"
+      ],
+      "answerIndex": 1,
+      "examTag": "Trigonometry Type-1",
+      "reason": "Divide the numerator and denominator by \\( \\cos\\theta \\) to get \\( \\frac{a\\tan\\theta - b}{a\\tan\\theta + b} \\). Substitute \\( \\tan\\theta = \\frac{a}{b} \\) to get \\( \\frac{a\\left(\\frac{a}{b}\\right) - b}{a\\left(\\frac{a}{b}\\right) + b} = \\frac{\\frac{a^2}{b} - b}{\\frac{a^2}{b} + b} = \\frac{a^2 - b^2}{a^2 + b^2} \\).",
+      "reason_hi": "अंश और हर को \\( \\cos\\theta \\) से विभाजित करने पर \\( \\frac{a\\tan\\theta - b}{a\\tan\\theta + b} \\) प्राप्त होता है। \\( \\tan\\theta = \\frac{a}{b} \\) रखने पर \\( \\frac{a\\left(\\frac{a}{b}\\right) - b}{a\\left(\\frac{a}{b}\\right) + b} = \\frac{\\frac{a^2}{b} - b}{\\frac{a^2}{b} + b} = \\frac{a^2 - b^2}{a^2 + b^2} \\) प्राप्त होगा।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-1-kapil-sir-6",
+      "prompt": "If \\( 3\\tan\\theta = 4 \\), find \\( \\frac{4\\cos\\theta - \\sin\\theta}{2\\cos\\theta + \\sin\\theta} = ? \\)",
+      "prompt_hi": "यदि \\( 3\\tan\\theta = 4 \\) है, तो \\( \\frac{4\\cos\\theta - \\sin\\theta}{2\\cos\\theta + \\sin\\theta} = ? \\)",
+      "options": [
+        "\\( \\frac{4}{5} \\)",
+        "\\( \\frac{3}{5} \\)",
+        "\\( \\frac{2}{5} \\)",
+        "\\( \\frac{1}{5} \\)"
+      ],
+      "options_hi": [
+        "\\( \\frac{4}{5} \\)",
+        "\\( \\frac{3}{5} \\)",
+        "\\( \\frac{2}{5} \\)",
+        "\\( \\frac{1}{5} \\)"
+      ],
+      "answerIndex": 0,
+      "examTag": "Trigonometry Type-1",
+      "reason": "Given \\( 3\\tan\\theta = 4 \\), so \\( \\tan\\theta = \\frac{4}{3} \\). Dividing the numerator and denominator by \\( \\cos\\theta \\), we get \\( \\frac{4 - \\tan\\theta}{2 + \\tan\\theta} \\). Substituting \\( \\tan\\theta = \\frac{4}{3} \\), we get \\( \\frac{4 - \\frac{4}{3}}{2 + \\frac{4}{3}} = \\frac{\\frac{8}{3}}{\\frac{10}{3}} = \\frac{8}{10} = \\frac{4}{5} \\).",
+      "reason_hi": "दिया गया है \\( 3\\tan\\theta = 4 \\), अतः \\( \\tan\\theta = \\frac{4}{3} \\)। अंश और हर को \\( \\cos\\theta \\) से विभाजित करने पर, हमें \\( \\frac{4 - \\tan\\theta}{2 + \\tan\\theta} \\) प्राप्त होता है। \\( \\tan\\theta = \\frac{4}{3} \\) रखने पर, \\( \\frac{4 - \\frac{4}{3}}{2 + \\frac{4}{3}} = \\frac{\\frac{8}{3}}{\\frac{10}{3}} = \\frac{8}{10} = \\frac{4}{5} \\) प्राप्त होगा।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-1-kapil-sir-7",
+      "prompt": "If \\( 3\\cot\\theta = 2 \\), find \\( \\frac{4\\sin\\theta - 3\\cos\\theta}{2\\sin\\theta + 6\\cos\\theta} = ? \\)",
+      "prompt_hi": "यदि \\( 3\\cot\\theta = 2 \\) है, तो \\( \\frac{4\\sin\\theta - 3\\cos\\theta}{2\\sin\\theta + 6\\cos\\theta} = ? \\)",
+      "options": [
+        "\\( \\frac{1}{2} \\)",
+        "\\( \\frac{1}{3} \\)",
+        "\\( \\frac{2}{3} \\)",
+        "\\( \\frac{3}{2} \\)"
+      ],
+      "options_hi": [
+        "\\( \\frac{1}{2} \\)",
+        "\\( \\frac{1}{3} \\)",
+        "\\( \\frac{2}{3} \\)",
+        "\\( \\frac{3}{2} \\)"
+      ],
+      "answerIndex": 1,
+      "examTag": "Trigonometry Type-1",
+      "reason": "Given \\( 3\\cot\\theta = 2 \\), so \\( \\cot\\theta = \\frac{2}{3} \\). Dividing the numerator and denominator by \\( \\sin\\theta \\), we get \\( \\frac{4 - 3\\cot\\theta}{2 + 6\\cot\\theta} \\). Substituting \\( \\cot\\theta = \\frac{2}{3} \\), we get \\( \\frac{4 - 3\\left(\\frac{2}{3}\\right)}{2 + 6\\left(\\frac{2}{3}\\right)} = \\frac{4 - 2}{2 + 4} = \\frac{2}{6} = \\frac{1}{3} \\).",
+      "reason_hi": "दिया गया है \\( 3\\cot\\theta = 2 \\), अतः \\( \\cot\\theta = \\frac{2}{3} \\)। अंश और हर को \\( \\sin\\theta \\) से विभाजित करने पर, हमें \\( \\frac{4 - 3\\cot\\theta}{2 + 6\\cot\\theta} \\) प्राप्त होता है। \\( \\cot\\theta = \\frac{2}{3} \\) रखने पर, \\( \\frac{4 - 3\\left(\\frac{2}{3}\\right)}{2 + 6\\left(\\frac{2}{3}\\right)} = \\frac{4 - 2}{2 + 4} = \\frac{2}{6} = \\frac{1}{3} \\) प्राप्त होगा।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-1-kapil-sir-8",
+      "prompt": "If \\( 5\\tan\\theta - 4 = 0 \\), find \\( \\frac{5\\sin\\theta - 3\\cos\\theta}{5\\sin\\theta + 2\\cos\\theta} = ? \\)",
+      "prompt_hi": "यदि \\( 5\\tan\\theta - 4 = 0 \\) है, तो \\( \\frac{5\\sin\\theta - 3\\cos\\theta}{5\\sin\\theta + 2\\cos\\theta} = ? \\)",
+      "options": [
+        "\\( \\frac{1}{6} \\)",
+        "\\( \\frac{1}{3} \\)",
+        "\\( \\frac{5}{6} \\)",
+        "\\( \\frac{1}{5} \\)"
+      ],
+      "options_hi": [
+        "\\( \\frac{1}{6} \\)",
+        "\\( \\frac{1}{3} \\)",
+        "\\( \\frac{5}{6} \\)",
+        "\\( \\frac{1}{5} \\)"
+      ],
+      "answerIndex": 0,
+      "examTag": "Trigonometry Type-1",
+      "reason": "Given \\( 5\\tan\\theta - 4 = 0 \\), so \\( \\tan\\theta = \\frac{4}{5} \\). Dividing the numerator and denominator by \\( \\cos\\theta \\) gives \\( \\frac{5\\tan\\theta - 3}{5\\tan\\theta + 2} \\). Substituting \\( \\tan\\theta = \\frac{4}{5} \\), we get \\( \\frac{5\\left(\\frac{4}{5}\\right) - 3}{5\\left(\\frac{4}{5}\\right) + 2} = \\frac{4 - 3}{4 + 2} = \\frac{1}{6} \\).",
+      "reason_hi": "दिया गया है \\( 5\\tan\\theta - 4 = 0 \\), अतः \\( \\tan\\theta = \\frac{4}{5} \\)। अंश और हर को \\( \\cos\\theta \\) से विभाजित करने पर \\( \\frac{5\\tan\\theta - 3}{5\\tan\\theta + 2} \\) प्राप्त होता है। \\( \\tan\\theta = \\frac{4}{5} \\) रखने पर, \\( \\frac{5\\left(\\frac{4}{5}\\right) - 3}{5\\left(\\frac{4}{5}\\right) + 2} = \\frac{4 - 3}{4 + 2} = \\frac{1}{6} \\) प्राप्त होगा।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-1-kapil-sir-9",
+      "prompt": "If \\( 3\\cot\\theta = 4 \\), then find the value of \\( \\frac{5\\sin\\theta + 3\\cos\\theta}{5\\sin\\theta - 3\\cos\\theta} \\).",
+      "prompt_hi": "यदि \\( 3\\cot\\theta = 4 \\) हो, तो \\( \\frac{5\\sin\\theta + 3\\cos\\theta}{5\\sin\\theta - 3\\cos\\theta} \\) का मान है-",
+      "options": [
+        "\\( \\frac{1}{9} \\)",
+        "\\( 9 \\)",
+        "\\( 3 \\)",
+        "\\( \\frac{1}{3} \\)"
+      ],
+      "options_hi": [
+        "\\( \\frac{1}{9} \\)",
+        "\\( 9 \\)",
+        "\\( 3 \\)",
+        "\\( \\frac{1}{3} \\)"
+      ],
+      "answerIndex": 1,
+      "examTag": "Trigonometry Type-1",
+      "reason": "Given \\( 3\\cot\\theta = 4 \\), meaning \\( \\cot\\theta = \\frac{4}{3} \\). Dividing the numerator and denominator by \\( \\sin\\theta \\) gives \\( \\frac{5 + 3\\cot\\theta}{5 - 3\\cot\\theta} \\). Substituting \\( \\cot\\theta = \\frac{4}{3} \\), we get \\( \\frac{5 + 3\\left(\\frac{4}{3}\\right)}{5 - 3\\left(\\frac{4}{3}\\right)} = \\frac{5 + 4}{5 - 4} = \\frac{9}{1} = 9 \\).",
+      "reason_hi": "दिया गया है \\( 3\\cot\\theta = 4 \\), जिसका अर्थ है \\( \\cot\\theta = \\frac{4}{3} \\)। अंश और हर को \\( \\sin\\theta \\) से विभाजित करने पर \\( \\frac{5 + 3\\cot\\theta}{5 - 3\\cot\\theta} \\) प्राप्त होता है। \\( \\cot\\theta = \\frac{4}{3} \\) रखने पर, हमें \\( \\frac{5 + 3\\left(\\frac{4}{3}\\right)}{5 - 3\\left(\\frac{4}{3}\\right)} = \\frac{5 + 4}{5 - 4} = \\frac{9}{1} = 9 \\) प्राप्त होता है।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-1-kapil-sir-10",
+      "prompt": "If \\( \\tan\\theta = \\frac{a}{b} \\), then find the value of \\( \\frac{a\\sin\\theta + b\\cos\\theta}{a\\sin\\theta - b\\cos\\theta} \\).",
+      "prompt_hi": "यदि \\( \\tan\\theta = \\frac{a}{b} \\) हो, तो \\( \\frac{a\\sin\\theta + b\\cos\\theta}{a\\sin\\theta - b\\cos\\theta} \\) कितना होगा-",
+      "options": [
+        "\\( \\frac{a}{a^2 + b^2} \\)",
+        "\\( \\frac{b}{a^2 + b^2} \\)",
+        "\\( \\frac{a^2 - b^2}{a^2 + b^2} \\)",
+        "\\( \\frac{a^2 + b^2}{a^2 - b^2} \\)"
+      ],
+      "options_hi": [
+        "\\( \\frac{a}{a^2 + b^2} \\)",
+        "\\( \\frac{b}{a^2 + b^2} \\)",
+        "\\( \\frac{a^2 - b^2}{a^2 + b^2} \\)",
+        "\\( \\frac{a^2 + b^2}{a^2 - b^2} \\)"
+      ],
+      "answerIndex": 3,
+      "examTag": "Trigonometry Type-1",
+      "reason": "Divide the numerator and denominator by \\( \\cos\\theta \\) to obtain \\( \\frac{a\\tan\\theta + b}{a\\tan\\theta - b} \\). Since \\( \\tan\\theta = \\frac{a}{b} \\), this becomes \\( \\frac{a\\left(\\frac{a}{b}\\right) + b}{a\\left(\\frac{a}{b}\\right) - b} = \\frac{\\frac{a^2}{b} + b}{\\frac{a^2}{b} - b} \\). Multiplying by \\( b \\) simplifies this to \\( \\frac{a^2 + b^2}{a^2 - b^2} \\).",
+      "reason_hi": "अंश और हर को \\( \\cos\\theta \\) से विभाजित करने पर \\( \\frac{a\\tan\\theta + b}{a\\tan\\theta - b} \\) प्राप्त होता है। चूँकि \\( \\tan\\theta = \\frac{a}{b} \\) है, इसलिए यह \\( \\frac{a\\left(\\frac{a}{b}\\right) + b}{a\\left(\\frac{a}{b}\\right) - b} = \\frac{\\frac{a^2}{b} + b}{\\frac{a^2}{b} - b} \\) हो जाता है। \\( b \\) से गुणा करके सरल करने पर \\( \\frac{a^2 + b^2}{a^2 - b^2} \\) प्राप्त होता है।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-1-kapil-sir-11",
+      "prompt": "If \\( \\tan\\theta = 1 \\), then find the value of \\( \\frac{\\sin\\theta + 2\\cos\\theta}{\\sin\\theta + 3\\cos\\theta} \\).",
+      "prompt_hi": "यदि \\( \\tan\\theta = 1 \\) हो तो \\( \\frac{\\sin\\theta + 2\\cos\\theta}{\\sin\\theta + 3\\cos\\theta} \\) का मान होगा-",
+      "options": [
+        "\\( \\frac{1}{2} \\)",
+        "\\( \\frac{3}{4} \\)",
+        "\\( 0 \\)",
+        "\\( \\frac{1}{4} \\)"
+      ],
+      "options_hi": [
+        "\\( \\frac{1}{2} \\)",
+        "\\( \\frac{3}{4} \\)",
+        "\\( 0 \\)",
+        "\\( \\frac{1}{4} \\)"
+      ],
+      "answerIndex": 1,
+      "examTag": "Trigonometry Type-1",
+      "reason": "Divide the numerator and denominator by \\( \\cos\\theta \\) to get \\( \\frac{\\tan\\theta + 2}{\\tan\\theta + 3} \\). Substituting \\( \\tan\\theta = 1 \\) gives \\( \\frac{1 + 2}{1 + 3} = \\frac{3}{4} \\).",
+      "reason_hi": "अंश और हर को \\( \\cos\\theta \\) से विभाजित करने पर \\( \\frac{\\tan\\theta + 2}{\\tan\\theta + 3} \\) प्राप्त होता है। \\( \\tan\\theta = 1 \\) रखने पर \\( \\frac{1 + 2}{1 + 3} = \\frac{3}{4} \\) प्राप्त होगा।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-1-kapil-sir-12",
+      "prompt": "If \\( \\cos\\theta = \\frac{3}{5} \\), then find the value of \\( \\frac{\\sin\\theta - \\cot\\theta}{2\\tan\\theta} = ? \\)",
+      "prompt_hi": "यदि \\( \\cos\\theta = \\frac{3}{5} \\) हो, तो \\( \\frac{\\sin\\theta - \\cot\\theta}{2\\tan\\theta} = ? \\)",
+      "options": [
+        "\\( \\frac{3}{13} \\)",
+        "\\( \\frac{30}{16} \\)",
+        "\\( \\frac{3}{160} \\)",
+        "\\( \\frac{160}{3} \\)"
+      ],
+      "options_hi": [
+        "\\( \\frac{3}{13} \\)",
+        "\\( \\frac{30}{16} \\)",
+        "\\( \\frac{3}{160} \\)",
+        "\\( \\frac{160}{3} \\)"
+      ],
+      "answerIndex": 2,
+      "examTag": "Trigonometry Type-1",
+      "reason": "Since \\( \\cos\\theta = \\frac{3}{5} \\) (Base/Hypotenuse), Perpendicular \\( P = 4 \\). Then, \\( \\sin\\theta = \\frac{4}{5} \\), \\( \\cot\\theta = \\frac{3}{4} \\), and \\( \\tan\\theta = \\frac{4}{3} \\).\nNumerator: \\( \\sin\\theta - \\cot\\theta = \\frac{4}{5} - \\frac{3}{4} = \\frac{16 - 15}{20} = \\frac{1}{20} \\).\nDenominator: \\( 2\\tan\\theta = 2\\left(\\frac{4}{3}\\right) = \\frac{8}{3} \\).\nResult: \\( \\frac{\\frac{1}{20}}{\\frac{8}{3}} = \\frac{1}{20} \\times \\frac{3}{8} = \\frac{3}{160} \\).",
+      "reason_hi": "चूँकि \\( \\cos\\theta = \\frac{3}{5} \\) (आधार/कर्ण), लंब \\( P = 4 \\) होगा। अतः, \\( \\sin\\theta = \\frac{4}{5} \\), \\( \\cot\\theta = \\frac{3}{4} \\), और \\( \\tan\\theta = \\frac{4}{3} \\)।\nअंश: \\( \\sin\\theta - \\cot\\theta = \\frac{4}{5} - \\frac{3}{4} = \\frac{16 - 15}{20} = \\frac{1}{20} \\)।\nहर: \\( 2\\tan\\theta = 2\\left(\\frac{4}{3}\\right) = \\frac{8}{3} \\)।\nपरिणाम: \\( \\frac{\\frac{1}{20}}{\\frac{8}{3}} = \\frac{1}{20} \\times \\frac{3}{8} = \\frac{3}{160} \\)।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-1-kapil-sir-13",
+      "prompt": "If \\( \\tan\\theta = \\frac{3}{4} \\), then find the value of \\( \\frac{1 - \\cos\\theta}{1 + \\cos\\theta} \\).",
+      "prompt_hi": "यदि \\( \\tan\\theta = \\frac{3}{4} \\) हो, तो \\( \\frac{1 - \\cos\\theta}{1 + \\cos\\theta} \\) का मान ज्ञात करो।",
+      "options": [
+        "\\( \\frac{1}{9} \\)",
+        "\\( \\frac{5}{9} \\)",
+        "\\( \\frac{1}{4} \\)",
+        "\\( \\frac{2}{9} \\)"
+      ],
+      "options_hi": [
+        "\\( \\frac{1}{9} \\)",
+        "\\( \\frac{5}{9} \\)",
+        "\\( \\frac{1}{4} \\)",
+        "\\( \\frac{2}{9} \\)"
+      ],
+      "answerIndex": 0,
+      "examTag": "Trigonometry Type-1",
+      "reason": "Given \\( \\tan\\theta = \\frac{3}{4} \\) (P/B), meaning Hypotenuse \\( H = 5 \\). So, \\( \\cos\\theta = \\frac{B}{H} = \\frac{4}{5} \\).\nExpression: \\( \\frac{1 - \\frac{4}{5}}{1 + \\frac{4}{5}} = \\frac{\\frac{1}{5}}{\\frac{9}{5}} = \\frac{1}{9} \\).",
+      "reason_hi": "दिया गया है \\( \\tan\\theta = \\frac{3}{4} \\) (लंब/आधार), जिसका अर्थ है कर्ण \\( H = 5 \\)। अतः, \\( \\cos\\theta = \\frac{B}{H} = \\frac{4}{5} \\)।\nव्यंजक: \\( \\frac{1 - \\frac{4}{5}}{1 + \\frac{4}{5}} = \\frac{\\frac{1}{5}}{\\frac{9}{5}} = \\frac{1}{9} \\)।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-1-kapil-sir-14",
+      "prompt": "If \\( \\cot\\theta = \\frac{1}{\\sqrt{3}} \\), then find the value of \\( \\frac{1 - \\cos^2\\theta}{2 - \\sin^2\\theta} \\).",
+      "prompt_hi": "यदि \\( \\cot\\theta = \\frac{1}{\\sqrt{3}} \\) हो, तो \\( \\frac{1 - \\cos^2\\theta}{2 - \\sin^2\\theta} \\) का मान ज्ञात करें-",
+      "options": [
+        "\\( \\frac{2}{\\sqrt{5}} \\)",
+        "\\( \\frac{3}{2} \\)",
+        "\\( \\frac{5}{3} \\)",
+        "\\( \\frac{3}{5} \\)"
+      ],
+      "options_hi": [
+        "\\( \\frac{2}{\\sqrt{5}} \\)",
+        "\\( \\frac{3}{2} \\)",
+        "\\( \\frac{5}{3} \\)",
+        "\\( \\frac{3}{5} \\)"
+      ],
+      "answerIndex": 3,
+      "examTag": "Trigonometry Type-1",
+      "reason": "Since \\( \\cot\\theta = \\frac{1}{\\sqrt{3}} \\), the angle \\( \\theta = 60^\\circ \\). Therefore, \\( \\cos 60^\\circ = \\frac{1}{2} \\) and \\( \\sin 60^\\circ = \\frac{\\sqrt{3}}{2} \\).\nSubstitute these into the expression: \\( \\frac{1 - (\\frac{1}{2})^2}{2 - (\\frac{\\sqrt{3}}{2})^2} = \\frac{1 - \\frac{1}{4}}{2 - \\frac{3}{4}} = \\frac{\\frac{3}{4}}{\\frac{5}{4}} = \\frac{3}{5} \\).",
+      "reason_hi": "चूँकि \\( \\cot\\theta = \\frac{1}{\\sqrt{3}} \\) है, कोण \\( \\theta = 60^\\circ \\) होगा। इसलिए, \\( \\cos 60^\\circ = \\frac{1}{2} \\) और \\( \\sin 60^\\circ = \\frac{\\sqrt{3}}{2} \\)।\nव्यंजक में मान रखने पर: \\( \\frac{1 - (\\frac{1}{2})^2}{2 - (\\frac{\\sqrt{3}}{2})^2} = \\frac{1 - \\frac{1}{4}}{2 - \\frac{3}{4}} = \\frac{\\frac{3}{4}}{\\frac{5}{4}} = \\frac{3}{5} \\) प्राप्त होता है।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-1-kapil-sir-15",
+      "prompt": "If \\( 8\\tan x = 15 \\), then \\( \\sin x - \\cos x = ? \\)",
+      "prompt_hi": "यदि \\( 8\\tan x = 15 \\) हो, तो \\( \\sin x - \\cos x = ? \\)",
+      "options": [
+        "\\( \\frac{8}{17} \\)",
+        "\\( \\frac{17}{7} \\)",
+        "\\( \\frac{1}{17} \\)",
+        "\\( \\frac{7}{17} \\)"
+      ],
+      "options_hi": [
+        "\\( \\frac{8}{17} \\)",
+        "\\( \\frac{17}{7} \\)",
+        "\\( \\frac{1}{17} \\)",
+        "\\( \\frac{7}{17} \\)"
+      ],
+      "answerIndex": 3,
+      "examTag": "Trigonometry Type-1",
+      "reason": "We have \\( \\tan x = \\frac{15}{8} \\) (Perpendicular/Base). By Pythagoras, Hypotenuse \\( H = \\sqrt{15^2 + 8^2} = 17 \\). Thus, \\( \\sin x = \\frac{15}{17} \\) and \\( \\cos x = \\frac{8}{17} \\).\n\\( \\sin x - \\cos x = \\frac{15}{17} - \\frac{8}{17} = \\frac{7}{17} \\).",
+      "reason_hi": "हमारे पास \\( \\tan x = \\frac{15}{8} \\) (लंब/आधार) है। पाइथागोरस से, कर्ण \\( H = \\sqrt{15^2 + 8^2} = 17 \\)। इस प्रकार, \\( \\sin x = \\frac{15}{17} \\) और \\( \\cos x = \\frac{8}{17} \\) होगा।\n\\( \\sin x - \\cos x = \\frac{15}{17} - \\frac{8}{17} = \\frac{7}{17} \\)।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-1-kapil-sir-16",
+      "prompt": "If \\( \\cos\\theta = \\frac{1}{3} \\), then \\( \\sin\\theta + \\tan\\theta = ? \\)",
+      "prompt_hi": "यदि \\( \\cos\\theta = \\frac{1}{3} \\) हो, तो \\( \\sin\\theta + \\tan\\theta = ? \\)",
+      "options": [
+        "\\( \\frac{8\\sqrt{2}}{3} \\)",
+        "\\( 3.5 \\)",
+        "\\( 3.75 \\)",
+        "\\( 4 \\)"
+      ],
+      "options_hi": [
+        "\\( \\frac{8\\sqrt{2}}{3} \\)",
+        "\\( 3.5 \\)",
+        "\\( 3.75 \\)",
+        "\\( 4 \\)"
+      ],
+      "answerIndex": 0,
+      "examTag": "Trigonometry Type-1",
+      "reason": "Given \\( \\cos\\theta = \\frac{1}{3} \\) (Base/Hypotenuse). So, \\( B=1 \\) and \\( H=3 \\). Perpendicular \\( P = \\sqrt{3^2 - 1^2} = \\sqrt{8} = 2\\sqrt{2} \\).\n\\( \\sin\\theta = \\frac{P}{H} = \\frac{2\\sqrt{2}}{3} \\). \\( \\tan\\theta = \\frac{P}{B} = \\frac{2\\sqrt{2}}{1} = 2\\sqrt{2} \\).\nExpression: \\( \\sin\\theta + \\tan\\theta = \\frac{2\\sqrt{2}}{3} + 2\\sqrt{2} = \\frac{2\\sqrt{2} + 6\\sqrt{2}}{3} = \\frac{8\\sqrt{2}}{3} \\).",
+      "reason_hi": "दिया गया है \\( \\cos\\theta = \\frac{1}{3} \\) (आधार/कर्ण)। अतः, \\( B=1 \\) और \\( H=3 \\)। लंब \\( P = \\sqrt{3^2 - 1^2} = \\sqrt{8} = 2\\sqrt{2} \\)।\n\\( \\sin\\theta = \\frac{P}{H} = \\frac{2\\sqrt{2}}{3} \\)। \\( \\tan\\theta = \\frac{P}{B} = \\frac{2\\sqrt{2}}{1} = 2\\sqrt{2} \\)।\nव्यंजक: \\( \\sin\\theta + \\tan\\theta = \\frac{2\\sqrt{2}}{3} + 2\\sqrt{2} = \\frac{2\\sqrt{2} + 6\\sqrt{2}}{3} = \\frac{8\\sqrt{2}}{3} \\)।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-1-kapil-sir-17",
+      "prompt": "If \\( \\sin\\theta = 0.6 \\), then \\( (\\tan\\theta + \\cos\\theta) \\) is equal to-",
+      "prompt_hi": "यदि \\( \\sin\\theta = 0.6 \\) हो, तो \\( (\\tan\\theta + \\cos\\theta) \\) बराबर होगा-",
+      "options": [
+        "\\( 1.55 \\)",
+        "\\( 0.95 \\)",
+        "\\( 1.70 \\)",
+        "\\( 0.64 \\)"
+      ],
+      "options_hi": [
+        "\\( 1.55 \\)",
+        "\\( 0.95 \\)",
+        "\\( 1.70 \\)",
+        "\\( 0.64 \\)"
+      ],
+      "answerIndex": 0,
+      "examTag": "Trigonometry Type-1",
+      "reason": "\\( \\sin\\theta = 0.6 = \\frac{6}{10} = \\frac{3}{5} \\). This means \\( P=3, H=5 \\), and by Pythagorean triplet \\( B=4 \\).\n\\( \\tan\\theta = \\frac{P}{B} = \\frac{3}{4} = 0.75 \\). \\( \\cos\\theta = \\frac{B}{H} = \\frac{4}{5} = 0.8 \\).\nSum = \\( 0.75 + 0.80 = 1.55 \\).",
+      "reason_hi": "\\( \\sin\\theta = 0.6 = \\frac{6}{10} = \\frac{3}{5} \\)। इसका अर्थ है \\( P=3, H=5 \\), और पाइथागोरस त्रिक से \\( B=4 \\) होगा।\n\\( \\tan\\theta = \\frac{P}{B} = \\frac{3}{4} = 0.75 \\)। \\( \\cos\\theta = \\frac{B}{H} = \\frac{4}{5} = 0.8 \\)।\nयोग = \\( 0.75 + 0.80 = 1.55 \\)।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-1-kapil-sir-18",
+      "prompt": "If \\( \\sin\\theta = 0.7 \\), then \\( \\cos\\theta \\) (where \\( 0^\\circ \\le \\theta < 90^\\circ \\)) is-",
+      "prompt_hi": "यदि \\( \\sin\\theta = 0.7 \\), तो \\( \\cos\\theta \\) (जहाँ \\( 0^\\circ \\le \\theta < 90^\\circ \\)) है-",
+      "options": [
+        "\\( 0.3 \\)",
+        "\\( \\sqrt{0.49} \\)",
+        "\\( \\sqrt{0.51} \\)",
+        "\\( \\sqrt{0.9} \\)"
+      ],
+      "options_hi": [
+        "\\( 0.3 \\)",
+        "\\( \\sqrt{0.49} \\)",
+        "\\( \\sqrt{0.51} \\)",
+        "\\( \\sqrt{0.9} \\)"
+      ],
+      "answerIndex": 2,
+      "examTag": "Trigonometry Type-1",
+      "reason": "Using the trigonometric identity \\( \\sin^2\\theta + \\cos^2\\theta = 1 \\), we find \\( \\cos\\theta = \\sqrt{1 - \\sin^2\\theta} \\).\n\\( \\cos\\theta = \\sqrt{1 - 0.7^2} = \\sqrt{1 - 0.49} = \\sqrt{0.51} \\).",
+      "reason_hi": "त्रिकोणमितीय सर्वसमिका \\( \\sin^2\\theta + \\cos^2\\theta = 1 \\) का उपयोग करते हुए, हम \\( \\cos\\theta = \\sqrt{1 - \\sin^2\\theta} \\) प्राप्त करते हैं।\n\\( \\cos\\theta = \\sqrt{1 - 0.7^2} = \\sqrt{1 - 0.49} = \\sqrt{0.51} \\)।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-1-kapil-sir-19",
+      "prompt": "If \\( 0^\\circ < \\theta < 90^\\circ \\) and \\( \\tan\\theta = \\frac{x}{y} \\), then \\( \\cos\\theta = ? \\)",
+      "prompt_hi": "यदि \\( 0^\\circ < \\theta < 90^\\circ \\) और \\( \\tan\\theta = \\frac{x}{y} \\), तो \\( \\cos\\theta = ? \\)",
+      "options": [
+        "\\( \\frac{\\sqrt{x^2 + y^2}}{y} \\)",
+        "\\( \\frac{\\sqrt{x^2 - y^2}}{y} \\)",
+        "\\( \\frac{y}{\\sqrt{x^2 + y^2}} \\)",
+        "\\( \\frac{z}{\\sqrt{x^2 + y^2}} \\)"
+      ],
+      "options_hi": [
+        "\\( \\frac{\\sqrt{x^2 + y^2}}{y} \\)",
+        "\\( \\frac{\\sqrt{x^2 - y^2}}{y} \\)",
+        "\\( \\frac{y}{\\sqrt{x^2 + y^2}} \\)",
+        "\\( \\frac{z}{\\sqrt{x^2 + y^2}} \\)"
+      ],
+      "answerIndex": 2,
+      "examTag": "Trigonometry Type-1",
+      "reason": "Given \\( \\tan\\theta = \\frac{x}{y} \\), which represents \\( \\frac{\\text{Perpendicular}}{\\text{Base}} \\). The Hypotenuse is \\( \\sqrt{x^2 + y^2} \\).\n\\( \\cos\\theta \\) is \\( \\frac{\\text{Base}}{\\text{Hypotenuse}} \\), which equals \\( \\frac{y}{\\sqrt{x^2 + y^2}} \\).",
+      "reason_hi": "दिया गया है \\( \\tan\\theta = \\frac{x}{y} \\), जो \\( \\frac{\\text{लंब}}{\\text{आधार}} \\) को दर्शाता है। कर्ण \\( \\sqrt{x^2 + y^2} \\) होगा।\n\\( \\cos\\theta \\) \\( \\frac{\\text{आधार}}{\\text{कर्ण}} \\) होता है, जो \\( \\frac{y}{\\sqrt{x^2 + y^2}} \\) के बराबर है।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-1-kapil-sir-20",
+      "prompt": "If \\( \\tan\\alpha = p \\), then \\( \\sec\\alpha + \\tan^3\\alpha \\cdot \\csc\\alpha = ? \\)",
+      "prompt_hi": "यदि \\( \\tan\\alpha = p \\), तो \\( \\sec\\alpha + \\tan^3\\alpha \\cdot \\csc\\alpha = ? \\)",
+      "options": [
+        "\\( (1 + p^2)^{\\frac{3}{2}} \\)",
+        "\\( 1 + p^2 \\)",
+        "\\( p \\)",
+        "\\( p^2 \\)"
+      ],
+      "options_hi": [
+        "\\( (1 + p^2)^{\\frac{3}{2}} \\)",
+        "\\( 1 + p^2 \\)",
+        "\\( p \\)",
+        "\\( p^2 \\)"
+      ],
+      "answerIndex": 0,
+      "examTag": "Trigonometry Type-1",
+      "reason": "Simplify the expression: \\( \\sec\\alpha + \\left(\\frac{\\sin^3\\alpha}{\\cos^3\\alpha}\\right) \\times \\left(\\frac{1}{\\sin\\alpha}\\right) = \\sec\\alpha + \\frac{\\sin^2\\alpha}{\\cos^3\\alpha} = \\sec\\alpha + \\left(\\frac{1}{\\cos\\alpha}\\right) \\times \\left(\\frac{\\sin^2\\alpha}{\\cos^2\\alpha}\\right) = \\sec\\alpha + \\sec\\alpha \\times \\tan^2\\alpha = \\sec\\alpha (1 + \\tan^2\\alpha) = \\sec\\alpha (\\sec^2\\alpha) = \\sec^3\\alpha \\).\nSince \\( \\tan\\alpha = p \\), \\( \\sec\\alpha = \\sqrt{1 + p^2} \\). Therefore, \\( \\sec^3\\alpha = ((1+p^2)^{\\frac{1}{2}})^3 = (1 + p^2)^{\\frac{3}{2}} \\).",
+      "reason_hi": "व्यंजक को सरल करें: \\( \\sec\\alpha + \\left(\\frac{\\sin^3\\alpha}{\\cos^3\\alpha}\\right) \\times \\left(\\frac{1}{\\sin\\alpha}\\right) = \\sec\\alpha + \\frac{\\sin^2\\alpha}{\\cos^3\\alpha} = \\sec\\alpha + \\left(\\frac{1}{\\cos\\alpha}\\right) \\times \\left(\\frac{\\sin^2\\alpha}{\\cos^2\\alpha}\\right) = \\sec\\alpha + \\sec\\alpha \\times \\tan^2\\alpha = \\sec\\alpha (1 + \\tan^2\\alpha) = \\sec\\alpha (\\sec^2\\alpha) = \\sec^3\\alpha \\)।\nचूँकि \\( \\tan\\alpha = p \\) है, \\( \\sec\\alpha = \\sqrt{1 + p^2} \\) होगा। अतः, \\( \\sec^3\\alpha = ((1+p^2)^{\\frac{1}{2}})^3 = (1 + p^2)^{\\frac{3}{2}} \\) होगा।"
+    },
+    {
+      "id": "trickfunda-trigonometry-type-1-kapil-sir-21",
+      "prompt": "If \\( \\tan^2\\theta = 1 - e^2 \\), then what will be the value of \\( \\sec\\theta + \\tan^3\\theta \\csc\\theta \\)?",
+      "prompt_hi": "यदि \\( \\tan^2\\theta = 1 - e^2 \\), तो \\( \\sec\\theta + \\tan^3\\theta \\csc\\theta \\) का मान क्या होगा?",
+      "options": [
+        "\\( (2 - e^2)^{\\frac{1}{2}} \\)",
+        "\\( (2 + e^2)^{\\frac{1}{2}} \\)",
+        "\\( (2 - e^2)^{\\frac{3}{2}} \\)",
+        "\\( (2 + e^2)^{\\frac{3}{2}} \\)"
+      ],
+      "options_hi": [
+        "\\( (2 - e^2)^{\\frac{1}{2}} \\)",
+        "\\( (2 + e^2)^{\\frac{1}{2}} \\)",
+        "\\( (2 - e^2)^{\\frac{3}{2}} \\)",
+        "\\( (2 + e^2)^{\\frac{3}{2}} \\)"
+      ],
+      "answerIndex": 2,
+      "examTag": "Trigonometry Type-1",
+      "reason": "As shown in the previous question, \\( \\sec\\theta + \\tan^3\\theta \\csc\\theta \\) simplifies exactly to \\( \\sec^3\\theta \\).\nWe know \\( \\sec^2\\theta = 1 + \\tan^2\\theta = 1 + (1 - e^2) = 2 - e^2 \\).\nTaking the square root gives \\( \\sec\\theta = (2 - e^2)^{\\frac{1}{2}} \\).\nCubing this value gives \\( \\sec^3\\theta = (2 - e^2)^{\\frac{3}{2}} \\).",
+      "reason_hi": "जैसा कि पिछले प्रश्न में दिखाया गया है, \\( \\sec\\theta + \\tan^3\\theta \\csc\\theta \\) सरल होकर \\( \\sec^3\\theta \\) बन जाता है।\nहम जानते हैं कि \\( \\sec^2\\theta = 1 + \\tan^2\\theta = 1 + (1 - e^2) = 2 - e^2 \\) होता है।\nवर्गमूल लेने पर \\( \\sec\\theta = (2 - e^2)^{\\frac{1}{2}} \\) प्राप्त होता है।\nइसका घन (cube) करने पर \\( \\sec^3\\theta = (2 - e^2)^{\\frac{3}{2}} \\) प्राप्त होता है।"
+    }
+  ]
+}

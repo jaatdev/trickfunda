@@ -1,0 +1,404 @@
+{
+  "flashcards": [
+    {
+      "id": "idioms-day-5-i1",
+      "type": "idiom",
+      "word": "In a jiffy",
+      "meaning": "Very fast, Very soon/Something that is done very quickly पलक झपकते ही तुरंत / बिना देर किये [SSC CGL T-1 2017]",
+      "kdKey": "In = में, Jiffy = जफ्फी",
+      "kdHack": "जब भी लडको को गार्डन मे ऐसा लगता है कि कोई नही देख रहा है तो वो तुरंत बिना देर किए प्यार की जफ्फी दे देते है।"
+    },
+    {
+      "id": "idioms-day-5-i2",
+      "type": "idiom",
+      "word": "Of the first water",
+      "meaning": "Of the best quality सबसे बढ़िया /सर्वोत्तम [SSC CPO T-1 2019]",
+      "kdKey": "Of = का, first = पहली, water = पानी",
+      "kdHack": "पहली पहली बारिश का पानी ही फसल के लिए सर्वोत्तम माना जाता है"
+    },
+    {
+      "id": "idioms-day-5-i3",
+      "type": "idiom",
+      "word": "To muster in force",
+      "meaning": "To assemble in large numbers",
+      "kdKey": "Muster = मास्टर, In = में, Force = ताकत",
+      "kdHack": "एक मास्टर में इतनी ताकत होती है कि उसकी एक आवाज पर बहुत ही ज्यादा संख्या में स्टूडेंट इकट्ठा हो जाते है।"
+    },
+    {
+      "id": "idioms-day-5-i4",
+      "type": "idiom",
+      "word": "In the nick of time",
+      "meaning": "Just in time/at the last possible moment एकदम सही समय पर [SSC CHSL 2015][SSC STENO 2018][SSC MTS 2022,2019]",
+      "kdKey": "Nick = ठीक, Time = समय",
+      "kdHack": "उसने ठीक समय पर आकर हमे बचा लिया मतलब कि एकदम सही समय पर।"
+    },
+    {
+      "id": "idioms-day-5-i5",
+      "type": "idiom",
+      "word": "On shank's mare",
+      "meaning": "On foot पैदल [SSC CGL T-1 2019]",
+      "kdKey": "On = पर, shank's = टांग के, mare = घोड़ी",
+      "kdHack": "जब घोड़ी के टांग से बांधकर हम कोई सामान ले जाते है तो हम भी उसके साथ पैदल ही चलते है।"
+    },
+    {
+      "id": "idioms-day-5-i6",
+      "type": "idiom",
+      "word": "In a nutshell",
+      "meaning": "To state something very concisely/express very briefly / Briefly and concisely संक्षेप मे [SSC CHSL 2018,2014,2012][SSC GD 2018][SSC CPO 2018]",
+      "kdKey": "In = में, Nut = अखरोट, Shell = आवरण",
+      "kdHack": "उस टीचर ने स्टूडेंट्स को केवल अखरोट के आवरण के बारे में ही बताया बाकी ओर कुछ भी नही बताया मतलब कि टॉपिक को संक्षेप मे ही बताया।"
+    },
+    {
+      "id": "idioms-day-5-i7",
+      "type": "idiom",
+      "word": "Work against the clock",
+      "meaning": "Rushed and short on time /Work very fast to complete something within a deadline. /work in great hurry कार्यावधि समाप्त होने से पहले बहुत शीघ्रता से काम करना / किसी तय समय-सीमा के पहले जितनी जल्दी हो सके। [SSC MTS 2022][SSC CHSL 2016][SSC CPO T-1 2019]",
+      "kdKey": "Against = विरुद्ध, clock = घड़ी",
+      "kdHack": "वो घड़ी के विरुद्ध जाकर काम करता है मतलब कि हर काम समय से पहले ही कर लेता है"
+    },
+    {
+      "id": "idioms-day-5-i8",
+      "type": "idiom",
+      "word": "To miss the bus/miss the boat",
+      "meaning": "Lose and opportunity/To miss an opportunity/ Missing a good opportunity अवसर का लाभ नहीं उठा पाना [SELECTION POST 2024][SSC CHSL 2022,2011][SSC CPO T-1 2024,2023,2018][SSC MTS 2019][SSC CGL T-2 2020] [SSC GD 2018] [SSC CGL T-1, 2023]",
+      "kdKey": "Miss = छुटना, bus = बस",
+      "kdHack": "जैसे कि हमें Interview देने के लिए जाना हो और बस का समय 10 बजे और Interview का समय 10:30 हो और वह बस छुट जाये मतलब कि Interview जो देने का अवसर था वो miss हो गया।"
+    },
+    {
+      "id": "idioms-day-5-i9",
+      "type": "idiom",
+      "word": "Come in handy",
+      "meaning": "Turn out to be useful/ Be useful काम में आना [SSC CGL T-1 2022]",
+      "kdKey": "Come = आना, in = में, handy = सुविधाजनक",
+      "kdHack": "जब कोई सुविधाजनक चीज हमारे पास आती है तो तभी वो उपयोगी साबित होती है मतलब काम में आती है।"
+    },
+    {
+      "id": "idioms-day-5-i10",
+      "type": "idiom",
+      "word": "Throw out of gear",
+      "meaning": "In a state of disorder; not functioning properly/Out of order or not functioning properly/Not working properly सही तरीके से काम न करना। [SSC CHSL 2023]",
+      "kdKey": "Throw = फेंक दिया, Out = बाहर, Gear = गियर",
+      "kdHack": "जब गाड़ी के गियर अच्छी तरह से काम नही कर रहे थे तो उसने उनको निकालकर बाहर फेंक दिया।"
+    },
+    {
+      "id": "idioms-day-5-i11",
+      "type": "idiom",
+      "word": "Hope against hope",
+      "meaning": "Hope in a hopeless situation व्यर्थ की आशा [SSC CGL T-1 2016][SSC STENO 2019]",
+      "kdKey": "Hope = आशा, against = के विरुद्ध, hope = आशा",
+      "kdHack": "आशा के विरुद्ध आशा रखना मतलब कि व्यर्थ की आशा।"
+    },
+    {
+      "id": "idioms-day-5-i12",
+      "type": "idiom",
+      "word": "By leaps and bounds",
+      "meaning": "Rapidly / Quickly / At rapid race/ Swiftly तेजी से [SELECTION POST 2024][SSC CPO 2024][SSC MTS 2023,2013][SSC SO (AUDIT) 2006,2007] [SSC (TA(IT & CE), 2006][SSC Statistical Investigator, 2006][SSC CHSL 2011][SSC CGL T-1 2022,2019,2016]",
+      "kdKey": "Leap = छलांग",
+      "kdHack": "दोस्तो अगर कोई आदमी छलांग मार -मार कर जाता है वह तेजी से ही तो जायेगा Krish Movie में रितिक रोशन जो की छलांग मार -मार कर ही तो जाता था।"
+    },
+    {
+      "id": "idioms-day-5-i13",
+      "type": "idiom",
+      "word": "It goes without saying",
+      "meaning": "Something which is implied to be obvious यह एकदम स्पष्ट है [SSC CGL T-1 2017]",
+      "kdKey": "Goes = जाना, without = बिना कुछ, saying = कहना",
+      "kdHack": "वो बिना कुछ कहे ही यहां से चला गया मतलब कि एकदम स्पष्ट संकेत कर गया कि वो इससे सहमत नहीं है।"
+    },
+    {
+      "id": "idioms-day-5-i14",
+      "type": "idiom",
+      "word": "Flying visit",
+      "meaning": "Took a quick trip/Very short visit बहुत छोटी यात्रा [SSC CPO T-1 2022][SSC CHSL 2015]",
+      "kdKey": "Flying = उडान, Visit = सैर",
+      "kdHack": "जब हम किसी जगह फ्लाइट से उडकर जाते है तो लम्बी दूरी भी छोटी सी यात्रा लगती है।"
+    },
+    {
+      "id": "idioms-day-5-i15",
+      "type": "idiom",
+      "word": "Whistle in the dark",
+      "meaning": "Pretend to be unafraid नीडर होने का दिखावा करना [SSC CHSL T-1 2023] [SSC CGL T-1 2017]",
+      "kdKey": "Whistle = सीटी, in = में, dark = अँधेरा",
+      "kdHack": "कई बार जब हम अकेले होते है और अँधेरा हो तो हम सीटी बजाते है और कहते है कि कौन है मतलब कि निडर होने का पूरा दिखावा करते है।"
+    },
+    {
+      "id": "idioms-day-5-i16",
+      "type": "idiom",
+      "word": "Pass muster",
+      "meaning": "Meet required standard उचित स्तर का होना",
+      "kdKey": "Pass = पास, Muster = मास्टर",
+      "kdHack": "उचित स्तर के मास्टर ही Students को पास करवा सकते है।"
+    },
+    {
+      "id": "idioms-day-5-i17",
+      "type": "idiom",
+      "word": "Never look a gift horse in mouth",
+      "meaning": "Don't find fault with the gift मुफ्त में मिली चीजों के गुण-अवगुण मत देखो। [SSC CGL T-1 2013]",
+      "kdKey": "Never = कभी भी नही, look = देखना, a = एक, gift = गिफ्ट, horse = घोड़ा, in = में, mouth = मुंह",
+      "kdHack": "अगर हमे कोई गिफ्ट में घोड़ा दे तो उसके मुंह में ये नहीं देखना चाहिए कि कहीं ये घोड़ा टूटा हुआ तो नहीं है मतलब कि मुफ़्त में मिली चीजों में कभी भी गुण-अवगुण नहीं देखना चाहिए।"
+    },
+    {
+      "id": "idioms-day-5-i18",
+      "type": "idiom",
+      "word": "To be in a quandary",
+      "meaning": "In a confusing situtaion दुविधा / असमंजस की स्थिति [SSC CHSL 2015]",
+      "kdKey": "Be = होना, In = मे, Quan = कौन, Dary = डेयरी",
+      "kdHack": "आजकल दूध मे मिलावट आने की वजह से आम आदमी इस दुविधा मे रहता है कि कौन-सी डेयरी से दूध खरीदे।"
+    },
+    {
+      "id": "idioms-day-5-i19",
+      "type": "idiom",
+      "word": "Come rain or shine",
+      "meaning": "Whatever happens / Under any circumstances चाहे कुछ भी हो [SSC MTS 2021,2019][SSC CPO T-1 2019]",
+      "kdKey": "Come = आना, rain = बारिश, or = या, shine = चमकना",
+      "kdHack": "चाहे बारिश आये या सूरज बहुत तेज चमके मतलब कि गर्मी पड़े लेकिन सैनिक फिर भी Border पर देश की सेवा करता रहता है मतलब कि चाहे कुछ भी हो जाये।"
+    },
+    {
+      "id": "idioms-day-5-i20",
+      "type": "idiom",
+      "word": "Carry the ball",
+      "meaning": "Be in charge प्रभारी [SSC CGL T-1 2016]",
+      "kdKey": "Carry = लाना, In = में, Ball = गेंद",
+      "kdHack": "क्रिकेट मैच में एम्पायर ही प्रभारी होता है इसलिए वही मैदान मे गेंद लेकर आता है।"
+    },
+    {
+      "id": "idioms-day-5-i21",
+      "type": "idiom",
+      "word": "A dime a dozen",
+      "meaning": "Anything that is common and easy to get/ Very common and of no particular value/very common/ Common and so of little value कोड़ी के भाव [SSC CGL T-1 2023][SSC CHSL 2020,2019,2016][SSC GD 2021][SSC MTS 2022]",
+      "kdKey": "A = एक, Dime = दाम, A = एक, Dozen = दर्जन",
+      "kdHack": "जयपुर मे कई जगह आप एक दर्जन सब्जी कोई सी भी खरीद लो उनके सबके एक ही दाम रहते है मतलब कि बहुत ही सस्ती कोडी के भाव मे ही मिल जाती है।"
+    },
+    {
+      "id": "idioms-day-5-i22",
+      "type": "idiom",
+      "word": "Best of both the worlds",
+      "meaning": "an ideal situation./All the advantages / a situation wherein someone has the privilege of enjoying two different opportunities दोनों हाथों में लड्डू /सभी फायदे [SSC CPO T-1 2024,2023] [SSC CHSL T-1 2023,2018,2016][SSC CGL T-1 2017] [SSC STENO 2018]",
+      "kdKey": "Best = सबसे अच्छी, of = की, both = दोनों, worlds = संसार",
+      "kdHack": "संसार की दोनों सबसे अच्छी वैक्सीन भारत के पास है मतलब कि सभी ओर से फायदे ही फायदे है।"
+    },
+    {
+      "id": "idioms-day-5-i23",
+      "type": "idiom",
+      "word": "Behind closed doors",
+      "meaning": "Some act done privately गुप्त रूप से",
+      "kdKey": "behind = पीछे, Close = बंद",
+      "kdHack": "बंद दरवाजे के पीछे जो काम किये जाते है वो गुप्त ही तो होते है।"
+    },
+    {
+      "id": "idioms-day-5-i24",
+      "type": "idiom",
+      "word": "Cost an arm and a leg",
+      "meaning": "Very expensive/ A large, possibly exorbitant, amont of money बहुत अधिक खर्चा [SSC CPO T-1 2024,2023][SSC CHSL 2020,2016]",
+      "kdKey": "Cost = खर्चा, an = एक, arm = भुजा, and = और, a = एक, leg = टांग",
+      "kdHack": "उसका एक्सीडेंट में एक भुजा और एक टांग टूट गयी इसलिए उनके काफी ज्यादा खर्चा आया।"
+    },
+    {
+      "id": "idioms-day-5-i25",
+      "type": "idiom",
+      "word": "Behind one's back",
+      "meaning": "In one's absence गैर मौजूदगी [SSC CGL T-1 2019]",
+      "kdKey": "Behind = पीछे, one's = अपने, back = पीठ",
+      "kdHack": "उसने मेरे पीछे से ये काम किया है मतलब कि मेरी गैरमौजूदगी में।"
+    },
+    {
+      "id": "idioms-day-5-i26",
+      "type": "idiom",
+      "word": "Upset the apple cart",
+      "meaning": "To create a difficulty/doing something that fails someone's plan समस्या (परेशानी) पैदा कर देना [SSC CHSL T-1 2021,2019][SSC CGL T-2 2018]",
+      "kdKey": "upset = उलट देना, apple cart = सेब वाली गाडी",
+      "kdHack": "एक आदमी बाजार में गाड़ी पर सेब बेच रहा था। अचानक वहां से एक खड़ूस आदमी गुजरा उसने उस सेब वाली गाड़ी को उलट दिया तो सारे के सारे सेब रोड पर बिखर गये। और उस बेचारे के लिए समस्या (परेशानी) पैदा कर दी।"
+    },
+    {
+      "id": "idioms-day-5-i27",
+      "type": "idiom",
+      "word": "To put one out of countenance",
+      "meaning": "To make one feel ashamed किसी को शर्मिदा / विचलित कर देना [SSC CPO 2017]",
+      "kdKey": "Put = रखना, one = एक, of = का, count = काउंट, ance = अनेक",
+      "kdHack": "मैंने किसी एक व्यक्ति को पैसे काउंट करने के लिए रखा था लेकिन उसने अनेक पैसे चुरा लिए जिससे उसने अपने घर वालो को ही शर्मिदा कर दिया"
+    },
+    {
+      "id": "idioms-day-5-i28",
+      "type": "idiom",
+      "word": "Level Playing Field",
+      "meaning": "A situation that is balanced and fair / a situation in which everyone has a fair and equal chance of succeeding समान अवसर या प्रतिस्पर्दा",
+      "kdKey": "Level = समान, Playing Field = खेल का मैदान",
+      "kdHack": "क्रिकेट मे खेलने के मैदान का लेवल बिल्कुल समान होता है इसलिए दोनों टीमों को जितने का समान अवसर मिलता है।"
+    },
+    {
+      "id": "idioms-day-5-i29",
+      "type": "idiom",
+      "word": "Got the green light",
+      "meaning": "To permit something to proceed/Got permission to go ahead with something किसी चीज या काम के लिए आगे बढ़ने की अनुमति मिलना। [SSC CPO T-1 2019][SSC CHSL 2022]",
+      "kdKey": "Got = मिलना, green = ग्रीन, light = लाइट",
+      "kdHack": "ग्रीन लाइट का सिग्नल मिल जाना मतलब कि कोई काम के लिए आगे बढ़ने की अनुमति मिलना।"
+    },
+    {
+      "id": "idioms-day-5-i30",
+      "type": "idiom",
+      "word": "To bury the hatchet",
+      "meaning": "To make peace/Forget past quarrels To settle disputes शांति स्थापित करना [SSC CHSL 2024][SSC CGL T-2 2023,2021,2014,2012] [SSC CGL T-1 2018,2016,2013][SSC MTS 2023, 2021][SSC CPO 2018,2014][SSC GD 2018][SSC STENO 2020]",
+      "kdKey": "Bury = गाडना, hatchet = कुल्हाड़ी",
+      "kdHack": "जब दो गुटों में कुल्हाडीयों से लडाई होती है तो वहा शान्ति नहीं हो सकती है लेकिन एक दिन वो एक साथ बैठकर फैसला करते है कि कुल्हाडियों को गाढ देते है तो वहां कभी लडाई झगडा नही होगा और वहां शान्ति स्थापित हो जायेगी।"
+    },
+    {
+      "id": "idioms-day-5-i31",
+      "type": "idiom",
+      "word": "The last straw",
+      "meaning": "Final irritant that made the situation unbearable/A minor difficulty but coming on top of a series of difficulties, that makes a situation unbearable/Final problem in the series/the situation had become unbearable/ The final problem in a series of problems that makes the situation intolerable अंतिम समस्या जो पतन का कारण बनती है। [SSC MTS 2021,2019][SSC CPO T-1 2024,2019][SSC CHSL 2019]",
+      "kdKey": "Last = अंत, straw = घास",
+      "kdHack": "अंत में उन जानवरो के लिये खाने के लिये कुछ भी घास नही बची मतलब कि यही समस्या उनके पतन का कारण बनी।"
+    },
+    {
+      "id": "idioms-day-5-i32",
+      "type": "idiom",
+      "word": "Four corners of the earth",
+      "meaning": "From all parts of the world दुनिया के कई अलग अलग हिस्सों वें। [SSC CHSL 2018]",
+      "kdKey": "Four = चार, corners = कौना, of = के, earth = पृथ्वी",
+      "kdHack": "पृथ्वी के चारो कौना से मतलब कि दुनिया के अलग-अलग हिस्सों से।"
+    },
+    {
+      "id": "idioms-day-5-i33",
+      "type": "idiom",
+      "word": "Slip of the pen",
+      "meaning": "A mistake in hand writing लिखने में गलती हो जाना",
+      "kdKey": "Slip = फिसलना, Pen = पेन",
+      "kdHack": "अगर लिखते समय पेन फिसल जाये तो लिखने में गलती हो जाती है।"
+    },
+    {
+      "id": "idioms-day-5-i34",
+      "type": "idiom",
+      "word": "Plain as day",
+      "meaning": "Very obvious and easy to understand कुछ ऐसा जो समझना बहुत आसान हो। [SSC CHSL T-1 2019]",
+      "kdKey": "Plain = साफ़, day = दिन",
+      "kdHack": "जब दिन में मौसम साफ़ होता है तो हमारे लिए भी समझना आसान होता है कि बारिश होगी या नही।"
+    },
+    {
+      "id": "idioms-day-5-i35",
+      "type": "idiom",
+      "word": "To beat the air",
+      "meaning": "To make efforts that are useless or vain /To do useless effort बेकार की कोशिश करना [SSC CPO 2017]",
+      "kdKey": "beat = हराना, air = हवा",
+      "kdHack": "अगर आप हवा को हराने की कोशिश करोगें तो सारी कोशिश बेकारही जायेगी क्योंकि हवा को हराना संभव नहीं है।"
+    },
+    {
+      "id": "idioms-day-5-i36",
+      "type": "idiom",
+      "word": "Put one's best foot forward",
+      "meaning": "Try as hard as one can अच्छा प्रभाव डालने का प्रयत्न करना / पूरी मेहनत करना [SSC CHSL 2018]",
+      "kdKey": "Put = रखना, one's = अपना, best = सबसे अच्छा, foot = पैर, forward = आगे",
+      "kdHack": "कबड्डी खेलते समय वो हमेशा अपना सबसे अच्छा पैर ही आगे रखता है मतलब कि अच्छा प्रभाव डालने की ही कोशिश करता है।"
+    },
+    {
+      "id": "idioms-day-5-i37",
+      "type": "idiom",
+      "word": "Bed of roses",
+      "meaning": "Comfortable situation/an easy and happy situation/an enjoyable state फूलों की सेज [SSC CPO T-1 2019][SSC CGL T-1 2019]",
+      "kdKey": "Bed = पलंग, rose = गुलाब का फूल",
+      "kdHack": "पलंग पर गुलाब के फूल हो तो उस घर सोने पर हम Comfortable ही महसूस करते है।"
+    },
+    {
+      "id": "idioms-day-5-i38",
+      "type": "idiom",
+      "word": "Have one's hands full/ My hands are full",
+      "meaning": "To be very busy बहुत व्यस्त होना [SSC CPO T-1 2023][SSC CPO T-2 2019][SSC CHSL 2018]",
+      "kdKey": "Have = होना, one's = अपने, hands = हाथ, full = फुल",
+      "kdHack": "जब हम व्यस्त होते है तो अपने दोनों हाथ किसी न किसी चीज से फुल भरे होते है।"
+    },
+    {
+      "id": "idioms-day-5-i39",
+      "type": "idiom",
+      "word": "Alarums and excursions",
+      "meaning": "Confused activity and uproar हंगामा, कोलाहल",
+      "kdKey": "Al = All (सभी), rums = रम, excursions = सैर",
+      "kdHack": "जब सभी दोस्त सैर पर जाते है तो वहां पर रम पीते समय हंगामा ही करते है।"
+    },
+    {
+      "id": "idioms-day-5-i40",
+      "type": "idiom",
+      "word": "Late in the day",
+      "meaning": "Too delayed to be of any use इतनी देर से आना कि किसी काम का ना रहना। [SSC CHSL 2018]",
+      "kdKey": "Late = देर, in = में, day = दिन",
+      "kdHack": "तुमने दिन में ही इतनी देर कर दी है कि अब ये किसी काम का नहीं है।"
+    },
+    {
+      "id": "idioms-day-5-i41",
+      "type": "phrasal verb",
+      "word": "Run down",
+      "meaning": "Criticize आलोचना करना [SSC DEO 2008]",
+      "kdKey": "Run = रन rate, down = कम",
+      "kdHack": "अगर कोई खिलाड़ी खेलने आया उससे रन rate काफी कम हो गयी तो हर कोई उसकी आलोचना करेगा।"
+    },
+    {
+      "id": "idioms-day-5-i42",
+      "type": "phrasal verb",
+      "word": "Run after",
+      "meaning": "Pursued / hanker after पीछा करना/ के पीछे पड़ा रहना",
+      "kdKey": "Run = दौड़ना, after = पीछे",
+      "kdHack": "पुलिस चोर के पीछे पड़ जाती है तो वह चोर के पीछे दौड़ती है।"
+    },
+    {
+      "id": "idioms-day-5-i43",
+      "type": "phrasal verb",
+      "word": "Run across",
+      "meaning": "Meet by chance संयोग से मिलना [SSC Statistical Investigator, 2005]",
+      "kdKey": "Run = दौड़ना, Across = क्रॉस",
+      "kdHack": "सुबह-सुबह दौड़ते समय क्रॉस करते समय अचानक अपना दोस्त मिल जाये तो इसका मतलब संयोग से मिलना।"
+    },
+    {
+      "id": "idioms-day-5-i44",
+      "type": "phrasal verb",
+      "word": "Run off",
+      "meaning": "Fled / Run away बचकर भाग निकलना",
+      "kdKey": "Run = भागना, off = बंद",
+      "kdHack": "आपने देखा होगा मूवीयों में एक्टर को जेल में बंद कर दिया जाता है। जब उसे पता चलता है कि उसकी हीरोइन मुसीबत में है तो वह उस समय दिमाग लगाकर उस इंस्पेक्टर को ही जेल में बंद कर देता है और वह बचकर भाग निकलता है।"
+    },
+    {
+      "id": "idioms-day-5-i45",
+      "type": "phrasal verb",
+      "word": "Run into",
+      "meaning": "Incurred/To meet by chance /to face समस्या मे होना / अचानक मुलाकात होना [SSC (TA(IT & CE), 2007][SSC CHSL 2024,2011]",
+      "kdKey": "Run = दौड़ना, into = बाहर से अन्दर गति से",
+      "kdHack": "Suppose करो किसी का भयंकर ऐक्सीडेंट हुआ तो उसको हॉस्पिटल में भर्ती करवाते है और उस समय जिसको भी पता चला वो चाहे घरवाले हो या रिश्तेदार हो या पडोसी सब दोड़ते हुए बाहर से हॉस्पिटल के अंदर गति से आते है, तो उस समय वहां सभी की अचानक मुलाकात होती है। तो बेचारे घरवाले उस समय समस्या में होते है।"
+    },
+    {
+      "id": "idioms-day-5-i46",
+      "type": "phrasal verb",
+      "word": "Run over",
+      "meaning": "Crush under कुचलना [SSC CHSL 2024]",
+      "kdKey": "Run = दौड़ना, over = ओवर",
+      "kdHack": "बॉलर ओवर कराने के लिए दौड़ते हुए आते समय पैरों की नीचे कीड़े-मकोड़े कुचल जाते है।"
+    },
+    {
+      "id": "idioms-day-5-i47",
+      "type": "phrasal verb",
+      "word": "Run down",
+      "meaning": "Become weak / Tired and not healthy कमजोर होना / थका होना",
+      "kdKey": "Run = रन रेट, down = डाउन",
+      "kdHack": "जैसे ही कोई खिलाडी खेलते-खेलते कमजोर हो जाता है या थक जाता है तो रन रेट डाउन हो जाती है।"
+    },
+    {
+      "id": "idioms-day-5-i48",
+      "type": "phrasal verb",
+      "word": "Run out",
+      "meaning": "Expire/ Come to an end खत्म होना",
+      "kdKey": "Runout = रन आउट",
+      "kdHack": "पांडया के रन आउट होते ही पूरी टीम की champion trophy जीतने की आशा ही खत्म हो गयी।"
+    },
+    {
+      "id": "idioms-day-5-i49",
+      "type": "phrasal verb",
+      "word": "Run through",
+      "meaning": "Glance over / To rehearse quickly / To pierce भेद देना / सरसरी निगाह डालना",
+      "kdKey": "Run = दौड़ना, through = थ्रू",
+      "kdHack": "जब हम जंगल के थ्रू दोड़ते है तो सरसरी निगाह डालते है कि कोई जानवर नही आ जाये।"
+    },
+    {
+      "id": "idioms-day-5-i50",
+      "type": "phrasal verb",
+      "word": "Run short of",
+      "meaning": "Exhaust कम पड़ जाना",
+      "kdKey": "Run = रन, short = शोर्टेज, of = की",
+      "kdHack": "एक रन की शोर्टेज पड़ गयी मतलब कि जीतने के लिए एक रन कम पड़ गया।"
+    }
+  ]
+}

@@ -1,0 +1,364 @@
+{
+  "flashcards": [
+    {
+      "id": "ows-day-5-1",
+      "type": "ows",
+      "word": "Bankrupt",
+      "meaning": "Unable to pay his debts/One who is unable to pay his debts/ One who is unable to pay one's debt दिवालिया [SSC MTS 2013,2021][SSC CHSL T-1 2021]",
+      "kdKey": "Bank = बैंक, rup = रूपये",
+      "kdHack": "बैंक के रूपये नहीं चुका पाया इसलिए बैंक ने उसे दिवालिया घोषित कर दिया।"
+    },
+    {
+      "id": "ows-day-5-2",
+      "type": "ows",
+      "word": "Ephemeral",
+      "meaning": "Of a very short duration or period / Lasting for a very short time / lasting for a very short time/a day क्षणिक [SSC CHSL T-1 2015,2019,2021][SSC CPO PRE 2023]",
+      "kdKey": "Epheme = अफीम",
+      "kdHack": "अफीम का नशा थोड़े समय (क्षणिक) के लिए मजा देता है।"
+    },
+    {
+      "id": "ows-day-5-3",
+      "type": "ows",
+      "word": "Pensive",
+      "meaning": "Deep in thought / Thoughtful and sad विचार मग्न/ गहराई में जाकर सोचना [SSC Statistical Invigilator, 2006]",
+      "kdKey": "Pen = पेन",
+      "kdHack": "जब कई बार हमे परीक्षा में प्रश्न का उत्तर नहीं आता है तो हमारी यह आदत होती है कि हम पेन को मुंह में लेकर काफी गहराई में जाकर सोचने लग जाते है कि रात को क्या याद किया था मतलब कि गहराई में जाकर सोचना।"
+    },
+    {
+      "id": "ows-day-5-4",
+      "type": "ows",
+      "word": "Antipathy",
+      "meaning": "Strong dislike between two person / A strong feeling of dislike towards someone or something वैर-भाव [SSC LDC 2011][SSC CGL T-2 2018,2020]",
+      "kdKey": "Anti = एन्टी, pathy = पति",
+      "kdHack": "पत्नी की पति से एन्टी हो गई है इसलिए दोनों में वैर-भाव की भावना पैदा हो गई है।"
+    },
+    {
+      "id": "ows-day-5-5",
+      "type": "ows",
+      "word": "Reticent",
+      "meaning": "A person who is reserved in talks / A person very reserved in speech/ Not revealing one's thoughts or feelings readily/ One who speaks less जो आदतन कम बोलता है [SSC CPO T-1 2019][SSC CGL T-1 2019]",
+      "kdKey": "Reti = रहती, Cent = शांत",
+      "kdHack": "वो बिल्कुल ही शांत रहती है मतलब कि कम ही बोलती है।"
+    },
+    {
+      "id": "ows-day-5-6",
+      "type": "ows",
+      "word": "Avaricious",
+      "meaning": "A person extremely desirous of money/ One who is greedy धन का लालची [SSC CGL T-2 2015]",
+      "kdKey": "A = 1, varic = वारिस",
+      "kdHack": "वारिस के लिए राजा-महारानियां काफी लालची रहते है ताकि उनकी सम्पति उनका वारिस ही खा सके।"
+    },
+    {
+      "id": "ows-day-5-7",
+      "type": "ows",
+      "word": "Boorish",
+      "meaning": "Rough and bad-mannered असभ्य [SSC CGL T-2 2016]",
+      "kdKey": "Boori-बुरी",
+      "kdHack": "वो लड़की बहुत बुरी है मतलब कि असभ्य है।"
+    },
+    {
+      "id": "ows-day-5-8",
+      "type": "ows",
+      "word": "Heed",
+      "meaning": "Pay attention सावधान और सतर्क [SSC MTS 2017]",
+      "kdKey": "Heed = हेड",
+      "kdHack": "कम्पनी का हेड हमेशा सावधान और सतर्क ही रहता है।"
+    },
+    {
+      "id": "ows-day-5-9",
+      "type": "ows",
+      "word": "Chide",
+      "meaning": "Scold or rebuke somebody डांटना [SSC MTS 2013,2017]",
+      "kdKey": "Chide = चिड़",
+      "kdHack": "जब मैंने उसे सभी Friends के सामने डांटा तो वो चिड़ गया।"
+    },
+    {
+      "id": "ows-day-5-10",
+      "type": "ows",
+      "word": "Conceited",
+      "meaning": "To have a very high opinion of oneself अभिमानी, घमंडी [SO(Audit), 2008][SSC CPO 2020]",
+      "kdKey": "Con = कौन, ceit = सीट",
+      "kdHack": "अरे ऐसी कौनसी सीट मिली है जो तू इतना घमंडी हो गया है।"
+    },
+    {
+      "id": "ows-day-5-11",
+      "type": "ows",
+      "word": "Bizarre",
+      "meaning": "Strange in appearance असामान्य [SSC CPO 2016]",
+      "kdKey": "Bizar = बाजार",
+      "kdHack": "बाजार में ज्यादातर असामान्य चीजें ही देखने को मिलती है।"
+    },
+    {
+      "id": "ows-day-5-12",
+      "type": "ows",
+      "word": "Bald",
+      "meaning": "A man having no hair on the scalp गंजापन [SSC CHSL 2012]",
+      "kdKey": "Bal = बाल, d = death (मृत्यु)",
+      "kdHack": "जब घर में किसी की मृत्यु हो जाती है तो बाल कटवाते है अर्थात गंजे हो जाते है।"
+    },
+    {
+      "id": "ows-day-5-13",
+      "type": "ows",
+      "word": "Sedulous",
+      "meaning": "Hard working and diligent परिश्रम [SSC CGL T1, 2016]",
+      "kdKey": "Sed sound of sad (दुःखी)",
+      "kdHack": "जब कोई व्यक्ति कठिन परिश्रम करता है तो बहुत ही दुःखी सा हो जाता है।"
+    },
+    {
+      "id": "ows-day-5-14",
+      "type": "ows",
+      "word": "Diligent",
+      "meaning": "Working very hard and very carefully मेहनती [SSC CGL T-1 2019]",
+      "kdKey": "Dili = दिल्ली, gent = पुरूष",
+      "kdHack": "दिल्ली के gent (पुरूष) जो कि मेहनती ही तो है।"
+    },
+    {
+      "id": "ows-day-5-15",
+      "type": "ows",
+      "word": "Obscure",
+      "meaning": "Not clear अस्पष्ट [SSC CPO 2016]",
+      "kdKey": "Ob = अब, bs = बस, cur = कर",
+      "kdHack": "जब हमे कोई अपना दोस्त कोई प्रश्न समझाता है और हमे अगर वो स्पष्ट समझ में न आये मतलब की अस्पष्ट तो हम यही तो बोलते है कि यार अब बस कर अब मेरे समझ में नहीं आ रहा है।"
+    },
+    {
+      "id": "ows-day-5-16",
+      "type": "ows",
+      "word": "Eulogy",
+      "meaning": "A speech in praise of / A formal expression of praise for someone who has died/ A writing or a speech in praise of someone प्रशंसा [SSC CPO 2014]",
+      "kdKey": "U = यू (आप), log = लोजी",
+      "kdHack": "जब हमारा सर दर्द हो रहा हो और उसी टाइम हमारी पत्नी एक चाय का कप पकड़ाते हुये यह कहें कि आप चाय लो जी तो हम उसकी प्रशंसा ही करते है।"
+    },
+    {
+      "id": "ows-day-5-17",
+      "type": "ows",
+      "word": "Eulogise",
+      "meaning": "Praise highly in speech or writing प्रशंसा",
+      "kdKey": "U = यू (आप), log = लोजी",
+      "kdHack": "जब हमारा सर दर्द हो रहा हो और उसी टाइम हमारी पत्नी एक चाय का कप पकड़ाते हुये यह कहे कि आप चाय लो जी तो हम उसकी प्रशंसा ही करते है।"
+    },
+    {
+      "id": "ows-day-5-18",
+      "type": "ows",
+      "word": "Potable",
+      "meaning": "Fit to drink / Safe to drink/ That which can be drunk पीने योग्य [SSC CGL T2, 2014,2019]",
+      "kdKey": "Pot = घड़ा, Table = टेबल",
+      "kdHack": "हमारे घर में अगर टेबल पर घड़ा रखा हुआ हो और उसमें पानी हो तो सामान्यतया वो पीने योग्य ही होता है।"
+    },
+    {
+      "id": "ows-day-5-19",
+      "type": "ows",
+      "word": "Rendezvous",
+      "meaning": "Place fixed for meeting or assembling गुप्त स्थान पर भेंट [SSC CGL T-1 2019]",
+      "kdKey": "Ren = रहणे, de = दे, zv = जब, us= हमे",
+      "kdHack": "रहणे दे भाई हमे सब पता है जब-जब तू भाभी से मिलने जावे है मतलब कि गुप्त स्थान पर कब-कब भेंट करे है।"
+    },
+    {
+      "id": "ows-day-5-20",
+      "type": "ows",
+      "word": "Suffrage",
+      "meaning": "The right to vote in political elections मताधिकार [SSC MTS 2022]",
+      "kdKey": "Suffr = सफर, age = उम्र",
+      "kdHack": "18 साल की उम्र का सफर तय करने के बाद आदमी को मत देने का अधिकार मिलता है।"
+    },
+    {
+      "id": "ows-day-5-21",
+      "type": "ows",
+      "word": "Elope",
+      "meaning": "Run away from home with a lover/ To run away with a lover प्रेमी के साथ भाग जाना [SSC CHSL PRE-2022][SSC CPO 2010]",
+      "kdKey": "Elo = ये लो, pe = पे",
+      "kdHack": "ये लो और करो उस पे भरोसा अब वो अपने प्रेमी के साथ भाग गयी है।"
+    },
+    {
+      "id": "ows-day-5-22",
+      "type": "ows",
+      "word": "Yearning",
+      "meaning": "A feeling of intense longing for something / Prolonged unfulfilled desire or need उत्सुकता [SSC CGL T-1 2017]",
+      "kdKey": "earning = कमाना",
+      "kdHack": "हर किसी कि बहुत ज्यादा कमाने की इच्छा होती है मतलब की इच्छुुकता।"
+    },
+    {
+      "id": "ows-day-5-23",
+      "type": "ows",
+      "word": "Monition",
+      "meaning": "A warning of impending danger चेतावनी [SSC MTS 2014,2017]",
+      "kdKey": "Moniti = मोनिटर",
+      "kdHack": "क्लास में मोनिटर चेतावनी देता है कि जो सर ने Homework दिया है वो करके लाना है।"
+    },
+    {
+      "id": "ows-day-5-24",
+      "type": "ows",
+      "word": "Ghastly",
+      "meaning": "In a threatening manner/ Horrifyingly shocking/In a threatening manner डरावना [FCI 2012]",
+      "kdKey": "Ghast sound of Ghost (भूत)",
+      "kdHack": "भूत जो कि डरावने ही लगते है।"
+    },
+    {
+      "id": "ows-day-5-25",
+      "type": "ows",
+      "word": "Neophyte",
+      "meaning": "One who is new to profession/ Any new participant in some activity. नवसिखिया /नवशिष्य",
+      "kdKey": "Neo = नया, phyte = fight",
+      "kdHack": "अभी वो fight करने में नया है अर्थात् नवसिखिया/नवशिष्य है।"
+    },
+    {
+      "id": "ows-day-5-26",
+      "type": "ows",
+      "word": "Cynosure",
+      "meaning": "One who is a centre of attraction./Centre of attraction/ Person or thing that is the centre of attention/ one who is a centre of attraction आकर्षण का केन्द्र [SSC CHSL PRE-2022][SSC CPO 2017]",
+      "kdKey": "Cynosure sound of डायनासोर",
+      "kdHack": "चिड़ियाघर में डायनासोर जो कि आकर्षण का केन्द्र ही होता है।"
+    },
+    {
+      "id": "ows-day-5-27",
+      "type": "ows",
+      "word": "Panacea",
+      "meaning": "A remedy for all diseases / a remedy for all ills/ A solution for all difficulties or diseases/ A cure for all diseases रामबाण [SSC TA(IT&CE), 2006][SSC LDC 2010,2011][SSC CGL T1, 2016][SSC CPO 2015][SSC CHSL T-1 2018,2021][SSC CGL T-2 (RE 2016)]",
+      "kdKey": "Pan = जापान, acea = एशिया",
+      "kdHack": "जापान की हर तकनीक एशिया महाद्वीप के लिए रामबाण औषधि का ही काम करती है"
+    },
+    {
+      "id": "ows-day-5-28",
+      "type": "ows",
+      "word": "Coerce",
+      "meaning": "To restrain or compel a person to do something by force./Compel to a course of action बाध्य करना [SSC CPO PRE 2023]",
+      "kdKey": "Coerce = कोर्स",
+      "kdHack": "कई बार अपने घर वाले force करते है कि बेटा तुझे यह कोर्स कर लेना चाहिए।"
+    },
+    {
+      "id": "ows-day-5-29",
+      "type": "ows",
+      "word": "Coercion",
+      "meaning": "The act of compelling or forcing authority on others/ Use of force or threats to get someone to agree to something जोर जबरदस्ती [SSC LDC 2011][SSC CGL T-2 2018]",
+      "kdKey": "Coerce से ही बना हुआ है",
+      "kdHack": "Coerce से ही बना हुआ है।"
+    },
+    {
+      "id": "ows-day-5-30",
+      "type": "ows",
+      "word": "Bevy",
+      "meaning": "A group of girls/ a large group of girls/ladies लड़कियों का समूह [SSC SO(CA), 2007][SSC CPO 2017]",
+      "kdKey": "Bevy = बीवी (लड़की)",
+      "kdHack": "बीवी जो कि लड़की ही होती है और यहां पर बीवियों का समूह है मतलब कि लड़कियों का समूह है।"
+    },
+    {
+      "id": "ows-day-5-31",
+      "type": "ows",
+      "word": "Meticulous",
+      "meaning": "A perfectionist./Very careful and particular/ Very careful and precise / One who is rather fastidious सर्तक, अतिसावधान [SSC CHSL T-1 2019][SSC CGL PRE-2022][SSC CGL T2, 2015][SSC MTS 2022]",
+      "kdKey": "Meti = मिट्टी, colous = कलश",
+      "kdHack": "मिट्टी के कलश को हमेशा सावधानी पूर्वक रखना चाहिए क्योंकि थोड़ी सी ठोकर लगने पर फूट सकता है।"
+    },
+    {
+      "id": "ows-day-5-32",
+      "type": "ows",
+      "word": "Edible",
+      "meaning": "A thing fit to be eaten / Something which is fit to be eaten./ worth eating खाने योग्य [SSC CGL T-1 2018, 2023][SSC CGL T-2 2015][SSC CPO 2015][SSC CHSL 2012,2023]",
+      "kdKey": "Edible = इडली",
+      "kdHack": "इडली जो कि खाने योग्य ही होती है।"
+    },
+    {
+      "id": "ows-day-5-33",
+      "type": "ows",
+      "word": "Inedible",
+      "meaning": "Not fit for eating./Not suitable for eating/ Not fit to be eaten अखाद्य [SSC CGL T1, 2015][SSC MTS-2021,2023]",
+      "kdKey": "In = नहीं, edible = खाद्य (खाने के लायक)",
+      "kdHack": "जो खाने के लायक नहीं हो अखाद्य कहलाता है।"
+    },
+    {
+      "id": "ows-day-5-34",
+      "type": "ows",
+      "word": "Windfall",
+      "meaning": "An unexpected piece of good fortune/ A sudden happening that brings good fortune अप्रत्याशित लाभ [SSC CGL T1, 2010]",
+      "kdKey": "Wind = हवा, fall = गिरना",
+      "kdHack": "हवा से जो फल गिरता है वो हमेशा अप्रत्याशित लाभ ही होता है।"
+    },
+    {
+      "id": "ows-day-5-35",
+      "type": "ows",
+      "word": "Sojourn",
+      "meaning": "A brief or short stay at a place /Temporary stay / A short stay in a place [SSC CGL T1, 2016][SSC CPO 2017][SSC CHSL T-1 2021]",
+      "kdKey": "So = 100, journ = जर्नी",
+      "kdHack": "100 किलोमीटर की जर्नी कम्पलीट करने के बाद बस वाले थोड़ा होटल पर ही ठहरते है।"
+    },
+    {
+      "id": "ows-day-5-36",
+      "type": "ows",
+      "word": "Animosity",
+      "meaning": "Strong hostility./A strong dislike दुश्मनी [SSC CGL T-1 (RE 2013),2022]",
+      "kdKey": "Anim = animal [जानवर], sity = city [शहर]",
+      "kdHack": "उस शहर में वो जानवरों की तरह लड़ते है इसलिए वहां के लोगो में दुश्मनी बहुत ज्यादा है।"
+    },
+    {
+      "id": "ows-day-5-37",
+      "type": "ows",
+      "word": "Dictator",
+      "meaning": "One who gives orders in a manner that permits no refusal/ A ruler with complete power over a country तानाशाह [SSC CGL T-2 2019]",
+      "kdKey": "Dicta = दिखता, tor = तोड़",
+      "kdHack": "हमें भी दिखता है कि तानाशाह आदमी लोगों को काम न करने पर उन्हें बुरी तरीके से तोड़ देता है।"
+    },
+    {
+      "id": "ows-day-5-38",
+      "type": "ows",
+      "word": "Meadow",
+      "meaning": "A low level tract of uncultivated grassland / An area of grassland where animals graze घास का मैदान",
+      "kdKey": "Me = मुझे, dow = दाऊभैया",
+      "kdHack": "कान्हा ने मैया से कहा कि मैं और दाऊ भैया घास के मैदान में गायो को चराने जा रहे है।"
+    },
+    {
+      "id": "ows-day-5-39",
+      "type": "ows",
+      "word": "Conscientious",
+      "meaning": "Governed by a sense of duty / Careful to do something correctly and well ईमानदार, कर्तव्यनिष्ठ [SSC CGL T-1 2019][SSC CPO 2017]",
+      "kdKey": "Con = कौन, scienti = scientist (वैज्ञानिक), us = हमे",
+      "kdHack": "कौन क्या हमे सभी को पता है कि वैज्ञानिक कर्तव्यनिष्ठ ही होते है।"
+    },
+    {
+      "id": "ows-day-5-40",
+      "type": "ows",
+      "word": "Waggish",
+      "meaning": "Roguish in merriment and good humour / witty or joking शरारती",
+      "kdKey": "Waggi = वाह जी, sh = सही",
+      "kdHack": "शरारती/मखबरा आदमी हमेशा हर किसी की बात पर यही बोलता है वाह जी वाह बढ़िया है।"
+    },
+    {
+      "id": "ows-day-5-41",
+      "type": "ows",
+      "word": "Nursery",
+      "meaning": "A place where plants are grown for sale नर्सरी [SSC CGL T-1 2019]",
+      "kdKey": "",
+      "kdHack": ""
+    },
+    {
+      "id": "ows-day-5-42",
+      "type": "ows",
+      "word": "Bouquet",
+      "meaning": "A collection of flowers/ a bunch of flowers/An arrangement of flowers that is usually given as a present/ An arrangement of flowers that is usually given as a present. गुल-दस्ता [SSC CGL T-1 2018,2020][SSC CPO T-1 2018] [CPO T-2 2020]",
+      "kdKey": "",
+      "kdHack": ""
+    },
+    {
+      "id": "ows-day-5-43",
+      "type": "ows",
+      "word": "Wardrobe",
+      "meaning": "A place for clothes/ A place where clothes are kept अलमारी [SSC CGL T-1 2019]",
+      "kdKey": "",
+      "kdHack": ""
+    },
+    {
+      "id": "ows-day-5-44",
+      "type": "ows",
+      "word": "Catalogue",
+      "meaning": "A list or collection of books or informative graphics./A list of books available in a library / A list of the names of books/ A list of names or things in a special order /A complete list of things, usually arranged systematically/ a list of books सूचीपत्र बनाना [SSC CGL PRE-2022][FCI 2012][SSC MTS 2013][SSC CPO 2024]",
+      "kdKey": "",
+      "kdHack": ""
+    },
+    {
+      "id": "ows-day-5-45",
+      "type": "ows",
+      "word": "Drought",
+      "meaning": "Continuous dry weather and lack of rain and water/ Dry weather with no rainfall अकाल [SSC TA(IT&CE), 2006]",
+      "kdKey": "",
+      "kdHack": ""
+    }
+  ]
+}
