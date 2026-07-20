@@ -18,9 +18,9 @@ function loadEnv() {
 }
 loadEnv();
 
-let clientEmail = process.env.GOOGLE_CLIENT_EMAIL;
-let privateKey = process.env.GOOGLE_PRIVATE_KEY ? process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n') : null;
-let apiKey = process.env.GOOGLE_API_KEY; // The API key they provided in Vercel
+let clientEmail = process.env.GOOGLE_CLIENT_EMAIL ? process.env.GOOGLE_CLIENT_EMAIL.replace(/^['"]|['"]$/g, '').trim() : null;
+let privateKey = process.env.GOOGLE_PRIVATE_KEY ? process.env.GOOGLE_PRIVATE_KEY.replace(/^['"]|['"]$/g, '').replace(/\\n/g, '\n').trim() : null;
+let apiKey = process.env.GOOGLE_API_KEY ? process.env.GOOGLE_API_KEY.replace(/^['"]|['"]$/g, '').trim() : null;
 
 if (fs.existsSync('gdrive-service-account.json')) {
   const sa = JSON.parse(fs.readFileSync('gdrive-service-account.json', 'utf-8'));
@@ -154,6 +154,12 @@ async function syncFolder(folderId, currentPath) {
 
 async function main() {
   console.log('Authenticating with Google...');
+  if (clientEmail) {
+    console.log(`Using Service Account: "${clientEmail}"`);
+  } else if (apiKey) {
+    console.log('Using API Key auth.');
+  }
+
   try {
     globalAuthToken = await getAccessToken();
   } catch (e) {
