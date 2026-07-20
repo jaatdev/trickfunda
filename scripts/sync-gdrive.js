@@ -174,6 +174,14 @@ async function main() {
   
   try {
     await syncFolder(ROOT_FOLDER_ID, DEST_DIR);
+    
+    // Fallback: Ensure notes-static.json exists for Next.js build
+    const notesStaticPath = path.join(DEST_DIR, 'notes-static.json');
+    if (!fs.existsSync(notesStaticPath)) {
+      fs.writeFileSync(notesStaticPath, JSON.stringify({ subjects: [] }, null, 2));
+      console.log('[Fallback] Created empty notes-static.json');
+    }
+
     console.log('Sync complete!');
   } catch (e) {
     console.error('Error syncing:', e.message);
