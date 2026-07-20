@@ -2,7 +2,7 @@ import React from 'react';
 import { getAllKDStats, getKDChapterSubjects, getKDSubjectStats } from '@/utils/studyMaterialParser';
 import { BookOpen, Files, FileText, CheckSquare, Youtube, GraduationCap, FolderTree, FileEdit, Layers } from 'lucide-react';
 import { getThemeById } from '@/lib/theme-variants';
-import SyncDataButton from '@/components/Admin/SyncDataButton';
+import SyncDataButton from '@/components/admin/SyncDataButton';
 
 export default async function AdminDashboard() {
   const stats = await getAllKDStats();
