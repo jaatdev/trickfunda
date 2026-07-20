@@ -1,0 +1,24 @@
+.canvas-container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: #1e1e1e;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  z-index: 50;
+
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.canvas-container::-webkit-scrollbar {
+  display: none;
+}
+
+.page-snap {
+  scroll-snap-stop: always;
+}

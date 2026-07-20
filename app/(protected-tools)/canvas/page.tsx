@@ -1,6 +1,32 @@
 import { Metadata } from 'next';
+import { Inter, Playfair_Display, Caveat, JetBrains_Mono } from "next/font/google";
 import FloatingHomeButton from '@/components/layout/FloatingHomeButton';
-import IframeWrapper from '@/components/ui/IframeWrapper';
+import CanvasApp from '@cosmic/app/page';
+import './canvas.css';
+
+const inter = Inter({
+  variable: "--font-sans",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const playfair = Playfair_Display({
+  variable: "--font-serif",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const caveat = Caveat({
+  variable: "--font-hand",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const jetbrains = JetBrains_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: 'TrickFunda Canvas',
@@ -11,11 +37,9 @@ export default function CanvasPage() {
   return (
     <>
       <FloatingHomeButton />
-      <IframeWrapper 
-        src="https://trickfunda-canvas.vercel.app/"
-        title="TrickFunda Canvas"
-        allow="clipboard-read; clipboard-write; microphone"
-      />
+      <div className={`canvas-container dark ${inter.variable} ${playfair.variable} ${caveat.variable} ${jetbrains.variable}`}>
+        <CanvasApp />
+      </div>
     </>
   );
 }

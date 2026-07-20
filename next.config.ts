@@ -118,9 +118,24 @@ const nextConfig: NextConfig = {
     ],
   },
 
+  serverExternalPackages: ['pdfjs-dist'],
+
   // Enable experimental optimizations
   experimental: {
     optimizePackageImports: ['react-markdown', 'rehype-highlight', 'remark-gfm'],
+  },
+
+  // Webpack config for pdfjs-dist
+  webpack: (config, { dev, isServer }) => {
+    config.resolve.alias.canvas = false;
+    config.resolve.alias.encoding = false;
+    
+    // Fix for pdfjs-dist Object.defineProperty error in Webpack dev mode
+    if (dev && !isServer) {
+      config.devtool = 'source-map';
+    }
+    
+    return config;
   },
 
   // Headers for better caching
