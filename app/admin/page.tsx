@@ -2,6 +2,7 @@ import React from 'react';
 import { getAllKDStats, getKDChapterSubjects, getKDSubjectStats } from '@/utils/studyMaterialParser';
 import { BookOpen, Files, FileText, CheckSquare, Youtube, GraduationCap, FolderTree, FileEdit, Layers } from 'lucide-react';
 import { getThemeById } from '@/lib/theme-variants';
+import SyncDataButton from '@/components/Admin/SyncDataButton';
 
 export default async function AdminDashboard() {
   const stats = await getAllKDStats();
@@ -95,6 +96,7 @@ export default async function AdminDashboard() {
               Manage the Study Material file structure directly from the browser.
             </p>
             <div className="space-y-3">
+              <SyncDataButton />
               <QuickActionButton href="/admin/explorer" icon={FolderTree} title="Open Content Explorer" desc="Browse and create folders" />
               <QuickActionButton href="/admin/editor" icon={FileEdit} title="Modular Editor" desc="Edit notes and quiz data" />
             </div>
