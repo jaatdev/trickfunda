@@ -70,8 +70,9 @@ export async function getKDConceptBySlug(categorySlug: string, slug: string): Pr
   }
 
   const pdfPath = path.join(conceptDir, 'notes.pdf');
+  const txtPdfPath = path.join(conceptDir, 'pdf-notes.txt');
   let pdfUrl: string | null = null;
-  if (fs.existsSync(pdfPath)) {
+  if (fs.existsSync(pdfPath) || fs.existsSync(txtPdfPath)) {
     // URL path matches the structure defined in the new API route
     const uniqueFilename = `${categorySlug}-${slug}.pdf`;
     pdfUrl = `/api/study-material/files/${categorySlug}/${slug}/${uniqueFilename}`;
@@ -107,6 +108,15 @@ export async function getKDConceptBySlug(categorySlug: string, slug: string): Pr
           id: titlePart,
           title,
           url: `/api/study-material/files/${categorySlug}/${slug}/${file}`
+        });
+      } else if (file.startsWith('pdf-notes') && file.endsWith('.txt')) {
+        const baseName = file.replace('pdf-', '').replace('.txt', '.pdf');
+        const titlePart = baseName.replace('.pdf', '');
+        const title = titlePart === 'notes' ? 'Notes' : formatTitle(titlePart.replace('notes-', ''));
+        pdfs.push({
+          id: titlePart,
+          title,
+          url: `/api/study-material/files/${categorySlug}/${slug}/${baseName}`
         });
       } else if (file.startsWith('quiz') && file.endsWith('.json')) {
         try {
@@ -257,8 +267,9 @@ export async function getKDChapterTypeData(subjectSlug: string, chapterSlug: str
   }
 
   const pdfPath = path.join(conceptDir, 'notes.pdf');
+  const txtPdfPath = path.join(conceptDir, 'pdf-notes.txt');
   let pdfUrl: string | null = null;
-  if (fs.existsSync(pdfPath)) {
+  if (fs.existsSync(pdfPath) || fs.existsSync(txtPdfPath)) {
     const uniqueFilename = `${subjectSlug}-${chapterSlug}-${typeSlug}.pdf`;
     pdfUrl = `/api/study-material/files/${subjectSlug}/${chapterSlug}/${typeSlug}/${uniqueFilename}`;
   }
@@ -293,6 +304,15 @@ export async function getKDChapterTypeData(subjectSlug: string, chapterSlug: str
           id: titlePart,
           title,
           url: `/api/study-material/files/${subjectSlug}/${chapterSlug}/${typeSlug}/${file}`
+        });
+      } else if (file.startsWith('pdf-notes') && file.endsWith('.txt')) {
+        const baseName = file.replace('pdf-', '').replace('.txt', '.pdf');
+        const titlePart = baseName.replace('.pdf', '');
+        const title = titlePart === 'notes' ? 'Notes' : formatTitle(titlePart.replace('notes-', ''));
+        pdfs.push({
+          id: titlePart,
+          title,
+          url: `/api/study-material/files/${subjectSlug}/${chapterSlug}/${typeSlug}/${baseName}`
         });
       } else if (file.startsWith('quiz') && file.endsWith('.json')) {
         try {
@@ -375,7 +395,8 @@ export async function getKDNode(pathArray: string[]): Promise<import('@/types/st
   }
 
   let pdfUrl: string | null = null;
-  if (fs.existsSync(pdfPath)) {
+  const txtPdfPath = path.join(nodeDir, 'pdf-notes.txt');
+  if (fs.existsSync(pdfPath) || fs.existsSync(txtPdfPath)) {
     const uniqueFilename = `${pathArray.join('-')}.pdf`;
     pdfUrl = `/api/study-material/files/${pathArray.join('/')}/${uniqueFilename}`;
   }
@@ -412,6 +433,15 @@ export async function getKDNode(pathArray: string[]): Promise<import('@/types/st
             id: titlePart,
             title,
             url: `/api/study-material/files/${pathArray.join('/')}/${file.name}`
+          });
+        } else if (file.name.startsWith('pdf-notes') && file.name.endsWith('.txt')) {
+          const baseName = file.name.replace('pdf-', '').replace('.txt', '.pdf');
+          const titlePart = baseName.replace('.pdf', '');
+          const title = titlePart === 'notes' ? 'Notes' : formatTitle(titlePart.replace('notes-', ''));
+          pdfs.push({
+            id: titlePart,
+            title,
+            url: `/api/study-material/files/${pathArray.join('/')}/${baseName}`
           });
         } else if (file.name.startsWith('quiz') && file.name.endsWith('.json')) {
           try {

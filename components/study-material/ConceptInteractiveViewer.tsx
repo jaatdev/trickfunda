@@ -185,7 +185,7 @@ export function ConceptInteractiveViewer({ title, notesMarkdown, noteBoxes, pdfU
 
                 {isAdmin && (
                   <a
-                    href={`/canvas?pdf=${encodeURIComponent(p.url)}`}
+                    href={`/canvas?pdfUrl=${encodeURIComponent(p.url)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-10 py-4 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl font-bold text-xl transition-all duration-300 shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_30px_rgba(16,185,129,0.5)] hover:-translate-y-1 active:translate-y-0"

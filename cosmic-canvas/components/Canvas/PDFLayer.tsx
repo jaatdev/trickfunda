@@ -62,6 +62,10 @@ export default function PDFLayer() {
         };
     }, [currentPage, pageCount]);
 
+    const fileProp = useMemo(() => {
+        return pdfData ? { data: pdfData } : null;
+    }, [pdfData]);
+
     // Don't render on server or if no document
     if (!isClient || !documentId) return null;
 
@@ -95,7 +99,7 @@ export default function PDFLayer() {
             }}
         >
             <Document
-                file={{ data: pdfData }}
+                file={fileProp as any}
                 className="pointer-events-none"
                 loading={
                     <div className="absolute inset-0 z-50 flex items-center justify-center">

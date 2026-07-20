@@ -21,6 +21,17 @@ export async function GET(
 
   try {
     if (!fs.existsSync(filePath)) {
+      // Check for pdf-{filename}.txt mapping
+      const dirName = path.dirname(filePath);
+      const fileName = path.basename(filePath);
+      const txtFileName = `pdf-${fileName.replace('.pdf', '.txt')}`;
+      const txtFilePath = path.join(dirName, txtFileName);
+
+      if (fs.existsSync(txtFilePath)) {
+        const gDriveUrl = fs.readFileSync(txtFilePath, 'utf-8').trim();
+        return NextResponse.redirect(gDriveUrl);
+      }
+
       return new NextResponse('Not Found', { status: 404 });
     }
 

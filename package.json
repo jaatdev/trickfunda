@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
-    "build": "next build",
+    "build": "npm run sync-data && next build",
     "build:data": "node scripts/build-static-data.js",
     "split-data": "node scripts/split-structure.js",
     "combine-data": "node scripts/combine-structure.js",
     "validate-data": "node scripts/validate-structure.js",
+    "sync-data": "node scripts/sync-gdrive.js",
     "test": "vitest",
     "start": "next start",
     "lint": "eslint",

@@ -85,6 +85,27 @@ Build your own personalized quiz from any combination of topics:
 
 ---
 
+### 🎨 Cosmic Canvas (Infinite PDF & Drawing Workspace)
+
+A built-in 3D infinite canvas application for brainstorming and interactive learning:
+
+- **Native PDF Support** — directly open PDFs from the study material into the canvas
+- **PDF Layering & Watermarks** — securely renders official TrickFunda watermarks on all exported materials
+- **Drawing & Annotation** — uses `perfect-freehand` for smooth, realistic drawing capabilities
+- **Page Virtualization** — seamlessly load hundreds of PDF pages without memory crashes using `react-pdf`
+
+---
+
+### ☁️ Headless CMS via Google Drive
+
+TrickFunda's entire `data/` layer is fully decoupled and powered by a headless Google Drive architecture:
+
+- **Zero-Dependency Sync** — uses a custom Node.js script to sync the Google Drive folder via Service Account JWTs
+- **Automated CI/CD** — automatically downloads all new study materials on every Vercel build (`npm run sync-data`)
+- **Frictionless Content Management** — content creators simply drag and drop PDFs, JSONs, and Markdown into Google Drive, and TrickFunda automatically picks them up!
+
+---
+
 ### 📊 Detailed Quiz Review & PDF Export
 
 After quiz completion, a comprehensive review system:
