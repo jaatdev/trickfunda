@@ -34,3 +34,15 @@ export async function POST() {
     );
   }
 }
+
+export async function GET(request: Request) {
+  // Verify Vercel Cron Secret if it is set in environment
+  if (process.env.CRON_SECRET) {
+    const authHeader = request.headers.get('authorization');
+    if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+      return new NextResponse('Unauthorized', { status: 401 });
+    }
+  }
+
+  return POST();
+}
