@@ -20,6 +20,7 @@ loadEnv();
 
 let clientEmail = process.env.GOOGLE_CLIENT_EMAIL;
 let privateKey = process.env.GOOGLE_PRIVATE_KEY ? process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n') : null;
+let apiKey = process.env.GOOGLE_API_KEY; // The API key they provided in Vercel
 
 if (fs.existsSync('gdrive-service-account.json')) {
   const sa = JSON.parse(fs.readFileSync('gdrive-service-account.json', 'utf-8'));
@@ -27,13 +28,22 @@ if (fs.existsSync('gdrive-service-account.json')) {
   privateKey = sa.private_key;
 }
 
-if (!clientEmail || !privateKey) {
-  console.error('ERROR: Missing Google Service Account credentials.');
-  console.error('Provide gdrive-service-account.json or set GOOGLE_CLIENT_EMAIL and GOOGLE_PRIVATE_KEY env vars.');
+if (!apiKey && (!clientEmail || !privateKey)) {
+  console.error('ERROR: Missing Google Service Account credentials or GOOGLE_API_KEY.');
+  console.error('Provide gdrive-service-account.json, or set GOOGLE_API_KEY in Vercel.');
   process.exit(1);
 }
 
+// Global token (either Bearer JWT or API Key query param)
+let globalAuthToken = null;
+let isApiKey = false;
+
 async function getAccessToken() {
+  if (apiKey) {
+    isApiKey = true;
+    return apiKey;
+  }
+
   const header = { alg: 'RS256', typ: 'JWT' };
   const now = Math.floor(Date.now() / 1000);
   const claim = {
@@ -81,17 +91,30 @@ async function fetchWithRetry(url, options = {}, retries = 3) {
   }
 }
 
-async function listFiles(folderId, token) {
+function appendAuth(urlStr) {
+  const url = new URL(urlStr);
+  if (isApiKey) {
+    url.searchParams.append('key', globalAuthToken);
+  }
+  return url;
+}
+
+function getAuthHeaders() {
+  if (isApiKey) return {};
+  return { Authorization: `Bearer ${globalAuthToken}` };
+}
+
+async function listFiles(folderId) {
   let files = [];
   let pageToken = null;
   do {
-    const url = new URL('https://www.googleapis.com/drive/v3/files');
+    const url = appendAuth('https://www.googleapis.com/drive/v3/files');
     url.searchParams.append('q', `'${folderId}' in parents and trashed = false`);
     url.searchParams.append('fields', 'nextPageToken, files(id, name, mimeType)');
     if (pageToken) url.searchParams.append('pageToken', pageToken);
 
     const res = await fetchWithRetry(url.toString(), {
-      headers: { Authorization: `Bearer ${token}` }
+      headers: getAuthHeaders()
     });
     const data = await res.json();
     files = files.concat(data.files || []);
@@ -100,38 +123,39 @@ async function listFiles(folderId, token) {
   return files;
 }
 
-async function downloadFile(fileId, destPath, token) {
-  const url = `https://www.googleapis.com/drive/v3/files/${fileId}?alt=media`;
-  const res = await fetchWithRetry(url, {
-    headers: { Authorization: `Bearer ${token}` }
+async function downloadFile(fileId, destPath) {
+  const url = appendAuth(`https://www.googleapis.com/drive/v3/files/${fileId}`);
+  url.searchParams.append('alt', 'media');
+  
+  const res = await fetchWithRetry(url.toString(), {
+    headers: getAuthHeaders()
   });
   const buffer = await res.arrayBuffer();
   fs.writeFileSync(destPath, Buffer.from(buffer));
 }
 
-async function syncFolder(folderId, currentPath, token) {
+async function syncFolder(folderId, currentPath) {
   if (!fs.existsSync(currentPath)) {
     fs.mkdirSync(currentPath, { recursive: true });
   }
 
-  const files = await listFiles(folderId, token);
+  const files = await listFiles(folderId);
   for (const file of files) {
     const filePath = path.join(currentPath, file.name);
     if (file.mimeType === 'application/vnd.google-apps.folder') {
       console.log(`[Folder] ${filePath}`);
-      await syncFolder(file.id, filePath, token);
+      await syncFolder(file.id, filePath);
     } else {
       console.log(`[File] ${filePath}`);
-      await downloadFile(file.id, filePath, token);
+      await downloadFile(file.id, filePath);
     }
   }
 }
 
 async function main() {
   console.log('Authenticating with Google...');
-  let token;
   try {
-    token = await getAccessToken();
+    globalAuthToken = await getAccessToken();
   } catch (e) {
     console.error('Failed to authenticate:', e.message);
     process.exit(1);
@@ -143,7 +167,7 @@ async function main() {
   }
   
   try {
-    await syncFolder(ROOT_FOLDER_ID, DEST_DIR, token);
+    await syncFolder(ROOT_FOLDER_ID, DEST_DIR);
     console.log('Sync complete!');
   } catch (e) {
     console.error('Error syncing:', e.message);
