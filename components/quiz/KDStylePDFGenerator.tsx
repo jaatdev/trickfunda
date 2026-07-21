@@ -14,7 +14,7 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
   const [isGenerating, setIsGenerating] = useState(false);
   const [selectedQuestions, setSelectedQuestions] = useState<QuizQuestion[]>([]);
 
-  const generateHTMLString = (selected: QuizQuestion[]) => {
+  const generateSlidesHTML = (selected: QuizQuestion[]) => {
     let slidesHTML = '';
     
     selected.forEach((q, i) => {
@@ -70,123 +70,114 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
       `;
     });
 
-    return `
-      <!DOCTYPE html>
-      <html>
-      <head>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Noto+Sans+Devanagari:wght@400;600;800&display=swap" rel="stylesheet">
-        <style>
-          body { 
-            margin: 0; 
-            padding: 0; 
-            background: #ffffff;
-            -webkit-print-color-adjust: exact;
-          }
-          * { box-sizing: border-box; font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif; }
-          .slide {
-            width: 1280px;
-            height: 720px;
-            page-break-after: always;
-            page-break-inside: avoid;
-            display: flex;
-            flex-direction: column;
-            background: #ffffff;
-            position: relative;
-            overflow: hidden;
-          }
-          .header {
-            background-color: #0f172a;
-            color: #ffffff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 40px;
-            border-bottom: 5px solid #ff4500;
-          }
-          .logo { font-size: 28px; font-weight: 800; color: #ff4500; letter-spacing: 1px; }
-          .title { font-size: 24px; font-weight: 600; color: #f8fafc; text-transform: uppercase; }
-          .url { font-size: 18px; font-weight: 600; color: #cbd5e1; }
-          
-          .content {
-            display: flex;
-            flex: 1;
-            padding: 30px 40px;
-            gap: 40px;
-          }
-          .left-col {
-            flex: 1;
-            border-right: 3px dashed #cbd5e1;
-            padding-right: 30px;
-            display: flex;
-            flex-direction: column;
-          }
-          .q-header { display: flex; align-items: center; margin-bottom: 15px; }
-          .q-num { font-size: 22px; font-weight: 800; color: #ff4500; }
-          .exam-tag {
-            background-color: #fef08a;
-            color: #b45309;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 800;
-            margin-left: 15px;
-            border: 1px solid #fde047;
-            text-transform: uppercase;
-          }
-          
-          .prompt-hi { font-size: 24px; font-weight: 800; color: #1e293b; margin-bottom: 12px; line-height: 1.5; }
-          .prompt-en { font-size: 22px; font-weight: 600; color: #334155; margin-bottom: 30px; line-height: 1.5; }
-          
-          .options-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            font-size: 22px;
-            font-weight: 600;
-            color: #0f172a;
-          }
-          .option-box {
-            background-color: #f1f5f9;
-            padding: 15px 20px;
-            border-radius: 8px;
-            border-left: 5px solid #cbd5e1;
-          }
-          
-          .right-col {
-            flex: 1;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          }
-          .watermark {
-            position: absolute;
-            font-size: 70px;
-            font-weight: 800;
-            color: rgba(15, 23, 42, 0.03);
-            text-align: center;
-            line-height: 1.2;
-            transform: rotate(-30deg);
-            pointer-events: none;
-            user-select: none;
-          }
-          
-          .footer {
-            text-align: center;
-            padding: 10px;
-            font-size: 14px;
-            font-weight: 600;
-            color: #94a3b8;
-            background: #f8fafc;
-          }
-        </style>
-      </head>
-      <body>
-        ${slidesHTML}
-      </body>
-      </html>
-    `;
+    return slidesHTML;
   };
+
+  const getBaseCSS = () => `
+    body { 
+      margin: 0; 
+      padding: 0; 
+      background: #ffffff;
+      -webkit-print-color-adjust: exact;
+    }
+    * { box-sizing: border-box; font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif; }
+    .slide {
+      width: 1280px;
+      height: 720px;
+      page-break-after: always;
+      page-break-inside: avoid;
+      display: flex;
+      flex-direction: column;
+      background: #ffffff;
+      position: relative;
+      overflow: hidden;
+    }
+    .header {
+      background-color: #0f172a;
+      color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      border-bottom: 5px solid #ff4500;
+    }
+    .logo { font-size: 28px; font-weight: 800; color: #ff4500; letter-spacing: 1px; }
+    .title { font-size: 24px; font-weight: 600; color: #f8fafc; text-transform: uppercase; }
+    .url { font-size: 18px; font-weight: 600; color: #cbd5e1; }
+    
+    .content {
+      display: flex;
+      flex: 1;
+      padding: 30px 40px;
+      gap: 40px;
+    }
+    .left-col {
+      flex: 1;
+      border-right: 3px dashed #cbd5e1;
+      padding-right: 30px;
+      display: flex;
+      flex-direction: column;
+    }
+    .q-header { display: flex; align-items: center; margin-bottom: 15px; }
+    .q-num { font-size: 22px; font-weight: 800; color: #ff4500; }
+    .exam-tag {
+      background-color: #fef08a;
+      color: #b45309;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 800;
+      margin-left: 15px;
+      border: 1px solid #fde047;
+      text-transform: uppercase;
+    }
+    
+    .prompt-hi { font-size: 24px; font-weight: 800; color: #1e293b; margin-bottom: 12px; line-height: 1.5; }
+    .prompt-en { font-size: 22px; font-weight: 600; color: #334155; margin-bottom: 30px; line-height: 1.5; }
+    
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      font-size: 22px;
+      font-weight: 600;
+      color: #0f172a;
+    }
+    .option-box {
+      background-color: #f1f5f9;
+      padding: 15px 20px;
+      border-radius: 8px;
+      border-left: 5px solid #cbd5e1;
+    }
+    
+    .right-col {
+      flex: 1;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .watermark {
+      position: absolute;
+      font-size: 70px;
+      font-weight: 800;
+      color: rgba(15, 23, 42, 0.03);
+      text-align: center;
+      line-height: 1.2;
+      transform: rotate(-30deg);
+      pointer-events: none;
+      user-select: none;
+    }
+    
+    .footer {
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #94a3b8;
+      background: #f8fafc;
+    }
+  `;
 
   const generatePDF = async () => {
     // 1. Pick random questions based on selectedCount
@@ -205,7 +196,48 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
         const html2pdfModule = await import('html2pdf.js');
         const html2pdf = (html2pdfModule.default ? html2pdfModule.default : html2pdfModule) as any;
         
-        const htmlContent = generateHTMLString(sliced);
+        let processedSlidesHTML = generateSlidesHTML(sliced);
+        let mathJaxStyleString = '';
+
+        // If MathJax is globally available (from better-react-mathjax in the app),
+        // let it parse and convert equations into SVGs dynamically on our raw HTML string.
+        if ((window as any).MathJax && (window as any).MathJax.typesetPromise) {
+          const hiddenContainer = document.createElement('div');
+          hiddenContainer.style.position = 'fixed';
+          hiddenContainer.style.top = '0';
+          hiddenContainer.style.left = '0';
+          hiddenContainer.style.width = '1280px';
+          hiddenContainer.style.zIndex = '-9999';
+          hiddenContainer.style.opacity = '0.001';
+          hiddenContainer.innerHTML = processedSlidesHTML;
+          document.body.appendChild(hiddenContainer);
+
+          // Let MathJax render everything inside the hidden container
+          await (window as any).MathJax.typesetPromise([hiddenContainer]);
+          processedSlidesHTML = hiddenContainer.innerHTML;
+
+          // Extract the global MathJax stylesheet that it injects so the SVGs render correctly in html2pdf
+          const mathStyles = document.getElementById('MathJax-SVG-styles') || document.getElementById('MJX-CHTML-styles');
+          if (mathStyles) {
+            mathJaxStyleString = mathStyles.outerHTML;
+          }
+
+          document.body.removeChild(hiddenContainer);
+        }
+
+        const finalHtmlContent = `
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Noto+Sans+Devanagari:wght@400;600;800&display=swap" rel="stylesheet">
+            ${mathJaxStyleString}
+            <style>${getBaseCSS()}</style>
+          </head>
+          <body>
+            ${processedSlidesHTML}
+          </body>
+          </html>
+        `;
 
         const opt = {
           margin:       0,
@@ -217,7 +249,7 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
         };
 
         // Pass the raw HTML string directly to html2pdf
-        await html2pdf().set(opt).from(htmlContent).save();
+        await html2pdf().set(opt).from(finalHtmlContent).save();
       } catch (error) {
         console.error('Error generating PDF:', error);
         alert('Failed to generate PDF slides. Please try again.');
@@ -251,6 +283,7 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
           </div>
           <div className="text-emerald-600/70 text-lg space-y-2 max-w-xl">
             <p>&gt; Securing raw HTML context...</p>
+            <p>&gt; Typesetting MathJax equations...</p>
             <p>&gt; Slicing {selectedQuestions.length} selected questions...</p>
             <p>&gt; Injecting KD-Style visual assets...</p>
             <p className="text-emerald-400 font-bold">&gt; STAND BY...</p>
