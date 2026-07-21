@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { PenTool, FileDown, BrainCircuit, Calendar, Calculator, ArrowRight, Stars } from 'lucide-react';
+import { PenTool, FileDown, FileArchive, BrainCircuit, Calendar, Calculator, ArrowRight, Stars } from 'lucide-react';
 
 import { MouseTrail } from '@/components/ui/tools/MouseTrail';
 import { MeteorShower } from '@/components/ui/tools/MeteorShower';
@@ -38,6 +38,16 @@ const tools = [
     href: '/pdf-merger',
     color: 'from-orange-400 to-rose-600',
     delay: 0.3,
+    status: 'Live',
+    size: 'normal'
+  },
+  {
+    title: 'PDF Compressor',
+    description: 'World\'s fastest browser-based PDF compressor. Crush 500MB → 20MB in seconds. 100% private, zero uploads.',
+    icon: FileArchive,
+    href: '/tools/pdf-compressor',
+    color: 'from-teal-400 to-cyan-600',
+    delay: 0.35,
     status: 'Live',
     size: 'normal'
   },

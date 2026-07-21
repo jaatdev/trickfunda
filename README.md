@@ -96,6 +96,19 @@ A built-in 3D infinite canvas application for brainstorming and interactive lear
 
 ---
 
+### 🗜️ High-Performance PDF Compressor
+
+Built-in client-side PDF compression engine that works entirely in the browser:
+
+- **World's Fastest Browser Compression** — reduces 500MB PDFs to 20MB in seconds
+- **100% Private** — zero server uploads, all processing happens locally on your device
+- **Web Worker Architecture** — offloads heavy image recompression to background threads (zero UI freezing)
+- **Advanced Optimization Pipeline** — includes image recompression, stream deduplication, font optimization, and metadata stripping
+- **Three Quality Presets** — Ultra (Zero Visual Loss), Balanced (Smart Compression), Maximum (Maximum Savings)
+- **Zero-Copy Transfers** — uses Transferable `ArrayBuffer` for blazing fast memory management
+
+---
+
 ### ☁️ Headless CMS via Google Drive
 
 TrickFunda's entire `data/` layer is fully decoupled and powered by a headless Google Drive architecture:
