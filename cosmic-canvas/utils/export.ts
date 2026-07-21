@@ -406,6 +406,13 @@ export const exportToPdf = async (
         } catch (error) {
             console.warn('Failed to render PDF watermark:', error);
         }
+
+        // Layer 7: Full Page YouTube Link
+        try {
+            pdf.link(0, 0, pageWidth, pageHeight, { url: 'https://www.youtube.com/@TrickFunda' });
+        } catch (error) {
+            console.warn('Failed to add PDF link:', error);
+        }
     }
 
     // Save PDF

@@ -28,7 +28,8 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
         
         optionsHTML += `
           <div class="option-box">
-            (${letter}) ${displayOpt}
+            <span class="opt-letter">(${letter})</span>
+            <div class="opt-text">${displayOpt}</div>
           </div>
         `;
       });
@@ -139,23 +140,36 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
       text-transform: uppercase;
     }
     
-    .prompt-hi { font-size: 24px; font-weight: 800; color: #1e293b; margin-bottom: 12px; line-height: 2.2; }
-    .prompt-en { font-size: 22px; font-weight: 600; color: #334155; margin-bottom: 30px; line-height: 2.2; }
+    .prompt-hi { font-size: 24px; font-weight: 800; color: #1e293b; margin-bottom: 12px; line-height: 1.8; }
+    .prompt-en { font-size: 22px; font-weight: 600; color: #334155; margin-bottom: 24px; line-height: 1.8; }
     
     .options-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      font-size: 22px;
-      font-weight: 600;
-      color: #0f172a;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
     }
     .option-box {
       background-color: #f1f5f9;
-      padding: 20px 25px;
-      border-radius: 8px;
-      border-left: 5px solid #cbd5e1;
-      line-height: 2.5;
+      padding: 12px 20px;
+      border-radius: 12px;
+      border-left: 6px solid #cbd5e1;
+      display: flex;
+      align-items: center;
+      min-height: 64px;
+    }
+    .opt-letter {
+      font-size: 22px;
+      font-weight: 800;
+      color: #ff4500;
+      margin-right: 16px;
+      flex-shrink: 0;
+    }
+    .opt-text {
+      font-size: 22px;
+      font-weight: 600;
+      color: #0f172a;
+      line-height: 1.6;
     }
     
     .right-col {
