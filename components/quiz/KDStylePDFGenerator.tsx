@@ -16,22 +16,6 @@ export default function KDStylePDFGenerator({ questions, title }: Props) {
   const generatePDF = async () => {
     if (!containerRef.current) return;
     setIsGenerating(true);
-    
-    // Create a temporary container on the body to avoid any React parent CSS constraints (e.g. overflow: hidden)
-    const tempContainer = document.createElement('div');
-    tempContainer.style.position = 'absolute';
-    tempContainer.style.top = '0';
-    tempContainer.style.left = '0';
-    tempContainer.style.zIndex = '-9999';
-    tempContainer.style.width = '1280px';
-    tempContainer.style.backgroundColor = '#ffffff';
-    
-    // Clone the node so we don't disrupt the React DOM tree
-    const clone = containerRef.current.cloneNode(true) as HTMLElement;
-    clone.style.display = 'block'; // Ensure the clone is visible
-    
-    tempContainer.appendChild(clone);
-    document.body.appendChild(tempContainer);
 
     try {
       // dynamically import html2pdf
@@ -45,24 +29,18 @@ export default function KDStylePDFGenerator({ questions, title }: Props) {
         html2canvas:  { 
           scale: 2, 
           useCORS: true, 
-          logging: false,
-          scrollY: 0, // CRITICAL: forces html2canvas to render from the top, preventing scroll-clipping
-          scrollX: 0,
-          windowWidth: 1280
+          logging: false
         },
-        jsPDF:        { unit: 'px', format: [1280, 720], orientation: 'landscape' }
+        jsPDF:        { unit: 'px', format: [1280, 720], orientation: 'landscape' },
+        pagebreak:    { mode: 'css' }
       };
 
-      await html2pdf().set(opt).from(tempContainer).save();
+      await html2pdf().set(opt).from(containerRef.current).save();
     } catch (error) {
       console.error('Error generating PDF:', error);
       alert('Failed to generate PDF slides. Please try again.');
     } finally {
       setIsGenerating(false);
-      // Clean up the temporary container from the DOM
-      if (document.body.contains(tempContainer)) {
-        document.body.removeChild(tempContainer);
-      }
     }
   };
 
@@ -83,7 +61,7 @@ export default function KDStylePDFGenerator({ questions, title }: Props) {
 
       {/* Hidden container for PDF rendering */}
       <div 
-        style={{ width: '1280px', display: 'none' }}
+        style={{ position: 'absolute', left: '-20000px', top: 0, width: '1280px' }}
         ref={containerRef}
       >
         <div id="slide-to-print" className="bg-white">
