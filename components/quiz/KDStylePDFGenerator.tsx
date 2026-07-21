@@ -39,15 +39,21 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
           
           if (isCancelled) return;
 
-          const pdf = new jsPDF('l', 'px', [1280, 720]);
+          const pdf = new jsPDF({
+            orientation: 'landscape',
+            unit: 'px',
+            format: [1280, 720],
+            compress: true
+          });
           const slideElements = Array.from(document.querySelectorAll('.pdf-slide-capture')) as HTMLElement[];
 
           for (let i = 0; i < slideElements.length; i++) {
             const slideEl = slideElements[i];
             
-            const dataUrl = await htmlToImage.toPng(slideEl, {
+            const dataUrl = await htmlToImage.toJpeg(slideEl, {
+              quality: 0.8,
               backgroundColor: '#ffffff',
-              pixelRatio: 2,
+              pixelRatio: 1.5,
               style: {
                 transform: 'scale(1)',
                 transformOrigin: 'top left',
@@ -56,10 +62,10 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
             });
 
             if (i > 0) {
-              pdf.addPage([1280, 720], 'l');
+              pdf.addPage([1280, 720], 'landscape');
             }
             
-            pdf.addImage(dataUrl, 'PNG', 0, 0, 1280, 720);
+            pdf.addImage(dataUrl, 'JPEG', 0, 0, 1280, 720, undefined, 'FAST');
           }
 
           const pdfFilename = `${title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}_slides.pdf`;

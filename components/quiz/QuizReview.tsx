@@ -89,7 +89,12 @@ export function QuizReview({ attempts, score, topicId, onClose }: QuizReviewProp
 
       const isDark = document.documentElement.classList.contains('dark');
       const { jsPDF } = await import('jspdf');
-      const pdf = new jsPDF('p', 'pt', 'a4');
+      const pdf = new jsPDF({
+        orientation: 'portrait',
+        unit: 'pt',
+        format: 'a4',
+        compress: true
+      });
       
       const margin = 20; 
       const pdfWidth = pdf.internal.pageSize.getWidth() - (2 * margin);
@@ -106,9 +111,10 @@ export function QuizReview({ attempts, score, topicId, onClose }: QuizReviewProp
         
         const el = elementsToCapture[i];
         
-        const dataUrl = await htmlToImage.toPng(el, {
+        const dataUrl = await htmlToImage.toJpeg(el, {
+          quality: 0.8,
           backgroundColor: isDark ? '#171717' : '#ffffff',
-          pixelRatio: 2,
+          pixelRatio: 1.5,
           style: {
             transform: 'scale(1)',
             transformOrigin: 'top left',
@@ -127,7 +133,7 @@ export function QuizReview({ attempts, score, topicId, onClose }: QuizReviewProp
           }
         }
         
-        pdf.addImage(dataUrl, 'PNG', margin, currentY, pdfWidth, scaledHeight);
+        pdf.addImage(dataUrl, 'JPEG', margin, currentY, pdfWidth, scaledHeight, undefined, 'FAST');
         currentY += scaledHeight + 15; // 15pt gap between elements
         
         if (i === elementsToCapture.length - 1) {
