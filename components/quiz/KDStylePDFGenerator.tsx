@@ -160,15 +160,15 @@ function SlideComponent({ question: q, index, title }: { question: QuizQuestion,
       </div>
 
       {/* Content */}
-      <div style={{ display: 'flex', flex: 1, padding: '30px 40px', gap: '40px', minHeight: 0 }}>
+      <div style={{ display: 'flex', flex: 1, padding: '20px 40px', gap: '30px', minHeight: 0 }}>
         {/* Left Column (Question + Options) */}
-        <div style={{ flex: 1, borderRight: '3px dashed #cbd5e1', paddingRight: '40px', display: 'flex', flexDirection: 'column', gap: '15px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px', gap: '15px' }}>
-            <div style={{ backgroundColor: '#ff4500', color: 'white', padding: '6px 16px', borderRadius: '8px', fontSize: '20px', fontWeight: 800, whiteSpace: 'nowrap', boxShadow: '0 4px 6px -1px rgba(255, 69, 0, 0.2)' }}>
+        <div style={{ flex: 1, borderRight: '3px dashed #cbd5e1', paddingRight: '30px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', marginBottom: '5px', gap: '15px' }}>
+            <div style={{ flexShrink: 0, backgroundColor: '#ff4500', color: 'white', padding: '6px 16px', borderRadius: '8px', fontSize: '18px', fontWeight: 800, whiteSpace: 'nowrap', boxShadow: '0 4px 6px -1px rgba(255, 69, 0, 0.2)' }}>
               Q. {num}
             </div>
             {q.examTag && (
-              <div style={{ backgroundColor: '#fef08a', color: '#b45309', padding: '6px 16px', borderRadius: '8px', fontSize: '16px', fontWeight: 800, border: '2px solid #fde047', textTransform: 'uppercase', whiteSpace: 'nowrap', boxShadow: '0 4px 6px -1px rgba(253, 224, 71, 0.3)' }}>
+              <div style={{ flexShrink: 0, backgroundColor: '#fef08a', color: '#b45309', padding: '6px 16px', borderRadius: '8px', fontSize: '14px', fontWeight: 800, border: '2px solid #fde047', textTransform: 'uppercase', whiteSpace: 'nowrap', boxShadow: '0 4px 6px -1px rgba(253, 224, 71, 0.3)' }}>
                 {q.examTag}
               </div>
             )}
@@ -176,31 +176,31 @@ function SlideComponent({ question: q, index, title }: { question: QuizQuestion,
           
           {q.prompt_hi && (
             <MathJax>
-              <div style={{ fontSize: '24px', fontWeight: 700, color: '#1e293b', lineHeight: 1.5 }} dangerouslySetInnerHTML={{ __html: q.prompt_hi }} />
+              <div style={{ fontSize: '22px', fontWeight: 700, color: '#1e293b', lineHeight: 1.4 }} dangerouslySetInnerHTML={{ __html: q.prompt_hi }} />
             </MathJax>
           )}
           
           <MathJax>
-             <div style={{ fontSize: '22px', fontWeight: 600, color: '#475569', lineHeight: 1.5 }} dangerouslySetInnerHTML={{ __html: q.prompt }} />
+             <div style={{ fontSize: '20px', fontWeight: 600, color: '#475569', lineHeight: 1.4 }} dangerouslySetInnerHTML={{ __html: q.prompt }} />
           </MathJax>
 
           {q.image_url && (
             <div style={{ marginTop: '10px', display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
-               <img src={q.image_url} alt="Question" style={{ maxHeight: '180px', maxWidth: '100%', objectFit: 'contain', borderRadius: '12px', border: '2px solid #e2e8f0' }} />
+               <img src={q.image_url} alt="Question" style={{ maxHeight: '160px', maxWidth: '100%', objectFit: 'contain', borderRadius: '12px', border: '2px solid #e2e8f0' }} />
             </div>
           )}
 
-          {/* Options at the bottom of left col */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: 'auto' }}>
+          {/* Options at the bottom of left col - Using a 2x2 Grid to save vertical space! */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginTop: 'auto' }}>
             {q.options?.map((opt, idx) => {
               const letter = String.fromCharCode(65 + idx);
               const hiOpt = q.options_hi?.[idx];
               const displayOpt = (hiOpt && opt !== hiOpt) ? `${opt} / ${hiOpt}` : opt;
               return (
-                <div key={idx} style={{ backgroundColor: '#f1f5f9', borderRadius: '12px', padding: '12px 20px', display: 'flex', alignItems: 'center', gap: '15px' }}>
-                  <span style={{ fontSize: '22px', fontWeight: 800, color: '#ff4500', flexShrink: 0 }}>({letter})</span>
+                <div key={idx} style={{ backgroundColor: '#f1f5f9', borderRadius: '12px', padding: '10px 15px', display: 'flex', alignItems: 'center', gap: '12px', border: '1px solid #e2e8f0' }}>
+                  <span style={{ fontSize: '20px', fontWeight: 800, color: '#ff4500', flexShrink: 0 }}>({letter})</span>
                   <MathJax>
-                     <div style={{ fontSize: '20px', fontWeight: 600, color: '#0f172a' }} dangerouslySetInnerHTML={{ __html: displayOpt }} />
+                     <div style={{ fontSize: '18px', fontWeight: 700, color: '#000000' }} dangerouslySetInnerHTML={{ __html: displayOpt }} />
                   </MathJax>
                 </div>
               );
@@ -209,13 +209,11 @@ function SlideComponent({ question: q, index, title }: { question: QuizQuestion,
         </div>
 
         {/* Right Column (Solving Area) */}
-        <div style={{ flex: 1, position: 'relative', display: 'flex', flexDirection: 'column', overflow: 'hidden', borderRadius: '16px', border: '2px solid #e2e8f0', backgroundColor: '#fafafa' }}>
+        <div style={{ flex: 1, position: 'relative', display: 'flex', flexDirection: 'column', overflow: 'hidden', borderRadius: '16px', backgroundColor: '#ffffff' }}>
           {/* Watermark */}
-          <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: 0.04, pointerEvents: 'none', overflow: 'hidden' }}>
-             <div style={{ fontSize: '100px', fontWeight: 900, color: '#0f172a', transform: 'rotate(-45deg)', whiteSpace: 'nowrap' }}>TRICKFUNDA</div>
+          <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none', overflow: 'hidden' }}>
+             <div style={{ fontSize: '110px', fontWeight: 900, color: '#f1f5f9', transform: 'rotate(-45deg)', whiteSpace: 'nowrap' }}>TRICKFUNDA</div>
           </div>
-          {/* Lined Paper Effect */}
-          <div style={{ position: 'absolute', inset: 0, backgroundImage: 'repeating-linear-gradient(transparent, transparent 39px, #94a3b8 39px, #94a3b8 40px)', opacity: 0.3, pointerEvents: 'none' }} />
         </div>
       </div>
 
