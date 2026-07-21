@@ -30,9 +30,15 @@ export default function KDStylePDFGenerator({ questions, title }: Props) {
         jsPDF:        { unit: 'px', format: [1280, 720], orientation: 'landscape' }
       };
 
-      // We need to briefly unhide it for html2canvas to render it properly
+      // We need to briefly unhide it and place it in viewport for html2canvas to render it properly
       element.style.display = 'block';
+      element.style.position = 'absolute';
+      element.style.top = '0';
+      element.style.left = '0';
+      element.style.zIndex = '-9999';
+
       await html2pdf().set(opt).from(element).save();
+      
       element.style.display = 'none';
     } catch (error) {
       console.error('Error generating PDF:', error);
@@ -62,7 +68,6 @@ export default function KDStylePDFGenerator({ questions, title }: Props) {
 
       {/* Hidden container for PDF rendering */}
       <div 
-        className="fixed top-0 left-[-9999px] z-[-1]" 
         style={{ width: '1280px', display: 'none' }}
         ref={containerRef}
       >
