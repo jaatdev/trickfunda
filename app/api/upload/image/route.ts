@@ -1,4 +1,3 @@
-export const runtime = 'edge';
 // app/api/upload/image/route.ts
 import { NextResponse } from 'next/server';
 import cloudinary from 'cloudinary';
