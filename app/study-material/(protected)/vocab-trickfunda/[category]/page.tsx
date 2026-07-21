@@ -92,3 +92,5 @@ export default async function CategoryDaysPage({ params }: Props) {
     </div>
   );
 }
+
+export const dynamicParams = false;

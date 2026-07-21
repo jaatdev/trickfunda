@@ -74,3 +74,5 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: err?.message || 'Server error' }, { status: 500 });
   }
 }
+
+export const runtime = 'edge';

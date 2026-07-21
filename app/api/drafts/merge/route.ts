@@ -132,3 +132,5 @@ function sanitizePayload(payload: any) {
   }
   return copy;
 }
+
+export const runtime = 'edge';

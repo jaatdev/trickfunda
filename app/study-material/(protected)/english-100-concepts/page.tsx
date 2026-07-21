@@ -14,3 +14,5 @@ export default async function EnglishConceptsPage() {
     <EnglishTheme concepts={concepts} displayTitle="English 100 Concepts" />
   );
 }
+
+export const dynamicParams = false;

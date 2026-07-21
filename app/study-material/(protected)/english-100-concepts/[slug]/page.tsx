@@ -76,3 +76,5 @@ export default async function ConceptPage(props: Props) {
     </EnglishViewerWrapper>
   );
 }
+
+export const dynamicParams = false;

@@ -46,3 +46,5 @@ export async function GET(request: Request) {
 
   return POST();
 }
+
+export const runtime = 'edge';

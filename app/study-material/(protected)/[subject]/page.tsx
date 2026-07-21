@@ -14,6 +14,8 @@ export async function generateStaticParams() {
   return subjects.map(subject => ({ subject }));
 }
 
+export const dynamicParams = false;
+
 export async function generateMetadata({ params }: { params: Promise<{ subject: string }> }): Promise<Metadata> {
   const resolvedParams = await params;
   return {

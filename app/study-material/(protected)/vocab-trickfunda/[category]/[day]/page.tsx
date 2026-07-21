@@ -40,3 +40,5 @@ export default async function FlashcardDayPage({ params }: Props) {
     />
   );
 }
+
+export const dynamicParams = false;

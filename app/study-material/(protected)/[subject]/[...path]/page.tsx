@@ -162,3 +162,5 @@ export default async function RecursiveStudyMaterialPage(props: Props) {
     </main>
   );
 }
+
+export const dynamicParams = false;

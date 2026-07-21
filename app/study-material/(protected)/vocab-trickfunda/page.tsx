@@ -86,3 +86,5 @@ export default function VocabTrickfundaDashboard() {
     </div>
   );
 }
+
+export const dynamicParams = false;
