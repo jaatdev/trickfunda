@@ -245,35 +245,60 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
           // --- FIX HTML2CANVAS SVG BUGS ---
           // html2canvas severely struggles with SVG viewBoxes and 'ex' units (causing fraction lines to overlap).
           // We serialize all rendered MathJax SVGs into Base64 <img> tags to freeze them perfectly.
-          const svgs = hiddenContainer.querySelectorAll('svg');
-          svgs.forEach((svg) => {
+          const svgs = Array.from(hiddenContainer.querySelectorAll('svg'));
+          for (const svg of svgs) {
             const width = svg.getAttribute('width');
             const height = svg.getAttribute('height');
             const style = svg.getAttribute('style');
+            const verticalAlign = svg.style.verticalAlign;
+            
+            // Get computed pixel dimensions
+            const rect = svg.getBoundingClientRect();
+            // Fallbacks for tiny elements
+            const pxWidth = rect.width || 10;
+            const pxHeight = rect.height || 10;
             
             // Serialize SVG to XML string
             const svgData = new XMLSerializer().serializeToString(svg);
-            // Convert to Base64 (using encodeURIComponent to handle special characters safely)
-            const base64Data = btoa(unescape(encodeURIComponent(svgData)));
+            const svgBase64 = btoa(unescape(encodeURIComponent(svgData)));
             
-            // Create a replacement image
+            // Rasterize the SVG to a PNG using the browser's native engine
+            const pngDataUrl = await new Promise((resolve) => {
+              const canvas = document.createElement('canvas');
+              // Scale for retina/print sharpness
+              const scale = 3; 
+              canvas.width = pxWidth * scale;
+              canvas.height = pxHeight * scale;
+              const ctx = canvas.getContext('2d');
+              
+              const tempImg = new Image();
+              tempImg.onload = () => {
+                ctx?.drawImage(tempImg, 0, 0, canvas.width, canvas.height);
+                resolve(canvas.toDataURL('image/png'));
+              };
+              tempImg.src = 'data:image/svg+xml;base64,' + svgBase64;
+            });
+            
+            // Create a replacement image using the perfect PNG raster
             const img = document.createElement('img');
-            img.src = 'data:image/svg+xml;base64,' + base64Data;
+            img.src = pngDataUrl as string;
             
-            // Carry over exact CSS dimensions from MathJax so it aligns perfectly with text baseline
-            if (width) img.style.width = width;
-            if (height) img.style.height = height;
-            if (style) img.style.cssText = style;
-            
-            // Ensure vertical alignment is strictly preserved
-            if (svg.style.verticalAlign) {
-              img.style.verticalAlign = svg.style.verticalAlign;
+            // Apply exact dimensions so it matches the surrounding text perfectly
+            img.style.width = pxWidth + 'px';
+            img.style.height = pxHeight + 'px';
+            if (verticalAlign) {
+              img.style.verticalAlign = verticalAlign;
             } else {
               img.style.verticalAlign = 'middle';
             }
             
+            // Copy margins if any
+            if (svg.style.margin) img.style.margin = svg.style.margin;
+            if (svg.style.marginTop) img.style.marginTop = svg.style.marginTop;
+            if (svg.style.marginBottom) img.style.marginBottom = svg.style.marginBottom;
+            
             svg.parentNode?.replaceChild(img, svg);
-          });
+          }
           // --------------------------------
           
           // MathJax processed our string. We need to extract the slides HTML back out
