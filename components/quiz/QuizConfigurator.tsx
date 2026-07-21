@@ -98,7 +98,7 @@ export const QuizConfigurator: React.FC<QuizConfiguratorProps> = ({
 
         {isAdmin && questions.length > 0 && (
           <div className="pt-4 border-t border-gray-100 dark:border-gray-800">
-            <KDStylePDFGenerator questions={questions} title={quizTitle} />
+            <KDStylePDFGenerator questions={questions} title={quizTitle} selectedCount={selectedCount} />
           </div>
         )}
       </div>

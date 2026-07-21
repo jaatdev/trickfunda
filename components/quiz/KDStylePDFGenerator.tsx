@@ -7,41 +7,56 @@ import { Download, Loader2 } from 'lucide-react';
 interface Props {
   questions: QuizQuestion[];
   title: string;
+  selectedCount?: number;
 }
 
-export default function KDStylePDFGenerator({ questions, title }: Props) {
+export default function KDStylePDFGenerator({ questions, title, selectedCount }: Props) {
   const [isGenerating, setIsGenerating] = useState(false);
+  const [showSlides, setShowSlides] = useState(false);
+  const [selectedQuestions, setSelectedQuestions] = useState<QuizQuestion[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const generatePDF = async () => {
-    if (!containerRef.current) return;
-    setIsGenerating(true);
-
-    try {
-      // dynamically import html2pdf
-      const html2pdfModule = await import('html2pdf.js');
-      const html2pdf = (html2pdfModule.default ? html2pdfModule.default : html2pdfModule) as any;
-      
-      const opt = {
-        margin:       0,
-        filename:     `${title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}_slides.pdf`,
-        image:        { type: 'jpeg', quality: 1 },
-        html2canvas:  { 
-          scale: 2, 
-          useCORS: true, 
-          logging: false
-        },
-        jsPDF:        { unit: 'px', format: [1280, 720], orientation: 'landscape' },
-        pagebreak:    { mode: 'css' }
-      };
-
-      await html2pdf().set(opt).from(containerRef.current).save();
-    } catch (error) {
-      console.error('Error generating PDF:', error);
-      alert('Failed to generate PDF slides. Please try again.');
-    } finally {
-      setIsGenerating(false);
+    // 1. Pick random questions based on selectedCount
+    let sliced = [...questions];
+    if (selectedCount && selectedCount < questions.length) {
+      sliced = sliced.sort(() => 0.5 - Math.random()).slice(0, selectedCount);
     }
+    setSelectedQuestions(sliced);
+    
+    // 2. Trigger hacker loading animation and show slides in the viewport (behind loader)
+    setIsGenerating(true);
+    setShowSlides(true);
+
+    // 3. Give the browser time to paint the slides and fonts
+    setTimeout(async () => {
+      if (!containerRef.current) {
+        setIsGenerating(false);
+        setShowSlides(false);
+        return;
+      }
+      try {
+        const html2pdfModule = await import('html2pdf.js');
+        const html2pdf = (html2pdfModule.default ? html2pdfModule.default : html2pdfModule) as any;
+        
+        const opt = {
+          margin:       0,
+          filename:     `${title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}_slides.pdf`,
+          image:        { type: 'jpeg', quality: 1 },
+          html2canvas:  { scale: 2, useCORS: true, logging: false },
+          jsPDF:        { unit: 'px', format: [1280, 720], orientation: 'landscape' },
+          pagebreak:    { mode: 'css' }
+        };
+
+        await html2pdf().set(opt).from(containerRef.current).save();
+      } catch (error) {
+        console.error('Error generating PDF:', error);
+        alert('Failed to generate PDF slides. Please try again.');
+      } finally {
+        setIsGenerating(false);
+        setShowSlides(false);
+      }
+    }, 1500); // 1.5s delay for rendering
   };
 
   return (
@@ -56,16 +71,33 @@ export default function KDStylePDFGenerator({ questions, title }: Props) {
         ) : (
           <Download className="w-5 h-5" />
         )}
-        {isGenerating ? 'Generating Slides...' : 'Download Teaching Slides (PDF)'}
+        {isGenerating ? 'Preparing PDF...' : 'Download Teaching Slides (PDF)'}
       </button>
 
-      {/* Hidden container for PDF rendering */}
-      <div 
-        style={{ position: 'absolute', left: '-20000px', top: 0, width: '1280px' }}
-        ref={containerRef}
-      >
-        <div id="slide-to-print" className="bg-white">
-          {questions?.map((q, index) => {
+      {/* Full Screen Hacker Loading Animation */}
+      {isGenerating && (
+        <div className="fixed inset-0 z-[99999] bg-black flex flex-col items-center justify-center font-mono">
+          <div className="text-emerald-500 text-4xl mb-6 flex items-center gap-4">
+            <Loader2 className="w-12 h-12 animate-spin" />
+            <span className="animate-pulse">INITIALIZING PDF GENERATOR...</span>
+          </div>
+          <div className="text-emerald-600/70 text-lg space-y-2 max-w-xl">
+            <p>&gt; Securing rendering context...</p>
+            <p>&gt; Slicing {selectedQuestions.length} selected questions...</p>
+            <p>&gt; Injecting KD-Style visual assets...</p>
+            <p className="text-emerald-400 font-bold">&gt; STAND BY...</p>
+          </div>
+        </div>
+      )}
+
+      {/* Hidden container for PDF rendering (In Viewport, behind loader) */}
+      {showSlides && (
+        <div 
+          style={{ position: 'fixed', left: 0, top: 0, width: '1280px', zIndex: 99998 }}
+          ref={containerRef}
+        >
+          <div id="slide-to-print" className="bg-white">
+            {selectedQuestions?.map((q, index) => {
             const num = index + 1;
             return (
               <div 
@@ -212,6 +244,7 @@ export default function KDStylePDFGenerator({ questions, title }: Props) {
           })}
         </div>
       </div>
+      )}
     </>
   );
 }
