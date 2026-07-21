@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { QuizQuestion } from '@/lib/types';
 import { Download, Loader2 } from 'lucide-react';
 
@@ -12,9 +12,181 @@ interface Props {
 
 export default function KDStylePDFGenerator({ questions, title, selectedCount }: Props) {
   const [isGenerating, setIsGenerating] = useState(false);
-  const [showSlides, setShowSlides] = useState(false);
   const [selectedQuestions, setSelectedQuestions] = useState<QuizQuestion[]>([]);
-  const containerRef = useRef<HTMLDivElement>(null);
+
+  const generateHTMLString = (selected: QuizQuestion[]) => {
+    let slidesHTML = '';
+    
+    selected.forEach((q, i) => {
+      const num = i + 1;
+      
+      let optionsHTML = '';
+      q.options?.forEach((opt, idx) => {
+        const letter = String.fromCharCode(65 + idx);
+        const hiOpt = q.options_hi?.[idx];
+        const displayOpt = (hiOpt && opt !== hiOpt) ? `${opt} / ${hiOpt}` : opt;
+        
+        optionsHTML += `
+          <div class="option-box">
+            (${letter}) ${displayOpt}
+          </div>
+        `;
+      });
+
+      const examTagHTML = q.examTag ? `<div class="exam-tag">${q.examTag}</div>` : '';
+      const hindiPrompt = q.prompt_hi ? `<div class="prompt-hi">${q.prompt_hi}</div>` : '';
+
+      slidesHTML += `
+        <div class="slide">
+          <div class="header">
+            <div class="logo">🎯 TrickFunda</div>
+            <div class="title">${title}</div>
+            <div class="url">▶ youtube.com/@TrickFunda</div>
+          </div>
+          
+          <div class="content">
+            <div class="left-col">
+              <div class="q-header">
+                <div class="q-num">Q. ${num} / प्र. ${num}</div>
+                ${examTagHTML}
+              </div>
+              ${hindiPrompt}
+              <div class="prompt-en">${q.prompt}</div>
+              
+              <div class="options-grid">
+                ${optionsHTML}
+              </div>
+            </div>
+            
+            <div class="right-col">
+              <div class="watermark">TrickFunda<br/>KD Method<br/>🚫 Ratta Mana Hai</div>
+            </div>
+          </div>
+          
+          <div class="footer">
+            TrickFunda App | Smart Learning Platform
+          </div>
+        </div>
+      `;
+    });
+
+    return `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Noto+Sans+Devanagari:wght@400;600;800&display=swap" rel="stylesheet">
+        <style>
+          body { 
+            margin: 0; 
+            padding: 0; 
+            background: #ffffff;
+            -webkit-print-color-adjust: exact;
+          }
+          * { box-sizing: border-box; font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif; }
+          .slide {
+            width: 1280px;
+            height: 720px;
+            page-break-after: always;
+            page-break-inside: avoid;
+            display: flex;
+            flex-direction: column;
+            background: #ffffff;
+            position: relative;
+            overflow: hidden;
+          }
+          .header {
+            background-color: #0f172a;
+            color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            border-bottom: 5px solid #ff4500;
+          }
+          .logo { font-size: 28px; font-weight: 800; color: #ff4500; letter-spacing: 1px; }
+          .title { font-size: 24px; font-weight: 600; color: #f8fafc; text-transform: uppercase; }
+          .url { font-size: 18px; font-weight: 600; color: #cbd5e1; }
+          
+          .content {
+            display: flex;
+            flex: 1;
+            padding: 30px 40px;
+            gap: 40px;
+          }
+          .left-col {
+            flex: 1;
+            border-right: 3px dashed #cbd5e1;
+            padding-right: 30px;
+            display: flex;
+            flex-direction: column;
+          }
+          .q-header { display: flex; align-items: center; margin-bottom: 15px; }
+          .q-num { font-size: 22px; font-weight: 800; color: #ff4500; }
+          .exam-tag {
+            background-color: #fef08a;
+            color: #b45309;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 800;
+            margin-left: 15px;
+            border: 1px solid #fde047;
+            text-transform: uppercase;
+          }
+          
+          .prompt-hi { font-size: 24px; font-weight: 800; color: #1e293b; margin-bottom: 12px; line-height: 1.5; }
+          .prompt-en { font-size: 22px; font-weight: 600; color: #334155; margin-bottom: 30px; line-height: 1.5; }
+          
+          .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            font-size: 22px;
+            font-weight: 600;
+            color: #0f172a;
+          }
+          .option-box {
+            background-color: #f1f5f9;
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 5px solid #cbd5e1;
+          }
+          
+          .right-col {
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          .watermark {
+            position: absolute;
+            font-size: 70px;
+            font-weight: 800;
+            color: rgba(15, 23, 42, 0.03);
+            text-align: center;
+            line-height: 1.2;
+            transform: rotate(-30deg);
+            pointer-events: none;
+            user-select: none;
+          }
+          
+          .footer {
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #94a3b8;
+            background: #f8fafc;
+          }
+        </style>
+      </head>
+      <body>
+        ${slidesHTML}
+      </body>
+      </html>
+    `;
+  };
 
   const generatePDF = async () => {
     // 1. Pick random questions based on selectedCount
@@ -24,21 +196,17 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
     }
     setSelectedQuestions(sliced);
     
-    // 2. Trigger hacker loading animation and show slides in the viewport (behind loader)
+    // 2. Trigger hacker loading animation
     setIsGenerating(true);
-    setShowSlides(true);
 
-    // 3. Give the browser time to paint the slides and fonts
+    // 3. Give the animation time to play before freezing the main thread for PDF gen
     setTimeout(async () => {
-      if (!containerRef.current) {
-        setIsGenerating(false);
-        setShowSlides(false);
-        return;
-      }
       try {
         const html2pdfModule = await import('html2pdf.js');
         const html2pdf = (html2pdfModule.default ? html2pdfModule.default : html2pdfModule) as any;
         
+        const htmlContent = generateHTMLString(sliced);
+
         const opt = {
           margin:       0,
           filename:     `${title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}_slides.pdf`,
@@ -48,15 +216,15 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
           pagebreak:    { mode: 'css' }
         };
 
-        await html2pdf().set(opt).from(containerRef.current).save();
+        // Pass the raw HTML string directly to html2pdf
+        await html2pdf().set(opt).from(htmlContent).save();
       } catch (error) {
         console.error('Error generating PDF:', error);
         alert('Failed to generate PDF slides. Please try again.');
       } finally {
         setIsGenerating(false);
-        setShowSlides(false);
       }
-    }, 1500); // 1.5s delay for rendering
+    }, 1500); // 1.5s delay for loading screen
   };
 
   return (
@@ -82,168 +250,12 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
             <span className="animate-pulse">INITIALIZING PDF GENERATOR...</span>
           </div>
           <div className="text-emerald-600/70 text-lg space-y-2 max-w-xl">
-            <p>&gt; Securing rendering context...</p>
+            <p>&gt; Securing raw HTML context...</p>
             <p>&gt; Slicing {selectedQuestions.length} selected questions...</p>
             <p>&gt; Injecting KD-Style visual assets...</p>
             <p className="text-emerald-400 font-bold">&gt; STAND BY...</p>
           </div>
         </div>
-      )}
-
-      {/* Hidden container for PDF rendering (In Viewport, behind loader) */}
-      {showSlides && (
-        <div 
-          style={{ position: 'fixed', left: 0, top: 0, width: '1280px', zIndex: 99998 }}
-          ref={containerRef}
-        >
-          <div id="slide-to-print" className="bg-white">
-            {selectedQuestions?.map((q, index) => {
-            const num = index + 1;
-            return (
-              <div 
-                key={q.id || index}
-                className="bg-white flex flex-col relative box-border"
-                style={{
-                  width: '1280px',
-                  height: '720px',
-                  pageBreakAfter: 'always',
-                  pageBreakInside: 'avoid',
-                  fontFamily: '"Poppins", sans-serif'
-                }}
-              >
-                {/* Header */}
-                <div style={{
-                  backgroundColor: '#0f172a',
-                  color: '#ffffff',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  padding: '15px 40px',
-                  borderBottom: '5px solid #ff4500'
-                }}>
-                  <div style={{ fontSize: '28px', fontWeight: 800, color: '#ff4500', letterSpacing: '1px' }}>
-                    🎯 TrickFunda
-                  </div>
-                  <div style={{ fontSize: '24px', fontWeight: 600, color: '#f8fafc', textTransform: 'uppercase' }}>
-                    {title}
-                  </div>
-                  <div style={{ fontSize: '18px', fontWeight: 600, color: '#cbd5e1' }}>
-                    ▶ youtube.com/@TrickFunda
-                  </div>
-                </div>
-
-                {/* Content Area */}
-                <div style={{
-                  display: 'flex',
-                  flex: 1,
-                  padding: '30px 40px',
-                  gap: '40px'
-                }}>
-                  {/* Left Side: Question */}
-                  <div style={{
-                    flex: 1,
-                    borderRight: '3px dashed #cbd5e1',
-                    paddingRight: '30px',
-                    display: 'flex',
-                    flexDirection: 'column'
-                  }}>
-                    <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
-                      <div style={{ fontSize: '22px', fontWeight: 800, color: '#ff4500' }}>
-                        Q. {num} / प्र. {num}
-                      </div>
-                      {q.examTag && (
-                        <div style={{
-                          backgroundColor: '#fef08a',
-                          color: '#b45309',
-                          padding: '4px 12px',
-                          borderRadius: '20px',
-                          fontSize: '14px',
-                          fontWeight: 800,
-                          marginLeft: '15px',
-                          border: '1px solid #fde047',
-                          textTransform: 'uppercase',
-                          letterSpacing: '0.5px'
-                        }}>
-                          {q.examTag}
-                        </div>
-                      )}
-                    </div>
-
-                    {q.prompt_hi && (
-                      <div style={{ fontSize: '24px', fontWeight: 800, color: '#1e293b', marginBottom: '12px', lineHeight: 1.5 }}>
-                        {q.prompt_hi}
-                      </div>
-                    )}
-                    <div style={{ fontSize: '22px', fontWeight: 600, color: '#334155', marginBottom: '30px', lineHeight: 1.5 }}>
-                      {q.prompt}
-                    </div>
-
-                    <div style={{
-                      display: 'grid',
-                      gridTemplateColumns: '1fr 1fr',
-                      gap: '20px',
-                      fontSize: '22px',
-                      fontWeight: 600,
-                      color: '#0f172a'
-                    }}>
-                      {q.options?.map((opt, i) => {
-                        const letter = String.fromCharCode(65 + i);
-                        const hiOpt = q.options_hi?.[i];
-                        return (
-                          <div key={i} style={{
-                            backgroundColor: '#f1f5f9',
-                            padding: '15px 20px',
-                            borderRadius: '8px',
-                            borderLeft: '5px solid #cbd5e1'
-                          }}>
-                            ({letter}) {opt}
-                            {hiOpt && opt !== hiOpt && ` / ${hiOpt}`}
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  {/* Right Side: Solving Space */}
-                  <div style={{
-                    flex: 1,
-                    position: 'relative',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                  }}>
-                    <div style={{
-                      position: 'absolute',
-                      fontSize: '70px',
-                      fontWeight: 800,
-                      color: 'rgba(15, 23, 42, 0.03)',
-                      textAlign: 'center',
-                      lineHeight: 1.2,
-                      transform: 'rotate(-30deg)',
-                      pointerEvents: 'none',
-                      userSelect: 'none'
-                    }}>
-                      TrickFunda<br/>KD Method<br/>🚫 Ratta Mana Hai
-                    </div>
-                  </div>
-                </div>
-
-                {/* Footer */}
-                <div style={{
-                  textAlign: 'center',
-                  padding: '10px',
-                  fontSize: '14px',
-                  fontWeight: 600,
-                  color: '#94a3b8',
-                  background: '#f8fafc'
-                }}>
-                  TrickFunda App | Smart Learning Platform
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
       )}
     </>
   );
