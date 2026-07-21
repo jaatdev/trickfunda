@@ -148,7 +148,7 @@ function SlideComponent({ question: q, index, title }: { question: QuizQuestion,
       }}
     >
       {/* Header */}
-      <div style={{ backgroundColor: '#0f172a', color: '#ffffff', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px 40px', borderBottom: '5px solid #ff4500' }}>
+      <div style={{ flexShrink: 0, backgroundColor: '#0f172a', color: '#ffffff', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px 40px', borderBottom: '5px solid #ff4500' }}>
         <div style={{ fontSize: '28px', fontWeight: 800, color: '#ff4500', letterSpacing: '1px' }}>🎯 TrickFunda</div>
         <div style={{ fontSize: '24px', fontWeight: 600, color: '#f8fafc', textTransform: 'uppercase' }}>{title}</div>
         <div style={{ fontSize: '18px', fontWeight: 600, color: '#cbd5e1', display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -160,12 +160,14 @@ function SlideComponent({ question: q, index, title }: { question: QuizQuestion,
       </div>
 
       {/* Content */}
-      <div style={{ display: 'flex', flex: 1, padding: '30px 40px', gap: '40px' }}>
+      <div style={{ display: 'flex', flex: 1, padding: '30px 40px', gap: '40px', minHeight: 0 }}>
         <div style={{ flex: 1, borderRight: '3px dashed #cbd5e1', paddingRight: '30px', display: 'flex', flexDirection: 'column' }}>
-          <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
-            <div style={{ fontSize: '22px', fontWeight: 800, color: '#ff4500' }}>Q. {num} / प्र. {num}</div>
+          <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px', gap: '15px' }}>
+            <div style={{ backgroundColor: '#ff4500', color: 'white', padding: '6px 16px', borderRadius: '8px', fontSize: '20px', fontWeight: 800, boxShadow: '0 4px 6px -1px rgba(255, 69, 0, 0.2)' }}>
+              Q. {num}
+            </div>
             {q.examTag && (
-              <div style={{ backgroundColor: '#fef08a', color: '#b45309', padding: '4px 12px', borderRadius: '20px', fontSize: '14px', fontWeight: 800, marginLeft: '15px', border: '1px solid #fde047', textTransform: 'uppercase' }}>
+              <div style={{ backgroundColor: '#fef08a', color: '#b45309', padding: '6px 16px', borderRadius: '8px', fontSize: '16px', fontWeight: 800, border: '2px solid #fde047', textTransform: 'uppercase', boxShadow: '0 4px 6px -1px rgba(253, 224, 71, 0.3)' }}>
                 {q.examTag}
               </div>
             )}
@@ -206,7 +208,7 @@ function SlideComponent({ question: q, index, title }: { question: QuizQuestion,
       </div>
 
       {/* Footer */}
-      <div style={{ backgroundColor: '#0f172a', color: '#64748b', fontSize: '14px', fontWeight: 600, padding: '10px 40px', textAlign: 'center', borderTop: '2px solid #1e293b' }}>
+      <div style={{ flexShrink: 0, backgroundColor: '#0f172a', color: '#64748b', fontSize: '14px', fontWeight: 600, padding: '10px 40px', textAlign: 'center', borderTop: '2px solid #1e293b' }}>
         TrickFunda App | Smart Learning Platform
       </div>
     </div>
