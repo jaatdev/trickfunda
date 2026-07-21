@@ -101,8 +101,10 @@ A built-in 3D infinite canvas application for brainstorming and interactive lear
 TrickFunda's entire `data/` layer is fully decoupled and powered by a headless Google Drive architecture:
 
 - **Zero-Dependency Sync** — uses a custom Node.js script to sync the Google Drive folder via Service Account JWTs
-- **Automated CI/CD** — automatically downloads all new study materials on every Vercel build (`npm run sync-data`)
+- **Automated CI/CD & Cron Jobs** — automatically downloads all new study materials on every Vercel build (`npm run sync-data`) and runs a Daily Cron Job at midnight (`0 0 * * *`) to keep the live site up-to-date without triggering new deployments.
+- **1-Click Admin Sync** — A dedicated Sync button in the Admin Dashboard allows admins to instantly sync the latest Google Drive files to the live website.
 - **Frictionless Content Management** — content creators simply drag and drop PDFs, JSONs, and Markdown into Google Drive, and TrickFunda automatically picks them up!
+- **Edge Optimized** — fully optimized to run within Vercel's Hobby tier constraints by aggressively utilizing static generation (SSG) and the Vercel Edge Runtime.
 
 ---
 
