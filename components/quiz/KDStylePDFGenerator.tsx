@@ -43,10 +43,10 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
               <div class="logo">🎯 TrickFunda</div>
               <div class="title">${title}</div>
               <div class="url" style="display: flex; align-items: center; gap: 8px;">
-                <svg viewBox="0 0 24 24" fill="#ff0000" width="28" height="28">
+                <svg viewBox="0 0 24 24" fill="#ff0000" width="32" height="32" style="display: block;">
                   <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                 </svg>
-                youtube.com/@TrickFunda
+                <span style="line-height: 1; padding-top: 2px;">youtube.com/@TrickFunda</span>
               </div>
             </div>
           
@@ -139,22 +139,23 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
       text-transform: uppercase;
     }
     
-    .prompt-hi { font-size: 24px; font-weight: 800; color: #1e293b; margin-bottom: 12px; line-height: 1.5; }
-    .prompt-en { font-size: 22px; font-weight: 600; color: #334155; margin-bottom: 30px; line-height: 1.5; }
+    .prompt-hi { font-size: 24px; font-weight: 800; color: #1e293b; margin-bottom: 12px; line-height: 2.2; }
+    .prompt-en { font-size: 22px; font-weight: 600; color: #334155; margin-bottom: 30px; line-height: 2.2; }
     
     .options-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: 24px;
       font-size: 22px;
       font-weight: 600;
       color: #0f172a;
     }
     .option-box {
       background-color: #f1f5f9;
-      padding: 15px 20px;
+      padding: 20px 25px;
       border-radius: 8px;
       border-left: 5px solid #cbd5e1;
+      line-height: 2.5;
     }
     
     .right-col {
