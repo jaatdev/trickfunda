@@ -215,132 +215,66 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
     // 3. Give the animation time to play before freezing the main thread for PDF gen
     setTimeout(async () => {
       try {
-        const html2pdfModule = await import('html2pdf.js');
-        const html2pdf = (html2pdfModule.default ? html2pdfModule.default : html2pdfModule) as any;
+        const htmlToImage = await import('html-to-image');
+        const { jsPDF } = await import('jspdf');
         
         let processedSlidesHTML = generateSlidesHTML(sliced);
-        let mathJaxStyleString = '';
 
-        // If MathJax is globally available (from better-react-mathjax in the app),
-        // let it parse and convert equations into SVGs dynamically on our raw HTML string.
+        const hiddenContainer = document.createElement('div');
+        // Place it completely off-screen, but fully opaque so html-to-image captures it perfectly
+        hiddenContainer.style.position = 'absolute';
+        hiddenContainer.style.top = '-9999px';
+        hiddenContainer.style.left = '-9999px';
+        hiddenContainer.style.width = '1280px';
+        hiddenContainer.style.zIndex = '-9999';
+        
+        // Inject fonts and CSS directly into the container so html-to-image picks them up
+        hiddenContainer.innerHTML = `
+          <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Noto+Sans+Devanagari:wght@400;600;800&display=swap');
+            ${getBaseCSS()}
+          </style>
+          ${processedSlidesHTML}
+        `;
+        document.body.appendChild(hiddenContainer);
+
+        // If MathJax is globally available, let it parse and convert equations
         if ((window as any).MathJax && (window as any).MathJax.typesetPromise) {
-          const hiddenContainer = document.createElement('div');
-          hiddenContainer.style.position = 'fixed';
-          hiddenContainer.style.top = '0';
-          hiddenContainer.style.left = '0';
-          hiddenContainer.style.width = '1280px';
-          hiddenContainer.style.zIndex = '-9999';
-          hiddenContainer.style.opacity = '0.001';
-          // Inject Poppins and our CSS so MathJax can accurately measure ex/em heights!
-          hiddenContainer.innerHTML = `
-            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Noto+Sans+Devanagari:wght@400;600;800&display=swap" rel="stylesheet">
-            <style>${getBaseCSS()}</style>
-            ${processedSlidesHTML}
-          `;
-          document.body.appendChild(hiddenContainer);
-
-          // Let MathJax render everything inside the hidden container
           await (window as any).MathJax.typesetPromise([hiddenContainer]);
-          
-          // --- FIX HTML2CANVAS SVG BUGS ---
-          // html2canvas severely struggles with SVG viewBoxes and 'ex' units (causing fraction lines to overlap).
-          // We serialize all rendered MathJax SVGs into Base64 <img> tags to freeze them perfectly.
-          const svgs = Array.from(hiddenContainer.querySelectorAll('svg'));
-          for (const svg of svgs) {
-            const width = svg.getAttribute('width');
-            const height = svg.getAttribute('height');
-            const style = svg.getAttribute('style');
-            const verticalAlign = svg.style.verticalAlign;
-            
-            // Get computed pixel dimensions
-            const rect = svg.getBoundingClientRect();
-            // Fallbacks for tiny elements
-            const pxWidth = rect.width || 10;
-            const pxHeight = rect.height || 10;
-            
-            // Serialize SVG to XML string
-            const svgData = new XMLSerializer().serializeToString(svg);
-            const svgBase64 = btoa(unescape(encodeURIComponent(svgData)));
-            
-            // Rasterize the SVG to a PNG using the browser's native engine
-            const pngDataUrl = await new Promise((resolve) => {
-              const canvas = document.createElement('canvas');
-              // Scale for retina/print sharpness
-              const scale = 3; 
-              canvas.width = pxWidth * scale;
-              canvas.height = pxHeight * scale;
-              const ctx = canvas.getContext('2d');
-              
-              const tempImg = new Image();
-              tempImg.onload = () => {
-                ctx?.drawImage(tempImg, 0, 0, canvas.width, canvas.height);
-                resolve(canvas.toDataURL('image/png'));
-              };
-              tempImg.src = 'data:image/svg+xml;base64,' + svgBase64;
-            });
-            
-            // Create a replacement image using the perfect PNG raster
-            const img = document.createElement('img');
-            img.src = pngDataUrl as string;
-            
-            // Apply exact dimensions so it matches the surrounding text perfectly
-            img.style.width = pxWidth + 'px';
-            img.style.height = pxHeight + 'px';
-            if (verticalAlign) {
-              img.style.verticalAlign = verticalAlign;
-            } else {
-              img.style.verticalAlign = 'middle';
-            }
-            
-            // Copy margins if any
-            if (svg.style.margin) img.style.margin = svg.style.margin;
-            if (svg.style.marginTop) img.style.marginTop = svg.style.marginTop;
-            if (svg.style.marginBottom) img.style.marginBottom = svg.style.marginBottom;
-            
-            svg.parentNode?.replaceChild(img, svg);
-          }
-          // --------------------------------
-          
-          // MathJax processed our string. We need to extract the slides HTML back out
-          // ignoring the link and style tags we injected at the top.
-          const slideDivs = Array.from(hiddenContainer.querySelectorAll('.slide'));
-          processedSlidesHTML = slideDivs.map(el => el.outerHTML).join('');
-
-          // Extract the global MathJax stylesheet that it injects so the SVGs render correctly in html2pdf
-          const mathStyles = document.getElementById('MathJax-SVG-styles') || document.getElementById('MJX-CHTML-styles');
-          if (mathStyles) {
-            mathJaxStyleString = mathStyles.outerHTML;
-          }
-
-          document.body.removeChild(hiddenContainer);
         }
 
-        const finalHtmlContent = `
-          <!DOCTYPE html>
-          <html>
-          <head>
-            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Noto+Sans+Devanagari:wght@400;600;800&display=swap" rel="stylesheet">
-            ${mathJaxStyleString}
-            <style>${getBaseCSS()}</style>
-          </head>
-          <body>
-            ${processedSlidesHTML}
-          </body>
-          </html>
-        `;
+        // Initialize jsPDF in landscape mode exactly matching our slide dimensions
+        const pdf = new jsPDF('l', 'px', [1280, 720]);
+        const slideElements = Array.from(hiddenContainer.querySelectorAll('.slide')) as HTMLElement[];
 
-        const opt = {
-          margin:       0,
-          filename:     `${title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}_slides.pdf`,
-          image:        { type: 'jpeg', quality: 1 },
-          html2canvas:  { scale: 2, useCORS: true, logging: false },
-          jsPDF:        { unit: 'px', format: [1280, 720], orientation: 'landscape' },
-          pagebreak:    { mode: 'css' },
-          enableLinks:  true
-        };
+        // Capture each slide and add to PDF
+        for (let i = 0; i < slideElements.length; i++) {
+          const slideEl = slideElements[i];
+          
+          // Use the exact same flawless html-to-image config that QuizReview uses!
+          const dataUrl = await htmlToImage.toPng(slideEl, {
+            backgroundColor: '#ffffff',
+            pixelRatio: 2,
+            style: {
+              transform: 'scale(1)',
+              transformOrigin: 'top left',
+              margin: '0',
+            }
+          });
 
-        // Pass the raw HTML string directly to html2pdf
-        await html2pdf().set(opt).from(finalHtmlContent).save();
+          if (i > 0) {
+            pdf.addPage([1280, 720], 'l');
+          }
+          
+          pdf.addImage(dataUrl, 'PNG', 0, 0, 1280, 720);
+        }
+
+        document.body.removeChild(hiddenContainer);
+
+        // Save the final PDF
+        const pdfFilename = `${title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}_slides.pdf`;
+        pdf.save(pdfFilename);
+        
       } catch (error) {
         console.error('Error generating PDF:', error);
         alert('Failed to generate PDF slides. Please try again.');
