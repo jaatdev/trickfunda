@@ -176,6 +176,7 @@ export type QuizQuestion = {
   reason?: string
   reason_hi?: string
   examTag?: string
+  image_url?: string
   meta?: NodeMeta
   dice_layout?: DiceLayout
   options_dice_layout?: DiceLayout[]
