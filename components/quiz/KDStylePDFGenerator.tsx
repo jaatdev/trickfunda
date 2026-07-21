@@ -242,6 +242,40 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
           // Let MathJax render everything inside the hidden container
           await (window as any).MathJax.typesetPromise([hiddenContainer]);
           
+          // --- FIX HTML2CANVAS SVG BUGS ---
+          // html2canvas severely struggles with SVG viewBoxes and 'ex' units (causing fraction lines to overlap).
+          // We serialize all rendered MathJax SVGs into Base64 <img> tags to freeze them perfectly.
+          const svgs = hiddenContainer.querySelectorAll('svg');
+          svgs.forEach((svg) => {
+            const width = svg.getAttribute('width');
+            const height = svg.getAttribute('height');
+            const style = svg.getAttribute('style');
+            
+            // Serialize SVG to XML string
+            const svgData = new XMLSerializer().serializeToString(svg);
+            // Convert to Base64 (using encodeURIComponent to handle special characters safely)
+            const base64Data = btoa(unescape(encodeURIComponent(svgData)));
+            
+            // Create a replacement image
+            const img = document.createElement('img');
+            img.src = 'data:image/svg+xml;base64,' + base64Data;
+            
+            // Carry over exact CSS dimensions from MathJax so it aligns perfectly with text baseline
+            if (width) img.style.width = width;
+            if (height) img.style.height = height;
+            if (style) img.style.cssText = style;
+            
+            // Ensure vertical alignment is strictly preserved
+            if (svg.style.verticalAlign) {
+              img.style.verticalAlign = svg.style.verticalAlign;
+            } else {
+              img.style.verticalAlign = 'middle';
+            }
+            
+            svg.parentNode?.replaceChild(img, svg);
+          });
+          // --------------------------------
+          
           // MathJax processed our string. We need to extract the slides HTML back out
           // ignoring the link and style tags we injected at the top.
           const slideDivs = Array.from(hiddenContainer.querySelectorAll('.slide'));
