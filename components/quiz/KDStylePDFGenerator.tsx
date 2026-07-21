@@ -178,7 +178,7 @@ function SlideComponent({ question: q, index, title }: { question: QuizQuestion,
           )}
           
           <MathJax>
-             <div style={{ fontSize: '28px', fontWeight: 600, color: '#475569', lineHeight: 1.5 }} dangerouslySetInnerHTML={{ __html: q.prompt_en }} />
+             <div style={{ fontSize: '28px', fontWeight: 600, color: '#475569', lineHeight: 1.5 }} dangerouslySetInnerHTML={{ __html: q.prompt }} />
           </MathJax>
 
           {q.image_url && (
