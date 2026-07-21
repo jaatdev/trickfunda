@@ -12,6 +12,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 import { CyberBackground } from '@/components/study-material/custom-quiz/CyberBackground';
 import { CyberViewerWrapper } from '@/components/study-material/custom-quiz/CyberViewerWrapper';
+import { useUser } from '@clerk/nextjs';
+import dynamic from 'next/dynamic';
+
+const KDStylePDFGenerator = dynamic(() => import('@/components/quiz/KDStylePDFGenerator'), { ssr: false });
 
 interface Props {
   quizTree: QuizTreeItem[];
@@ -28,6 +32,14 @@ export default function CustomQuizBuilderClient({ quizTree }: Props) {
   const [activeQuiz, setActiveQuiz] = useState<{ id: string, title: string, questions: QuizQuestion[] } | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isQuizComplete, setIsQuizComplete] = useState(false);
+  const { user, isSignedIn } = useUser();
+  const userEmail = user?.primaryEmailAddress?.emailAddress;
+  
+  const allowList = (process.env.NEXT_PUBLIC_ADMIN_USERS || '')
+    .split(',')
+    .map((s) => s.trim().toLowerCase())
+    .filter(Boolean);
+  const isAdmin = isSignedIn && (!allowList.length || (userEmail && allowList.includes(userEmail.toLowerCase())));
 
   // Live tech-jargon for the right panel
   const [logs, setLogs] = useState<string[]>([
@@ -307,6 +319,12 @@ export default function CustomQuizBuilderClient({ quizTree }: Props) {
                   {isQuizComplete ? 'TERMINATE_SESSION' : 'ABORT'}
                 </button>
               </div>
+              
+              {isAdmin && activeQuiz.questions && (
+                <div className="mb-4">
+                  <KDStylePDFGenerator questions={activeQuiz.questions} title={activeQuiz.title} />
+                </div>
+              )}
               
               <div className="flex-1 min-h-0 bg-[#050B14]/80 backdrop-blur-xl border border-[#00F0FF]/30 p-2 shadow-[inset_0_0_30px_rgba(0,240,255,0.05)] overflow-hidden">
                 <CyberViewerWrapper>

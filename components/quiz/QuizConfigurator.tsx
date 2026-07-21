@@ -8,14 +8,21 @@ interface QuizConfiguratorProps {
   onStart: (count: number) => void;
   onCancel: () => void;
   isGenerating?: boolean;
+  isAdmin?: boolean;
+  questions?: QuizQuestion[];
 }
+
+import dynamic from 'next/dynamic';
+const KDStylePDFGenerator = dynamic(() => import('./KDStylePDFGenerator'), { ssr: false });
 
 export const QuizConfigurator: React.FC<QuizConfiguratorProps> = ({ 
   quizTitle, 
   totalAvailable, 
   onStart, 
   onCancel,
-  isGenerating = false
+  isGenerating = false,
+  isAdmin = false,
+  questions = []
 }) => {
   // If the total available is less than 5, the minimum is the total available.
   // Otherwise, the minimum is 5.
@@ -88,6 +95,12 @@ export const QuizConfigurator: React.FC<QuizConfiguratorProps> = ({
             {isGenerating ? 'Preparing...' : 'Start Quiz'}
           </button>
         </div>
+
+        {isAdmin && questions.length > 0 && (
+          <div className="pt-4 border-t border-gray-100 dark:border-gray-800">
+            <KDStylePDFGenerator questions={questions} title={quizTitle} />
+          </div>
+        )}
       </div>
     </div>
   );
