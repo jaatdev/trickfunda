@@ -16,37 +16,52 @@ export default function KDStylePDFGenerator({ questions, title }: Props) {
   const generatePDF = async () => {
     if (!containerRef.current) return;
     setIsGenerating(true);
+    
+    // Create a temporary container on the body to avoid any React parent CSS constraints (e.g. overflow: hidden)
+    const tempContainer = document.createElement('div');
+    tempContainer.style.position = 'absolute';
+    tempContainer.style.top = '0';
+    tempContainer.style.left = '0';
+    tempContainer.style.zIndex = '-9999';
+    tempContainer.style.width = '1280px';
+    tempContainer.style.backgroundColor = '#ffffff';
+    
+    // Clone the node so we don't disrupt the React DOM tree
+    const clone = containerRef.current.cloneNode(true) as HTMLElement;
+    clone.style.display = 'block'; // Ensure the clone is visible
+    
+    tempContainer.appendChild(clone);
+    document.body.appendChild(tempContainer);
+
     try {
       // dynamically import html2pdf
       const html2pdfModule = await import('html2pdf.js');
       const html2pdf = (html2pdfModule.default ? html2pdfModule.default : html2pdfModule) as any;
       
-      const element = containerRef.current;
       const opt = {
         margin:       0,
         filename:     `${title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}_slides.pdf`,
-        image:        { type: 'jpeg', quality: 0.98 },
-        html2canvas:  { scale: 2, useCORS: true, logging: false },
+        image:        { type: 'jpeg', quality: 1 },
+        html2canvas:  { 
+          scale: 2, 
+          useCORS: true, 
+          logging: false,
+          scrollY: 0, // CRITICAL: forces html2canvas to render from the top, preventing scroll-clipping
+          scrollX: 0,
+          windowWidth: 1280
+        },
         jsPDF:        { unit: 'px', format: [1280, 720], orientation: 'landscape' }
       };
 
-      // We need to briefly unhide it and place it in viewport for html2canvas to render it properly
-      element.style.display = 'block';
-      element.style.position = 'absolute';
-      element.style.top = '0';
-      element.style.left = '0';
-      element.style.zIndex = '-9999';
-
-      await html2pdf().set(opt).from(element).save();
-      
-      element.style.display = 'none';
+      await html2pdf().set(opt).from(tempContainer).save();
     } catch (error) {
       console.error('Error generating PDF:', error);
-      alert('Failed to generate PDF slides.');
+      alert('Failed to generate PDF slides. Please try again.');
     } finally {
       setIsGenerating(false);
-      if (containerRef.current) {
-        containerRef.current.style.display = 'none';
+      // Clean up the temporary container from the DOM
+      if (document.body.contains(tempContainer)) {
+        document.body.removeChild(tempContainer);
       }
     }
   };
