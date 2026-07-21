@@ -19,7 +19,7 @@ export default function KDStylePDFGenerator({ questions, title }: Props) {
     try {
       // dynamically import html2pdf
       const html2pdfModule = await import('html2pdf.js');
-      const html2pdf = html2pdfModule.default ? html2pdfModule.default : html2pdfModule;
+      const html2pdf = (html2pdfModule.default ? html2pdfModule.default : html2pdfModule) as any;
       
       const element = containerRef.current;
       const opt = {

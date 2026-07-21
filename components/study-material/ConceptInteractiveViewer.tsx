@@ -262,7 +262,7 @@ export function ConceptInteractiveViewer({ title, notesMarkdown, noteBoxes, pdfU
                 totalAvailable={activeQuiz.questions.length}
                 onStart={(count) => setQuizQuestionCount(count)}
                 onCancel={() => setActiveQuizId(null)}
-                isAdmin={isAdmin}
+                isAdmin={!!isAdmin}
                 questions={activeQuiz.questions}
               />
             </div>
