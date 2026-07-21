@@ -21,7 +21,8 @@
     "types": ["vitest/globals", "node"],
     "paths": {
       "@/*": ["./*"],
-      "@cosmic/*": ["./cosmic-canvas/*"]
+      "@cosmic/*": ["./cosmic-canvas/*"],
+      "@video-canvas/*": ["./video-canvas/*"]
     }
   },
   "include": [

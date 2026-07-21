@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { PenTool, FileDown, FileArchive, BrainCircuit, Calendar, Calculator, ArrowRight, Stars } from 'lucide-react';
+import { PenTool, FileDown, FileArchive, BrainCircuit, Calendar, Calculator, ArrowRight, Stars, Video } from 'lucide-react';
 
 import { MouseTrail } from '@/components/ui/tools/MouseTrail';
 import { MeteorShower } from '@/components/ui/tools/MeteorShower';
@@ -20,6 +20,16 @@ const tools = [
     delay: 0.1,
     status: 'Live',
     size: 'large'
+  },
+  {
+    title: 'Video Canvas',
+    description: 'Import any video, draw annotations, pin images to hide logos, and teach on top of video in real-time with full zoom control.',
+    icon: Video,
+    href: '/video-canvas',
+    color: 'from-rose-400 to-pink-600',
+    delay: 0.15,
+    status: 'Live',
+    size: 'normal'
   },
   {
     title: 'TrickFunda AI',

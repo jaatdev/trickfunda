@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import { QuizQuestion } from '@/lib/types';
-import { Download, Loader2 } from 'lucide-react';
+import { Download, Loader2, Sparkles } from 'lucide-react';
 import { MathJax } from 'better-react-mathjax';
+import { compressPDF } from '@/lib/pdf-compressor/pipeline';
 
 interface Props {
   questions: QuizQuestion[];
@@ -16,6 +17,8 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
   const [selectedQuestions, setSelectedQuestions] = useState<QuizQuestion[]>([]);
   const [customTitle, setCustomTitle] = useState(title);
   const [customYoutube, setCustomYoutube] = useState('youtube.com/@TrickFunda');
+  const [customBrand, setCustomBrand] = useState('🎯 TrickFunda');
+  const [compressionProgress, setCompressionProgress] = useState<string>('');
 
   const handleStartGeneration = () => {
     let sliced = questions;
@@ -70,21 +73,53 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
             pdf.addImage(dataUrl, 'JPEG', 0, 0, 1280, 720, undefined, 'FAST');
           }
 
-          const pdfFilename = `${customTitle.replace(/[^a-z0-9]/gi, '_').toLowerCase()}_slides.pdf`;
-          pdf.save(pdfFilename);
-        } catch (error) {
-          console.error('Error generating PDF:', error);
-          alert('Failed to generate PDF slides. Please try again.');
-        } finally {
-          setIsGenerating(false);
-        }
+            const pdfFilename = `${customTitle.replace(/[^a-z0-9]/gi, '_').toLowerCase()}_slides.pdf`;
+            
+            setCompressionProgress('Compressing with internal engine...');
+            const pdfBuffer = pdf.output('arraybuffer');
+            
+            try {
+              const compressedResult = await compressPDF(pdfBuffer, {
+                  quality: 'maximum',
+                  imageQuality: 0.6,
+                  downscaleOversized: true,
+                  stripMetadata: true,
+                  deduplicateStreams: true,
+                  optimizeFonts: true,
+              }, (progress) => {
+                  setCompressionProgress(`Compressing... ${progress.percentage}%`);
+              });
+
+              if (compressedResult.compressedBytes) {
+                  const blob = new Blob([compressedResult.compressedBytes as any], { type: 'application/pdf' });
+                  const url = URL.createObjectURL(blob);
+                  const a = document.createElement('a');
+                  a.href = url;
+                  a.download = pdfFilename;
+                  a.click();
+                  URL.revokeObjectURL(url);
+              } else {
+                  pdf.save(pdfFilename);
+              }
+            } catch (compressErr) {
+              console.warn("Compression failed, falling back to uncompressed", compressErr);
+              pdf.save(pdfFilename);
+            }
+
+          } catch (error) {
+            console.error('Error generating PDF:', error);
+            alert('Failed to generate PDF slides. Please try again.');
+          } finally {
+            setIsGenerating(false);
+            setCompressionProgress('');
+          }
       };
 
       captureSlides();
       
       return () => { isCancelled = true; };
     }
-  }, [isGenerating, selectedQuestions, customTitle, customYoutube]);
+  }, [isGenerating, selectedQuestions, customTitle, customYoutube, customBrand]);
 
   return (
     <>
@@ -110,6 +145,16 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
               placeholder="youtube.com/@TrickFunda"
             />
           </div>
+          <div>
+            <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase tracking-wider">Brand Name (Left Header)</label>
+            <input 
+              type="text" 
+              value={customBrand} 
+              onChange={(e) => setCustomBrand(e.target.value)}
+              className="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg px-3 py-2 text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
+              placeholder="🎯 TrickFunda"
+            />
+          </div>
         </div>
         <button 
           onClick={handleStartGeneration}
@@ -121,7 +166,7 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
           ) : (
             <Download className="w-5 h-5" />
           )}
-          {isGenerating ? 'Preparing PDF...' : 'Download Teaching Slides (PDF)'}
+          {isGenerating ? (compressionProgress || 'Preparing PDF...') : 'Download Teaching Slides (PDF)'}
         </button>
       </div>
 
@@ -146,6 +191,7 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
               <p>&gt; Spawning {selectedQuestions.length} virtual slide instances...</p>
               <p>&gt; Firing up native MathJax CHTML engine...</p>
               <p className="text-emerald-400 font-bold">&gt; STAND BY FOR HIGH-RES SNAPSHOTS...</p>
+              {compressionProgress && <p className="text-amber-400 font-bold">&gt; {compressionProgress}</p>}
             </div>
           </div>
         </div>
@@ -155,7 +201,7 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
       {isGenerating && (
         <div style={{ position: 'absolute', top: '-9999px', left: '-9999px', width: '1280px', overflow: 'hidden' }}>
           {selectedQuestions.map((q, i) => (
-            <SlideComponent key={q.id || i} question={q} index={i} title={customTitle} youtubeUrl={customYoutube} />
+            <SlideComponent key={q.id || i} question={q} index={i} title={customTitle} youtubeUrl={customYoutube} brand={customBrand} />
           ))}
         </div>
       )}
@@ -163,7 +209,7 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
   );
 }
 
-function SlideComponent({ question: q, index, title, youtubeUrl }: { question: QuizQuestion, index: number, title: string, youtubeUrl: string }) {
+function SlideComponent({ question: q, index, title, youtubeUrl, brand }: { question: QuizQuestion, index: number, title: string, youtubeUrl: string, brand: string }) {
   const num = index + 1;
   return (
     <div 
@@ -181,7 +227,7 @@ function SlideComponent({ question: q, index, title, youtubeUrl }: { question: Q
     >
       {/* Header */}
       <div style={{ flexShrink: 0, backgroundColor: '#0f172a', color: '#ffffff', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px 40px', borderBottom: '5px solid #ff4500' }}>
-        <div style={{ fontSize: '28px', fontWeight: 800, color: '#ff4500', letterSpacing: '1px', whiteSpace: 'nowrap', flexShrink: 0 }}>🎯 TrickFunda</div>
+        <div style={{ fontSize: '28px', fontWeight: 800, color: '#ff4500', letterSpacing: '1px', whiteSpace: 'nowrap', flexShrink: 0 }}>{brand}</div>
         <div style={{ fontSize: '24px', fontWeight: 600, color: '#f8fafc', textTransform: 'uppercase', whiteSpace: 'nowrap', margin: '0 20px', textAlign: 'center' }}>{title}</div>
         <div style={{ fontSize: '18px', fontWeight: 600, color: '#cbd5e1', display: 'flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap', flexShrink: 0 }}>
           <svg viewBox="0 0 24 24" fill="#ff0000" width="32" height="32" style={{ display: 'block' }}>
@@ -251,7 +297,7 @@ function SlideComponent({ question: q, index, title, youtubeUrl }: { question: Q
 
       {/* Footer */}
       <div style={{ flexShrink: 0, backgroundColor: '#0f172a', color: '#64748b', fontSize: '14px', fontWeight: 600, padding: '10px 40px', textAlign: 'center', borderTop: '2px solid #1e293b' }}>
-        TrickFunda App | Smart Learning Platform
+        {brand.replace(/🎯 /g, '')} | Smart Learning Platform
       </div>
     </div>
   );

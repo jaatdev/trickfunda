@@ -63,7 +63,7 @@ export default function Navbar() {
   });
 
   // Ensure ALL hooks are called before any early return!
-  const hiddenRoutes = ['/admin', '/canvas', '/pdf-merger', '/ai', '/pdf-viewer'];
+  const hiddenRoutes = ['/admin', '/canvas', '/pdf-merger', '/ai', '/pdf-viewer', '/video-canvas'];
   const isHiddenRoute = pathname && hiddenRoutes.some(route => pathname.startsWith(route));
 
   useEffect(() => {

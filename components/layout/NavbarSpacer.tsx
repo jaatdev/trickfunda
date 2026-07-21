@@ -7,7 +7,7 @@ export default function NavbarSpacer() {
   const { isSignedIn } = useAuth();
   
   // No spacer on admin or tool routes because the navbar is hidden there
-  const hiddenRoutes = ['/admin', '/canvas', '/pdf-merger', '/ai', '/pdf-viewer'];
+  const hiddenRoutes = ['/admin', '/canvas', '/pdf-merger', '/ai', '/pdf-viewer', '/video-canvas'];
   if (pathname && hiddenRoutes.some(route => pathname.startsWith(route))) return null;
   
   // No spacer on home page because the hero section is full-bleed and goes under the transparent navbar

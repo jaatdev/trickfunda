@@ -1,0 +1,25 @@
+.video-canvas-wrapper {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  background: #0a0a0a;
+  z-index: 50;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.video-canvas-wrapper canvas {
+  touch-action: none;
+}
+
+/* Hide native video controls */
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+video::-webkit-media-controls-enclosure {
+  display: none !important;
+}

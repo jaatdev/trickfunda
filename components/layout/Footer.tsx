@@ -83,7 +83,7 @@ export default function Footer() {
     })), 
   [])
 
-  const hiddenRoutes = ['/admin', '/canvas', '/pdf-merger', '/ai', '/pdf-viewer'];
+  const hiddenRoutes = ['/admin', '/canvas', '/pdf-merger', '/ai', '/pdf-viewer', '/video-canvas'];
   if (pathname && hiddenRoutes.some(route => pathname.startsWith(route))) return null;
 
   const socialLinks = [
