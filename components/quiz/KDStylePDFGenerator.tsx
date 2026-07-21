@@ -238,10 +238,24 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
         `;
         document.body.appendChild(hiddenContainer);
 
+        // CRITICAL FIX: MathJax dynamically measures the 'ex' height of the surrounding text (Poppins)
+        // to calculate the exact bounding box for the math equations.
+        // We MUST wait for all fonts in the hidden container to fully load and apply BEFORE MathJax runs,
+        // otherwise MathJax will measure the fallback font (which has a smaller ex height),
+        // causing the MathJax bounding boxes to be too small and clipping the text!
+        await document.fonts.ready;
+        await new Promise(resolve => setTimeout(resolve, 200));
+
         // If MathJax is globally available, let it parse and convert equations
         if ((window as any).MathJax && (window as any).MathJax.typesetPromise) {
           await (window as any).MathJax.typesetPromise([hiddenContainer]);
         }
+
+        // CRITICAL FIX 2: MathJax just injected @font-face rules for its own math fonts.
+        // We MUST wait for those to finish downloading from the CDN before taking the snapshot,
+        // otherwise html-to-image will capture a weird bubbly fallback font!
+        await document.fonts.ready;
+        await new Promise(resolve => setTimeout(resolve, 200));
 
         // Initialize jsPDF in landscape mode exactly matching our slide dimensions
         const pdf = new jsPDF('l', 'px', [1280, 720]);
