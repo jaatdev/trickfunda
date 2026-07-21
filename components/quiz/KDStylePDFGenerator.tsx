@@ -38,11 +38,17 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
 
       slidesHTML += `
         <div class="slide">
-          <div class="header">
-            <div class="logo">🎯 TrickFunda</div>
-            <div class="title">${title}</div>
-            <div class="url">▶ youtube.com/@TrickFunda</div>
-          </div>
+          <a href="https://www.youtube.com/@TrickFunda" target="_blank" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; width: 100%; height: 100%;">
+            <div class="header">
+              <div class="logo">🎯 TrickFunda</div>
+              <div class="title">${title}</div>
+              <div class="url" style="display: flex; align-items: center; gap: 8px;">
+                <svg viewBox="0 0 24 24" fill="#ff0000" width="28" height="28">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+                youtube.com/@TrickFunda
+              </div>
+            </div>
           
           <div class="content">
             <div class="left-col">
@@ -63,9 +69,10 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
             </div>
           </div>
           
-          <div class="footer">
-            TrickFunda App | Smart Learning Platform
-          </div>
+            <div class="footer">
+              TrickFunda App | Smart Learning Platform
+            </div>
+          </a>
         </div>
       `;
     });
@@ -209,12 +216,21 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
           hiddenContainer.style.width = '1280px';
           hiddenContainer.style.zIndex = '-9999';
           hiddenContainer.style.opacity = '0.001';
-          hiddenContainer.innerHTML = processedSlidesHTML;
+          // Inject Poppins and our CSS so MathJax can accurately measure ex/em heights!
+          hiddenContainer.innerHTML = `
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Noto+Sans+Devanagari:wght@400;600;800&display=swap" rel="stylesheet">
+            <style>${getBaseCSS()}</style>
+            ${processedSlidesHTML}
+          `;
           document.body.appendChild(hiddenContainer);
 
           // Let MathJax render everything inside the hidden container
           await (window as any).MathJax.typesetPromise([hiddenContainer]);
-          processedSlidesHTML = hiddenContainer.innerHTML;
+          
+          // MathJax processed our string. We need to extract the slides HTML back out
+          // ignoring the link and style tags we injected at the top.
+          const slideDivs = Array.from(hiddenContainer.querySelectorAll('.slide'));
+          processedSlidesHTML = slideDivs.map(el => el.outerHTML).join('');
 
           // Extract the global MathJax stylesheet that it injects so the SVGs render correctly in html2pdf
           const mathStyles = document.getElementById('MathJax-SVG-styles') || document.getElementById('MJX-CHTML-styles');
@@ -245,7 +261,8 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
           image:        { type: 'jpeg', quality: 1 },
           html2canvas:  { scale: 2, useCORS: true, logging: false },
           jsPDF:        { unit: 'px', format: [1280, 720], orientation: 'landscape' },
-          pagebreak:    { mode: 'css' }
+          pagebreak:    { mode: 'css' },
+          enableLinks:  true
         };
 
         // Pass the raw HTML string directly to html2pdf
