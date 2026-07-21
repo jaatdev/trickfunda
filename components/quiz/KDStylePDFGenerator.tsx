@@ -150,7 +150,7 @@ function SlideComponent({ question: q, index, title }: { question: QuizQuestion,
       {/* Header */}
       <div style={{ flexShrink: 0, backgroundColor: '#0f172a', color: '#ffffff', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px 40px', borderBottom: '5px solid #ff4500' }}>
         <div style={{ fontSize: '28px', fontWeight: 800, color: '#ff4500', letterSpacing: '1px', whiteSpace: 'nowrap', flexShrink: 0 }}>🎯 TrickFunda</div>
-        <div style={{ fontSize: '24px', fontWeight: 600, color: '#f8fafc', textTransform: 'uppercase', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', margin: '0 20px', textAlign: 'center' }}>{title}</div>
+        <div style={{ fontSize: '24px', fontWeight: 600, color: '#f8fafc', textTransform: 'uppercase', whiteSpace: 'nowrap', margin: '0 20px', textAlign: 'center' }}>{title}</div>
         <div style={{ fontSize: '18px', fontWeight: 600, color: '#cbd5e1', display: 'flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap', flexShrink: 0 }}>
           <svg viewBox="0 0 24 24" fill="#ff0000" width="32" height="32" style={{ display: 'block' }}>
             <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
@@ -212,7 +212,7 @@ function SlideComponent({ question: q, index, title }: { question: QuizQuestion,
         <div style={{ flex: 1, position: 'relative', display: 'flex', flexDirection: 'column', overflow: 'hidden', borderRadius: '16px', backgroundColor: '#ffffff' }}>
           {/* Watermark */}
           <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none', overflow: 'hidden' }}>
-             <div style={{ fontSize: '110px', fontWeight: 900, color: '#f1f5f9', transform: 'rotate(-45deg)', whiteSpace: 'nowrap' }}>TRICKFUNDA</div>
+             <div style={{ fontSize: '80px', letterSpacing: '12px', fontWeight: 900, color: '#f1f5f9', transform: 'rotate(-45deg)', whiteSpace: 'nowrap' }}>TRICKFUNDA</div>
           </div>
         </div>
       </div>
