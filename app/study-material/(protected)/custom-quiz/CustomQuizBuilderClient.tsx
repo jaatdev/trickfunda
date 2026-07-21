@@ -278,7 +278,10 @@ export default function CustomQuizBuilderClient({ quizTree }: Props) {
   }, [activeQuiz, isQuizComplete, enterFullscreen, exitFullscreen]);
 
   return (
-    <MathJaxContext config={{ options: { enableMenu: false } }}>
+    <MathJaxContext 
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"
+      config={{ options: { enableMenu: false } }}
+    >
       <div className="min-h-screen bg-[#050B14] flex flex-col items-center relative overflow-hidden font-mono text-[#E0F8FF] selection:bg-[#00F0FF]/30">
         
         {/* Animated Background */}
