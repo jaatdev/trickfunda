@@ -149,9 +149,9 @@ function SlideComponent({ question: q, index, title }: { question: QuizQuestion,
     >
       {/* Header */}
       <div style={{ flexShrink: 0, backgroundColor: '#0f172a', color: '#ffffff', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px 40px', borderBottom: '5px solid #ff4500' }}>
-        <div style={{ fontSize: '28px', fontWeight: 800, color: '#ff4500', letterSpacing: '1px' }}>🎯 TrickFunda</div>
-        <div style={{ fontSize: '24px', fontWeight: 600, color: '#f8fafc', textTransform: 'uppercase' }}>{title}</div>
-        <div style={{ fontSize: '18px', fontWeight: 600, color: '#cbd5e1', display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <div style={{ fontSize: '28px', fontWeight: 800, color: '#ff4500', letterSpacing: '1px', whiteSpace: 'nowrap', flexShrink: 0 }}>🎯 TrickFunda</div>
+        <div style={{ fontSize: '24px', fontWeight: 600, color: '#f8fafc', textTransform: 'uppercase', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', margin: '0 20px', textAlign: 'center' }}>{title}</div>
+        <div style={{ fontSize: '18px', fontWeight: 600, color: '#cbd5e1', display: 'flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap', flexShrink: 0 }}>
           <svg viewBox="0 0 24 24" fill="#ff0000" width="32" height="32" style={{ display: 'block' }}>
             <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
           </svg>
@@ -161,13 +161,14 @@ function SlideComponent({ question: q, index, title }: { question: QuizQuestion,
 
       {/* Content */}
       <div style={{ display: 'flex', flex: 1, padding: '30px 40px', gap: '40px', minHeight: 0 }}>
-        <div style={{ flex: 1, borderRight: '3px dashed #cbd5e1', paddingRight: '30px', display: 'flex', flexDirection: 'column' }}>
-          <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px', gap: '15px' }}>
-            <div style={{ backgroundColor: '#ff4500', color: 'white', padding: '6px 16px', borderRadius: '8px', fontSize: '20px', fontWeight: 800, boxShadow: '0 4px 6px -1px rgba(255, 69, 0, 0.2)' }}>
+        {/* Left Column (Question + Options) */}
+        <div style={{ flex: 1, borderRight: '3px dashed #cbd5e1', paddingRight: '40px', display: 'flex', flexDirection: 'column', gap: '15px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px', gap: '15px' }}>
+            <div style={{ backgroundColor: '#ff4500', color: 'white', padding: '6px 16px', borderRadius: '8px', fontSize: '20px', fontWeight: 800, whiteSpace: 'nowrap', boxShadow: '0 4px 6px -1px rgba(255, 69, 0, 0.2)' }}>
               Q. {num}
             </div>
             {q.examTag && (
-              <div style={{ backgroundColor: '#fef08a', color: '#b45309', padding: '6px 16px', borderRadius: '8px', fontSize: '16px', fontWeight: 800, border: '2px solid #fde047', textTransform: 'uppercase', boxShadow: '0 4px 6px -1px rgba(253, 224, 71, 0.3)' }}>
+              <div style={{ backgroundColor: '#fef08a', color: '#b45309', padding: '6px 16px', borderRadius: '8px', fontSize: '16px', fontWeight: 800, border: '2px solid #fde047', textTransform: 'uppercase', whiteSpace: 'nowrap', boxShadow: '0 4px 6px -1px rgba(253, 224, 71, 0.3)' }}>
                 {q.examTag}
               </div>
             )}
@@ -175,35 +176,46 @@ function SlideComponent({ question: q, index, title }: { question: QuizQuestion,
           
           {q.prompt_hi && (
             <MathJax>
-              <div style={{ fontSize: '32px', fontWeight: 700, color: '#1e293b', marginBottom: '15px', lineHeight: 1.5 }} dangerouslySetInnerHTML={{ __html: q.prompt_hi }} />
+              <div style={{ fontSize: '24px', fontWeight: 700, color: '#1e293b', lineHeight: 1.5 }} dangerouslySetInnerHTML={{ __html: q.prompt_hi }} />
             </MathJax>
           )}
           
           <MathJax>
-             <div style={{ fontSize: '28px', fontWeight: 600, color: '#475569', lineHeight: 1.5 }} dangerouslySetInnerHTML={{ __html: q.prompt }} />
+             <div style={{ fontSize: '22px', fontWeight: 600, color: '#475569', lineHeight: 1.5 }} dangerouslySetInnerHTML={{ __html: q.prompt }} />
           </MathJax>
 
           {q.image_url && (
-            <div style={{ marginTop: '20px', flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-               <img src={q.image_url} alt="Question" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain', borderRadius: '12px', border: '2px solid #e2e8f0' }} />
+            <div style={{ marginTop: '10px', display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
+               <img src={q.image_url} alt="Question" style={{ maxHeight: '180px', maxWidth: '100%', objectFit: 'contain', borderRadius: '12px', border: '2px solid #e2e8f0' }} />
             </div>
           )}
+
+          {/* Options at the bottom of left col */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: 'auto' }}>
+            {q.options?.map((opt, idx) => {
+              const letter = String.fromCharCode(65 + idx);
+              const hiOpt = q.options_hi?.[idx];
+              const displayOpt = (hiOpt && opt !== hiOpt) ? `${opt} / ${hiOpt}` : opt;
+              return (
+                <div key={idx} style={{ backgroundColor: '#f1f5f9', borderRadius: '12px', padding: '12px 20px', display: 'flex', alignItems: 'center', gap: '15px' }}>
+                  <span style={{ fontSize: '22px', fontWeight: 800, color: '#ff4500', flexShrink: 0 }}>({letter})</span>
+                  <MathJax>
+                     <div style={{ fontSize: '20px', fontWeight: 600, color: '#0f172a' }} dangerouslySetInnerHTML={{ __html: displayOpt }} />
+                  </MathJax>
+                </div>
+              );
+            })}
+          </div>
         </div>
 
-        <div style={{ width: '45%', display: 'flex', flexDirection: 'column', gap: '20px', justifyContent: 'center' }}>
-          {q.options?.map((opt, idx) => {
-            const letter = String.fromCharCode(65 + idx);
-            const hiOpt = q.options_hi?.[idx];
-            const displayOpt = (hiOpt && opt !== hiOpt) ? `${opt} / ${hiOpt}` : opt;
-            return (
-              <div key={idx} style={{ backgroundColor: '#f1f5f9', borderRadius: '16px', padding: '15px 25px', display: 'flex', alignItems: 'center', gap: '20px', border: '2px solid transparent' }}>
-                <span style={{ fontSize: '26px', fontWeight: 800, color: '#ff4500' }}>({letter})</span>
-                <MathJax>
-                   <div style={{ fontSize: '24px', fontWeight: 600, color: '#0f172a' }} dangerouslySetInnerHTML={{ __html: displayOpt }} />
-                </MathJax>
-              </div>
-            );
-          })}
+        {/* Right Column (Solving Area) */}
+        <div style={{ flex: 1, position: 'relative', display: 'flex', flexDirection: 'column', overflow: 'hidden', borderRadius: '16px', border: '2px solid #e2e8f0', backgroundColor: '#fafafa' }}>
+          {/* Watermark */}
+          <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: 0.04, pointerEvents: 'none', overflow: 'hidden' }}>
+             <div style={{ fontSize: '100px', fontWeight: 900, color: '#0f172a', transform: 'rotate(-45deg)', whiteSpace: 'nowrap' }}>TRICKFUNDA</div>
+          </div>
+          {/* Lined Paper Effect */}
+          <div style={{ position: 'absolute', inset: 0, backgroundImage: 'repeating-linear-gradient(transparent, transparent 39px, #94a3b8 39px, #94a3b8 40px)', opacity: 0.3, pointerEvents: 'none' }} />
         </div>
       </div>
 
