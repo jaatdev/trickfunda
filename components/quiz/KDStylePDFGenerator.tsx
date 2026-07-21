@@ -14,6 +14,8 @@ interface Props {
 export default function KDStylePDFGenerator({ questions, title, selectedCount }: Props) {
   const [isGenerating, setIsGenerating] = useState(false);
   const [selectedQuestions, setSelectedQuestions] = useState<QuizQuestion[]>([]);
+  const [customTitle, setCustomTitle] = useState(title);
+  const [customYoutube, setCustomYoutube] = useState('youtube.com/@TrickFunda');
 
   const handleStartGeneration = () => {
     let sliced = questions;
@@ -68,7 +70,7 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
             pdf.addImage(dataUrl, 'JPEG', 0, 0, 1280, 720, undefined, 'FAST');
           }
 
-          const pdfFilename = `${title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}_slides.pdf`;
+          const pdfFilename = `${customTitle.replace(/[^a-z0-9]/gi, '_').toLowerCase()}_slides.pdf`;
           pdf.save(pdfFilename);
         } catch (error) {
           console.error('Error generating PDF:', error);
@@ -82,22 +84,46 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
       
       return () => { isCancelled = true; };
     }
-  }, [isGenerating, selectedQuestions, title]);
+  }, [isGenerating, selectedQuestions, customTitle, customYoutube]);
 
   return (
     <>
-      <button 
-        onClick={handleStartGeneration}
-        disabled={isGenerating || !questions || questions.length === 0}
-        className="w-full flex items-center justify-center gap-2 py-3 px-4 mt-4 rounded-xl border-2 border-emerald-500 text-emerald-600 dark:text-emerald-400 font-bold hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-all shadow-[0_0_10px_rgba(16,185,129,0.1)] hover:shadow-[0_0_20px_rgba(16,185,129,0.2)] disabled:opacity-50"
-      >
-        {isGenerating ? (
-          <Loader2 className="w-5 h-5 animate-spin" />
-        ) : (
-          <Download className="w-5 h-5" />
-        )}
-        {isGenerating ? 'Preparing PDF...' : 'Download Teaching Slides (PDF)'}
-      </button>
+      <div className="w-full mt-6 space-y-4 bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-200 dark:border-slate-700">
+        <div className="space-y-3">
+          <div>
+            <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase tracking-wider">PDF Topic Name (Header)</label>
+            <input 
+              type="text" 
+              value={customTitle} 
+              onChange={(e) => setCustomTitle(e.target.value)}
+              className="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg px-3 py-2 text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
+              placeholder="e.g. LEVEL-2"
+            />
+          </div>
+          <div>
+            <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase tracking-wider">YouTube / Channel URL</label>
+            <input 
+              type="text" 
+              value={customYoutube} 
+              onChange={(e) => setCustomYoutube(e.target.value)}
+              className="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg px-3 py-2 text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
+              placeholder="youtube.com/@TrickFunda"
+            />
+          </div>
+        </div>
+        <button 
+          onClick={handleStartGeneration}
+          disabled={isGenerating || !questions || questions.length === 0}
+          className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl border-2 border-emerald-500 text-emerald-600 dark:text-emerald-400 font-bold hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-all shadow-[0_0_10px_rgba(16,185,129,0.1)] hover:shadow-[0_0_20px_rgba(16,185,129,0.2)] disabled:opacity-50"
+        >
+          {isGenerating ? (
+            <Loader2 className="w-5 h-5 animate-spin" />
+          ) : (
+            <Download className="w-5 h-5" />
+          )}
+          {isGenerating ? 'Preparing PDF...' : 'Download Teaching Slides (PDF)'}
+        </button>
+      </div>
 
       {/* Full Screen Hacker Loading Animation */}
       {isGenerating && (
@@ -129,7 +155,7 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
       {isGenerating && (
         <div style={{ position: 'absolute', top: '-9999px', left: '-9999px', width: '1280px', overflow: 'hidden' }}>
           {selectedQuestions.map((q, i) => (
-            <SlideComponent key={q.id || i} question={q} index={i} title={title} />
+            <SlideComponent key={q.id || i} question={q} index={i} title={customTitle} youtubeUrl={customYoutube} />
           ))}
         </div>
       )}
@@ -137,7 +163,7 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
   );
 }
 
-function SlideComponent({ question: q, index, title }: { question: QuizQuestion, index: number, title: string }) {
+function SlideComponent({ question: q, index, title, youtubeUrl }: { question: QuizQuestion, index: number, title: string, youtubeUrl: string }) {
   const num = index + 1;
   return (
     <div 
@@ -161,7 +187,7 @@ function SlideComponent({ question: q, index, title }: { question: QuizQuestion,
           <svg viewBox="0 0 24 24" fill="#ff0000" width="32" height="32" style={{ display: 'block' }}>
             <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
           </svg>
-          <span style={{ lineHeight: 1, paddingTop: '2px' }}>youtube.com/@TrickFunda</span>
+          <span style={{ lineHeight: 1, paddingTop: '2px' }}>{youtubeUrl}</span>
         </div>
       </div>
 
