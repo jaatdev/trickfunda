@@ -1,3 +1,4 @@
+export const runtime = 'edge';
 import { NextRequest, NextResponse } from 'next/server'
 import fs from 'fs/promises'
 import path from 'path'
@@ -22,3 +23,4 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Failed to save data' }, { status: 500 })
   }
 }
+

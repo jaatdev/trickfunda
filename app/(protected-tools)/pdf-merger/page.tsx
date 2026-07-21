@@ -1,3 +1,4 @@
+export const runtime = 'edge';
 import { Metadata } from 'next';
 import FloatingHomeButton from '@/components/layout/FloatingHomeButton';
 import IframeWrapper from '@/components/ui/IframeWrapper';
@@ -19,3 +20,4 @@ export default function PdfMergerPage() {
     </>
   );
 }
+

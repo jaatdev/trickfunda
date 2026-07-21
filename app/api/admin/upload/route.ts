@@ -1,3 +1,4 @@
+export const runtime = 'edge';
 import { NextResponse } from 'next/server';
 import { requireAdminAPI } from '@/lib/adminAuth';
 import fs from 'fs';
@@ -121,3 +122,4 @@ export async function DELETE(req: Request) {
     return NextResponse.json({ error: error.message || 'Internal Server Error' }, { status: 500 });
   }
 }
+

@@ -1,3 +1,4 @@
+export const runtime = 'edge';
 // app/api/upload/image/route.ts
 import { NextResponse } from 'next/server';
 import cloudinary from 'cloudinary';
@@ -41,3 +42,4 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: err?.message || String(err) }, { status: 500 });
   }
 }
+

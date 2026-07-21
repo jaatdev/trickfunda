@@ -1,3 +1,4 @@
+export const runtime = 'edge';
 import { Metadata } from 'next';
 import { Inter, Playfair_Display, Caveat, JetBrains_Mono } from "next/font/google";
 import FloatingHomeButton from '@/components/layout/FloatingHomeButton';
@@ -43,3 +44,4 @@ export default function CanvasPage() {
     </>
   );
 }
+
