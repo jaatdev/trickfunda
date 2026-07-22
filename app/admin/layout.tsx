@@ -46,7 +46,7 @@ function logActivity(action: string, detail: string) {
   } catch { }
 }
 
-export { logActivity };
+
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
