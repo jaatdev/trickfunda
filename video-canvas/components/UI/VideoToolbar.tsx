@@ -67,6 +67,8 @@ interface ToolButtonProps {
   children?: React.ReactNode;
 }
 
+import { useShallow } from 'zustand/react/shallow';
+
 export function VideoToolbar() {
   const {
     isToolbarVisible,
@@ -104,7 +106,45 @@ export function VideoToolbar() {
     redo,
     playbackRate,
     setPlaybackRate
-  } = useVideoStore();
+  } = useVideoStore(
+    useShallow((state: any) => ({
+      isToolbarVisible: state.isToolbarVisible,
+      activeTool: state.activeTool,
+      setTool: state.setTool,
+      penColor: state.penColor,
+      setPenColor: state.setPenColor,
+      penWidth: state.penWidth,
+      setPenWidth: state.setPenWidth,
+      highlighterColor: state.highlighterColor,
+      setHighlighterColor: state.setHighlighterColor,
+      highlighterWidth: state.highlighterWidth,
+      setHighlighterWidth: state.setHighlighterWidth,
+      eraserWidth: state.eraserWidth,
+      setEraserWidth: state.setEraserWidth,
+      activeShape: state.activeShape,
+      setShape: state.setShape,
+      activeFont: state.activeFont,
+      setFont: state.setFont,
+      activeFontSize: state.activeFontSize,
+      setFontSize: state.setFontSize,
+      activeFontWeight: state.activeFontWeight,
+      setFontWeight: state.setFontWeight,
+      activeFontStyle: state.activeFontStyle,
+      setFontStyle: state.setFontStyle,
+      activeTextBackground: state.activeTextBackground,
+      setTextBackground: state.setTextBackground,
+      clearAll: state.clearAll,
+      zoom: state.zoom,
+      setZoom: state.setZoom,
+      addPinnedImage: state.addPinnedImage,
+      canUndo: state.canUndo(),
+      canRedo: state.canRedo(),
+      undo: state.undo,
+      redo: state.redo,
+      playbackRate: state.playbackRate,
+      setPlaybackRate: state.setPlaybackRate
+    }))
+  );
 
   const textColor = penColor;
   const setTextColor = setPenColor;

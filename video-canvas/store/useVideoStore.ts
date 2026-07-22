@@ -493,7 +493,7 @@ export const useVideoStore = create<VideoStoreState>((set, get) => ({
     // UI Actions
     toggleToolbar: () => set((state) => ({ isToolbarVisible: !state.isToolbarVisible })),
     toggleControls: () => set((state) => ({ isControlsVisible: !state.isControlsVisible })),
-    clearAll: () => set({ strokes: [], textNodes: [], pinnedImages: [], historyStack: [], redoStack: [], selectedId: null, selectedStrokeIds: [], selectedTextIds: [] }),
+    clearAll: () => set((state) => ({ strokes: [], textNodes: [], pinnedImages: state.pinnedImages.filter(img => img.locked), historyStack: [], redoStack: [], selectedId: null, selectedStrokeIds: [], selectedTextIds: [] })),
 
     // Computed
     canUndo: () => get().historyStack.length > 0,

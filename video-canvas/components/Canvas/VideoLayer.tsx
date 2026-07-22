@@ -3,6 +3,8 @@
 import React, { useEffect, useRef, useImperativeHandle, forwardRef } from 'react';
 import { useVideoStore } from '@video-canvas/store/useVideoStore';
 
+import { useShallow } from 'zustand/react/shallow';
+
 export interface VideoLayerProps {
   // Add any specific props if needed, mostly handled via Zustand
 }
@@ -24,7 +26,23 @@ export const VideoLayer = forwardRef<HTMLVideoElement, VideoLayerProps>((props, 
     setCurrentTime,
     setDuration,
     setPlaying
-  } = useVideoStore();
+  } = useVideoStore(
+    useShallow((state: any) => ({
+      videoSrc: state.videoSrc,
+      isPlaying: state.isPlaying,
+      volume: state.volume,
+      isMuted: state.isMuted,
+      playbackRate: state.playbackRate,
+      isLooping: state.isLooping,
+      currentTime: state.currentTime,
+      zoom: state.zoom,
+      panX: state.panX,
+      panY: state.panY,
+      setCurrentTime: state.setCurrentTime,
+      setDuration: state.setDuration,
+      setPlaying: state.setPlaying
+    }))
+  );
 
   useImperativeHandle(ref, () => videoRef.current as HTMLVideoElement, []);
 
