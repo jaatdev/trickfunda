@@ -196,6 +196,9 @@ export async function compressPDF(
 
             if (imgWidth <= 0 || imgHeight <= 0) continue;
 
+            // Bypass image compression entirely if quality is set to 1.0 (Ultra)
+            if (imageQuality >= 1) continue;
+
             // Get the decoded image bytes
             const imageBytes = xObj.getContents();
             if (!imageBytes || imageBytes.byteLength < 5120) continue;

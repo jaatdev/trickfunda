@@ -5,7 +5,7 @@
 
 import type { BrandKey } from './brand'
 
-export type Difficulty = 'easy' | 'medium' | 'hard' | 'mixed'
+export type Difficulty = 'easy' | 'medium' | 'hard' | 'mixed' | 'expert'
 
 export type RefType = 'case' | 'article' | 'act' | 'doctrine' | 'book' | 'link'
 
@@ -177,6 +177,8 @@ export type QuizQuestion = {
   reason_hi?: string
   examTag?: string
   image_url?: string
+  difficulty?: Difficulty
+  tags?: string[]
   meta?: NodeMeta
   dice_layout?: DiceLayout
   options_dice_layout?: DiceLayout[]

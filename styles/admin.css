@@ -1,85 +1,925 @@
-/* styles/admin.css */
+/* ============================================
+   TrickFunda Admin — Premium Design System
+   ============================================ */
 
-/* Dark-mode CSS variables for admin area */
+/* ─── CSS Variables ─── */
 :root {
-  --admin-bg: #0b1220;
-  --admin-surface: #0f1724;
-  --admin-muted: #94a3b8;
-  --admin-accent: linear-gradient(90deg, #6366f1 0%, #06b6d4 100%);
-  --card-glass: rgba(255,255,255,0.03);
+  --admin-accent: #10b981;
+  --admin-accent-light: #34d399;
+  --admin-accent-dark: #059669;
+  --admin-accent-glow: rgba(16, 185, 129, 0.25);
+  --admin-surface: #ffffff;
+  --admin-surface-hover: #f9fafb;
+  --admin-surface-2: #f3f4f6;
+  --admin-border: #e5e7eb;
+  --admin-border-hover: #d1d5db;
+  --admin-text: #111827;
+  --admin-text-secondary: #6b7280;
+  --admin-text-muted: #9ca3af;
+  --admin-bg: #f8fafc;
+  --admin-glass: rgba(255, 255, 255, 0.7);
+  --admin-glass-border: rgba(255, 255, 255, 0.3);
+  --admin-sidebar-w: 280px;
+  --admin-sidebar-collapsed: 80px;
+  --admin-topbar-h: 64px;
+  --admin-radius: 16px;
+  --admin-radius-sm: 12px;
+  --admin-radius-xs: 8px;
+  --admin-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --admin-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.08);
+  --admin-shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.06);
+  --admin-shadow-glow: 0 0 30px var(--admin-accent-glow);
 }
 
-body.dark {
-  background: var(--admin-bg);
-  color: #e6eef8;
-  --bg: var(--admin-bg);
-  --surface: var(--admin-surface);
-  --muted: var(--admin-muted);
-  --accent-gradient: var(--admin-accent);
+.dark {
+  --admin-surface: #111111;
+  --admin-surface-hover: #1a1a1a;
+  --admin-surface-2: #0d0d0d;
+  --admin-border: rgba(255, 255, 255, 0.06);
+  --admin-border-hover: rgba(255, 255, 255, 0.12);
+  --admin-text: #f3f4f6;
+  --admin-text-secondary: #9ca3af;
+  --admin-text-muted: #6b7280;
+  --admin-bg: #0a0a0a;
+  --admin-glass: rgba(17, 17, 17, 0.75);
+  --admin-glass-border: rgba(255, 255, 255, 0.06);
+  --admin-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.3);
+  --admin-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.4);
+  --admin-shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-/* small helpers for components that don't use tailwind */
+/* ─── Glassmorphism Cards ─── */
+.admin-glass {
+  background: var(--admin-glass);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--admin-glass-border);
+  border-radius: var(--admin-radius);
+}
+
 .admin-card {
-  background: var(--card-glass);
-  border: 1px solid rgba(255,255,255,0.04);
-  box-shadow: 0 6px 20px rgba(2,6,23,0.6);
-  color: inherit;
+  background: var(--admin-surface);
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius);
+  box-shadow: var(--admin-shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ensure code blocks and markdown use good contrast */
-.dark pre, .dark code {
-  background: #071224;
-  color: #e6eef8;
-  border-radius: 6px;
-  padding: 0.25rem 0.5rem;
+.admin-card:hover {
+  box-shadow: var(--admin-shadow-md);
+  border-color: var(--admin-border-hover);
 }
 
-/* focus outlines for accessibility */
-.dark :focus {
-  outline: 2px solid rgba(99,102,241,0.25);
-  outline-offset: 2px;
+.admin-card-interactive {
+  cursor: pointer;
 }
 
-/* Markdown content styling */
-.dark .markdown h1,
-.dark .markdown h2,
-.dark .markdown p,
-.dark .markdown li {
-  color: #e6eef8;
+.admin-card-interactive:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--admin-shadow-lg);
 }
 
-.dark .markdown a {
-  color: #93c5fd; /* light blue */
+/* ─── Gradient Accents ─── */
+.admin-gradient-text {
+  background: linear-gradient(135deg, #10b981 0%, #06b6d4 50%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* Input fields in dark mode */
-.dark input,
-.dark textarea,
-.dark select {
-  background: rgba(15, 23, 42, 0.6);
-  border-color: #334155;
-  color: #e6eef8;
+.admin-gradient-border {
+  position: relative;
+  border: none !important;
 }
 
-.dark input::placeholder,
-.dark textarea::placeholder {
-  color: #64748b;
+.admin-gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #10b981, #06b6d4, #8b5cf6);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
-.dark input:focus,
-.dark textarea:focus,
-.dark select:focus {
-  border-color: #6366f1;
-  outline: 2px solid rgba(99, 102, 241, 0.25);
+/* ─── Animated Shimmer / Loading ─── */
+@keyframes adminShimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
 
-/* Cards and surfaces */
-.dark .card {
-  background: rgba(15, 23, 42, 0.4);
-  border-color: rgba(255, 255, 255, 0.05);
+.admin-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--admin-surface-2) 25%,
+    var(--admin-surface) 50%,
+    var(--admin-surface-2) 75%
+  );
+  background-size: 200% 100%;
+  animation: adminShimmer 1.5s ease-in-out infinite;
+  border-radius: var(--admin-radius-xs);
 }
 
-/* Buttons */
-.dark button:hover {
-  opacity: 0.9;
+/* ─── Animated Counter ─── */
+@keyframes adminCountUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.admin-count-up {
+  animation: adminCountUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ─── Pulse Dot ─── */
+@keyframes adminPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.5); }
+}
+
+.admin-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--admin-accent);
+  animation: adminPulse 2s ease-in-out infinite;
+  box-shadow: 0 0 8px var(--admin-accent-glow);
+}
+
+.admin-pulse-dot-warning {
+  background: #f59e0b;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.4);
+}
+
+.admin-pulse-dot-error {
+  background: #ef4444;
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.4);
+}
+
+/* ─── Glow Button ─── */
+.admin-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: var(--admin-radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.admin-btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%);
+  background-size: 250% 100%;
+  animation: adminShimmer 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.admin-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.admin-btn-primary:active {
+  transform: translateY(0);
+}
+
+.admin-btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.admin-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--admin-surface);
+  color: var(--admin-text);
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: var(--admin-radius-sm);
+  border: 1px solid var(--admin-border);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.admin-btn-secondary:hover {
+  background: var(--admin-surface-hover);
+  border-color: var(--admin-border-hover);
+}
+
+.admin-btn-danger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: var(--admin-radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.25);
+}
+
+.admin-btn-danger:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.35);
+}
+
+/* ─── Input Fields ─── */
+.admin-input {
+  width: 100%;
+  padding: 10px 16px;
+  background: var(--admin-surface-2);
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius-sm);
+  color: var(--admin-text);
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.admin-input:focus {
+  border-color: var(--admin-accent);
+  box-shadow: 0 0 0 3px var(--admin-accent-glow);
+  background: var(--admin-surface);
+}
+
+.admin-input::placeholder {
+  color: var(--admin-text-muted);
+}
+
+/* ─── Toggle Switch ─── */
+.admin-toggle {
+  position: relative;
+  width: 48px;
+  height: 26px;
+  background: var(--admin-border);
+  border-radius: 13px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  padding: 0;
+}
+
+.admin-toggle.active {
+  background: var(--admin-accent);
+  box-shadow: 0 0 12px var(--admin-accent-glow);
+}
+
+.admin-toggle::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.admin-toggle.active::after {
+  transform: translateX(22px);
+}
+
+/* ─── Badge / Chip ─── */
+.admin-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 20px;
+  letter-spacing: 0.02em;
+}
+
+.admin-badge-success {
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+}
+.dark .admin-badge-success {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+}
+
+.admin-badge-warning {
+  background: rgba(245, 158, 11, 0.12);
+  color: #d97706;
+}
+.dark .admin-badge-warning {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+}
+
+.admin-badge-error {
+  background: rgba(239, 68, 68, 0.12);
+  color: #dc2626;
+}
+.dark .admin-badge-error {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+}
+
+.admin-badge-info {
+  background: rgba(59, 130, 246, 0.12);
+  color: #2563eb;
+}
+.dark .admin-badge-info {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+}
+
+/* ─── Custom Scrollbar ─── */
+.admin-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.admin-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.admin-scroll::-webkit-scrollbar-thumb {
+  background: var(--admin-border);
+  border-radius: 3px;
+}
+
+.admin-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--admin-text-muted);
+}
+
+/* ─── Sidebar ─── */
+.admin-sidebar {
+  background: var(--admin-surface);
+  border-right: 1px solid var(--admin-border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.admin-sidebar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, var(--admin-accent) 0%, transparent 30%, transparent 70%, var(--admin-accent) 100%);
+  opacity: 0.3;
+}
+
+/* ─── Nav Item ─── */
+.admin-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: var(--admin-radius-sm);
+  color: var(--admin-text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  text-decoration: none;
+}
+
+.admin-nav-item:hover {
+  background: var(--admin-surface-hover);
+  color: var(--admin-text);
+}
+
+.admin-nav-item.active {
+  background: rgba(16, 185, 129, 0.08);
+  color: var(--admin-accent);
+  font-weight: 600;
+}
+
+.admin-nav-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 24px;
+  background: var(--admin-accent);
+  border-radius: 0 3px 3px 0;
+}
+
+/* ─── Topbar ─── */
+.admin-topbar {
+  height: var(--admin-topbar-h);
+  background: var(--admin-glass);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--admin-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  flex-shrink: 0;
+  z-index: 20;
+}
+
+/* ─── Stat Card ─── */
+.admin-stat-card {
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.admin-stat-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, var(--stat-color, var(--admin-accent-glow)) 0%, transparent 70%);
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+/* ─── Command Palette ─── */
+.admin-command-palette {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 20vh;
+}
+
+.admin-command-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+}
+
+.admin-command-box {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  background: var(--admin-surface);
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius);
+  box-shadow: var(--admin-shadow-lg), 0 0 60px rgba(16, 185, 129, 0.1);
+  overflow: hidden;
+}
+
+.admin-command-input {
+  width: 100%;
+  padding: 16px 20px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--admin-border);
+  color: var(--admin-text);
+  font-size: 16px;
+  outline: none;
+}
+
+.admin-command-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  color: var(--admin-text-secondary);
+}
+
+.admin-command-item:hover,
+.admin-command-item.selected {
+  background: rgba(16, 185, 129, 0.06);
+  color: var(--admin-text);
+}
+
+.admin-command-item .shortcut {
+  margin-left: auto;
+  display: flex;
+  gap: 4px;
+}
+
+.admin-command-item .shortcut kbd {
+  padding: 2px 6px;
+  background: var(--admin-surface-2);
+  border: 1px solid var(--admin-border);
+  border-radius: 4px;
+  font-size: 11px;
+  font-family: inherit;
+  color: var(--admin-text-muted);
+}
+
+/* ─── Split Pane ─── */
+.admin-split-pane {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+}
+
+.admin-split-resizer {
+  width: 4px;
+  cursor: col-resize;
+  background: var(--admin-border);
+  transition: background 0.2s ease;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.admin-split-resizer:hover,
+.admin-split-resizer.dragging {
+  background: var(--admin-accent);
+  box-shadow: 0 0 8px var(--admin-accent-glow);
+}
+
+/* ─── Toast ─── */
+@keyframes adminToastIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes adminToastOut {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to { opacity: 0; transform: translateY(-10px) scale(0.95); }
+}
+
+.admin-toast {
+  animation: adminToastIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: var(--admin-surface);
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius-sm);
+  box-shadow: var(--admin-shadow-lg);
+  font-size: 14px;
+  color: var(--admin-text);
+}
+
+.admin-toast.exit {
+  animation: adminToastOut 0.2s ease forwards;
+}
+
+/* ─── Progress Bar ─── */
+@keyframes adminProgress {
+  0% { width: 0; }
+}
+
+.admin-progress-bar {
+  height: 4px;
+  background: var(--admin-surface-2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.admin-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--admin-accent), var(--admin-accent-light));
+  border-radius: 2px;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: adminProgress 0.5s ease;
+}
+
+/* ─── Activity Timeline ─── */
+.admin-timeline-item {
+  position: relative;
+  padding-left: 32px;
+  padding-bottom: 24px;
+}
+
+.admin-timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 24px;
+  bottom: 0;
+  width: 2px;
+  background: var(--admin-border);
+}
+
+.admin-timeline-item:last-child::before {
+  display: none;
+}
+
+.admin-timeline-dot {
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--admin-surface);
+  border: 2px solid var(--admin-accent);
+  z-index: 1;
+}
+
+/* ─── File Type Icons ─── */
+.admin-file-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.admin-file-icon-folder {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+}
+
+.admin-file-icon-json {
+  background: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+}
+
+.admin-file-icon-md {
+  background: rgba(139, 92, 246, 0.1);
+  color: #8b5cf6;
+}
+
+.admin-file-icon-pdf {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.admin-file-icon-media {
+  background: rgba(236, 72, 153, 0.1);
+  color: #ec4899;
+}
+
+.admin-file-icon-txt {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+/* ─── Floating Action Button ─── */
+.admin-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35);
+  border: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 30;
+}
+
+.admin-fab:hover {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 12px 32px rgba(16, 185, 129, 0.45);
+}
+
+/* ─── Checkbox ─── */
+.admin-checkbox {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  border: 2px solid var(--admin-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  background: var(--admin-surface);
+}
+
+.admin-checkbox.checked {
+  background: var(--admin-accent);
+  border-color: var(--admin-accent);
+}
+
+.admin-checkbox:hover {
+  border-color: var(--admin-accent);
+}
+
+/* ─── Empty State ─── */
+.admin-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.admin-empty-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  background: var(--admin-surface-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  color: var(--admin-text-muted);
+}
+
+/* ─── Spotlight / Glow Background ─── */
+.admin-spotlight {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 300px;
+  background: radial-gradient(ellipse 50% 50% at 50% 0%, var(--admin-accent-glow) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* ─── Responsive Utilities ─── */
+@media (max-width: 1024px) {
+  :root {
+    --admin-sidebar-w: 0px;
+  }
+}
+
+/* ─── Page Transition ─── */
+@keyframes adminPageIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.admin-page-enter {
+  animation: adminPageIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ─── Skeleton Loaders ─── */
+.admin-skeleton {
+  border-radius: var(--admin-radius-xs);
+}
+
+.admin-skeleton-text {
+  height: 14px;
+  width: 80%;
+}
+
+.admin-skeleton-title {
+  height: 24px;
+  width: 50%;
+}
+
+.admin-skeleton-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.admin-skeleton-card {
+  height: 120px;
+  width: 100%;
+}
+
+/* ─── Tab Bar ─── */
+.admin-tabs {
+  display: flex;
+  gap: 2px;
+  background: var(--admin-surface-2);
+  padding: 3px;
+  border-radius: var(--admin-radius-sm);
+}
+
+.admin-tab {
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--admin-text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  background: transparent;
+  white-space: nowrap;
+}
+
+.admin-tab:hover {
+  color: var(--admin-text);
+}
+
+.admin-tab.active {
+  background: var(--admin-surface);
+  color: var(--admin-accent);
+  box-shadow: var(--admin-shadow);
+}
+
+/* ─── Code Editor ─── */
+.admin-code-editor {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+  font-size: 13px;
+  line-height: 1.7;
+  tab-size: 2;
+  background: #0d1117;
+  color: #e6edf3;
+  padding: 20px;
+  border-radius: var(--admin-radius);
+  overflow: auto;
+  white-space: pre;
+}
+
+.dark .admin-code-editor {
+  background: #0a0a0a;
+}
+
+/* ─── Drag & Drop Zone ─── */
+.admin-dropzone {
+  border: 2px dashed var(--admin-border);
+  border-radius: var(--admin-radius);
+  padding: 40px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.admin-dropzone:hover,
+.admin-dropzone.dragover {
+  border-color: var(--admin-accent);
+  background: rgba(16, 185, 129, 0.04);
+}
+
+.admin-dropzone.dragover {
+  transform: scale(1.01);
+  box-shadow: 0 0 30px var(--admin-accent-glow);
+}
+
+/* ─── Modal / Dialog ─── */
+.admin-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.admin-modal {
+  background: var(--admin-surface);
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius);
+  box-shadow: var(--admin-shadow-lg);
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.admin-modal-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--admin-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-modal-body {
+  padding: 24px;
+}
+
+.admin-modal-footer {
+  padding: 16px 24px;
+  border-top: 1px solid var(--admin-border);
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
 }

@@ -59,6 +59,13 @@ export default function PDFCompressorClient() {
     setState('fileSelected');
     setError(null);
     setResult(null);
+
+    // Automatically select 'ultra' quality (minimal/no compression) for files < 100MB
+    if (selectedFile.size < 100 * 1024 * 1024) {
+      setQuality('ultra');
+    } else {
+      setQuality('balanced');
+    }
   }, []);
 
   const handleCompress = async () => {
@@ -83,7 +90,7 @@ export default function PDFCompressorClient() {
 
       const options: CompressionOptions = {
         quality,
-        imageQuality: quality === 'ultra' ? 0.92 : quality === 'balanced' ? 0.75 : 0.55,
+        imageQuality: quality === 'ultra' ? 1.0 : quality === 'balanced' ? 0.75 : 0.55,
         downscaleOversized: quality !== 'ultra',
         stripMetadata: true,
         deduplicateStreams: true,
