@@ -92,7 +92,7 @@ export async function compressPDF(
 
   // Merge quality preset into options
   const preset = QUALITY_PRESETS[options.quality];
-  const imageQuality = options.imageQuality ?? preset.imageQuality ?? 0.75;
+  let imageQuality = options.imageQuality ?? preset.imageQuality ?? 0.75;
   const maxDimension = (options as any).maxDimension ?? preset.maxDimension ?? Infinity;
   const shouldDedup = options.deduplicateStreams ?? true;
   const shouldStripMeta = options.stripMetadata ?? true;
@@ -120,6 +120,11 @@ export async function compressPDF(
   const totalPages = pdfDoc.getPageCount();
   if (totalPages === 0) {
     throw new Error('PDF has no pages.');
+  }
+
+  // Force no image compression for PDFs with 50 pages or less
+  if (totalPages <= 50) {
+    imageQuality = 1.0;
   }
 
   onProgress({
