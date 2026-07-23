@@ -278,7 +278,16 @@ export default function CustomQuizBuilderClient({ quizTree }: Props) {
   }, [activeQuiz, isQuizComplete, enterFullscreen, exitFullscreen]);
 
   return (
-    <MathJaxContext config={{ options: { enableMenu: false } }}>
+    <MathJaxContext config={{ 
+      loader: { load: ["input/tex", "output/chtml"] },
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: { enableMenu: false } 
+    }}>
       <div className="min-h-screen bg-[#050B14] flex flex-col items-center relative overflow-hidden font-mono text-[#E0F8FF] selection:bg-[#00F0FF]/30">
         
         {/* Animated Background */}

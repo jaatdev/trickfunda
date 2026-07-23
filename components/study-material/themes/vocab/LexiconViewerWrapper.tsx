@@ -35,7 +35,7 @@ export function LexiconViewerWrapper({ concept, activeFilter }: Props) {
       [&_h2]:!text-[#D4AF37] [&_h2]:font-serif
       [&_h3]:!text-[#E8D090] [&_h3]:font-serif
       [&_p]:!text-[#FCEABB] [&_p]:font-serif
-      [&_span]:!text-[#FCEABB] [&_span]:font-serif
+      [&_span:not([class*='mjx'])]:!text-[#FCEABB] [&_span:not([class*='mjx'])]:font-serif
       [&_button:not([class*='quiz-status'])]:!border-[#5C4B33]/50 [&_button:not([class*='quiz-status']):hover]:!border-[#D4AF37]/80 [&_button:not([class*='quiz-status'])]:!bg-[#251A0C]/60 [&_button:not([class*='quiz-status']):hover]:!bg-[#3A2A18]/80 [&_button:not([class*='quiz-status'])]:!text-[#FCEABB] [&_button:not([class*='quiz-status'])]:font-serif
       [&_.bg-emerald-500]:!bg-[#5C4B33] [&_.bg-emerald-500:hover]:!bg-[#8B7347] [&_.text-white]:!text-[#FFF8E7]
       [&_.prose-emerald]:!prose-yellow [&_.prose]:!font-serif

@@ -35,7 +35,7 @@ export function ClockworkViewerWrapper({ concept, activeFilter }: Props) {
       [&_h2]:!text-[#B87333] [&_h2]:font-serif
       [&_h3]:!text-[#E8D090] [&_h3]:font-serif
       [&_p]:!text-[#E8D090] [&_p]:font-serif
-      [&_span]:!text-[#E8D090] [&_span]:font-serif
+      [&_span:not([class*='mjx'])]:!text-[#E8D090] [&_span:not([class*='mjx'])]:font-serif
       [&_button:not([class*='quiz-status'])]:!border-[#5C4B33] [&_button:not([class*='quiz-status']):hover]:!border-[#D4AF37] [&_button:not([class*='quiz-status'])]:!bg-[#2A1F13] [&_button:not([class*='quiz-status']):hover]:!bg-[#3A2A18] [&_button:not([class*='quiz-status'])]:!text-[#D4AF37] [&_button:not([class*='quiz-status'])]:font-serif [&_button:not([class*='quiz-status'])]:shadow-[inset_0_1px_2px_rgba(255,255,255,0.1),0_2px_4px_rgba(0,0,0,0.5)]
       [&_.bg-emerald-500]:!bg-[#8B7347] [&_.bg-emerald-500:hover]:!bg-[#B87333] [&_.text-white]:!text-[#FFF8E7]
       [&_.prose-emerald]:!prose-amber [&_.prose]:!font-serif

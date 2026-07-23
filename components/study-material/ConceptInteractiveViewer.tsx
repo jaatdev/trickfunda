@@ -92,6 +92,13 @@ export function ConceptInteractiveViewer({ title, notesMarkdown, noteBoxes, pdfU
     : [];
 
   const mathJaxConfig = {
+    loader: { load: ["input/tex", "output/chtml"] },
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
     options: {
       enableMenu: false,
     }
