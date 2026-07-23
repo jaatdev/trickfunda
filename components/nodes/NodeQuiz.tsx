@@ -5,6 +5,7 @@ import BookmarkButton from '../ui/BookmarkButton'
 import MetaBar from '../ui/MetaBar'
 import ReferencesDrawer from '../ui/ReferencesDrawer'
 import { quizComplete } from '@/lib/confetti'
+import { MathJax } from 'better-react-mathjax'
 
 export default function NodeQuiz({
   node, instant, bookmarked, onToggleBookmark
@@ -59,18 +60,18 @@ export default function NodeQuiz({
           const isWrong = checked && user !== undefined && user !== q.answerIndex
           return (
             <div key={q.id} className="p-4 bg-gray-800 rounded-lg shadow-md border-l-4 border-emerald-500">
-              <p className="font-semibold text-lg text-gray-200 mb-3">Q. {q.prompt}</p>
+              <p className="font-semibold text-lg text-gray-200 mb-3 whitespace-pre-wrap break-words min-w-0"><MathJax>Q. {q.prompt}</MathJax></p>
               <div className="space-y-2">
                 {q.options.map((opt, idx) => (
                   <label key={idx} className="flex items-center space-x-2 text-gray-300 hover:bg-gray-700 p-2 rounded-md cursor-pointer transition">
-                    <input type="radio" name={`q-${q.id}`} checked={user===idx} onChange={()=>onPick(q.id, idx)} className="text-emerald-500 h-4 w-4"/>
-                    <span className={`${checked ? (idx===q.answerIndex ? 'text-green-400 font-bold' : (user===idx ? 'text-red-400' : '')) : ''}`}>{opt}</span>
+                    <input type="radio" name={`q-${q.id}`} checked={user===idx} onChange={()=>onPick(q.id, idx)} className="text-emerald-500 h-4 w-4 shrink-0"/>
+                    <span className={`flex-1 ${checked ? (idx===q.answerIndex ? 'text-green-400 font-bold' : (user===idx ? 'text-red-400' : '')) : ''}`}><MathJax>{opt}</MathJax></span>
                   </label>
                 ))}
               </div>
               {checked && (
                 <div className={`mt-3 p-2 text-sm font-medium rounded ${isCorrect ? 'bg-green-900/40 text-green-300 border border-green-700' : isWrong ? 'bg-red-900/40 text-red-300 border border-red-700' : 'bg-emerald-900/40 text-emerald-300 border border-emerald-700'}`}>
-                  {isCorrect ? '✅ Correct!' : isWrong ? <>❌ Incorrect. Correct: <strong>{q.options[q.answerIndex]}</strong>{q.reason ? <> — {q.reason}</> : null}</> : 'Select an option'}
+                  {isCorrect ? '✅ Correct!' : isWrong ? <>❌ Incorrect. Correct: <strong><MathJax>{q.options[q.answerIndex]}</MathJax></strong>{q.reason ? <> — <MathJax>{q.reason}</MathJax></> : null}</> : 'Select an option'}
                 </div>
               )}
             </div>
