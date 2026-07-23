@@ -181,6 +181,21 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
           <div className="flex items-center gap-3">
             <button
+              onClick={async () => {
+                try {
+                  const res = await fetch('/api/admin/sync', { method: 'POST' });
+                  if (!res.ok) throw new Error('Deployment failed');
+                  alert('Vercel deployment triggered successfully!');
+                } catch (e: any) {
+                  alert(e.message);
+                }
+              }}
+              className="px-4 py-1.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white text-sm font-medium shadow-sm transition-colors flex items-center gap-2"
+            >
+              <Cloud className="w-4 h-4" />
+              <span className="hidden sm:inline">Sync to Production</span>
+            </button>
+            <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
               className="p-2 rounded-xl text-gray-500 hover:bg-gray-100 dark:hover:bg-white/5 transition-colors hover:text-amber-500"
             >
