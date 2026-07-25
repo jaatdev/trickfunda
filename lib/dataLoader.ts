@@ -26,33 +26,6 @@ function readJSON(filePath: string) {
 }
 
 /**
- * Heuristics to determine JSON file type
- */
-function isQuizFlat(data: any): boolean {
-  return Array.isArray(data) && data.length > 0 && ('prompt' in data[0]) && ('options' in data[0]);
-}
-
-function isQuizObject(data: any): boolean {
-  return data && typeof data === 'object' && Array.isArray(data.questions);
-}
-
-function isContent(data: any): boolean {
-  return data && typeof data === 'object' && Array.isArray(data.items);
-}
-
-function isSubtopicMeta(data: any): boolean {
-  return data && typeof data === 'object' && ('title' in data) && ('slug' in data) && !Array.isArray(data.items) && !Array.isArray(data.questions);
-}
-
-function isTopicMeta(data: any): boolean {
-  return data && typeof data === 'object' && ('title' in data) && ('slug' in data) && Array.isArray(data.subTopics);
-}
-
-function isSubjectMeta(data: any): boolean {
-  return data && typeof data === 'object' && ('title' in data) && ('slug' in data) && Array.isArray(data.topics);
-}
-
-/**
  * Scan a directory for all .json files and aggregate them
  */
 function scanSubtopicDir(subTopicDir: string) {
@@ -69,18 +42,56 @@ function scanSubtopicDir(subTopicDir: string) {
         const data = readJSON(filePath);
         if (!data) continue;
 
-        if (isQuizFlat(data)) {
-          quizQuestions = [...quizQuestions, ...data];
-        } else if (isQuizObject(data)) {
-          quizQuestions = [...quizQuestions, ...data.questions];
-        } else if (isContent(data)) {
-          contentItems = [...contentItems, ...data.items];
-        } else if (isSubtopicMeta(data)) {
-          // If we found a file that looks like subtopic metadata, we merge it
-          // We allow fallback to subtopic.json if it exists
-          if (file === 'subtopic.json' || !subTopicData) {
-            subTopicData = { ...subTopicData, ...data };
+        const fileNameLower = file.toLowerCase();
+        
+        // Match quiz files (e.g. quiz.json, quiz-english.json, english.quiz.json)
+        const isQuizFile = fileNameLower === 'quiz.json' || 
+                           fileNameLower.startsWith('quiz-') || 
+                           fileNameLower.endsWith('-quiz.json') || 
+                           fileNameLower.includes('.quiz.json');
+                           
+        // Match content files
+        const isContentFile = fileNameLower === 'content.json' || 
+                              fileNameLower.startsWith('content-') || 
+                              fileNameLower.includes('.content.json');
+                              
+        // Match flashcard files (e.g. flashcards.json, flashcards-english.json, english.flashcards.json)
+        const isFlashcardFile = fileNameLower === 'flashcards.json' ||
+                                fileNameLower.startsWith('flashcards-') ||
+                                fileNameLower.endsWith('-flashcards.json') ||
+                                fileNameLower.includes('.flashcards.json');
+                              
+        const isSubtopicFile = fileNameLower === 'subtopic.json';
+
+        if (isQuizFile) {
+          if (Array.isArray(data)) {
+            quizQuestions = [...quizQuestions, ...data];
+          } else if (data && Array.isArray(data.questions)) {
+            quizQuestions = [...quizQuestions, ...data.questions];
           }
+        } else if (isContentFile) {
+          if (Array.isArray(data)) {
+            contentItems = [...contentItems, ...data];
+          } else if (data && Array.isArray(data.items)) {
+            contentItems = [...contentItems, ...data.items];
+          }
+        } else if (isFlashcardFile) {
+          // If flat array or object with flashcards
+          let cards: any[] = [];
+          if (Array.isArray(data)) {
+            cards = data;
+          } else if (data && Array.isArray(data.flashcards)) {
+            cards = data.flashcards;
+          }
+          if (cards.length > 0) {
+            contentItems.push({
+              id: `flashcard-deck-${file}`,
+              kind: 'flashcards',
+              cards: cards
+            });
+          }
+        } else if (isSubtopicFile) {
+          subTopicData = { ...subTopicData, ...data };
         }
       }
     }

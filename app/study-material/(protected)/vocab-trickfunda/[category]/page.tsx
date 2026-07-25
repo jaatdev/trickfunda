@@ -36,8 +36,18 @@ export default async function CategoryDaysPage({ params }: Props) {
     return match ? parseInt(match[1]) : 0;
   }).filter(n => n > 0).sort((a, b) => a - b);
 
-  // Identify custom files that don't match the standard day format
-  const customFiles = files.filter(file => !file.match(/day-(\d+)\.json/)).map(file => file.replace('.json', ''));
+  // Identify custom files that don't match the standard day format but DO match flashcard naming
+  const customFiles = files.filter(file => {
+    const isDayFile = file.match(/day-(\d+)\.json/);
+    if (isDayFile) return false;
+    
+    const fileNameLower = file.toLowerCase();
+    const isFlashcardFile = fileNameLower === 'flashcards.json' ||
+                            fileNameLower.startsWith('flashcards-') ||
+                            fileNameLower.endsWith('-flashcards.json') ||
+                            fileNameLower.includes('.flashcards.json');
+    return isFlashcardFile;
+  }).map(file => file.replace('.json', ''));
 
   // We show 60 days total, lock the ones that don't exist
   const totalDays = 60;
