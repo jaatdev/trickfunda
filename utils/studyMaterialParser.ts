@@ -97,6 +97,7 @@ export async function getKDConceptBySlug(categorySlug: string, slug: string): Pr
   }
 
   const quizzes: KDQuiz[] = [];
+  const flashcardSets: import('@/types/studyMaterial').KDFlashcardSet[] = [];
   const pdfs: { id: string; title: string; url: string }[] = [];
   try {
     const files = await fs.promises.readdir(conceptDir);
@@ -118,16 +119,29 @@ export async function getKDConceptBySlug(categorySlug: string, slug: string): Pr
           title,
           url: `/api/study-material/files/${categorySlug}/${slug}/${baseName}`
         });
-      } else if (file.startsWith('quiz') && file.endsWith('.json')) {
+      } else if (file.endsWith('.json') && (file.startsWith('quiz') || file.includes('.quiz.json') || file.includes('-quiz.json'))) {
         try {
           const rawQuiz = await fs.promises.readFile(path.join(conceptDir, file), 'utf8');
-          const parsedQuiz = JSON.parse(rawQuiz);
-          const questions = Array.isArray(parsedQuiz) ? parsedQuiz : (parsedQuiz.questions || []);
-          
-          const titlePart = file.replace('.json', '');
-          const title = titlePart === 'quiz' ? 'Quiz' : formatTitle(titlePart.replace('quiz-', ''));
-          
-          quizzes.push({ id: titlePart, title, questions });
+          if (rawQuiz.trim().length > 0) {
+            const parsedQuiz = JSON.parse(rawQuiz);
+            const questions = Array.isArray(parsedQuiz) ? parsedQuiz : (parsedQuiz.questions || []);
+            const titlePart = file.replace('.json', '');
+            const title = titlePart === 'quiz' ? 'Quiz' : formatTitle(titlePart.replace('quiz-', '').replace('.quiz', '').replace('-quiz', ''));
+            quizzes.push({ id: titlePart, title, questions });
+          }
+        } catch (e) {
+          console.error(`Error parsing ${file} in ${slug}`, e);
+        }
+      } else if (file.endsWith('.json') && (file.startsWith('flashcard') || file.includes('.flashcard') || file.includes('-flashcard'))) {
+        try {
+          const rawCards = await fs.promises.readFile(path.join(conceptDir, file), 'utf8');
+          if (rawCards.trim().length > 0) {
+            const parsedCards = JSON.parse(rawCards);
+            const flashcards = Array.isArray(parsedCards) ? parsedCards : (parsedCards.flashcards || []);
+            const titlePart = file.replace('.json', '');
+            const title = titlePart === 'flashcards' || titlePart === 'flashcard' ? 'Flashcards' : formatTitle(titlePart.replace('flashcards-', '').replace('flashcard-', '').replace('.flashcards', '').replace('.flashcard', '').replace('-flashcards', '').replace('-flashcard', ''));
+            flashcardSets.push({ id: titlePart, title, flashcards });
+          }
         } catch (e) {
           console.error(`Error parsing ${file} in ${slug}`, e);
         }
@@ -148,6 +162,7 @@ export async function getKDConceptBySlug(categorySlug: string, slug: string): Pr
     pdfs,
     youtubeUrls,
     quizzes,
+    flashcardSets,
   };
 }
 
@@ -293,6 +308,7 @@ export async function getKDChapterTypeData(subjectSlug: string, chapterSlug: str
   }
 
   const quizzes: KDQuiz[] = [];
+  const flashcardSets: import('@/types/studyMaterial').KDFlashcardSet[] = [];
   const pdfs: { id: string; title: string; url: string }[] = [];
   try {
     const files = await fs.promises.readdir(conceptDir);
@@ -314,16 +330,29 @@ export async function getKDChapterTypeData(subjectSlug: string, chapterSlug: str
           title,
           url: `/api/study-material/files/${subjectSlug}/${chapterSlug}/${typeSlug}/${baseName}`
         });
-      } else if (file.startsWith('quiz') && file.endsWith('.json')) {
+      } else if (file.endsWith('.json') && (file.startsWith('quiz') || file.includes('.quiz.json') || file.includes('-quiz.json'))) {
         try {
           const rawQuiz = await fs.promises.readFile(path.join(conceptDir, file), 'utf8');
-          const parsedQuiz = JSON.parse(rawQuiz);
-          const questions = Array.isArray(parsedQuiz) ? parsedQuiz : (parsedQuiz.questions || []);
-          
-          const titlePart = file.replace('.json', '');
-          const title = titlePart === 'quiz' ? 'Quiz' : formatTitle(titlePart.replace('quiz-', ''));
-          
-          quizzes.push({ id: titlePart, title, questions });
+          if (rawQuiz.trim().length > 0) {
+            const parsedQuiz = JSON.parse(rawQuiz);
+            const questions = Array.isArray(parsedQuiz) ? parsedQuiz : (parsedQuiz.questions || []);
+            const titlePart = file.replace('.json', '');
+            const title = titlePart === 'quiz' ? 'Quiz' : formatTitle(titlePart.replace('quiz-', '').replace('.quiz', '').replace('-quiz', ''));
+            quizzes.push({ id: titlePart, title, questions });
+          }
+        } catch (e) {
+          console.error(`Error parsing ${file} in ${typeSlug}`, e);
+        }
+      } else if (file.endsWith('.json') && (file.startsWith('flashcard') || file.includes('.flashcard') || file.includes('-flashcard'))) {
+        try {
+          const rawCards = await fs.promises.readFile(path.join(conceptDir, file), 'utf8');
+          if (rawCards.trim().length > 0) {
+            const parsedCards = JSON.parse(rawCards);
+            const flashcards = Array.isArray(parsedCards) ? parsedCards : (parsedCards.flashcards || []);
+            const titlePart = file.replace('.json', '');
+            const title = titlePart === 'flashcards' || titlePart === 'flashcard' ? 'Flashcards' : formatTitle(titlePart.replace('flashcards-', '').replace('flashcard-', '').replace('.flashcards', '').replace('.flashcard', '').replace('-flashcards', '').replace('-flashcard', ''));
+            flashcardSets.push({ id: titlePart, title, flashcards });
+          }
         } catch (e) {
           console.error(`Error parsing ${file} in ${typeSlug}`, e);
         }
@@ -344,6 +373,7 @@ export async function getKDChapterTypeData(subjectSlug: string, chapterSlug: str
     pdfs,
     youtubeUrls,
     quizzes,
+    flashcardSets,
   };
 }
 
@@ -443,26 +473,27 @@ export async function getKDNode(pathArray: string[]): Promise<import('@/types/st
             title,
             url: `/api/study-material/files/${pathArray.join('/')}/${baseName}`
           });
-        } else if (file.name.startsWith('quiz') && file.name.endsWith('.json')) {
+        } else if (file.name.endsWith('.json') && (file.name.startsWith('quiz') || file.name.includes('.quiz.json') || file.name.includes('-quiz.json'))) {
           try {
             const rawQuiz = await fs.promises.readFile(path.join(nodeDir, file.name), 'utf8');
             if (rawQuiz.trim().length > 0) {
               const parsedQuiz = JSON.parse(rawQuiz);
               const questions = Array.isArray(parsedQuiz) ? parsedQuiz : (parsedQuiz.questions || []);
               const titlePart = file.name.replace('.json', '');
-              const title = titlePart === 'quiz' ? 'Quiz' : formatTitle(titlePart.replace('quiz-', ''));
+              const title = titlePart === 'quiz' ? 'Quiz' : formatTitle(titlePart.replace('quiz-', '').replace('.quiz', '').replace('-quiz', ''));
               quizzes.push({ id: titlePart, title, questions });
             }
           } catch (e) {
             console.error(`Error parsing ${file.name} in ${nodeSlug}`, e);
           }
-        } else if (file.name.startsWith('flashcards') && file.name.endsWith('.json')) {
+        } else if (file.name.endsWith('.json') && (file.name.startsWith('flashcard') || file.name.includes('.flashcard') || file.name.includes('-flashcard'))) {
           try {
             const rawCards = await fs.promises.readFile(path.join(nodeDir, file.name), 'utf8');
             if (rawCards.trim().length > 0) {
-              const flashcards = JSON.parse(rawCards) as import('@/lib/types').SubjectFlashcard[];
+              const parsedCards = JSON.parse(rawCards);
+              const flashcards = Array.isArray(parsedCards) ? parsedCards : (parsedCards.flashcards || []);
               const titlePart = file.name.replace('.json', '');
-              const title = titlePart === 'flashcards' ? 'Flashcards' : formatTitle(titlePart.replace('flashcards-', ''));
+              const title = titlePart === 'flashcards' || titlePart === 'flashcard' ? 'Flashcards' : formatTitle(titlePart.replace('flashcards-', '').replace('flashcard-', '').replace('.flashcards', '').replace('.flashcard', '').replace('-flashcards', '').replace('-flashcard', ''));
               flashcardSets.push({ id: titlePart, title, flashcards });
             }
           } catch (e) {
