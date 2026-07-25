@@ -20,9 +20,84 @@ function readJSON(filePath: string) {
     const content = fs.readFileSync(filePath, 'utf8');
     return JSON.parse(content);
   } catch (error) {
-    console.warn(`Could not read ${filePath}`);
+    // console.warn(`Could not read ${filePath}`);
     return null;
   }
+}
+
+/**
+ * Heuristics to determine JSON file type
+ */
+function isQuizFlat(data: any): boolean {
+  return Array.isArray(data) && data.length > 0 && ('prompt' in data[0]) && ('options' in data[0]);
+}
+
+function isQuizObject(data: any): boolean {
+  return data && typeof data === 'object' && Array.isArray(data.questions);
+}
+
+function isContent(data: any): boolean {
+  return data && typeof data === 'object' && Array.isArray(data.items);
+}
+
+function isSubtopicMeta(data: any): boolean {
+  return data && typeof data === 'object' && ('title' in data) && ('slug' in data) && !Array.isArray(data.items) && !Array.isArray(data.questions);
+}
+
+function isTopicMeta(data: any): boolean {
+  return data && typeof data === 'object' && ('title' in data) && ('slug' in data) && Array.isArray(data.subTopics);
+}
+
+function isSubjectMeta(data: any): boolean {
+  return data && typeof data === 'object' && ('title' in data) && ('slug' in data) && Array.isArray(data.topics);
+}
+
+/**
+ * Scan a directory for all .json files and aggregate them
+ */
+function scanSubtopicDir(subTopicDir: string) {
+  let subTopicData: any = null;
+  let contentItems: any[] = [];
+  let quizQuestions: any[] = [];
+
+  try {
+    if (fs.existsSync(subTopicDir)) {
+      const files = fs.readdirSync(subTopicDir).filter(f => f.endsWith('.json'));
+      
+      for (const file of files) {
+        const filePath = path.join(subTopicDir, file);
+        const data = readJSON(filePath);
+        if (!data) continue;
+
+        if (isQuizFlat(data)) {
+          quizQuestions = [...quizQuestions, ...data];
+        } else if (isQuizObject(data)) {
+          quizQuestions = [...quizQuestions, ...data.questions];
+        } else if (isContent(data)) {
+          contentItems = [...contentItems, ...data.items];
+        } else if (isSubtopicMeta(data)) {
+          // If we found a file that looks like subtopic metadata, we merge it
+          // We allow fallback to subtopic.json if it exists
+          if (file === 'subtopic.json' || !subTopicData) {
+            subTopicData = { ...subTopicData, ...data };
+          }
+        }
+      }
+    }
+  } catch (e) {
+    console.error(e);
+  }
+
+  // Fallback if no subtopic meta was explicitly detected but we need it
+  if (!subTopicData) {
+     subTopicData = readJSON(path.join(subTopicDir, 'subtopic.json'));
+  }
+
+  return {
+    ...subTopicData,
+    content: contentItems,
+    quiz: quizQuestions
+  };
 }
 
 /**
@@ -62,15 +137,9 @@ export function loadAllSubjects() {
 
       const subTopics = topicData.subTopics.map((subTopicMeta: any) => {
         const subTopicDir = path.join(topicDir, subTopicMeta.slug);
-        const subTopicData = readJSON(path.join(subTopicDir, 'subtopic.json'));
-        const contentData = readJSON(path.join(subTopicDir, 'content.json'));
-        const quizData = readJSON(path.join(subTopicDir, 'quiz.json'));
-
-        return {
-          ...subTopicData,
-          content: contentData?.items || [],
-          quiz: quizData?.questions || []
-        };
+        
+        // Dynamically parse JSONs in subTopicDir
+        return scanSubtopicDir(subTopicDir);
       }).filter(Boolean);
 
       return {
@@ -112,15 +181,9 @@ export function loadSubject(slug: string) {
 
     const subTopics = topicData.subTopics.map((subTopicMeta: any) => {
       const subTopicDir = path.join(topicDir, subTopicMeta.slug);
-      const subTopicData = readJSON(path.join(subTopicDir, 'subtopic.json'));
-      const contentData = readJSON(path.join(subTopicDir, 'content.json'));
-      const quizData = readJSON(path.join(subTopicDir, 'quiz.json'));
-
-      return {
-        ...subTopicData,
-        content: contentData?.items || [],
-        quiz: quizData?.questions || []
-      };
+      
+      // Dynamically parse JSONs in subTopicDir
+      return scanSubtopicDir(subTopicDir);
     }).filter(Boolean);
 
     return {
@@ -148,15 +211,9 @@ export function loadTopic(subjectSlug: string, topicSlug: string) {
 
   const subTopics = topicData.subTopics.map((subTopicMeta: any) => {
     const subTopicDir = path.join(topicDir, subTopicMeta.slug);
-    const subTopicData = readJSON(path.join(subTopicDir, 'subtopic.json'));
-    const contentData = readJSON(path.join(subTopicDir, 'content.json'));
-    const quizData = readJSON(path.join(subTopicDir, 'quiz.json'));
-
-    return {
-      ...subTopicData,
-      content: contentData?.items || [],
-      quiz: quizData?.questions || []
-    };
+    
+    // Dynamically parse JSONs in subTopicDir
+    return scanSubtopicDir(subTopicDir);
   }).filter(Boolean);
 
   return {
@@ -170,19 +227,17 @@ export function loadTopic(subjectSlug: string, topicSlug: string) {
  */
 export function loadSubTopic(subjectSlug: string, topicSlug: string, subTopicSlug: string) {
   const subTopicDir = path.join(SUBJECTS_DIR, subjectSlug, topicSlug, subTopicSlug);
-  const subTopicData = readJSON(path.join(subTopicDir, 'subtopic.json'));
-  const contentData = readJSON(path.join(subTopicDir, 'content.json'));
-  const quizData = readJSON(path.join(subTopicDir, 'quiz.json'));
-
-  if (!subTopicData) {
-    return null;
+  
+  // Dynamically parse JSONs in subTopicDir
+  const data = scanSubtopicDir(subTopicDir);
+  if (!data || Object.keys(data).length <= 2) { // Just content & quiz empty arrays
+      // Check if subtopic.json exists to be sure it's valid
+      const explicitMeta = readJSON(path.join(subTopicDir, 'subtopic.json'));
+      if (!explicitMeta && data.content.length === 0 && data.quiz.length === 0) {
+          return null;
+      }
   }
-
-  return {
-    ...subTopicData,
-    content: contentData?.items || [],
-    quiz: quizData?.questions || []
-  };
+  return data;
 }
 
 /**
@@ -216,3 +271,4 @@ export function getSubTopicsList(subjectSlug: string, topicSlug: string) {
 export function getAllData() {
   return loadAllSubjects();
 }
+

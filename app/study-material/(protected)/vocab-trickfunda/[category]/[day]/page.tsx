@@ -22,7 +22,11 @@ export default async function FlashcardDayPage({ params }: Props) {
   try {
     const fileContent = fs.readFileSync(dataPath, 'utf-8');
     const parsed = JSON.parse(fileContent);
-    flashcards = parsed.flashcards || [];
+    if (Array.isArray(parsed)) {
+      flashcards = parsed;
+    } else {
+      flashcards = parsed.flashcards || [];
+    }
   } catch (e) {
     console.error(e);
     notFound();

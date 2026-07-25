@@ -2,7 +2,7 @@ import React from 'react';
 import fs from 'fs';
 import path from 'path';
 import Link from 'next/link';
-import { Calendar, ChevronRight, Lock } from 'lucide-react';
+import { Calendar, ChevronRight, Lock, Library } from 'lucide-react';
 
 interface Props {
   params: Promise<{ category: string }>;
@@ -35,6 +35,9 @@ export default async function CategoryDaysPage({ params }: Props) {
     const match = file.match(/day-(\d+)\.json/);
     return match ? parseInt(match[1]) : 0;
   }).filter(n => n > 0).sort((a, b) => a - b);
+
+  // Identify custom files that don't match the standard day format
+  const customFiles = files.filter(file => !file.match(/day-(\d+)\.json/)).map(file => file.replace('.json', ''));
 
   // We show 60 days total, lock the ones that don't exist
   const totalDays = 60;
@@ -87,6 +90,33 @@ export default async function CategoryDaysPage({ params }: Props) {
             );
           })}
         </div>
+        
+        {/* Custom Decks Section */}
+        {customFiles.length > 0 && (
+          <div className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800">
+            <div className="flex items-center gap-3 mb-6">
+              <Library className="w-6 h-6 text-emerald-500" />
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Custom Decks</h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {customFiles.map(deckName => (
+                <Link
+                  key={deckName}
+                  href={`/study-material/vocab-trickfunda/${category}/${deckName}`}
+                  className="group relative bg-white dark:bg-[#111] border-2 border-purple-500/20 hover:border-purple-500 rounded-2xl p-6 flex flex-col gap-3 transition-all duration-300 hover:shadow-[0_0_30px_rgba(168,85,247,0.15)] hover:-translate-y-1 overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-purple-500/5 group-hover:bg-purple-500/10 transition-colors" />
+                  <div className="flex items-start justify-between relative z-10">
+                    <span className="font-bold text-lg text-gray-900 dark:text-white capitalize break-words">
+                      {deckName.replace(/-/g, ' ')}
+                    </span>
+                    <ChevronRight className="w-5 h-5 text-purple-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
 
       </div>
     </div>
