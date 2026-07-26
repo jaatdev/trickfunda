@@ -25,7 +25,7 @@ export default function PDFLayer() {
     } = useStore();
 
     const [isClient, setIsClient] = useState(false);
-    const [pdfData, setPdfData] = useState<Uint8Array | null>(null);
+    const [pdfFileUrl, setPdfFileUrl] = useState<string | null>(null);
     
     // Get dynamic dimensions from store
     const pageWidth = canvasDimensions.width;
@@ -36,18 +36,12 @@ export default function PDFLayer() {
         if (documentId) {
             if (documentId.startsWith('http://') || documentId.startsWith('https://') || documentId.startsWith('/')) {
                 // Fetch directly if it's a URL
-                fetch(documentId)
-                    .then(r => r.arrayBuffer())
-                    .then(buffer => {
-                        setPdfData(new Uint8Array(buffer));
-                    })
-                    .catch(err => {
-                        console.error('Failed to load PDF from URL:', err);
-                    });
+                setPdfFileUrl(documentId);
             } else {
                 loadPdf(documentId).then(buffer => {
                     if (buffer) {
-                        setPdfData(new Uint8Array(buffer));
+                        const blob = new Blob([buffer], { type: 'application/pdf' });
+                        setPdfFileUrl(URL.createObjectURL(blob));
                     }
                 });
             }
@@ -62,10 +56,6 @@ export default function PDFLayer() {
         };
     }, [currentPage, pageCount]);
 
-    const fileProp = useMemo(() => {
-        return pdfData ? { data: pdfData } : null;
-    }, [pdfData]);
-
     // Don't render on server or if no document
     if (!isClient || !documentId) return null;
 
@@ -74,7 +64,7 @@ export default function PDFLayer() {
         ? pdfPageMapping
         : Array.from({ length: pageCount }, (_, i) => i + 1);
 
-    if (!pdfData) {
+    if (!pdfFileUrl) {
         return (
             <div className="absolute inset-0 z-50 flex items-center justify-center">
                 <div className="flex flex-col items-center gap-4 bg-black/60 p-6 rounded-2xl backdrop-blur-md">
@@ -99,7 +89,7 @@ export default function PDFLayer() {
             }}
         >
             <Document
-                file={fileProp as any}
+                file={pdfFileUrl}
                 className="pointer-events-none"
                 loading={
                     <div className="absolute inset-0 z-50 flex items-center justify-center">
@@ -131,7 +121,7 @@ export default function PDFLayer() {
 
                     return (
                         <div
-                            key={`pdf_page_${pdfPageNumber}`}
+                            key={`pdf_page_${index}_${pdfPageNumber}`}
                             style={{
                                 position: 'absolute',
                                 top: pageTop,

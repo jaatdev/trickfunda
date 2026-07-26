@@ -1,64 +1,137 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useMemo } from 'react';
 import { useStore } from '@cosmic/store/useStore';
-import { X, Maximize } from 'lucide-react';
+import { 
+    X, Maximize, Star, Copy, Trash2, Eraser, 
+    CheckCircle2, LayoutGrid, FileImage, 
+    MoreVertical, Eye
+} from 'lucide-react';
 import { PDF_PAGE_GAP } from '@cosmic/constants/canvas';
 import getStroke from 'perfect-freehand';
 import { getSvgPathFromStroke } from '@cosmic/utils/ink';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Document, Page } from 'react-pdf';
+import { loadPdf } from '@cosmic/utils/storage';
 
 export default function GridView() {
+    const store = useStore();
     const {
-        isGridView,
-        setIsGridView,
-        pageCount,
-        currentPage,
-        setCurrentPage,
-        pdfPageMapping,
-        canvasDimensions,
-        strokes,
-        canvasBackground,
-        movePage,
-    } = useStore();
+        isGridView, setIsGridView, pageCount, currentPage, setCurrentPage,
+        pdfPageMapping, canvasDimensions, strokes, canvasBackground, movePage,
+        selectedGridPages, bookmarkedPages, gridFilter, gridZoomLevel,
+        toggleGridPageSelection, clearGridSelection, togglePageBookmark,
+        setGridFilter, setGridZoomLevel, deleteSelectedGridPages,
+        duplicatePage, clearPageContent, deletePage, documentId
+    } = store;
 
     const activeCardRef = useRef<HTMLDivElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
 
     // Drag and Drop state
     const [draggedIndex, setDraggedIndex] = useState<number | null>(null);
     const [dragOverIndex, setDragOverIndex] = useState<number | null>(null);
+    const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
+    const [activeMenuIndex, setActiveMenuIndex] = useState<number | null>(null);
+
+    // PDF Data for Thumbnails
+    const [pdfFileUrl, setPdfFileUrl] = useState<string | null>(null);
+
+    useEffect(() => {
+        if (isGridView && documentId && !pdfFileUrl) {
+            if (documentId.startsWith('http://') || documentId.startsWith('https://') || documentId.startsWith('/')) {
+                setPdfFileUrl(documentId);
+            } else {
+                loadPdf(documentId).then(buffer => {
+                    if (buffer) {
+                        const blob = new Blob([buffer], { type: 'application/pdf' });
+                        setPdfFileUrl(URL.createObjectURL(blob));
+                    }
+                });
+            }
+        }
+    }, [isGridView, documentId]);
 
     // Auto-scroll to active page on mount
     useEffect(() => {
         if (isGridView && activeCardRef.current) {
-            // Delay to ensure DOM is ready
             setTimeout(() => {
-                activeCardRef.current?.scrollIntoView({
-                    behavior: 'auto',
-                    block: 'center',
-                });
+                activeCardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }, 100);
+            setFocusedIndex(currentPage - 1);
+        } else {
+            clearGridSelection();
+            setFocusedIndex(null);
+            setActiveMenuIndex(null);
         }
-    }, [isGridView]);
+    }, [isGridView, currentPage]);
+
+    // Keyboard navigation
+    useEffect(() => {
+        if (!isGridView) return;
+
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                setIsGridView(false);
+                return;
+            }
+
+            if (focusedIndex === null) return;
+
+            let cols = 6;
+            if (gridZoomLevel === 'small') cols = 8;
+            if (gridZoomLevel === 'large') cols = 4;
+
+            const maxIndex = pageCount - 1;
+
+            switch (e.key) {
+                case 'ArrowRight':
+                    e.preventDefault();
+                    setFocusedIndex(prev => Math.min(maxIndex, (prev ?? 0) + 1));
+                    break;
+                case 'ArrowLeft':
+                    e.preventDefault();
+                    setFocusedIndex(prev => Math.max(0, (prev ?? 0) - 1));
+                    break;
+                case 'ArrowDown':
+                    e.preventDefault();
+                    setFocusedIndex(prev => Math.min(maxIndex, (prev ?? 0) + cols));
+                    break;
+                case 'ArrowUp':
+                    e.preventDefault();
+                    setFocusedIndex(prev => Math.max(0, (prev ?? 0) - cols));
+                    break;
+                case 'Enter':
+                    e.preventDefault();
+                    handlePageClick(focusedIndex);
+                    break;
+                case ' ':
+                    e.preventDefault();
+                    toggleGridPageSelection(focusedIndex, true);
+                    break;
+                case 'Delete':
+                case 'Backspace':
+                    if (selectedGridPages.length > 0) {
+                        e.preventDefault();
+                        deleteSelectedGridPages();
+                    }
+                    break;
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [isGridView, focusedIndex, pageCount, gridZoomLevel, selectedGridPages]);
 
     if (!isGridView) return null;
 
     const handlePageClick = (index: number) => {
-        // Update current page
         setCurrentPage(index + 1);
-
-        // Close grid
         setIsGridView(false);
-
-        // Scroll to page
         const gap = PDF_PAGE_GAP;
         const pageHeight = canvasDimensions.height;
         const scrollToY = index * (pageHeight + gap);
-
-        // Instant jump
-        window.scrollTo({
-            top: scrollToY,
-            behavior: 'auto',
-        });
+        window.scrollTo({ top: scrollToY, behavior: 'auto' });
     };
 
     const handleDragStart = (e: React.DragEvent, index: number) => {
@@ -69,9 +142,7 @@ export default function GridView() {
     const handleDragOver = (e: React.DragEvent, index: number) => {
         e.preventDefault();
         e.dataTransfer.dropEffect = 'move';
-        if (dragOverIndex !== index) {
-            setDragOverIndex(index);
-        }
+        if (dragOverIndex !== index) setDragOverIndex(index);
     };
 
     const handleDragEnd = () => {
@@ -88,167 +159,359 @@ export default function GridView() {
         setDragOverIndex(null);
     };
 
+    // Prepare pages
+    const pages = Array.from({ length: pageCount }).map((_, index) => {
+        const mappingExists = pdfPageMapping && pdfPageMapping.length > 0;
+        const pdfPageNum = mappingExists ? pdfPageMapping[index] : null;
+        const isPdf = mappingExists && pdfPageNum !== null;
+        const isBlank = mappingExists && pdfPageNum === null;
+        return { index, isPdf, isBlank, pdfPageNum };
+    });
+
+    // Filter pages
+    const filteredPages = pages.filter((page) => {
+        if (gridFilter === 'all') return true;
+        if (gridFilter === 'pdf') return page.isPdf;
+        if (gridFilter === 'blank') return page.isBlank || (!page.isPdf && !page.isBlank);
+        if (gridFilter === 'bookmarked') return bookmarkedPages.includes(page.index);
+        return true;
+    });
+
+    // Grid layout class based on zoom
+    const getGridCols = () => {
+        switch (gridZoomLevel) {
+            case 'small': return 'grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-4';
+            case 'large': return 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12';
+            case 'medium':
+            default: return 'grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-8';
+        }
+    };
+
+    const gridContent = (
+        <motion.div layout className={`grid ${getGridCols()} max-w-[1600px] mx-auto pb-32`}>
+            <AnimatePresence>
+                {filteredPages.map((page) => {
+                    const { index, isPdf, isBlank, pdfPageNum } = page;
+                    const pageNum = index + 1;
+                    const isActive = pageNum === currentPage;
+                    const isSelected = selectedGridPages.includes(index);
+                    const isBookmarked = bookmarkedPages.includes(index);
+                    const isFocused = focusedIndex === index;
+
+                    // Calculate page bounds
+                    const pageHeight = canvasDimensions.height;
+                    const pageTop = index * (pageHeight + PDF_PAGE_GAP);
+                    const pageBottom = pageTop + pageHeight;
+
+                    const mappingExists = pdfPageMapping && pdfPageMapping.length > 0;
+
+                    const pageStrokes = strokes.filter(s => {
+                        const firstPoint = s.points[0];
+                        return firstPoint && firstPoint.y >= pageTop && firstPoint.y < pageBottom;
+                    });
+
+                    const isDragged = draggedIndex === index;
+                    const isDragOver = dragOverIndex === index;
+
+                    return (
+                        <motion.div
+                            layout
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.8 }}
+                            key={index}
+                            ref={isActive ? activeCardRef : null}
+                            draggable
+                            onDragStart={(e: any) => handleDragStart(e, index)}
+                            onDragOver={(e: any) => handleDragOver(e, index)}
+                            onDragLeave={() => setDragOverIndex(null)}
+                            onDragEnd={handleDragEnd}
+                            onDrop={(e: any) => handleDrop(e, index)}
+                            className={`group relative rounded-xl transition-all duration-200 
+                                ${isActive ? 'ring-2 ring-blue-500 shadow-xl shadow-blue-500/20' : 'hover:ring-1 hover:ring-white/20'}
+                                ${isSelected ? 'ring-2 ring-indigo-400 bg-indigo-500/10' : 'bg-[#2a2a2a]'}
+                                ${isFocused ? 'ring-2 ring-white scale-105' : ''}
+                                ${isDragged ? 'opacity-30 scale-95' : 'opacity-100'}
+                                ${isDragOver && draggedIndex !== null && index > draggedIndex ? 'border-r-4 border-blue-500 mr-[-4px]' : ''}
+                                ${isDragOver && draggedIndex !== null && index < draggedIndex ? 'border-l-4 border-blue-500 ml-[-4px]' : ''}
+                                cursor-grab active:cursor-grabbing
+                            `}
+                            style={{
+                                aspectRatio: canvasDimensions.height > 0 ? `${canvasDimensions.width} / ${canvasDimensions.height}` : '1 / 1.414'
+                            }}
+                            onClick={(e) => {
+                                if (e.ctrlKey || e.metaKey || e.shiftKey) {
+                                    toggleGridPageSelection(index, true);
+                                } else {
+                                    handlePageClick(index);
+                                }
+                                setFocusedIndex(index);
+                            }}
+                        >
+                            {/* Thumbnail Background */}
+                            <div 
+                                className="absolute inset-2 rounded-lg shadow-inner overflow-hidden pointer-events-none flex items-center justify-center bg-white"
+                                style={{ backgroundColor: canvasBackground || '#ffffff' }}
+                            >
+                                {/* Render PDF Thumbnail using react-pdf */}
+                                {isPdf && pdfPageNum !== null && (
+                                    <div className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden">
+                                        {pdfFileUrl ? (
+                                            <Page 
+                                                pageNumber={pdfPageNum}
+                                                width={250}
+                                                renderTextLayer={false}
+                                                renderAnnotationLayer={false}
+                                                devicePixelRatio={1}
+                                                className="pointer-events-none shadow-sm"
+                                                loading={<div className="w-full h-full animate-pulse bg-black/5" />}
+                                            />
+                                        ) : (
+                                            <div className="w-full h-full animate-pulse bg-black/5" />
+                                        )}
+                                    </div>
+                                )}
+                                
+                                {/* Lazy SVG render - optimization */}
+                                {pageStrokes.length > 0 && (
+                                    <svg
+                                        viewBox={`0 ${pageTop} ${canvasDimensions.width} ${canvasDimensions.height}`}
+                                        className="absolute inset-0 w-full h-full pointer-events-none z-10"
+                                        preserveAspectRatio="xMidYMid meet"
+                                    >
+                                        {pageStrokes.map(stroke => (
+                                            <path
+                                                key={stroke.id}
+                                                d={getSvgPathFromStroke(getStroke(stroke.points.map(p => [p.x, p.y, p.pressure || 0.5]), { size: stroke.size }))}
+                                                fill={stroke.color}
+                                                fillOpacity={stroke.isHighlighter ? 0.4 : 1}
+                                            />
+                                        ))}
+                                    </svg>
+                                )}
+
+                                {(!mappingExists || isBlank) && pageStrokes.length === 0 && (
+                                    <div className="absolute inset-0 flex items-center justify-center z-0">
+                                        <span className="text-4xl font-bold text-black/5 select-none">{pageNum}</span>
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* Interactive Overlays */}
+                            
+                            {/* Select Checkbox */}
+                            <button 
+                                className={`absolute top-4 left-4 p-1.5 rounded-md backdrop-blur-md transition-all z-30
+                                    ${isSelected ? 'bg-indigo-500 text-white' : 'bg-black/40 text-white/40 opacity-0 group-hover:opacity-100 hover:text-white'}
+                                `}
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    toggleGridPageSelection(index, true);
+                                }}
+                            >
+                                <CheckCircle2 className="w-4 h-4" />
+                            </button>
+
+                            {/* Bookmark */}
+                            <button 
+                                className={`absolute top-4 right-4 p-1.5 rounded-md backdrop-blur-md transition-all z-30
+                                    ${isBookmarked ? 'bg-yellow-500/20 text-yellow-400 opacity-100' : 'bg-black/40 text-white/40 opacity-0 group-hover:opacity-100 hover:text-white hover:bg-black/60'}
+                                `}
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    togglePageBookmark(index);
+                                }}
+                            >
+                                <Star className="w-4 h-4" fill={isBookmarked ? 'currentColor' : 'none'} />
+                            </button>
+
+                            {/* Badges */}
+                            <div className="absolute bottom-10 left-0 right-0 flex justify-center gap-2 px-2 z-30 pointer-events-none">
+                                {isPdf && <span className="px-2 py-0.5 bg-blue-500/80 text-white text-[9px] font-bold rounded-full uppercase tracking-wider backdrop-blur-sm shadow-sm">PDF {pdfPageNum}</span>}
+                                {isBlank && <span className="px-2 py-0.5 bg-white/10 text-white/60 text-[9px] font-bold rounded-full uppercase tracking-wider backdrop-blur-sm border border-white/10">Blank</span>}
+                            </div>
+
+                            {/* Label Bar & Context Menu */}
+                            <div className="absolute bottom-0 w-full bg-black/60 backdrop-blur-md py-2 px-3 flex justify-between items-center z-30 rounded-b-xl">
+                                <span className={`text-xs font-mono font-medium ${isActive ? 'text-blue-400' : 'text-white/80'}`}>
+                                    Page {pageNum}
+                                </span>
+                                
+                                <button 
+                                    className="p-1 rounded hover:bg-white/20 text-white/60 hover:text-white transition-colors"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        setActiveMenuIndex(activeMenuIndex === index ? null : index);
+                                    }}
+                                >
+                                    <MoreVertical className="w-4 h-4" />
+                                </button>
+
+                                {/* Context Menu Dropdown */}
+                                <AnimatePresence>
+                                    {activeMenuIndex === index && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                                            exit={{ opacity: 0, scale: 0.95 }}
+                                            className="absolute bottom-full right-2 mb-2 w-44 bg-[#2a2a2a] border border-white/10 rounded-xl shadow-2xl overflow-hidden z-50 flex flex-col"
+                                            onClick={(e) => e.stopPropagation()}
+                                        >
+                                            <button onClick={() => { duplicatePage(index); setActiveMenuIndex(null); }} className="flex items-center gap-2 px-4 py-2.5 text-sm text-white/80 hover:bg-white/10 hover:text-white text-left transition-colors">
+                                                <Copy className="w-4 h-4" /> Duplicate
+                                            </button>
+                                            <button onClick={() => { clearPageContent(index); setActiveMenuIndex(null); }} className="flex items-center gap-2 px-4 py-2.5 text-sm text-white/80 hover:bg-white/10 hover:text-white text-left transition-colors">
+                                                <Eraser className="w-4 h-4" /> Clear Content
+                                            </button>
+                                            <div className="h-px bg-white/10" />
+                                            <button onClick={() => { deletePage(index); setActiveMenuIndex(null); }} className="flex items-center gap-2 px-4 py-2.5 text-sm text-red-400 hover:bg-red-500/20 text-left transition-colors">
+                                                <Trash2 className="w-4 h-4" /> Delete Page
+                                            </button>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
+                        </motion.div>
+                    );
+                })}
+            </AnimatePresence>
+        </motion.div>
+    );
+
     return (
-        <div className="fixed inset-0 z-50 bg-[#1e1e1e]/95 backdrop-blur-md flex flex-col animate-in fade-in duration-200">
-            {/* Header */}
-            <div className="flex items-center justify-between px-8 py-6 border-b border-white/10">
-                <h2 className="text-2xl font-serif text-white/90 flex items-center gap-3">
-                    <Maximize className="w-6 h-6 text-blue-400" />
-                    Navigate Universe
+        <motion.div 
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.98 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[10000] bg-[#121212]/95 backdrop-blur-2xl flex flex-col font-sans"
+            onClick={() => setActiveMenuIndex(null)}
+        >
+            {/* Top Navigation Bar (Floating Pill) */}
+            <div className="absolute top-6 left-1/2 -translate-x-1/2 flex items-center gap-6 px-6 py-3 border border-white/10 bg-black/50 backdrop-blur-xl rounded-2xl z-20 shadow-2xl w-max max-w-[90vw] overflow-x-auto overflow-y-hidden no-scrollbar">
+                <h2 className="text-lg font-bold text-white/90 hidden md:flex items-center gap-2 pr-2">
+                    <LayoutGrid className="w-5 h-5 text-blue-400" />
+                    <span className="whitespace-nowrap">Universe Map</span>
                 </h2>
+                
+                {/* Filters */}
+                <div className="flex items-center bg-white/10 p-1 rounded-xl">
+                    {(['all', 'pdf', 'blank', 'bookmarked'] as const).map(filter => (
+                        <button
+                            key={filter}
+                            onClick={() => setGridFilter(filter)}
+                            className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
+                                gridFilter === filter 
+                                    ? 'bg-blue-500/30 text-blue-300 shadow-sm' 
+                                    : 'text-white/60 hover:text-white hover:bg-white/10'
+                            }`}
+                        >
+                            {filter.charAt(0).toUpperCase() + filter.slice(1)}
+                        </button>
+                    ))}
+                </div>
+
+                <div className="w-px h-6 bg-white/20 hidden sm:block" />
+
+                {/* Zoom Controls */}
+                <div className="flex items-center bg-white/10 p-1 rounded-xl">
+                    <button onClick={() => setGridZoomLevel('small')} className={`p-1.5 rounded-lg transition-all ${gridZoomLevel === 'small' ? 'bg-white/20 text-white shadow-sm' : 'text-white/60 hover:text-white hover:bg-white/10'}`} title="Small Grid"><LayoutGrid className="w-4 h-4" /></button>
+                    <button onClick={() => setGridZoomLevel('medium')} className={`p-1.5 rounded-lg transition-all ${gridZoomLevel === 'medium' ? 'bg-white/20 text-white shadow-sm' : 'text-white/60 hover:text-white hover:bg-white/10'}`} title="Medium Grid"><LayoutGrid className="w-5 h-5" /></button>
+                    <button onClick={() => setGridZoomLevel('large')} className={`p-1.5 rounded-lg transition-all ${gridZoomLevel === 'large' ? 'bg-white/20 text-white shadow-sm' : 'text-white/60 hover:text-white hover:bg-white/10'}`} title="Large Grid"><LayoutGrid className="w-6 h-6" /></button>
+                </div>
+
+                <div className="w-px h-6 bg-white/20 hidden sm:block" />
+
                 <button
                     onClick={() => setIsGridView(false)}
-                    className="p-2 hover:bg-white/10 rounded-full transition-colors text-white/60 hover:text-white"
+                    className="p-2 bg-red-500/20 hover:bg-red-500/40 rounded-xl transition-all text-red-300 hover:text-red-200"
+                    title="Close Universe Map"
                 >
-                    <X className="w-8 h-8" />
+                    <X className="w-5 h-5" />
                 </button>
             </div>
 
-
             {/* Grid Container */}
-            <div className="flex-1 overflow-y-auto p-8">
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-8 max-w-7xl mx-auto">
-                    {Array.from({ length: pageCount }).map((_, index) => {
-                        const pageNum = index + 1;
-                        const isActive = pageNum === currentPage;
-
-                        // Calculate page bounds
-                        const pageHeight = canvasDimensions.height;
-                        const pageTop = index * (pageHeight + PDF_PAGE_GAP);
-                        const pageBottom = pageTop + pageHeight;
-
-                        // Filter strokes for this page
-                        const pageStrokes = strokes.filter((s) => {
-                            const firstPoint = s.points[0];
-                            return firstPoint && firstPoint.y >= pageTop && firstPoint.y < pageBottom;
-                        });
-
-                        // Determine page type (PDF Page or Blank)
-                        const mappingExists = pdfPageMapping && pdfPageMapping.length > 0;
-                        const pdfPageNum = mappingExists ? pdfPageMapping[index] : null;
-                        const isBlank = mappingExists && pdfPageNum === null;
-                        const isPdf = mappingExists && pdfPageNum !== null;
-
-                        const isDragged = draggedIndex === index;
-                        const isDragOver = dragOverIndex === index;
-
-                        return (
-                            <div
-                                key={index}
-                                ref={isActive ? activeCardRef : null}
-                                draggable
-                                onDragStart={(e) => handleDragStart(e, index)}
-                                onDragOver={(e) => handleDragOver(e, index)}
-                                onDragLeave={() => setDragOverIndex(null)}
-                                onDragEnd={handleDragEnd}
-                                onDrop={(e) => handleDrop(e, index)}
-                                className={`group relative aspect-[1/1.414] rounded-lg transition-all duration-200 
-                                    ${isActive
-                                        ? 'ring-4 ring-blue-500 scale-105 shadow-2xl shadow-blue-500/20'
-                                        : 'hover:scale-105 hover:ring-2 hover:ring-white/20'
-                                    }
-                                    ${isDragged ? 'opacity-30 scale-95' : 'opacity-100'}
-                                    ${isDragOver && draggedIndex !== null && index > draggedIndex ? 'border-r-4 border-blue-500 mr-[-4px]' : ''}
-                                    ${isDragOver && draggedIndex !== null && index < draggedIndex ? 'border-l-4 border-blue-500 ml-[-4px]' : ''}
-                                    bg-[#2a2a2a] overflow-hidden cursor-grab active:cursor-grabbing
-                                `}
-                            >
-                                <button
-                                    onClick={() => handlePageClick(index)}
-                                    className="absolute inset-0 w-full h-full pointer-events-none"
-                                >
-                                    {/* Thumbnail Container */}
-                                    <div
-                                        className="absolute inset-4 rounded shadow-inner overflow-hidden"
-                                        style={{ backgroundColor: canvasBackground }}
-                                    >
-                                        {/* PDF Background (if PDF page) */}
-                                        {isPdf && (
-                                            <div className="absolute inset-0 z-0 bg-white shadow-sm" />
-                                        )}
-
-                                        {/* Ink Strokes (Mini-Map) - Using viewBox to crop the view */}
-                                        {pageStrokes.length > 0 && (
-                                            <svg
-                                                viewBox={`0 ${pageTop} ${canvasDimensions.width} ${canvasDimensions.height}`}
-                                                className="absolute inset-0 w-full h-full pointer-events-none z-10"
-                                                preserveAspectRatio="xMidYMid meet"
-                                            >
-                                                {pageStrokes.map((stroke) => {
-                                                    // Generate stroke outline using perfect-freehand
-                                                    const outlinePoints = getStroke(
-                                                        stroke.points.map((p) => [p.x, p.y, p.pressure || 0.5]),
-                                                        {
-                                                            size: stroke.size,
-                                                            thinning: 0.5,
-                                                            smoothing: 0.5,
-                                                            streamline: 0.5,
-                                                        }
-                                                    );
-
-                                                    const pathData = getSvgPathFromStroke(outlinePoints);
-
-                                                    return (
-                                                        <path
-                                                            key={stroke.id}
-                                                            d={pathData}
-                                                            fill={stroke.color}
-                                                            fillOpacity={stroke.isHighlighter ? 0.4 : 1}
-                                                            stroke="none"
-                                                        />
-                                                    );
-                                                })}
-                                            </svg>
-                                        )}
-
-                                        {/* Blank Page Indicator */}
-                                        {(isBlank || !mappingExists) && pageStrokes.length === 0 && (
-                                            <div className="absolute inset-0 flex items-center justify-center z-0">
-                                                <span className="text-6xl font-bold text-black/5 select-none">
-                                                    {pageNum}
-                                                </span>
-                                            </div>
-                                        )}
-
-                                        {/* Semi-transparent overlay for non-active pages */}
-                                        {!isActive && (
-                                            <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors z-20 pointer-events-none" />
-                                        )}
-                                    </div>
-
-                                    {/* Active Indicator (if active) */}
-                                    {isActive && (
-                                        <div className="absolute top-2 right-2 w-3 h-3 bg-blue-500 rounded-full shadow-lg shadow-blue-500/50 z-30" />
-                                    )}
-
-                                    {/* Badges */}
-                                    <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-2 px-2 z-30 pointer-events-none">
-                                        {isPdf && (
-                                            <span className="px-2 py-1 bg-blue-500/80 text-white text-[10px] font-bold rounded-full uppercase tracking-wider backdrop-blur-sm shadow-sm">
-                                                PDF Page {pdfPageNum}
-                                            </span>
-                                        )}
-                                        {isBlank && (
-                                            <span className="px-2 py-1 bg-white/10 text-white/60 text-[10px] font-bold rounded-full uppercase tracking-wider backdrop-blur-sm border border-white/10">
-                                                Blank
-                                            </span>
-                                        )}
-                                    </div>
-
-                                    {/* Label */}
-                                    <div className="absolute bottom-0 w-full bg-black/60 backdrop-blur-sm py-1 z-30">
-                                        <span className={`text-xs font-mono
-                                            ${isActive ? 'text-blue-400 font-bold' : 'text-white/60'}
-                                        `}>
-                                            Page {pageNum}
-                                        </span>
-                                    </div>
-                                </button>
+            <div className="flex-1 overflow-y-auto p-8 pt-28 relative" ref={containerRef}>
+                {pdfFileUrl ? (
+                    <Document 
+                        file={pdfFileUrl}
+                        loading={
+                            <div className="flex items-center justify-center w-full h-full text-white/50 animate-pulse">
+                                <div className="flex flex-col items-center gap-4">
+                                    <div className="w-8 h-8 border-4 border-blue-500/30 border-t-blue-500 rounded-full animate-spin" />
+                                    <span>Parsing PDF for Grid View...</span>
+                                </div>
                             </div>
-                        );
-                    })}
-                </div>
+                        }
+                        error={null}
+                        className="w-full h-full"
+                    >
+                        {gridContent}
+                    </Document>
+                ) : (
+                    <div className="w-full h-full">
+                        {gridContent}
+                    </div>
+                )}
             </div>
-        </div>
+
+            {/* Floating Action Bar for Selection */}
+            <AnimatePresence>
+                {selectedGridPages.length > 0 && (
+                    <motion.div
+                        initial={{ y: 100, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        exit={{ y: 100, opacity: 0 }}
+                        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 px-6 py-3 bg-[#2a2a2a]/90 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl z-50"
+                    >
+                        <span className="text-sm font-medium text-white/80 mr-4">
+                            {selectedGridPages.length} selected
+                        </span>
+                        
+                        <div className="w-px h-6 bg-white/10 mx-2" />
+
+                        <button 
+                            onClick={() => {
+                                selectedGridPages.forEach(idx => duplicatePage(idx));
+                                clearGridSelection();
+                            }}
+                            className="p-2.5 rounded-xl hover:bg-white/10 text-white/70 hover:text-white transition-all tooltip flex items-center gap-2"
+                            title="Duplicate Selected"
+                        >
+                            <Copy className="w-5 h-5" /> Duplicate
+                        </button>
+
+                        <button 
+                            onClick={() => {
+                                selectedGridPages.forEach(idx => clearPageContent(idx));
+                                clearGridSelection();
+                            }}
+                            className="p-2.5 rounded-xl hover:bg-white/10 text-white/70 hover:text-white transition-all tooltip flex items-center gap-2"
+                            title="Clear Content"
+                        >
+                            <Eraser className="w-5 h-5" /> Clear
+                        </button>
+
+                        <button 
+                            onClick={deleteSelectedGridPages}
+                            className="p-2.5 rounded-xl hover:bg-red-500/20 text-red-400 hover:text-red-300 transition-all tooltip flex items-center gap-2"
+                            title="Delete Selected"
+                        >
+                            <Trash2 className="w-5 h-5" /> Delete
+                        </button>
+
+                        <div className="w-px h-6 bg-white/10 mx-2" />
+
+                        <button 
+                            onClick={clearGridSelection}
+                            className="px-4 py-2 text-sm font-medium rounded-lg hover:bg-white/10 text-white/70 hover:text-white transition-all"
+                        >
+                            Cancel
+                        </button>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </motion.div>
     );
 }

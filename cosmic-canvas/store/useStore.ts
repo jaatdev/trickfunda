@@ -26,6 +26,12 @@ interface CanvasState {
     isFullscreen: boolean;
     isGridView: boolean;
 
+    // Grid View Enhancements
+    selectedGridPages: number[];
+    bookmarkedPages: number[];
+    gridFilter: 'all' | 'pdf' | 'blank' | 'bookmarked';
+    gridZoomLevel: 'small' | 'medium' | 'large';
+
     // Separate widths for pen and eraser
     penColor: string;
     penWidth: number;
@@ -99,6 +105,14 @@ interface CanvasState {
     fitToScreen: () => void;
     setIsFullscreen: (value: boolean) => void;
     setIsGridView: (value: boolean) => void;
+    toggleGridPageSelection: (index: number, multiSelect?: boolean) => void;
+    clearGridSelection: () => void;
+    togglePageBookmark: (index: number) => void;
+    setGridFilter: (filter: 'all' | 'pdf' | 'blank' | 'bookmarked') => void;
+    setGridZoomLevel: (level: 'small' | 'medium' | 'large') => void;
+    deleteSelectedGridPages: () => void;
+    duplicatePage: (pageIndex: number) => void;
+    clearPageContent: (pageIndex: number) => void;
     setPenColor: (color: string) => void;
     setPenWidth: (width: number) => void;
     setEraserWidth: (width: number) => void;
@@ -167,6 +181,10 @@ export const useStore = create<CanvasState>((set, get) => ({
     zoom: 1,
     isFullscreen: false,
     isGridView: false,
+    selectedGridPages: [],
+    bookmarkedPages: [],
+    gridFilter: 'all',
+    gridZoomLevel: 'medium',
 
     // Separate widths - Dark Slate Aesthetic
     penColor: '#d7d5d5',     // Light Grey (silver ink)
@@ -719,6 +737,14 @@ export const useStore = create<CanvasState>((set, get) => ({
             return img;
         });
 
+        // Shift text nodes
+        const newTextNodes = state.textNodes.map(text => {
+            if (text.y > insertThreshold) {
+                return { ...text, y: text.y + shiftAmount };
+            }
+            return text;
+        });
+
         // Update PDF page mapping - insert null (blank page) at position
         let newMapping = state.pdfPageMapping.length > 0 
             ? [...state.pdfPageMapping] 
@@ -731,6 +757,7 @@ export const useStore = create<CanvasState>((set, get) => ({
             pageCount: state.pageCount + 1,
             strokes: newStrokes,
             images: newImages,
+            textNodes: newTextNodes,
             pdfPageMapping: newMapping,
             historyStack: [
                 ...state.historyStack,
@@ -1557,6 +1584,110 @@ export const useStore = create<CanvasState>((set, get) => ({
     unhidePdfPage: (pageIndex) => {
         const state = get();
         set({ hiddenPdfPages: state.hiddenPdfPages.filter(p => p !== pageIndex) });
+    },
+
+    // Grid View Enhancements
+    toggleGridPageSelection: (index, multiSelect) => {
+        const state = get();
+        if (multiSelect) {
+            set({
+                selectedGridPages: state.selectedGridPages.includes(index)
+                    ? state.selectedGridPages.filter((i) => i !== index)
+                    : [...state.selectedGridPages, index]
+            });
+        } else {
+            set({
+                selectedGridPages: state.selectedGridPages.includes(index) && state.selectedGridPages.length === 1
+                    ? [] // Toggle off if it's the only one selected
+                    : [index]
+            });
+        }
+    },
+    clearGridSelection: () => set({ selectedGridPages: [] }),
+    togglePageBookmark: (index) => {
+        const state = get();
+        set({
+            bookmarkedPages: state.bookmarkedPages.includes(index)
+                ? state.bookmarkedPages.filter((i) => i !== index)
+                : [...state.bookmarkedPages, index]
+        });
+    },
+    setGridFilter: (filter) => set({ gridFilter: filter }),
+    setGridZoomLevel: (level) => set({ gridZoomLevel: level }),
+    
+    deleteSelectedGridPages: () => {
+        const state = get();
+        // Sort descending so deleting doesn't shift indexes of remaining pages to be deleted
+        const sortedPages = [...state.selectedGridPages].sort((a, b) => b - a);
+        sortedPages.forEach(pageIndex => {
+            get().deletePage(pageIndex);
+        });
+        set({ selectedGridPages: [] });
+    },
+
+    duplicatePage: (pageIndex) => {
+        const state = get();
+        // Insert a blank page after the current one
+        get().insertPageAfter(pageIndex);
+        
+        // We need to copy strokes/images from pageIndex to pageIndex + 1
+        const newState = get(); // Get state again after insert
+        const pageTotal = newState.canvasDimensions.height + PDF_PAGE_GAP;
+        
+        const topThreshold = pageIndex * pageTotal;
+        const bottomThreshold = topThreshold + newState.canvasDimensions.height;
+        const shiftAmount = pageTotal; // Shift down by one page
+
+        const copiedStrokes = newState.strokes
+            .filter(s => s.points[0] && s.points[0].y >= topThreshold && s.points[0].y < bottomThreshold)
+            .map(s => ({
+                ...s,
+                id: generateId(),
+                points: s.points.map(p => ({ ...p, y: p.y + shiftAmount }))
+            }));
+
+        const copiedImages = newState.images
+            .filter(img => img.y >= topThreshold && img.y < bottomThreshold)
+            .map(img => ({
+                ...img,
+                id: generateId(),
+                y: img.y + shiftAmount
+            }));
+            
+        const copiedTextNodes = newState.textNodes
+            .filter(text => text.y >= topThreshold && text.y < bottomThreshold)
+            .map(text => ({
+                ...text,
+                id: generateId(),
+                y: text.y + shiftAmount
+            }));
+            
+        // Copy the PDF page mapping so the duplicated page retains the PDF background
+        let newMapping = [...newState.pdfPageMapping];
+        if (newMapping.length > pageIndex + 1 && state.pdfPageMapping.length > pageIndex) {
+            newMapping[pageIndex + 1] = state.pdfPageMapping[pageIndex];
+        }
+
+        set({
+            strokes: [...newState.strokes, ...copiedStrokes],
+            images: [...newState.images, ...copiedImages],
+            textNodes: [...newState.textNodes, ...copiedTextNodes],
+            pdfPageMapping: newMapping
+        });
+    },
+
+    clearPageContent: (pageIndex) => {
+        const state = get();
+        const pageTotal = state.canvasDimensions.height + PDF_PAGE_GAP;
+        const topThreshold = pageIndex * pageTotal;
+        const bottomThreshold = topThreshold + state.canvasDimensions.height;
+        
+        set({
+            strokes: state.strokes.filter(s => !(s.points[0] && s.points[0].y >= topThreshold && s.points[0].y < bottomThreshold)),
+            images: state.images.filter(img => !(img.y >= topThreshold && img.y < bottomThreshold)),
+            // Text nodes logic here if needed
+            textNodes: state.textNodes.filter(t => !(t.y >= topThreshold && t.y < bottomThreshold))
+        });
     },
 
     // Computed helpers
