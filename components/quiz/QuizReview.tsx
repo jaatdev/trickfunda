@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { getThemeById } from '@/lib/theme-variants';
 import { MathJax } from 'better-react-mathjax';
+import { FormattedText } from '@/components/ui/FormattedText';
 import { DiceLayout, FigureData } from '@/lib/types';
 import { DiceLayoutRenderer } from './DiceLayoutRenderer';
 import { FigureRenderer } from './geometry/FigureRenderer';
@@ -343,7 +344,7 @@ export function QuizReview({ attempts, score, topicId, onClose }: QuizReviewProp
                     )}
                   </div>
                   <h3 className="text-lg font-semibold whitespace-pre-wrap break-words min-w-0">
-                    <MathJax>{attempt.prompt}</MathJax>
+                    <MathJax><FormattedText text={attempt.prompt} /></MathJax>
                   </h3>
                   {attempt.dice_layout && (
                     <DiceLayoutRenderer layout={attempt.dice_layout} />
@@ -376,7 +377,7 @@ export function QuizReview({ attempts, score, topicId, onClose }: QuizReviewProp
                           {optionLetter}
                         </span>
                         <span className="flex-1">
-                          <MathJax>{option}</MathJax>
+                          <MathJax><FormattedText text={option} /></MathJax>
                           {attempt.options_dice_layout?.[optionIndex] && (
                             <div className="mt-2">
                               <DiceLayoutRenderer layout={attempt.options_dice_layout[optionIndex]} />
@@ -405,7 +406,7 @@ export function QuizReview({ attempts, score, topicId, onClose }: QuizReviewProp
                   <div className="text-sm font-medium text-blue-900 dark:text-blue-300 mb-1">
                     Explanation:
                   </div>
-                  <div className="text-sm text-blue-800 dark:text-blue-400"><MathJax>{attempt.reason}</MathJax></div>
+                  <div className="text-sm text-blue-800 dark:text-blue-400"><MathJax><FormattedText text={attempt.reason} /></MathJax></div>
                 </div>
               )}
             </motion.div>
