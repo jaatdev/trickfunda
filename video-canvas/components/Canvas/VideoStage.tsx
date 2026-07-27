@@ -19,8 +19,8 @@ export default function VideoStage() {
   const undo = useVideoStore((state: any) => state.undo);
   const redo = useVideoStore((state: any) => state.redo);
   const toggleToolbar = useVideoStore((state: any) => state.toggleToolbar);
-  const deleteSelected = useVideoStore((state: any) => state.deleteSelected);
-  const deselectAll = useVideoStore((state: any) => state.deselectAll);
+  const deleteSelected = useVideoStore((state: any) => state.deleteSelectedObject);
+  const deselectAll = useVideoStore((state: any) => state.clearSelection);
 
   const [isDraggingPan, setIsDraggingPan] = useState(false);
   const lastPanPoint = useRef({ x: 0, y: 0 });
