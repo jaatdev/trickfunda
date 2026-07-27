@@ -253,12 +253,12 @@ function SlideComponent({ question: q, index, title, youtubeUrl, brand }: { ques
           </div>
           
           {q.prompt_hi && (
-            <MathJax>
+            <MathJax dynamic>
               <div style={{ fontSize: '22px', fontWeight: 700, color: '#1e293b', lineHeight: 1.4 }} dangerouslySetInnerHTML={{ __html: q.prompt_hi }} />
             </MathJax>
           )}
           
-          <MathJax>
+          <MathJax dynamic>
              <div style={{ fontSize: '20px', fontWeight: 600, color: '#475569', lineHeight: 1.4 }} dangerouslySetInnerHTML={{ __html: q.prompt }} />
           </MathJax>
 
@@ -277,7 +277,7 @@ function SlideComponent({ question: q, index, title, youtubeUrl, brand }: { ques
               return (
                 <div key={idx} style={{ backgroundColor: '#f1f5f9', borderRadius: '12px', padding: '10px 15px', display: 'flex', alignItems: 'center', gap: '12px', border: '1px solid #e2e8f0' }}>
                   <span style={{ fontSize: '20px', fontWeight: 800, color: '#ff4500', flexShrink: 0 }}>({letter})</span>
-                  <MathJax>
+                  <MathJax dynamic>
                      <div style={{ fontSize: '18px', fontWeight: 700, color: '#000000' }} dangerouslySetInnerHTML={{ __html: displayOpt }} />
                   </MathJax>
                 </div>
