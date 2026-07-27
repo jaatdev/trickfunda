@@ -128,9 +128,10 @@ export default function GridView() {
     const handlePageClick = (index: number) => {
         setCurrentPage(index + 1);
         setIsGridView(false);
+        const { zoom } = useStore.getState();
         const gap = PDF_PAGE_GAP;
         const pageHeight = canvasDimensions.height;
-        const scrollToY = index * (pageHeight + gap);
+        const scrollToY = index * (pageHeight + gap) * zoom;
         window.scrollTo({ top: scrollToY, behavior: 'auto' });
     };
 
@@ -354,7 +355,7 @@ export default function GridView() {
                                             initial={{ opacity: 0, y: 10, scale: 0.95 }}
                                             animate={{ opacity: 1, y: 0, scale: 1 }}
                                             exit={{ opacity: 0, scale: 0.95 }}
-                                            className="absolute bottom-full right-2 mb-2 w-44 bg-[#2a2a2a] border border-white/10 rounded-xl shadow-2xl overflow-hidden z-50 flex flex-col"
+                                            className="absolute bottom-12 right-2 w-44 bg-[#2a2a2a] border border-white/10 rounded-xl shadow-2xl overflow-hidden z-50 flex flex-col"
                                             onClick={(e) => e.stopPropagation()}
                                         >
                                             <button onClick={() => { duplicatePage(index); setActiveMenuIndex(null); }} className="flex items-center gap-2 px-4 py-2.5 text-sm text-white/80 hover:bg-white/10 hover:text-white text-left transition-colors">

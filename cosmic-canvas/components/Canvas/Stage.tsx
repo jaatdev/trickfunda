@@ -214,46 +214,47 @@ export default function Stage() {
         return pages;
     }, [minPage, maxPage]);
 
-    // IntersectionObserver Page Detection (Scroll Drift Fix)
-    // Observes REAL page containers at 50% visibility threshold
+    // Scroll-based Page Detection (Highly reliable regardless of zoom)
     useEffect(() => {
         // Skip if Grid View is open
         if (useStore.getState().isGridView) return;
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-                // Find the most visible page (highest intersectionRatio)
-                let maxRatio = 0;
-                let visiblePageIndex = -1;
-
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
-                        maxRatio = entry.intersectionRatio;
-                        const pageIndex = parseInt(entry.target.getAttribute('data-page-index') || '0', 10);
-                        visiblePageIndex = pageIndex;
-                    }
-                });
-
-                // Update state only if a valid page is detected and different from current
-                if (visiblePageIndex >= 0) {
-                    const newPage = visiblePageIndex + 1; // Convert 0-indexed to 1-indexed
-                    const currentPage = useStore.getState().currentPage;
-                    if (newPage !== currentPage) {
-                        useStore.getState().setCurrentPage(newPage);
-                    }
+        let scrollTimeout: NodeJS.Timeout | null = null;
+        
+        const handleScroll = () => {
+            if (scrollTimeout) return;
+            
+            // Throttle scroll events to ~15fps (66ms)
+            scrollTimeout = setTimeout(() => {
+                scrollTimeout = null;
+                
+                if (useStore.getState().isGridView) return;
+                
+                const { zoom, canvasDimensions, pageCount, currentPage } = useStore.getState();
+                const singlePageHeight = (canvasDimensions.height + PDF_PAGE_GAP) * zoom;
+                
+                // Calculate which page is at the center of the viewport
+                const centerY = window.scrollY + (window.innerHeight / 2);
+                const pageIndex = Math.floor(centerY / singlePageHeight);
+                
+                // Ensure index is within valid bounds
+                const validIndex = Math.max(0, Math.min(pageCount - 1, pageIndex));
+                const newPage = validIndex + 1;
+                
+                if (newPage !== currentPage) {
+                    useStore.getState().setCurrentPage(newPage);
                 }
-            },
-            {
-                root: null, // viewport
-                threshold: 0.5, // Trigger when 50% visible
-            }
-        );
+            }, 66);
+        };
 
-        // Observe all page containers
-        const pageElements = document.querySelectorAll('.canvas-page-container');
-        pageElements.forEach((el) => observer.observe(el));
-
-        return () => observer.disconnect();
+        // Initial check and event listener
+        handleScroll();
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            if (scrollTimeout) clearTimeout(scrollTimeout);
+        };
     }, [pageCount]);
 
     // Set page height on mount or when dimensions change (for export and other calculations)
