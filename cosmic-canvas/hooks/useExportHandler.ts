@@ -44,6 +44,8 @@ export const useExportHandler = () => {
                 pdfPageMapping,
                 hiddenPdfPages,
                 canvasBackground,
+                isGridView,
+                selectedGridPages
             } = state;
 
             const pageWidth = canvasDimensions.width;
@@ -51,6 +53,11 @@ export const useExportHandler = () => {
             const bgColor = canvasBackground ? hexToRgb(canvasBackground) : rgb(1, 1, 1);
 
             let pdfDoc = await PDFDocument.create();
+
+            const baseIndices = Array.from({ length: pageCount }, (_, i) => i);
+            const indicesToExport = (isGridView && selectedGridPages.length > 0)
+                ? [...selectedGridPages].sort((a, b) => a - b)
+                : baseIndices;
 
             if (documentId) {
                 let pdfBytes: ArrayBuffer | null = null;
@@ -78,7 +85,8 @@ export const useExportHandler = () => {
                     ? pdfPageMapping 
                     : Array.from({ length: pageCount }, (_, i) => i + 1);
 
-                const pagesToCopy = effectiveMapping
+                const pagesToCopy = indicesToExport
+                    .map(idx => effectiveMapping[idx])
                     .filter((p: number | null) => p !== null && !(hiddenPdfPages && hiddenPdfPages.includes(p)))
                     .map((p: number | null) => (p as number) - 1);
 
@@ -92,8 +100,9 @@ export const useExportHandler = () => {
                 const targetPdfHeight = firstPdfPage.getHeight();
 
                 let copyIndex = 0;
-                for (let i = 0; i < effectiveMapping.length; i++) {
-                    const pdfPageNumber = effectiveMapping[i];
+                for (let i = 0; i < indicesToExport.length; i++) {
+                    const originalIndex = indicesToExport[i];
+                    const pdfPageNumber = effectiveMapping[originalIndex];
                     const isHidden = hiddenPdfPages && pdfPageNumber !== null && hiddenPdfPages.includes(pdfPageNumber);
 
                     if (pdfPageNumber !== null && !isHidden) {
@@ -111,7 +120,7 @@ export const useExportHandler = () => {
                     }
                 }
             } else {
-                for (let i = 0; i < pageCount; i++) {
+                for (let i = 0; i < indicesToExport.length; i++) {
                     const blankPage = pdfDoc.addPage([pageWidth, pageHeight]);
                     blankPage.drawRectangle({
                         x: 0,
@@ -141,7 +150,8 @@ export const useExportHandler = () => {
 
             for (let i = 0; i < pages.length; i++) {
                 const page = pages[i];
-                const offsetY = i * (pageHeight + PDF_PAGE_GAP);
+                const originalIndex = indicesToExport[i];
+                const offsetY = originalIndex * (pageHeight + PDF_PAGE_GAP);
                 
                 const pdfPageWidth = page.getWidth();
                 const pdfPageHeight = page.getHeight();

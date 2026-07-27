@@ -1159,32 +1159,59 @@ html.dark .toast-close:hover {
   pointer-events: none;
 }
 
-/* === Hacker Preloader Glitch Animations === */
+/* === Cinematic Preloader Animations === */
 
-@keyframes glitch-1 {
-  0% { clip-path: inset(40% 0 61% 0); transform: translate(-2px, -1px); }
-  20% { clip-path: inset(92% 0 1% 0); transform: translate(2px, 1px); }
-  40% { clip-path: inset(43% 0 1% 0); transform: translate(-1px, 2px); }
-  60% { clip-path: inset(25% 0 58% 0); transform: translate(1px, -2px); }
-  80% { clip-path: inset(54% 0 7% 0); transform: translate(-2px, 1px); }
-  100% { clip-path: inset(58% 0 43% 0); transform: translate(2px, -1px); }
+@keyframes cinematic-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.2)) drop-shadow(0 0 30px rgba(255, 215, 0, 0.1));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.4)) drop-shadow(0 0 50px rgba(255, 215, 0, 0.2));
+  }
 }
 
-@keyframes glitch-2 {
-  0% { clip-path: inset(65% 0 13% 0); transform: translate(2px, 1px); }
-  20% { clip-path: inset(15% 0 65% 0); transform: translate(-1px, -2px); }
-  40% { clip-path: inset(72% 0 9% 0); transform: translate(1px, 2px); }
-  60% { clip-path: inset(5% 0 73% 0); transform: translate(-2px, -1px); }
-  80% { clip-path: inset(32% 0 25% 0); transform: translate(2px, 1px); }
-  100% { clip-path: inset(82% 0 5% 0); transform: translate(-1px, 2px); }
+@keyframes light-sweep {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
 }
 
-.animate-glitch-1 {
-  animation: glitch-1 0.3s infinite linear alternate-reverse;
+@keyframes particle-float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-10px) translateX(5px);
+  }
+  50% {
+    transform: translateY(-20px) translateX(-5px);
+  }
+  75% {
+    transform: translateY(-10px) translateX(5px);
+  }
 }
 
-.animate-glitch-2 {
-  animation: glitch-2 0.3s infinite linear alternate-reverse;
-  animation-delay: 0.15s;
+.animate-cinematic-glow {
+  animation: cinematic-glow 4s ease-in-out infinite;
 }
+
+.text-gradient-sweep {
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 40%,
+    rgba(255, 215, 0, 0.8) 50%,
+    rgba(255, 255, 255, 1) 60%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: light-sweep 4s linear infinite;
+}
+
 

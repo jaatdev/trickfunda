@@ -181,7 +181,7 @@ export default function Footer() {
             
             <div className="bg-black/60 rounded-[22px] p-8 relative overflow-hidden border border-white/5 z-10">
               <div className="absolute inset-0 cyber-grid opacity-10 pointer-events-none" />
-              <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
+              <div className="relative z-10 flex flex-col md:flex-row items-center gap-8" suppressHydrationWarning>
                 <div className="flex-1 text-center md:text-left">
                   <div className={`text-sm font-mono mb-2 ${theme.accentText}`}>
                     <TerminalText text="> INIT_COMM_PROTOCOL" />
@@ -190,8 +190,8 @@ export default function Footer() {
                   <p className="text-gray-400 text-sm">Receive data packets regarding new subjects and features.</p>
                 </div>
                 
-                <div className="w-full md:w-auto flex-1 max-w-md flex flex-col sm:flex-row gap-3">
-                  <div className="relative flex-1">
+                <div className="w-full md:w-auto flex-1 max-w-md flex flex-col sm:flex-row gap-3" suppressHydrationWarning>
+                  <div className="relative flex-1" suppressHydrationWarning>
                     <span className="absolute left-4 top-1/2 -translate-y-1/2 font-mono text-gray-500">{'>'}</span>
                     <input
                       type="email"
