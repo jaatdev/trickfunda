@@ -1,12 +1,13 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useMotionValue, useTransform, useMotionTemplate } from 'framer-motion';
 import { useFullscreen } from '@/lib/fullscreen-context';
 import { Maximize, Minimize, X, Sparkles, Brain, ArrowRight, ArrowLeft, Info } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { createPortal } from 'react-dom';
 import { MathJax } from 'better-react-mathjax';
+import AnimatedBackground from './AnimatedBackground';
 import type { SubjectFlashcard } from '@/lib/types';
 
 interface Props {
@@ -33,6 +34,35 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
     }
     return false;
   });
+
+  const tiltX = useMotionValue(0);
+  const tiltY = useMotionValue(0);
+  const rotateX = useTransform(tiltY, [-100, 100], [10, -10]);
+  const rotateY = useTransform(tiltX, [-100, 100], [-10, 10]);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    if (isMobile) return;
+    const rect = event.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const clientX = event.clientX - rect.left;
+    const clientY = event.clientY - rect.top;
+    
+    mouseX.set(clientX);
+    mouseY.set(clientY);
+
+    const xPct = clientX / width - 0.5;
+    const yPct = clientY / height - 0.5;
+    tiltX.set(xPct * 200);
+    tiltY.set(yPct * 200);
+  };
+
+  const handleMouseLeave = () => {
+    tiltX.set(0);
+    tiltY.set(0);
+  };
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 1080);
@@ -140,10 +170,7 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
 
   const content = (
     <div className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-gray-950 text-gray-100 overflow-hidden`}>
-      {/* Deep Cyber Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-900 via-[#0a0a0a] to-black opacity-80" />
-      <div className="absolute top-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-overlay" />
-      <div className="absolute inset-0 shadow-[inset_0_0_150px_rgba(0,0,0,0.9)] pointer-events-none" />
+      <AnimatedBackground />
 
       {/* Top Header */}
       <div className="absolute top-0 w-full p-6 flex items-center justify-between z-50">
@@ -173,17 +200,45 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
             exit="exit"
             className="absolute inset-0 w-full h-full cursor-pointer group"
             onClick={handleNextState}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
             style={{ transformStyle: 'preserve-3d', WebkitTapHighlightColor: 'transparent' }}
           >
+            <motion.div 
+              className="w-full h-full relative"
+              style={{
+                transformStyle: 'preserve-3d',
+                rotateX: isMobile ? 0 : rotateX,
+                rotateY: isMobile ? 0 : rotateY
+              }}
+            >
+            {/* Animated Neon Border */}
+            <div className="absolute inset-[-2px] rounded-[2.6rem] overflow-hidden opacity-50 md:opacity-80 -z-10 bg-white/5">
+                <div className="absolute top-1/2 left-1/2 w-[200%] h-[200%] -translate-x-1/2 -translate-y-1/2 bg-[conic-gradient(from_0deg,transparent_0_280deg,rgba(59,130,246,1)_360deg)] animate-[spin_4s_linear_infinite]" />
+            </div>
+
             {/* Front of Card */}
             <motion.div 
-              className="absolute inset-0 w-full h-full rounded-[2.5rem] bg-gradient-to-br from-[#1a1a2e] to-[#16213e] border border-blue-500/30 shadow-[0_0_50px_rgba(59,130,246,0.15)] overflow-hidden"
+              className="absolute inset-0 w-full h-full rounded-[2.5rem] bg-white/5 backdrop-blur-3xl border border-white/10 shadow-[0_0_50px_rgba(59,130,246,0.3)] overflow-hidden"
               initial={false}
               animate={isMobile ? { zIndex: flipState === 0 ? 10 : 0, opacity: flipState === 0 ? 1 : 0 } : { rotateX: flipState > 0 ? 180 : 0, zIndex: flipState === 0 ? 10 : 0, opacity: flipState === 0 ? 1 : 0 }}
               transition={isMobile ? { duration: 0 } : { type: "spring", stiffness: 260, damping: 20 }}
               style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
             >
-              <div className={`absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.05)_50%,transparent_75%)] bg-[length:250%_250%] ${isMobile ? '' : 'animate-[shimmer_3s_infinite]'} pointer-events-none`} />
+              {/* Cursor Spotlight */}
+              <motion.div
+                className="pointer-events-none absolute -inset-px rounded-[2.5rem] opacity-0 transition duration-300 group-hover:opacity-100 z-0"
+                style={{
+                  background: useMotionTemplate`
+                    radial-gradient(
+                      800px circle at ${mouseX}px ${mouseY}px,
+                      rgba(255,255,255,0.1),
+                      transparent 80%
+                    )
+                  `,
+                }}
+              />
+              <div className={`absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.05)_50%,transparent_75%)] bg-[length:250%_250%] ${isMobile ? '' : 'animate-[shimmer_3s_infinite]'} pointer-events-none z-0`} />
               
               <div className="absolute inset-0 w-full h-full overflow-y-auto overflow-x-hidden scrollbar-hide p-8 md:p-12 flex flex-col">
                 <div className="flex-1 flex flex-col items-center justify-center w-full relative z-10 gap-6">
@@ -224,21 +279,34 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
 
             {/* Back of Card */}
             <motion.div 
-              className="absolute inset-0 w-full h-full rounded-[2.5rem] bg-gradient-to-br from-[#111827] to-[#1f2937] border border-purple-500/30 shadow-[0_0_50px_rgba(168,85,247,0.15)] overflow-hidden"
+              className="absolute inset-0 w-full h-full rounded-[2.5rem] bg-white/5 backdrop-blur-3xl border border-white/10 shadow-[0_0_50px_rgba(168,85,247,0.3)] overflow-hidden"
               initial={false}
               animate={isMobile ? { zIndex: flipState === 0 ? 0 : 10, opacity: flipState === 1 ? 1 : 0 } : { rotateX: flipState === 0 ? -180 : 0, zIndex: flipState === 0 ? 0 : 10, opacity: flipState === 1 ? 1 : 0 }}
               transition={isMobile ? { duration: 0 } : { type: "spring", stiffness: 260, damping: 20 }}
               style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: isMobile ? 'none' : 'rotateX(180deg)' }}
             >
+              {/* Cursor Spotlight */}
+              <motion.div
+                className="pointer-events-none absolute -inset-px rounded-[2.5rem] opacity-0 transition duration-300 group-hover:opacity-100 z-0"
+                style={{
+                  background: useMotionTemplate`
+                    radial-gradient(
+                      800px circle at ${mouseX}px ${mouseY}px,
+                      rgba(168,85,247,0.1),
+                      transparent 80%
+                    )
+                  `,
+                }}
+              />
               <div className="absolute inset-0 w-full h-full overflow-y-auto overflow-x-hidden scrollbar-hide p-8 md:p-12 flex flex-col">
                 <div className="w-full flex-1 flex flex-col justify-center items-center gap-8 py-8">
                   
-                  <div className="text-center w-full max-w-4xl space-y-6">
-                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white drop-shadow-md text-balance leading-relaxed">
+                  <div className="text-center w-full max-w-4xl space-y-6 relative z-10">
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-purple-200 drop-shadow-[0_0_20px_rgba(168,85,247,0.5)] text-balance leading-relaxed animate-in fade-in slide-in-from-bottom-4 duration-700">
                       <MathJax dynamic>{currentCard.back}</MathJax>
                     </h2>
                     {currentCard.back_hi && (
-                      <h3 className="text-lg md:text-xl lg:text-2xl font-medium text-white/70 drop-shadow-md text-balance leading-relaxed">
+                      <h3 className="text-lg md:text-xl lg:text-2xl font-medium text-white/70 drop-shadow-md text-balance leading-relaxed animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
                         <MathJax dynamic>{currentCard.back_hi}</MathJax>
                       </h3>
                     )}
@@ -334,12 +402,28 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
             {hasTrick && (
               <div className="absolute inset-0 w-full h-full rounded-[2.5rem] overflow-hidden z-20 pointer-events-none">
                 <motion.div 
-                  className="absolute inset-0 w-full h-full bg-gradient-to-b from-[#064e3b] to-[#022c22] border-2 border-emerald-400 shadow-[0_0_100px_rgba(52,211,153,0.3)] flex flex-col items-center overflow-hidden pointer-events-auto"
+                  className="absolute inset-0 w-full h-full bg-emerald-950/40 backdrop-blur-3xl border-2 border-emerald-400/30 shadow-[0_0_100px_rgba(52,211,153,0.5)] flex flex-col items-center overflow-hidden pointer-events-auto"
                   initial={isMobile ? { opacity: 0 } : { y: '100%', opacity: 0 }}
                   animate={isMobile ? { opacity: flipState === 2 ? 1 : 0 } : { y: flipState === 2 ? 0 : '100%', opacity: flipState === 2 ? 1 : 0 }}
                   transition={isMobile ? { duration: 0 } : { type: "spring", stiffness: 200, damping: 25 }}
                 >
-                  <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20 mix-blend-overlay pointer-events-none" />
+                  <div className="absolute top-0 right-0 w-[200%] h-[200%] -translate-x-1/4 -translate-y-1/4 bg-[conic-gradient(from_0deg,transparent_0_300deg,rgba(52,211,153,0.3)_360deg)] animate-[spin_3s_linear_infinite] pointer-events-none z-0 mix-blend-overlay" />
+                  
+                  {/* Cursor Spotlight */}
+                  <motion.div
+                    className="pointer-events-none absolute -inset-px rounded-[2.5rem] opacity-0 transition duration-300 group-hover:opacity-100 z-0"
+                    style={{
+                      background: useMotionTemplate`
+                        radial-gradient(
+                          800px circle at ${mouseX}px ${mouseY}px,
+                          rgba(52,211,153,0.15),
+                          transparent 80%
+                        )
+                      `,
+                    }}
+                  />
+                  
+                  <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20 mix-blend-overlay pointer-events-none z-0" />
                   <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/20 rounded-full blur-[100px] pointer-events-none" />
                   <div className="absolute bottom-0 left-0 w-96 h-96 bg-emerald-500/20 rounded-full blur-[100px] pointer-events-none" />
 
@@ -379,6 +463,7 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
                 </motion.div>
               </div>
             )}
+            </motion.div>
           </motion.div>
         </AnimatePresence>
       </div>
