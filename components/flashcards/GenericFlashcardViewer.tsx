@@ -64,6 +64,30 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
     tiltY.set(0);
   };
 
+  const spotlightFront = useMotionTemplate`
+    radial-gradient(
+      800px circle at ${mouseX}px ${mouseY}px,
+      rgba(255,255,255,0.1),
+      transparent 80%
+    )
+  `;
+
+  const spotlightBack = useMotionTemplate`
+    radial-gradient(
+      800px circle at ${mouseX}px ${mouseY}px,
+      rgba(168,85,247,0.1),
+      transparent 80%
+    )
+  `;
+
+  const spotlightKDHack = useMotionTemplate`
+    radial-gradient(
+      800px circle at ${mouseX}px ${mouseY}px,
+      rgba(52,211,153,0.15),
+      transparent 80%
+    )
+  `;
+
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 1080);
     checkMobile();
@@ -228,15 +252,7 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
               {/* Cursor Spotlight */}
               <motion.div
                 className="pointer-events-none absolute -inset-px rounded-[2.5rem] opacity-0 transition duration-300 group-hover:opacity-100 z-0"
-                style={{
-                  background: useMotionTemplate`
-                    radial-gradient(
-                      800px circle at ${mouseX}px ${mouseY}px,
-                      rgba(255,255,255,0.1),
-                      transparent 80%
-                    )
-                  `,
-                }}
+                style={{ background: spotlightFront }}
               />
               <div className={`absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.05)_50%,transparent_75%)] bg-[length:250%_250%] ${isMobile ? '' : 'animate-[shimmer_3s_infinite]'} pointer-events-none z-0`} />
               
@@ -288,15 +304,7 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
               {/* Cursor Spotlight */}
               <motion.div
                 className="pointer-events-none absolute -inset-px rounded-[2.5rem] opacity-0 transition duration-300 group-hover:opacity-100 z-0"
-                style={{
-                  background: useMotionTemplate`
-                    radial-gradient(
-                      800px circle at ${mouseX}px ${mouseY}px,
-                      rgba(168,85,247,0.1),
-                      transparent 80%
-                    )
-                  `,
-                }}
+                style={{ background: spotlightBack }}
               />
               <div className="absolute inset-0 w-full h-full overflow-y-auto overflow-x-hidden scrollbar-hide p-8 md:p-12 flex flex-col">
                 <div className="w-full flex-1 flex flex-col justify-center items-center gap-8 py-8">
@@ -412,15 +420,7 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
                   {/* Cursor Spotlight */}
                   <motion.div
                     className="pointer-events-none absolute -inset-px rounded-[2.5rem] opacity-0 transition duration-300 group-hover:opacity-100 z-0"
-                    style={{
-                      background: useMotionTemplate`
-                        radial-gradient(
-                          800px circle at ${mouseX}px ${mouseY}px,
-                          rgba(52,211,153,0.15),
-                          transparent 80%
-                        )
-                      `,
-                    }}
+                    style={{ background: spotlightKDHack }}
                   />
                   
                   <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20 mix-blend-overlay pointer-events-none z-0" />

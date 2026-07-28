@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
-import NextThemesProviderWrapper from '@/components/NextThemesProviderWrapper'
+import { ThemeProvider as NextThemesProvider } from 'next-themes'
 import { FullscreenProvider } from '@/lib/fullscreen-context'
 import ToastProvider from '@/components/feedback/ToastProvider'
 import LayoutWrapper from '@/components/layout/LayoutWrapper'
@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning className={`${inter.variable} ${jetbrains.variable}`}>
         <body suppressHydrationWarning>
-          <NextThemesProviderWrapper attribute="class" defaultTheme="system" enableSystem>
+          <NextThemesProvider attribute="class" defaultTheme="system" enableSystem>
             <FullscreenProvider>
               <ToastProvider>
                 <LayoutWrapper>
@@ -40,7 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </LayoutWrapper>
               </ToastProvider>
             </FullscreenProvider>
-          </NextThemesProviderWrapper>
+          </NextThemesProvider>
         </body>
       </html>
     </ClerkProvider>
