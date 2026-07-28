@@ -497,26 +497,19 @@ export const useStore = create<CanvasState>((set, get) => ({
                 });
             }
         } else if (lastAction.type === 'page_op') {
-            const { operation, pageIndex, deletedStrokes, deletedImages } = lastAction as any; // Cast needed if TS doesn't infer
+            const { operation, pageIndex, deletedStrokes, deletedImages, deletedTextNodes, savedPdfPageMapping } = lastAction as any;
+            const singlePageTotal = state.pageHeight + PDF_PAGE_GAP;
 
             if (operation === 'insert') {
                 // Undo insert = Delete the page at index (without pushing to history)
-                // We need to shift everything UP from below the pageIndex
-                const topThreshold = pageIndex * state.pageHeight;
-                const bottomThreshold = (pageIndex + 1) * state.pageHeight;
-
-                // Since it was an insert, there shouldn't be content *on* the page unless user drew on it
-                // But for "undo", we assume we revert to exact state. 
-                // Any content user added to the new page will be lost (or we should shift it? No, undo should strictly reverse).
-                // Actually, if we undo the insert, we merge the content below back up.
-
-                // Simplified Undo Insert: Delete the page and shift up, discard any content on it.
+                const topThreshold = pageIndex * singlePageTotal;
+                const bottomThreshold = topThreshold + state.pageHeight;
 
                 const newStrokes = state.strokes
                     .filter(s => !(s.points[0].y >= topThreshold && s.points[0].y < bottomThreshold))
                     .map(s => {
                         if (s.points[0].y >= bottomThreshold) {
-                            return { ...s, points: s.points.map(p => ({ ...p, y: p.y - state.pageHeight })) };
+                            return { ...s, points: s.points.map(p => ({ ...p, y: p.y - singlePageTotal })) };
                         }
                         return s;
                     });
@@ -525,47 +518,61 @@ export const useStore = create<CanvasState>((set, get) => ({
                     .filter(img => !(img.y >= topThreshold && img.y < bottomThreshold))
                     .map(img => {
                         if (img.y >= bottomThreshold) {
-                            return { ...img, y: img.y - state.pageHeight };
+                            return { ...img, y: img.y - singlePageTotal };
                         }
                         return img;
+                    });
+
+                const newTextNodes = state.textNodes
+                    .filter(t => !(t.y >= topThreshold && t.y < bottomThreshold))
+                    .map(t => {
+                        if (t.y >= bottomThreshold) {
+                            return { ...t, y: t.y - singlePageTotal };
+                        }
+                        return t;
                     });
 
                 set({
                     pageCount: state.pageCount - 1,
                     strokes: newStrokes,
                     images: newImages,
+                    textNodes: newTextNodes,
+                    pdfPageMapping: savedPdfPageMapping || state.pdfPageMapping,
                     historyStack: newHistoryStack,
                     redoStack: [...state.redoStack, lastAction]
                 });
 
             } else if (operation === 'delete') {
                 // Undo delete = Insert page at index and restore content
-                const insertThreshold = pageIndex * state.pageHeight; // The top of the deleted page
+                const insertThreshold = pageIndex * singlePageTotal;
 
-                // 1. Shift existing content DOWN to make room
-                // existing content at >= insertThreshold needs to move +PAGE_HEIGHT
                 const shiftedStrokes = state.strokes.map(s => {
                     if (s.points[0].y >= insertThreshold) {
-                        return { ...s, points: s.points.map(p => ({ ...p, y: p.y + state.pageHeight })) };
+                        return { ...s, points: s.points.map(p => ({ ...p, y: p.y + singlePageTotal })) };
                     }
                     return s;
                 });
 
                 const shiftedImages = state.images.map(img => {
                     if (img.y >= insertThreshold) {
-                        return { ...img, y: img.y + state.pageHeight };
+                        return { ...img, y: img.y + singlePageTotal };
                     }
                     return img;
                 });
 
-                // 2. Restore deleted content
-                // deleted content coordinates are already relative to the page's original position 
-                // (which is now restored). So we just add them back.
+                const shiftedTextNodes = state.textNodes.map(t => {
+                    if (t.y >= insertThreshold) {
+                        return { ...t, y: t.y + singlePageTotal };
+                    }
+                    return t;
+                });
 
                 set({
                     pageCount: state.pageCount + 1,
                     strokes: [...shiftedStrokes, ...(deletedStrokes || [])],
                     images: [...shiftedImages, ...(deletedImages || [])],
+                    textNodes: [...shiftedTextNodes, ...(deletedTextNodes || [])],
+                    pdfPageMapping: savedPdfPageMapping || state.pdfPageMapping,
                     historyStack: newHistoryStack,
                     redoStack: [...state.redoStack, lastAction]
                 });
@@ -634,54 +641,62 @@ export const useStore = create<CanvasState>((set, get) => ({
                 });
             }
         } else if (actionToRedo.type === 'page_op') {
-            // Redo is same as doing the action again
             const { operation, pageIndex } = actionToRedo as any;
+            const singlePageTotal = state.pageHeight + PDF_PAGE_GAP;
 
             if (operation === 'insert') {
-                // Redo insert: Call logic similar to insertPageAfter but specific to this action
-                // Reuse insertPageAfter logic but without pushing to history (since we handle stacks manually here)
-                // OR just call insertPageAfter but we need to manage stacks.
-                // Better to duplicate logic for purity.
-
-                const insertThreshold = pageIndex * state.pageHeight; // Note: pageIndex in op is the *new* index
-                // Wait, insertPageAfter(i) creates page at i+1. 
-                // If op.pageIndex is the resulting index, then we shift from there.
-                // Let's assume op.pageIndex is the index of the inserted page.
-
-                const shiftThreshold = actionToRedo.pageIndex * state.pageHeight; // This is the TOP of the inserted page
+                // Redo insert: shift content down to make room for the re-inserted page
+                const shiftThreshold = pageIndex * singlePageTotal;
 
                 const newStrokes = state.strokes.map(s => {
                     if (s.points[0].y >= shiftThreshold) {
-                        return { ...s, points: s.points.map(p => ({ ...p, y: p.y + state.pageHeight })) };
+                        return { ...s, points: s.points.map(p => ({ ...p, y: p.y + singlePageTotal })) };
                     }
                     return s;
                 });
 
                 const newImages = state.images.map(img => {
                     if (img.y >= shiftThreshold) {
-                        return { ...img, y: img.y + state.pageHeight };
+                        return { ...img, y: img.y + singlePageTotal };
                     }
                     return img;
                 });
+
+                const newTextNodes = state.textNodes.map(t => {
+                    if (t.y >= shiftThreshold) {
+                        return { ...t, y: t.y + singlePageTotal };
+                    }
+                    return t;
+                });
+
+                // Rebuild pdfPageMapping: insert null at pageIndex
+                let newMapping = state.pdfPageMapping.length > 0
+                    ? [...state.pdfPageMapping]
+                    : (state.documentId ? Array.from({ length: state.pageCount }, (_, i) => i + 1) : []);
+                if (newMapping.length > 0) {
+                    newMapping.splice(pageIndex, 0, null);
+                }
 
                 set({
                     pageCount: state.pageCount + 1,
                     strokes: newStrokes,
                     images: newImages,
+                    textNodes: newTextNodes,
+                    pdfPageMapping: newMapping,
                     historyStack: [...state.historyStack, actionToRedo],
                     redoStack: newRedoStack
                 });
 
             } else if (operation === 'delete') {
-                // Redo delete: Delete page at index
-                const topThreshold = pageIndex * state.pageHeight;
-                const bottomThreshold = (pageIndex + 1) * state.pageHeight;
+                // Redo delete: remove page at index and shift content up
+                const topThreshold = pageIndex * singlePageTotal;
+                const bottomThreshold = topThreshold + state.pageHeight;
 
                 const newStrokes = state.strokes
                     .filter(s => !(s.points[0].y >= topThreshold && s.points[0].y < bottomThreshold))
                     .map(s => {
                         if (s.points[0].y >= bottomThreshold) {
-                            return { ...s, points: s.points.map(p => ({ ...p, y: p.y - state.pageHeight })) };
+                            return { ...s, points: s.points.map(p => ({ ...p, y: p.y - singlePageTotal })) };
                         }
                         return s;
                     });
@@ -690,15 +705,34 @@ export const useStore = create<CanvasState>((set, get) => ({
                     .filter(img => !(img.y >= topThreshold && img.y < bottomThreshold))
                     .map(img => {
                         if (img.y >= bottomThreshold) {
-                            return { ...img, y: img.y - state.pageHeight };
+                            return { ...img, y: img.y - singlePageTotal };
                         }
                         return img;
                     });
+
+                const newTextNodes = state.textNodes
+                    .filter(t => !(t.y >= topThreshold && t.y < bottomThreshold))
+                    .map(t => {
+                        if (t.y >= bottomThreshold) {
+                            return { ...t, y: t.y - singlePageTotal };
+                        }
+                        return t;
+                    });
+
+                // Remove slot from pdfPageMapping
+                let newMapping = state.pdfPageMapping.length > 0
+                    ? [...state.pdfPageMapping]
+                    : (state.documentId ? Array.from({ length: state.pageCount }, (_, i) => i + 1) : []);
+                if (newMapping.length > 0) {
+                    newMapping.splice(pageIndex, 1);
+                }
 
                 set({
                     pageCount: state.pageCount - 1,
                     strokes: newStrokes,
                     images: newImages,
+                    textNodes: newTextNodes,
+                    pdfPageMapping: newMapping,
                     historyStack: [...state.historyStack, actionToRedo],
                     redoStack: newRedoStack
                 });
@@ -745,13 +779,21 @@ export const useStore = create<CanvasState>((set, get) => ({
             return text;
         });
 
-        // Update PDF page mapping - insert null (blank page) at position
-        let newMapping = state.pdfPageMapping.length > 0 
-            ? [...state.pdfPageMapping] 
+        // Save current mapping before mutation for undo
+        const savedMapping = state.pdfPageMapping.length > 0
+            ? [...state.pdfPageMapping]
             : (state.documentId ? Array.from({ length: state.pageCount }, (_, i) => i + 1) : []);
+
+        // Update PDF page mapping - insert null (blank page) at position
+        let newMapping = [...savedMapping];
         if (newMapping.length > 0) {
             newMapping.splice(pageIndex + 1, 0, null);
         }
+
+        // Adjust bookmarked pages: indices after insertion shift +1
+        const newBookmarks = state.bookmarkedPages.map(b => b > pageIndex ? b + 1 : b);
+        // Adjust hidden PDF pages: indices after insertion shift +1
+        const newHidden = state.hiddenPdfPages.map(h => h > pageIndex ? h + 1 : h);
 
         set({
             pageCount: state.pageCount + 1,
@@ -759,12 +801,15 @@ export const useStore = create<CanvasState>((set, get) => ({
             images: newImages,
             textNodes: newTextNodes,
             pdfPageMapping: newMapping,
+            bookmarkedPages: newBookmarks,
+            hiddenPdfPages: newHidden,
             historyStack: [
                 ...state.historyStack,
                 {
                     type: 'page_op',
                     operation: 'insert',
-                    pageIndex: pageIndex + 1
+                    pageIndex: pageIndex + 1,
+                    savedPdfPageMapping: savedMapping
                 }
             ],
             redoStack: []
@@ -791,6 +836,10 @@ export const useStore = create<CanvasState>((set, get) => ({
             img.y >= topThreshold && img.y < bottomThreshold
         );
 
+        const textNodesToDelete = state.textNodes.filter(t =>
+            t.y >= topThreshold && t.y < bottomThreshold
+        );
+
         // Filter and shift remaining content
         const newStrokes = state.strokes
             .filter(s => !(s.points[0].y >= topThreshold && s.points[0].y < bottomThreshold))
@@ -813,19 +862,43 @@ export const useStore = create<CanvasState>((set, get) => ({
                 return img;
             });
 
-        // Update PDF page mapping - remove slot at pageIndex
-        let newMapping = state.pdfPageMapping.length > 0 
-            ? [...state.pdfPageMapping] 
+        const newTextNodes = state.textNodes
+            .filter(t => !(t.y >= topThreshold && t.y < bottomThreshold))
+            .map(t => {
+                if (t.y >= bottomThreshold) {
+                    return { ...t, y: t.y - shiftAmount };
+                }
+                return t;
+            });
+
+        // Save current mapping before mutation for undo
+        const savedMapping = state.pdfPageMapping.length > 0
+            ? [...state.pdfPageMapping]
             : (state.documentId ? Array.from({ length: state.pageCount }, (_, i) => i + 1) : []);
+
+        // Update PDF page mapping - remove slot at pageIndex
+        let newMapping = [...savedMapping];
         if (newMapping.length > 0) {
             newMapping.splice(pageIndex, 1);
         }
+
+        // Adjust bookmarked pages: remove this index, shift higher indices down
+        const newBookmarks = state.bookmarkedPages
+            .filter(b => b !== pageIndex)
+            .map(b => b > pageIndex ? b - 1 : b);
+        // Adjust hidden PDF pages: remove this index, shift higher indices down
+        const newHidden = state.hiddenPdfPages
+            .filter(h => h !== pageIndex)
+            .map(h => h > pageIndex ? h - 1 : h);
 
         set({
             pageCount: state.pageCount - 1,
             strokes: newStrokes,
             images: newImages,
+            textNodes: newTextNodes,
             pdfPageMapping: newMapping,
+            bookmarkedPages: newBookmarks,
+            hiddenPdfPages: newHidden,
             historyStack: [
                 ...state.historyStack,
                 {
@@ -833,7 +906,9 @@ export const useStore = create<CanvasState>((set, get) => ({
                     operation: 'delete',
                     pageIndex,
                     deletedStrokes: strokesToDelete,
-                    deletedImages: imagesToDelete
+                    deletedImages: imagesToDelete,
+                    deletedTextNodes: textNodesToDelete,
+                    savedPdfPageMapping: savedMapping
                 }
             ],
             redoStack: []
@@ -843,8 +918,9 @@ export const useStore = create<CanvasState>((set, get) => ({
     // Clear content on a specific page without deleting the page itself
     clearPage: (pageIndex) => {
         const state = get();
-        const topThreshold = pageIndex * state.pageHeight;
-        const bottomThreshold = (pageIndex + 1) * state.pageHeight;
+        const singlePageTotal = state.pageHeight + PDF_PAGE_GAP;
+        const topThreshold = pageIndex * singlePageTotal;
+        const bottomThreshold = topThreshold + state.pageHeight;
 
         const newStrokes = state.strokes.filter(s =>
             !(s.points[0].y >= topThreshold && s.points[0].y < bottomThreshold)
@@ -854,10 +930,11 @@ export const useStore = create<CanvasState>((set, get) => ({
             !(img.y >= topThreshold && img.y < bottomThreshold)
         );
 
-        // Note: We're not adding this to history yet for simplicity, 
-        // effectively making it "clear canvas" but for just one page. 
-        // To support undo, we'd need a 'clear_page' op or generic batch delete.
-        set({ strokes: newStrokes, images: newImages });
+        const newTextNodes = state.textNodes.filter(t =>
+            !(t.y >= topThreshold && t.y < bottomThreshold)
+        );
+
+        set({ strokes: newStrokes, images: newImages, textNodes: newTextNodes });
     },
 
     // Set current tool
