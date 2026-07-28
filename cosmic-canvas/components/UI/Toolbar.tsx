@@ -288,19 +288,8 @@ export default function Toolbar() {
 
     // Insert Page Handler
     const handleInsertPage = useCallback(() => {
-        const { currentPage, canvasDimensions, zoom, insertPageAfter, setCurrentPage } = useStore.getState();
-        
         insertPageAfter(currentPage - 1);
-        
-        // Scroll to the newly inserted page
-        const singlePageHeight = (canvasDimensions.height + 20 /* PDF_PAGE_GAP */) * zoom;
-        const targetScrollY = currentPage * singlePageHeight; 
-        
-        // Update current page immediately for good UX
-        setCurrentPage(currentPage + 1);
-        
-        window.scrollTo({ top: targetScrollY, behavior: 'smooth' });
-    }, []);
+    }, [insertPageAfter, currentPage]);
 
     // Tool handlers
     const handlePenClick = () => {

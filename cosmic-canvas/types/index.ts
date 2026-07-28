@@ -74,8 +74,6 @@ export type PageAction = {
     pageIndex: number; // The index where the page was inserted or deleted
     deletedStrokes?: Stroke[]; // For restoring deleted content
     deletedImages?: CanvasImage[]; // For restoring deleted content
-    deletedTextNodes?: TextNode[]; // For restoring deleted text nodes
-    savedPdfPageMapping?: (number | null)[]; // Snapshot of pdfPageMapping before the operation
 };
 
 export type ActionItem =

@@ -19,6 +19,9 @@ export interface PersistedState {
     penWidth: number;
     activeFont: string;
     activeFontSize: number;
+    documentId?: string | null;
+    pdfPageMapping?: (number | null)[];
+    canvasDimensions?: { width: number, height: number };
 }
 
 /**

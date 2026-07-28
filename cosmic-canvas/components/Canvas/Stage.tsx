@@ -214,47 +214,47 @@ export default function Stage() {
         return pages;
     }, [minPage, maxPage]);
 
-    // Scroll-based Page Detection (Highly reliable regardless of zoom)
+    // IntersectionObserver Page Detection (Scroll Drift Fix)
+    // Observes REAL page containers at 50% visibility threshold
     useEffect(() => {
-        // Skip if Grid View is open
-        if (useStore.getState().isGridView) return;
-
-        let scrollTimeout: NodeJS.Timeout | null = null;
-        
-        const handleScroll = () => {
-            if (scrollTimeout) return;
-            
-            // Throttle scroll events to ~15fps (66ms)
-            scrollTimeout = setTimeout(() => {
-                scrollTimeout = null;
-                
+        const observer = new IntersectionObserver(
+            (entries) => {
+                // Skip updating current page if Grid View is open
                 if (useStore.getState().isGridView) return;
-                
-                const { zoom, canvasDimensions, pageCount, currentPage } = useStore.getState();
-                const singlePageHeight = (canvasDimensions.height + PDF_PAGE_GAP) * zoom;
-                
-                // Calculate which page is at the center of the viewport
-                const centerY = window.scrollY + (window.innerHeight / 2);
-                const pageIndex = Math.floor(centerY / singlePageHeight);
-                
-                // Ensure index is within valid bounds
-                const validIndex = Math.max(0, Math.min(pageCount - 1, pageIndex));
-                const newPage = validIndex + 1;
-                
-                if (newPage !== currentPage) {
-                    useStore.getState().setCurrentPage(newPage);
-                }
-            }, 66);
-        };
 
-        // Initial check and event listener
-        handleScroll();
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-            if (scrollTimeout) clearTimeout(scrollTimeout);
-        };
+                // Find the most visible page (highest intersectionRatio)
+                let maxRatio = 0;
+                let visiblePageIndex = -1;
+
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
+                        maxRatio = entry.intersectionRatio;
+                        const pageIndex = parseInt(entry.target.getAttribute('data-page-index') || '0', 10);
+                        visiblePageIndex = pageIndex;
+                    }
+                });
+
+                // Update state only if a valid page is detected and different from current
+                if (visiblePageIndex >= 0) {
+                    const newPage = visiblePageIndex + 1; // Convert 0-indexed to 1-indexed
+                    const currentPage = useStore.getState().currentPage;
+                    if (newPage !== currentPage) {
+                        useStore.getState().setCurrentPage(newPage);
+                    }
+                }
+            },
+            {
+                root: null, // viewport
+                // We use 0.1 threshold to ensure it triggers even for very tall (zoomed) pages
+                threshold: Array.from({ length: 10 }, (_, i) => i / 10),
+            }
+        );
+
+        // Observe all page containers
+        const pageElements = document.querySelectorAll('.canvas-page-container');
+        pageElements.forEach((el) => observer.observe(el));
+
+        return () => observer.disconnect();
     }, [pageCount]);
 
     // Set page height on mount or when dimensions change (for export and other calculations)
@@ -1370,7 +1370,7 @@ export default function Stage() {
     };
 
     return (
-        /* The Desk - dark background, handles scrolling */
+        /* The Desk - dark background */
         <div
             style={{
                 position: 'relative',
