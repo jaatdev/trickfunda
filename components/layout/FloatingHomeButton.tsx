@@ -64,18 +64,20 @@ export default function FloatingHomeButton() {
               }}
               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
             />
-            {/* Hexagon wrapper for logo */}
-            <div className="relative z-10 w-8 h-8 flex items-center justify-center bg-zinc-900 border border-red-500/30 overflow-hidden"
-                 style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)' }}>
+            {/* Highly Animated Logo Wrapper */}
+            <div className="relative z-10 w-12 h-12 flex items-center justify-center bg-black/60 rounded-xl border border-red-500/50 shadow-[0_0_15px_rgba(239,68,68,0.5)] overflow-hidden">
               <motion.img 
-                src="/logo.jpg" 
+                src="/tf-logo.jpeg" 
                 alt="TrickFunda Logo" 
                 animate={{ 
-                  scale: isHovered ? [1, 1.1, 1] : 1,
-                  filter: isHovered ? ['hue-rotate(0deg)', 'hue-rotate(90deg)', 'hue-rotate(0deg)'] : 'grayscale(30%)'
+                  scale: isHovered ? [1, 1.2, 1] : [1, 1.05, 1],
+                  rotate: isHovered ? [0, 5, -5, 0] : [0, 2, -2, 0],
+                  filter: isHovered 
+                    ? ['hue-rotate(0deg) brightness(1.2)', 'hue-rotate(45deg) brightness(1.5)', 'hue-rotate(0deg) brightness(1.2)'] 
+                    : ['brightness(1)', 'brightness(1.2)', 'brightness(1)']
                 }}
-                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                className="w-[120%] h-[120%] object-cover opacity-90 mix-blend-screen" 
+                transition={{ duration: isHovered ? 1.5 : 3, repeat: Infinity, ease: "easeInOut" }}
+                className="w-full h-full object-cover mix-blend-lighten" 
               />
             </div>
           </div>

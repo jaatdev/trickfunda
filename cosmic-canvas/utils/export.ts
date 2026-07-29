@@ -289,6 +289,56 @@ export const exportToPdf = async (
         format: [pageWidth, pageHeight], // EXACT MATCH to screen
     });
 
+    // Helper to reliably load an image, downscale it to prevent massive base64 strings, and guarantee PNG format
+    const getBase64Image = async (url: string): Promise<string> => {
+        const response = await fetch(url + '?_t=' + Date.now()); // Cache buster
+        const blob = await response.blob();
+        const blobUrl = URL.createObjectURL(blob);
+        
+        return new Promise((resolve, reject) => {
+            const img = new Image();
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                // Downscale to max 400px to prevent huge memory spikes with 2K images
+                const maxDim = 400;
+                let w = img.naturalWidth;
+                let h = img.naturalHeight;
+                if (w > maxDim || h > maxDim) {
+                    const ratio = Math.min(maxDim / w, maxDim / h);
+                    w = w * ratio;
+                    h = h * ratio;
+                }
+                canvas.width = w;
+                canvas.height = h;
+                const ctx = canvas.getContext('2d');
+                if (ctx) ctx.drawImage(img, 0, 0, w, h);
+                URL.revokeObjectURL(blobUrl);
+                resolve(canvas.toDataURL('image/png', 0.8)); // slightly compress
+            };
+            img.onerror = () => {
+                URL.revokeObjectURL(blobUrl);
+                reject(new Error(`Failed to load image for ${url}`));
+            };
+            img.src = blobUrl;
+        });
+    };
+
+    // Load watermarks ONCE to save memory and processing time
+    let leftLogoDataUrl: string | null = null;
+    let rightBannerDataUrl: string | null = null;
+    
+    try {
+        leftLogoDataUrl = await getBase64Image('/tf-logo.jpeg');
+    } catch (e) {
+        console.warn('Failed to pre-load left logo:', e);
+    }
+
+    try {
+        rightBannerDataUrl = await getBase64Image('/trickfunda-official-banner.jpeg');
+    } catch (e) {
+        console.warn('Failed to pre-load right banner:', e);
+    }
+
     // Process each page
     for (let pageIndex = 0; pageIndex < pageCount; pageIndex++) {
         // Canvas Y position includes gaps between pages
@@ -384,27 +434,45 @@ export const exportToPdf = async (
             }
         }
 
-        // Layer 6: Watermark
-        try {
-            // Use the same dimensions and padding as the UI WatermarkLayer
-            const watermarkUrl = '/trickfunda-official-banner.jpeg';
-            const { img: loadedLogo, format: logoFormat } = await loadImageWithFormat(watermarkUrl);
-            
-            const watermarkWidth = 160;
-            const watermarkHeight = 45;
-            const paddingRight = 0;
-            const paddingBottom = 0;
+        // Layer 6: Watermarks (Left Logo + Right Banner)
+        if (leftLogoDataUrl) {
+            try {
+                const leftLogoWidth = 100;
+                const leftLogoHeight = 100;
+                const paddingLeft = 20;
+                const paddingBottom = 20;
 
-            pdf.addImage(
-                loadedLogo,
-                logoFormat,
-                pageWidth - paddingRight - watermarkWidth,
-                pageHeight - paddingBottom - watermarkHeight,
-                watermarkWidth,
-                watermarkHeight
-            );
-        } catch (error) {
-            console.warn('Failed to render PDF watermark:', error);
+                pdf.addImage(
+                    leftLogoDataUrl,
+                    'PNG',
+                    paddingLeft,
+                    pageHeight - paddingBottom - leftLogoHeight,
+                    leftLogoWidth,
+                    leftLogoHeight
+                );
+            } catch (error) {
+                console.warn('Failed to render left watermark:', error);
+            }
+        }
+
+        if (rightBannerDataUrl) {
+            try {
+                const rightBannerWidth = 160;
+                const rightBannerHeight = 45;
+                const paddingRight = 0;
+                const paddingBottom = 0;
+
+                pdf.addImage(
+                    rightBannerDataUrl,
+                    'PNG',
+                    pageWidth - paddingRight - rightBannerWidth,
+                    pageHeight - paddingBottom - rightBannerHeight,
+                    rightBannerWidth,
+                    rightBannerHeight
+                );
+            } catch (error) {
+                console.warn('Failed to render right watermark:', error);
+            }
         }
 
         // Layer 7: Full Page YouTube Link

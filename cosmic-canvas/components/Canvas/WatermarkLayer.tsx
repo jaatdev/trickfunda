@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { PDF_PAGE_GAP } from '@cosmic/constants/canvas';
 
 interface WatermarkLayerProps {
@@ -9,46 +10,74 @@ interface WatermarkLayerProps {
 }
 
 export default function WatermarkLayer({ pageCount, pageHeight, pageWidth }: WatermarkLayerProps) {
-    const watermarkWidth = 160;
-    const watermarkHeight = 45;
+    const leftLogoWidth = 100;
+    const leftLogoHeight = 100;
+    const paddingLeft = 20;
+    
+    const rightBannerWidth = 160;
+    const rightBannerHeight = 45;
     const paddingRight = 0;
-    const paddingBottom = 0;
+    
+    const paddingBottom = 20;
 
     return (
         <div style={{ position: 'absolute', inset: 0, zIndex: 20, pointerEvents: 'none' }}>
             {Array.from({ length: pageCount }).map((_, i) => {
                 const pageTop = i * (pageHeight + PDF_PAGE_GAP);
                 return (
-                    <div
-                        key={i}
-                        style={{
-                            position: 'absolute',
-                            top: pageTop + pageHeight - paddingBottom - watermarkHeight,
-                            left: pageWidth - paddingRight - watermarkWidth,
-                            width: watermarkWidth,
-                            height: watermarkHeight,
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            overflow: 'hidden',
-                        }}
-                    >
-                        {/* 
-                          We use an image tag to render the TrickFunda logo.
-                          It will overlap and hide NotebookLM or other PDF watermarks 
-                          placed at the bottom right.
-                        */}
-                        <img 
-                            src="/trickfunda-official-banner.jpeg" 
-                            alt="TrickFunda" 
-                            style={{ 
-                                width: '100%', 
-                                height: '100%', 
-                                objectFit: 'fill',
-                                pointerEvents: 'none' 
-                            }} 
-                        />
-                    </div>
+                    <React.Fragment key={i}>
+                        {/* Bottom Left Logo */}
+                        <div
+                            style={{
+                                position: 'absolute',
+                                top: pageTop + pageHeight - paddingBottom - leftLogoHeight,
+                                left: paddingLeft,
+                                width: leftLogoWidth,
+                                height: leftLogoHeight,
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                overflow: 'hidden',
+                            }}
+                        >
+                            <img 
+                                src="/tf-logo.jpeg" 
+                                alt="TrickFunda Logo" 
+                                style={{ 
+                                    width: '100%', 
+                                    height: '100%', 
+                                    objectFit: 'contain',
+                                    pointerEvents: 'none' 
+                                }} 
+                            />
+                        </div>
+
+                        {/* Bottom Right Banner */}
+                        <div
+                            style={{
+                                position: 'absolute',
+                                top: pageTop + pageHeight - paddingRight - rightBannerHeight,
+                                left: pageWidth - paddingRight - rightBannerWidth,
+                                width: rightBannerWidth,
+                                height: rightBannerHeight,
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                overflow: 'hidden',
+                            }}
+                        >
+                            <img 
+                                src="/trickfunda-official-banner.jpeg" 
+                                alt="TrickFunda Banner" 
+                                style={{ 
+                                    width: '100%', 
+                                    height: '100%', 
+                                    objectFit: 'fill',
+                                    pointerEvents: 'none' 
+                                }} 
+                            />
+                        </div>
+                    </React.Fragment>
                 );
             })}
         </div>

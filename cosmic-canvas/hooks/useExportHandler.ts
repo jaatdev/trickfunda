@@ -126,9 +126,11 @@ export const useExportHandler = () => {
             const pages = pdfDoc.getPages();
             const helveticaFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
 
-            // Load Watermark
+            // Load Watermarks
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             let watermarkEmbed: any = null;
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            let leftLogoEmbed: any = null;
             try {
                 const wmRes = await fetch('/trickfunda-official-banner.jpeg');
                 if (wmRes.ok) {
@@ -137,6 +139,44 @@ export const useExportHandler = () => {
                 }
             } catch (e) {
                 console.warn('Could not load watermark banner', e);
+            }
+            try {
+                const logoRes = await fetch('/tf-logo.jpeg');
+                if (logoRes.ok) {
+                    const logoBuffer = await logoRes.arrayBuffer();
+                    try {
+                        leftLogoEmbed = await pdfDoc.embedJpg(logoBuffer);
+                    } catch {
+                        // If embedJpg fails (format mismatch), re-encode through canvas
+                        const blob = new Blob([logoBuffer]);
+                        const blobUrl = URL.createObjectURL(blob);
+                        const img = await new Promise<HTMLImageElement>((resolve, reject) => {
+                            const el = new Image();
+                            el.onload = () => resolve(el);
+                            el.onerror = reject;
+                            el.src = blobUrl;
+                        });
+                        const canvas = document.createElement('canvas');
+                        canvas.width = 400;
+                        canvas.height = 400;
+                        const ctx = canvas.getContext('2d');
+                        if (ctx) {
+                            const scale = Math.min(400 / img.naturalWidth, 400 / img.naturalHeight);
+                            const w = img.naturalWidth * scale;
+                            const h = img.naturalHeight * scale;
+                            canvas.width = w;
+                            canvas.height = h;
+                            ctx.drawImage(img, 0, 0, w, h);
+                        }
+                        URL.revokeObjectURL(blobUrl);
+                        const pngDataUrl = canvas.toDataURL('image/png');
+                        const pngBase64 = pngDataUrl.split(',')[1];
+                        const pngBytes = Uint8Array.from(atob(pngBase64), c => c.charCodeAt(0));
+                        leftLogoEmbed = await pdfDoc.embedPng(pngBytes);
+                    }
+                }
+            } catch (e) {
+                console.warn('Could not load left logo', e);
             }
 
             for (let i = 0; i < pages.length; i++) {
@@ -254,7 +294,21 @@ export const useExportHandler = () => {
                     });
                 }
 
-                // --- Add Watermark ---
+                // --- Add Watermarks ---
+                if (leftLogoEmbed) {
+                    const leftLogoWidth = 100;
+                    const leftLogoHeight = 100;
+                    const paddingLeft = 20;
+                    const paddingBottom = 20;
+                    
+                    page.drawImage(leftLogoEmbed, {
+                        x: paddingLeft,
+                        y: paddingBottom,
+                        width: leftLogoWidth,
+                        height: leftLogoHeight,
+                    });
+                }
+
                 if (watermarkEmbed) {
                     const watermarkWidth = 160;
                     const watermarkHeight = 45;

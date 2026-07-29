@@ -34,6 +34,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <HackerPreloader />
                   <Navbar />
                   <NavbarSpacer />
+                  <div className="pointer-events-none fixed inset-0 z-[-1] flex items-center justify-center opacity-[0.03]">
+                    <img src="/watermark.webp" alt="" className="w-[90%] h-auto max-h-[90vh] object-contain" />
+                  </div>
                   <main className="flex-1 relative z-0 flex flex-col">{children}</main>
                   <Footer />
                   <GlobalFullscreenButton />

@@ -114,11 +114,11 @@ export default function FlashcardSessionClient({ flashcards, category, day }: Pr
       <>
         {isGenerating && (
           <div className="fixed inset-0 z-[300] bg-black/90 backdrop-blur-xl flex flex-col items-center justify-center text-emerald-400 font-mono animate-in fade-in duration-300 px-4 text-center">
-            <div className="relative flex items-center justify-center mb-8">
-              <div className="absolute inset-0 bg-emerald-500/20 blur-xl rounded-full" />
-              <Shield className="w-12 h-12 md:w-16 md:h-16 text-emerald-500 animate-pulse relative z-10" />
-              <Loader2 className="w-20 h-20 md:w-24 md:h-24 absolute animate-spin text-emerald-500/50" />
-            </div>
+              <div className="relative flex items-center justify-center mb-8">
+                <div className="absolute inset-0 bg-emerald-500/20 blur-xl rounded-full" />
+                <img src="/tf-logo.jpeg" alt="TrickFunda Logo" className="w-20 h-20 md:w-28 md:h-28 object-contain animate-pulse relative z-10 rounded-2xl shadow-lg" />
+                <Loader2 className="w-24 h-24 md:w-32 md:h-32 absolute animate-spin text-emerald-500/50" />
+              </div>
             <h2 className="text-xl md:text-3xl font-bold tracking-[0.1em] md:tracking-[0.3em] mb-4 text-emerald-500 flex items-center justify-center gap-3 drop-shadow-[0_0_10px_rgba(16,185,129,0.8)]">
               <Terminal className="w-5 h-5 md:w-6 md:h-6 animate-pulse" />
               SYSTEM COMPILING
@@ -165,8 +165,8 @@ export default function FlashcardSessionClient({ flashcards, category, day }: Pr
           </div>
 
           <div id="pdf-summary-content" className="bg-white dark:bg-[#111] border border-gray-200 dark:border-white/10 rounded-3xl p-4 md:p-12 shadow-sm md:shadow-2xl print:shadow-none print:border-none print:p-0">
-            <div className="text-center mb-8 md:mb-10 pdf-header">
-              <h1 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white capitalize mb-2">Vocab TrickFunda</h1>
+            <div className="text-center mb-8 md:mb-10 pdf-header flex flex-col items-center">
+              <img src="/tf-logo.jpeg" alt="TrickFunda Logo" className="h-16 md:h-24 object-contain mb-4 rounded-xl shadow-sm" />
               <h2 className="text-xl text-gray-600 dark:text-gray-400 capitalize">{category} - {day.replace('-', ' ')}</h2>
             </div>
 
