@@ -222,7 +222,8 @@ function SlideComponent({ question: q, index, title, youtubeUrl, brand }: { ques
         backgroundColor: '#ffffff',
         fontFamily: "'Poppins', 'Noto Sans Devanagari', sans-serif",
         boxSizing: 'border-box',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        position: 'relative'
       }}
     >
       <style>{`
@@ -236,9 +237,135 @@ function SlideComponent({ question: q, index, title, youtubeUrl, brand }: { ques
           -webkit-text-fill-color: #ff4500 !important;
         }
       `}</style>
+
+
+      {/* Full-Page CSS Watermark — TF Shield Crest */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '1280px',
+        height: '720px',
+        overflow: 'hidden',
+        pointerEvents: 'none',
+        zIndex: 10,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        opacity: 0.18,
+      }}>
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          position: 'relative',
+        }}>
+
+          {/* Outer Glow Ring */}
+          <div style={{
+            position: 'absolute',
+            width: '460px',
+            height: '540px',
+            borderRadius: '50%',
+            border: '4px solid #b8860b',
+          }} />
+
+          {/* Shield Shape */}
+          <div style={{
+            width: '380px',
+            height: '440px',
+            clipPath: 'polygon(50% 0%, 100% 8%, 100% 55%, 85% 75%, 50% 100%, 15% 75%, 0% 55%, 0% 8%)',
+            background: 'linear-gradient(145deg, #daa520, #b8860b, #cd853f)',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            position: 'relative',
+          }}>
+
+            {/* Inner Shield */}
+            <div style={{
+              width: '340px',
+              height: '396px',
+              clipPath: 'polygon(50% 0%, 100% 8%, 100% 55%, 85% 75%, 50% 100%, 15% 75%, 0% 55%, 0% 8%)',
+              background: 'linear-gradient(170deg, #f5deb3, #daa520, #b8860b)',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              position: 'relative',
+            }}>
+
+              {/* Shield Divider Line Top */}
+              <div style={{
+                width: '160px',
+                height: '3px',
+                backgroundColor: '#8b6914',
+                marginBottom: '8px',
+                borderRadius: '2px',
+              }} />
+
+              {/* Decorative Star */}
+              <div style={{
+                fontSize: '28px',
+                color: '#8b6914',
+                marginBottom: '4px',
+                letterSpacing: '12px',
+              }}>★ ★ ★</div>
+
+              {/* TF Letters */}
+              <div style={{
+                fontSize: '140px',
+                fontWeight: 900,
+                fontFamily: "'Georgia', 'Times New Roman', serif",
+                color: '#4a3000',
+                letterSpacing: '8px',
+                lineHeight: 1,
+                textShadow: '3px 3px 0px #b8860b, -1px -1px 0px #f5deb3',
+              }}>TF</div>
+
+              {/* TRICKFUNDA inside shield */}
+              <div style={{
+                marginTop: '8px',
+              }}>
+                <span style={{
+                  fontSize: '24px',
+                  fontWeight: 900,
+                  fontFamily: "'Poppins', sans-serif",
+                  color: '#4a3000',
+                  letterSpacing: '8px',
+                  textTransform: 'uppercase',
+                }}>TRICKFUNDA</span>
+              </div>
+
+              {/* Decorative Star Bottom */}
+              <div style={{
+                fontSize: '28px',
+                color: '#8b6914',
+                marginTop: '4px',
+                letterSpacing: '12px',
+              }}>★ ★ ★</div>
+
+              {/* Shield Divider Line Bottom */}
+              <div style={{
+                width: '160px',
+                height: '3px',
+                backgroundColor: '#8b6914',
+                marginTop: '8px',
+                borderRadius: '2px',
+              }} />
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Header */}
       <div style={{ flexShrink: 0, backgroundColor: '#0f172a', color: '#ffffff', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px 40px', borderBottom: '5px solid #ff4500' }}>
-        <div style={{ fontSize: '28px', fontWeight: 800, color: '#ff4500', letterSpacing: '1px', whiteSpace: 'nowrap', flexShrink: 0 }}>{brand}</div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <img src="/tf-logo.jpeg" alt="TrickFunda" style={{ height: '48px', width: '48px', objectFit: 'contain', borderRadius: '10px' }} />
+          <div style={{ fontSize: '28px', fontWeight: 800, color: '#ff4500', letterSpacing: '1px', whiteSpace: 'nowrap', flexShrink: 0 }}>{brand}</div>
+        </div>
         <div style={{ fontSize: '24px', fontWeight: 600, color: '#f8fafc', textTransform: 'uppercase', whiteSpace: 'nowrap', margin: '0 20px', textAlign: 'center' }}>{title}</div>
         <div style={{ fontSize: '18px', fontWeight: 600, color: '#cbd5e1', display: 'flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap', flexShrink: 0 }}>
           <svg viewBox="0 0 24 24" fill="#ff0000" width="32" height="32" style={{ display: 'block' }}>
@@ -297,11 +424,7 @@ function SlideComponent({ question: q, index, title, youtubeUrl, brand }: { ques
         </div>
 
         {/* Right Column (Solving Area) */}
-        <div style={{ flex: 1, position: 'relative', display: 'flex', flexDirection: 'column', overflow: 'hidden', borderRadius: '16px', backgroundColor: '#ffffff' }}>
-          {/* Watermark */}
-          <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none', overflow: 'hidden' }}>
-             <div style={{ fontSize: '80px', letterSpacing: '12px', fontWeight: 900, color: '#f1f5f9', transform: 'rotate(-45deg)', whiteSpace: 'nowrap' }}>TRICKFUNDA</div>
-          </div>
+        <div style={{ flex: 1, position: 'relative', display: 'flex', flexDirection: 'column', overflow: 'hidden', borderRadius: '16px' }}>
         </div>
       </div>
 
