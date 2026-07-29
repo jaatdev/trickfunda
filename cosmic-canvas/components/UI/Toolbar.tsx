@@ -23,6 +23,7 @@ import {
     X,
     FilePlus,
     FileMinus,
+    Copy,
     Square,
     Triangle,
     MoveRight,
@@ -105,6 +106,8 @@ export default function Toolbar() {
         addPage,
         insertPageAfter,
         deletePage,
+        duplicatePage,
+        clearPage,
         undo,
         redo,
         clearCanvas,
@@ -154,11 +157,11 @@ export default function Toolbar() {
 
     // Shape definitions for the shapes panel
     const shapes: { id: ShapeType; icon: React.ReactNode; label: string }[] = [
-        { id: 'rectangle', icon: <Square className="w-5 h-5" />, label: 'Rectangle' },
-        { id: 'circle', icon: <Circle className="w-5 h-5" />, label: 'Circle' },
-        { id: 'triangle', icon: <Triangle className="w-5 h-5" />, label: 'Triangle' },
-        { id: 'line', icon: <Minus className="w-5 h-5" />, label: 'Line' },
-        { id: 'arrow', icon: <MoveRight className="w-5 h-5" />, label: 'Arrow' },
+        { id: 'rectangle', icon: <Square className="w-4 h-4" />, label: 'Rectangle' },
+        { id: 'circle', icon: <Circle className="w-4 h-4" />, label: 'Circle' },
+        { id: 'triangle', icon: <Triangle className="w-4 h-4" />, label: 'Triangle' },
+        { id: 'line', icon: <Minus className="w-4 h-4" />, label: 'Line' },
+        { id: 'arrow', icon: <MoveRight className="w-4 h-4" />, label: 'Arrow' },
     ];
 
     const patterns: { id: Pattern; icon: React.ReactNode; label: string }[] = [
@@ -290,6 +293,18 @@ export default function Toolbar() {
     const handleInsertPage = useCallback(() => {
         insertPageAfter(currentPage - 1);
     }, [insertPageAfter, currentPage]);
+
+    // Duplicate Page Handler
+    const handleDuplicatePage = useCallback(() => {
+        duplicatePage(currentPage - 1);
+    }, [duplicatePage, currentPage]);
+
+    // Clear Page Handler
+    const handleClearPage = useCallback(() => {
+        if (confirm(`Clear all content on Page ${currentPage}? This cannot be undone.`)) {
+            clearPage(currentPage - 1);
+        }
+    }, [clearPage, currentPage]);
 
     // Tool handlers
     const handlePenClick = () => {
@@ -626,74 +641,74 @@ export default function Toolbar() {
             </div>
 
             {/* Main Dock */}
-            <div className="flex items-center gap-1 px-4 py-3
+            <div className="flex items-center gap-0.5 px-3 py-2
                 bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl"
             >
                 {/* Group 1: Tools */}
                 <button
                     onClick={handlePenClick}
-                    className={`relative p-3 rounded-xl transition-all hover:scale-110 ${isPen
+                    className={`relative p-2 rounded-xl transition-all hover:scale-110 ${isPen
                         ? 'bg-white/25 ring-2 ring-white/50'
                         : 'bg-white/5 hover:bg-white/10'
                         }`}
                     title="Pen Tool (P)"
                 >
-                    <Pencil className={`w-6 h-6 ${isPen ? 'text-white' : 'text-white/60'}`} />
+                    <Pencil className={`w-4 h-4 ${isPen ? 'text-white' : 'text-white/60'}`} />
                 </button>
 
                 <button
                     onClick={handleEraserClick}
-                    className={`relative p-3 rounded-xl transition-all hover:scale-110 ${isEraser
+                    className={`relative p-2 rounded-xl transition-all hover:scale-110 ${isEraser
                         ? 'bg-white/25 ring-2 ring-white/50'
                         : 'bg-white/5 hover:bg-white/10'
                         }`}
                     title="Eraser Tool (E)"
                 >
-                    <Eraser className={`w-6 h-6 ${isEraser ? 'text-white' : 'text-white/60'}`} />
+                    <Eraser className={`w-4 h-4 ${isEraser ? 'text-white' : 'text-white/60'}`} />
                 </button>
 
                 <button
                     onClick={handleHighlighterClick}
-                    className={`relative p-3 rounded-xl transition-all hover:scale-110 ${isHighlighter
+                    className={`relative p-2 rounded-xl transition-all hover:scale-110 ${isHighlighter
                         ? 'bg-yellow-500/40 ring-2 ring-yellow-400/50'
                         : 'bg-white/5 hover:bg-yellow-500/20'
                         }`}
                     title="Highlighter Tool (H)"
                 >
-                    <Highlighter className={`w-6 h-6 ${isHighlighter ? 'text-yellow-300' : 'text-white/60'}`} />
+                    <Highlighter className={`w-4 h-4 ${isHighlighter ? 'text-yellow-300' : 'text-white/60'}`} />
                 </button>
 
                 <button
                     onClick={handleSelectClick}
-                    className={`relative p-3 rounded-xl transition-all hover:scale-110 ${isSelect
+                    className={`relative p-2 rounded-xl transition-all hover:scale-110 ${isSelect
                         ? 'bg-white/25 ring-2 ring-white/50'
                         : 'bg-white/5 hover:bg-white/10'
                         }`}
                     title="Select Tool (V)"
                 >
-                    <Hand className={`w-6 h-6 ${isSelect ? 'text-white' : 'text-white/60'}`} />
+                    <Hand className={`w-4 h-4 ${isSelect ? 'text-white' : 'text-white/60'}`} />
                 </button>
 
                 <button
                     onClick={handleShapeClick}
-                    className={`relative p-3 rounded-xl transition-all hover:scale-110 ${isShape
+                    className={`relative p-2 rounded-xl transition-all hover:scale-110 ${isShape
                         ? 'bg-white/25 ring-2 ring-white/50'
                         : 'bg-white/5 hover:bg-white/10'
                         }`}
                     title="Shapes Tool (S)"
                 >
-                    <Shapes className={`w-6 h-6 ${isShape ? 'text-white' : 'text-white/60'}`} />
+                    <Shapes className={`w-4 h-4 ${isShape ? 'text-white' : 'text-white/60'}`} />
                 </button>
 
                 <button
                     onClick={handleLassoClick}
-                    className={`relative p-3 rounded-xl transition-all hover:scale-110 ${isLasso
+                    className={`relative p-2 rounded-xl transition-all hover:scale-110 ${isLasso
                         ? 'bg-white/25 ring-2 ring-white/50'
                         : 'bg-white/5 hover:bg-white/10'
                         }`}
                     title="Lasso Tool (L)"
                 >
-                    <Lasso className={`w-6 h-6 ${isLasso ? 'text-white' : 'text-white/60'}`} />
+                    <Lasso className={`w-4 h-4 ${isLasso ? 'text-white' : 'text-white/60'}`} />
                 </button>
 
                 <Separator />
@@ -702,34 +717,34 @@ export default function Toolbar() {
                 <button
                     onClick={undo}
                     disabled={!canUndoAction}
-                    className={`p-3 rounded-xl transition-all ${canUndoAction
+                    className={`p-2 rounded-xl transition-all ${canUndoAction
                         ? 'bg-white/5 hover:bg-white/15 hover:scale-110'
                         : 'bg-white/5 opacity-30 cursor-not-allowed'
                         }`}
                     title="Undo (Ctrl+Z)"
                 >
-                    <Undo2 className="w-6 h-6 text-white/60" />
+                    <Undo2 className="w-4 h-4 text-white/60" />
                 </button>
 
                 <button
                     onClick={redo}
                     disabled={!canRedoAction}
-                    className={`p-3 rounded-xl transition-all ${canRedoAction
+                    className={`p-2 rounded-xl transition-all ${canRedoAction
                         ? 'bg-white/5 hover:bg-white/15 hover:scale-110'
                         : 'bg-white/5 opacity-30 cursor-not-allowed'
                         }`}
                     title="Redo (Ctrl+Y)"
                 >
-                    <Redo2 className="w-6 h-6 text-white/60" />
+                    <Redo2 className="w-4 h-4 text-white/60" />
                 </button>
 
                 <button
                     onClick={handleDeletePage}
-                    className="p-3 rounded-xl bg-white/5 hover:bg-red-500/30 
+                    className="p-2 rounded-xl bg-white/5 hover:bg-red-500/30 
                         transition-all hover:scale-110"
                     title={`Delete Page ${currentPage}`}
                 >
-                    <FileMinus className="w-6 h-6 text-white/60 hover:text-red-400" />
+                    <FileMinus className="w-4 h-4 text-white/60 hover:text-red-400" />
                 </button>
 
                 <Separator />
@@ -737,20 +752,38 @@ export default function Toolbar() {
                 {/* Group 3: Page & Image */}
                 <button
                     onClick={handleInsertPage}
-                    className="p-3 rounded-xl bg-white/5 hover:bg-white/15 
+                    className="p-2 rounded-xl bg-white/5 hover:bg-white/15 
                         transition-all hover:scale-110"
                     title={`Insert Page After Page ${currentPage}`}
                 >
-                    <FilePlus className="w-6 h-6 text-white/60" />
+                    <FilePlus className="w-4 h-4 text-white/60" />
+                </button>
+
+                <button
+                    onClick={handleDuplicatePage}
+                    className="p-2 rounded-xl bg-white/5 hover:bg-white/15 
+                        transition-all hover:scale-110"
+                    title={`Duplicate Page ${currentPage}`}
+                >
+                    <Copy className="w-4 h-4 text-white/60" />
+                </button>
+
+                <button
+                    onClick={handleClearPage}
+                    className="p-2 rounded-xl bg-white/5 hover:bg-orange-500/30 
+                        transition-all hover:scale-110"
+                    title={`Clear Content on Page ${currentPage}`}
+                >
+                    <Trash2 className="w-4 h-4 text-white/60 hover:text-orange-400" />
                 </button>
 
                 <button
                     onClick={() => imageInputRef.current?.click()}
-                    className="p-3 rounded-xl bg-white/5 hover:bg-white/15 
+                    className="p-2 rounded-xl bg-white/5 hover:bg-white/15 
                         transition-all hover:scale-110"
                     title="Add Image"
                 >
-                    <ImageIcon className="w-6 h-6 text-white/60" />
+                    <ImageIcon className="w-4 h-4 text-white/60" />
                 </button>
                 <input
                     ref={imageInputRef}
@@ -765,23 +798,23 @@ export default function Toolbar() {
                 {/* Group 4: Meta */}
                 <button
                     onClick={handleBgClick}
-                    className={`relative p-3 rounded-xl transition-all hover:scale-110 ${activePanel === 'bg'
+                    className={`relative p-2 rounded-xl transition-all hover:scale-110 ${activePanel === 'bg'
                         ? 'bg-white/25 ring-2 ring-white/50'
                         : 'bg-white/5 hover:bg-white/10'
                         }`}
                     title="Paper Settings"
                 >
-                    <Paintbrush className={`w-6 h-6 ${activePanel === 'bg' ? 'text-white' : 'text-white/60'}`} />
+                    <Paintbrush className={`w-4 h-4 ${activePanel === 'bg' ? 'text-white' : 'text-white/60'}`} />
                 </button>
 
                 {/* Grid View Logic Included Here */}
                 <div className="flex items-center gap-1 pl-4 border-l border-white/10">
                     <button
                         onClick={() => setIsGridView(true)}
-                        className="p-3 text-white/50 hover:text-blue-400 hover:bg-white/5 rounded-xl transition-all"
+                        className="p-2 text-white/50 hover:text-blue-400 hover:bg-white/5 rounded-xl transition-all"
                         title="Grid View (Navigate)"
                     >
-                        <LayoutGrid className="w-5 h-5" />
+                        <LayoutGrid className="w-4 h-4" />
                     </button>
 
                 </div>
@@ -789,13 +822,13 @@ export default function Toolbar() {
                 <button
                     onClick={handleExport}
                     disabled={isExporting}
-                    className={`p-3 rounded-xl transition-all ${isExporting
+                    className={`p-2 rounded-xl transition-all ${isExporting
                         ? 'bg-white/5 opacity-50 cursor-wait'
                         : 'bg-white/5 hover:bg-green-500/30 hover:scale-110'
                         }`}
                     title="Export PDF"
                 >
-                    <Download className={`w-6 h-6 ${isExporting ? 'text-white/40 animate-pulse' : 'text-white/60 hover:text-green-400'}`} />
+                    <Download className={`w-4 h-4 ${isExporting ? 'text-white/40 animate-pulse' : 'text-white/60 hover:text-green-400'}`} />
                 </button>
 
                 {/* Separator */}
@@ -808,10 +841,10 @@ export default function Toolbar() {
                             resetProject();
                         }
                     }}
-                    className="p-3 rounded-xl bg-white/5 hover:bg-red-500/20 hover:scale-110 transition-all"
+                    className="p-2 rounded-xl bg-white/5 hover:bg-red-500/20 hover:scale-110 transition-all"
                     title="New Project"
                 >
-                    <FileX2 className="w-6 h-6 text-white/60 hover:text-red-400" />
+                    <FileX2 className="w-4 h-4 text-white/60 hover:text-red-400" />
                 </button>
 
                 <Link

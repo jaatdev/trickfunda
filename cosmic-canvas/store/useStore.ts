@@ -83,6 +83,21 @@ interface CanvasState {
     deleteSelectedObject: () => void;
     undo: () => void;
     redo: () => void;
+    toggleGridView: () => void;
+    setIsGridView: (isGrid: boolean) => void;
+    
+    // Grid View Enhancements
+    selectedGridPages: number[];
+    bookmarkedPages: number[];
+    gridFilter: 'all' | 'pdf' | 'blank' | 'bookmarked';
+    gridZoomLevel: 'small' | 'medium' | 'large';
+    toggleGridPageSelection: (index: number, multiSelect?: boolean) => void;
+    clearGridSelection: () => void;
+    togglePageBookmark: (index: number) => void;
+    setGridFilter: (filter: 'all' | 'pdf' | 'blank' | 'bookmarked') => void;
+    setGridZoomLevel: (level: 'small' | 'medium' | 'large') => void;
+    deleteSelectedGridPages: () => void;
+
     setTool: (tool: Tool) => void;
     setProjectName: (name: string) => void;
     addPage: () => void;
@@ -99,7 +114,6 @@ interface CanvasState {
     resetZoom: () => void;
     fitToScreen: () => void;
     setIsFullscreen: (value: boolean) => void;
-    setIsGridView: (value: boolean) => void;
     setPenColor: (color: string) => void;
     setPenWidth: (width: number) => void;
     setEraserWidth: (width: number) => void;
@@ -168,6 +182,10 @@ export const useStore = create<CanvasState>((set, get) => ({
     zoom: 1,
     isFullscreen: false,
     isGridView: false,
+    selectedGridPages: [],
+    bookmarkedPages: [],
+    gridFilter: 'all',
+    gridZoomLevel: 'medium',
 
     // Separate widths - Dark Slate Aesthetic
     penColor: '#d7d5d5',     // Light Grey (silver ink)
@@ -689,6 +707,48 @@ export const useStore = create<CanvasState>((set, get) => ({
         }
     },
 
+    toggleGridView: () => set((state) => ({ isGridView: !state.isGridView })),
+    setIsGridView: (isGrid) => set({ isGridView: isGrid }),
+
+    // Grid View Enhancements
+    toggleGridPageSelection: (index, multiSelect) => {
+        const state = get();
+        if (multiSelect) {
+            set({
+                selectedGridPages: state.selectedGridPages.includes(index)
+                    ? state.selectedGridPages.filter((i) => i !== index)
+                    : [...state.selectedGridPages, index]
+            });
+        } else {
+            set({
+                selectedGridPages: state.selectedGridPages.includes(index) && state.selectedGridPages.length === 1
+                    ? [] // Toggle off if it's the only one selected
+                    : [index]
+            });
+        }
+    },
+    clearGridSelection: () => set({ selectedGridPages: [] }),
+    togglePageBookmark: (index) => {
+        const state = get();
+        set({
+            bookmarkedPages: state.bookmarkedPages.includes(index)
+                ? state.bookmarkedPages.filter((i) => i !== index)
+                : [...state.bookmarkedPages, index]
+        });
+    },
+    setGridFilter: (filter) => set({ gridFilter: filter }),
+    setGridZoomLevel: (level) => set({ gridZoomLevel: level }),
+    
+    deleteSelectedGridPages: () => {
+        const state = get();
+        // Sort descending so deleting doesn't shift indexes of remaining pages to be deleted
+        const sortedPages = [...state.selectedGridPages].sort((a, b) => b - a);
+        sortedPages.forEach(pageIndex => {
+            get().deletePage(pageIndex);
+        });
+        set({ selectedGridPages: [] });
+    },
+
     // Set current page (tracked by scroll)
     setCurrentPage: (page) => set({ currentPage: page }),
 
@@ -976,7 +1036,6 @@ export const useStore = create<CanvasState>((set, get) => ({
 
     // Fullscreen / Zen Mode
     setIsFullscreen: (value) => set({ isFullscreen: value }),
-    setIsGridView: (value) => set({ isGridView: value }),
 
     // Pen settings
     setPenColor: (color) => set({ penColor: color }),

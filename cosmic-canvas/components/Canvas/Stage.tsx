@@ -1491,9 +1491,9 @@ export default function Stage() {
                             />
                         ))}
                     </div>
-                    <GridView />
                 </div>
             </div>
+            <GridView />
         </div>
     );
 }
