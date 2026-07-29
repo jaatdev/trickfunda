@@ -13,7 +13,7 @@ import { NoteBox } from '@/lib/admin-types';
 import NoteBoxRenderer from '@/components/NoteBoxRenderer';
 import { useUser } from '@clerk/nextjs';
 import { KDQuiz, KDFlashcardSet } from '@/types/studyMaterial';
-import { MathJaxContext } from 'better-react-mathjax';
+
 import CanvasOverlay from '../canvas/CanvasOverlay';
 import GenericFlashcardSession from '../flashcards/GenericFlashcardSession';
 
@@ -91,21 +91,8 @@ export function ConceptInteractiveViewer({ title, notesMarkdown, noteBoxes, pdfU
         : [...activeQuiz.questions].sort(() => Math.random() - 0.5).slice(0, quizQuestionCount))
     : [];
 
-  const mathJaxConfig = {
-    loader: { load: ["input/tex", "output/chtml"] },
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']],
-      processEscapes: true,
-      processEnvironments: true
-    },
-    options: {
-      enableMenu: false,
-    }
-  };
-
   return (
-    <MathJaxContext config={mathJaxConfig}>
+    <>
       <div className="space-y-6 relative">
         <CanvasOverlay isOpen={isCanvasOpen} onClose={() => setIsCanvasOpen(false)} />
         {/* Notes View */}
@@ -302,6 +289,6 @@ export function ConceptInteractiveViewer({ title, notesMarkdown, noteBoxes, pdfU
         </div>
       )}
     </div>
-    </MathJaxContext>
+    </>
   );
 }

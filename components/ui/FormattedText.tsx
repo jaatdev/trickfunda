@@ -1,8 +1,10 @@
 import React from 'react';
+import katex from 'katex';
 
 interface FormattedTextProps {
   /**
    * The text string containing HTML formatting tags (like <b>, <u>, <i>)
+   * and Math (like $x^2$ or $$x^2$$).
    */
   text: string;
   /**
@@ -16,11 +18,52 @@ interface FormattedTextProps {
 }
 
 /**
- * A reusable component to render strings that contain HTML formatting tags.
- * Use this when you have text from a JSON file that includes formatting like <u> or <b>.
- * 
- * @example
- * <FormattedText text="The <b>dog</b> ran to the <u>park</u>." />
+ * Replaces math blocks in a string with synchronous KaTeX HTML strings.
+ */
+function processMathAndHtml(text: string): string {
+  if (!text) return text;
+  
+  // Replace block math $$...$$
+  let processed = text.replace(/\$\$([\s\S]*?)\$\$/g, (match, math) => {
+    try {
+      return katex.renderToString(math, { displayMode: true, throwOnError: false });
+    } catch (e) {
+      return match;
+    }
+  });
+
+  // Replace inline math $...$
+  processed = processed.replace(/\$((?:\\.|[^$])*?)\$/g, (match, math) => {
+    try {
+      return katex.renderToString(math, { displayMode: false, throwOnError: false });
+    } catch (e) {
+      return match;
+    }
+  });
+
+  // MathJax fallback for \( \) and \[ \]
+  processed = processed.replace(/\\\(([\s\S]*?)\\\)/g, (match, math) => {
+    try {
+      return katex.renderToString(math, { displayMode: false, throwOnError: false });
+    } catch (e) {
+      return match;
+    }
+  });
+  
+  processed = processed.replace(/\\\[([\s\S]*?)\\\]/g, (match, math) => {
+    try {
+      return katex.renderToString(math, { displayMode: true, throwOnError: false });
+    } catch (e) {
+      return match;
+    }
+  });
+
+  return processed;
+}
+
+/**
+ * A reusable component to render strings that contain HTML formatting tags and Math.
+ * Renders Math synchronously to avoid FOUT (Flash of Unstyled Text).
  */
 export const FormattedText: React.FC<FormattedTextProps> = ({ 
   text, 
@@ -29,10 +72,12 @@ export const FormattedText: React.FC<FormattedTextProps> = ({
 }) => {
   if (!text) return null;
   
+  const processedHtml = processMathAndHtml(text);
+  
   return (
     <Component 
       className={className} 
-      dangerouslySetInnerHTML={{ __html: text }} 
+      dangerouslySetInnerHTML={{ __html: processedHtml }} 
     />
   );
 };

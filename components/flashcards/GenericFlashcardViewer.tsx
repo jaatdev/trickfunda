@@ -6,7 +6,7 @@ import { useFullscreen } from '@/lib/fullscreen-context';
 import { Maximize, Minimize, X, Sparkles, Brain, ArrowRight, ArrowLeft, Info } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { createPortal } from 'react-dom';
-import { MathJax } from 'better-react-mathjax';
+import { FormattedText } from '@/components/ui/FormattedText';
 import AnimatedBackground from './AnimatedBackground';
 import type { SubjectFlashcard } from '@/lib/types';
 
@@ -259,12 +259,12 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
               <div className="absolute inset-0 w-full h-full overflow-y-auto overflow-x-hidden scrollbar-hide p-8 md:p-12 flex flex-col">
                 <div className="flex-1 flex flex-col items-center justify-center w-full relative z-10 gap-6">
                   <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-br from-white via-blue-100 to-blue-500/50 bg-clip-text text-transparent filter drop-shadow-[0_0_15px_rgba(59,130,246,0.3)] text-center break-words text-balance w-full max-w-4xl px-4 leading-relaxed md:leading-snug">
-                    <MathJax dynamic>{currentCard.front}</MathJax>
+                    <FormattedText text={currentCard.front} />
                   </h1>
                   
                   {currentCard.front_hi && (
                     <h2 className="text-lg md:text-xl lg:text-2xl font-medium text-blue-200/70 text-center break-words text-balance w-full max-w-4xl px-4 mt-2 leading-relaxed">
-                      <MathJax dynamic>{currentCard.front_hi}</MathJax>
+                      <FormattedText text={currentCard.front_hi || ''} />
                     </h2>
                   )}
 
@@ -279,8 +279,8 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
                         </button>
                       ) : (
                         <div className="px-6 py-4 rounded-2xl bg-yellow-500/10 border border-yellow-500/20 text-yellow-100/90 text-center text-sm md:text-base w-full max-w-lg shadow-[0_0_20px_rgba(234,179,8,0.15)] animate-in fade-in zoom-in-95 duration-300">
-                          {currentCard.hint && <p className="font-medium"><MathJax dynamic>{currentCard.hint}</MathJax></p>}
-                          {currentCard.hint_hi && <p className="mt-2 text-yellow-200/70"><MathJax dynamic>{currentCard.hint_hi}</MathJax></p>}
+                          {currentCard.hint && <p className="font-medium"><FormattedText text={currentCard.hint || ''} /></p>}
+                          {currentCard.hint_hi && <p className="mt-2 text-yellow-200/70"><FormattedText text={currentCard.hint_hi || ''} /></p>}
                         </div>
                       )}
                     </div>
@@ -311,11 +311,11 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
                   
                   <div className="text-center w-full max-w-4xl space-y-6 relative z-10">
                     <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-purple-200 drop-shadow-[0_0_20px_rgba(168,85,247,0.5)] text-balance leading-relaxed animate-in fade-in slide-in-from-bottom-4 duration-700">
-                      <MathJax dynamic>{currentCard.back}</MathJax>
+                      <FormattedText text={currentCard.back} />
                     </h2>
                     {currentCard.back_hi && (
                       <h3 className="text-lg md:text-xl lg:text-2xl font-medium text-white/70 drop-shadow-md text-balance leading-relaxed animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
-                        <MathJax dynamic>{currentCard.back_hi}</MathJax>
+                        <FormattedText text={currentCard.back_hi || ''} />
                       </h3>
                     )}
                   </div>
@@ -326,10 +326,10 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
                         <Sparkles className="w-4 h-4" /> Explanation
                       </h4>
                       {currentCard.explanation && (
-                        <p className="text-gray-200 text-base md:text-lg leading-relaxed"><MathJax dynamic>{currentCard.explanation}</MathJax></p>
+                        <p className="text-gray-200 text-base md:text-lg leading-relaxed"><FormattedText text={currentCard.explanation || ''} /></p>
                       )}
                       {currentCard.explanation_hi && (
-                        <p className="text-gray-400 text-sm md:text-base mt-3 leading-relaxed"><MathJax dynamic>{currentCard.explanation_hi}</MathJax></p>
+                        <p className="text-gray-400 text-sm md:text-base mt-3 leading-relaxed"><FormattedText text={currentCard.explanation_hi || ''} /></p>
                       )}
                     </div>
                   )}
@@ -370,11 +370,11 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
                             <div className={`absolute top-0 right-0 w-32 h-32 rounded-full blur-2xl -mr-16 -mt-16 ${blobClass}`} />
                             <div className="flex flex-col gap-1 mb-5 relative z-10">
                               <h3 className={`font-bold flex items-center gap-2 text-lg uppercase tracking-wider ${titleClass}`}>
-                                <Info className="w-5 h-5" /> <MathJax dynamic>{list.title}</MathJax>
+                                <Info className="w-5 h-5" /> <FormattedText text={list.title} />
                               </h3>
                               {list.title_hi && (
                                 <h4 className={`font-medium flex items-center gap-2 text-sm opacity-80 ${titleClass}`}>
-                                  <MathJax dynamic>{list.title_hi}</MathJax>
+                                  <FormattedText text={list.title_hi || ''} />
                                 </h4>
                               )}
                             </div>
@@ -382,9 +382,9 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
                             <div className="flex flex-wrap gap-2.5 relative z-10">
                               {list.items.map((item, i) => (
                                 <span key={i} className={`px-4 py-2.5 bg-black/50 backdrop-blur-md rounded-xl text-sm font-medium border shadow-[0_4px_12px_rgba(0,0,0,0.5)] break-words leading-relaxed ${itemClass}`}>
-                                  <MathJax dynamic>{item}</MathJax>
+                                  <FormattedText text={item} />
                                   {list.items_hi && list.items_hi[i] && (
-                                    <span className="block text-xs opacity-70 mt-1.5"><MathJax dynamic>{list.items_hi[i]}</MathJax></span>
+                                    <span className="block text-xs opacity-70 mt-1.5"><FormattedText text={list.items_hi[i] || ''} /></span>
                                   )}
                                 </span>
                               ))}
@@ -445,12 +445,12 @@ export default function GenericFlashcardViewer({ flashcards, onFinish, onClose }
                       <div className="space-y-6 w-full">
                         {displayTrick && (
                           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-relaxed md:leading-relaxed text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] text-balance break-words">
-                            <MathJax dynamic>{displayTrick}</MathJax>
+                            <FormattedText text={displayTrick} />
                           </h2>
                         )}
                         {displayTrickHi && (
                           <h2 className="text-xl md:text-2xl lg:text-3xl font-medium leading-relaxed md:leading-relaxed text-emerald-100/90 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] text-balance break-words">
-                            <MathJax dynamic>{displayTrickHi}</MathJax>
+                            <FormattedText text={displayTrickHi || ''} />
                           </h2>
                         )}
                       </div>

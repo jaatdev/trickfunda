@@ -11,6 +11,7 @@ import Footer from '@/components/layout/Footer'
 import GlobalFullscreenButton from '@/components/GlobalFullscreenButton'
 import HackerPreloader from '@/components/preloader/HackerPreloader'
 import BackToTop from '@/components/ui/BackToTop'
+import 'katex/dist/katex.min.css'
 import '@/styles/globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })

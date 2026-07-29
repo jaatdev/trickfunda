@@ -67,6 +67,12 @@ const FooterLink = ({ href, label, color }: { href: string; label: string; color
 };
 
 export default function Footer() {
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, []);
+
   const pathname = usePathname();
   const { isSignedIn } = useAuth();
   const theme = useAppTheme(pathname);
@@ -191,13 +197,20 @@ export default function Footer() {
                 </div>
                 
                 <div className="w-full md:w-auto flex-1 max-w-md flex flex-col sm:flex-row gap-3" suppressHydrationWarning>
-                  <div className="relative flex-1" suppressHydrationWarning>
+                  <div className="relative flex-1">
                     <span className="absolute left-4 top-1/2 -translate-y-1/2 font-mono text-gray-500">{'>'}</span>
-                    <input
-                      type="email"
-                      placeholder="user@network.com"
-                      className="w-full pl-8 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-mono text-sm placeholder-gray-600 focus:outline-none focus:border-white/30 focus:bg-white/10 transition-all"
-                    />
+                    {isMounted ? (
+                      <input
+                        type="email"
+                        placeholder="user@network.com"
+                        className="w-full pl-8 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-mono text-sm placeholder-gray-600 focus:outline-none focus:border-white/30 focus:bg-white/10 transition-all"
+                        data-1p-ignore
+                        data-lpignore="true"
+                        data-bwignore="true"
+                      />
+                    ) : (
+                      <div className="w-full h-[46px] rounded-xl bg-white/5 border border-white/10" />
+                    )}
                   </div>
                   <motion.button
                     className={`px-6 py-3 rounded-xl ${theme.accentBg} text-white font-bold font-mono text-sm shadow-[0_0_15px_rgba(255,255,255,0.1)] relative overflow-hidden group/btn`}

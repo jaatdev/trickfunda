@@ -11,7 +11,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useQuiz } from '@/lib/quiz-state';
 import { EnhancedQuizQuestion, QuestionStatus } from '@/lib/quiz-types';
 import { QuizQuestion } from '@/lib/types';
-import { MathJax } from 'better-react-mathjax';
+
 import { getThemeById } from '@/lib/theme-variants';
 import { QuizReview } from './QuizReview';
 import { FormattedText } from '@/components/ui/FormattedText';
@@ -419,7 +419,7 @@ export function QuizPanel({ questions, topicId, onComplete }: QuizPanelProps) {
                         )}
                       </div>
                       <h3 className="text-base md:text-xl font-bold leading-relaxed whitespace-pre-wrap break-words min-w-0">
-                        <MathJax dynamic><FormattedText text={language === 'hi' && currentQuestion.prompt_hi ? currentQuestion.prompt_hi : currentQuestion.prompt} /></MathJax>
+                        <FormattedText text={language === 'hi' && currentQuestion.prompt_hi ? currentQuestion.prompt_hi : currentQuestion.prompt} />
                       </h3>
                       {currentQuestion.dice_layout && (
                         <DiceLayoutRenderer layout={currentQuestion.dice_layout} />
@@ -495,7 +495,7 @@ export function QuizPanel({ questions, topicId, onComplete }: QuizPanelProps) {
                           {optionLetter}
                         </span>
                         <span className={`flex-1 pt-1 break-words min-w-0 text-sm md:text-base leading-relaxed pointer-events-none ${textStyle}`}>
-                          <MathJax dynamic><FormattedText text={displayOption} /></MathJax>
+                          <FormattedText text={displayOption} />
                           {currentQuestion.options_dice_layout?.[index] && (
                             <div className="mt-2 flex justify-center">
                               <DiceLayoutRenderer layout={currentQuestion.options_dice_layout[index]} />

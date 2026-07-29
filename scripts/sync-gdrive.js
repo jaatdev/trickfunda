@@ -168,9 +168,9 @@ async function main() {
   }
 
   console.log('Starting Google Drive sync...');
-  if (fs.existsSync(DEST_DIR)) {
-    fs.rmSync(DEST_DIR, { recursive: true, force: true });
-  }
+  // if (fs.existsSync(DEST_DIR)) {
+  //   fs.rmSync(DEST_DIR, { recursive: true, force: true });
+  // }
   
   try {
     await syncFolder(ROOT_FOLDER_ID, DEST_DIR);

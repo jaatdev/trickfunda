@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { QuizQuestion } from '@/lib/types';
 import { Download, Loader2, Sparkles } from 'lucide-react';
-import { MathJax } from 'better-react-mathjax';
+import { FormattedText } from '@/components/ui/FormattedText';
 import { compressPDF } from '@/lib/pdf-compressor/pipeline';
 
 interface Props {
@@ -55,10 +55,10 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
           for (let i = 0; i < slideElements.length; i++) {
             const slideEl = slideElements[i];
             
-            const dataUrl = await htmlToImage.toJpeg(slideEl, {
-              quality: 0.8,
+            const dataUrl = await htmlToImage.toPng(slideEl, {
+              quality: 1.0,
               backgroundColor: '#ffffff',
-              pixelRatio: 1.5,
+              pixelRatio: 3,
               style: {
                 transform: 'scale(1)',
                 transformOrigin: 'top left',
@@ -70,7 +70,7 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
               pdf.addPage([1280, 720], 'landscape');
             }
             
-            pdf.addImage(dataUrl, 'JPEG', 0, 0, 1280, 720, undefined, 'FAST');
+            pdf.addImage(dataUrl, 'PNG', 0, 0, 1280, 720, undefined, 'FAST');
           }
 
             const pdfFilename = `${customTitle.replace(/[^a-z0-9]/gi, '_').toLowerCase()}_slides.pdf`;
@@ -80,9 +80,9 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
             
             try {
               const compressedResult = await compressPDF(pdfBuffer, {
-                  quality: 'maximum',
-                  imageQuality: 0.6,
-                  downscaleOversized: true,
+                  quality: 'ultra',
+                  imageQuality: 1.0,
+                  downscaleOversized: false,
                   stripMetadata: true,
                   deduplicateStreams: true,
                   optimizeFonts: true,
@@ -189,7 +189,7 @@ export default function KDStylePDFGenerator({ questions, title, selectedCount }:
             <div className="text-emerald-600/70 text-lg space-y-2 max-w-xl">
               <p>&gt; Securing React rendering context...</p>
               <p>&gt; Spawning {selectedQuestions.length} virtual slide instances...</p>
-              <p>&gt; Firing up native MathJax CHTML engine...</p>
+              <p>&gt; Firing up native KaTeX engine...</p>
               <p className="text-emerald-400 font-bold">&gt; STAND BY FOR HIGH-RES SNAPSHOTS...</p>
               {compressionProgress && <p className="text-amber-400 font-bold">&gt; {compressionProgress}</p>}
             </div>
@@ -225,6 +225,17 @@ function SlideComponent({ question: q, index, title, youtubeUrl, brand }: { ques
         overflow: 'hidden'
       }}
     >
+      <style>{`
+        .pdf-force-black, .pdf-force-black * {
+          color: #000000 !important;
+          -webkit-text-fill-color: #000000 !important;
+          opacity: 1 !important;
+        }
+        .pdf-force-orange {
+          color: #ff4500 !important;
+          -webkit-text-fill-color: #ff4500 !important;
+        }
+      `}</style>
       {/* Header */}
       <div style={{ flexShrink: 0, backgroundColor: '#0f172a', color: '#ffffff', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px 40px', borderBottom: '5px solid #ff4500' }}>
         <div style={{ fontSize: '28px', fontWeight: 800, color: '#ff4500', letterSpacing: '1px', whiteSpace: 'nowrap', flexShrink: 0 }}>{brand}</div>
@@ -253,15 +264,14 @@ function SlideComponent({ question: q, index, title, youtubeUrl, brand }: { ques
           </div>
           
           {q.prompt_hi && (
-            <MathJax dynamic>
-              <div style={{ fontSize: '22px', fontWeight: 700, color: '#1e293b', lineHeight: 1.4 }} dangerouslySetInnerHTML={{ __html: q.prompt_hi }} />
-            </MathJax>
+            <div className="pdf-force-black" style={{ fontSize: '24px', fontWeight: 800, color: '#000000', lineHeight: 1.4 }}>
+              <FormattedText text={q.prompt_hi} />
+            </div>
           )}
           
-          <MathJax dynamic>
-             <div style={{ fontSize: '20px', fontWeight: 600, color: '#475569', lineHeight: 1.4 }} dangerouslySetInnerHTML={{ __html: q.prompt }} />
-          </MathJax>
-
+          <div className="pdf-force-black" style={{ fontSize: '22px', fontWeight: 700, color: '#000000', lineHeight: 1.4 }}>
+            <FormattedText text={q.prompt} />
+          </div>
           {q.image_url && (
             <div style={{ marginTop: '10px', display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
                <img src={q.image_url} alt="Question" style={{ maxHeight: '160px', maxWidth: '100%', objectFit: 'contain', borderRadius: '12px', border: '2px solid #e2e8f0' }} />
@@ -276,10 +286,10 @@ function SlideComponent({ question: q, index, title, youtubeUrl, brand }: { ques
               const displayOpt = (hiOpt && opt !== hiOpt) ? `${opt} / ${hiOpt}` : opt;
               return (
                 <div key={idx} style={{ backgroundColor: '#f1f5f9', borderRadius: '12px', padding: '10px 15px', display: 'flex', alignItems: 'center', gap: '12px', border: '1px solid #e2e8f0' }}>
-                  <span style={{ fontSize: '20px', fontWeight: 800, color: '#ff4500', flexShrink: 0 }}>({letter})</span>
-                  <MathJax dynamic>
-                     <div style={{ fontSize: '18px', fontWeight: 700, color: '#000000' }} dangerouslySetInnerHTML={{ __html: displayOpt }} />
-                  </MathJax>
+                  <span className="pdf-force-orange" style={{ fontSize: '20px', fontWeight: 800, color: '#ff4500', flexShrink: 0 }}>({letter})</span>
+                     <div className="pdf-force-black" style={{ fontSize: '18px', fontWeight: 700, color: '#000000' }}>
+                       <FormattedText text={displayOpt} />
+                     </div>
                 </div>
               );
             })}

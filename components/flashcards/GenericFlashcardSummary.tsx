@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { MathJax } from 'better-react-mathjax';
+import { FormattedText } from '@/components/ui/FormattedText';
 import { Brain, Printer, CheckCircle, ArrowLeft, Info, Terminal, Shield, Loader2 } from 'lucide-react';
 import type { SubjectFlashcard } from '@/lib/types';
 
@@ -191,16 +191,16 @@ export default function GenericFlashcardSummary({ flashcards, title, onClose }: 
                               {card.type}
                             </span>
                           )}
-                          <h3 className="text-2xl font-black text-blue-500 dark:text-blue-400 text-balance leading-tight"><MathJax dynamic>{card.front}</MathJax></h3>
-                          {card.front_hi && <p className="text-blue-400/80 mt-1"><MathJax dynamic>{card.front_hi}</MathJax></p>}
+                          <h3 className="text-2xl font-black text-blue-500 dark:text-blue-400 text-balance leading-tight"><FormattedText text={card.front} /></h3>
+                          {card.front_hi && <p className="text-blue-400/80 mt-1"><FormattedText text={card.front_hi} /></p>}
                         </div>
                       </div>
                       
                       {(card.hint || card.hint_hi) && (
                         <div className="pl-11 text-sm text-yellow-600 dark:text-yellow-500/80 italic">
                           <span className="font-bold">Hint: </span>
-                          {card.hint} {card.hint_hi && <MathJax dynamic>{card.hint_hi}</MathJax>}
-                          {!card.hint_hi && <MathJax dynamic>{card.hint}</MathJax>}
+                          {card.hint} {card.hint_hi && <FormattedText text={card.hint_hi || ''} />}
+                          {!card.hint_hi && <FormattedText text={card.hint || ''} />}
                         </div>
                       )}
                     </div>
@@ -212,19 +212,19 @@ export default function GenericFlashcardSummary({ flashcards, title, onClose }: 
                       <div className="bg-gray-50 dark:bg-gray-900/50 p-5 rounded-2xl border border-gray-100 dark:border-gray-800">
                         <h4 className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Meaning / Answer</h4>
                         <p className="text-xl text-gray-900 dark:text-gray-100 leading-relaxed font-medium">
-                          <MathJax dynamic>{card.back}</MathJax>
+                          <FormattedText text={card.back} />
                         </p>
                         {card.back_hi && (
                           <p className="text-lg text-gray-600 dark:text-gray-400 mt-2">
-                            <MathJax dynamic>{card.back_hi}</MathJax>
+                            <FormattedText text={card.back_hi} />
                           </p>
                         )}
                         
                         {(card.explanation || card.explanation_hi) && (
                           <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-800">
                             <h4 className="text-xs font-bold text-gray-500 dark:text-gray-500 uppercase tracking-wider mb-2">Explanation</h4>
-                            {card.explanation && <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed"><MathJax dynamic>{card.explanation}</MathJax></p>}
-                            {card.explanation_hi && <p className="text-gray-500 dark:text-gray-400 text-xs mt-1 leading-relaxed"><MathJax dynamic>{card.explanation_hi}</MathJax></p>}
+                            {card.explanation && <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed"><FormattedText text={card.explanation || ''} /></p>}
+                            {card.explanation_hi && <p className="text-gray-500 dark:text-gray-400 text-xs mt-1 leading-relaxed"><FormattedText text={card.explanation_hi || ''} /></p>}
                           </div>
                         )}
                       </div>
@@ -264,14 +264,14 @@ export default function GenericFlashcardSummary({ flashcards, title, onClose }: 
                             return (
                               <div key={lIdx} className="space-y-2">
                                 <h4 className={`text-sm font-bold uppercase tracking-wider flex items-center gap-1 ${titleColor}`}>
-                                  <Info className="w-3.5 h-3.5" /> <MathJax dynamic>{list.title}</MathJax>
+                                  <Info className="w-3.5 h-3.5" /> <FormattedText text={list.title} />
                                 </h4>
                                 <div className="flex flex-wrap gap-2">
                                   {list.items.map((item, i) => (
                                     <span key={i} className={`px-3 py-1.5 rounded-lg text-sm font-medium border ${bgItem} ${borderItem} ${textItem}`}>
-                                      <MathJax dynamic>{item}</MathJax>
+                                      <FormattedText text={item} />
                                       {list.items_hi && list.items_hi[i] && (
-                                        <span className="block text-xs opacity-70 mt-0.5"><MathJax dynamic>{list.items_hi[i]}</MathJax></span>
+                                        <span className="block text-xs opacity-70 mt-0.5"><FormattedText text={list.items_hi[i] || ''} /></span>
                                       )}
                                     </span>
                                   ))}
@@ -290,12 +290,12 @@ export default function GenericFlashcardSummary({ flashcards, title, onClose }: 
                           </h4>
                           {displayTrick && (
                             <p className="text-gray-900 dark:text-white font-bold text-lg print:text-black leading-relaxed">
-                              <MathJax dynamic>{displayTrick}</MathJax>
+                              <FormattedText text={displayTrick} />
                             </p>
                           )}
                           {displayTrickHi && (
                             <p className="text-emerald-700 dark:text-emerald-300 font-medium text-base mt-2 leading-relaxed">
-                              <MathJax dynamic>{displayTrickHi}</MathJax>
+                              <FormattedText text={displayTrickHi || ''} />
                             </p>
                           )}
                         </div>
