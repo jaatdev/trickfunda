@@ -2,8 +2,9 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react';
 import getStroke from 'perfect-freehand';
-import { Pen, Eraser, Trash2, X, Settings2, LassoSelect, Copy, CopyPlus } from 'lucide-react';
+import { Pen, Eraser, Trash2, X, Settings2, LassoSelect, Copy, CopyPlus, Wand2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { recognizeShape, ShapeData } from '@/utils/shapeRecognition';
 
 // Basic path generator for perfect-freehand
 function getSvgPathFromStroke(stroke: number[][]) {
@@ -28,6 +29,7 @@ type Stroke = {
   color: string;
   size: number;
   isEraser: boolean;
+  shapeData?: ShapeData;
 };
 
 function isPointInPolygon(point: {x: number, y: number}, vs: {x: number, y: number}[]) {
@@ -69,6 +71,7 @@ export default function CanvasOverlay({ isOpen, onClose, questionIndex }: Canvas
   const [showSettings, setShowSettings] = useState(false);
   const [selectedStrokeIds, setSelectedStrokeIds] = useState<string[]>([]);
   const [isDraggingSelection, setIsDraggingSelection] = useState(false);
+  const [isSmartShapeEnabled, setIsSmartShapeEnabled] = useState(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const staticCanvasRef = useRef<HTMLCanvasElement>(null);
@@ -162,26 +165,63 @@ export default function CanvasOverlay({ isOpen, onClose, questionIndex }: Canvas
       if (stroke.points.length < 2) return;
       
       const isSelected = selectedStrokeIds.includes(stroke.id);
-      const input = stroke.points.map(p => [p.x, p.y, p.pressure]);
-      const strokeData = getStroke(input, { size: stroke.size, thinning: 0.5, streamline: 0.5 });
-      const pathData = getSvgPathFromStroke(strokeData);
-      const path = new Path2D(pathData);
-      
-      ctx.globalCompositeOperation = stroke.isEraser ? 'destination-out' : 'source-over';
-      ctx.fillStyle = stroke.isEraser ? 'rgba(0,0,0,1)' : stroke.color;
       
       ctx.save();
+      ctx.globalCompositeOperation = stroke.isEraser ? 'destination-out' : 'source-over';
+      ctx.fillStyle = stroke.isEraser ? 'rgba(0,0,0,1)' : stroke.color;
+      ctx.strokeStyle = stroke.color;
+      ctx.lineWidth = stroke.size;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+
       if (selectedStrokeIds.length > 0 && !isSelected) {
-        // Dim unselected strokes when there is a selection
         ctx.globalAlpha = 0.3;
       }
-      ctx.fill(path);
       
-      if (isSelected && !stroke.isEraser) {
-        // Draw a slight outline around selected strokes
-        ctx.strokeStyle = '#3b82f6';
-        ctx.lineWidth = 2;
-        ctx.stroke(path);
+      if (stroke.shapeData) {
+        // Draw geometric shape
+        ctx.beginPath();
+        const data = stroke.shapeData;
+        
+        if (data.type === 'line') {
+          ctx.moveTo(data.points[0].x, data.points[0].y);
+          ctx.lineTo(data.points[1].x, data.points[1].y);
+          ctx.stroke();
+        } else if (data.type === 'circle') {
+          const center = data.points[0];
+          const radius = data.points[1].x;
+          ctx.arc(center.x, center.y, radius, 0, Math.PI * 2);
+          ctx.stroke(); // Hollow shape for now, or could fill
+        } else if (data.type === 'rectangle') {
+          ctx.rect(data.boundingBox.x, data.boundingBox.y, data.boundingBox.width, data.boundingBox.height);
+          ctx.stroke();
+        } else if (data.type === 'triangle') {
+          ctx.moveTo(data.points[0].x, data.points[0].y);
+          ctx.lineTo(data.points[1].x, data.points[1].y);
+          ctx.lineTo(data.points[2].x, data.points[2].y);
+          ctx.closePath();
+          ctx.stroke();
+        }
+        
+        if (isSelected && !stroke.isEraser) {
+          ctx.lineWidth = stroke.size + 4;
+          ctx.strokeStyle = '#3b82f6';
+          ctx.stroke();
+        }
+      } else {
+        // Normal perfect-freehand stroke
+        const input = stroke.points.map(p => [p.x, p.y, p.pressure]);
+        const strokeData = getStroke(input, { size: stroke.size, thinning: 0.5, streamline: 0.5 });
+        const pathData = getSvgPathFromStroke(strokeData);
+        const path = new Path2D(pathData);
+        
+        ctx.fill(path);
+        
+        if (isSelected && !stroke.isEraser) {
+          ctx.strokeStyle = '#3b82f6';
+          ctx.lineWidth = 2;
+          ctx.stroke(path);
+        }
       }
       ctx.restore();
     });
@@ -359,12 +399,21 @@ export default function CanvasOverlay({ isOpen, onClose, questionIndex }: Canvas
         });
         setSelectedStrokeIds(selected.map(s => s.id));
       } else {
+        let shapeData = undefined;
+        if (isSmartShapeEnabled && tool === 'pen') {
+          const recognized = recognizeShape(currentPoints.current);
+          if (recognized) {
+            shapeData = recognized;
+          }
+        }
+        
         const newStroke: Stroke = {
           id: Date.now().toString() + Math.random().toString(),
           points: [...currentPoints.current],
           color,
           size: tool === 'eraser' ? eraserSize : penSize,
           isEraser: tool === 'eraser',
+          shapeData,
         };
         // Add to React state which will trigger renderStaticLayer
         setStrokes((prev) => [...prev, newStroke]);
@@ -614,6 +663,14 @@ export default function CanvasOverlay({ isOpen, onClose, questionIndex }: Canvas
               title="Lasso Select"
             >
               <LassoSelect className="w-5 h-5" />
+            </button>
+            <div className="w-px bg-white/10 my-2 mx-1" />
+            <button
+              onClick={() => setIsSmartShapeEnabled(!isSmartShapeEnabled)}
+              className={`p-2 rounded-xl transition-colors ${isSmartShapeEnabled ? 'bg-blue-500/20 text-blue-400' : 'text-gray-400 hover:text-white hover:bg-white/10'}`}
+              title="Smart Shape Recognition"
+            >
+              <Wand2 className="w-5 h-5" />
             </button>
             <button
               onClick={() => setShowSettings(!showSettings)}
