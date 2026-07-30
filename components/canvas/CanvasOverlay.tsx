@@ -280,7 +280,7 @@ export default function CanvasOverlay({ isOpen, onClose, questionIndex }: Canvas
     
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    const pressure = e.pressure !== 0 ? e.pressure : 0.5;
+    const pressure = e.pressure || 0.5;
 
     // Check if clicking inside a selection to drag
     if (selectedStrokeIds.length > 0) {
@@ -336,14 +336,14 @@ export default function CanvasOverlay({ isOpen, onClose, questionIndex }: Canvas
         newPoints.push({
           x: ev.clientX - rect.left,
           y: ev.clientY - rect.top,
-          pressure: ev.pressure !== 0 ? ev.pressure : 0.5
+          pressure: ev.pressure || 0.5
         });
       }
     } else {
       newPoints.push({
         x: e.clientX - rect.left,
         y: e.clientY - rect.top,
-        pressure: e.pressure !== 0 ? e.pressure : 0.5
+        pressure: e.pressure || 0.5
       });
     }
 
