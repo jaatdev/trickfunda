@@ -66,7 +66,7 @@ export default function TextLayer({ totalHeight }: TextLayerProps) {
     const isSelectMode = currentTool === 'select';
 
     // Handle click on canvas to create new text node
-    const handleCanvasClick = useCallback((e: React.MouseEvent) => {
+    const handleCanvasClick = useCallback((e: React.PointerEvent) => {
         if (!isTextMode) return;
 
         // Use pageX/pageY for scroll-aware positioning
@@ -92,7 +92,7 @@ export default function TextLayer({ totalHeight }: TextLayerProps) {
     }, [isTextMode, zoom, activeFontSize, penColor, activeFont, activeFontWeight, activeFontStyle, activeTextBackground, addTextNode]);
 
     // Handle start dragging
-    const handleDragStart = useCallback((e: React.MouseEvent, node: TextNode) => {
+    const handleDragStart = useCallback((e: React.PointerEvent, node: TextNode) => {
         if (!isSelectMode || selectedId !== node.id) return;
 
         e.stopPropagation();
@@ -108,7 +108,7 @@ export default function TextLayer({ totalHeight }: TextLayerProps) {
     }, [isSelectMode, selectedId]);
 
     // Handle dragging
-    const handleDrag = useCallback((e: React.MouseEvent) => {
+    const handleDrag = useCallback((e: React.PointerEvent) => {
         if (!dragState.active || !dragState.nodeId) return;
 
         const deltaX = e.clientX - dragState.startX;
@@ -135,7 +135,7 @@ export default function TextLayer({ totalHeight }: TextLayerProps) {
     }, [dragState.active]);
 
     // Handle double click to edit
-    const handleDoubleClick = useCallback((e: React.MouseEvent, nodeId: string) => {
+    const handleDoubleClick = useCallback((e: React.PointerEvent, nodeId: string) => {
         e.stopPropagation();
         setEditingNodeId(nodeId);
     }, []);
@@ -176,10 +176,10 @@ export default function TextLayer({ totalHeight }: TextLayerProps) {
     return (
         <div
             ref={containerRef}
-            onClick={handleCanvasClick}
-            onMouseMove={handleDrag}
-            onMouseUp={handleDragEnd}
-            onMouseLeave={handleDragEnd}
+            onClick={handleCanvasClick as any}
+            onPointerMove={handleDrag}
+            onPointerUp={handleDragEnd}
+            onPointerLeave={handleDragEnd}
             style={{
                 position: 'absolute',
                 inset: 0,
@@ -198,8 +198,8 @@ export default function TextLayer({ totalHeight }: TextLayerProps) {
                 return (
                     <div
                         key={node.id}
-                        onMouseDown={(e) => !isEditing && handleDragStart(e, node)}
-                        onDoubleClick={(e) => handleDoubleClick(e, node.id)}
+                        onPointerDown={(e) => !isEditing && handleDragStart(e, node)}
+                        onDoubleClick={(e) => handleDoubleClick(e as any, node.id)}
                         style={{
                             position: 'absolute',
                             left: node.x,

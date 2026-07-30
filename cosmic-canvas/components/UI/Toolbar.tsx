@@ -392,9 +392,10 @@ export default function Toolbar() {
         return (
             <div
                 className="absolute bottom-full mb-4 left-1/2 -translate-x-1/2
-                    p-4 bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl min-w-[180px]"
+                    p-4 bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl min-w-[180px] max-w-[90vw] max-h-[60vh] overflow-y-auto scrollbar-hide"
                 onPointerMove={handlePanelInteraction}
                 onPointerDown={handlePanelInteraction}
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
                 {/* Pen Settings Panel */}
                 {activePanel === 'pen' && (
@@ -571,7 +572,7 @@ export default function Toolbar() {
                                     <button
                                         key={p.id}
                                         onClick={() => handlePatternSelect(p.id)}
-                                        className={`p-2 rounded-lg transition-all hover:scale-110 ${canvasPattern === p.id
+                                        className={`p-3 sm:p-2 touch-manipulation rounded-lg transition-all hover:scale-110 ${canvasPattern === p.id
                                             ? 'bg-white/25 ring-2 ring-white/50'
                                             : 'bg-white/10 hover:bg-white/15'
                                             }`}
@@ -634,7 +635,7 @@ export default function Toolbar() {
     );
 
     return (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 max-w-[95vw] w-full flex justify-center">
             {/* Floating Panel (opens UPWARD) */}
             <div className="relative">
                 {renderPanel()}
@@ -642,12 +643,13 @@ export default function Toolbar() {
 
             {/* Main Dock */}
             <div className="flex items-center gap-0.5 px-3 py-2
-                bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl"
+                bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl overflow-x-auto scrollbar-hide max-w-[95vw]"
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
                 {/* Group 1: Tools */}
                 <button
                     onClick={handlePenClick}
-                    className={`relative p-2 rounded-xl transition-all hover:scale-110 ${isPen
+                    className={`relative p-3 sm:p-2 touch-manipulation rounded-xl transition-all hover:scale-110 ${isPen
                         ? 'bg-white/25 ring-2 ring-white/50'
                         : 'bg-white/5 hover:bg-white/10'
                         }`}
@@ -658,7 +660,7 @@ export default function Toolbar() {
 
                 <button
                     onClick={handleEraserClick}
-                    className={`relative p-2 rounded-xl transition-all hover:scale-110 ${isEraser
+                    className={`relative p-3 sm:p-2 touch-manipulation rounded-xl transition-all hover:scale-110 ${isEraser
                         ? 'bg-white/25 ring-2 ring-white/50'
                         : 'bg-white/5 hover:bg-white/10'
                         }`}
@@ -669,7 +671,7 @@ export default function Toolbar() {
 
                 <button
                     onClick={handleHighlighterClick}
-                    className={`relative p-2 rounded-xl transition-all hover:scale-110 ${isHighlighter
+                    className={`relative p-3 sm:p-2 touch-manipulation rounded-xl transition-all hover:scale-110 ${isHighlighter
                         ? 'bg-yellow-500/40 ring-2 ring-yellow-400/50'
                         : 'bg-white/5 hover:bg-yellow-500/20'
                         }`}
@@ -680,7 +682,7 @@ export default function Toolbar() {
 
                 <button
                     onClick={handleSelectClick}
-                    className={`relative p-2 rounded-xl transition-all hover:scale-110 ${isSelect
+                    className={`relative p-3 sm:p-2 touch-manipulation rounded-xl transition-all hover:scale-110 ${isSelect
                         ? 'bg-white/25 ring-2 ring-white/50'
                         : 'bg-white/5 hover:bg-white/10'
                         }`}
@@ -691,7 +693,7 @@ export default function Toolbar() {
 
                 <button
                     onClick={handleShapeClick}
-                    className={`relative p-2 rounded-xl transition-all hover:scale-110 ${isShape
+                    className={`relative p-3 sm:p-2 touch-manipulation rounded-xl transition-all hover:scale-110 ${isShape
                         ? 'bg-white/25 ring-2 ring-white/50'
                         : 'bg-white/5 hover:bg-white/10'
                         }`}
@@ -702,7 +704,7 @@ export default function Toolbar() {
 
                 <button
                     onClick={handleLassoClick}
-                    className={`relative p-2 rounded-xl transition-all hover:scale-110 ${isLasso
+                    className={`relative p-3 sm:p-2 touch-manipulation rounded-xl transition-all hover:scale-110 ${isLasso
                         ? 'bg-white/25 ring-2 ring-white/50'
                         : 'bg-white/5 hover:bg-white/10'
                         }`}
@@ -717,7 +719,7 @@ export default function Toolbar() {
                 <button
                     onClick={undo}
                     disabled={!canUndoAction}
-                    className={`p-2 rounded-xl transition-all ${canUndoAction
+                    className={`p-3 sm:p-2 touch-manipulation rounded-xl transition-all ${canUndoAction
                         ? 'bg-white/5 hover:bg-white/15 hover:scale-110'
                         : 'bg-white/5 opacity-30 cursor-not-allowed'
                         }`}
@@ -729,7 +731,7 @@ export default function Toolbar() {
                 <button
                     onClick={redo}
                     disabled={!canRedoAction}
-                    className={`p-2 rounded-xl transition-all ${canRedoAction
+                    className={`p-3 sm:p-2 touch-manipulation rounded-xl transition-all ${canRedoAction
                         ? 'bg-white/5 hover:bg-white/15 hover:scale-110'
                         : 'bg-white/5 opacity-30 cursor-not-allowed'
                         }`}
@@ -740,7 +742,7 @@ export default function Toolbar() {
 
                 <button
                     onClick={handleDeletePage}
-                    className="p-2 rounded-xl bg-white/5 hover:bg-red-500/30 
+                    className="p-3 sm:p-2 touch-manipulation rounded-xl bg-white/5 hover:bg-red-500/30 
                         transition-all hover:scale-110"
                     title={`Delete Page ${currentPage}`}
                 >
@@ -752,7 +754,7 @@ export default function Toolbar() {
                 {/* Group 3: Page & Image */}
                 <button
                     onClick={handleInsertPage}
-                    className="p-2 rounded-xl bg-white/5 hover:bg-white/15 
+                    className="p-3 sm:p-2 touch-manipulation rounded-xl bg-white/5 hover:bg-white/15 
                         transition-all hover:scale-110"
                     title={`Insert Page After Page ${currentPage}`}
                 >
@@ -761,7 +763,7 @@ export default function Toolbar() {
 
                 <button
                     onClick={handleDuplicatePage}
-                    className="p-2 rounded-xl bg-white/5 hover:bg-white/15 
+                    className="p-3 sm:p-2 touch-manipulation rounded-xl bg-white/5 hover:bg-white/15 
                         transition-all hover:scale-110"
                     title={`Duplicate Page ${currentPage}`}
                 >
@@ -770,7 +772,7 @@ export default function Toolbar() {
 
                 <button
                     onClick={handleClearPage}
-                    className="p-2 rounded-xl bg-white/5 hover:bg-orange-500/30 
+                    className="p-3 sm:p-2 touch-manipulation rounded-xl bg-white/5 hover:bg-orange-500/30 
                         transition-all hover:scale-110"
                     title={`Clear Content on Page ${currentPage}`}
                 >
@@ -779,7 +781,7 @@ export default function Toolbar() {
 
                 <button
                     onClick={() => imageInputRef.current?.click()}
-                    className="p-2 rounded-xl bg-white/5 hover:bg-white/15 
+                    className="p-3 sm:p-2 touch-manipulation rounded-xl bg-white/5 hover:bg-white/15 
                         transition-all hover:scale-110"
                     title="Add Image"
                 >
@@ -798,7 +800,7 @@ export default function Toolbar() {
                 {/* Group 4: Meta */}
                 <button
                     onClick={handleBgClick}
-                    className={`relative p-2 rounded-xl transition-all hover:scale-110 ${activePanel === 'bg'
+                    className={`relative p-3 sm:p-2 touch-manipulation rounded-xl transition-all hover:scale-110 ${activePanel === 'bg'
                         ? 'bg-white/25 ring-2 ring-white/50'
                         : 'bg-white/5 hover:bg-white/10'
                         }`}
@@ -811,7 +813,7 @@ export default function Toolbar() {
                 <div className="flex items-center gap-1 pl-4 border-l border-white/10">
                     <button
                         onClick={() => setIsGridView(true)}
-                        className="p-2 text-white/50 hover:text-blue-400 hover:bg-white/5 rounded-xl transition-all"
+                        className="p-3 sm:p-2 touch-manipulation text-white/50 hover:text-blue-400 hover:bg-white/5 rounded-xl transition-all"
                         title="Grid View (Navigate)"
                     >
                         <LayoutGrid className="w-4 h-4" />
@@ -822,7 +824,7 @@ export default function Toolbar() {
                 <button
                     onClick={handleExport}
                     disabled={isExporting}
-                    className={`p-2 rounded-xl transition-all ${isExporting
+                    className={`p-3 sm:p-2 touch-manipulation rounded-xl transition-all ${isExporting
                         ? 'bg-white/5 opacity-50 cursor-wait'
                         : 'bg-white/5 hover:bg-green-500/30 hover:scale-110'
                         }`}
@@ -841,7 +843,7 @@ export default function Toolbar() {
                             resetProject();
                         }
                     }}
-                    className="p-2 rounded-xl bg-white/5 hover:bg-red-500/20 hover:scale-110 transition-all"
+                    className="p-3 sm:p-2 touch-manipulation rounded-xl bg-white/5 hover:bg-red-500/20 hover:scale-110 transition-all"
                     title="New Project"
                 >
                     <FileX2 className="w-4 h-4 text-white/60 hover:text-red-400" />

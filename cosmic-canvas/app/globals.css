@@ -21,6 +21,9 @@ html {
   /* IE and Edge */
   scrollbar-width: none;
   /* Firefox */
+
+  /* Prevent pull-to-refresh and overscroll bounce on mobile */
+  overscroll-behavior: none;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -37,6 +40,9 @@ body {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   user-select: none;
+  /* Prevent overscroll bounce on iOS/Android */
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: auto;
 }
 
 /* Prevent horizontal scrollbar */
@@ -48,3 +54,40 @@ body {
 .page-snap {
   scroll-snap-stop: always;
 }
+
+/* ═══════════════════════════════════════════ */
+/* Mobile/Tablet Touch Safety                 */
+/* ═══════════════════════════════════════════ */
+
+/* Prevent long-press context menu on canvas elements */
+canvas,
+svg,
+.canvas-container {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Prevent text selection during drawing gestures */
+.touch-drawing-active {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Mobile toolbar: hide scrollbar but keep scrollable */
+.toolbar-scroll::-webkit-scrollbar {
+  display: none;
+}
+.toolbar-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Ensure buttons have proper touch targets on mobile */
+@media (pointer: coarse) {
+  .tool-button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}

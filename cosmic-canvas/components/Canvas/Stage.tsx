@@ -25,6 +25,9 @@ import { stabilizePoint } from '@cosmic/utils/InkStabilizer';
 import { compressStroke } from '@cosmic/utils/StrokeOptimizer';
 import { findErasedStrokeIds } from '@cosmic/utils/EraserEngine';
 
+// Touch/Tablet Support
+import { useDeviceCapabilities, shouldAcceptPointerEvent } from '@cosmic/hooks/useDeviceCapabilities';
+
 // Dynamic import for PDFLayer to avoid SSR issues (DOMMatrix not available on server)
 const PDFLayer = dynamic(() => import('./PDFLayer'), { ssr: false });
 
@@ -87,6 +90,15 @@ export default function Stage() {
     const activeLayerRefs = useRef<Map<number, HTMLCanvasElement>>(new Map());
     const containerRef = useRef<HTMLDivElement>(null);
     const { width, height, pixelRatio } = useWindowDimensions();
+
+    // Touch/Tablet device detection
+    const deviceCapabilities = useDeviceCapabilities();
+    const { isTouchDevice, isMobile } = deviceCapabilities;
+
+    // Two-finger scroll tracking for touch devices
+    const activeTouchCountRef = useRef(0);
+    const activeTouchesMapRef = useRef<Map<number, { clientX: number, clientY: number }>>(new Map());
+    const scrollWrapperRef = useRef<HTMLDivElement>(null);
 
     // Zustand store
     const {
@@ -311,8 +323,10 @@ export default function Stage() {
 
             // LOCK to the physical monitor size (e.g., 1920x1080)
             // This ensures "Fullscreen" is the Native 1:1 state
-            const maxWidth = window.screen.width;
-            const maxHeight = window.screen.height;
+            // On touch devices, use viewport size (screen size is hardware resolution, too large)
+            const isTouchDev = navigator.maxTouchPoints > 0 && !window.matchMedia('(pointer: fine)').matches;
+            const maxWidth = isTouchDev ? window.innerWidth : window.screen.width;
+            const maxHeight = isTouchDev ? window.innerHeight : window.screen.height;
 
             useStore.getState().setCanvasDimensions(maxWidth, maxHeight);
         };
@@ -925,10 +939,26 @@ export default function Stage() {
 
     // Pointer Down - Start drawing or deselect
     // Uses pageX/pageY for document-relative coordinates
-    // IRON PALM: Only allow pen and mouse, reject all touch input
+    // IRON PALM: Only allow pen and mouse, reject all touch input (on desktop)
+    // TOUCH UNLOCK: On touch devices, accept finger input
     const handlePointerDown = useCallback((e: React.PointerEvent) => {
-        // Strict palm rejection: only allow 'pen' or 'mouse', reject 'touch'
-        if (e.pointerType !== 'pen' && e.pointerType !== 'mouse') return;
+        // Device-aware palm rejection: block touch on desktop, allow on tablets
+        if (!shouldAcceptPointerEvent(e.pointerType, deviceCapabilities)) return;
+
+        // Two-finger scroll: if 2+ touches active on touch device, don't draw
+        if (isTouchDevice && e.pointerType === 'touch') {
+            activeTouchCountRef.current++;
+            activeTouchesMapRef.current.set(e.pointerId, { clientX: e.clientX, clientY: e.clientY });
+            if (activeTouchCountRef.current > 1) {
+                // Cancel drawing if we were drawing with 1 finger and a 2nd just arrived
+                if (isDrawing) {
+                    setIsDrawing(false);
+                    currentPointsRef.current = null;
+                    clearActiveLayer();
+                }
+                return;
+            }
+        }
 
         // Get canvas-relative coordinates using unified calculator
         const { x, y } = getPointerPosition(e, containerRef.current, zoom);
@@ -1033,10 +1063,35 @@ export default function Stage() {
     }, [currentTool, selectImage, zoom, selectedStrokeIds, strokes, clearStrokeSelection, clearActiveLayer, getCurrentStrokeSettings, eraserWidth, renderStroke]);
 
     // Pointer Move - Continue drawing
-    // IRON PALM: Strict filtering for pen/mouse only
+    // IRON PALM: Strict filtering for pen/mouse only (on desktop)
+    // TOUCH UNLOCK: Accept finger input on tablets
     const handlePointerMove = useCallback((e: React.PointerEvent) => {
-        // Strict palm rejection: only allow 'pen' or 'mouse', reject 'touch'
-        if (e.pointerType !== 'pen' && e.pointerType !== 'mouse') return;
+        // Device-aware palm rejection
+        if (!shouldAcceptPointerEvent(e.pointerType, deviceCapabilities)) return;
+
+        // Skip drawing if multi-touch scroll is active
+        if (isTouchDevice && e.pointerType === 'touch') {
+            if (activeTouchCountRef.current > 1) {
+                // 2-finger panning logic
+                if (activeTouchesMapRef.current.has(e.pointerId)) {
+                    const prevTouch = activeTouchesMapRef.current.get(e.pointerId)!;
+                    const deltaX = prevTouch.clientX - e.clientX;
+                    const deltaY = prevTouch.clientY - e.clientY;
+
+                    // Update stored position
+                    activeTouchesMapRef.current.set(e.pointerId, { clientX: e.clientX, clientY: e.clientY });
+
+                    // Apply scroll to wrapper
+                    if (scrollWrapperRef.current) {
+                        // Divide by activeTouchCountRef to average the delta from both fingers moving
+                        scrollWrapperRef.current.scrollBy(deltaX / activeTouchCountRef.current, deltaY / activeTouchCountRef.current);
+                    }
+                }
+                return;
+            }
+            // Update 1-finger position for potential 2nd finger arrival
+            activeTouchesMapRef.current.set(e.pointerId, { clientX: e.clientX, clientY: e.clientY });
+        }
 
         // Get canvas-relative coordinates using unified calculator
         const { x, y } = getPointerPosition(e, containerRef.current, zoom);
@@ -1205,7 +1260,8 @@ export default function Stage() {
 
                     const prev = lastPointRef.current;
                     const velocity = prev ? calculateVelocity(prev, stabilized) : 0;
-                    const isMouse = e.pointerType === 'mouse';
+                    // Touch has no hardware pressure, treat like mouse (velocity-based)
+                    const isMouse = e.pointerType === 'mouse' || e.pointerType === 'touch';
                     const simPressure = getSimulatedPressure(velocity, rawP.pressure, isMouse);
 
                     const finalPoint = { ...stabilized, pressure: simPressure };
@@ -1225,10 +1281,17 @@ export default function Stage() {
     }, [isDrawing, isBarrelButtonDown, isShiftHeld, renderStroke, clearActiveLayer, zoom, currentTool, isDraggingSelection, dragStart, transformStrokes, activeHandle, getCurrentStrokeSettings, eraserWidth]);
 
     // Pointer Up - End drawing and save stroke
-    // IRON PALM: Strict filtering for pen/mouse only
+    // IRON PALM: Strict filtering for pen/mouse only (on desktop)
+    // TOUCH UNLOCK: Accept finger input on tablets
     const handlePointerUp = useCallback((e: React.PointerEvent) => {
-        // Strict palm rejection: only allow 'pen' or 'mouse', reject 'touch'
-        if (e.pointerType !== 'pen' && e.pointerType !== 'mouse') return;
+        // Track touch release for multi-touch detection
+        if (isTouchDevice && e.pointerType === 'touch') {
+            activeTouchCountRef.current = Math.max(0, activeTouchCountRef.current - 1);
+            activeTouchesMapRef.current.delete(e.pointerId);
+        }
+
+        // Device-aware palm rejection
+        if (!shouldAcceptPointerEvent(e.pointerType, deviceCapabilities)) return;
 
         (e.target as HTMLElement).releasePointerCapture(e.pointerId);
 
@@ -1372,6 +1435,7 @@ export default function Stage() {
     return (
         /* The Desk - dark background */
         <div
+            ref={scrollWrapperRef}
             style={{
                 position: 'relative',
                 width: '100vw',

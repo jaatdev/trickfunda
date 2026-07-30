@@ -1,5 +1,6 @@
 import { useRef, useCallback, RefObject } from 'react';
 import { getCanvasPoint } from '../utils/canvasUtils';
+import { useDeviceCapabilities, shouldAcceptPointerEvent } from './useDeviceCapabilities';
 
 export interface PenPoint {
     x: number;
@@ -18,6 +19,7 @@ interface UsePenInputProps {
 export const usePenInput = (props?: UsePenInputProps) => {
     const pointsRef = useRef<PenPoint[]>([]);
     const isDrawingRef = useRef(false);
+    const deviceCapabilities = useDeviceCapabilities();
 
     // Helper to get coordinates
     const getPoint = (evt: PointerEvent | React.PointerEvent) => {
@@ -29,8 +31,8 @@ export const usePenInput = (props?: UsePenInputProps) => {
     };
 
     const onPointerDown = useCallback((e: React.PointerEvent) => {
-        // Iron Palm: Ignore touch
-        if (e.pointerType === 'touch') return;
+        // Device-aware palm rejection: block touch on desktop, allow on tablets
+        if (!shouldAcceptPointerEvent(e.pointerType, deviceCapabilities)) return;
 
         const target = e.target as HTMLElement;
         target.setPointerCapture(e.pointerId);
@@ -67,7 +69,8 @@ export const usePenInput = (props?: UsePenInputProps) => {
 
     const onPointerMove = useCallback((e: React.PointerEvent) => {
         if (!isDrawingRef.current) return;
-        if (e.pointerType === 'touch') return;
+        // Device-aware palm rejection
+        if (!shouldAcceptPointerEvent(e.pointerType, deviceCapabilities)) return;
 
         const newPoints: PenPoint[] = [];
 
@@ -109,7 +112,8 @@ export const usePenInput = (props?: UsePenInputProps) => {
     }, [props]);
 
     const onPointerUp = useCallback((e: React.PointerEvent) => {
-        if (e.pointerType === 'touch') return;
+        // Device-aware palm rejection
+        if (!shouldAcceptPointerEvent(e.pointerType, deviceCapabilities)) return;
 
         if (isDrawingRef.current) {
             isDrawingRef.current = false;
