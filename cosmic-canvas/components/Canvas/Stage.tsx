@@ -99,6 +99,8 @@ export default function Stage() {
     const activeTouchCountRef = useRef(0);
     const activeTouchesMapRef = useRef<Map<number, { clientX: number, clientY: number }>>(new Map());
     const scrollWrapperRef = useRef<HTMLDivElement>(null);
+    const initialScrollRef = useRef<{ x: number, y: number }>({ x: 0, y: 0 });
+    const initialCentroidRef = useRef<{ x: number, y: number } | null>(null);
 
     // Zustand store
     const {
@@ -937,6 +939,28 @@ export default function Stage() {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [undo, redo]);
 
+    // Touch Hijack Prevention for Android Chrome
+    useEffect(() => {
+        const preventNativeScroll = (e: TouchEvent) => {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+            }
+        };
+
+        const wrapper = scrollWrapperRef.current;
+        if (wrapper) {
+            wrapper.addEventListener('touchstart', preventNativeScroll, { passive: false });
+            wrapper.addEventListener('touchmove', preventNativeScroll, { passive: false });
+        }
+        
+        return () => {
+            if (wrapper) {
+                wrapper.removeEventListener('touchstart', preventNativeScroll);
+                wrapper.removeEventListener('touchmove', preventNativeScroll);
+            }
+        };
+    }, []);
+
     // Pointer Down - Start drawing or deselect
     // Uses pageX/pageY for document-relative coordinates
     // IRON PALM: Only allow pen and mouse, reject all touch input (on desktop)
@@ -947,14 +971,27 @@ export default function Stage() {
 
         // Two-finger scroll: if 2+ touches active on touch device, don't draw
         if (isTouchDevice && e.pointerType === 'touch') {
-            activeTouchCountRef.current++;
             activeTouchesMapRef.current.set(e.pointerId, { clientX: e.clientX, clientY: e.clientY });
+            activeTouchCountRef.current = activeTouchesMapRef.current.size;
+            
             if (activeTouchCountRef.current > 1) {
                 // Cancel drawing if we were drawing with 1 finger and a 2nd just arrived
                 if (isDrawing) {
                     setIsDrawing(false);
                     currentPointsRef.current = null;
                     clearActiveLayer();
+                }
+                
+                // Set up centroid panning
+                if (activeTouchCountRef.current === 2 && scrollWrapperRef.current) {
+                    const touches = Array.from(activeTouchesMapRef.current.values());
+                    const cx = (touches[0].clientX + touches[1].clientX) / 2;
+                    const cy = (touches[0].clientY + touches[1].clientY) / 2;
+                    initialCentroidRef.current = { x: cx, y: cy };
+                    initialScrollRef.current = {
+                        x: scrollWrapperRef.current.scrollLeft,
+                        y: scrollWrapperRef.current.scrollTop
+                    };
                 }
                 return;
             }
@@ -1071,26 +1108,25 @@ export default function Stage() {
 
         // Skip drawing if multi-touch scroll is active
         if (isTouchDevice && e.pointerType === 'touch') {
+            activeTouchesMapRef.current.set(e.pointerId, { clientX: e.clientX, clientY: e.clientY });
+            
             if (activeTouchCountRef.current > 1) {
-                // 2-finger panning logic
-                if (activeTouchesMapRef.current.has(e.pointerId)) {
-                    const prevTouch = activeTouchesMapRef.current.get(e.pointerId)!;
-                    const deltaX = prevTouch.clientX - e.clientX;
-                    const deltaY = prevTouch.clientY - e.clientY;
+                // Centroid panning logic
+                if (activeTouchCountRef.current === 2 && initialCentroidRef.current && scrollWrapperRef.current) {
+                    const touches = Array.from(activeTouchesMapRef.current.values());
+                    const cx = (touches[0].clientX + touches[1].clientX) / 2;
+                    const cy = (touches[0].clientY + touches[1].clientY) / 2;
 
-                    // Update stored position
-                    activeTouchesMapRef.current.set(e.pointerId, { clientX: e.clientX, clientY: e.clientY });
+                    const deltaX = initialCentroidRef.current.x - cx;
+                    const deltaY = initialCentroidRef.current.y - cy;
 
-                    // Apply scroll to wrapper
-                    if (scrollWrapperRef.current) {
-                        // Divide by activeTouchCountRef to average the delta from both fingers moving
-                        scrollWrapperRef.current.scrollBy(deltaX / activeTouchCountRef.current, deltaY / activeTouchCountRef.current);
-                    }
+                    scrollWrapperRef.current.scrollTo(
+                        initialScrollRef.current.x + deltaX,
+                        initialScrollRef.current.y + deltaY
+                    );
                 }
                 return;
             }
-            // Update 1-finger position for potential 2nd finger arrival
-            activeTouchesMapRef.current.set(e.pointerId, { clientX: e.clientX, clientY: e.clientY });
         }
 
         // Get canvas-relative coordinates using unified calculator
@@ -1286,8 +1322,11 @@ export default function Stage() {
     const handlePointerUp = useCallback((e: React.PointerEvent) => {
         // Track touch release for multi-touch detection
         if (isTouchDevice && e.pointerType === 'touch') {
-            activeTouchCountRef.current = Math.max(0, activeTouchCountRef.current - 1);
             activeTouchesMapRef.current.delete(e.pointerId);
+            activeTouchCountRef.current = activeTouchesMapRef.current.size;
+            if (activeTouchCountRef.current < 2) {
+                initialCentroidRef.current = null;
+            }
         }
 
         // Device-aware palm rejection
@@ -1417,6 +1456,26 @@ export default function Stage() {
         }
     }, [isDrawing, addStroke, getCurrentStrokeSettings]);
 
+    // Handle touch/pointer interruptions (e.g. system gestures, leaving screen)
+    const handlePointerCancel = useCallback((e: React.PointerEvent) => {
+        if (isTouchDevice && e.pointerType === 'touch') {
+            activeTouchesMapRef.current.delete(e.pointerId);
+            activeTouchCountRef.current = activeTouchesMapRef.current.size;
+            if (activeTouchCountRef.current < 2) {
+                initialCentroidRef.current = null;
+            }
+        }
+        
+        // Always cleanly abort drawing on cancel
+        if (isDrawing) {
+            setIsDrawing(false);
+            currentPointsRef.current = null;
+            clearActiveLayer();
+        }
+        setDragStart(null);
+        setActiveHandle(null);
+    }, [isDrawing, isTouchDevice, clearActiveLayer]);
+
     const canvasStyle: React.CSSProperties = {
         position: 'absolute',
         inset: 0,
@@ -1467,6 +1526,8 @@ export default function Stage() {
                 onPointerDown={handlePointerDown}
                 onPointerMove={handlePointerMove}
                 onPointerUp={handlePointerUp}
+                onPointerCancel={handlePointerCancel}
+                onPointerOut={handlePointerCancel}
                 onPointerLeave={handlePointerLeave}
             >
                 {/* Transform Wrapper - scales all canvas layers */}

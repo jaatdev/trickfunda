@@ -23,7 +23,8 @@ html {
   /* Firefox */
 
   /* Prevent pull-to-refresh and overscroll bounce on mobile */
-  overscroll-behavior: none;
+  overscroll-behavior-y: none;
+  overscroll-behavior-x: none;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -41,7 +42,8 @@ body {
   -webkit-user-select: none;
   user-select: none;
   /* Prevent overscroll bounce on iOS/Android */
-  overscroll-behavior: none;
+  overscroll-behavior-y: none;
+  overscroll-behavior-x: none;
   -webkit-overflow-scrolling: auto;
 }
 
@@ -66,6 +68,7 @@ svg,
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   user-select: none;
+  touch-action: none;
 }
 
 /* Prevent text selection during drawing gestures */

@@ -179,6 +179,8 @@ export default function TextLayer({ totalHeight }: TextLayerProps) {
             onClick={handleCanvasClick as any}
             onPointerMove={handleDrag}
             onPointerUp={handleDragEnd}
+            onPointerCancel={handleDragEnd}
+            onPointerOut={handleDragEnd}
             onPointerLeave={handleDragEnd}
             style={{
                 position: 'absolute',

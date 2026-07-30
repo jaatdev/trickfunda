@@ -117,18 +117,29 @@ export const usePenInput = (props?: UsePenInputProps) => {
 
         if (isDrawingRef.current) {
             isDrawingRef.current = false;
-            const target = e.target as HTMLElement;
-            target.releasePointerCapture(e.pointerId);
+            try {
+                const target = e.target as HTMLElement;
+                target.releasePointerCapture(e.pointerId);
+            } catch (err) {
+                // Ignore capture release errors on cancel
+            }
 
             props?.onPointerUp?.();
         }
     }, [props]);
 
+    const onPointerCancel = useCallback((e: React.PointerEvent) => {
+        // Treat cancel the same as up, to prevent stuck pointers
+        onPointerUp(e);
+    }, [onPointerUp]);
+
     return {
         handlers: {
             onPointerDown,
             onPointerMove,
-            onPointerUp
+            onPointerUp,
+            onPointerCancel,
+            onPointerOut: onPointerCancel
         },
         pointsRef
     };
