@@ -4,7 +4,7 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import getStroke from 'perfect-freehand';
 import { Pen, Eraser, Trash2, X, Settings2, LassoSelect, Copy, CopyPlus, Wand2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { recognizeShape, ShapeData } from '@/utils/shapeRecognition';
+import { recognizeShape, ShapeData } from '@cosmic/utils/shapeRecognition';
 
 // Basic path generator for perfect-freehand
 function getSvgPathFromStroke(stroke: number[][]) {

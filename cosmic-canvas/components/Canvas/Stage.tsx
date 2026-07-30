@@ -6,6 +6,7 @@ import { useWindowDimensions } from '@cosmic/hooks/useWindowDimensions';
 import getStroke from 'perfect-freehand';
 import { getSvgPathFromStroke } from '@cosmic/utils/ink';
 import { getShapePoints, doesStrokeIntersectSelection, doesTextIntersectSelection, doesStrokeTouchSelection, doesTextTouchSelection, getStrokesBoundingBox, isPointInBBox, catmullRomSpline, simplifyPoints } from '@cosmic/utils/geometry';
+import { recognizeShape } from '@cosmic/utils/shapeRecognition';
 import { getPointerPosition } from '@cosmic/utils/canvasUtils';
 import { useStore } from '@cosmic/store/useStore';
 import { Point, Stroke, CanvasImage } from '@cosmic/types';
@@ -1424,11 +1425,29 @@ export default function Stage() {
                 }, true); // forceEraser = true
             } else {
                 const settings = getCurrentStrokeSettings();
+                const isSmartShapeEnabled = useStore.getState().isSmartShapeEnabled;
+                let finalPoints: Point[] = points;
+                let isShape = false;
+                
+                // If pen tool and smart shape enabled, try to recognize
+                if (currentTool === 'pen' && isSmartShapeEnabled) {
+                    const recognized = recognizeShape(points);
+                    if (recognized) {
+                        const start = { x: recognized.boundingBox.x, y: recognized.boundingBox.y };
+                        const end = { 
+                            x: recognized.boundingBox.x + recognized.boundingBox.width, 
+                            y: recognized.boundingBox.y + recognized.boundingBox.height 
+                        };
+                        finalPoints = getShapePoints(recognized.type, start, end, false);
+                        isShape = true;
+                    }
+                }
+
                 addStroke({
-                    points,
+                    points: finalPoints,
                     color: settings.color,
                     size: settings.size,
-                });
+                }, false, isShape);
             }
         }
 

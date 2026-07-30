@@ -69,6 +69,10 @@ interface CanvasState {
     // Overlay Mode
     isOverlayMode: boolean;
 
+    // Smart Shape
+    isSmartShapeEnabled: boolean;
+    setIsSmartShapeEnabled: (value: boolean) => void;
+
     // Actions
     addStroke: (stroke: Omit<Stroke, 'id' | 'isEraser'>, forceEraser?: boolean, isShape?: boolean, isHighlighter?: boolean) => void;
     addImage: (image: CanvasImage) => void;
@@ -230,6 +234,9 @@ export const useStore = create<CanvasState>((set, get) => ({
     // Overlay Mode
     isOverlayMode: false,
     setIsOverlayMode: (value: boolean) => set({ isOverlayMode: value }),
+
+    isSmartShapeEnabled: false,
+    setIsSmartShapeEnabled: (value: boolean) => set({ isSmartShapeEnabled: value }),
 
     // Add stroke with unified history
     addStroke: (strokeData, forceEraser, isShape, isHighlighter) => {
