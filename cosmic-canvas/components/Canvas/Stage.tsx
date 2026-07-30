@@ -15,6 +15,7 @@ import ObjectLayer from './ObjectLayer';
 import TextLayer from './TextLayer';
 import LassoLayer from './LassoLayer';
 import WatermarkLayer from './WatermarkLayer';
+import { ScrollControls } from '../UI/ScrollControls';
 import GridView from '../UI/GridView';
 import { saveState } from '@cosmic/utils/storage';
 
@@ -1619,6 +1620,7 @@ export default function Stage() {
                 </div>
             </div>
             <GridView />
+            <ScrollControls scrollWrapperRef={scrollWrapperRef} />
         </div>
     );
 }
