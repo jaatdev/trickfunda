@@ -7,6 +7,8 @@ import getStroke from 'perfect-freehand';
 import { getSvgPathFromStroke } from '@cosmic/utils/ink';
 import { getShapePoints, doesStrokeIntersectSelection, doesTextIntersectSelection, doesStrokeTouchSelection, doesTextTouchSelection, getStrokesBoundingBox, isPointInBBox, catmullRomSpline, simplifyPoints } from '@cosmic/utils/geometry';
 import { recognizeShape } from '@cosmic/utils/shapeRecognition';
+import { createStrokeImage } from '@/lib/canvas-utils';
+import { recognizeText } from '@/lib/tesseract-worker';
 import { getPointerPosition } from '@cosmic/utils/canvasUtils';
 import { useStore } from '@cosmic/store/useStore';
 import { Point, Stroke, CanvasImage } from '@cosmic/types';
@@ -174,6 +176,11 @@ export default function Stage() {
     const [isDraggingSelection, setIsDraggingSelection] = useState(false);
     const [activeHandle, setActiveHandle] = useState<string | null>(null); // 'tl', 'tr', 'bl', 'br', or null
     const [dragStart, setDragStart] = useState<{ x: number; y: number; bbox?: { minX: number; minY: number; maxX: number; maxY: number } } | null>(null);
+    const [isProcessing, setIsProcessing] = useState(false);
+    
+    // OCR Debounce state
+    const pendingOcrRef = useRef<{ ids: string[]; points: Point[][] }>({ ids: [], points: [] });
+    const ocrTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
     // Marching Ants Animation
     const dashOffsetRef = useRef(0);
@@ -1427,21 +1434,96 @@ export default function Stage() {
                 }, true); // forceEraser = true
             } else {
                 const settings = getCurrentStrokeSettings();
-                const isSmartShapeEnabled = useStore.getState().isSmartShapeEnabled;
+                const smartMode = useStore.getState().smartMode;
                 let finalPoints: Point[] = points;
                 let isShape = false;
                 
-                // If pen tool and smart shape enabled, try to recognize
-                if (currentTool === 'pen' && isSmartShapeEnabled) {
-                    const recognized = recognizeShape(points);
-                    if (recognized) {
-                        const start = { x: recognized.boundingBox.x, y: recognized.boundingBox.y };
-                        const end = { 
-                            x: recognized.boundingBox.x + recognized.boundingBox.width, 
-                            y: recognized.boundingBox.y + recognized.boundingBox.height 
-                        };
-                        finalPoints = getShapePoints(recognized.type, start, end, false);
-                        isShape = true;
+                if (currentTool === 'pen') {
+                    if (smartMode === 'shape') {
+                        const recognized = recognizeShape(points);
+                        if (recognized) {
+                            // Use recognized points directly for polygons/stars/lines, or fallback to generated points
+                            if (['rectangle', 'circle'].includes(recognized.type)) {
+                                const start = { x: recognized.boundingBox.x, y: recognized.boundingBox.y };
+                                const end = { 
+                                    x: recognized.boundingBox.x + recognized.boundingBox.width, 
+                                    y: recognized.boundingBox.y + recognized.boundingBox.height 
+                                };
+                                finalPoints = getShapePoints(recognized.type, start, end, false);
+                            } else {
+                                finalPoints = recognized.points as any;
+                            }
+                            isShape = true;
+                        }
+                    } else if (smartMode === 'text-eng' || smartMode === 'text-hin') {
+                        // Immediately add the stroke visually
+                        const strokeId = addStroke({
+                            points: finalPoints,
+                            color: settings.color,
+                            size: settings.size,
+                        }, false, isShape);
+
+                        // Accumulate strokes in the pending OCR buffer
+                        pendingOcrRef.current.ids.push(strokeId);
+                        pendingOcrRef.current.points.push([...finalPoints]);
+
+                        // Clear any existing timeout
+                        if (ocrTimeoutRef.current) {
+                            clearTimeout(ocrTimeoutRef.current);
+                        }
+
+                        // Set a new 5-second timeout for debouncing
+                        ocrTimeoutRef.current = setTimeout(async () => {
+                            const idsToProcess = [...pendingOcrRef.current.ids];
+                            const pointsToProcess = pendingOcrRef.current.points.flatMap(pts => pts);
+                            
+                            // Reset the buffer immediately so subsequent drawing starts fresh
+                            pendingOcrRef.current = { ids: [], points: [] };
+
+                            if (pointsToProcess.length === 0) return;
+
+                            setIsProcessing(true);
+                            try {
+                                const imgData = await createStrokeImage(pointsToProcess, settings.size);
+                                if (imgData) {
+                                    const result = await recognizeText(imgData.dataUrl, smartMode === 'text-eng' ? 'eng' : 'hin');
+                                    if (result && result.text && result.text.length > 0) {
+                                        const { text } = result;
+                                        const { addTextNode, deleteStrokes, currentPage, canvasDimensions } = useStore.getState();
+                                        const pageTop = (currentPage - 1) * (canvasDimensions.height + PDF_PAGE_GAP);
+                                        
+                                        // 1. Remove the freehand strokes
+                                        deleteStrokes(idsToProcess);
+
+                                        // 2. Add the text node
+                                        addTextNode({
+                                            id: `text-${Date.now()}`,
+                                            content: text,
+                                            x: imgData.bbox.x,
+                                            y: imgData.bbox.y + pageTop,
+                                            fontSize: Math.max(16, imgData.bbox.height * 0.8),
+                                            fontFamily: smartMode === 'text-hin' ? 'var(--font-kalam)' : 'var(--font-caveat)',
+                                            color: settings.color,
+                                            fontWeight: 'normal',
+                                            fontStyle: 'normal',
+                                            backgroundColor: 'transparent',
+                                            padding: 4
+                                        });
+                                    }
+                                }
+                            } catch (e) {
+                                console.error('OCR Error:', e);
+                            } finally {
+                                setIsProcessing(false);
+                            }
+                        }, 5000); // 5 seconds wait
+                        
+                        currentPointsRef.current = null;
+                        setIsDrawing(false);
+                        setIsBarrelButtonDown(false);
+                        setIsShiftHeld(false);
+                        clearActiveLayer();
+                        return;
                     }
                 }
 
@@ -1642,6 +1724,14 @@ export default function Stage() {
             </div>
             <GridView />
             <ScrollControls scrollWrapperRef={scrollWrapperRef} />
+            
+            {/* Processing Indicator */}
+            {isProcessing && (
+                <div className="fixed top-24 left-1/2 -translate-x-1/2 z-50 bg-blue-500/90 text-white px-4 py-2 rounded-full shadow-lg backdrop-blur text-sm font-medium flex items-center gap-2 transition-all duration-300">
+                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    Recognizing Handwriting...
+                </div>
+            )}
         </div>
     );
 }

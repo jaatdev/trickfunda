@@ -25,7 +25,7 @@ export async function recognizeText(
   const text = data.text;
   const confidence = data.confidence;
   const words = (data as any).words || [];
-  const lines = data.lines || [];
+  const lines = (data as any).lines || [];
   
   return {
     text: text.trim(),
