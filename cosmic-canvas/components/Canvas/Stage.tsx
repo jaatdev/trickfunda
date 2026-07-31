@@ -944,21 +944,23 @@ export default function Stage() {
     // Touch Hijack Prevention for Android Chrome
     useEffect(() => {
         const preventNativeScroll = (e: TouchEvent) => {
-            if (e.touches.length > 1) {
-                e.preventDefault();
+            if (e.touches && e.touches.length > 1) {
+                if (e.cancelable) {
+                    e.preventDefault();
+                }
             }
         };
 
         const wrapper = scrollWrapperRef.current;
         if (wrapper) {
-            wrapper.addEventListener('touchstart', preventNativeScroll, { passive: false });
-            wrapper.addEventListener('touchmove', preventNativeScroll, { passive: false });
+            wrapper.addEventListener('touchstart', preventNativeScroll as any, { passive: false });
+            wrapper.addEventListener('touchmove', preventNativeScroll as any, { passive: false });
         }
         
         return () => {
             if (wrapper) {
-                wrapper.removeEventListener('touchstart', preventNativeScroll);
-                wrapper.removeEventListener('touchmove', preventNativeScroll);
+                wrapper.removeEventListener('touchstart', preventNativeScroll as any);
+                wrapper.removeEventListener('touchmove', preventNativeScroll as any);
             }
         };
     }, []);
