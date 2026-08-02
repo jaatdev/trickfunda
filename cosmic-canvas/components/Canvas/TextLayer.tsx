@@ -228,9 +228,9 @@ export default function TextLayer({ totalHeight }: TextLayerProps) {
                             <input
                                 type="text"
                                 autoFocus
-                                value={node.content}
+                                value={node.content || (node as any).text || ''}
                                 onChange={(e) => handleTextChange(node.id, e.target.value)}
-                                onBlur={() => handleBlur(node.id, node.content)}
+                                onBlur={() => handleBlur(node.id, node.content || (node as any).text || '')}
                                 onKeyDown={(e) => {
                                     if (e.key === 'Enter') {
                                         e.currentTarget.blur();
@@ -252,7 +252,7 @@ export default function TextLayer({ totalHeight }: TextLayerProps) {
                                 }}
                             />
                         ) : (
-                            <span>{node.content || '\u00A0'}</span>
+                            <span>{node.content || (node as any).text || '\u00A0'}</span>
                         )}
                     </div>
                 );

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, JetBrains_Mono } from 'next/font/google'
+import { Inter, JetBrains_Mono, Caveat, Kalam } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
 import { ThemeProvider as NextThemesProvider } from 'next-themes'
 import { FullscreenProvider } from '@/lib/fullscreen-context'
@@ -11,11 +11,14 @@ import Footer from '@/components/layout/Footer'
 import GlobalFullscreenButton from '@/components/GlobalFullscreenButton'
 import HackerPreloader from '@/components/preloader/HackerPreloader'
 import BackToTop from '@/components/ui/BackToTop'
+import TrickfundaAI from '@/components/ai/TrickfundaAI'
 import 'katex/dist/katex.min.css'
 import '@/styles/globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const jetbrains = JetBrains_Mono({ subsets: ['latin'], variable: '--font-jetbrains' })
+const caveat = Caveat({ subsets: ['latin'], variable: '--font-caveat', display: 'swap' })
+const kalam = Kalam({ weight: ['400', '700'], subsets: ['devanagari', 'latin'], variable: '--font-kalam', display: 'swap' })
 
 export const metadata: Metadata = {
   title: 'TrickFunda - World-Class Notes',
@@ -25,7 +28,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <ClerkProvider>
-      <html lang="en" suppressHydrationWarning className={`${inter.variable} ${jetbrains.variable}`}>
+      <html lang="en" suppressHydrationWarning className={`${inter.variable} ${jetbrains.variable} ${caveat.variable} ${kalam.variable}`}>
         <body suppressHydrationWarning>
           <NextThemesProvider attribute="class" defaultTheme="system" enableSystem>
             <FullscreenProvider>
@@ -41,6 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <Footer />
                   <GlobalFullscreenButton />
                   <BackToTop />
+                  <TrickfundaAI />
                 </LayoutWrapper>
               </ToastProvider>
             </FullscreenProvider>

@@ -19,7 +19,7 @@ export interface Stroke {
     groupId?: string;  // Group ID for grouped selections
 }
 
-export type Tool = 'pen' | 'eraser' | 'select' | 'shape' | 'text' | 'lasso' | 'highlighter';
+export type Tool = 'pen' | 'eraser' | 'select' | 'shape' | 'text' | 'lasso' | 'highlighter' | 'ai-image';
 
 export type ShapeType = 'rectangle' | 'circle' | 'triangle' | 'line' | 'arrow';
 

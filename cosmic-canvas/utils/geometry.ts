@@ -565,7 +565,8 @@ export function doesTextIntersectSelection(
     if (selectionPoly.length < 3) return false;
 
     // Estimate text dimensions
-    const width = textNode.content.length * (textNode.fontSize * 0.6);
+    const textContent = textNode.content || (textNode as any).text || '';
+    const width = textContent.length * (textNode.fontSize * 0.6);
     const height = textNode.fontSize * 1.2;
 
     // Text node bounding box

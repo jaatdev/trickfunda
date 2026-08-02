@@ -2,26 +2,14 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react';
 import getStroke from 'perfect-freehand';
-import { Pen, Eraser, Trash2, X, Settings2, LassoSelect, Copy, CopyPlus, Wand2 } from 'lucide-react';
+import { Pen, Eraser, Trash2, X, Settings2, LassoSelect, Copy, CopyPlus, Wand2, Image as ImageIcon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { recognizeShape, ShapeData } from '@cosmic/utils/shapeRecognition';
+import { recognizeText } from '@/lib/handwriting-engine';
+import { createStrokeImage, getSvgPathFromStroke, getBoundingBox } from '@/lib/canvas-utils';
 
-// Basic path generator for perfect-freehand
-function getSvgPathFromStroke(stroke: number[][]) {
-  if (!stroke.length) return '';
-  const d = stroke.reduce(
-    (acc, [x0, y0], i, arr) => {
-      const [x1, y1] = arr[(i + 1) % arr.length];
-      acc.push(x0, y0, (x0 + x1) / 2, (y0 + y1) / 2);
-      return acc;
-    },
-    ['M', ...stroke[0], 'Q']
-  );
-  d.push('Z');
-  return d.join(' ');
-}
-
-type Point = { x: number; y: number; pressure: number };
+// Extracted to canvas-utils
+import type { Point } from '@/lib/canvas-utils';
 
 type Stroke = {
   id: string;
@@ -30,6 +18,7 @@ type Stroke = {
   size: number;
   isEraser: boolean;
   shapeData?: ShapeData;
+  textData?: { text: string; lang: string; boundingBox: { x: number; y: number; width: number; height: number } };
 };
 
 function isPointInPolygon(point: {x: number, y: number}, vs: {x: number, y: number}[]) {
@@ -44,7 +33,7 @@ function isPointInPolygon(point: {x: number, y: number}, vs: {x: number, y: numb
   return inside;
 }
 
-function getBoundingBox(strokes: Stroke[]) {
+function getBoundingBoxForStrokes(strokes: Stroke[]) {
   if (!strokes.length) return null;
   let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
   strokes.forEach(s => s.points.forEach(p => {
@@ -64,14 +53,20 @@ interface CanvasOverlayProps {
 
 export default function CanvasOverlay({ isOpen, onClose, questionIndex }: CanvasOverlayProps) {
   const [strokes, setStrokes] = useState<Stroke[]>([]);
-  const [tool, setTool] = useState<'pen' | 'eraser' | 'lasso'>('pen');
+  const [tool, setTool] = useState<'pen' | 'eraser' | 'lasso' | 'ai-image'>('pen');
   const [color, setColor] = useState<string>('#ef4444');
   const [penSize, setPenSize] = useState<number>(4);
   const [eraserSize, setEraserSize] = useState<number>(20);
   const [showSettings, setShowSettings] = useState(false);
   const [selectedStrokeIds, setSelectedStrokeIds] = useState<string[]>([]);
   const [isDraggingSelection, setIsDraggingSelection] = useState(false);
-  const [isSmartShapeEnabled, setIsSmartShapeEnabled] = useState(false);
+  const [smartMode, setSmartMode] = useState<'none' | 'shape' | 'text-eng' | 'text-hin'>('none');
+  const [isProcessing, setIsProcessing] = useState(false);
+
+  // AI Image Maker States
+  const [aiImagePromptPos, setAiImagePromptPos] = useState<{x: number, y: number} | null>(null);
+  const [aiImagePrompt, setAiImagePrompt] = useState("");
+  const [isGeneratingImage, setIsGeneratingImage] = useState(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const staticCanvasRef = useRef<HTMLCanvasElement>(null);
@@ -195,18 +190,42 @@ export default function CanvasOverlay({ isOpen, onClose, questionIndex }: Canvas
         } else if (data.type === 'rectangle') {
           ctx.rect(data.boundingBox.x, data.boundingBox.y, data.boundingBox.width, data.boundingBox.height);
           ctx.stroke();
-        } else if (data.type === 'triangle') {
+        } else if (data.type === 'triangle' || data.type === 'pentagon' || data.type === 'hexagon' || data.type === 'star') {
           ctx.moveTo(data.points[0].x, data.points[0].y);
-          ctx.lineTo(data.points[1].x, data.points[1].y);
-          ctx.lineTo(data.points[2].x, data.points[2].y);
+          for (let i = 1; i < data.points.length; i++) {
+            ctx.lineTo(data.points[i].x, data.points[i].y);
+          }
           ctx.closePath();
           ctx.stroke();
         }
+        
+        // Custom hack for AI Images
+        if ((data as any).imageData) {
+          const img = new Image();
+          img.src = (data as any).imageData;
+          try {
+            ctx.drawImage(img, data.boundingBox.x, data.boundingBox.y, data.boundingBox.width, data.boundingBox.height);
+          } catch(e) {}
+        }
+
         
         if (isSelected && !stroke.isEraser) {
           ctx.lineWidth = stroke.size + 4;
           ctx.strokeStyle = '#3b82f6';
           ctx.stroke();
+        }
+      } else if (stroke.textData) {
+        // Draw handwritten text
+        const { text, lang, boundingBox } = stroke.textData;
+        ctx.font = `400 ${boundingBox.height}px ${lang === 'hin' ? 'var(--font-kalam)' : 'var(--font-caveat)'}`;
+        ctx.fillStyle = stroke.color;
+        ctx.textBaseline = 'top';
+        ctx.fillText(text, boundingBox.x, boundingBox.y);
+        
+        if (isSelected) {
+          ctx.strokeStyle = '#3b82f6';
+          ctx.lineWidth = 2;
+          ctx.strokeRect(boundingBox.x - 5, boundingBox.y - 5, boundingBox.width + 10, boundingBox.height + 10);
         }
       } else {
         // Normal perfect-freehand stroke
@@ -285,7 +304,7 @@ export default function CanvasOverlay({ isOpen, onClose, questionIndex }: Canvas
     // Check if clicking inside a selection to drag
     if (selectedStrokeIds.length > 0) {
       const selectedStrokes = strokes.filter(s => selectedStrokeIds.includes(s.id));
-      const bbox = getBoundingBox(selectedStrokes);
+      const bbox = getBoundingBoxForStrokes(selectedStrokes);
       if (bbox && x >= bbox.x && x <= bbox.x + bbox.width && y >= bbox.y && y <= bbox.y + bbox.height) {
         setIsDraggingSelection(true);
         dragStartPos.current = { x, y };
@@ -295,6 +314,14 @@ export default function CanvasOverlay({ isOpen, onClose, questionIndex }: Canvas
         // Clicked outside, deselect
         setSelectedStrokeIds([]);
       }
+    }
+
+    if (tool === 'ai-image') {
+      setAiImagePromptPos({ x, y });
+      setAiImagePrompt("");
+      return;
+    } else {
+      setAiImagePromptPos(null);
     }
 
     isDrawing.current = true;
@@ -399,24 +426,44 @@ export default function CanvasOverlay({ isOpen, onClose, questionIndex }: Canvas
         });
         setSelectedStrokeIds(selected.map(s => s.id));
       } else {
-        let shapeData = undefined;
-        if (isSmartShapeEnabled && tool === 'pen') {
-          const recognized = recognizeShape(currentPoints.current);
-          if (recognized) {
-            shapeData = recognized;
+        const handleStrokeAddition = async () => {
+          let shapeData = undefined;
+          let textData = undefined;
+          
+          if (smartMode === 'shape' && tool === 'pen') {
+            const recognized = recognizeShape(currentPoints.current);
+            if (recognized) {
+              shapeData = recognized;
+            }
+          } else if ((smartMode === 'text-eng' || smartMode === 'text-hin') && tool === 'pen') {
+            setIsProcessing(true);
+            const imageRes = await createStrokeImage(currentPoints.current, penSize);
+            if (imageRes) {
+              const ocrRes = await recognizeText(imageRes.dataUrl, smartMode === 'text-hin' ? 'hin' : 'eng');
+              if (ocrRes && ocrRes.text) {
+                textData = {
+                  text: ocrRes.text,
+                  lang: smartMode === 'text-hin' ? 'hin' : 'eng',
+                  boundingBox: imageRes.bbox
+                };
+              }
+            }
+            setIsProcessing(false);
           }
-        }
-        
-        const newStroke: Stroke = {
-          id: Date.now().toString() + Math.random().toString(),
-          points: [...currentPoints.current],
-          color,
-          size: tool === 'eraser' ? eraserSize : penSize,
-          isEraser: tool === 'eraser',
-          shapeData,
+          
+          const newStroke: Stroke = {
+            id: Date.now().toString() + Math.random().toString(),
+            points: [...currentPoints.current],
+            color,
+            size: tool === 'eraser' ? eraserSize : penSize,
+            isEraser: tool === 'eraser',
+            shapeData,
+            textData,
+          };
+          setStrokes((prev) => [...prev, newStroke]);
         };
-        // Add to React state which will trigger renderStaticLayer
-        setStrokes((prev) => [...prev, newStroke]);
+        
+        handleStrokeAddition();
       }
     }
     currentPoints.current = [];
@@ -447,7 +494,7 @@ export default function CanvasOverlay({ isOpen, onClose, questionIndex }: Canvas
 
   const handleCopyArea = async () => {
     const selectedStrokes = strokes.filter(s => selectedStrokeIds.includes(s.id));
-    const bbox = getBoundingBox(selectedStrokes);
+    const bbox = getBoundingBoxForStrokes(selectedStrokes);
     if (!bbox) return;
 
     // Create a temporary canvas matching the bounding box
@@ -489,7 +536,52 @@ export default function CanvasOverlay({ isOpen, onClose, questionIndex }: Canvas
     }
   };
 
-  const selectionBBox = selectedStrokeIds.length > 0 ? getBoundingBox(strokes.filter(s => selectedStrokeIds.includes(s.id))) : null;
+  const selectionBBox = selectedStrokeIds.length > 0 ? getBoundingBoxForStrokes(strokes.filter(s => selectedStrokeIds.includes(s.id))) : null;
+
+  const handleGenerateAiImage = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!aiImagePromptPos || !aiImagePrompt.trim()) return;
+
+    const pos = aiImagePromptPos;
+    setAiImagePromptPos(null); // Close input
+    setIsGeneratingImage(true);
+
+    try {
+      const res = await fetch('/api/ai/generate-image', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt: aiImagePrompt })
+      });
+
+      if (!res.ok) throw new Error(await res.text());
+      const data = await res.json();
+      
+      if (data.image) {
+        // Find image dimensions or default to 512x512
+        // We'll draw it as a new stroke with a custom 'image' type if supported,
+        // but since we don't have an ImageNode stroke type yet, let's create a custom shapeData
+        const newStroke: Stroke = {
+          id: Date.now().toString() + Math.random().toString(),
+          points: [{ x: pos.x, y: pos.y, pressure: 0.5 }, { x: pos.x + 512, y: pos.y + 512, pressure: 0.5 }],
+          color: '#ffffff',
+          size: 1,
+          isEraser: false,
+          shapeData: {
+             type: 'rectangle', // We'll hijack rectangle for now or we could add 'image' to shapeData types
+             points: [{x: pos.x, y: pos.y}, {x: pos.x + 512, y: pos.y + 512}],
+             boundingBox: { x: pos.x, y: pos.y, width: 512, height: 512 },
+             imageData: data.image // Hack to store image on the stroke
+          } as any
+        };
+        setStrokes(prev => [...prev, newStroke]);
+      }
+    } catch (err) {
+      console.error("AI Image Gen Failed:", err);
+      alert("Failed to generate AI image. Make sure API key is set.");
+    } finally {
+      setIsGeneratingImage(false);
+    }
+  };
 
   if (!isOpen) return null;
 
@@ -517,6 +609,21 @@ export default function CanvasOverlay({ isOpen, onClose, questionIndex }: Canvas
           ref={activeCanvasRef} 
           className="absolute inset-0 w-full h-full pointer-events-none"
         />
+
+        {/* Processing Indicator */}
+        <AnimatePresence>
+          {isProcessing && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              className="absolute top-4 right-4 bg-blue-500/90 text-white px-4 py-2 rounded-full shadow-lg backdrop-blur text-sm font-medium flex items-center gap-2"
+            >
+              <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+              Recognizing Handwriting...
+            </motion.div>
+          )}
+        </AnimatePresence>
         
         {/* Selection Bounding Box and Menu */}
         <AnimatePresence>
@@ -561,6 +668,67 @@ export default function CanvasOverlay({ isOpen, onClose, questionIndex }: Canvas
                   <Trash2 className="w-4 h-4" />
                 </button>
               </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* AI Image Prompt Input Box */}
+        <AnimatePresence>
+          {aiImagePromptPos && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 10 }}
+              className="absolute pointer-events-auto bg-gray-900/95 backdrop-blur-md rounded-2xl border border-white/20 shadow-2xl p-4 w-80"
+              style={{
+                left: aiImagePromptPos.x,
+                top: aiImagePromptPos.y,
+              }}
+            >
+              <form onSubmit={handleGenerateAiImage}>
+                <label className="text-sm font-medium text-purple-400 mb-2 block flex items-center gap-2">
+                  <Wand2 className="w-4 h-4" /> AI Image Maker
+                </label>
+                <input
+                  autoFocus
+                  type="text"
+                  placeholder="Describe an image to generate..."
+                  value={aiImagePrompt}
+                  onChange={e => setAiImagePrompt(e.target.value)}
+                  className="w-full bg-black/50 border border-white/10 rounded-xl p-3 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors"
+                />
+                <div className="flex justify-end gap-2 mt-3">
+                  <button
+                    type="button"
+                    onClick={() => setAiImagePromptPos(null)}
+                    className="px-3 py-1.5 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    disabled={!aiImagePrompt.trim() || isGeneratingImage}
+                    className="px-4 py-1.5 rounded-lg text-sm bg-purple-600 hover:bg-purple-500 text-white font-medium transition-colors disabled:opacity-50"
+                  >
+                    Generate
+                  </button>
+                </div>
+              </form>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Image Generation Loading Indicator */}
+        <AnimatePresence>
+          {isGeneratingImage && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              className="absolute top-4 left-1/2 -translate-x-1/2 bg-purple-600/90 text-white px-6 py-3 rounded-full shadow-2xl backdrop-blur text-sm font-medium flex items-center gap-3"
+            >
+              <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+              Generating AI Masterpiece...
             </motion.div>
           )}
         </AnimatePresence>
@@ -666,12 +834,35 @@ export default function CanvasOverlay({ isOpen, onClose, questionIndex }: Canvas
             </button>
             <div className="w-px bg-white/10 my-2 mx-1" />
             <button
-              onClick={() => setIsSmartShapeEnabled(!isSmartShapeEnabled)}
-              className={`p-2 rounded-xl transition-colors ${isSmartShapeEnabled ? 'bg-blue-500/20 text-blue-400' : 'text-gray-400 hover:text-white hover:bg-white/10'}`}
-              title="Smart Shape Recognition"
+              onClick={() => setTool('ai-image')}
+              className={`p-2 rounded-xl transition-colors ${tool === 'ai-image' ? 'bg-purple-500/20 text-purple-400' : 'text-gray-400 hover:text-white hover:bg-white/10'}`}
+              title="AI Image Maker (Click canvas to generate)"
+            >
+              <ImageIcon className="w-5 h-5" />
+            </button>
+            <div className="w-px bg-white/10 my-2 mx-1" />
+            <button
+              onClick={() => setSmartMode(smartMode === 'shape' ? 'none' : 'shape')}
+              className={`p-2 rounded-xl transition-colors ${smartMode === 'shape' ? 'bg-blue-500/20 text-blue-400' : 'text-gray-400 hover:text-white hover:bg-white/10'}`}
+              title="Smart Shape Mode"
             >
               <Wand2 className="w-5 h-5" />
             </button>
+            <button
+              onClick={() => setSmartMode(smartMode === 'text-eng' ? 'none' : 'text-eng')}
+              className={`p-2 px-3 rounded-xl transition-colors font-caveat text-xl leading-none ${smartMode === 'text-eng' ? 'bg-blue-500/20 text-blue-400' : 'text-gray-400 hover:text-white hover:bg-white/10'}`}
+              title="Smart English Handwriting"
+            >
+              En
+            </button>
+            <button
+              onClick={() => setSmartMode(smartMode === 'text-hin' ? 'none' : 'text-hin')}
+              className={`p-2 px-3 rounded-xl transition-colors font-kalam text-xl leading-none ${smartMode === 'text-hin' ? 'bg-blue-500/20 text-blue-400' : 'text-gray-400 hover:text-white hover:bg-white/10'}`}
+              title="Smart Hindi Handwriting"
+            >
+              हि
+            </button>
+            <div className="w-px bg-white/10 my-2 mx-1" />
             <button
               onClick={() => setShowSettings(!showSettings)}
               className={`p-2 rounded-xl transition-colors ${showSettings ? 'bg-white/20 text-white' : 'text-gray-400 hover:text-white hover:bg-white/10'}`}

@@ -5,7 +5,14 @@ import { getStrokesBoundingBox } from '@cosmic/utils/geometry';
 import { getSvgPathFromStroke } from '@cosmic/utils/ink';
 import { getStroke } from 'perfect-freehand';
 import { useState, useEffect, useMemo } from 'react';
-import { Plus, Minus, Copy, CopyPlus, Trash2, RotateCw } from 'lucide-react';
+import { Plus, Minus, Copy, CopyPlus, Trash2, RotateCw, Wand2, Loader2 } from 'lucide-react';
+import { createStrokeImage } from '@/lib/canvas-utils';
+import { recognizeText } from '@/lib/handwriting-engine';
+import { recognizeShape } from '@cosmic/utils/shapeRecognition';
+import { getShapePoints } from '@cosmic/utils/geometry';
+import { Point, CanvasImage } from '@cosmic/types';
+
+const generateId = () => `img-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
 
 interface LassoLayerProps {
     totalHeight: number;
@@ -27,6 +34,12 @@ export default function LassoLayer({ totalHeight }: LassoLayerProps) {
         zoom,
         strokes,
         textNodes,
+        addStroke,
+        deleteStrokes,
+        addTextNode,
+        addImage,
+        currentPage,
+        canvasDimensions,
         selectedStrokeIds,
         selectedTextIds,
         transformStrokes,
@@ -47,6 +60,7 @@ export default function LassoLayer({ totalHeight }: LassoLayerProps) {
     } = useStore();
 
     // Drag state - ALL hooks must be called before any conditional returns
+    const [isSmartProcessing, setIsSmartProcessing] = useState(false);
     const [isDragging, setIsDragging] = useState(false);
     const [activeHandle, setActiveHandle] = useState<string | null>(null);
     const [isRotating, setIsRotating] = useState(false);
@@ -115,6 +129,85 @@ export default function LassoLayer({ totalHeight }: LassoLayerProps) {
             };
         }
     }, [selectedStrokes, selectedTexts]);
+    // Smart Convert Feature
+    const handleSmartConvert = async () => {
+        if (selectedStrokeIds.length === 0 || isSmartProcessing) return;
+        
+        setIsSmartProcessing(true);
+        const selectedStrokesForSmart = strokes.filter(s => selectedStrokeIds.includes(s.id));
+        const allPoints = selectedStrokesForSmart.flatMap(s => s.points);
+        
+        if (allPoints.length === 0) {
+            setIsSmartProcessing(false);
+            return;
+        }
+
+        try {
+            // 1. Check for Shape first locally
+            const recognizedShape = recognizeShape(allPoints);
+            if (recognizedShape) {
+                let finalPoints: Point[] = [];
+                if (['rectangle', 'circle'].includes(recognizedShape.type)) {
+                    const start = { x: recognizedShape.boundingBox.x, y: recognizedShape.boundingBox.y };
+                    const end = { 
+                        x: recognizedShape.boundingBox.x + recognizedShape.boundingBox.width, 
+                        y: recognizedShape.boundingBox.y + recognizedShape.boundingBox.height 
+                    };
+                    finalPoints = getShapePoints(recognizedShape.type, start, end, false);
+                } else {
+                    finalPoints = recognizedShape.points as any;
+                }
+
+                const firstStrokeColor = selectedStrokesForSmart[0]?.color || '#ffffff';
+                const firstStrokeSize = selectedStrokesForSmart[0]?.size || 4;
+
+                addStroke({
+                    points: finalPoints,
+                    color: firstStrokeColor,
+                    size: firstStrokeSize,
+                }, false, true);
+
+                deleteStrokes(selectedStrokeIds);
+                clearSelection();
+                setIsSmartProcessing(false);
+                return;
+            }
+
+            // 2. If not a shape, snapshot and OCR
+            const firstStrokeColor = selectedStrokesForSmart[0]?.color || '#ffffff';
+            const firstStrokeSize = selectedStrokesForSmart[0]?.size || 4;
+            const imgData = await createStrokeImage(allPoints, firstStrokeSize);
+            
+            if (imgData) {
+                const result = await recognizeText(imgData.dataUrl, 'eng'); // Using 'eng' but API handles both
+                if (result && result.text && result.text.length > 0) {
+                    const text = result.text.trim();
+                    const textLower = text.toLowerCase();
+                    // 3. Fallback to Text Node
+                    addTextNode({
+                        id: `text-${Date.now()}`,
+                        content: text,
+                        x: imgData.bbox.x,
+                        y: imgData.bbox.y,
+                        fontSize: Math.max(16, imgData.bbox.height * 0.8),
+                        fontFamily: 'var(--font-kalam)', // Using Kalam as default handwritten font for both Eng/Hin
+                        color: firstStrokeColor,
+                        fontWeight: 'normal',
+                        fontStyle: 'normal',
+                        backgroundColor: 'transparent',
+                        padding: 4
+                    }, false);
+                    
+                    deleteStrokes(selectedStrokeIds);
+                    clearSelection();
+                }
+            }
+        } catch (e) {
+            console.error('Smart AI Error:', e);
+        } finally {
+            setIsSmartProcessing(false);
+        }
+    };
 
     // Copy Area Feature
     const handleCopyArea = async (e: React.MouseEvent) => {
@@ -572,6 +665,25 @@ export default function LassoLayer({ totalHeight }: LassoLayerProps) {
                 onPointerDown={(e) => e.stopPropagation()}
                 onClick={(e) => e.stopPropagation()}
             >
+                {/* Row 0: Smart AI Button */}
+                <div style={{ display: 'flex', width: '100%', marginBottom: '4px' }}>
+                    <button 
+                        onClick={handleSmartConvert} 
+                        disabled={isSmartProcessing}
+                        title="Smart Convert (Shape, Text, or AI Image)" 
+                        style={{
+                            width: '100%', padding: '6px 8px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px',
+                            background: 'linear-gradient(135deg, #a855f7 0%, #ec4899 100%)',
+                            border: 'none', borderRadius: '8px', color: 'white', cursor: isSmartProcessing ? 'wait' : 'pointer',
+                            fontSize: 13, fontWeight: 600, opacity: isSmartProcessing ? 0.7 : 1, transition: 'all 0.2s',
+                            boxShadow: '0 2px 10px rgba(236,72,153,0.3)'
+                        }}
+                    >
+                        {isSmartProcessing ? <Loader2 size={16} className="animate-spin" /> : <Wand2 size={16} />}
+                        {isSmartProcessing ? 'Thinking...' : '✨ Smart AI'}
+                    </button>
+                </div>
+
                 {/* Row 1: Scale, Flip, Duplicate, Delete */}
                 <div style={{ display: 'flex', gap: '3px', alignItems: 'center' }}>
                     {[

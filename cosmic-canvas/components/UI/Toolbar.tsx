@@ -136,8 +136,6 @@ export default function Toolbar() {
         fitToScreen,
         setIsGridView,
         isOverlayMode,
-        isSmartShapeEnabled,
-        setIsSmartShapeEnabled,
     } = useStore();
 
     const penColorRef = useRef<HTMLInputElement>(null);
@@ -661,16 +659,7 @@ export default function Toolbar() {
                     <Pencil className={`w-4 h-4 ${isPen ? 'text-white' : 'text-white/60'}`} />
                 </button>
 
-                <button
-                    onClick={() => setIsSmartShapeEnabled(!isSmartShapeEnabled)}
-                    className={`relative p-3 sm:p-2 touch-manipulation rounded-xl transition-all hover:scale-110 ${isSmartShapeEnabled
-                        ? 'bg-purple-500/40 ring-2 ring-purple-400/50'
-                        : 'bg-white/5 hover:bg-purple-500/20'
-                        }`}
-                    title="Smart Shape Recognition (Auto-convert freehand)"
-                >
-                    <Wand2 className={`w-4 h-4 ${isSmartShapeEnabled ? 'text-purple-300' : 'text-white/60'}`} />
-                </button>
+
 
                 <button
                     onClick={handleEraserClick}

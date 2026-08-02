@@ -69,19 +69,20 @@ interface CanvasState {
     // Overlay Mode
     isOverlayMode: boolean;
 
-    // Smart Shape
+    // Smart Mode
+
     isSmartShapeEnabled: boolean;
     setIsSmartShapeEnabled: (value: boolean) => void;
 
     // Actions
-    addStroke: (stroke: Omit<Stroke, 'id' | 'isEraser'>, forceEraser?: boolean, isShape?: boolean, isHighlighter?: boolean) => void;
+    addStroke: (stroke: Omit<Stroke, 'id' | 'isEraser'>, forceEraser?: boolean, isShape?: boolean, isHighlighter?: boolean) => string;
     addImage: (image: CanvasImage) => void;
     selectImage: (id: string | null) => void;
     updateImage: (id: string, updates: Partial<CanvasImage>) => void;
     deleteSelectedImage: () => void;
     copyImage: () => void;
     pasteImage: () => void;
-    addTextNode: (node: TextNode) => void;
+    addTextNode: (node: TextNode, switchTool?: boolean) => void;
     updateTextNode: (id: string, updates: Partial<TextNode>) => void;
     deleteTextNode: (id: string) => void;
     deleteSelectedObject: () => void;
@@ -238,6 +239,8 @@ export const useStore = create<CanvasState>((set, get) => ({
     isSmartShapeEnabled: false,
     setIsSmartShapeEnabled: (value: boolean) => set({ isSmartShapeEnabled: value }),
 
+
+
     // Add stroke with unified history
     addStroke: (strokeData, forceEraser, isShape, isHighlighter) => {
         const state = get();
@@ -273,6 +276,8 @@ export const useStore = create<CanvasState>((set, get) => ({
             historyStack: [...state.historyStack, { type: 'stroke', data: stroke }],
             redoStack: [],
         });
+        
+        return stroke.id;
     },
 
     // Add image with unified history + auto-select
@@ -361,15 +366,21 @@ export const useStore = create<CanvasState>((set, get) => ({
     },
 
     // Add text node with unified history + auto-select
-    addTextNode: (node) => {
+    addTextNode: (node, switchTool = true) => {
         const state = get();
-        set({
+        
+        const updates: Partial<CanvasState> = {
             textNodes: [...state.textNodes, node],
             historyStack: [...state.historyStack, { type: 'text', data: node }],
             redoStack: [],
-            currentTool: 'select',
-            selectedId: node.id,
-        });
+        };
+        
+        if (switchTool) {
+            updates.currentTool = 'select';
+            updates.selectedId = node.id;
+        }
+        
+        set(updates);
     },
 
     // Update text node properties

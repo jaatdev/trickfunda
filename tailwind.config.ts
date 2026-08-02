@@ -10,6 +10,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        caveat: ['var(--font-caveat)', 'cursive'],
+        kalam: ['var(--font-kalam)', 'cursive'],
+      },
       keyframes: {
         "slideDown": {
           "from": {
