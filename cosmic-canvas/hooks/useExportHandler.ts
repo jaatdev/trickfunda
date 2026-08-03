@@ -189,6 +189,45 @@ export const useExportHandler = () => {
                 const scaleX = pdfPageWidth / pageWidth;
                 const scaleY = pdfPageHeight / pageHeight;
 
+                // --- Export Images ---
+                const imagesOnPage = (images as CanvasImage[]).filter(img => 
+                    img.y >= offsetY && img.y < offsetY + pageHeight
+                );
+
+                for (const img of imagesOnPage) {
+                    try {
+                        let imageEmbed;
+                        
+                        // Fetch the image data to handle blob:, data:, and http: URLs uniformly
+                        const response = await fetch(img.url);
+                        const arrayBuffer = await response.arrayBuffer();
+
+                        try {
+                            // Try embedding as PNG first
+                            imageEmbed = await pdfDoc.embedPng(arrayBuffer);
+                        } catch (pngError) {
+                            try {
+                                // Fallback to JPG
+                                imageEmbed = await pdfDoc.embedJpg(arrayBuffer);
+                            } catch (jpgError) {
+                                console.error('Image is neither valid PNG nor JPG:', jpgError);
+                            }
+                        }
+                        
+                        if (imageEmbed) {
+                            page.drawImage(imageEmbed, {
+                                x: img.x * scaleX,
+                                y: pdfPageHeight - ((img.y - offsetY) * scaleY) - (img.height * scaleY),
+                                width: img.width * scaleX,
+                                height: img.height * scaleY,
+                            });
+                        }
+                    } catch (e) {
+                        console.error('Failed to embed image:', e);
+                    }
+                }
+
+                // --- Export Strokes ---
                 const strokesOnPage = (strokes as Stroke[]).filter(s => 
                     s.points.some(p => p.y >= offsetY && p.y < offsetY + pageHeight)
                 );
@@ -237,44 +276,6 @@ export const useExportHandler = () => {
                     });
                 }
 
-                // --- Export Images ---
-                const imagesOnPage = (images as CanvasImage[]).filter(img => 
-                    img.y >= offsetY && img.y < offsetY + pageHeight
-                );
-
-                for (const img of imagesOnPage) {
-                    try {
-                        let imageEmbed;
-                        
-                        // Fetch the image data to handle blob:, data:, and http: URLs uniformly
-                        const response = await fetch(img.url);
-                        const arrayBuffer = await response.arrayBuffer();
-
-                        try {
-                            // Try embedding as PNG first
-                            imageEmbed = await pdfDoc.embedPng(arrayBuffer);
-                        } catch (pngError) {
-                            try {
-                                // Fallback to JPG
-                                imageEmbed = await pdfDoc.embedJpg(arrayBuffer);
-                            } catch (jpgError) {
-                                console.error('Image is neither valid PNG nor JPG:', jpgError);
-                            }
-                        }
-                        
-                        if (imageEmbed) {
-                            page.drawImage(imageEmbed, {
-                                x: img.x * scaleX,
-                                y: pdfPageHeight - ((img.y - offsetY) * scaleY) - (img.height * scaleY),
-                                width: img.width * scaleX,
-                                height: img.height * scaleY,
-                            });
-                        }
-                    } catch (e) {
-                        console.error('Failed to embed image:', e);
-                    }
-                }
-
                 // --- Export Text Nodes ---
                 const textNodesOnPage = (textNodes as TextNode[]).filter(t => 
                     t.y >= offsetY && t.y < offsetY + pageHeight
@@ -285,13 +286,76 @@ export const useExportHandler = () => {
                     // Adjust Y for pdf-lib's bottom-left origin. Approximate baseline offset.
                     const textY = pdfPageHeight - (localY * scaleY) - (t.fontSize * scaleY * 0.8);
                     
-                    page.drawText(t.content, {
-                        x: t.x * scaleX,
-                        y: textY,
-                        size: t.fontSize * scaleY,
-                        font: helveticaFont,
-                        color: hexToRgb(t.color),
-                    });
+                    const textContent = t.content || (t as any).text || '';
+                    if (!textContent) continue;
+
+                    try {
+                        page.drawText(textContent, {
+                            x: t.x * scaleX,
+                            y: textY,
+                            size: t.fontSize * scaleY,
+                            font: helveticaFont,
+                            color: hexToRgb(t.color),
+                        });
+                    } catch (err) {
+                        // Fallback for non-WinAnsi characters (e.g. Hindi, Emojis)
+                        const canvas = document.createElement('canvas');
+                        const ctx = canvas.getContext('2d');
+                        if (!ctx) continue;
+
+                        const pixelRatio = 4; // High res for sharp PDF export
+                        const fontSize = t.fontSize * scaleY * pixelRatio;
+                        const fontStyle = t.fontStyle || 'normal';
+                        const fontWeight = t.fontWeight || 'normal';
+                        const fontFamily = t.fontFamily || 'sans-serif';
+                        
+                        const fontString = `${fontStyle} ${fontWeight} ${fontSize}px "${fontFamily}", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif`;
+                        ctx.font = fontString;
+
+                        const lines = textContent.split('\n');
+                        let maxWidth = 0;
+                        const lineHeight = fontSize * 1.2;
+                        for (const line of lines) {
+                            maxWidth = Math.max(maxWidth, ctx.measureText(line).width);
+                        }
+
+                        const hasBg = t.backgroundColor && t.backgroundColor !== 'transparent';
+                        const paddingDom = hasBg ? (t.padding || 8) : 4;
+                        const padX = paddingDom * scaleX * pixelRatio;
+                        const padY = paddingDom * scaleY * pixelRatio;
+                        
+                        canvas.width = Math.max(1, maxWidth) + padX * 2;
+                        canvas.height = Math.max(1, lines.length * lineHeight) + padY * 2;
+                        
+                        // Must set font again after resizing canvas
+                        ctx.font = fontString;
+                        ctx.textBaseline = 'top';
+
+                        if (hasBg) {
+                            ctx.fillStyle = t.backgroundColor!;
+                            ctx.fillRect(0, 0, canvas.width, canvas.height);
+                        }
+
+                        ctx.fillStyle = t.color;
+                        for (let i = 0; i < lines.length; i++) {
+                            ctx.fillText(lines[i], padX, padY + i * lineHeight);
+                        }
+
+                        const pngDataUrl = canvas.toDataURL('image/png');
+                        const pngBase64 = pngDataUrl.split(',')[1];
+                        const pngImage = await pdfDoc.embedPng(pngBase64);
+                        
+                        const pdfImgWidth = canvas.width / pixelRatio;
+                        const pdfImgHeight = canvas.height / pixelRatio;
+                        
+                        page.drawImage(pngImage, {
+                            // Adjust X and Y to match standard text positioning with paddings
+                            x: (t.x * scaleX) - (padX / pixelRatio),
+                            y: pdfPageHeight - (localY * scaleY) - pdfImgHeight,
+                            width: pdfImgWidth,
+                            height: pdfImgHeight,
+                        });
+                    }
                 }
 
                 // --- Add Watermarks ---

@@ -26,7 +26,7 @@ type DragState = {
  * When select tool is active, images can be moved and resized.
  */
 export default function ObjectLayer({ totalHeight }: ObjectLayerProps) {
-    const { images, currentTool, selectedImageId, selectImage, updateImage, deleteSelectedImage, copyImage, pasteImage } = useStore();
+    const { images, currentTool, selectedImageId, selectImage, updateImage, deleteSelectedImage, copyImage, pasteImage, zoom } = useStore();
     const [dragState, setDragState] = useState<DragState>({
         type: 'none',
         startX: 0,
@@ -146,8 +146,8 @@ export default function ObjectLayer({ totalHeight }: ObjectLayerProps) {
     const handlePointerMove = useCallback((e: React.PointerEvent) => {
         if (dragState.type === 'none' || !selectedImageId) return;
 
-        const deltaX = e.clientX - dragState.startX;
-        const deltaY = e.clientY - dragState.startY;
+        const deltaX = (e.clientX - dragState.startX) / zoom;
+        const deltaY = (e.clientY - dragState.startY) / zoom;
 
         if (dragState.type === 'move') {
             updateImage(selectedImageId, {
@@ -191,7 +191,7 @@ export default function ObjectLayer({ totalHeight }: ObjectLayerProps) {
                 height: newHeight,
             });
         }
-    }, [dragState, selectedImageId, updateImage]);
+    }, [dragState, selectedImageId, updateImage, zoom]);
 
     // End dragging/resizing
     const handlePointerUp = useCallback((e: React.PointerEvent) => {

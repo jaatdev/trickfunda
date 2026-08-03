@@ -27,7 +27,7 @@ import { useImperativeRenderer } from '@cosmic/hooks/useImperativeRenderer';
 import { calculateVelocity, getSimulatedPressure, Point as InkPoint } from '@cosmic/utils/InkPhysics'; // Alias InkPoint
 import { stabilizePoint } from '@cosmic/utils/InkStabilizer';
 import { compressStroke } from '@cosmic/utils/StrokeOptimizer';
-import { findErasedStrokeIds } from '@cosmic/utils/EraserEngine';
+import { findErasedStrokeIds, findErasedTextIds } from '@cosmic/utils/EraserEngine';
 
 // Touch/Tablet Support
 import { useDeviceCapabilities, shouldAcceptPointerEvent } from '@cosmic/hooks/useDeviceCapabilities';
@@ -145,6 +145,7 @@ export default function Stage() {
         redo,
         setCurrentPage,
         deleteStrokes,
+        deleteTextNode,
         isOverlayMode,
     } = useStore();
 
@@ -1265,11 +1266,16 @@ export default function Stage() {
                 // 1. Detect Hits
                 // Use current store state for strokes (Static Layer)
                 const hitIds = findErasedStrokeIds(strokes, [eraserPoint], eraserWidth);
+                const hitTextIds = findErasedTextIds(textNodes, [eraserPoint], eraserWidth);
 
                 if (hitIds.length > 0) {
                     console.log("Hit Strokes:", hitIds);
                     // 2. Delete Strokes
                     deleteStrokes(hitIds);
+                }
+
+                if (hitTextIds.length > 0) {
+                    hitTextIds.forEach(id => deleteTextNode(id));
                 }
 
                 // 3. Visual Trail (Optional - Render a clearing dot)

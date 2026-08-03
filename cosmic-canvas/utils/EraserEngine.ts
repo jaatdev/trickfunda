@@ -111,3 +111,33 @@ export const findErasedStrokeIds = (allStrokes: Stroke[], eraserPath: Point[], e
 
     return Array.from(hitIds);
 };
+
+// 5. Text Hit Scanner
+export const findErasedTextIds = (allTextNodes: any[], eraserPath: Point[], eraserSize: number): string[] => {
+    const hitIds = new Set<string>();
+    const radius = eraserSize / 2;
+
+    for (const text of allTextNodes) {
+        if (hitIds.has(text.id)) continue;
+
+        // Estimate text bounding box
+        const textContent = text.content || text.text || '';
+        const width = textContent.length * (text.fontSize * 0.6);
+        const height = text.fontSize * 1.2;
+        
+        // Add padding based on eraser size
+        const minX = text.x - radius;
+        const maxX = text.x + width + radius;
+        const minY = text.y - radius;
+        const maxY = text.y + height + radius;
+
+        for (const ePoint of eraserPath) {
+            if (ePoint.x >= minX && ePoint.x <= maxX && ePoint.y >= minY && ePoint.y <= maxY) {
+                hitIds.add(text.id);
+                break;
+            }
+        }
+    }
+
+    return Array.from(hitIds);
+};

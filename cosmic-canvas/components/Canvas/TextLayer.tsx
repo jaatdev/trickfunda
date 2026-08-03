@@ -188,7 +188,7 @@ export default function TextLayer({ totalHeight }: TextLayerProps) {
                 width: '100%',
                 height: totalHeight || '100%',
                 zIndex: 7,
-                pointerEvents: isTextMode || isSelectMode ? 'auto' : 'none',
+                pointerEvents: isTextMode ? 'auto' : 'none',
                 cursor: isTextMode ? 'text' : 'default',
             }}
         >
