@@ -5,7 +5,7 @@ import { getStrokesBoundingBox } from '@cosmic/utils/geometry';
 import { getSvgPathFromStroke } from '@cosmic/utils/ink';
 import { getStroke } from 'perfect-freehand';
 import { useState, useEffect, useMemo } from 'react';
-import { Plus, Minus, Copy, CopyPlus, Trash2, RotateCw, Wand2, Loader2, Shapes, Type } from 'lucide-react';
+import { Plus, Minus, Copy, CopyPlus, Trash2, RotateCw, Wand2, Loader2, Shapes, Type, X } from 'lucide-react';
 import { createStrokeImage } from '@/lib/canvas-utils';
 import { recognizeText } from '@/lib/handwriting-engine';
 import { recognizeShape } from '@cosmic/utils/shapeRecognition';
@@ -769,6 +769,14 @@ export default function LassoLayer({ totalHeight }: LassoLayerProps) {
                         backgroundColor: 'rgba(239,68,68,0.15)', border: 'none', borderRadius: '6px',
                         color: '#ef4444', cursor: 'pointer',
                     }}><Trash2 size={16} /></button>
+
+                    <div style={{ width: 1, height: 20, backgroundColor: 'rgba(255,255,255,0.15)' }} />
+
+                    <button onClick={clearSelection} title="Exit Selection" style={{
+                        width: 30, height: 30, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        backgroundColor: 'rgba(255,255,255,0.08)', border: 'none', borderRadius: '6px',
+                        color: 'white', cursor: 'pointer',
+                    }}><X size={16} /></button>
                 </div>
 
                 {/* Row 2: Color swatches */}
