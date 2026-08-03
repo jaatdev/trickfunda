@@ -644,12 +644,12 @@ export default function Toolbar() {
                             <select
                                 value={activeFont}
                                 onChange={(e) => setFont(e.target.value)}
-                                className="w-full bg-white/10 border border-white/20 rounded-lg text-white p-2 text-sm focus:ring-2 focus:ring-blue-500"
+                                className="w-full bg-white/10 border border-white/20 rounded-lg text-white p-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none"
                             >
-                                <option value="Inter">Inter (Sans)</option>
-                                <option value="Playfair Display">Playfair (Serif)</option>
-                                <option value="Caveat">Caveat (Hand)</option>
-                                <option value="JetBrains Mono">JetBrains (Mono)</option>
+                                <option value="Inter" className="bg-gray-900 text-white">Inter (Sans)</option>
+                                <option value="Playfair Display" className="bg-gray-900 text-white">Playfair (Serif)</option>
+                                <option value="Caveat" className="bg-gray-900 text-white">Caveat (Hand)</option>
+                                <option value="JetBrains Mono" className="bg-gray-900 text-white">JetBrains (Mono)</option>
                             </select>
                         </div>
 
