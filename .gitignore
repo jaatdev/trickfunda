@@ -44,3 +44,7 @@ next-env.d.ts
 /.clerk/
 data/
 gdrive-service-account.json
+
+# Video Downloader Binaries and Output
+/bin/
+/public/downloads/

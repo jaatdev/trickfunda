@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { PenTool, FileDown, FileArchive, BrainCircuit, Calendar, Calculator, ArrowRight, Stars, Video } from 'lucide-react';
+import { PenTool, FileDown, FileArchive, BrainCircuit, Calendar, Calculator, ArrowRight, Stars, Video, DownloadCloud } from 'lucide-react';
 
 import { MouseTrail } from '@/components/ui/tools/MouseTrail';
 import { MeteorShower } from '@/components/ui/tools/MeteorShower';
@@ -58,6 +58,16 @@ const tools = [
     href: '/tools/pdf-compressor',
     color: 'from-teal-400 to-cyan-600',
     delay: 0.35,
+    status: 'Live',
+    size: 'normal'
+  },
+  {
+    title: 'Video Downloader',
+    description: 'Ultra-fast m3u8 stream downloader powered by yt-dlp. Paste a link and download locally.',
+    icon: DownloadCloud,
+    href: '/tools/video-downloader',
+    color: 'from-indigo-400 to-blue-600',
+    delay: 0.38,
     status: 'Live',
     size: 'normal'
   },
