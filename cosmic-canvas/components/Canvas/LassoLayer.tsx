@@ -197,7 +197,7 @@ export default function LassoLayer({ totalHeight }: LassoLayerProps) {
                     // Smart Font Size Calculation
                     const lines = text.split('\n');
                     const numLines = lines.length;
-                    const maxLineLength = Math.max(...lines.map(l => l.length));
+                    const maxLineLength = Math.max(...lines.map((l: string) => l.length));
                     
                     // Height-based font size estimation
                     const fontSizeByHeight = (imgData.bbox.height / numLines) * 0.9;
