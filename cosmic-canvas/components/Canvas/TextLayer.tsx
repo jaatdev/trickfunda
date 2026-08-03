@@ -2,6 +2,7 @@
 
 import { useStore, TextNode } from '@cosmic/store/useStore';
 import { useState, useCallback, useRef, useEffect } from 'react';
+import { getPointerPosition } from '@cosmic/utils/canvasUtils';
 
 interface TextLayerProps {
     totalHeight?: number;
@@ -69,9 +70,8 @@ export default function TextLayer({ totalHeight }: TextLayerProps) {
     const handleCanvasClick = useCallback((e: React.PointerEvent) => {
         if (!isTextMode) return;
 
-        // Use pageX/pageY for scroll-aware positioning
-        const x = e.pageX / zoom;
-        const y = e.pageY / zoom;
+        // Use accurate canvas coordinates
+        const { x, y } = getPointerPosition(e, containerRef.current, zoom);
 
         const newNode: TextNode = {
             id: generateId(),
@@ -225,14 +225,19 @@ export default function TextLayer({ totalHeight }: TextLayerProps) {
                         }}
                     >
                         {isEditing ? (
-                            <input
-                                type="text"
+                            <textarea
                                 autoFocus
                                 value={node.content || (node as any).text || ''}
-                                onChange={(e) => handleTextChange(node.id, e.target.value)}
+                                onChange={(e) => {
+                                    handleTextChange(node.id, e.target.value);
+                                    // Auto-resize
+                                    e.target.style.height = 'auto';
+                                    e.target.style.height = `${e.target.scrollHeight}px`;
+                                }}
                                 onBlur={() => handleBlur(node.id, node.content || (node as any).text || '')}
                                 onKeyDown={(e) => {
-                                    if (e.key === 'Enter') {
+                                    // Let Enter create newlines. Shift+Enter or Escape to blur.
+                                    if (e.key === 'Escape') {
                                         e.currentTarget.blur();
                                     }
                                     // Prevent Delete/Backspace from triggering node deletion
@@ -248,8 +253,13 @@ export default function TextLayer({ totalHeight }: TextLayerProps) {
                                     fontWeight: node.fontWeight,
                                     fontStyle: node.fontStyle,
                                     width: '100%',
+                                    minWidth: '200px',
                                     background: 'transparent',
+                                    resize: 'none',
+                                    overflow: 'hidden',
+                                    lineHeight: '1.2',
                                 }}
+                                rows={1}
                             />
                         ) : (
                             <span>{node.content || (node as any).text || '\u00A0'}</span>

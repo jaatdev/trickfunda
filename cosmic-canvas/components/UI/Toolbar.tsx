@@ -626,6 +626,74 @@ export default function Toolbar() {
                     </>
                 )}
 
+                {/* Text Settings Panel */}
+                {activePanel === 'text' && (
+                    <>
+                        <div className="flex items-center justify-between mb-3">
+                            <span className="text-xs text-white/60 uppercase tracking-wider font-medium">Text Format</span>
+                            <button
+                                onClick={() => setActivePanel('none')}
+                                className="p-1 rounded-lg hover:bg-white/10 transition-colors"
+                            >
+                                <X className="w-3 h-3 text-white/40" />
+                            </button>
+                        </div>
+
+                        {/* Font Family */}
+                        <div className="mb-4">
+                            <select
+                                value={activeFont}
+                                onChange={(e) => setFont(e.target.value)}
+                                className="w-full bg-white/10 border border-white/20 rounded-lg text-white p-2 text-sm focus:ring-2 focus:ring-blue-500"
+                            >
+                                <option value="Inter">Inter (Sans)</option>
+                                <option value="Playfair Display">Playfair (Serif)</option>
+                                <option value="Caveat">Caveat (Hand)</option>
+                                <option value="JetBrains Mono">JetBrains (Mono)</option>
+                            </select>
+                        </div>
+
+                        {/* Font Size Slider */}
+                        <div className="space-y-2 mb-4">
+                            <div className="flex items-center justify-between">
+                                <span className="text-xs text-white/50">Size</span>
+                                <span className="text-xs text-white/70 font-mono">{activeFontSize}px</span>
+                            </div>
+                            <input
+                                type="range"
+                                min={12}
+                                max={120}
+                                value={activeFontSize}
+                                onChange={(e) => setFontSize(parseInt(e.target.value))}
+                                className="w-full h-2 rounded-full appearance-none cursor-pointer bg-white/20 accent-blue-500"
+                            />
+                        </div>
+
+                        {/* Text Styles */}
+                        <div className="flex gap-2">
+                            <button
+                                onClick={() => setFontWeight(activeFontWeight === 'bold' ? 'normal' : 'bold')}
+                                className={`flex-1 p-2 rounded-lg font-bold transition-all ${activeFontWeight === 'bold' ? 'bg-white/25 ring-2 ring-white/50' : 'bg-white/10 hover:bg-white/15'}`}
+                            >
+                                B
+                            </button>
+                            <button
+                                onClick={() => setFontStyle(activeFontStyle === 'italic' ? 'normal' : 'italic')}
+                                className={`flex-1 p-2 rounded-lg italic font-serif transition-all ${activeFontStyle === 'italic' ? 'bg-white/25 ring-2 ring-white/50' : 'bg-white/10 hover:bg-white/15'}`}
+                            >
+                                I
+                            </button>
+                            <button
+                                onClick={() => setTextBackground(activeTextBackground === 'transparent' ? '#ffffff' : 'transparent')}
+                                className={`flex-1 p-2 rounded-lg transition-all ${activeTextBackground !== 'transparent' ? 'bg-white/25 ring-2 ring-white/50' : 'bg-white/10 hover:bg-white/15'}`}
+                                title="Toggle Background"
+                            >
+                                <div className="w-4 h-4 mx-auto border border-white/50 bg-white" />
+                            </button>
+                        </div>
+                    </>
+                )}
+
             </div>
         );
     };
@@ -692,6 +760,17 @@ export default function Toolbar() {
                     title="Select Tool (V)"
                 >
                     <Hand className={`w-4 h-4 ${isSelect ? 'text-white' : 'text-white/60'}`} />
+                </button>
+
+                <button
+                    onClick={handleTextClick}
+                    className={`relative p-3 sm:p-2 touch-manipulation rounded-xl transition-all hover:scale-110 ${isText
+                        ? 'bg-white/25 ring-2 ring-white/50'
+                        : 'bg-white/5 hover:bg-white/10'
+                        }`}
+                    title="Text Tool (T)"
+                >
+                    <Type className={`w-4 h-4 ${isText ? 'text-white' : 'text-white/60'}`} />
                 </button>
 
                 <button
