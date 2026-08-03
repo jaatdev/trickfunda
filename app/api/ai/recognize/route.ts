@@ -13,7 +13,7 @@ export async function POST(req: Request) {
     // Extract base64 part
     const base64Data = imageData.split(',')[1];
     const mimeType = imageData.split(';')[0].split(':')[1];
-    const prompt = `You are an expert handwriting transcriber. Transcribe the handwriting in this image exactly. The language could be English, Hindi, or a mix of both. Fix any obvious spelling mistakes to form coherent words based on the context, but do not change the core meaning. Return ONLY the transcribed text. Do not include markdown, explanations, or quotes.`;
+    const prompt = `You are an expert handwriting transcriber. Transcribe the handwriting in this image exactly. The language could be English, Hindi, or a mix of both. Fix any obvious spelling mistakes to form coherent words based on the context, but do not change the core meaning. Return ONLY the transcribed text. Do not include markdown, explanations, or quotes. CRITICAL: Preserve the original line breaks. If the handwritten text is written as a single horizontal line, return it as a single continuous line of text without adding newlines.`;
 
     const response = await withKeyRotation(async (apiKey) => {
       const ai = new GoogleGenAI({ apiKey });

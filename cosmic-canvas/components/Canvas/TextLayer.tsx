@@ -218,49 +218,60 @@ export default function TextLayer({ totalHeight }: TextLayerProps) {
                             cursor: isSelectMode ? (isSelected ? 'move' : 'pointer') : 'default',
                             userSelect: isEditing ? 'text' : 'none',
                             whiteSpace: 'pre-wrap',
+                            wordBreak: 'break-word',
                             minWidth: '20px',
+                            width: 'fit-content',
+                            maxWidth: `calc(100vw - ${node.x}px - 20px)`, // Prevent overflowing the screen
                             minHeight: node.fontSize + 4,
                             border: isSelected && !isEditing ? '2px dashed #3b82f6' : '2px dashed transparent',
                             pointerEvents: 'auto',
+                            display: isEditing ? 'inline-grid' : 'inline-block',
                         }}
                     >
                         {isEditing ? (
-                            <textarea
-                                autoFocus
-                                value={node.content || (node as any).text || ''}
-                                onChange={(e) => {
-                                    handleTextChange(node.id, e.target.value);
-                                    // Auto-resize
-                                    e.target.style.height = 'auto';
-                                    e.target.style.height = `${e.target.scrollHeight}px`;
-                                }}
-                                onBlur={() => handleBlur(node.id, node.content || (node as any).text || '')}
-                                onKeyDown={(e) => {
-                                    // Let Enter create newlines. Shift+Enter or Escape to blur.
-                                    if (e.key === 'Escape') {
-                                        e.currentTarget.blur();
-                                    }
-                                    // Prevent Delete/Backspace from triggering node deletion
-                                    if (e.key === 'Delete' || e.key === 'Backspace') {
-                                        e.stopPropagation();
-                                    }
-                                }}
-                                style={{
-                                    all: 'unset',
-                                    fontSize: node.fontSize,
-                                    color: node.color,
-                                    fontFamily: getFontVariable(node.fontFamily),
-                                    fontWeight: node.fontWeight,
-                                    fontStyle: node.fontStyle,
-                                    width: '100%',
-                                    minWidth: '200px',
-                                    background: 'transparent',
-                                    resize: 'none',
-                                    overflow: 'hidden',
-                                    lineHeight: '1.2',
-                                }}
-                                rows={1}
-                            />
+                            <>
+                                <span style={{
+                                    visibility: 'hidden',
+                                    whiteSpace: 'pre-wrap',
+                                    wordBreak: 'break-word',
+                                    gridArea: '1 / 1 / 2 / 2',
+                                }}>
+                                    {(node.content || (node as any).text || '') + ' '}
+                                </span>
+                                <textarea
+                                    autoFocus
+                                    value={node.content || (node as any).text || ''}
+                                    onChange={(e) => {
+                                        handleTextChange(node.id, e.target.value);
+                                    }}
+                                    onBlur={() => handleBlur(node.id, node.content || (node as any).text || '')}
+                                    onKeyDown={(e) => {
+                                        // Let Enter create newlines. Shift+Enter or Escape to blur.
+                                        if (e.key === 'Escape') {
+                                            e.currentTarget.blur();
+                                        }
+                                        // Prevent Delete/Backspace from triggering node deletion
+                                        if (e.key === 'Delete' || e.key === 'Backspace') {
+                                            e.stopPropagation();
+                                        }
+                                    }}
+                                    style={{
+                                        all: 'unset',
+                                        gridArea: '1 / 1 / 2 / 2',
+                                        width: '100%',
+                                        height: '100%',
+                                        resize: 'none',
+                                        overflow: 'hidden',
+                                        fontSize: 'inherit',
+                                        fontFamily: 'inherit',
+                                        fontWeight: 'inherit',
+                                        fontStyle: 'inherit',
+                                        color: 'inherit',
+                                        lineHeight: '1.2',
+                                    }}
+                                    rows={1}
+                                />
+                            </>
                         ) : (
                             <span>{node.content || (node as any).text || '\u00A0'}</span>
                         )}
