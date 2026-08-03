@@ -5,7 +5,7 @@ import { getStrokesBoundingBox } from '@cosmic/utils/geometry';
 import { getSvgPathFromStroke } from '@cosmic/utils/ink';
 import { getStroke } from 'perfect-freehand';
 import { useState, useEffect, useMemo } from 'react';
-import { Plus, Minus, Copy, CopyPlus, Trash2, RotateCw, Wand2, Loader2 } from 'lucide-react';
+import { Plus, Minus, Copy, CopyPlus, Trash2, RotateCw, Wand2, Loader2, Shapes, Type } from 'lucide-react';
 import { createStrokeImage } from '@/lib/canvas-utils';
 import { recognizeText } from '@/lib/handwriting-engine';
 import { recognizeShape } from '@cosmic/utils/shapeRecognition';
@@ -129,21 +129,16 @@ export default function LassoLayer({ totalHeight }: LassoLayerProps) {
             };
         }
     }, [selectedStrokes, selectedTexts]);
-    // Smart Convert Feature
-    const handleSmartConvert = async () => {
+    // Smart Shape Feature (Local)
+    const handleSmartShape = () => {
         if (selectedStrokeIds.length === 0 || isSmartProcessing) return;
         
-        setIsSmartProcessing(true);
         const selectedStrokesForSmart = strokes.filter(s => selectedStrokeIds.includes(s.id));
         const allPoints = selectedStrokesForSmart.flatMap(s => s.points);
         
-        if (allPoints.length === 0) {
-            setIsSmartProcessing(false);
-            return;
-        }
+        if (allPoints.length === 0) return;
 
         try {
-            // 1. Check for Shape first locally
             const recognizedShape = recognizeShape(allPoints);
             if (recognizedShape) {
                 let finalPoints: Point[] = [];
@@ -169,11 +164,26 @@ export default function LassoLayer({ totalHeight }: LassoLayerProps) {
 
                 deleteStrokes(selectedStrokeIds);
                 clearSelection();
-                setIsSmartProcessing(false);
-                return;
             }
+        } catch (e) {
+            console.error('Smart Shape Error:', e);
+        }
+    };
 
-            // 2. If not a shape, snapshot and OCR
+    // Smart Text Feature (OCR API)
+    const handleSmartText = async () => {
+        if (selectedStrokeIds.length === 0 || isSmartProcessing) return;
+        
+        setIsSmartProcessing(true);
+        const selectedStrokesForSmart = strokes.filter(s => selectedStrokeIds.includes(s.id));
+        const allPoints = selectedStrokesForSmart.flatMap(s => s.points);
+        
+        if (allPoints.length === 0) {
+            setIsSmartProcessing(false);
+            return;
+        }
+
+        try {
             const firstStrokeColor = selectedStrokesForSmart[0]?.color || '#ffffff';
             const firstStrokeSize = selectedStrokesForSmart[0]?.size || 4;
             const imgData = await createStrokeImage(allPoints, firstStrokeSize);
@@ -183,13 +193,27 @@ export default function LassoLayer({ totalHeight }: LassoLayerProps) {
                 if (result && result.text && result.text.length > 0) {
                     const text = result.text.trim();
                     const textLower = text.toLowerCase();
-                    // 3. Fallback to Text Node
+                    
+                    // Smart Font Size Calculation
+                    const lines = text.split('\n');
+                    const numLines = lines.length;
+                    const maxLineLength = Math.max(...lines.map(l => l.length));
+                    
+                    // Height-based font size estimation
+                    const fontSizeByHeight = (imgData.bbox.height / numLines) * 0.9;
+                    
+                    // Width-based font size estimation (assume character width is ~0.55 of font size)
+                    const fontSizeByWidth = (imgData.bbox.width / Math.max(1, maxLineLength)) * 1.8;
+                    
+                    // Pick the smaller one to ensure it fits within the bounds, clamp to minimum 12
+                    const optimalFontSize = Math.max(12, Math.min(fontSizeByHeight, fontSizeByWidth));
+
                     addTextNode({
                         id: `text-${Date.now()}`,
                         content: text,
                         x: imgData.bbox.x,
                         y: imgData.bbox.y,
-                        fontSize: Math.max(16, imgData.bbox.height * 0.8),
+                        fontSize: optimalFontSize,
                         fontFamily: 'var(--font-kalam)', // Using Kalam as default handwritten font for both Eng/Hin
                         color: firstStrokeColor,
                         fontWeight: 'normal',
@@ -203,7 +227,7 @@ export default function LassoLayer({ totalHeight }: LassoLayerProps) {
                 }
             }
         } catch (e) {
-            console.error('Smart AI Error:', e);
+            console.error('Smart Text Error:', e);
         } finally {
             setIsSmartProcessing(false);
         }
@@ -665,22 +689,37 @@ export default function LassoLayer({ totalHeight }: LassoLayerProps) {
                 onPointerDown={(e) => e.stopPropagation()}
                 onClick={(e) => e.stopPropagation()}
             >
-                {/* Row 0: Smart AI Button */}
-                <div style={{ display: 'flex', width: '100%', marginBottom: '4px' }}>
+                {/* Row 0: Smart AI Buttons */}
+                <div style={{ display: 'flex', width: '100%', marginBottom: '4px', gap: '4px' }}>
                     <button 
-                        onClick={handleSmartConvert} 
+                        onClick={handleSmartShape} 
                         disabled={isSmartProcessing}
-                        title="Smart Convert (Shape, Text, or AI Image)" 
+                        title="Smart Shape (Convert to perfect figures)" 
                         style={{
-                            width: '100%', padding: '6px 8px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px',
+                            flex: 1, padding: '6px 4px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px',
+                            background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
+                            border: 'none', borderRadius: '8px', color: 'white', cursor: isSmartProcessing ? 'wait' : 'pointer',
+                            fontSize: 12, fontWeight: 600, opacity: isSmartProcessing ? 0.7 : 1, transition: 'all 0.2s',
+                            boxShadow: '0 2px 10px rgba(139,92,246,0.3)'
+                        }}
+                    >
+                        <Shapes size={14} />
+                        Smart Shape
+                    </button>
+                    <button 
+                        onClick={handleSmartText} 
+                        disabled={isSmartProcessing}
+                        title="Smart Text (Convert handwriting to text)" 
+                        style={{
+                            flex: 1, padding: '6px 4px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px',
                             background: 'linear-gradient(135deg, #a855f7 0%, #ec4899 100%)',
                             border: 'none', borderRadius: '8px', color: 'white', cursor: isSmartProcessing ? 'wait' : 'pointer',
-                            fontSize: 13, fontWeight: 600, opacity: isSmartProcessing ? 0.7 : 1, transition: 'all 0.2s',
+                            fontSize: 12, fontWeight: 600, opacity: isSmartProcessing ? 0.7 : 1, transition: 'all 0.2s',
                             boxShadow: '0 2px 10px rgba(236,72,153,0.3)'
                         }}
                     >
-                        {isSmartProcessing ? <Loader2 size={16} className="animate-spin" /> : <Wand2 size={16} />}
-                        {isSmartProcessing ? 'Thinking...' : '✨ Smart AI'}
+                        {isSmartProcessing ? <Loader2 size={14} className="animate-spin" /> : <Type size={14} />}
+                        {isSmartProcessing ? 'Thinking...' : 'Smart Text'}
                     </button>
                 </div>
 
