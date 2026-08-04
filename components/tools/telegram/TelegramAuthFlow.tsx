@@ -11,8 +11,6 @@ export const TelegramAuthFlow: React.FC<Props> = ({ onAuthenticated }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   
-  const [apiId, setApiId] = useState('');
-  const [apiHash, setApiHash] = useState('');
   const [phone, setPhone] = useState('');
   const [code, setCode] = useState('');
   const [password, setPassword] = useState('');
@@ -21,8 +19,8 @@ export const TelegramAuthFlow: React.FC<Props> = ({ onAuthenticated }) => {
   const [tempSession, setTempSession] = useState('');
 
   const handleSendCode = async () => {
-    if (!apiId || !apiHash || !phone) {
-      setError('Please fill in all fields');
+    if (!phone) {
+      setError('Please enter a phone number');
       return;
     }
     setLoading(true);
@@ -31,7 +29,7 @@ export const TelegramAuthFlow: React.FC<Props> = ({ onAuthenticated }) => {
       const res = await fetch('/api/tools/telegram/auth', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'sendCode', apiId, apiHash, phone })
+        body: JSON.stringify({ action: 'sendCode', phone })
       });
       const data = await res.json();
       if (data.error) throw new Error(data.error);
@@ -56,7 +54,7 @@ export const TelegramAuthFlow: React.FC<Props> = ({ onAuthenticated }) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
           action: 'signIn', 
-          apiId, apiHash, phone, phoneCodeHash, phoneCode: code, tempSession 
+          phone, phoneCodeHash, phoneCode: code, tempSession 
         })
       });
       const data = await res.json();
@@ -85,7 +83,7 @@ export const TelegramAuthFlow: React.FC<Props> = ({ onAuthenticated }) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
           action: 'checkPassword', 
-          apiId, apiHash, password, tempSession 
+          password, tempSession 
         })
       });
       const data = await res.json();
@@ -140,26 +138,7 @@ export const TelegramAuthFlow: React.FC<Props> = ({ onAuthenticated }) => {
             exit={{ opacity: 0, x: 20 }}
             className="space-y-4"
           >
-            <div>
-              <label className="block text-xs font-medium text-gray-400 mb-1">API ID</label>
-              <input
-                type="text"
-                value={apiId}
-                onChange={e => setApiId(e.target.value)}
-                placeholder="e.g. 123456"
-                className="w-full bg-black/30 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500/50 transition-colors"
-              />
-            </div>
-            <div>
-              <label className="block text-xs font-medium text-gray-400 mb-1">API HASH</label>
-              <input
-                type="text"
-                value={apiHash}
-                onChange={e => setApiHash(e.target.value)}
-                placeholder="e.g. 0123456789abcdef0123456789abcdef"
-                className="w-full bg-black/30 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500/50 transition-colors"
-              />
-            </div>
+
             <div>
               <label className="block text-xs font-medium text-gray-400 mb-1">Phone Number</label>
               <div className="relative">
@@ -175,10 +154,15 @@ export const TelegramAuthFlow: React.FC<Props> = ({ onAuthenticated }) => {
             </div>
             <button
               onClick={handleSendCode}
-              disabled={loading || !apiId || !apiHash || !phone}
+              disabled={loading || !phone}
               className="w-full bg-blue-600 hover:bg-blue-500 text-white rounded-xl py-3 text-sm font-medium transition-colors disabled:opacity-50 flex items-center justify-center gap-2 mt-6 shadow-[0_0_15px_rgba(37,99,235,0.3)]"
             >
-              {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : 'Send Login Code'}
+              {loading ? (
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin" /> 
+                  Connecting... (may take ~30s on your network)
+                </>
+              ) : 'Send Login Code'}
             </button>
           </motion.div>
         )}

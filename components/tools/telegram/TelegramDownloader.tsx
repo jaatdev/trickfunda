@@ -12,6 +12,7 @@ export const TelegramDownloader: React.FC<Props> = ({ username, onLogout }) => {
   const [status, setStatus] = useState<'idle' | 'fetching' | 'downloading' | 'success' | 'error'>('idle');
   const [progress, setProgress] = useState(0);
   const [logs, setLogs] = useState<string[]>([]);
+  const [downloadLink, setDownloadLink] = useState('');
   const [error, setError] = useState('');
   const logsEndRef = useRef<HTMLDivElement>(null);
   
@@ -27,6 +28,7 @@ export const TelegramDownloader: React.FC<Props> = ({ username, onLogout }) => {
     setError('');
     setProgress(0);
     setLogs([]);
+    setDownloadLink('');
     
     try {
       const res = await fetch('/api/tools/telegram/download', {
@@ -79,7 +81,8 @@ export const TelegramDownloader: React.FC<Props> = ({ username, onLogout }) => {
           } else if (type === 'success') {
              addLog(data);
              setStatus('success');
-             setTimeout(() => setStatus('idle'), 5000);
+          } else if (type === 'done') {
+             setDownloadLink(data);
           } else if (type === 'error') {
              setError(data);
              setStatus('error');
@@ -214,6 +217,24 @@ export const TelegramDownloader: React.FC<Props> = ({ username, onLogout }) => {
                 )}
                 <div ref={logsEndRef} />
               </div>
+
+              {status === 'success' && downloadLink && (
+                  <div className="p-4 bg-emerald-500/10 border-t border-emerald-500/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div className="flex items-center gap-3 text-emerald-400">
+                      <Check className="w-5 h-5 shrink-0" />
+                      <span className="font-medium font-sans text-sm">Download completed! File saved on server.</span>
+                    </div>
+                    <a 
+                      href={downloadLink} 
+                      download
+                      className="bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 px-4 py-2 rounded-md font-sans text-sm font-semibold transition-colors flex items-center gap-2 shrink-0"
+                    >
+                      <Download className="w-4 h-4" />
+                      Save File to Device
+                    </a>
+                  </div>
+              )}
+
             </motion.div>
           )}
         </AnimatePresence>

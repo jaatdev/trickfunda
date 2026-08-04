@@ -120,7 +120,7 @@ const nextConfig: NextConfig = {
     ],
   },
 
-  serverExternalPackages: ['pdfjs-dist'],
+  serverExternalPackages: ['pdfjs-dist', 'telegram'],
 
   // Enable experimental optimizations
   experimental: {

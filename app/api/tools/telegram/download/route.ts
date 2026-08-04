@@ -4,6 +4,7 @@ import { StringSession } from 'telegram/sessions';
 import { getSessionData } from '@/utils/telegram-session';
 import path from 'path';
 import fs from 'fs';
+const { ConnectionTCPObfuscated } = require('telegram/network/connection/TCPObfuscated');
 
 export const dynamic = 'force-dynamic';
 
@@ -63,10 +64,15 @@ export async function POST(req: NextRequest) {
 
         const client = new TelegramClient(new StringSession(session.stringSession), Number(session.apiId), session.apiHash, {
           connectionRetries: 1,
+          connection: ConnectionTCPObfuscated,
+          useIPV6: true,
         });
 
         try {
           await client.connect();
+          if (!client.connected) {
+             throw new Error('Failed to connect to Telegram over IPv6. Connection blocked.');
+          }
           send('info', `Fetching message ${messageId}...`);
 
           const messages = await client.getMessages(chatId, { ids: [messageId] });
@@ -95,10 +101,17 @@ export async function POST(req: NextRequest) {
           const filename = `telegram_vid_${messageId}_${Date.now()}${ext}`;
           const outputPath = path.join(downloadsDir, filename);
 
-          // Stream download directly to file
+          // Stream download directly to file with optimal superfast settings
+          let lastUpdate = 0;
           await client.downloadMedia(message, {
             outputFile: outputPath,
+            workers: 8, // 8 is the optimal parallel number (higher causes TCP congestion/slowdowns)
             progressCallback: (downloaded: any, total: any) => {
+               const now = Date.now();
+               // Throttle SSE events to once every 500ms to prevent extreme Node.js event loop lag
+               if (now - lastUpdate < 500 && downloaded.toString() !== total.toString()) return;
+               lastUpdate = now;
+               
                let percentage = 0;
                const dl = Number(downloaded.toString());
                const tot = Number(total.toString());
