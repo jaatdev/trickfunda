@@ -103,6 +103,7 @@ export async function POST(req: NextRequest) {
 
           // Stream download directly to file with optimal superfast settings
           let lastUpdate = 0;
+          // @ts-ignore: 'workers' is supported by gramjs runtime but missing from TS definitions
           await client.downloadMedia(message, {
             outputFile: outputPath,
             workers: 8, // 8 is the optimal parallel number (higher causes TCP congestion/slowdowns)
