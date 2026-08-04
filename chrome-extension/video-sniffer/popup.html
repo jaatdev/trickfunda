@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrickFunda Video Sniffer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    
+    <!-- Header -->
+    <div class="header">
+      <div class="header-left">
+        <div class="radar-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19.07 4.93A10 10 0 0 0 6.99 3.34"/>
+            <path d="M4 6h.01"/>
+            <path d="M2.29 9.62A10 10 0 1 0 21.31 8.35"/>
+            <path d="M16.24 7.76A6 6 0 1 0 8.23 16.67"/>
+            <path d="M12 18h.01"/>
+            <path d="M17.99 11.66A6 6 0 0 1 15.77 16.67"/>
+            <circle cx="12" cy="12" r="2"/>
+          </svg>
+        </div>
+        <div class="header-text">
+          <h1>Video Sniffer</h1>
+          <span class="header-badge">TrickFunda</span>
+        </div>
+      </div>
+      <label class="toggle-switch">
+        <input type="checkbox" id="snifferToggle" checked>
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+      <div class="stat">
+        <span class="stat-value" id="urlCount">0</span>
+        <span class="stat-label">URLs Found</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" id="domainCount">0</span>
+        <span class="stat-label">Domains</span>
+      </div>
+      <div class="stat-status" id="statusIndicator">
+        <span class="status-dot active"></span>
+        <span class="status-text">Scanning</span>
+      </div>
+    </div>
+
+    <!-- URL List -->
+    <div class="url-list" id="urlList">
+      <div class="empty-state" id="emptyState">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="8" x2="12" y2="12"/>
+          <line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+        <p>No media URLs detected yet</p>
+        <span>Browse a page with video content</span>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="actions">
+      <button class="btn btn-primary" id="openDashboard">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+          <polyline points="15 3 21 3 21 9"/>
+          <line x1="10" y1="14" x2="21" y2="3"/>
+        </svg>
+        Open Dashboard
+      </button>
+      <button class="btn btn-ghost" id="clearAll">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="3 6 5 6 21 6"/>
+          <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+        </svg>
+        Clear
+      </button>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      Powered by <span class="footer-brand">TrickFunda</span> · v1.0.0
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

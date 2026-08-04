@@ -9,7 +9,7 @@ export const dynamic = 'force-dynamic';
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { url, filename } = body;
+    const { url, filename, headers } = body;
 
     if (!url) {
       return new Response(JSON.stringify({ error: 'URL is required' }), { status: 400 });
@@ -29,14 +29,9 @@ export async function POST(req: NextRequest) {
     
     const stream = new ReadableStream({
       start(controller) {
-        let isClosed = false;
-        const send = (type: string, data: any) => {
-          if (isClosed) return;
-          try {
-            controller.enqueue(encoder.encode(`event: ${type}\ndata: ${JSON.stringify(data)}\n\n`));
-          } catch (e) {
-            isClosed = true;
-          }
+        // Function to send SSE messages
+        const send = (type: string, data: string) => {
+          controller.enqueue(encoder.encode(`event: ${type}\ndata: ${JSON.stringify(data)}\n\n`));
         };
 
         send('info', `Starting download for ${url}...`);
@@ -46,14 +41,37 @@ export async function POST(req: NextRequest) {
         const binPath = path.join(process.cwd(), 'bin');
         const ytDlpPath = path.join(binPath, process.platform === 'win32' ? 'yt-dlp.exe' : 'yt-dlp');
 
-        // Spawn yt-dlp process using the local binary
-        const ytDlpProcess = spawn(ytDlpPath, [
+        const args: string[] = [
           url,
           '-o',
           outputPath,
           '--merge-output-format',
           'mp4'
-        ], {
+        ];
+
+        let hasCookie = false;
+
+        if (headers && typeof headers === 'object') {
+          for (const [key, value] of Object.entries(headers)) {
+            if (key && value && typeof value === 'string') {
+              args.push('--add-header', `${key}: ${value}`);
+              if (key.toLowerCase() === 'referer') {
+                args.push('--referer', value);
+              }
+              if (key.toLowerCase() === 'cookie') {
+                hasCookie = true;
+              }
+            }
+          }
+        }
+
+        // Add --cookies-from-browser fallback option if Cookie is not passed directly in headers
+        if (!hasCookie) {
+          args.push('--cookies-from-browser', 'chrome');
+        }
+
+        // Spawn yt-dlp process using the local binary
+        const ytDlpProcess = spawn(ytDlpPath, args, {
           env: {
             ...process.env,
             PATH: `${binPath}${path.delimiter}${process.env.PATH}` // Add local bin to PATH for ffmpeg
@@ -75,24 +93,18 @@ export async function POST(req: NextRequest) {
         });
 
         ytDlpProcess.on('close', (code) => {
-          if (!isClosed) {
-            if (code === 0) {
-              send('success', `Download completed successfully!`);
-              send('done', `/downloads/${safeFilename}.mp4`);
-            } else {
-              send('error', `Process exited with code ${code}`);
-            }
-            try { controller.close(); } catch (e) {}
-            isClosed = true;
+          if (code === 0) {
+            send('success', `Download completed successfully!`);
+            send('done', `/downloads/${safeFilename}.mp4`);
+          } else {
+            send('error', `Process exited with code ${code}`);
           }
+          controller.close();
         });
 
         ytDlpProcess.on('error', (err) => {
-          if (!isClosed) {
-            send('error', `Failed to start download process: ${err.message}`);
-            try { controller.close(); } catch (e) {}
-            isClosed = true;
-          }
+          send('error', `Failed to start process: ${err.message}. Make sure yt-dlp and ffmpeg are installed and in your PATH.`);
+          controller.close();
         });
         
         // If the client disconnects, kill the process

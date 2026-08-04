@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TrickFunda Icon Generator</title>
+  <style>
+    body { background: #1a1a2e; color: white; font-family: Inter, sans-serif; padding: 40px; text-align: center; }
+    canvas { border: 1px solid #333; margin: 10px; }
+    .row { display: flex; gap: 20px; justify-content: center; align-items: end; margin: 20px 0; }
+    button { background: #6366f1; border: none; color: white; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 14px; }
+    button:hover { background: #818cf8; }
+    a { color: #06b6d4; }
+  </style>
+</head>
+<body>
+  <h1>🔍 TrickFunda Video Sniffer — Icon Generator</h1>
+  <p>Click each button to download the PNG icon at that size.</p>
+  
+  <div class="row">
+    <div>
+      <canvas id="c16" width="16" height="16"></canvas>
+      <br><button onclick="download('c16', 'icon-16.png')">Download 16px</button>
+    </div>
+    <div>
+      <canvas id="c32" width="32" height="32"></canvas>
+      <br><button onclick="download('c32', 'icon-32.png')">Download 32px</button>
+    </div>
+    <div>
+      <canvas id="c48" width="48" height="48"></canvas>
+      <br><button onclick="download('c48', 'icon-48.png')">Download 48px</button>
+    </div>
+    <div>
+      <canvas id="c128" width="128" height="128"></canvas>
+      <br><button onclick="download('c128', 'icon-128.png')">Download 128px</button>
+    </div>
+  </div>
+
+  <script>
+    function drawIcon(canvas) {
+      const ctx = canvas.getContext('2d');
+      const s = canvas.width;
+      const c = s / 2;
+      const r = s * 0.35;
+      
+      // Background
+      const bgGrad = ctx.createLinearGradient(0, 0, s, s);
+      bgGrad.addColorStop(0, '#0f0033');
+      bgGrad.addColorStop(1, '#030014');
+      
+      // Rounded rect
+      const radius = s * 0.18;
+      ctx.beginPath();
+      ctx.moveTo(radius, 0);
+      ctx.lineTo(s - radius, 0);
+      ctx.quadraticCurveTo(s, 0, s, radius);
+      ctx.lineTo(s, s - radius);
+      ctx.quadraticCurveTo(s, s, s - radius, s);
+      ctx.lineTo(radius, s);
+      ctx.quadraticCurveTo(0, s, 0, s - radius);
+      ctx.lineTo(0, radius);
+      ctx.quadraticCurveTo(0, 0, radius, 0);
+      ctx.closePath();
+      ctx.fillStyle = bgGrad;
+      ctx.fill();
+      ctx.clip();
+      
+      // Concentric circles
+      [0.7, 0.5, 0.3].forEach((factor, i) => {
+        ctx.beginPath();
+        ctx.arc(c, c, r * factor / 0.35 * 0.35 * (1 - i * 0.25), 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(99,102,241,${0.15 + i * 0.08})`;
+        ctx.lineWidth = Math.max(1, s * 0.012);
+        ctx.stroke();
+      });
+      
+      // Crosshairs
+      ctx.strokeStyle = 'rgba(99,102,241,0.12)';
+      ctx.lineWidth = Math.max(0.5, s * 0.006);
+      ctx.beginPath();
+      ctx.moveTo(s * 0.15, c);
+      ctx.lineTo(s * 0.85, c);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(c, s * 0.15);
+      ctx.lineTo(c, s * 0.85);
+      ctx.stroke();
+      
+      // Sweep line
+      const sweepGrad = ctx.createLinearGradient(c, c, c, c - r);
+      sweepGrad.addColorStop(0, '#6366f1');
+      sweepGrad.addColorStop(1, '#06b6d4');
+      ctx.strokeStyle = sweepGrad;
+      ctx.lineWidth = Math.max(1.5, s * 0.02);
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.moveTo(c, c);
+      ctx.lineTo(c, c - r);
+      ctx.stroke();
+      
+      // Center dot
+      const dotGrad = ctx.createRadialGradient(c, c, 0, c, c, s * 0.05);
+      dotGrad.addColorStop(0, '#818cf8');
+      dotGrad.addColorStop(1, '#6366f1');
+      ctx.beginPath();
+      ctx.arc(c, c, Math.max(2, s * 0.04), 0, Math.PI * 2);
+      ctx.fillStyle = dotGrad;
+      ctx.fill();
+      
+      // Blips (only for larger sizes)
+      if (s >= 32) {
+        const blips = [
+          { x: 0.625, y: 0.33, color: '#10b981', size: 0.028 },
+          { x: 0.375, y: 0.39, color: '#06b6d4', size: 0.02 },
+          { x: 0.59, y: 0.59, color: '#818cf8', size: 0.016 }
+        ];
+        blips.forEach(b => {
+          ctx.beginPath();
+          ctx.arc(s * b.x, s * b.y, Math.max(1.5, s * b.size), 0, Math.PI * 2);
+          ctx.fillStyle = b.color;
+          ctx.globalAlpha = 0.85;
+          ctx.fill();
+          ctx.globalAlpha = 1;
+        });
+      }
+    }
+    
+    // Draw all sizes
+    ['c16', 'c32', 'c48', 'c128'].forEach(id => {
+      drawIcon(document.getElementById(id));
+    });
+    
+    function download(canvasId, filename) {
+      const canvas = document.getElementById(canvasId);
+      const link = document.createElement('a');
+      link.download = filename;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+  </script>
+</body>
+</html>

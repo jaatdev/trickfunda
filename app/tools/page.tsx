@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { PenTool, FileDown, FileArchive, BrainCircuit, Calendar, Calculator, ArrowRight, Stars, Video, DownloadCloud } from 'lucide-react';
+import { PenTool, FileDown, FileArchive, BrainCircuit, Calendar, Calculator, ArrowRight, Stars, Video, DownloadCloud, Radar, Send } from 'lucide-react';
 
 import { MouseTrail } from '@/components/ui/tools/MouseTrail';
 import { MeteorShower } from '@/components/ui/tools/MeteorShower';
@@ -72,12 +72,32 @@ const tools = [
     size: 'normal'
   },
   {
+    title: 'Video Sniffer',
+    description: '1DM-style network interceptor. Detect hidden video streams, capture headers & tokens, and download with full authentication context.',
+    icon: Radar,
+    href: '/tools/video-sniffer',
+    color: 'from-emerald-400 to-cyan-600',
+    delay: 0.4,
+    status: 'Live',
+    size: 'large'
+  },
+  {
+    title: 'Telegram Downloader',
+    description: 'Bypass restricted channel locks. Extract and download media directly using the MTProto API.',
+    icon: Send,
+    href: '/tools/telegram-downloader',
+    color: 'from-blue-400 to-indigo-600',
+    delay: 0.42,
+    status: 'Live',
+    size: 'normal'
+  },
+  {
     title: 'Study Planner',
     description: 'Smart scheduling algorithm to optimize your revision timetables automatically.',
     icon: Calendar,
     href: '#',
     color: 'from-emerald-400 to-teal-600',
-    delay: 0.4,
+    delay: 0.45,
     status: 'Coming Soon',
     size: 'normal'
   },
@@ -87,7 +107,7 @@ const tools = [
     icon: Calculator,
     href: '#',
     color: 'from-yellow-400 to-amber-600',
-    delay: 0.5,
+    delay: 0.55,
     status: 'Coming Soon',
     size: 'normal'
   }
