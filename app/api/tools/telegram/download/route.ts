@@ -103,7 +103,6 @@ export async function POST(req: NextRequest) {
 
           // Stream download directly to file with optimal superfast settings
           let lastUpdate = 0;
-          // @ts-ignore: 'workers' is supported by gramjs runtime but missing from TS definitions
           await client.downloadMedia(message, {
             outputFile: outputPath,
             workers: 8, // 8 is the optimal parallel number (higher causes TCP congestion/slowdowns)
@@ -119,7 +118,7 @@ export async function POST(req: NextRequest) {
                if (tot) percentage = Number(((dl / tot) * 100).toFixed(1));
                send('progress', { downloaded: dl, total: tot, percentage });
             }
-          });
+          } as any);
 
           send('success', 'Download completed successfully!');
           send('done', `/downloads/${filename}`);
