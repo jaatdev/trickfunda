@@ -25,6 +25,20 @@ export type ShapeType = 'rectangle' | 'circle' | 'triangle' | 'line' | 'arrow';
 
 export type Pattern = 'none' | 'grid' | 'dots' | 'lines' | 'isometric' | 'music' | 'cornell';
 
+// TrickFunda branded page theme definition
+export interface TFPageTheme {
+    id: string;
+    name: string;
+    bgColor: string;           // Page background color
+    headerBg: string;          // Header bar background
+    headerAccent: string;      // Accent color (border, brand text)
+    footerBg: string;          // Footer bar background
+    footerText: string;        // Footer text color
+    watermarkColor: string;    // TF shield watermark primary color
+    watermarkSecondary: string; // TF shield secondary color
+    watermarkOpacity: number;  // Watermark opacity (tuned per bg brightness)
+}
+
 export interface StrokeConfig {
     color: string;
     size: number;

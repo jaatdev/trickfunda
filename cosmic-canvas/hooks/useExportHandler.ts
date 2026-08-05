@@ -6,6 +6,7 @@ import { getSvgPathFromStroke } from '@cosmic/utils/ink';
 import { PDF_PAGE_GAP } from '@cosmic/constants/canvas';
 import { loadPdf } from '@cosmic/utils/storage';
 import { Stroke, CanvasImage, TextNode } from '@cosmic/types';
+import { getTFThemeById } from '@cosmic/constants/tfThemes';
 
 function hexToRgb(hex: string) {
     const cleanHex = hex.replace('#', '');
@@ -44,6 +45,10 @@ export const useExportHandler = () => {
                 pdfPageMapping,
                 hiddenPdfPages,
                 canvasBackground,
+                tfPageThemes,
+                tfHeaderBrand,
+                tfHeaderTopic,
+                tfHeaderYoutube,
             } = state;
 
             const pageWidth = canvasDimensions.width;
@@ -101,30 +106,36 @@ export const useExportHandler = () => {
                         copyIndex++;
                     } else {
                         const blankPage = pdfDoc.addPage([targetPdfWidth, targetPdfHeight]);
+                        const theme = tfPageThemes[i] ? getTFThemeById(tfPageThemes[i]) : null;
+                        const pageBg = theme ? hexToRgb(theme.bgColor) : bgColor;
                         blankPage.drawRectangle({
                             x: 0,
                             y: 0,
                             width: targetPdfWidth,
                             height: targetPdfHeight,
-                            color: bgColor,
+                            color: pageBg,
                         });
                     }
                 }
             } else {
                 for (let i = 0; i < pageCount; i++) {
                     const blankPage = pdfDoc.addPage([pageWidth, pageHeight]);
+                    const theme = tfPageThemes[i] ? getTFThemeById(tfPageThemes[i]) : null;
+                    const pageBg = theme ? hexToRgb(theme.bgColor) : bgColor;
                     blankPage.drawRectangle({
                         x: 0,
                         y: 0,
                         width: pageWidth,
                         height: pageHeight,
-                        color: bgColor,
+                        color: pageBg,
                     });
                 }
             }
 
             const pages = pdfDoc.getPages();
             const helveticaFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
+            const helveticaBoldFont = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
+            const timesBoldFont = await pdfDoc.embedFont(StandardFonts.TimesRomanBold);
 
             // Load Watermarks
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -358,33 +369,245 @@ export const useExportHandler = () => {
                     }
                 }
 
-                // --- Add Watermarks ---
-                if (leftLogoEmbed) {
-                    const leftLogoWidth = 100;
-                    const leftLogoHeight = 100;
-                    const paddingLeft = 20;
-                    const paddingBottom = 20;
-                    
-                    page.drawImage(leftLogoEmbed, {
-                        x: paddingLeft,
-                        y: paddingBottom,
-                        width: leftLogoWidth,
-                        height: leftLogoHeight,
-                    });
-                }
+                // --- Add Watermarks / TF Branding ---
+                const tfThemeId = tfPageThemes ? tfPageThemes[i] : null;
+                const theme = tfThemeId ? getTFThemeById(tfThemeId) : null;
 
-                if (watermarkEmbed) {
-                    const watermarkWidth = 160;
-                    const watermarkHeight = 45;
-                    const paddingRight = 0;
-                    const paddingBottom = 0;
-                    
-                    page.drawImage(watermarkEmbed, {
-                        x: pdfPageWidth - paddingRight - watermarkWidth,
-                        y: paddingBottom,
-                        width: watermarkWidth,
-                        height: watermarkHeight,
+                if (theme) {
+                    const HEADER_HEIGHT = 50;
+                    const FOOTER_HEIGHT = 28;
+
+                    // Header Bg
+                    page.drawRectangle({
+                        x: 0,
+                        y: pdfPageHeight - HEADER_HEIGHT,
+                        width: pdfPageWidth,
+                        height: HEADER_HEIGHT,
+                        color: hexToRgb(theme.headerBg),
                     });
+                    
+                    // Header Accent Line
+                    page.drawRectangle({
+                        x: 0,
+                        y: pdfPageHeight - HEADER_HEIGHT - 3,
+                        width: pdfPageWidth,
+                        height: 3,
+                        color: hexToRgb(theme.headerAccent),
+                    });
+
+                    // Footer Bg
+                    page.drawRectangle({
+                        x: 0,
+                        y: 0,
+                        width: pdfPageWidth,
+                        height: FOOTER_HEIGHT,
+                        color: hexToRgb(theme.footerBg),
+                    });
+
+                    // Left Logo
+                    if (leftLogoEmbed) {
+                        page.drawImage(leftLogoEmbed, {
+                            x: 20,
+                            y: pdfPageHeight - 44,
+                            width: 38,
+                            height: 38,
+                        });
+                    }
+
+                    // Brand Text
+                    const stripEmojis = (str: string) => str.replace(/[\u1000-\uFFFF]+/g, '').trim();
+                    const brandTxt = stripEmojis(tfHeaderBrand || "TrickFunda");
+                    try {
+                        page.drawText(brandTxt, {
+                            x: 68,
+                            y: pdfPageHeight - 32,
+                            size: 18,
+                            font: helveticaFont,
+                            color: hexToRgb(theme.headerAccent),
+                        });
+                    } catch(e) {}
+
+                    // Topic Text
+                    if (tfHeaderTopic) {
+                        try {
+                            const safeTopic = stripEmojis(tfHeaderTopic);
+                            const topicWidth = helveticaFont.widthOfTextAtSize(safeTopic, 18);
+                            page.drawText(safeTopic, {
+                                x: (pdfPageWidth - topicWidth) / 2,
+                                y: pdfPageHeight - 32,
+                                size: 18,
+                                font: helveticaFont,
+                                color: hexToRgb(theme.headerAccent),
+                            });
+                        } catch(e) {}
+                    }
+
+                    // Youtube Text
+                    const ytText = stripEmojis(tfHeaderYoutube || "youtube.com/@TrickFunda");
+                    try {
+                        const ytWidth = helveticaFont.widthOfTextAtSize(ytText, 12);
+                        
+                        // Youtube Logo SVG
+                        const ytLogoPath = 'M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z';
+                        page.drawSvgPath(ytLogoPath, {
+                            x: pdfPageWidth - 20 - ytWidth - 28, // 28px padding for logo
+                            y: pdfPageHeight - 13, // Top of SVG bounding box (y-down)
+                            color: rgb(1, 0, 0),
+                            scale: 0.8, // 24x24 slightly scaled down
+                        });
+
+                        page.drawText(ytText, {
+                            x: pdfPageWidth - 20 - ytWidth,
+                            y: pdfPageHeight - 30,
+                            size: 12,
+                            font: helveticaFont,
+                            color: rgb(0.8, 0.8, 0.8),
+                        });
+                    } catch(e) {}
+
+                    // Footer Text
+                    const footerText = "TrickFunda | Smart Learning Platform";
+                    try {
+                        const fWidth = helveticaFont.widthOfTextAtSize(footerText, 10);
+                        page.drawText(footerText, {
+                            x: (pdfPageWidth - fWidth) / 2,
+                            y: 10,
+                            size: 10,
+                            font: helveticaFont,
+                            color: hexToRgb(theme.footerText),
+                        });
+                    } catch(e) {}
+
+                    // Center Watermark (Shield Logo)
+                    try {
+                        const wmOpacity = theme.watermarkOpacity;
+                        
+                        // 1. Outer Glow Ring
+                        page.drawEllipse({
+                            x: pdfPageWidth / 2,
+                            y: pdfPageHeight / 2,
+                            xScale: 170, // 340 / 2
+                            yScale: 200, // 400 / 2
+                            borderColor: hexToRgb(theme.watermarkColor),
+                            borderWidth: 3,
+                            color: undefined,
+                            borderOpacity: wmOpacity,
+                        });
+
+                        // 2. Outer Shield Shape
+                        const outerShieldPath = 'M 140 0 L 280 26.4 L 280 181.5 L 238 247.5 L 140 330 L 42 247.5 L 0 181.5 L 0 26.4 Z';
+                        page.drawSvgPath(outerShieldPath, {
+                            x: pdfPageWidth / 2 - 140,
+                            y: pdfPageHeight / 2 + 165,
+                            color: hexToRgb(theme.watermarkSecondary),
+                            opacity: wmOpacity * 0.5,
+                        });
+
+                        // 3. Inner Shield Shape
+                        const innerShieldPath = 'M 125 0 L 250 23.68 L 250 162.8 L 212.5 222 L 125 296 L 37.5 222 L 0 162.8 L 0 23.68 Z';
+                        page.drawSvgPath(innerShieldPath, {
+                            x: pdfPageWidth / 2 - 125,
+                            y: pdfPageHeight / 2 + 148,
+                            color: hexToRgb(theme.watermarkColor),
+                            opacity: wmOpacity * 0.8,
+                        });
+
+                        // 4. Top Divider
+                        page.drawRectangle({
+                            x: pdfPageWidth / 2 - 60,
+                            y: pdfPageHeight / 2 + 82,
+                            width: 120,
+                            height: 2,
+                            color: hexToRgb(theme.watermarkColor),
+                            opacity: wmOpacity * 0.7,
+                        });
+
+                        // 5. Top Stars
+                        const starPath = 'M 5 0 L 6.5 3.1 L 10 3.6 L 7.5 6 L 8 9.5 L 5 7.8 L 2 9.5 L 2.5 6 L 0 3.6 L 3.5 3.1 Z';
+                        const drawStar = (xOff: number, yPos: number) => {
+                            page.drawSvgPath(starPath, {
+                                x: pdfPageWidth / 2 + xOff,
+                                y: yPos,
+                                color: hexToRgb(theme.watermarkColor),
+                                opacity: wmOpacity * 0.8,
+                                scale: 1.5,
+                            });
+                        };
+                        drawStar(-35, pdfPageHeight / 2 + 75);
+                        drawStar(-7.5, pdfPageHeight / 2 + 75);
+                        drawStar(20, pdfPageHeight / 2 + 75);
+
+                        // 6. TF Letters
+                        const wmText1 = "TF";
+                        const wmSize1 = 100;
+                        const w1 = timesBoldFont.widthOfTextAtSize(wmText1, wmSize1);
+                        page.drawText(wmText1, {
+                            x: (pdfPageWidth - w1) / 2,
+                            y: pdfPageHeight / 2 - 20, // Centered vertically in shield
+                            size: wmSize1,
+                            font: timesBoldFont,
+                            color: hexToRgb(theme.watermarkColor),
+                            opacity: wmOpacity * 1.5,
+                        });
+
+                        // 7. TRICKFUNDA Text
+                        const wmText2 = "TRICKFUNDA";
+                        const wmSize2 = 18;
+                        const w2 = helveticaBoldFont.widthOfTextAtSize(wmText2, wmSize2);
+                        page.drawText(wmText2, {
+                            x: (pdfPageWidth - w2) / 2,
+                            y: pdfPageHeight / 2 - 50,
+                            size: wmSize2,
+                            font: helveticaBoldFont,
+                            color: hexToRgb(theme.watermarkColor),
+                            opacity: wmOpacity * 1.5,
+                        });
+
+                        // 8. Bottom Stars
+                        drawStar(-35, pdfPageHeight / 2 - 70);
+                        drawStar(-7.5, pdfPageHeight / 2 - 70);
+                        drawStar(20, pdfPageHeight / 2 - 70);
+
+                        // 9. Bottom Divider
+                        page.drawRectangle({
+                            x: pdfPageWidth / 2 - 60,
+                            y: pdfPageHeight / 2 - 95,
+                            width: 120,
+                            height: 2,
+                            color: hexToRgb(theme.watermarkColor),
+                            opacity: wmOpacity * 0.7,
+                        });
+                    } catch(e) {}
+
+                } else {
+                    // Standard Watermarks (Non-TF Page)
+                    if (leftLogoEmbed) {
+                        const leftLogoWidth = 100;
+                        const leftLogoHeight = 100;
+                        const paddingLeft = 20;
+                        const paddingBottom = 20;
+                        
+                        page.drawImage(leftLogoEmbed, {
+                            x: paddingLeft,
+                            y: paddingBottom,
+                            width: leftLogoWidth,
+                            height: leftLogoHeight,
+                        });
+                    }
+
+                    if (watermarkEmbed) {
+                        const watermarkWidth = 160;
+                        const watermarkHeight = 45;
+                        const paddingRight = 0;
+                        const paddingBottom = 0;
+                        
+                        page.drawImage(watermarkEmbed, {
+                            x: pdfPageWidth - paddingRight - watermarkWidth,
+                            y: paddingBottom,
+                            width: watermarkWidth,
+                            height: watermarkHeight,
+                        });
+                    }
                 }
             }
 

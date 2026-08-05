@@ -3,6 +3,7 @@
 import { useStore } from '@cosmic/store/useStore';
 import { Pattern } from '@cosmic/types';
 import { PDF_PAGE_GAP } from '@cosmic/constants/canvas';
+import { getTFThemeById } from '@cosmic/constants/tfThemes';
 
 import { useMemo } from 'react';
 
@@ -33,7 +34,7 @@ function getPatternColor(backgroundColor: string): string {
  * Supports grid, dots, ruled lines, isometric, music staves, and Cornell notes.
  */
 export default function BackgroundLayer() {
-    const { canvasBackground, canvasPattern, canvasDimensions, pageCount, currentPage, isOverlayMode } = useStore();
+    const { canvasBackground, canvasPattern, canvasDimensions, pageCount, currentPage, isOverlayMode, tfPageThemes } = useStore();
     const patternColor = getPatternColor(canvasBackground);
 
     if (isOverlayMode) return null;
@@ -191,7 +192,12 @@ export default function BackgroundLayer() {
                         }}
                     >
                         {/* Background Color */}
-                        <rect width="100%" height={pageHeight} fill={canvasBackground} />
+                        {(() => {
+                            const tfThemeId = tfPageThemes[i];
+                            const tfTheme = tfThemeId ? getTFThemeById(tfThemeId) : null;
+                            const bgColor = tfTheme ? tfTheme.bgColor : canvasBackground;
+                            return <rect width="100%" height={pageHeight} fill={bgColor} />;
+                        })()}
 
                         {/* Pattern Overlay */}
                         {canvasPattern !== 'none' && (

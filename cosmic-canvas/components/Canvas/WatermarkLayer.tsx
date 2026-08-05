@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { PDF_PAGE_GAP } from '@cosmic/constants/canvas';
+import { useStore } from '@cosmic/store/useStore';
 
 interface WatermarkLayerProps {
     pageCount: number;
@@ -10,6 +11,7 @@ interface WatermarkLayerProps {
 }
 
 export default function WatermarkLayer({ pageCount, pageHeight, pageWidth }: WatermarkLayerProps) {
+    const { tfPageThemes } = useStore();
     const leftLogoWidth = 100;
     const leftLogoHeight = 100;
     const paddingLeft = 20;
@@ -23,6 +25,9 @@ export default function WatermarkLayer({ pageCount, pageHeight, pageWidth }: Wat
     return (
         <div style={{ position: 'absolute', inset: 0, zIndex: 20, pointerEvents: 'none' }}>
             {Array.from({ length: pageCount }).map((_, i) => {
+                // Skip TF-themed pages — TFBrandingLayer handles their branding
+                if (tfPageThemes[i]) return null;
+
                 const pageTop = i * (pageHeight + PDF_PAGE_GAP);
                 return (
                     <React.Fragment key={i}>

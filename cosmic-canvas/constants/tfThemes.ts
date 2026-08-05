@@ -1,0 +1,137 @@
+import { TFPageTheme } from '@cosmic/types';
+
+/**
+ * 10 TrickFunda Teaching Page Theme Variants
+ * 
+ * Each theme is carefully designed for optimal readability during teaching,
+ * with watermark colors tuned for visibility against the background.
+ */
+export const TF_PAGE_THEMES: TFPageTheme[] = [
+    {
+        id: 'classic-white',
+        name: 'Classic White',
+        bgColor: '#ffffff',
+        headerBg: '#0f172a',
+        headerAccent: '#ff4500',
+        footerBg: '#0f172a',
+        footerText: '#64748b',
+        watermarkColor: '#b8860b',
+        watermarkSecondary: '#daa520',
+        watermarkOpacity: 0.25,
+    },
+    {
+        id: 'cream-scholar',
+        name: 'Cream Scholar',
+        bgColor: '#fdf6e3',
+        headerBg: '#3c2a1a',
+        headerAccent: '#d97706',
+        footerBg: '#3c2a1a',
+        footerText: '#a08060',
+        watermarkColor: '#c4956a',
+        watermarkSecondary: '#d4a574',
+        watermarkOpacity: 0.25,
+    },
+    {
+        id: 'mint-fresh',
+        name: 'Mint Fresh',
+        bgColor: '#f0fdf4',
+        headerBg: '#064e3b',
+        headerAccent: '#10b981',
+        footerBg: '#064e3b',
+        footerText: '#6ee7b7',
+        watermarkColor: '#86efac',
+        watermarkSecondary: '#4ade80',
+        watermarkOpacity: 0.25,
+    },
+    {
+        id: 'ocean-blue',
+        name: 'Ocean Blue',
+        bgColor: '#eff6ff',
+        headerBg: '#1e3a5f',
+        headerAccent: '#3b82f6',
+        footerBg: '#1e3a5f',
+        footerText: '#93c5fd',
+        watermarkColor: '#93c5fd',
+        watermarkSecondary: '#60a5fa',
+        watermarkOpacity: 0.25,
+    },
+    {
+        id: 'lavender-dream',
+        name: 'Lavender Dream',
+        bgColor: '#faf5ff',
+        headerBg: '#3b1f6e',
+        headerAccent: '#8b5cf6',
+        footerBg: '#3b1f6e',
+        footerText: '#c4b5fd',
+        watermarkColor: '#c4b5fd',
+        watermarkSecondary: '#a78bfa',
+        watermarkOpacity: 0.25,
+    },
+    {
+        id: 'sunset-coral',
+        name: 'Sunset Coral',
+        bgColor: '#fff7ed',
+        headerBg: '#7c2d12',
+        headerAccent: '#f97316',
+        footerBg: '#7c2d12',
+        footerText: '#fdba74',
+        watermarkColor: '#fdba74',
+        watermarkSecondary: '#fb923c',
+        watermarkOpacity: 0.25,
+    },
+    {
+        id: 'rose-blush',
+        name: 'Rose Blush',
+        bgColor: '#fff1f2',
+        headerBg: '#6e1a2a',
+        headerAccent: '#f43f5e',
+        footerBg: '#6e1a2a',
+        footerText: '#fda4af',
+        watermarkColor: '#fda4af',
+        watermarkSecondary: '#fb7185',
+        watermarkOpacity: 0.25,
+    },
+    {
+        id: 'slate-pro',
+        name: 'Slate Pro',
+        bgColor: '#f8fafc',
+        headerBg: '#0f172a',
+        headerAccent: '#64748b',
+        footerBg: '#0f172a',
+        footerText: '#94a3b8',
+        watermarkColor: '#94a3b8',
+        watermarkSecondary: '#cbd5e1',
+        watermarkOpacity: 0.22,
+    },
+    {
+        id: 'dark-chalk',
+        name: 'Dark Chalk',
+        bgColor: '#1e1e2e',
+        headerBg: '#0a0a14',
+        headerAccent: '#22d3ee',
+        footerBg: '#0a0a14',
+        footerText: '#164e63',
+        watermarkColor: '#164e63',
+        watermarkSecondary: '#0e7490',
+        watermarkOpacity: 0.28,
+    },
+    {
+        id: 'midnight-neon',
+        name: 'Midnight Neon',
+        bgColor: '#0f0f1a',
+        headerBg: '#0a0a10',
+        headerAccent: '#a855f7',
+        footerBg: '#0a0a10',
+        footerText: '#2e1065',
+        watermarkColor: '#2e1065',
+        watermarkSecondary: '#7c3aed',
+        watermarkOpacity: 0.35,
+    },
+];
+
+/** Lookup a theme by ID */
+export const getTFThemeById = (id: string): TFPageTheme | undefined =>
+    TF_PAGE_THEMES.find(t => t.id === id);
+
+/** Default theme (Classic White — matches quiz slide style) */
+export const DEFAULT_TF_THEME = TF_PAGE_THEMES[0];

@@ -22,6 +22,11 @@ export interface PersistedState {
     documentId?: string | null;
     pdfPageMapping?: (number | null)[];
     canvasDimensions?: { width: number, height: number };
+    tfPageThemes?: Record<number, string>;  // Maps page index → TF theme ID
+    defaultTFThemeId?: string | null;
+    tfHeaderBrand?: string;
+    tfHeaderTopic?: string;
+    tfHeaderYoutube?: string;
 }
 
 /**

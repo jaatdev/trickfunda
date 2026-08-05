@@ -1,11 +1,11 @@
 import { create } from 'zustand';
-import { Point, Stroke, Tool, Pattern, CanvasImage, ActionItem, ShapeType, TextNode } from '@cosmic/types';
+import { Point, Stroke, Tool, Pattern, CanvasImage, ActionItem, ShapeType, TextNode, TFPageTheme } from '@cosmic/types';
 import { PAGE_WIDTH, PDF_PAGE_GAP } from '@cosmic/constants/canvas';
 import { loadState, saveState, clearState, PersistedState } from '@cosmic/utils/storage';
 import { rotatePoint } from '@cosmic/utils/geometry';
 
 // Re-export types for convenience
-export type { Point, Stroke, Tool, Pattern, CanvasImage, ActionItem, ShapeType, TextNode };
+export type { Point, Stroke, Tool, Pattern, CanvasImage, ActionItem, ShapeType, TextNode, TFPageTheme };
 
 // Generate unique ID
 const generateId = () => `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
@@ -68,6 +68,13 @@ interface CanvasState {
 
     // Overlay Mode
     isOverlayMode: boolean;
+
+    // TrickFunda Page Themes
+    tfPageThemes: Record<number, string>;  // Maps page index → theme ID
+    defaultTFThemeId: string | null;       // Automatically applies this theme to new pages
+    tfHeaderBrand: string;
+    tfHeaderTopic: string;
+    tfHeaderYoutube: string;
 
     // Smart Mode
 
@@ -166,6 +173,15 @@ interface CanvasState {
 
     setIsOverlayMode: (value: boolean) => void;
 
+    // TF Page Actions
+    insertTFPage: (pageIndex: number, themeId: string) => void;
+    setTFPageTheme: (pageIndex: number, themeId: string) => void;
+    removeTFPageTheme: (pageIndex: number) => void;
+    setTFHeaderBrand: (brand: string) => void;
+    setTFHeaderTopic: (topic: string) => void;
+    setTFHeaderYoutube: (youtube: string) => void;
+    setDefaultTFThemeId: (themeId: string | null) => void;
+
     // Computed helpers
     canUndo: () => boolean;
     canRedo: () => boolean;
@@ -235,6 +251,13 @@ export const useStore = create<CanvasState>((set, get) => ({
     // Overlay Mode
     isOverlayMode: false,
     setIsOverlayMode: (value: boolean) => set({ isOverlayMode: value }),
+
+    // TrickFunda Defaults
+    tfPageThemes: {},
+    defaultTFThemeId: null,
+    tfHeaderBrand: '🎯 TrickFunda',
+    tfHeaderTopic: '',
+    tfHeaderYoutube: 'youtube.com/@TrickFunda',
 
     isSmartShapeEnabled: false,
     setIsSmartShapeEnabled: (value: boolean) => set({ isSmartShapeEnabled: value }),
@@ -814,12 +837,29 @@ export const useStore = create<CanvasState>((set, get) => ({
             newMapping.splice(pageIndex + 1, 0, null);
         }
 
+        // Shift TF page themes: entries at pageIndex+1 and beyond need their index incremented
+        const oldThemes = state.tfPageThemes;
+        const newThemes: Record<number, string> = {};
+        for (const [key, val] of Object.entries(oldThemes)) {
+            const idx = Number(key);
+            if (idx > pageIndex) {
+                newThemes[idx + 1] = val;
+            } else {
+                newThemes[idx] = val;
+            }
+        }
+        
+        if (state.defaultTFThemeId) {
+            newThemes[pageIndex + 1] = state.defaultTFThemeId;
+        }
+
         set({
             pageCount: state.pageCount + 1,
             strokes: newStrokes,
             images: newImages,
             textNodes: newTextNodes,
             pdfPageMapping: newMapping,
+            tfPageThemes: newThemes,
             historyStack: [
                 ...state.historyStack,
                 {
@@ -895,12 +935,26 @@ export const useStore = create<CanvasState>((set, get) => ({
             newMapping.splice(pageIndex, 1);
         }
 
+        // Clean up TF page themes: remove the deleted page, shift remaining
+        const oldThemes = state.tfPageThemes;
+        const newThemes: Record<number, string> = {};
+        for (const [key, val] of Object.entries(oldThemes)) {
+            const idx = Number(key);
+            if (idx === pageIndex) continue; // Remove deleted page
+            if (idx > pageIndex) {
+                newThemes[idx - 1] = val;
+            } else {
+                newThemes[idx] = val;
+            }
+        }
+
         set({
             pageCount: state.pageCount - 1,
             strokes: newStrokes,
             images: newImages,
             textNodes: newTextNodes,
             pdfPageMapping: newMapping,
+            tfPageThemes: newThemes,
             historyStack: [
                 ...state.historyStack,
                 {
@@ -1018,9 +1072,15 @@ export const useStore = create<CanvasState>((set, get) => ({
                 ? [...baseMapping, null] 
                 : [];
                 
+            const newThemes = { ...state.tfPageThemes };
+            if (state.defaultTFThemeId) {
+                newThemes[state.pageCount] = state.defaultTFThemeId;
+            }
+                
             return {
                 pageCount: state.pageCount + 1,
-                pdfPageMapping: newMapping
+                pdfPageMapping: newMapping,
+                tfPageThemes: newThemes
             };
         });
     },
@@ -1546,6 +1606,103 @@ export const useStore = create<CanvasState>((set, get) => ({
         pageCount: 1, // Reset to single page
     }),
 
+    // Insert a TrickFunda branded page after the given page index
+    insertTFPage: (pageIndex, themeId) => {
+        const state = get();
+        // Calculate threshold including gaps between pages
+        const singlePageTotal = state.pageHeight + PDF_PAGE_GAP;
+        const insertThreshold = (pageIndex + 1) * singlePageTotal;
+        const shiftAmount = singlePageTotal;
+
+        // Shift strokes
+        const newStrokes = state.strokes.map(stroke => {
+            if (stroke.points[0].y >= insertThreshold) {
+                return {
+                    ...stroke,
+                    points: stroke.points.map(p => ({ ...p, y: p.y + shiftAmount }))
+                };
+            }
+            return stroke;
+        });
+
+        // Shift images
+        const newImages = state.images.map(img => {
+            if (img.y >= insertThreshold) {
+                return { ...img, y: img.y + shiftAmount };
+            }
+            return img;
+        });
+
+        // Shift text nodes
+        const newTextNodes = state.textNodes.map(node => {
+            if (node.y >= insertThreshold) {
+                return { ...node, y: node.y + shiftAmount };
+            }
+            return node;
+        });
+
+        // Update PDF page mapping
+        let newMapping = state.pdfPageMapping.length > 0 
+            ? [...state.pdfPageMapping] 
+            : (state.documentId ? Array.from({ length: state.pageCount }, (_, i) => i + 1) : []);
+        if (newMapping.length > 0) {
+            newMapping.splice(pageIndex + 1, 0, null);
+        }
+
+        // Shift existing TF themes and add new one
+        const oldThemes = state.tfPageThemes;
+        const newThemes: Record<number, string> = {};
+        for (const [key, val] of Object.entries(oldThemes)) {
+            const idx = Number(key);
+            if (idx > pageIndex) {
+                newThemes[idx + 1] = val;
+            } else {
+                newThemes[idx] = val;
+            }
+        }
+        newThemes[pageIndex + 1] = themeId; // Set theme for the new page
+
+        set({
+            pageCount: state.pageCount + 1,
+            strokes: newStrokes,
+            images: newImages,
+            textNodes: newTextNodes,
+            pdfPageMapping: newMapping,
+            tfPageThemes: newThemes,
+            historyStack: [
+                ...state.historyStack,
+                {
+                    type: 'page_op',
+                    operation: 'insert',
+                    pageIndex: pageIndex + 1
+                }
+            ],
+            redoStack: []
+        });
+    },
+    
+    setDefaultTFThemeId: (themeId) => set({ defaultTFThemeId: themeId }),
+
+    // Set or change the TF theme for an existing page
+    setTFPageTheme: (pageIndex, themeId) => {
+        set((state) => ({
+            tfPageThemes: { ...state.tfPageThemes, [pageIndex]: themeId }
+        }));
+    },
+
+    // Remove TF theme from a page (revert to normal)
+    removeTFPageTheme: (pageIndex) => {
+        set((state) => {
+            const newThemes = { ...state.tfPageThemes };
+            delete newThemes[pageIndex];
+            return { tfPageThemes: newThemes };
+        });
+    },
+
+    setTFHeaderBrand: (tfHeaderBrand) => set({ tfHeaderBrand }),
+    setTFHeaderTopic: (tfHeaderTopic) => set({ tfHeaderTopic }),
+    setTFHeaderYoutube: (tfHeaderYoutube) => set({ tfHeaderYoutube }),
+
     // Persistence actions
     loadProject: async () => {
         const savedState = await loadState();
@@ -1565,6 +1722,11 @@ export const useStore = create<CanvasState>((set, get) => ({
                 documentId: savedState.documentId || null,
                 pdfPageMapping: savedState.pdfPageMapping || (savedState.documentId ? Array.from({ length: savedState.pageCount || 1 }, (_, i) => i + 1) : []),
                 canvasDimensions: savedState.canvasDimensions || { width: 800, height: 1131 }, // Fallback A4
+                tfPageThemes: savedState.tfPageThemes || {},
+                defaultTFThemeId: savedState.defaultTFThemeId || null,
+                tfHeaderBrand: savedState.tfHeaderBrand ?? '🎯 TrickFunda',
+                tfHeaderTopic: savedState.tfHeaderTopic ?? '',
+                tfHeaderYoutube: savedState.tfHeaderYoutube ?? 'youtube.com/@TrickFunda',
                 // Clear history on load (fresh start)
                 historyStack: [],
                 redoStack: [],
@@ -1595,6 +1757,11 @@ export const useStore = create<CanvasState>((set, get) => ({
             documentId: null,
             pdfPageMapping: [],
             canvasDimensions: { width: 800, height: 1131 }, // Standard A4
+            tfPageThemes: {},
+            defaultTFThemeId: null,
+            tfHeaderBrand: '🎯 TrickFunda',
+            tfHeaderTopic: '',
+            tfHeaderYoutube: 'youtube.com/@TrickFunda',
         });
     },
 
@@ -1615,6 +1782,11 @@ export const useStore = create<CanvasState>((set, get) => ({
             documentId: state.documentId,
             pdfPageMapping: state.pdfPageMapping,
             canvasDimensions: state.canvasDimensions,
+            tfPageThemes: state.tfPageThemes,
+            defaultTFThemeId: state.defaultTFThemeId,
+            tfHeaderBrand: state.tfHeaderBrand,
+            tfHeaderTopic: state.tfHeaderTopic,
+            tfHeaderYoutube: state.tfHeaderYoutube,
         };
     },
 
@@ -1703,11 +1875,28 @@ export const useStore = create<CanvasState>((set, get) => ({
             });
         };
 
+        // Reorder TF page themes
+        const oldThemes = state.tfPageThemes;
+        const newThemes: Record<number, string> = {};
+        for (const [key, val] of Object.entries(oldThemes)) {
+            const idx = Number(key);
+            let newIdx = idx;
+            if (idx === fromIndex) {
+                newIdx = toIndex;
+            } else if (fromIndex < toIndex && idx > fromIndex && idx <= toIndex) {
+                newIdx = idx - 1;
+            } else if (fromIndex > toIndex && idx >= toIndex && idx < fromIndex) {
+                newIdx = idx + 1;
+            }
+            newThemes[newIdx] = val;
+        }
+
         set({
             pdfPageMapping: newMapping,
             strokes: shiftStrokes(state.strokes),
             images: shiftElements(state.images),
-            textNodes: shiftElements(state.textNodes)
+            textNodes: shiftElements(state.textNodes),
+            tfPageThemes: newThemes,
         });
     },
 

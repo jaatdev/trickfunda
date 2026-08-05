@@ -3,6 +3,7 @@
 import { useStore, CanvasImage, ShapeType, Pattern } from '@cosmic/store/useStore';
 import { useExportHandler } from '@cosmic/hooks/useExportHandler';
 import { PAGE_HEIGHT, PAGE_WIDTH } from '@cosmic/constants/canvas';
+import { TF_PAGE_THEMES } from '@cosmic/constants/tfThemes';
 import {
     Pencil,
     Eraser,
@@ -38,12 +39,13 @@ import {
     Highlighter,
     BookOpen,
     LayoutGrid,
-    Wand2
+    Wand2,
+    Sparkles
 } from 'lucide-react';
 import Link from 'next/link';
 import { useRef, useState, useEffect, useCallback } from 'react';
 
-type ActivePanel = 'none' | 'pen' | 'eraser' | 'bg' | 'zoom' | 'shape' | 'text' | 'highlighter';
+type ActivePanel = 'none' | 'pen' | 'eraser' | 'bg' | 'zoom' | 'shape' | 'text' | 'highlighter' | 'tfpage';
 
 // Smart Scale: Calculate dimensions to fit viewport
 const calculateSmartScale = (
@@ -136,6 +138,9 @@ export default function Toolbar() {
         fitToScreen,
         setIsGridView,
         isOverlayMode,
+        insertTFPage,
+        defaultTFThemeId,
+        setDefaultTFThemeId,
     } = useStore();
 
     const penColorRef = useRef<HTMLInputElement>(null);
@@ -144,6 +149,11 @@ export default function Toolbar() {
     const panelTimerRef = useRef<NodeJS.Timeout | null>(null);
 
     const [activePanel, setActivePanel] = useState<ActivePanel>('none');
+    const [isDefaultMode, setIsDefaultMode] = useState(!!defaultTFThemeId);
+
+    useEffect(() => {
+        setIsDefaultMode(!!defaultTFThemeId);
+    }, [defaultTFThemeId]);
     const { handleExport, isExporting } = useExportHandler();
 
     const isPen = currentTool === 'pen';
@@ -694,6 +704,97 @@ export default function Toolbar() {
                     </>
                 )}
 
+                {/* TrickFunda Page Theme Panel */}
+                {activePanel === 'tfpage' && (
+                    <>
+                        <div className="flex items-center justify-between mb-3">
+                            <div className="flex items-center gap-2">
+                                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                                <span className="text-xs text-white/60 uppercase tracking-wider font-medium">TF Teaching Page</span>
+                            </div>
+                            <button
+                                onClick={() => setActivePanel('none')}
+                                className="p-1 rounded-lg hover:bg-white/10 transition-colors"
+                            >
+                                <X className="w-3 h-3 text-white/40" />
+                            </button>
+                        </div>
+
+                        <div className="flex items-center gap-2 mb-3 px-1">
+                            <input
+                                type="checkbox"
+                                id="setAsDefaultTheme"
+                                className="w-3.5 h-3.5 rounded border-white/20 bg-white/10 text-amber-500 focus:ring-amber-500/50 cursor-pointer"
+                                checked={isDefaultMode}
+                                onChange={(e) => {
+                                    setIsDefaultMode(e.target.checked);
+                                    if (!e.target.checked) {
+                                        setDefaultTFThemeId(null);
+                                    }
+                                }}
+                            />
+                            <label htmlFor="setAsDefaultTheme" className="text-[10px] text-white/60 cursor-pointer select-none leading-none">
+                                Set chosen theme as default for all new pages
+                            </label>
+                        </div>
+                        
+                        <p className="text-[10px] text-white/40 mb-3 px-1">Pick a color theme — inserts a branded page after Page {currentPage}</p>
+
+                        <div className="flex overflow-x-auto gap-3 pb-2 scrollbar-hide max-w-[400px]" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                            {TF_PAGE_THEMES.map((theme) => (
+                                <button
+                                    key={theme.id}
+                                    onClick={() => {
+                                        if (isDefaultMode) {
+                                            setDefaultTFThemeId(theme.id);
+                                        }
+                                        insertTFPage(currentPage - 1, theme.id);
+                                        setActivePanel('none');
+                                    }}
+                                    className={`group relative flex flex-col items-center gap-1 p-2 rounded-xl
+                                        transition-all hover:scale-110 flex-shrink-0
+                                        border ${defaultTFThemeId === theme.id ? 'bg-amber-500/20 border-amber-500/50' : 'bg-white/5 border-white/10 hover:border-white/30 hover:bg-white/15'}`}
+                                    title={theme.name}
+                                >
+                                    {/* Theme Preview Swatch */}
+                                    <div
+                                        className="w-14 h-16 rounded-xl border-2 transition-all shadow-sm"
+                                        style={{
+                                            backgroundColor: theme.bgColor,
+                                            borderColor: theme.headerAccent,
+                                            boxShadow: `0 0 6px ${theme.headerAccent}40`,
+                                        }}
+                                    >
+                                        {/* Mini header bar */}
+                                        <div
+                                            className="w-full h-2 rounded-t-[9px]"
+                                            style={{ backgroundColor: theme.headerBg }}
+                                        />
+                                        {/* Mini TF text */}
+                                        <div className="flex items-center justify-center h-[calc(100%-8px)]">
+                                            <span
+                                                style={{
+                                                    fontSize: 10,
+                                                    fontWeight: 900,
+                                                    color: theme.watermarkColor,
+                                                    opacity: 0.4,
+                                                    fontFamily: 'serif',
+                                                }}
+                                            >
+                                                TF
+                                            </span>
+                                        </div>
+                                    </div>
+                                    {/* Theme Name */}
+                                    <span className="text-[10px] text-white/40 group-hover:text-white/70 transition-colors text-center leading-tight mt-1 whitespace-nowrap">
+                                        {theme.name}
+                                    </span>
+                                </button>
+                            ))}
+                        </div>
+                    </>
+                )}
+
             </div>
         );
     };
@@ -841,6 +942,18 @@ export default function Toolbar() {
                     title={`Insert Page After Page ${currentPage}`}
                 >
                     <FilePlus className="w-4 h-4 text-white/60" />
+                </button>
+
+                {/* TF Branded Page */}
+                <button
+                    onClick={() => setActivePanel(activePanel === 'tfpage' ? 'none' : 'tfpage')}
+                    className={`relative p-3 sm:p-2 touch-manipulation rounded-xl transition-all hover:scale-110 ${activePanel === 'tfpage'
+                        ? 'bg-amber-500/30 ring-2 ring-amber-400/50'
+                        : 'bg-white/5 hover:bg-amber-500/20'
+                        }`}
+                    title="Insert TrickFunda Teaching Page"
+                >
+                    <Sparkles className={`w-4 h-4 ${activePanel === 'tfpage' ? 'text-amber-300' : 'text-white/60 hover:text-amber-400'}`} />
                 </button>
 
                 <button

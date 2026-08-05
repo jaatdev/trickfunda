@@ -15,6 +15,7 @@ import { Point, Stroke, CanvasImage } from '@cosmic/types';
 import { PAGE_HEIGHT, PAGE_WIDTH, PDF_PAGE_GAP } from '@cosmic/constants/canvas';
 import BackgroundLayer from './BackgroundLayer';
 import ObjectLayer from './ObjectLayer';
+import TFBrandingLayer from './TFBrandingLayer';
 import TextLayer from './TextLayer';
 import LassoLayer from './LassoLayer';
 import WatermarkLayer from './WatermarkLayer';
@@ -1586,6 +1587,7 @@ export default function Stage() {
 
                     {/* Z-Index 5: Images */}
                     <ObjectLayer totalHeight={totalHeight} />
+                    <TFBrandingLayer />
 
                     {/* Z-Index 7: Text Nodes */}
                     <TextLayer totalHeight={totalHeight} />
