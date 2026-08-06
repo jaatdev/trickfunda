@@ -358,6 +358,23 @@ export const useStore = create<CanvasState>((set, get) => ({
         set({ clipboard: { ...imageToCopy } });
     },
 
+    // Hide PDF Page
+    hidePdfPage: (pageIndex) => {
+        const state = get();
+        if (!state.documentId) return;
+
+        const newMapping = [...(state.pdfPageMapping || [])];
+        if (newMapping.length === 0) return;
+
+        set({ hiddenPdfPages: [...state.hiddenPdfPages, pageIndex] });
+    },
+
+    // Unhide PDF Page
+    unhidePdfPage: (pageIndex) => {
+        const state = get();
+        set({ hiddenPdfPages: state.hiddenPdfPages.filter(p => p !== pageIndex) });
+    },
+
     // Paste image from clipboard to center of current page
     pasteImage: () => {
         const state = get();
@@ -555,9 +572,14 @@ export const useStore = create<CanvasState>((set, get) => ({
                 // Simplified Undo Insert: Delete the page and shift up, discard any content on it.
 
                 const newStrokes = state.strokes
-                    .filter(s => !(s.points[0].y >= topThreshold && s.points[0].y < bottomThreshold))
+                    .filter(s => {
+                        const y = s.points[0]?.y;
+                        if (y === undefined) return true;
+                        return !(y >= topThreshold && y < bottomThreshold);
+                    })
                     .map(s => {
-                        if (s.points[0].y >= bottomThreshold) {
+                        const y = s.points[0]?.y;
+                        if (y !== undefined && y >= bottomThreshold) {
                             return { ...s, points: s.points.map(p => ({ ...p, y: p.y - state.pageHeight })) };
                         }
                         return s;
@@ -587,7 +609,8 @@ export const useStore = create<CanvasState>((set, get) => ({
                 // 1. Shift existing content DOWN to make room
                 // existing content at >= insertThreshold needs to move +PAGE_HEIGHT
                 const shiftedStrokes = state.strokes.map(s => {
-                    if (s.points[0].y >= insertThreshold) {
+                    const y = s.points[0]?.y;
+                    if (y !== undefined && y >= insertThreshold) {
                         return { ...s, points: s.points.map(p => ({ ...p, y: p.y + state.pageHeight })) };
                     }
                     return s;
@@ -804,7 +827,8 @@ export const useStore = create<CanvasState>((set, get) => ({
         // Shift strokes
         const newStrokes = state.strokes.map(stroke => {
             // Check if stroke starts below or exactly at the threshold
-            if (stroke.points[0].y >= insertThreshold) {
+            const y = stroke.points[0]?.y;
+            if (y !== undefined && y >= insertThreshold) {
                 return {
                     ...stroke,
                     points: stroke.points.map(p => ({ ...p, y: p.y + shiftAmount }))
@@ -829,8 +853,8 @@ export const useStore = create<CanvasState>((set, get) => ({
             return node;
         });
 
-        // Update PDF page mapping - insert null (blank page) at position
-        let newMapping = state.pdfPageMapping.length > 0 
+        // Handle PDF page mapping
+        let newMapping = (state.pdfPageMapping || []).length > 0 
             ? [...state.pdfPageMapping] 
             : (state.documentId ? Array.from({ length: state.pageCount }, (_, i) => i + 1) : []);
         if (newMapping.length > 0) {
@@ -884,9 +908,10 @@ export const useStore = create<CanvasState>((set, get) => ({
         const shiftAmount = singlePageTotal; // Shift by page height + gap
 
         // Find content to delete (centrally located or starting within page)
-        const strokesToDelete = state.strokes.filter(s =>
-            s.points[0].y >= topThreshold && s.points[0].y < bottomThreshold
-        );
+        const strokesToDelete = state.strokes.filter(s => {
+            const y = s.points[0]?.y;
+            return y !== undefined && y >= topThreshold && y < bottomThreshold;
+        });
 
         const imagesToDelete = state.images.filter(img =>
             img.y >= topThreshold && img.y < bottomThreshold
@@ -898,9 +923,14 @@ export const useStore = create<CanvasState>((set, get) => ({
 
         // Filter and shift remaining content
         const newStrokes = state.strokes
-            .filter(s => !(s.points[0].y >= topThreshold && s.points[0].y < bottomThreshold))
+            .filter(s => {
+                const y = s.points[0]?.y;
+                if (y === undefined) return true; // keep strokes with no points just in case, or ignore them
+                return !(y >= topThreshold && y < bottomThreshold);
+            })
             .map(s => {
-                if (s.points[0].y >= bottomThreshold) {
+                const y = s.points[0]?.y;
+                if (y !== undefined && y >= bottomThreshold) {
                     return {
                         ...s,
                         points: s.points.map(p => ({ ...p, y: p.y - shiftAmount }))
@@ -928,7 +958,7 @@ export const useStore = create<CanvasState>((set, get) => ({
             });
 
         // Update PDF page mapping - remove slot at pageIndex
-        let newMapping = state.pdfPageMapping.length > 0 
+        let newMapping = (state.pdfPageMapping || []).length > 0 
             ? [...state.pdfPageMapping] 
             : (state.documentId ? Array.from({ length: state.pageCount }, (_, i) => i + 1) : []);
         if (newMapping.length > 0) {
@@ -975,9 +1005,11 @@ export const useStore = create<CanvasState>((set, get) => ({
         const topThreshold = pageIndex * state.pageHeight;
         const bottomThreshold = (pageIndex + 1) * state.pageHeight;
 
-        const newStrokes = state.strokes.filter(s =>
-            !(s.points[0].y >= topThreshold && s.points[0].y < bottomThreshold)
-        );
+        const newStrokes = state.strokes.filter(s => {
+            const y = s.points[0]?.y;
+            if (y === undefined) return true;
+            return !(y >= topThreshold && y < bottomThreshold);
+        });
 
         const newImages = state.images.filter(img =>
             !(img.y >= topThreshold && img.y < bottomThreshold)
@@ -1012,10 +1044,13 @@ export const useStore = create<CanvasState>((set, get) => ({
 
         // Step 2: Copy content from original page and shift it down by shiftAmount
         const strokesToCopy = newState.strokes
-            .filter(s => s.points[0].y >= topThreshold && s.points[0].y < bottomThreshold)
+            .filter(s => {
+                const y = s.points[0]?.y;
+                return y !== undefined && y >= topThreshold && y < bottomThreshold;
+            })
             .map(s => ({
                 ...s,
-                id: Math.random().toString(36).substr(2, 9),
+                id: `stroke-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
                 points: s.points.map(p => ({ ...p, y: p.y + shiftAmount }))
             }));
 
@@ -1036,7 +1071,7 @@ export const useStore = create<CanvasState>((set, get) => ({
             }));
 
         // Step 3: Copy the PDF page mapping if it exists
-        let newMapping = [...newState.pdfPageMapping];
+        let newMapping = [...(newState.pdfPageMapping || [])];
         if (newMapping.length > 0) {
             newMapping[pageIndex + 1] = newMapping[pageIndex];
         }
@@ -1064,7 +1099,8 @@ export const useStore = create<CanvasState>((set, get) => ({
     // Add a new page at the end
     addPage: () => {
         set((state) => {
-            const baseMapping = state.pdfPageMapping.length > 0 
+            // Handle PDF Page Mapping
+            const baseMapping = (state.pdfPageMapping || []).length > 0 
                 ? [...state.pdfPageMapping] 
                 : (state.documentId ? Array.from({ length: state.pageCount }, (_, i) => i + 1) : []);
                 
@@ -1652,7 +1688,7 @@ export const useStore = create<CanvasState>((set, get) => ({
         });
 
         // Update PDF page mapping
-        let newMapping = state.pdfPageMapping.length > 0 
+        let newMapping = (state.pdfPageMapping || []).length > 0 
             ? [...state.pdfPageMapping] 
             : (state.documentId ? Array.from({ length: state.pageCount }, (_, i) => i + 1) : []);
         if (newMapping.length > 0) {

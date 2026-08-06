@@ -286,10 +286,24 @@ export default function GridView() {
 
                             {/* Bookmark Star Indicator */}
                             {isBookmarked && (
-                                <div className="absolute top-3 right-3 z-30 text-yellow-400 drop-shadow-md">
+                                <div className="absolute top-3 right-10 z-30 text-yellow-400 drop-shadow-md">
                                     <Star size={18} fill="currentColor" />
                                 </div>
                             )}
+
+                            {/* Direct Delete Button */}
+                            <button
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    if (confirm(`Delete Page ${pageNum}? This cannot be undone.`)) {
+                                        deletePage(index);
+                                    }
+                                }}
+                                className="absolute top-2 right-2 z-40 p-1.5 rounded-full bg-black/40 text-white/70 opacity-0 group-hover:opacity-100 hover:bg-red-500 hover:text-white transition-all shadow-sm"
+                                title="Delete Page"
+                            >
+                                <Trash2 className="w-4 h-4" />
+                            </button>
 
                             {/* Thumbnail Container */}
                         <div

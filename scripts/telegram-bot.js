@@ -1,9 +1,9 @@
 require('dotenv').config({ path: '.env.local' });
-const { TelegramClient, Api } = require('telegram');
+const TelegramBot = require('node-telegram-bot-api');
+const BotConstructor = typeof TelegramBot === 'function' ? TelegramBot : (TelegramBot.default || TelegramBot.TelegramBot);
+const { TelegramClient } = require('telegram');
 const { StringSession } = require('telegram/sessions');
 const { ConnectionTCPObfuscated } = require('telegram/network/connection/TCPObfuscated');
-const { NewMessage } = require('telegram/events');
-const { CallbackQuery } = require('telegram/events/CallbackQuery');
 const fs = require('fs');
 const path = require('path');
 
@@ -14,12 +14,19 @@ if (!token) {
   process.exit(1);
 }
 
+const bot = new BotConstructor(token, { polling: true });
+
+bot.on('polling_error', (error) => {
+  console.log('Polling Error:', error.code || error.message);
+});
+
 const SESSION_FILE = path.join(process.cwd(), 'telegram-session.json');
 
 function getSessionData() {
   if (fs.existsSync(SESSION_FILE)) {
     try {
-      return JSON.parse(fs.readFileSync(SESSION_FILE, 'utf-8'));
+      const data = fs.readFileSync(SESSION_FILE, 'utf-8');
+      return JSON.parse(data);
     } catch (e) {
       return null;
     }
@@ -27,229 +34,138 @@ function getSessionData() {
   return null;
 }
 
-const sessionData = getSessionData();
-if (!sessionData || !sessionData.apiId || !sessionData.apiHash) {
-  console.error("Please login via the web UI first to generate telegram-session.json containing apiId and apiHash.");
-  process.exit(1);
-}
+bot.on('message', async (msg) => {
+  const chatId = msg.chat.id;
+  const text = msg.text || '';
 
-const apiId = Number(sessionData.apiId);
-const apiHash = sessionData.apiHash;
+  if (text.startsWith('/start')) {
+    bot.sendMessage(chatId, 'Welcome! Send me a Telegram message link (e.g. t.me/c/123/456) and I will download the media and send it to you here.').catch(console.error);
+    return;
+  }
 
-// Create the Bot Client
-const botClient = new TelegramClient(new StringSession(''), apiId, apiHash, {
-  connectionRetries: 5,
-  connection: ConnectionTCPObfuscated,
-  useIPV6: true,
-});
-
-async function main() {
-  console.log('Starting Telegram Bot using MTProto...');
-  await botClient.start({
-    botAuthToken: token,
-  });
-  console.log('Bot is running and connected via MTProto (bypassing blocks)!');
-
-  // Handle new messages (links)
-  botClient.addEventHandler(async (event) => {
-    const message = event.message;
-    const chatId = message.chatId;
-    const text = message.message || '';
-
-    if (text.startsWith('/start')) {
-      await botClient.sendMessage(chatId, { message: 'Welcome! Send me a Telegram message link (e.g. t.me/c/123/456) and I will download the media for you using your MTProto session.' });
+  // Check if it's a telegram link
+  if (text.includes('t.me/')) {
+    const session = getSessionData();
+    if (!session || !session.stringSession) {
+      bot.sendMessage(chatId, 'Not authenticated with Telegram MTProto. Please login via the web UI first.').catch(console.error);
       return;
     }
 
-    if (text.includes('t.me/')) {
-      const userSession = getSessionData();
-      if (!userSession || !userSession.stringSession) {
-        await botClient.sendMessage(chatId, { message: 'Not authenticated with Telegram MTProto. Please login via the web UI first.' });
-        return;
+    let targetChatId = null;
+    let messageId = null;
+
+    try {
+      // Basic extraction
+      const match = text.match(/t\.me\/(c\/)?([a-zA-Z0-9_-]+)\/(\d+)/);
+      if (match) {
+        if (match[1] === 'c/') {
+          targetChatId = Number('-100' + match[2]);
+        } else {
+          targetChatId = match[2];
+        }
+        messageId = Number(match[3]);
       }
-
-      let targetChatId = null;
-      let messageId = null;
-
-      try {
-        const match = text.match(/t\.me\/(c\/)?([a-zA-Z0-9_-]+)\/(\d+)/);
-        if (match) {
-          if (match[1] === 'c/') {
-            targetChatId = Number('-100' + match[2]);
-          } else {
-            targetChatId = match[2];
-          }
-          messageId = Number(match[3]);
-        }
-      } catch (e) {
-        console.error(e);
-      }
-
-      if (!targetChatId || !messageId) {
-        await botClient.sendMessage(chatId, { message: 'Could not parse chat or message ID from the link. Please provide a valid link.' });
-        return;
-      }
-
-      let statusMsg = await botClient.sendMessage(chatId, { message: 'Connecting to Telegram as User...' });
-
-      const userClient = new TelegramClient(
-        new StringSession(userSession.stringSession),
-        apiId,
-        apiHash,
-        {
-          connectionRetries: 1,
-          connection: ConnectionTCPObfuscated,
-          useIPV6: true,
-        }
-      );
-
-      try {
-        await userClient.connect();
-        if (!userClient.connected) {
-          throw new Error('Failed to connect to Telegram over IPv6. Connection blocked.');
-        }
-
-        await botClient.editMessage(chatId, { message: statusMsg.id, text: `Fetching message ${messageId}...` });
-
-        const messages = await userClient.getMessages(targetChatId, { ids: [messageId] });
-        if (!messages || messages.length === 0 || !messages[0]) {
-          await botClient.editMessage(chatId, { message: statusMsg.id, text: 'Message not found. Ensure your user account is a member of the channel.' });
-          return;
-        }
-
-        const msgObj = messages[0];
-        if (!msgObj.media) {
-          await botClient.editMessage(chatId, { message: statusMsg.id, text: 'This message does not contain any downloadable media.' });
-          return;
-        }
-
-        let sizeStr = 'Unknown size';
-        if (msgObj.document && msgObj.document.size) {
-          const sizeMB = (msgObj.document.size / 1024 / 1024).toFixed(2);
-          sizeStr = `${sizeMB} MB`;
-        } else if (msgObj.photo) {
-          sizeStr = 'Image';
-        }
-
-        const replyMarkup = new Api.ReplyInlineMarkup({
-          rows: [
-            new Api.KeyboardButtonRow({
-              buttons: [
-                new Api.KeyboardButtonCallback({
-                  text: '⬇️ Download',
-                  data: Buffer.from(`dl_${targetChatId}_${messageId}`),
-                }),
-              ],
-            }),
-          ],
-        });
-
-        await botClient.editMessage(chatId, { 
-          message: statusMsg.id, 
-          text: `Media found!\nSize: ${sizeStr}\n\nClick the button below to start downloading.`,
-          replyMarkup: replyMarkup
-        });
-        
-      } catch (err) {
-        console.error(err);
-        await botClient.sendMessage(chatId, { message: `Error: ${err.message || 'An unknown error occurred'}` });
-      } finally {
-        await userClient.disconnect();
-      }
+    } catch (e) {
+      console.error(e);
     }
-  }, new NewMessage({}));
 
-  // Handle callback queries (button clicks)
-  botClient.addEventHandler(async (event) => {
-    const data = event.query.data.toString();
-    if (data.startsWith('dl_')) {
-      const parts = data.split('_');
-      const targetChatId = parts[1];
-      const messageId = Number(parts[2]);
+    if (!targetChatId || !messageId) {
+      bot.sendMessage(chatId, 'Could not parse chat or message ID from the link. Please provide a valid link.').catch(console.error);
+      return;
+    }
+
+    let statusMsgId = null;
+    try {
+      const msg = await bot.sendMessage(chatId, 'Connecting to Telegram...');
+      statusMsgId = msg.message_id;
+    } catch (e) { console.error(e); }
+
+    const client = new TelegramClient(
+      new StringSession(session.stringSession),
+      Number(session.apiId),
+      session.apiHash,
+      {
+        connectionRetries: 1,
+        connection: ConnectionTCPObfuscated,
+        useIPV6: true,
+      }
+    );
+
+    try {
+      await client.connect();
+      if (!client.connected) {
+        throw new Error('Failed to connect to Telegram over IPv6. Connection blocked.');
+      }
       
-      const chatId = event.query.userId;
-      const msgIdToEdit = event.query.msgId;
+      if (statusMsgId) bot.editMessageText(`Fetching message ${messageId}...`, { chat_id: chatId, message_id: statusMsgId }).catch(console.error);
 
-      await event.answer({ message: "Starting download..." });
-      await botClient.editMessage(chatId, { message: msgIdToEdit, text: 'Preparing to download...' });
-
-      const userSession = getSessionData();
-      if (!userSession) return;
-
-      const userClient = new TelegramClient(
-        new StringSession(userSession.stringSession),
-        apiId,
-        apiHash,
-        {
-          connectionRetries: 1,
-          connection: ConnectionTCPObfuscated,
-          useIPV6: true,
-        }
-      );
-
-      try {
-        await userClient.connect();
-        
-        const messages = await userClient.getMessages(targetChatId, { ids: [messageId] });
-        if (!messages || messages.length === 0 || !messages[0]) {
-          await botClient.editMessage(chatId, { message: msgIdToEdit, text: 'Error: Message not found during download phase.' });
-          return;
-        }
-
-        const msgObj = messages[0];
-        
-        const downloadsDir = path.join(process.cwd(), 'public', 'downloads');
-        if (!fs.existsSync(downloadsDir)) {
-          fs.mkdirSync(downloadsDir, { recursive: true });
-        }
-
-        const ext = (msgObj.file && msgObj.file.ext) || '.mp4';
-        const filename = `bot_dl_${messageId}_${Date.now()}${ext}`;
-        const outputPath = path.join(downloadsDir, filename);
-
-        let lastUpdate = 0;
-
-        await userClient.downloadMedia(msgObj, {
-          outputFile: outputPath,
-          workers: 8,
-          progressCallback: async (downloaded, total) => {
-            const now = Date.now();
-            if (now - lastUpdate < 3000 && downloaded.toString() !== total.toString()) return; 
-            lastUpdate = now;
-            
-            let percentage = 0;
-            const dl = Number(downloaded.toString());
-            const tot = Number(total.toString());
-            if (tot) percentage = Number(((dl / tot) * 100).toFixed(1));
-            
-            const progressText = `Downloading... ${percentage}% (${(dl / 1024 / 1024).toFixed(2)} MB)`;
-            
-            try {
-              await botClient.editMessage(chatId, { message: msgIdToEdit, text: progressText });
-            } catch (e) {}
-          }
-        });
-
-        await botClient.editMessage(chatId, { message: msgIdToEdit, text: 'Download completed! Uploading back to you...' });
-
-        await botClient.sendFile(chatId, {
-          file: outputPath,
-          replyTo: msgIdToEdit,
-        });
-
-        // Cleanup local file
-        if (fs.existsSync(outputPath)) {
-          fs.unlinkSync(outputPath);
-        }
-        
-      } catch (err) {
-        console.error(err);
-        await botClient.editMessage(chatId, { message: msgIdToEdit, text: `Error during download: ${err.message || 'An unknown error occurred'}` });
-      } finally {
-        await userClient.disconnect();
+      const messages = await client.getMessages(targetChatId, { ids: [messageId] });
+      if (!messages || messages.length === 0 || !messages[0]) {
+        if (statusMsgId) bot.editMessageText('Message not found. Ensure your user account is a member of the channel.', { chat_id: chatId, message_id: statusMsgId }).catch(console.error);
+        return;
       }
-    }
-  }, new CallbackQuery({}));
-}
 
-main().catch(console.error);
+      const message = messages[0];
+      if (!message.media) {
+        if (statusMsgId) bot.editMessageText('This message does not contain any downloadable media.', { chat_id: chatId, message_id: statusMsgId }).catch(console.error);
+        return;
+      }
+
+      const downloadsDir = path.join(process.cwd(), 'public', 'downloads');
+      if (!fs.existsSync(downloadsDir)) {
+        fs.mkdirSync(downloadsDir, { recursive: true });
+      }
+
+      const ext = (message.file && message.file.ext) || '.mp4';
+      const filename = `bot_dl_${messageId}_${Date.now()}${ext}`;
+      const outputPath = path.join(downloadsDir, filename);
+
+      let lastUpdate = 0;
+
+      await client.downloadMedia(message, {
+        outputFile: outputPath,
+        workers: 8,
+        progressCallback: (downloaded, total) => {
+          const now = Date.now();
+          if (now - lastUpdate < 3000 && downloaded.toString() !== total.toString()) return; 
+          lastUpdate = now;
+          
+          let percentage = 0;
+          const dl = Number(downloaded.toString());
+          const tot = Number(total.toString());
+          if (tot) percentage = Number(((dl / tot) * 100).toFixed(1));
+          
+          const progressText = `Downloading to bot server... ${percentage}% (${(dl / 1024 / 1024).toFixed(2)} MB)`;
+          
+          if (statusMsgId) {
+             bot.editMessageText(progressText, { chat_id: chatId, message_id: statusMsgId }).catch(() => {});
+          }
+        }
+      });
+
+      if (statusMsgId) bot.editMessageText('Download complete! Uploading video to chat so you can save it...', { chat_id: chatId, message_id: statusMsgId }).catch(console.error);
+
+      // Upload file back to Telegram via the Bot API
+      if (ext === '.mp4' || ext === '.mkv') {
+        await bot.sendVideo(chatId, outputPath);
+      } else if (ext === '.jpg' || ext === '.png') {
+        await bot.sendPhoto(chatId, outputPath);
+      } else {
+        await bot.sendDocument(chatId, outputPath);
+      }
+
+      // Cleanup local file
+      if (fs.existsSync(outputPath)) {
+        fs.unlinkSync(outputPath);
+      }
+      
+    } catch (err) {
+      console.error(err);
+      if (statusMsgId) bot.editMessageText(`Error: ${err.message || 'An unknown error occurred'}`, { chat_id: chatId, message_id: statusMsgId }).catch(console.error);
+    } finally {
+      client.disconnect();
+    }
+  }
+});
+
+console.log('Telegram Bot is running...');
