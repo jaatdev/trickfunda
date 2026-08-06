@@ -238,7 +238,7 @@ export default function LassoLayer({ totalHeight }: LassoLayerProps) {
         e.stopPropagation();
         e.preventDefault();
         
-        if (!bbox || selectedStrokes.length === 0) return;
+        if (!bbox || (selectedStrokes.length === 0 && selectedTexts.length === 0)) return;
 
         try {
             const padding = 20;
@@ -263,6 +263,28 @@ export default function LassoLayer({ totalHeight }: LassoLayerProps) {
                 ctx.globalCompositeOperation = stroke.isEraser ? 'destination-out' : 'source-over';
                 ctx.fillStyle = stroke.isEraser ? 'rgba(0,0,0,1)' : stroke.color;
                 ctx.fill(path);
+            });
+
+            // Draw selected texts
+            selectedTexts.forEach(t => {
+                ctx.globalCompositeOperation = 'source-over';
+                ctx.fillStyle = t.color || '#ffffff';
+                ctx.font = `${t.fontStyle === 'italic' ? 'italic ' : ''}${t.fontWeight === 'bold' ? 'bold ' : ''}${t.fontSize}px "${t.fontFamily}"`;
+                ctx.textBaseline = 'top';
+                
+                const x = t.x - bbox.minX + padding;
+                const y = t.y - bbox.minY + padding;
+                
+                // Draw background if any
+                if (t.background && t.background !== 'transparent') {
+                    const width = t.content.length * (t.fontSize * 0.6); // Approximate width based on how we measure in bbox
+                    const height = t.fontSize * 1.2;
+                    ctx.fillStyle = t.background;
+                    ctx.fillRect(x, y, width, height);
+                    ctx.fillStyle = t.color || '#ffffff'; // Reset for text
+                }
+
+                ctx.fillText(t.content, x, y);
             });
 
             tempCanvas.toBlob(blob => {

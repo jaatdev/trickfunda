@@ -1556,7 +1556,7 @@ export const useStore = create<CanvasState>((set, get) => ({
 
     duplicateSelectedStrokes: () => {
         const state = get();
-        if (state.selectedStrokeIds.length === 0) return;
+        if (state.selectedStrokeIds.length === 0 && state.selectedTextIds.length === 0) return;
 
         const selectedStrokes = state.strokes.filter(s => state.selectedStrokeIds.includes(s.id));
         const duplicates = selectedStrokes.map(stroke => ({
@@ -1569,9 +1569,19 @@ export const useStore = create<CanvasState>((set, get) => ({
             }))
         }));
 
+        const selectedTexts = state.textNodes.filter(t => state.selectedTextIds.includes(t.id));
+        const textDuplicates = selectedTexts.map(node => ({
+            ...node,
+            id: `text-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+            x: node.x + 20,
+            y: node.y + 20,
+        }));
+
         set({
             strokes: [...state.strokes, ...duplicates],
+            textNodes: [...state.textNodes, ...textDuplicates],
             selectedStrokeIds: duplicates.map(d => d.id),
+            selectedTextIds: textDuplicates.map(d => d.id),
         });
     },
 
