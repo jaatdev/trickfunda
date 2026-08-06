@@ -42,6 +42,7 @@ export default function TextLayer({ totalHeight }: TextLayerProps) {
         updateTextNode,
         deleteTextNode,
         zoom,
+        canvasDimensions,
     } = useStore();
 
     const [editingNodeId, setEditingNodeId] = useState<string | null>(null);
@@ -60,6 +61,8 @@ export default function TextLayer({ totalHeight }: TextLayerProps) {
         startNodeX: 0,
         startNodeY: 0,
     });
+
+    const [localText, setLocalText] = useState('');
 
     const containerRef = useRef<HTMLDivElement>(null);
 
@@ -88,6 +91,7 @@ export default function TextLayer({ totalHeight }: TextLayerProps) {
         };
 
         addTextNode(newNode);
+        setLocalText('');
         setEditingNodeId(newNode.id);
     }, [isTextMode, zoom, activeFontSize, penColor, activeFont, activeFontWeight, activeFontStyle, activeTextBackground, addTextNode]);
 
@@ -135,9 +139,10 @@ export default function TextLayer({ totalHeight }: TextLayerProps) {
     }, [dragState.active]);
 
     // Handle double click to edit
-    const handleDoubleClick = useCallback((e: React.PointerEvent, nodeId: string) => {
+    const handleDoubleClick = useCallback((e: React.PointerEvent, node: TextNode) => {
         e.stopPropagation();
-        setEditingNodeId(nodeId);
+        setLocalText(node.content || (node as any).text || '');
+        setEditingNodeId(node.id);
     }, []);
 
     // Handle text change
@@ -147,6 +152,7 @@ export default function TextLayer({ totalHeight }: TextLayerProps) {
 
     // Handle blur (save or delete if empty)
     const handleBlur = useCallback((nodeId: string, content: string) => {
+        updateTextNode(nodeId, { content });
         setEditingNodeId(null);
 
         if (content.trim() === '') {
@@ -200,8 +206,9 @@ export default function TextLayer({ totalHeight }: TextLayerProps) {
                 return (
                     <div
                         key={node.id}
+                        id={`text-node-${node.id}`}
                         onPointerDown={(e) => !isEditing && handleDragStart(e, node)}
-                        onDoubleClick={(e) => handleDoubleClick(e as any, node.id)}
+                        onDoubleClick={(e) => handleDoubleClick(e as any, node)}
                         style={{
                             position: 'absolute',
                             left: node.x,
@@ -221,7 +228,7 @@ export default function TextLayer({ totalHeight }: TextLayerProps) {
                             wordBreak: 'break-word',
                             minWidth: '20px',
                             width: 'fit-content',
-                            maxWidth: `calc(100vw - ${node.x}px - 20px)`, // Prevent overflowing the screen
+                            maxWidth: `${canvasDimensions.width - node.x - 20}px`, // Prevent overflowing the canvas bounds
                             minHeight: node.fontSize + 4,
                             border: isSelected && !isEditing ? '2px dashed #3b82f6' : '2px dashed transparent',
                             pointerEvents: 'auto',
@@ -236,15 +243,15 @@ export default function TextLayer({ totalHeight }: TextLayerProps) {
                                     wordBreak: 'break-word',
                                     gridArea: '1 / 1 / 2 / 2',
                                 }}>
-                                    {(node.content || (node as any).text || '') + ' '}
+                                    {localText + ' '}
                                 </span>
                                 <textarea
                                     autoFocus
-                                    value={node.content || (node as any).text || ''}
+                                    value={localText}
                                     onChange={(e) => {
-                                        handleTextChange(node.id, e.target.value);
+                                        setLocalText(e.target.value);
                                     }}
-                                    onBlur={() => handleBlur(node.id, node.content || (node as any).text || '')}
+                                    onBlur={() => handleBlur(node.id, localText)}
                                     onKeyDown={(e) => {
                                         // Let Enter create newlines. Shift+Enter or Escape to blur.
                                         if (e.key === 'Escape') {

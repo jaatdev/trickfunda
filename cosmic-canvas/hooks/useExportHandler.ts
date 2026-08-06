@@ -1,12 +1,14 @@
 import { useState, useCallback } from 'react';
 import { useStore } from '@cosmic/store/useStore';
 import { PDFDocument, rgb, StandardFonts, LineCapStyle } from 'pdf-lib';
+import fontkit from '@pdf-lib/fontkit';
 import getStroke from 'perfect-freehand';
 import { getSvgPathFromStroke } from '@cosmic/utils/ink';
 import { PDF_PAGE_GAP } from '@cosmic/constants/canvas';
 import { loadPdf } from '@cosmic/utils/storage';
 import { Stroke, CanvasImage, TextNode } from '@cosmic/types';
 import { getTFThemeById } from '@cosmic/constants/tfThemes';
+
 
 function hexToRgb(hex: string) {
     const cleanHex = hex.replace('#', '');
@@ -56,6 +58,7 @@ export const useExportHandler = () => {
             const bgColor = canvasBackground ? hexToRgb(canvasBackground) : rgb(1, 1, 1);
 
             let pdfDoc = await PDFDocument.create();
+            pdfDoc.registerFontkit(fontkit);
 
             if (documentId) {
                 let pdfBytes: ArrayBuffer | null = null;
@@ -287,85 +290,123 @@ export const useExportHandler = () => {
                     });
                 }
 
-                // --- Export Text Nodes ---
-                const textNodesOnPage = (textNodes as TextNode[]).filter(t => 
+                // --- Export Text Nodes (Native pdf-lib with wrapping) ---
+                const textNodesOnPage = (textNodes as TextNode[]).filter(t =>
                     t.y >= offsetY && t.y < offsetY + pageHeight
                 );
 
                 for (const t of textNodesOnPage) {
-                    const localY = t.y - offsetY;
-                    // Adjust Y for pdf-lib's bottom-left origin. Approximate baseline offset.
-                    const textY = pdfPageHeight - (localY * scaleY) - (t.fontSize * scaleY * 0.8);
-                    
                     const textContent = t.content || (t as any).text || '';
                     if (!textContent) continue;
 
+                    const localY = t.y - offsetY;
+                    const fontSize = t.fontSize * scaleY;
+                    
+                    const hasBg = t.backgroundColor && t.backgroundColor !== 'transparent';
+                    const padding = hasBg ? (t.padding || 8) : 4;
+                    
+                    // The text content is shifted inside the div by padding
+                    const contentX = t.x + padding;
+                    
+                    const maxTextWidth = (pdfPageWidth - (contentX * scaleX) - 20 * scaleX);
+
+                    // Use native DOM canvas to accurately measure and draw the text.
+                    // This solves all pdf-lib kerning/spacing issues for cursive fonts like Caveat.
+                    const tempCanvas = document.createElement('canvas');
+                    const ctx = tempCanvas.getContext('2d');
+                    if (!ctx) continue;
+                    
+                    const fontString = `${t.fontStyle === 'italic' ? 'italic ' : ''}${t.fontWeight === 'bold' ? 'bold ' : 'normal '}${fontSize}px "${t.fontFamily}"`;
+                    ctx.font = fontString;
+
+                    const lines: string[] = [];
+                    const paragraphs = textContent.split('\n');
+                    
+                    for (const paragraph of paragraphs) {
+                        if (!paragraph) {
+                            lines.push('');
+                            continue;
+                        }
+                        const words = paragraph.split(' ');
+                        let currentLine = words[0];
+                        
+                        for (let j = 1; j < words.length; j++) {
+                            const word = words[j];
+                            const testLine = currentLine + ' ' + word;
+                            
+                            // Measure exact width using the browser's native HarfBuzz shaping engine
+                            const metrics = ctx.measureText(testLine);
+                            
+                            if (metrics.width <= maxTextWidth) {
+                                currentLine = testLine;
+                            } else {
+                                lines.push(currentLine);
+                                currentLine = word;
+                            }
+                        }
+                        if (currentLine) lines.push(currentLine);
+                    }
+
+                    const lineHeight = fontSize * 1.2;
+                    const totalTextHeight = lines.length * lineHeight;
+
+                    // Calculate background dimensions
+                    let maxLineWidth = 0;
+                    for (const line of lines) {
+                        const w = ctx.measureText(line).width;
+                        if (w > maxLineWidth) maxLineWidth = w;
+                    }
+                    
+                    const bgWidth = maxLineWidth + (padding * 2 * scaleX);
+                    const bgHeight = totalTextHeight + (padding * 2 * scaleY);
+                    
+                    // Setup high-res canvas for drawing
+                    const pixelRatio = window.devicePixelRatio || 2;
+                    
+                    // Add a tiny buffer for cursive descenders/ascenders at the bottom
+                    const safeHeight = bgHeight + (fontSize * 0.5); 
+                    
+                    tempCanvas.width = bgWidth * pixelRatio;
+                    tempCanvas.height = safeHeight * pixelRatio;
+                    
+                    ctx.scale(pixelRatio, pixelRatio);
+                    // Re-apply font after scale
+                    ctx.font = fontString;
+                    
+                    // Draw background if present
+                    if (hasBg) {
+                        ctx.fillStyle = t.backgroundColor!;
+                        ctx.fillRect(0, 0, bgWidth, bgHeight);
+                    }
+                    
+                    // Draw text
+                    ctx.fillStyle = t.color;
+                    ctx.textBaseline = 'top';
+                    let currentYOffset = padding * scaleY;
+                    
+                    for (const line of lines) {
+                        if (line) {
+                            // Slight offset for descender/ascender clipping prevention
+                            ctx.fillText(line, padding * scaleX, currentYOffset + (fontSize * 0.05));
+                        }
+                        currentYOffset += lineHeight;
+                    }
+                    
+                    // Embed into PDF
                     try {
-                        page.drawText(textContent, {
+                        const dataUrl = tempCanvas.toDataURL('image/png');
+                        const imgRes = await fetch(dataUrl);
+                        const imgBytes = await imgRes.arrayBuffer();
+                        const pdfImg = await pdfDoc.embedPng(imgBytes);
+                        
+                        page.drawImage(pdfImg, {
                             x: t.x * scaleX,
-                            y: textY,
-                            size: t.fontSize * scaleY,
-                            font: helveticaFont,
-                            color: hexToRgb(t.color),
+                            y: pdfPageHeight - (localY * scaleY) - safeHeight,
+                            width: bgWidth,
+                            height: safeHeight,
                         });
-                    } catch (err) {
-                        // Fallback for non-WinAnsi characters (e.g. Hindi, Emojis)
-                        const canvas = document.createElement('canvas');
-                        const ctx = canvas.getContext('2d');
-                        if (!ctx) continue;
-
-                        const pixelRatio = 4; // High res for sharp PDF export
-                        const fontSize = t.fontSize * scaleY * pixelRatio;
-                        const fontStyle = t.fontStyle || 'normal';
-                        const fontWeight = t.fontWeight || 'normal';
-                        const fontFamily = t.fontFamily || 'sans-serif';
-                        
-                        const fontString = `${fontStyle} ${fontWeight} ${fontSize}px "${fontFamily}", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif`;
-                        ctx.font = fontString;
-
-                        const lines = textContent.split('\n');
-                        let maxWidth = 0;
-                        const lineHeight = fontSize * 1.2;
-                        for (const line of lines) {
-                            maxWidth = Math.max(maxWidth, ctx.measureText(line).width);
-                        }
-
-                        const hasBg = t.backgroundColor && t.backgroundColor !== 'transparent';
-                        const paddingDom = hasBg ? (t.padding || 8) : 4;
-                        const padX = paddingDom * scaleX * pixelRatio;
-                        const padY = paddingDom * scaleY * pixelRatio;
-                        
-                        canvas.width = Math.max(1, maxWidth) + padX * 2;
-                        canvas.height = Math.max(1, lines.length * lineHeight) + padY * 2;
-                        
-                        // Must set font again after resizing canvas
-                        ctx.font = fontString;
-                        ctx.textBaseline = 'top';
-
-                        if (hasBg) {
-                            ctx.fillStyle = t.backgroundColor!;
-                            ctx.fillRect(0, 0, canvas.width, canvas.height);
-                        }
-
-                        ctx.fillStyle = t.color;
-                        for (let i = 0; i < lines.length; i++) {
-                            ctx.fillText(lines[i], padX, padY + i * lineHeight);
-                        }
-
-                        const pngDataUrl = canvas.toDataURL('image/png');
-                        const pngBase64 = pngDataUrl.split(',')[1];
-                        const pngImage = await pdfDoc.embedPng(pngBase64);
-                        
-                        const pdfImgWidth = canvas.width / pixelRatio;
-                        const pdfImgHeight = canvas.height / pixelRatio;
-                        
-                        page.drawImage(pngImage, {
-                            // Adjust X and Y to match standard text positioning with paddings
-                            x: (t.x * scaleX) - (padX / pixelRatio),
-                            y: pdfPageHeight - (localY * scaleY) - pdfImgHeight,
-                            width: pdfImgWidth,
-                            height: pdfImgHeight,
-                        });
+                    } catch (e) {
+                        console.error('Failed to embed text canvas as image', e);
                     }
                 }
 

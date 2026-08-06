@@ -276,10 +276,10 @@ export default function LassoLayer({ totalHeight }: LassoLayerProps) {
                 const y = t.y - bbox.minY + padding;
                 
                 // Draw background if any
-                if (t.background && t.background !== 'transparent') {
+                if (t.backgroundColor && t.backgroundColor !== 'transparent') {
                     const width = t.content.length * (t.fontSize * 0.6); // Approximate width based on how we measure in bbox
                     const height = t.fontSize * 1.2;
-                    ctx.fillStyle = t.background;
+                    ctx.fillStyle = t.backgroundColor;
                     ctx.fillRect(x, y, width, height);
                     ctx.fillStyle = t.color || '#ffffff'; // Reset for text
                 }

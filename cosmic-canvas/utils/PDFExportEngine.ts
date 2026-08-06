@@ -115,8 +115,33 @@ export const generatePDF = async (
         pages.push(newPage);
     }
 
-    // 3. Embed font for text (do once)
-    const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
+    // 3. Embed fonts for text
+    const fallbackFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
+    const fontUrls: Record<string, string> = {
+        'Inter': '/fonts/Inter.ttf',
+        'Playfair Display': '/fonts/PlayfairDisplay.ttf',
+        'Caveat': '/fonts/Caveat.ttf',
+        'JetBrains Mono': '/fonts/JetBrainsMono.ttf',
+    };
+    const embeddedFonts: Record<string, any> = {};
+    const usedFonts = new Set(textNodes.map(n => n.fontFamily || 'Inter'));
+
+    for (const fontName of usedFonts) {
+        if (fontUrls[fontName]) {
+            try {
+                const url = fontUrls[fontName];
+                const response = await fetch(url);
+                if (response.ok) {
+                    const fontBytes = await response.arrayBuffer();
+                    embeddedFonts[fontName] = await pdfDoc.embedFont(fontBytes);
+                } else {
+                    console.warn(`Failed to fetch font ${fontName}`);
+                }
+            } catch (e) {
+                console.error(`Error loading font ${fontName}:`, e);
+            }
+        }
+    }
 
     // 4. Render Strokes (Vector "Beast" Layer) - draw on correct pages
     for (const stroke of strokes) {
@@ -176,12 +201,17 @@ export const generatePDF = async (
         // PDF Y = PageHeight - LocalY - FontSize baseline adjustment
         const pdfY = currentPdfPageHeight - localY - (node.fontSize * 0.75);
 
+        const pdfFont = embeddedFonts[node.fontFamily] || fallbackFont;
+
         page.drawText(node.content, {
             x: node.x,
             y: pdfY,
             size: node.fontSize,
-            font: font,
+            font: pdfFont,
             color: hexToRgb(node.color),
+            maxWidth: pdfPageWidth - node.x - 20,
+            wordBreaks: [' '],
+            lineHeight: node.fontSize * 1.2,
         });
     }
 
