@@ -14,6 +14,7 @@ import { getSvgPathFromStroke } from '@cosmic/utils/ink';
 import { Document, pdfjs } from 'react-pdf';
 import { loadPdf } from '@cosmic/utils/storage';
 import LazyPdfPage from './LazyPdfPage';
+import { getTFThemeById } from '@cosmic/constants/tfThemes';
 
 // Dynamically set the worker source
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
@@ -25,7 +26,8 @@ export default function GridView() {
         selectedGridPages, bookmarkedPages, gridFilter, gridZoomLevel,
         toggleGridPageSelection, clearGridSelection, togglePageBookmark,
         setGridFilter, setGridZoomLevel, deleteSelectedGridPages,
-        documentId, duplicatePage, clearPage, deletePage
+        documentId, duplicatePage, clearPage, deletePage,
+        tfPageThemes
     } = useStore();
 
     const activeCardRef = useRef<HTMLDivElement>(null);
@@ -245,6 +247,10 @@ export default function GridView() {
                     const isDragged = draggedIndex === index;
                     const isDragOver = dragOverIndex === index;
 
+                    const tfThemeId = tfPageThemes?.[index];
+                    const tfTheme = tfThemeId ? getTFThemeById(tfThemeId) : null;
+                    const cardBgColor = tfTheme ? tfTheme.bgColor : canvasBackground;
+
                     return (
                         <motion.div
                             layout
@@ -288,8 +294,15 @@ export default function GridView() {
                             {/* Thumbnail Container */}
                         <div
                             className="absolute inset-0 rounded-lg shadow-inner overflow-hidden"
-                            style={{ backgroundColor: canvasBackground }}
+                            style={{ backgroundColor: cardBgColor }}
                         >
+                            {/* TF Theme Header/Footer Preview */}
+                            {tfTheme && (
+                                <>
+                                    <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4%', backgroundColor: tfTheme.headerBg, borderBottom: `2px solid ${tfTheme.headerAccent}` }} />
+                                    <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '2%', backgroundColor: tfTheme.footerBg, borderTop: `1px solid ${tfTheme.footerText}40` }} />
+                                </>
+                            )}
                             {/* PDF Background (if PDF page) */}
                             {isPdf && (
                                 <div className="absolute inset-0 z-0 shadow-sm flex items-center justify-center">

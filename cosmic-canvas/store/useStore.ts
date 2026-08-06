@@ -936,7 +936,7 @@ export const useStore = create<CanvasState>((set, get) => ({
         }
 
         // Clean up TF page themes: remove the deleted page, shift remaining
-        const oldThemes = state.tfPageThemes;
+        const oldThemes = state.tfPageThemes || {};
         const newThemes: Record<number, string> = {};
         for (const [key, val] of Object.entries(oldThemes)) {
             const idx = Number(key);
