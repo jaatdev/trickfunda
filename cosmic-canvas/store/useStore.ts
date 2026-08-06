@@ -1951,20 +1951,6 @@ export const useStore = create<CanvasState>((set, get) => ({
         canvasDimensions: { width, height }
     }),
 
-    // Hide PDF page (used when unlocking/detaching page to image)
-    hidePdfPage: (pageIndex) => {
-        const state = get();
-        if (!state.hiddenPdfPages.includes(pageIndex)) {
-            set({ hiddenPdfPages: [...state.hiddenPdfPages, pageIndex] });
-        }
-    },
-
-    // Unhide PDF page (for undo)
-    unhidePdfPage: (pageIndex) => {
-        const state = get();
-        set({ hiddenPdfPages: state.hiddenPdfPages.filter(p => p !== pageIndex) });
-    },
-
     // Computed helpers
     canUndo: () => get().historyStack.length > 0,
     canRedo: () => get().redoStack.length > 0,
