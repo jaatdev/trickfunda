@@ -21,6 +21,51 @@ function formatTitle(slug: string): string {
     .join(' ');
 }
 
+function normalizeFlashcards(data: any[], titlePrefix: string): import('@/lib/types').SubjectFlashcard[] {
+  if (!data || !Array.isArray(data)) return [];
+  
+  return data.map((item, index) => {
+    // If it already looks like a SubjectFlashcard, keep it
+    if (item.front && item.back) {
+      return item as import('@/lib/types').SubjectFlashcard;
+    }
+    
+    // Otherwise, map custom keys to standard fields dynamically
+    const keys = Object.keys(item).filter(k => k !== 'id' && k !== 'type' && k !== 'meta' && k !== 'lists');
+    if (keys.length === 0) return item;
+    
+    const front = keys[0] ? String(item[keys[0]]) : '';
+    let front_hi = undefined;
+    let back = '';
+    let trick = undefined;
+    let explanation = undefined;
+
+    if (keys.length === 2) {
+      back = String(item[keys[1]]);
+    } else if (keys.length === 3) {
+      front_hi = String(item[keys[1]]);
+      back = String(item[keys[2]]);
+    } else if (keys.length >= 4) {
+      front_hi = String(item[keys[1]]);
+      back = String(item[keys[2]]);
+      trick = String(item[keys[3]]);
+      if (keys.length >= 5) explanation = String(item[keys[4]]);
+    }
+
+    return {
+      id: item.id || `${titlePrefix}-${index}`,
+      type: item.type || 'concept',
+      front,
+      front_hi,
+      back,
+      trick,
+      explanation,
+      meta: item.meta || { difficulty: 'medium', tags: [] },
+      lists: item.lists || [],
+    };
+  });
+}
+
 export async function getKDConcepts(categorySlug: string): Promise<KDConcept[]> {
   const categoryPath = path.join(KD_METHOD_DIR, categorySlug);
   
@@ -132,14 +177,15 @@ export async function getKDConceptBySlug(categorySlug: string, slug: string): Pr
         } catch (e) {
           console.error(`Error parsing ${file} in ${slug}`, e);
         }
-      } else if (file.endsWith('.json') && (file.startsWith('flashcard') || file.includes('.flashcard') || file.includes('-flashcard'))) {
+      } else if (file.endsWith('.json') && (file.startsWith('flashcard') || file.includes('.flashcard') || file.includes('-flashcard') || file.startsWith('books-'))) {
         try {
           const rawCards = await fs.promises.readFile(path.join(conceptDir, file), 'utf8');
           if (rawCards.trim().length > 0) {
             const parsedCards = JSON.parse(rawCards);
-            const flashcards = Array.isArray(parsedCards) ? parsedCards : (parsedCards.flashcards || []);
+            const rawFlashcards = Array.isArray(parsedCards) ? parsedCards : (Object.values(parsedCards).find(v => Array.isArray(v)) || []);
             const titlePart = file.replace('.json', '');
-            const title = titlePart === 'flashcards' || titlePart === 'flashcard' ? 'Flashcards' : formatTitle(titlePart.replace('flashcards-', '').replace('flashcard-', '').replace('.flashcards', '').replace('.flashcard', '').replace('-flashcards', '').replace('-flashcard', ''));
+            const title = titlePart === 'flashcards' || titlePart === 'flashcard' ? 'Flashcards' : formatTitle(titlePart.replace('flashcards-', '').replace('flashcard-', '').replace('.flashcards', '').replace('.flashcard', '').replace('-flashcards', '').replace('-flashcard', '').replace('books-', ''));
+            const flashcards = normalizeFlashcards(Array.isArray(rawFlashcards) ? rawFlashcards : [], titlePart);
             flashcardSets.push({ id: titlePart, title, flashcards });
           }
         } catch (e) {
@@ -343,14 +389,15 @@ export async function getKDChapterTypeData(subjectSlug: string, chapterSlug: str
         } catch (e) {
           console.error(`Error parsing ${file} in ${typeSlug}`, e);
         }
-      } else if (file.endsWith('.json') && (file.startsWith('flashcard') || file.includes('.flashcard') || file.includes('-flashcard'))) {
+      } else if (file.endsWith('.json') && (file.startsWith('flashcard') || file.includes('.flashcard') || file.includes('-flashcard') || file.startsWith('books-'))) {
         try {
           const rawCards = await fs.promises.readFile(path.join(conceptDir, file), 'utf8');
           if (rawCards.trim().length > 0) {
             const parsedCards = JSON.parse(rawCards);
-            const flashcards = Array.isArray(parsedCards) ? parsedCards : (parsedCards.flashcards || []);
+            const rawFlashcards = Array.isArray(parsedCards) ? parsedCards : (Object.values(parsedCards).find(v => Array.isArray(v)) || []);
             const titlePart = file.replace('.json', '');
-            const title = titlePart === 'flashcards' || titlePart === 'flashcard' ? 'Flashcards' : formatTitle(titlePart.replace('flashcards-', '').replace('flashcard-', '').replace('.flashcards', '').replace('.flashcard', '').replace('-flashcards', '').replace('-flashcard', ''));
+            const title = titlePart === 'flashcards' || titlePart === 'flashcard' ? 'Flashcards' : formatTitle(titlePart.replace('flashcards-', '').replace('flashcard-', '').replace('.flashcards', '').replace('.flashcard', '').replace('-flashcards', '').replace('-flashcard', '').replace('books-', ''));
+            const flashcards = normalizeFlashcards(Array.isArray(rawFlashcards) ? rawFlashcards : [], titlePart);
             flashcardSets.push({ id: titlePart, title, flashcards });
           }
         } catch (e) {
@@ -387,7 +434,7 @@ async function getAllFlashcardFiles(dir: string): Promise<string[]> {
       const fullPath = path.join(dir, entry.name);
       if (entry.isDirectory()) {
         files = files.concat(await getAllFlashcardFiles(fullPath));
-      } else if (entry.isFile() && (entry.name.startsWith('flashcard') || entry.name.includes('flashcard')) && entry.name.endsWith('.json')) {
+      } else if (entry.isFile() && (entry.name.startsWith('flashcard') || entry.name.includes('flashcard') || entry.name.startsWith('books-')) && entry.name.endsWith('.json')) {
         files.push(fullPath);
       }
     }
@@ -486,14 +533,15 @@ export async function getKDNode(pathArray: string[]): Promise<import('@/types/st
           } catch (e) {
             console.error(`Error parsing ${file.name} in ${nodeSlug}`, e);
           }
-        } else if (file.name.endsWith('.json') && (file.name.startsWith('flashcard') || file.name.includes('.flashcard') || file.name.includes('-flashcard'))) {
+        } else if (file.name.endsWith('.json') && (file.name.startsWith('flashcard') || file.name.includes('.flashcard') || file.name.includes('-flashcard') || file.name.startsWith('books-'))) {
           try {
             const rawCards = await fs.promises.readFile(path.join(nodeDir, file.name), 'utf8');
             if (rawCards.trim().length > 0) {
               const parsedCards = JSON.parse(rawCards);
-              const flashcards = Array.isArray(parsedCards) ? parsedCards : (parsedCards.flashcards || []);
+              const rawFlashcards = Array.isArray(parsedCards) ? parsedCards : (Object.values(parsedCards).find(v => Array.isArray(v)) || []);
               const titlePart = file.name.replace('.json', '');
-              const title = titlePart === 'flashcards' || titlePart === 'flashcard' ? 'Flashcards' : formatTitle(titlePart.replace('flashcards-', '').replace('flashcard-', '').replace('.flashcards', '').replace('.flashcard', '').replace('-flashcards', '').replace('-flashcard', ''));
+              const title = titlePart === 'flashcards' || titlePart === 'flashcard' ? 'Flashcards' : formatTitle(titlePart.replace('flashcards-', '').replace('flashcard-', '').replace('.flashcards', '').replace('.flashcard', '').replace('-flashcards', '').replace('-flashcard', '').replace('books-', ''));
+              const flashcards = normalizeFlashcards(Array.isArray(rawFlashcards) ? rawFlashcards : [], titlePart);
               flashcardSets.push({ id: titlePart, title, flashcards });
             }
           } catch (e) {
@@ -518,7 +566,10 @@ export async function getKDNode(pathArray: string[]): Promise<import('@/types/st
       try {
         const content = await fs.promises.readFile(f, 'utf8');
         if (content.trim().length > 0) {
-          combinedCards = combinedCards.concat(JSON.parse(content));
+          const parsed = JSON.parse(content);
+          const rawArray = Array.isArray(parsed) ? parsed : (Object.values(parsed).find(v => Array.isArray(v)) || []);
+          const titlePart = path.basename(f, '.json');
+          combinedCards = combinedCards.concat(normalizeFlashcards(Array.isArray(rawArray) ? rawArray : [], titlePart));
         }
       } catch(e) {}
     }
